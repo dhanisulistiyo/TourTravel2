@@ -1,0 +1,30 @@
+page-input-travellers {
+      .toolbar-background-md {
+    border-color: #008149;
+    background: #008149;
+    }
+
+    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: #ffffff;
+    background-color: transparent;
+    }
+
+    .toolbar-title-md {
+    color: #f9f7f7;
+    }
+
+
+    .vertical-align-content > *
+    {
+        display: flex!important;
+        align-content: center!important;
+        align-items: center!important;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0rem;
+    }
+    .text-input-md {
+    font-size: large;
+    }
+}

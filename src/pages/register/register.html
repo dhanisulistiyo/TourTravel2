@@ -1,0 +1,54 @@
+﻿<ion-header>
+    <ion-navbar color="dark">
+        <ion-title>Register</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="login-content" padding>
+    <div class="login-box">
+
+        <form (ngSubmit)="register()" #registerForm="ngForm">
+            <ion-row>
+                <ion-col>
+                    <ion-list inset>
+                        
+                        <ion-item>
+                            <ion-input type="text" placeholder="Company Name" name="company_name" [(ngModel)]="registerCredentials.company_name" required></ion-input>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-input type="text" placeholder="First Name" name="first_name" [(ngModel)]="registerCredentials.first_name" required></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-input type="text" placeholder="Last Name" name="last_name" [(ngModel)]="registerCredentials.last_name" required></ion-input>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-input type="email" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-input type="text" placeholder="Username" name="username" [(ngModel)]="registerCredentials.username" required></ion-input>
+                        </ion-item>
+
+                         <ion-item>
+                            <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-input type="password" placeholder="Confirm Password" name="con_password" [(ngModel)]="registerCredentials.con_password" required></ion-input>
+                        </ion-item>
+
+                    </ion-list>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col class="signup-col">
+                    <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Register</button>
+                </ion-col>
+            </ion-row>
+
+        </form>
+    </div>
+</ion-content>

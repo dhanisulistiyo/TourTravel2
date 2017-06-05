@@ -1,0 +1,35 @@
+<!--
+  Generated template for the ListHotel page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Choose Hotel</ion-title>
+  </ion-navbar>
+  <ion-row center style="text-align:center; background:#008149;" >
+    <ion-col (click)="filterhotelTapped($event)"><ion-icon ios="ios-funnel" md="md-funnel">  Filter</ion-icon> </ion-col>
+    <ion-col width-60><ion-searchbar (ionInput)="getItems($event)"></ion-searchbar></ion-col>
+  </ion-row>
+</ion-header>
+
+
+<ion-content padding>
+<h5>Show Result Hotels in Destination</h5>
+
+
+<ion-card  *ngFor="let hotel of hotels"  (click)="setSelectedHotel(hotel)">
+<ion-row>
+  <ion-col><img src="{{hotel.ImageUrl}}"/></ion-col>
+  <ion-col width-60>
+    <div >
+    <h2>{{hotel.Name}}</h2>
+    <h3>Rating: {{hotel.AccommodationRatingName}}</h3>
+    <p style=" white-space: pre-wrap;">Address: {{hotel.Address}}</p> 
+    </div></ion-col>
+</ion-row>
+</ion-card>
+
+
+</ion-content>

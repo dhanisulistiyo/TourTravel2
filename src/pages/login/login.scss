@@ -1,0 +1,66 @@
+
+page-login {
+   .bgn-image{
+    background: url('../assets/image/Login-background.jpg') no-repeat center center fixed ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    }
+
+  .input-has-focus .label-md[floating], .input-has-value .label-md[floating] {
+      transform: translate3d(0, 0, 0) scale(1.1);
+  }
+
+
+.input-has-focus .label-md[floating] {
+  color: white;
+}
+
+.label-md[floating] {
+    font-size: 1.2em;
+}
+
+  .item-label-floating .text-input-md {
+    font-size: 1.3em;
+}
+
+.login-content {
+
+    // .logo-row {
+    //   padding-top: 70px;
+    //   padding-bottom: 20px;
+    // }
+
+     .item-bgn{
+        background-color: transparent;
+        color: white;
+     }
+
+    .login-box{
+      padding-top: 200px;
+      opacity: 1;
+
+    }
+     .signup-col {
+       margin: 0px 16px 0px 16px;
+       padding-bottom: 20px;
+     }
+
+
+    .login-btn{
+        color:white; 
+        font-size: x-large;
+    }
+
+    .register-btn{
+        color:white;
+        font-size: medium;
+    }
+
+
+  }
+}
+
+
+

@@ -1,0 +1,92 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Filter Hotel</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid style="text-align:center">
+    <ion-row>
+      <ion-col>
+        <h3>Rating</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngFor="let rat of listRatings" >
+        <button ion-button icon-right outline color="dark">{{rat.Id}}<ion-icon name="star"></ion-icon></button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h3>Area</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngFor="let area of listAreas" >
+        <button ion-button block outline color="dark">{{area.Name}}</button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h3>Location</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngFor="let location of listLocations" >
+        <button ion-button block outline color="dark">{{location.Name}}</button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h3>Accomodation Type</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngFor="let type of listTypes">
+        <button ion-button block outline color="dark">{{type.Name}}</button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h3>Facilities</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngFor="let fac of listFacilities">
+        <button ion-button block outline color="dark">{{fac.Name}}</button>
+      </ion-col>
+      
+    </ion-row>
+
+     <ion-row>
+      <ion-col>
+        <h3>Guest Type</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button block outline color="dark">Family</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block outline color="dark">Business</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block outline color="dark">Company</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block outline color="dark">FIT</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+    <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="listTapped($event)" full large >Go to List</button>
+</ion-footer>

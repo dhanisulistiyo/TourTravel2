@@ -1,0 +1,29 @@
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> 
+      <button ion-button icon-right clear color="dark" class="location" (click)="locationPopover($event)">
+        {{selectedLocation}}
+       <ion-icon ios="ios-arrow-down" name="ios-arrow-down"></ion-icon>
+    </button>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-bgn">
+<ion-card (click)="itineraryCusTapped($event)" >
+  <img src="http://www.aishatourism.com/wp-content/uploads/2015/11/472013105526seaplane_thumb.jpg"/>
+  <ion-card-content>
+    <ion-card-title>
+      Create Your Custom Itinerary
+    </ion-card-title>
+  </ion-card-content>
+</ion-card>
+
+<!--
+<button ion-button (click)="getinfo()">Getinfo</button>
+<button ion-button (click)="getUser()">Info</button>-->
+</ion-content>

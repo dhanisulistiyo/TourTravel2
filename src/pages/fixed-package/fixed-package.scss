@@ -1,0 +1,41 @@
+page-fixed-package {
+    .toolbar-background-md {
+    border-color: #008149;
+    background: #008149;
+    }
+
+    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: #ffffff;
+    background-color: transparent;
+    }
+
+    //content
+    .content-md{
+        color: white;
+        background-color: #008149;
+    }
+
+
+
+     ion-card {
+    position: relative;
+    text-align: center;
+  }
+
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff;
+  }
+}

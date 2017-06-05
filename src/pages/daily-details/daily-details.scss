@@ -1,0 +1,41 @@
+    page-daily-details {
+        .toolbar-background-md {
+            border-color: #008149;
+            background: #008149;
+        }
+        .bar-button-default-md,
+        .bar-button-clear-md-default,
+        .bar-button-md-default {
+            color: #ffffff;
+            background-color: transparent;
+        }
+        .toolbar-title-md {
+            color: #f9f7f7;
+        }
+        .card-header-md {
+            border-bottom: 1px solid grey;
+            padding-top: 5px;
+            padding-right: 5px;
+            padding-left: 5px;
+            padding-bottom: 5px;
+            font-size: 2rem;
+        }
+        .input-wrapper {
+            border-bottom: 1px solid;
+            height: 36px;
+        }
+        .label-md[stacked] {
+            font-size: 1.6rem;
+            margin-top: 0px;
+            margin-right: 0px;
+        }
+        .label-md {
+            margin: 13px 8px 13px 0;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            margin-right: 0px;
+        }
+        .card-content-md {
+            padding-bottom: 0px;
+        }
+    }

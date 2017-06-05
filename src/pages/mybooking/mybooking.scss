@@ -1,0 +1,19 @@
+page-mybooking {
+
+
+.tab-button[aria-selected=true] {
+// text-decoration: underline !important;
+    border-style : solid;
+    border-bottom: thick solid black;
+}
+.tabs-md .tab-button-text{
+    font-size:1.5rem;
+
+}
+
+ion-tab{
+    font-size: 90px;
+}
+
+
+}

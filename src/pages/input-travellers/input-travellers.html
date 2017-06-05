@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Edit Guest</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+<h3>Guest</h3>
+
+<ion-grid class="vertical-align-content">
+  <ion-row>
+    <ion-col col-2>
+    </ion-col>
+     <ion-col col-5>
+       <h4>Adults</h4>
+    </ion-col>
+     <ion-col col-2>
+       <ion-input type="tel" style="border:1px solid ;" maxlength="3" name="AdultQty" [value]="guestTour.AdultQty" [(ngModel)]="guestTour.AdultQty"></ion-input>
+    </ion-col>
+    <ion-col col-2>
+    </ion-col>
+  </ion-row>
+  
+  <ion-row>
+    <ion-col col-2>
+    </ion-col>
+     <ion-col col-5>
+       <h4>Children</h4>
+    </ion-col>
+     <ion-col col-2>
+       <ion-input type="tel" style="border:1px solid ;" maxlength="3" name="ChildQty" [value]="guestTour.ChildQty" [(ngModel)]="guestTour.ChildQty"></ion-input>
+    </ion-col>
+    <ion-col col-2>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col col-2>
+    </ion-col>
+     <ion-col col-5>
+       <h4>Infant</h4>
+    </ion-col>
+     <ion-col col-2>
+       <ion-input style="border:1px solid ;"  type = "tel" maxlength = "3"  name="InfantQty" [value]="guestTour.InfantQty" [(ngModel)]="guestTour.InfantQty"></ion-input>
+    </ion-col>
+    <ion-col col-2>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+</ion-content>
+
+<ion-footer>
+    <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="doneTapped(guestTour)" full large >Done</button>
+</ion-footer>

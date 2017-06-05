@@ -1,0 +1,56 @@
+<ion-content class="login-content bgn-image" id padding>
+    
+    <!--<ion-row class="logo-row">
+        <ion-col></ion-col>
+        <ion-col width-67>
+            <img src="http://placehold.it/300x200" />
+        </ion-col>
+        <ion-col></ion-col>
+    </ion-row>
+    -->
+
+    <div class="login-box">
+        <form (ngSubmit)="login()" #registerForm="ngForm">
+            <ion-row>
+                <ion-col>
+                    <ion-list inset> 
+                        <ion-item class="item-bgn">
+                            <ion-label color="light" floating>Company ID</ion-label>                           
+                            <ion-input type="text" name="companyid" [(ngModel)]="registerCredentials.companyid"></ion-input>
+                        </ion-item>
+
+                        <ion-item class="item-bgn">
+                            <ion-label color="light" floating>Username</ion-label>                           
+                            <ion-input type="text" name="username" [(ngModel)]="registerCredentials.username"></ion-input>
+                        </ion-item>
+
+                        <ion-item class="item-bgn">
+                            <ion-label color="light" floating>Password</ion-label>
+                            <ion-input type="password" name="password" [(ngModel)]="registerCredentials.password"></ion-input>                          
+                        </ion-item>
+                        
+                        <br/>
+                    </ion-list>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col class="signup-col">
+                    <!--<button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Login</button>-->
+                    <!--<button ion-button class="submit-btn" full [disabled]="!registerForm.form.valid" (click)="login()">Login</button>-->
+                    <button ion-button class="login-btn" block clear [disabled]="!registerForm.form.valid" (click)="login()">Login</button>
+                    <br>
+                    <br>
+                    <a ion-button class="register-btn" block clear (click)="createAccount()">Create New Account</a>
+                </ion-col>
+            </ion-row>
+
+        </form>
+    </div>
+</ion-content>
+
+
+
+
+
+
