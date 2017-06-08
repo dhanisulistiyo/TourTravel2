@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { AuthService } from '../providers/auth-token-service'
 import { IteneraryService } from '../providers/itenerary-service'
+import { DailyService } from '../providers/daily-service'
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -10,7 +11,7 @@ export class TransportService {
     types;
     seats;
 
-    constructor(public http: Http, public auth: AuthService, public ite: IteneraryService) {
+    constructor(public http: Http, public auth: AuthService, public ite: IteneraryService, public ds: DailyService) {
     }
 
     public setRatings(rat) {
@@ -38,6 +39,24 @@ export class TransportService {
         var headers = new Headers();
         let token = this.auth.AuthToken;
         let des = this.ite.getDestination();
+        let rat = window.localStorage.getItem('ratTrans');
+        let se = window.localStorage.getItem('seTrans');
+        let ty = window.localStorage.getItem('tyTrans');
+
+        if (rat == null) { rat = ''; }
+        if (se == null) { se = ''; }
+        if (ty == null) { ty = ''; }
+
+        headers.append('Authorization', 'Bearer ' + token);
+        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TransportationUnits/ByCity?CityId=' + des + '&RatingId=' + rat + '&seatTypeId=' + se + '&typeId=' + ty;
+        var response = this.http.get(url, { headers: headers }).map(res => res.json());
+        return response;
+    }
+
+     listTransportAirport() {
+        var headers = new Headers();
+        let token = this.auth.AuthToken;
+        let des = this.ds.transairport[this.ds.getID()].location.Id;
         let rat = window.localStorage.getItem('ratTrans');
         let se = window.localStorage.getItem('seTrans');
         let ty = window.localStorage.getItem('tyTrans');

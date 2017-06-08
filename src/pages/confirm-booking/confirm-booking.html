@@ -6,20 +6,134 @@
 
 
 <ion-content padding>
-<ion-grid style="justify-content: center;" *ngFor="let bookdetails of BookingDetailSum">
-  <ion-row style="justify-content: center;">
-    <ion-col center text-center> <h3 center text-center > {{bookdetails?.Title}} </h3></ion-col>
-     <ion-col center text-center col-3> <h5>WITH</h5> </ion-col>
-      <ion-col center text-center> <h2> Tour-Arabia </h2></ion-col>
+  <ion-grid style="justify-content: center;" *ngFor="let bookdetails of BookingDetailSum">
+    <ion-row style="justify-content: center;">
+      <ion-col center text-center>
+        <h3 center text-center> {{bookdetails?.Title}} </h3>
+      </ion-col>
+      <ion-col center text-center col-3>
+        <h5>WITH</h5>
+      </ion-col>
+      <ion-col center text-center>
+        <h2> Tour-Arabia </h2>
+      </ion-col>
+    </ion-row>
+    <ion-row style="justify-content: center;">
+      <h3>{{bookdetails?.TotalGuest}} Guest </h3>
+    </ion-row>
+    <ion-row style="justify-content: center;">
+      <h4> From {{bookdetails?.StartDate | date:'dd MMMM yyyy'}} Until {{bookdetails?.EndDate | date:'dd MMMM yyyy'}}</h4>
+      <!--<h4> From <span><ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="bookdetails?.StartDate"></ion-datetime></span> Until <span><ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="bookdetails?.EndDate"></ion-datetime></span></h4>-->
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-card *ngFor="let price of TourPriceSum">
+    <ion-row>
+      <ion-col>
+        <h1>Tour Price</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-77>
+        <h5>Staying in Twin Room ({{price.SharingRoomSum['Pax']}} X {{price.SharingRoomSum['Currency']}} {{price.SharingRoomSum['PricePerPax']}},-/Guest)</h5>
+      </ion-col>
+      <ion-col>
+        <h5>{{price.SharingRoomSum['Currency']}} {{price.SharingRoomSum['TotalPrice']}},-</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-77>
+        <h5>Staying in Single Room ({{price.SingleRoomSum['Pax']}} X {{price.SingleRoomSum['Currency']}} {{price.SingleRoomSum['PricePerPax']}},-/Guest)</h5>
+      </ion-col>
+      <ion-col>
+        <h5>{{price.SingleRoomSum['Currency']}} {{price.SingleRoomSum['TotalPrice']}},-</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-77>
+        <h5>Staying in Extra Bed ({{price.ExtraBedSum['Pax']}} X {{price.ExtraBedSum['Currency']}} {{price.ExtraBedSum['PricePerPax']}},-/Guest)</h5>
+      </ion-col>
+      <ion-col>
+        <h5>{{price.ExtraBedSum['Currency']}} {{price.ExtraBedSum['TotalPrice']}},-</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-77>
+        <h5>Staying in Sharing Bed ({{price.SharingBedSum['Pax']}} X {{price.SharingBedSum['Currency']}} {{price.SharingBedSum['PricePerPax']}},-/Guest)</h5>
+      </ion-col>
+      <ion-col>
+        <h5>{{price.SharingBedSum['Currency']}} {{price.SharingBedSum['TotalPrice']}},-</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row style="border-top:1px solid ;">
+      <ion-col>
+        <h2>Total Price</h2>
+      </ion-col>
+      <ion-col>
+        <h2>{{price.SharingBedSum['Currency']}} <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice}}</span>,-</h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let bookdetails of BookingDetailSum">
+      <ion-col>
+        <h4>{{bookdetails?.Title}} for {{bookdetails?.TotalGuest}} Guest</h4>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let bookdetails of BookingDetailSum">
+      <ion-col>
+        <h3>Expired On {{bookdetails?.ExpiredOn | date:'dd MMMM yyyy'}}</h3>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card >
+    <ion-row>
+      <ion-col>
+        <h1>Tour Schedule</h1>
+      </ion-col>
+    </ion-row>
+
+     <ion-row *ngFor="let dp of DailyPrograms ; let j of index">
+      <ion-col>
+        <h3>Day {{dp.datetour | date:'dd MMMM yyyy' }}</h3>
+      </ion-col>
+      <ion-grid>
+          <ion-row>
+            <ion-col></ion-col>
+          </ion-row>
+      </ion-grid>
+    </ion-row>
+
+    
+
+
+
+
+  </ion-card>
+
+
+</ion-content>
+
+
+
+<!--
+<ion-card *ngFor="let dp of DailyPrograms" >
+  <ion-row>
+    <ion-col>
+      <h2>Days {{dp.Day}}, <span *ngIf="dp.AccommodationSummary != null">{{dp.AccommodationSummary.Date}}</span></h2>
+    </ion-col>
   </ion-row>
-  <ion-row style="justify-content: center;">
-    <h3>{{bookdetails?.TotalGuest}} Guest </h3>
-  </ion-row>
-  <ion-row style="justify-content: center;">
-    <h4> From {{bookdetails?.StartDate | date:'dd MMMM yyyy'}} Until {{bookdetails?.EndDate | date:'dd MMMM yyyy'}}</h4>
-    <!--<h4> From <span><ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="bookdetails?.StartDate"></ion-datetime></span> Until <span><ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="bookdetails?.EndDate"></ion-datetime></span></h4>-->
-  </ion-row>
-</ion-grid>
+<ion-row>
+  <ion-col>
+      <h3>{{accom.Name}}</h3>
+      <h4>Address : {{accom.Address}}</h4>
+      <h4>Room Type : {{accom.RoomType}}, Service</h4>
+      
+      <h4>Allocations</h4>
+  </ion-col>
+</ion-row>
+</ion-card>
 
 <ion-card *ngFor="let accom of AccommodationSum" >
   <ion-row>
@@ -81,69 +195,8 @@
       <h4 *ngFor="let att of AttractionSum"> {{att.Name}}</h4>
   </ion-col>
 </ion-row>
-</ion-card>
-
-<ion-card *ngFor="let price of TourPriceSum">
-  <ion-row>
-    <ion-col>
-      <h2>Tour Price</h2>
-    </ion-col>
-  </ion-row>
-<ion-row>
-  <ion-col col-77>
-   <h5>Staying in Twin Room ({{price.SharingRoomSum['Pax']}} X {{price.SharingRoomSum['Currency']}} {{price.SharingRoomSum['PricePerPax']}},-/Guest)</h5>
-  </ion-col>
-  <ion-col>
-   <h5>{{price.SharingRoomSum['Currency']}} {{price.SharingRoomSum['TotalPrice']}},-</h5>
-  </ion-col>
-</ion-row>
-<ion-row>
-  <ion-col col-77>
-   <h5>Staying in Single Room ({{price.SingleRoomSum['Pax']}} X {{price.SingleRoomSum['Currency']}} {{price.SingleRoomSum['PricePerPax']}},-/Guest)</h5>
-  </ion-col>
-  <ion-col>
-   <h5>{{price.SingleRoomSum['Currency']}} {{price.SingleRoomSum['TotalPrice']}},-</h5>
-  </ion-col>
-</ion-row>
-<ion-row>
-  <ion-col col-77>
-   <h5>Staying in Extra Bed ({{price.ExtraBedSum['Pax']}} X {{price.ExtraBedSum['Currency']}} {{price.ExtraBedSum['PricePerPax']}},-/Guest)</h5>
-  </ion-col>
-  <ion-col>
-   <h5>{{price.ExtraBedSum['Currency']}} {{price.ExtraBedSum['TotalPrice']}},-</h5>
-  </ion-col>
-</ion-row>
-<ion-row>
-  <ion-col col-77>
-   <h5>Staying in Sharing Bed ({{price.SharingBedSum['Pax']}} X {{price.SharingBedSum['Currency']}} {{price.SharingBedSum['PricePerPax']}},-/Guest)</h5>
-  </ion-col>
-  <ion-col>
-   <h5>{{price.SharingBedSum['Currency']}} {{price.SharingBedSum['TotalPrice']}},-</h5>
-  </ion-col>
-</ion-row>
-
-<ion-row style="border-top:1px solid ;">
-    <ion-col>
-      <h2>Total Price</h2>
-    </ion-col>
-    <ion-col>
-      <h2>{{price.SharingBedSum['Currency']}} <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice}}</span>,-</h2>
-    </ion-col>
-  </ion-row>
-
-<ion-row *ngFor="let bookdetails of BookingDetailSum">
-    <ion-col>
-      <h4>{{bookdetails?.Title}} for {{bookdetails?.TotalGuest}} Guest</h4>
-    </ion-col>
-</ion-row>
-<ion-row *ngFor="let bookdetails of BookingDetailSum">
-    <ion-col>
-      <h3>Expired On {{bookdetails?.ExpiredOn | date:'dd MMMM yyyy'}}</h3>
-    </ion-col>
-</ion-row>
-</ion-card>
-</ion-content>
+</ion-card>-->
 
 <ion-footer>
-    <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="confirmTapped($event)" full large >Booking Now</button>
+  <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="confirmTapped($event)" full large>Booking Now</button>
 </ion-footer>

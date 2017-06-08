@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {HistoryService} from '../../providers/history-service';
+import {MultiTransactionService} from '../../providers/multi-transaction-service';
 /*
   Generated class for the TourDetails page.
 
@@ -20,7 +21,7 @@ export class TourDetailsPage {
   curency;
   selectedId: any;
   isValid;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public his : HistoryService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public his : HistoryService, public mulTra : MultiTransactionService) {
   this.BookingDetailSum= null;
   this.AccommodationSum= null;
   this.TransportationSum= null;
@@ -48,5 +49,21 @@ export class TourDetailsPage {
                 () => console.log('Get Transaction Complete')
             );
       }
+
+
+      confirmTour(){
+        let status = "confirm"
+        this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, status)
+        this.navCtrl.pop();
+
+      }
+
+      cancelTour(){
+        let status = "cancel"
+        this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, status)
+        this.navCtrl.pop();
+
+      }
+
       
 }

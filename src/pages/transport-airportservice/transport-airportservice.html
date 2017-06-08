@@ -12,17 +12,15 @@
 
 
 <ion-content padding> 
-  <ion-item-group  >
-    <h5> Choose Airport Service</h5>
-      <ion-item *ngFor="let ts of transportser" (click)="setTransService(ts)">{{ts}}</ion-item>
+  <ion-item-group>
+    <h5> Choose Airport Services</h5>
+      <!--<ion-item *ngFor="let ts of transportser" (click)="setTransService(ts)">{{ts}}</ion-item>-->
+      <ion-item (click)="setTransService('PickUp')">Pick-Up</ion-item>
+      <ion-item (click)="setTransService('DropOff')">Drop-Off</ion-item>
+      <ion-item (click)="setTransService('PickAndDrop')">Pick-Up and Drop-Off</ion-item>
     </ion-item-group>
 
-      <!--<ion-list radio-group>
-      <ion-item *ngFor="let ts of transportser">
-        <ion-label>{{ts}}</ion-label>
-        <ion-radio value="Pick-up and Drop-off" (ionSelect)=setTransService(ts)></ion-radio>
-      </ion-item>
-    </ion-list>-->
+     
 </ion-content>
 
 

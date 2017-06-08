@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams,AlertController } from 'ionic-angular';
 import {CustomePackagePage} from '../custome-package/custome-package';
 import {MultiTransactionService} from '../../providers/multi-transaction-service';
+import {DailyService} from '../../providers/daily-service';
 /*
   Generated class for the ConfirmBooking page.
 
@@ -14,30 +15,28 @@ import {MultiTransactionService} from '../../providers/multi-transaction-service
 })
 export class ConfirmBookingPage {
   BookingDetailSum: Array<any>;
-  AccommodationSum: Array<any>;
-  TransportationSum: Array<any>;
-  AttractionSum: Array<any>;
+  DailyPrograms: Array<any>;
   TourPriceSum: Array<any>;
   curency;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public mulTra : MultiTransactionService, public alertCtrl : AlertController) {
+  constructor(public navCtrl: NavController, 
+  public navParams: NavParams, 
+  public mulTra : MultiTransactionService, 
+  public alertCtrl : AlertController,
+  public ds: DailyService,
+  ) {
   this.BookingDetailSum= null;
-  this.AccommodationSum= null;
-  this.TransportationSum= null;
-  this.AttractionSum= null;
+  this.DailyPrograms= null;
   this.TourPriceSum=null;
   this.curency=null;
 
   }
 
   ionViewWillEnter() {
+    //this.DailyPrograms=[]
     this.mulTra.mulDemoTransaction().subscribe(data=>{
             this.BookingDetailSum= Array.of(data['BookingDetailSum']);
-            this.AccommodationSum=(data['AccommodationSum']);
-            this.TransportationSum=(data['TransportationSum']);
-            this.AttractionSum=(data['AttractionSum']);
+            this.DailyPrograms = Array.of(data['DailyPrograms'])
             this.TourPriceSum=Array.of(data['TourPriceSum']);
-      
-
             },err => {
                     console.log(err);
                 },

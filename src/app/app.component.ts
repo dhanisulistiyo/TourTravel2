@@ -1,59 +1,67 @@
-import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Component, ViewChild,Injectable } from '@angular/core';
+import { Platform, MenuController, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-//Screen Apps
+//screen Page
 import { HomePage } from '../pages/home/home';
 import { MybookingPage } from '../pages/mybooking/mybooking';
-import { Myprofile } from '../pages/myprofile/myprofile';
-import { Mycompany } from '../pages/mycompany/mycompany';
 import { LoginPage } from '../pages/login/login';
+import { Mycompany } from '../pages/mycompany/mycompany';
+import { Myprofile } from '../pages/myprofile/myprofile';
 import { AuthService } from '../providers/auth-token-service';
+
+
 @Component({
   selector: 'page-app',
   templateUrl: 'app.html'
 })
+
+@Injectable()
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
+  user;
+  // make HelloIonicPage the root (or first) page
   rootPage: any = LoginPage;
-
+  
   pages: Array<{title: string, component: any}>;
   username;
   password;
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public auth: AuthService) {
-    this.initializeApp();
+  //userInfo: Array<{username: string, email: string}>;
 
-    // used for an example of ngFor and navigation
+  constructor(
+    public platform: Platform,
+    public menu: MenuController,
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen,
+    public auth: AuthService
+    ) {
+      
+    this.initializeApp();
+    //this.userInfo = this.user;
+    // set our app's pages
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'My Booking', component: MybookingPage },
       { title: 'My Profile', component: Myprofile },
       { title: 'My Company', component: Mycompany },
-      { title: 'Logout', component: this.logout() }
-   
+      { title: 'Logout', component: this.logout() }  
     ];
-
   }
 
   initializeApp() {
-    this.platform.ready().then(() => {
+      this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      
     });
   }
 
   openPage(page) {
+    this.menu.close();
     this.nav.setRoot(page.component);
   }
 
-  ionViewWillEnter(){
-    let info = this.auth.userInfo();
-    this.username = info.username;
-    this.password = info.password;
-  }
-
- public menuOpened(){
+  public menuOpened(){
     let info = this.auth.userInfo();
     this.username = info.username;
     this.password = info.password;
@@ -63,7 +71,11 @@ export class MyApp {
     this.username = user;
   }
 
- 
+  ionViewWillEnter(){
+    let info = this.auth.userInfo();
+    this.username = info.username;
+    this.password = info.password;
+  }
 
   public logout() {
         this.auth.logout();
@@ -71,5 +83,4 @@ export class MyApp {
         this.password=null;
         return LoginPage;
     }
-
 }

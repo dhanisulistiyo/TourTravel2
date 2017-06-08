@@ -4,8 +4,9 @@ import { NavController, NavParams, ModalController, AlertController } from 'ioni
 import { IteneraryService } from '../../providers/itenerary-service';
 import { DailyService } from '../../providers/daily-service';
 import { DestinationPage1 } from '../destination1/destination1';
-import { FilterTransport2Page } from '../filter-transport2/filter-transport2';
+//import { FilterTransport2Page } from '../filter-transport2/filter-transport2';
 //import { FilterHotel2Page } from '../filter-hotel2/filter-hotel2';
+import { TransportAirportservicePage  } from '../transport-airportservice/transport-airportservice';
 import { HotelRoomallocatePage } from '../hotel-roomallocate/hotel-roomallocate';
 import { ListAttractionPage } from '../list-attraction/list-attraction';
 import { InputTravellersPage } from '../input-travellers/input-travellers';
@@ -55,7 +56,9 @@ export class IteneraryBuilderPage {
     var des = this.ite.getDestination();
     var att = this.ite.getAttraction();
     var tourName = this.ite.getToursName();
-    var transportName = this.ite.getTransport();
+    //var transportName = this.ite.getTransport();
+    var t = this.ds.transairport
+    var airportTransport = Object.keys(t).length;
     var acomodationName = this.ite.getAcomodation();
     var passengerTotal = this.ite.getPassenger();
     var dateTours = this.ite.getDateTour();
@@ -72,9 +75,14 @@ export class IteneraryBuilderPage {
     if (tourName != null) {
       this.toursname = tourName;
     }
-    if (transportName != null) {
-      if(this.ite.getTransportSer()==null) this.tranportation = transportName.trans.Name;
-      else this.tranportation = transportName.trans.Name+', '+transportName.trans.TransportationSeatTypeName+' Seater, ' +this.ite.getTransportSer().itemser;
+    // if (transportName != null) {
+    //   if(this.ite.getTransportSer()==null) this.tranportation = transportName.trans.Name;
+    //   else this.tranportation = transportName.trans.Name+', '+transportName.trans.TransportationSeatTypeName+' Seater, ' +this.ite.getTransportSer().itemser;
+    if (airportTransport != 0) {
+      if(airportTransport == 1) {
+        if(t["0"].transportation != null) this.tranportation = +t["0"].transportation.TransportationSeatTypeName+' Seater '+ t["0"].transportation.Name+' , '+t["0"].transportservice;
+      }
+      else  if(t["0"].transportation != null) this.tranportation =  +t["0"].transportation.TransportationSeatTypeName+' Seater '+ t["0"].transportation.Name+' , '+t["0"].transportservice+' ; ' +t["1"].transportation.TransportationSeatTypeName+' Seater '+ t["1"].transportation.Name+' , '+t["1"].transportservice;
     }
     if (acomodationName != null) {
       if(this.ite.getRoomSer()==null) this.acomodation = acomodationName.hot.Name;
@@ -158,6 +166,7 @@ export class IteneraryBuilderPage {
 
   inputToursName(event) {
     var data = event.target.value;
+    console.log(this.toursname);
     this.ite.setToursName(data);
   }
 
@@ -187,12 +196,12 @@ export class IteneraryBuilderPage {
   }
 
   hotelTapped(event) {
-    if (this.destination == '') this.showAlertGuest();
+    if (this.passenger == '') this.showAlertGuest();
     else this.navCtrl.push(HotelRoomallocatePage);
   }
   transportTapped(event) {
     if (this.destination == '') this.showAlertDestination();
-    else this.navCtrl.push(FilterTransport2Page);
+    else this.navCtrl.push(TransportAirportservicePage);
   }
 
   attractionTapped(event) {

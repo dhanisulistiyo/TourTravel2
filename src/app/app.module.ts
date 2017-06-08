@@ -18,6 +18,7 @@ import { Mycompany } from '../pages/mycompany/mycompany';
 import { MybookingPage } from '../pages/mybooking/mybooking';
 import { MybookingOnPage } from '../pages/mybooking-on/mybooking-on';
 import { MybookingComPage } from '../pages/mybooking-com/mybooking-com';
+import { MybookingCancel } from '../pages/mybooking-cancel/mybooking-cancel';
 //IteneraryBuilder
 import { IteneraryBuilderPage } from '../pages/itenerary-builder/itenerary-builder';
 import { DestinationPage } from '../pages/destination/destination';
@@ -32,6 +33,8 @@ import { HotelRoomservicePage } from '../pages/hotel-roomservice/hotel-roomservi
 import { ListTransportPage } from '../pages/list-transport/list-transport';
 import { FilterTransportPage } from '../pages/filter-transport/filter-transport';
 import { TransportAirportservicePage } from '../pages/transport-airportservice/transport-airportservice';
+import { TransportLocationservice } from '../pages/transport-locationservice/transport-locationservice';
+import { DestinationTransportPage } from '../pages/destination-transport/destination-transport';
 //Attraction
 import { ListAttractionPage } from '../pages/list-attraction/list-attraction';
 //Guest
@@ -58,10 +61,6 @@ import { ConfirmBookingPage } from '../pages/confirm-booking/confirm-booking';
 import { TourDetailsPage } from '../pages/tour-details/tour-details';
 //component
 import { LocationPopoverComponent } from '../components/location-popover/location-popover';
-//Coba-coba
-import { ItemDetailsPage } from '../pages/item-details/item-details';
-import { ListPage } from '../pages/list/list';
-import { MovieListPage } from '../pages/movie-list/movie-list';
 
 
 //service
@@ -98,6 +97,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MybookingPage,
     MybookingComPage,
     MybookingOnPage,
+    MybookingCancel,
 
     //itinerarybuilder
     IteneraryBuilderPage,
@@ -111,9 +111,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
     ListTransportPage,
     TransportAirportservicePage,
+    TransportLocationservice,
     ListAttractionPage,
     FilterTransportPage,
     InputTravellersPage,
+    DestinationTransportPage,
 
     //filterManual
     FilterHotel2Page,
@@ -141,12 +143,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     //Details Profile
     Myprofile,
     Mycompany,
-
-    ItemDetailsPage,
-    ListPage,
-    MovieListPage
-
-
   ],
   imports: [
     BrowserModule,
@@ -169,6 +165,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MybookingPage,
     MybookingComPage,
     MybookingOnPage,
+    MybookingCancel,
 
     //itineraryBuilder
     IteneraryBuilderPage,
@@ -181,11 +178,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
     ListTransportPage,
     TransportAirportservicePage,
+    TransportLocationservice,
     ListAttractionPage,
     FilterHotelPage,
     FilterTransportPage,
     InputTravellersPage,
-
+    DestinationTransportPage,
 
     //filterManual
     FilterHotel2Page,
@@ -216,9 +214,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     Myprofile,
     Mycompany,
 
-    ItemDetailsPage,
-    ListPage,
-    MovieListPage
 
   ],
   providers: [

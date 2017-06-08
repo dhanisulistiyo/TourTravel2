@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DailyService } from '../../providers/daily-service'
+import { IteneraryService } from '../../providers/itenerary-service'
 import { MultiTransactionService } from '../../providers/multi-transaction-service'
 import { ConfirmBookingPage } from '../confirm-booking/confirm-booking';
 import { DailyDetails  } from '../daily-details/daily-details';
@@ -18,8 +19,17 @@ import { DailyDetails  } from '../daily-details/daily-details';
 })
 export class DailyProgram {
   data: Array<{id:any; dailyProgram: any, icon: string, showDetails: boolean }> = [];
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public ds: DailyService, public mt :MultiTransactionService) {
+   toursname;
+   guest;
+   event;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public ds: DailyService, 
+  public mt :MultiTransactionService,
+  public it : IteneraryService
+  ) {
+    var pt = this.it.getPassenger();
+    this.toursname = this.it.getToursName();
+    this.guest = Number(pt.guestTour['AdultQty'])+ Number(pt.guestTour['ChildQty'])+ Number(pt.guestTour['InfantQty']);
+    this.event = this.it.getDateTour().ev; 
   }
 
   ionViewWillEnter() {

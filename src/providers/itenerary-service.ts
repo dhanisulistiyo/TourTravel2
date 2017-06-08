@@ -3,12 +3,8 @@ import { Http, Headers } from '@angular/http';
 import {AuthService} from '../providers/auth-token-service'
 import 'rxjs/add/operator/map';
 
-/*
-  Generated class for the IteneraryService provider.
 
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
+
 @Injectable()
 export class IteneraryService {
     locations;
@@ -16,13 +12,15 @@ export class IteneraryService {
     destination;
     passengger;
     acomodation;
-    transportation;
     attraction: any = {};
     datetour;
     roomtype;
     roomallocate;
     roomservice;
+    transportation;
     transportservice;
+
+    //versi 2
 
   constructor(public http: Http, public auth:AuthService) {
     this.locations;
@@ -31,24 +29,32 @@ export class IteneraryService {
     this.passengger=null;
     this.acomodation=null;
     this.transportation=null;
+    this.transportservice=null;
+
     this.attraction=null;
     this.datetour=null;
 
     this.roomtype=null;
     this.roomallocate=null;
     this.roomservice=null;
-    this.transportservice=null;
-
+    
+  
+    //versi 2
   }
+
+
 
   delLocalStorage(){
             localStorage.removeItem('guest');
-            localStorage.removeItem('tName');
+            localStorage.removeItem('tNames');
             localStorage.removeItem('date');
             localStorage.removeItem('hot');
             localStorage.removeItem('trans');
             localStorage.removeItem('att');
+            
   }
+
+
 
   public setDestination(des) {
         var firstDes = window.localStorage.getItem('des');
@@ -103,13 +109,14 @@ export class IteneraryService {
     }
 
 
-   public setToursName(name) {
-        window.localStorage.setItem('tName', name);
+   public setToursName(name){
+        window.localStorage.setItem('tNames', name);
         this.toursname=name;
     }
 
+
     public getToursName() {
-        var name = window.localStorage.getItem('tName');
+        var name = window.localStorage.getItem('tNames');
         this.toursname=name;
         return this.toursname;
     }
@@ -187,7 +194,6 @@ export class IteneraryService {
         return this.locations;
   
     }
-
 
      searchObjctLocation() {
         var headers = new Headers();

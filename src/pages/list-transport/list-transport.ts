@@ -1,27 +1,27 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 //import {FilterTransportPage} from '../filter-transport/filter-transport';
+//import {TransportAirportservicePage} from '../transport-airportservice/transport-airportservice';
 import {FilterTransport2Page} from '../filter-transport2/filter-transport2';
-import {TransportAirportservicePage} from '../transport-airportservice/transport-airportservice';
 import {TransportService} from '../../providers/transport-service';
-import {IteneraryService} from '../../providers/itenerary-service';
+import {DailyService} from '../../providers/daily-service';
 
 @Component({
   selector: 'page-list-transport',
   templateUrl: 'list-transport.html',
-   providers: [TransportService,IteneraryService]
+   providers: [TransportService]
 })
 export class ListTransportPage {
   listtransports: Array<any>;
   transport: Array<any>;
   constructor(public navCtrl: NavController, 
   public navParams: NavParams,
-  public ite : IteneraryService,
+  public ds : DailyService,
   public tra : TransportService
   ) {}
 
    ionViewWillEnter() {
-    this.tra.listTransportFilter().subscribe(data=>{
+    this.tra.listTransportAirport().subscribe(data=>{
             this.listtransports=data;
             this.transport=this.listtransports;
             console.log(this.listtransports);
@@ -58,12 +58,17 @@ getItems(searchbar) {
         }
 
 
+    // setSelectedTransport(trans){
+    //  console.log(trans);
+    //  var data = JSON.stringify({trans});
+    //  console.log(data);
+    //  this.ite.setTransport(data);
+    //  this.navCtrl.push(TransportAirportservicePage);
+    // }
+
     setSelectedTransport(trans){
-     console.log(trans);
-     var data = JSON.stringify({trans});
-     console.log(data);
-     this.ite.setTransport(data);
-     this.navCtrl.push(TransportAirportservicePage);
+     this.ds.setTransportationAirport(trans);
+     this.navCtrl.pop();
     }
 
      filtertransTapped(event) {

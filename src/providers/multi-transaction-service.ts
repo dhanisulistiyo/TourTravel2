@@ -75,10 +75,14 @@ export class MultiTransactionService {
               let item = {
                 ServiceItemId: this.daily[i].program_daily[j].roomtype.ServiceItemId,
                 Date: this.daily[i].datetour,
-                SharingRoomQty: Number(this.daily[i].program_daily[j].roomallocate.sharingRooms),
-                SingleRoomQty: Number(this.daily[i].program_daily[j].roomallocate.singleRoom),
-                ExtraBedQty: Number(this.daily[i].program_daily[j].roomallocate.extraBed),
-                SharingBedQty: Number(this.daily[i].program_daily[j].roomallocate.sharingBed),
+                // SharingRoomQty: Number(this.daily[i].program_daily[j].roomallocate.sharingRooms),
+                // SingleRoomQty: Number(this.daily[i].program_daily[j].roomallocate.singleRoom),
+                // ExtraBedQty: Number(this.daily[i].program_daily[j].roomallocate.extraBed),
+                // SharingBedQty: Number(this.daily[i].program_daily[j].roomallocate.sharingBed),
+                 SharingRoomQty: Number(this.ite.getRoomAllo().allocroom.sharingRooms),          
+                  SingleRoomQty: Number(this.ite.getRoomAllo().allocroom.singleRoom),
+                  ExtraBedQty: Number(this.ite.getRoomAllo().allocroom.extraBed),
+                  SharingBedQty: Number(this.ite.getRoomAllo().allocroom.sharingBed),
                 AccommodationItemServiceType: this.daily[i].program_daily[j].roomservice
               }
             this.accomodation.push(item);         
@@ -144,6 +148,23 @@ export class MultiTransactionService {
     this.ite.delLocalStorage();
     this.destroyObject();
     this.ds.destroyObject();
+    return response;
+  }
+
+
+  getConfirmTour(id, status){
+  
+      var json= {
+      "Id": id,
+      "Confirmation": status,
+    };
+   
+    let token = this.auth.AuthToken;
+     var headers = new Headers({ 'Content-Type': 'application/json' });
+    headers.append('Authorization', 'Bearer ' + token);
+    let options = new RequestOptions({ headers: headers });
+    var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TourTransactions/Confirmation';
+    var response = this.http.post(url, json, options).map(res => res).subscribe(res => res.status);
     return response;
   }
 

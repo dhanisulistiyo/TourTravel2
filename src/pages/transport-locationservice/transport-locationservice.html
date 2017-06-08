@@ -1,0 +1,111 @@
+<!--
+  Generated template for the TransportLocationservice page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Airport Service</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item-group *ngIf="service == 'PickUp'">
+    <span> Airport Drop-Off from Location</span>
+    <ion-row>
+      <ion-col col-1></ion-col>
+      <ion-col>
+        <ion-input *ngIf="location1 == null" type="text" disabled="true" placeholder="Choose Destination" (click)="destinationTapped($event, 0)" required></ion-input>      
+        <ion-item  *ngIf="location1 != null" (click)="destinationTapped($event, 0)" style="padding-left: 0px">{{location1}}</ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-1></ion-col>
+      <ion-col><span>Choose Vehicle</span></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-1></ion-col>
+      <ion-col>
+        <ion-input *ngIf="transport1 == null" type="text" disabled="true" placeholder="Vehicle" (click)="vehicleTapped($event, 0)" required></ion-input>
+       <ion-item  *ngIf="transport1 != null" (click)="vehicleTapped($event, 0)" style="padding-left: 0px" >{{transport1}}</ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-item-group>
+
+
+
+  <ion-item-group *ngIf="service == 'DropOff'">
+    <span> Airport Pick-Up to Location</span>
+    <ion-row>
+      <ion-col col-1></ion-col>
+      <ion-col>
+        <ion-input *ngIf="location1 == null" type="text" disabled="true" placeholder="Choose Destination" (click)="destinationTapped($event, 0)"required></ion-input>
+        <ion-item  *ngIf="location1 != null" (click)="destinationTapped($event, 0)" style="padding-left: 0px">{{location1}}</ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-1></ion-col>
+      <ion-col><span>Choose Vehicle</span></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-1></ion-col>
+      <ion-col>
+        <ion-input *ngIf="transport1 == null" type="text" disabled="true" placeholder="Vehicle" (click)="vehicleTapped($event, 0)" required></ion-input>
+        <ion-item  *ngIf="transport1 != null" (click)="vehicleTapped($event, 0)" style="padding-left: 0px">{{transport1}}</ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-item-group>
+
+
+  <ion-item-group *ngIf="service == 'PickAndDrop'">
+    <span> Airport Pick-Up to Location</span>
+    <ion-row>
+      <ion-col col-1></ion-col>
+      <ion-col>
+        <ion-input *ngIf="location1 == null" type="text" disabled="true" placeholder="Choose Destination" (click)="destinationTapped($event, 0)" required></ion-input>
+       <ion-item  *ngIf="location1 != null" (click)="destinationTapped($event, 0)" style="padding-left: 0px">{{location1}}</ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-1></ion-col>
+      <ion-col><span>Choose Vehicle</span></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-1></ion-col>
+      <ion-col>
+        <ion-input *ngIf="transport1 == null" type="text" disabled="true" placeholder="Vehicle" (click)="vehicleTapped($event, 0)" required></ion-input>
+        <ion-item  *ngIf="transport1 != null" (click)="vehicleTapped($event, 0)" style="padding-left: 0px">{{transport1}}</ion-item>
+      </ion-col>
+    </ion-row>
+      <span> Airport Drop-Off from Location</span>
+      <ion-row>
+        <ion-col col-1></ion-col>
+        <ion-col>
+          <ion-input *ngIf="location2 == null" type="text" disabled="true" placeholder="Choose Destination" (click)="destinationTapped($event, 1)" required></ion-input>
+        <ion-item  *ngIf="location2 != null" (click)="destinationTapped($event, 1)" style="padding-left: 0px">{{location2}}</ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-1></ion-col>
+        <ion-col><span>Choose Vehicle</span></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-1></ion-col>
+        <ion-col>
+        <ion-input *ngIf="transport2 == null" type="text" disabled="true" placeholder="Vehicle" (click)="vehicleTapped($event, 1)" required></ion-input>
+        <ion-item  *ngIf="transport2 != null" (click)="vehicleTapped($event, 1)" style="padding-left: 0px">{{transport2}}</ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-item-group>
+
+</ion-content>
+
+
+<ion-footer>
+    <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="doneTapped()" full large >Done</button>
+</ion-footer>

@@ -50,4 +50,16 @@ export class HistoryService {
         return response;
     }
 
+    getHistoryTransactionsCancel(){
+        var headers = new Headers();
+        let token = this.auth.AuthToken;
+        console.log(token);
+        headers.append('Authorization', 'Bearer ' +token);
+        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TourTransactions/TransactionHistory?status=Booking_cancelled'; 
+        var response = this.http.get(url, {headers : headers}).map(res => res.json());        
+        return response;
+    }
+
+
+
 }

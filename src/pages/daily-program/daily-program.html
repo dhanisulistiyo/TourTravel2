@@ -13,57 +13,71 @@
 </ion-header>
 
 <ion-content padding>
+
+    <ion-row style="justify-content: center;">
+      <ion-col center text-center>
+        <h3 center text-center> {{toursname}} </h3>
+      </ion-col>
+    </ion-row>
+    <ion-row style="justify-content: center;">
+      <h3>{{guest}} Guest </h3>
+    </ion-row>
+    <ion-row style="justify-content: center;">
+      <h4> From {{event.monthStart | date:'dd MMMM yyyy'}} Until {{event.monthEnd | date:'dd MMMM yyyy'}}</h4>
+      <!--<h4> From <span><ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="bookdetails?.StartDate"></ion-datetime></span> Until <span><ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="bookdetails?.EndDate"></ion-datetime></span></h4>-->
+    </ion-row>
+
+
+
+
   <ion-list>
     <ion-item padding *ngFor="let d of data;  let j = index" class="label-title-item">
       <ion-icon color="primary" item-right [name]="d.icon" (click)="toggleDetails(d)"></ion-icon>
       Daily Tour {{d.dailyProgram.datetour | date:'dd MMMM yyyy' }}
-      <div *ngIf="d.showDetails" (click)="Details($event, j)">
+      <div style="padding-bottom: 0px;" *ngIf="d.showDetails" (click)="Details($event, j)">
         <ion-grid *ngFor="let p of d.dailyProgram.program_daily; let i = index">
-          <ion-row>
+
+          <ion-row  *ngIf="p.location != null">
             <ion-col>
-              <ion-label stacked>
-                <ion-icon ios="ios-briefcase" md="md-briefcase"></ion-icon> Destination</ion-label>
-              <ion-item style="padding-left: 0px"><span *ngIf="p.location != null">{{p.location[0].Name}}</span>
-              </ion-item>
+              <h2>{{p.location[0].Name}}</h2>
             </ion-col>
           </ion-row>
 
-          <ion-row>
+          <ion-row *ngIf="p.acomodation != null">
+            <ion-col col-1></ion-col>
             <ion-col>
-              <ion-label stacked>
-                <ion-icon ios="ios-cloudy-night" md="md-cloudy-night"></ion-icon> Acomodation</ion-label>
-              <ion-item style="padding-left: 0px"><span *ngIf="p.acomodation != null">{{p.acomodation.Name}}<span *ngIf="p.roomtype != null">, {{p.roomtype.AccommodationItemTypeName}}</span><span *ngIf="p.roomservice != null">, {{p.roomservice}}</span></span>
-              </ion-item>
-            </ion-col>
+              <h2> Acomodation :</h2>          
+            </ion-col>   
+            <ion-col col-1></ion-col>         
+          </ion-row>
+          <ion-row *ngIf="p.acomodation != null">
+            <ion-col text-center><h3>{{p.acomodation.Name}}<span *ngIf="p.roomtype != null">, {{p.roomtype.AccommodationItemTypeName}}</span><span *ngIf="p.roomservice != null">, {{p.roomservice}}</span></h3></ion-col>         
           </ion-row>
 
-          <ion-row>
+          <ion-row *ngIf="p.transportation != null">
+            <ion-col col-1></ion-col>
             <ion-col>
-              <ion-label stacked>
-                <ion-icon ios="ios-bus" md="md-bus"></ion-icon> Transportation</ion-label>
-              <ion-item style="padding-left: 0px" ><span *ngIf="p.transportation != null">{{p.transportation.Name}}, {{p.transportation.TransportationSeatTypeName}} Seater</span><span *ngIf="p.transportservice != null">, {{p.transportservice}}</span>
-              </ion-item>
+              <h2> Transportation :</h2>
             </ion-col>
+            <ion-col col-1></ion-col>
+          </ion-row>
+            <ion-row *ngIf="p.transportation != null">
+            <ion-col text-center><h3>{{p.transportation.Name}}, {{p.transportation.TransportationSeatTypeName}} Seater <span *ngIf="p.transportservice != null">, {{p.transportservice}}</span></h3></ion-col>         
           </ion-row>
 
-          <ion-row>
+
+          <ion-row  *ngIf="p.attraction != null">
+            <ion-col col-1></ion-col>
             <ion-col>
-              <ion-label stacked>
-                <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle"></ion-icon> Attraction Package</ion-label>
-              <ion-item style="padding-left: 0px"><span *ngIf="p.attraction != null"><span *ngFor="let attrac of p.attraction ;let i = index">{{attrac.Name}}<span *ngIf="p.attraction.length > 1 && i  != p.attraction.length - 1 ">, </span></span></span>
-              </ion-item>
+              <h2> Attraction :</h2>
             </ion-col>
+            <ion-col col-1></ion-col>
+          </ion-row>
+            <ion-row  *ngIf="p.attraction != null">
+            <ion-col text-center><h3><span *ngFor="let attrac of p.attraction ;let i = index">{{attrac.Name}}<span *ngIf="p.attraction.length > 1 && i  != p.attraction.length - 1 ">, </span></span></h3></ion-col>         
           </ion-row>
         </ion-grid>
       </div>
-
-
-
-
-      <!--<div *ngIf="d.showDetails" (click)="Details()" >
-        <ion-label class="label-title-title">Transportation</ion-label>
-         <ion-item style="padding-left: 0px" class="label-title-title">AAAAAA</ion-item>
-      </div>-->
     </ion-item>
   </ion-list>
 </ion-content>
