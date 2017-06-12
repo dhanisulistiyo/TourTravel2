@@ -35,13 +35,16 @@ export class ConfirmBookingPage {
     //this.DailyPrograms=[]
     this.mulTra.mulDemoTransaction().subscribe(data=>{
             this.BookingDetailSum= Array.of(data['BookingDetailSum']);
-            this.DailyPrograms = Array.of(data['DailyPrograms'])
+            this.DailyPrograms = (data['DailyPrograms'])
+            console.log(this.DailyPrograms)
             this.TourPriceSum=Array.of(data['TourPriceSum']);
             },err => {
                     console.log(err);
                 },
                 () => console.log('Get Transaction Complete')
             );
+
+      
   }
 
   confirmTapped(event) {

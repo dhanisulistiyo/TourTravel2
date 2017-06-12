@@ -1,0 +1,21 @@
+page-myaccount {
+.tab-button[aria-selected=true] {
+// text-decoration: underline !important;
+    border-style : solid;
+    border-bottom: thick solid white;
+    color: white;
+}
+.tabs-md .tab-button-text{
+    font-size:1.5rem;
+    color: white;
+}
+
+ion-tab{
+    font-size: 90px; 
+}
+
+.tabs-md .tabbar {
+    background: #008149;
+}
+
+}

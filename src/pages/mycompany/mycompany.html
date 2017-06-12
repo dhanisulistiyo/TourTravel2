@@ -1,18 +1,67 @@
 <!--
-  Generated template for the Mycompany page.
+  Generated template for the MycompanyPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>mycompany</ion-title>
+      <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      My Company
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="company">
+  <h5>
+    Company Information
+  </h5>
+    <div class="selection">
+        <ion-card style="margin-left: 0px;">
+            <ion-card-content style="margin-left: 0px;">
+                <img src="../assets/img/axa_logo.jpeg"/>
+                <h2>{{Company?.Name}}</h2>
+                <h3>{{Company?.CompanyBusiness}}</h3>
+            </ion-card-content>
 
+            <ion-list>
+                <ion-item>
+                    <ion-icon name="pin" item-left></ion-icon>
+                    <p>Address</p>
+                    <h2>AXA Tower, Shenton Way No.8, RT.6/RW.1, Pulo, <br>
+                    Kebayoran Baru, South Jakarta City, 
+                    <br>Jakarta 12160</h2>
+                </ion-item>
+                <ion-item>
+                    <ion-icon name="flag" item-left></ion-icon>
+                    <p>Country</p>
+                    <h2>Indonesia</h2>
+                </ion-item>
+                <ion-item>
+                    <ion-icon name="call" item-left></ion-icon>
+                    <p>Phone No.</p>
+                    <h2>(+62) 8182384939</h2>
+                </ion-item>
+                <ion-item>
+                    <ion-icon name="ios-print" item-left></ion-icon>
+                    <p>Fax No.</p>
+                    <h2>(+62) 2130057777</h2>
+                </ion-item>
+                <ion-item>
+                    <ion-icon name="mail" item-left></ion-icon>
+                    <p>Email</p>
+                    <h2>info@axa-mandiri.com</h2>
+                </ion-item>
+                <ion-item>
+                    <ion-icon name="card" item-left></ion-icon>
+                    <p><b>Credit Available</b></p>
+                    <h2><b>US {{Company?.Balance}}</b></h2>
+                </ion-item>
+            </ion-list>
+        </ion-card>
+    </div>
 </ion-content>

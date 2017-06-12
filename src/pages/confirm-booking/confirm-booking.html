@@ -27,6 +27,39 @@
     </ion-row>
   </ion-grid>
 
+<ion-card *ngFor="let price of TourPriceSum">
+    <ion-row>
+      <ion-col>
+        <h1>Allocation</h1>
+      </ion-col>
+    </ion-row>
+  <ion-row>
+    <ion-col col-1></ion-col>
+    <ion-col>Twin Room</ion-col>
+    <ion-col col-1>{{price.SharingRoomSum['Pax']}} </ion-col>
+    <ion-col col-1></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-1></ion-col>
+    <ion-col>Single Room</ion-col>
+    <ion-col col-1>{{price.SingleRoomSum['Pax']}}</ion-col>
+    <ion-col col-1></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-1></ion-col>
+    <ion-col>Extra Bed</ion-col>
+    <ion-col col-1>{{price.ExtraBedSum['Pax']}}</ion-col>
+    <ion-col col-1></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-1></ion-col>
+    <ion-col>Sharing Bed with Parents</ion-col>
+    <ion-col col-1>{{price.SharingBedSum['Pax']}}</ion-col>
+    <ion-col col-1></ion-col>
+  </ion-row>
+</ion-card>
+
+
 
   <ion-card *ngFor="let price of TourPriceSum">
     <ion-row>
@@ -96,20 +129,51 @@
 
      <ion-row *ngFor="let dp of DailyPrograms ; let j of index">
       <ion-col>
-        <h3>Day {{dp.datetour | date:'dd MMMM yyyy' }}</h3>
+        <h3>Day {{dp.Day}}, {{dp.Date | date:'dd MMMM yyyy'}}</h3>
       </ion-col>
-      <ion-grid>
-          <ion-row>
-            <ion-col></ion-col>
+      <ion-grid class="border-daily" *ngFor="let p of dp.TourDestinations; let i = index">
+
+          <ion-row  *ngIf="p.Destination != null">
+            <ion-col>
+              <h2>{{p.Destination}}</h2>
+            </ion-col>
           </ion-row>
-      </ion-grid>
+
+          <ion-row *ngIf="p.AccommodationSummary != null">
+            <ion-col col-1></ion-col>
+            <ion-col>
+              <h2> Acomodation :</h2>          
+            </ion-col>   
+            <ion-col col-1></ion-col>         
+          </ion-row>
+          <ion-row *ngIf="p.AccommodationSummary != null">
+            <ion-col text-center><h3>{{p.AccommodationSummary["Name"]}}<span>, {{p.AccommodationSummary["RoomType"]}}</span><span>, ....</span></h3></ion-col>         
+          </ion-row>
+
+          <ion-row *ngIf="p.TransportationSummary.length > 0">
+            <ion-col col-1></ion-col>
+            <ion-col>
+              <h2> Transportation :</h2>
+            </ion-col>
+            <ion-col col-1></ion-col>
+          </ion-row>
+            <ion-row *ngIf="p.TransportationSummary.length > 0">
+            <ion-col text-center><h3> <span *ngFor="let a of p.TransportationSummary ;let i = index">{{a.TransportationType}}, {{a.TransportationCapacity}} Seater <span>, {{a.TransportationService}}</span></span></h3></ion-col>         
+          </ion-row>
+
+
+          <ion-row  *ngIf="p.AttractionSummary.length > 0">
+            <ion-col col-1></ion-col>
+            <ion-col>
+              <h2> Attraction :</h2>
+            </ion-col>
+            <ion-col col-1></ion-col>
+          </ion-row>
+            <ion-row *ngIf="p.AttractionSummary.length > 0">
+            <ion-col text-center><h3><span *ngFor="let a of p.AttractionSummary ;let i = index">{{a.Name}}<span *ngIf="p.AttractionSummary.length > 1 && i  != p.AttractionSummary.length - 1 ">, </span></span></h3></ion-col>         
+          </ion-row>
+        </ion-grid>
     </ion-row>
-
-    
-
-
-
-
   </ion-card>
 
 

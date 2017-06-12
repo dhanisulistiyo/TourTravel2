@@ -12,8 +12,11 @@ import { CustomePackagePage } from '../pages/custome-package/custome-package';
 import { FixedPackagePage } from '../pages/fixed-package/fixed-package';
 import { PromoPackagePage } from '../pages/promo-package/promo-package';
 //Details Profile
-import { Myprofile } from '../pages/myprofile/myprofile';
-import { Mycompany } from '../pages/mycompany/mycompany';
+import { MyprofilePage } from '../pages/myprofile/myprofile';
+import { MycompanyPage } from '../pages/mycompany/mycompany';
+import { MyaccountPage } from '../pages/myaccount/myaccount';
+import { ChangepasswordPage } from '../pages/changepassword/changepassword';
+
 //My Bookings
 import { MybookingPage } from '../pages/mybooking/mybooking';
 import { MybookingOnPage } from '../pages/mybooking-on/mybooking-on';
@@ -141,8 +144,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LocationPopoverComponent,
 
     //Details Profile
-    Myprofile,
-    Mycompany,
+    MyprofilePage,
+    MycompanyPage,
+    MyaccountPage,
+    ChangepasswordPage,
   ],
   imports: [
     BrowserModule,
@@ -211,8 +216,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LocationPopoverComponent,
 
     //Details Profile
-    Myprofile,
-    Mycompany,
+    MyprofilePage,
+    MycompanyPage,
+    MyaccountPage,
+    ChangepasswordPage,
 
 
   ],

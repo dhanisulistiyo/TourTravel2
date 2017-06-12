@@ -32,6 +32,10 @@ export class RegisterPage {
         }
     }
 
+   public login() {
+        this.nav.pop();
+    }
+
     showPopup(title, text) {
         let alert = this.alertCtrl.create({
             title: title,

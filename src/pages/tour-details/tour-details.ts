@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {HistoryService} from '../../providers/history-service';
-import {MultiTransactionService} from '../../providers/multi-transaction-service';
+import { HistoryService } from '../../providers/history-service';
+import { MultiTransactionService } from '../../providers/multi-transaction-service';
 /*
   Generated class for the TourDetails page.
 
@@ -14,56 +14,50 @@ import {MultiTransactionService} from '../../providers/multi-transaction-service
 })
 export class TourDetailsPage {
   BookingDetailSum: Array<any>;
-  AccommodationSum: Array<any>;
-  TransportationSum: Array<any>;
-  AttractionSum: Array<any>;
+  DailyPrograms: Array<any>;
   TourPriceSum: Array<any>;
   curency;
   selectedId: any;
   isValid;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public his : HistoryService, public mulTra : MultiTransactionService) {
-  this.BookingDetailSum= null;
-  this.AccommodationSum= null;
-  this.TransportationSum= null;
-  this.AttractionSum= null;
-  this.TourPriceSum=null;
-  this.curency=null;
-  this.selectedId = navParams.data;
-  this.isValid =  false;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public his: HistoryService, public mulTra: MultiTransactionService) {
+    this.BookingDetailSum = null;
+    this.DailyPrograms = null;
+    this.TourPriceSum = null;
+    this.curency = null;
+    this.selectedId = navParams.data;
+    this.isValid = false;
   }
 
   ionViewWillEnter() {
-    this.his.getTransactionsSumarry(this.selectedId).subscribe(data=>{
-            this.BookingDetailSum= Array.of(data['BookingDetailSum']);
-            this.AccommodationSum=(data['AccommodationSum']);
-            this.TransportationSum=(data['TransportationSum']);
-            this.AttractionSum=(data['AttractionSum']);
-            this.TourPriceSum=Array.of(data['TourPriceSum']);
-             if(this.BookingDetailSum[0].Status == 'Booking_created'){
-              this.isValid = true;
-              }
-
-            },err => {
-                    console.log(err);
-                },
-                () => console.log('Get Transaction Complete')
-            );
+    this.his.getTransactionsSumarry(this.selectedId).subscribe(data => {
+      this.BookingDetailSum = Array.of(data['BookingDetailSum']);
+      this.DailyPrograms = (data['DailyPrograms'])
+      this.TourPriceSum = Array.of(data['TourPriceSum']);
+      if (this.BookingDetailSum[0].Status == 'Booking_created') {
+        this.isValid = true;
       }
 
+    }, err => {
+      console.log(err);
+    },
+      () => console.log('Get Transaction Complete')
+    );
+  }
 
-      confirmTour(){
-        let status = "confirm"
-        this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, status)
-        this.navCtrl.pop();
 
-      }
+  confirmTour() {
+    let status = "confirm"
+    this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, status)
+    this.navCtrl.pop();
 
-      cancelTour(){
-        let status = "cancel"
-        this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, status)
-        this.navCtrl.pop();
+  }
 
-      }
+  cancelTour() {
+    let status = "cancel"
+    this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, status)
+    this.navCtrl.pop();
 
-      
+  }
+
+
 }

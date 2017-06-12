@@ -23,19 +23,6 @@ export class LoginPage {
     }
 
     public login() {
-        // this.showLoading()
-        // this.auth.login(this.registerCredentials).then(allowed => {           
-        //     if (allowed) {
-        //         setTimeout(() => {
-        //             this.loading.dismiss();
-        //             this.nav.setRoot(HomePage);
-        //             this.auth.getUserInfo();
-        //             this.menu.enable(true);
-        //             //this.myApp.menuOpened();
-                    
-        //         });
-        //     }
-        // this.showLoading()
         this.auth.login(this.registerCredentials).then(allowed => {           
             if (allowed) {
                 // setTimeout(() => {                  
@@ -66,7 +53,7 @@ export class LoginPage {
 
     showError(text) {
         setTimeout(() => {
-            this.loading.dismiss();
+            //this.loading.dismiss();
         });
 
         let alert = this.alertCtrl.create({

@@ -6,8 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { MybookingPage } from '../pages/mybooking/mybooking';
 import { LoginPage } from '../pages/login/login';
-import { Mycompany } from '../pages/mycompany/mycompany';
-import { Myprofile } from '../pages/myprofile/myprofile';
+import { MycompanyPage } from '../pages/mycompany/mycompany';
+import { MyaccountPage } from '../pages/myaccount/myaccount';
 import { AuthService } from '../providers/auth-token-service';
 
 
@@ -41,9 +41,9 @@ export class MyApp {
     // set our app's pages
     this.pages = [
       { title: 'Home', component: HomePage },
+      { title: 'My Account', component: MyaccountPage },
+      { title: 'My Company', component: MycompanyPage },
       { title: 'My Booking', component: MybookingPage },
-      { title: 'My Profile', component: Myprofile },
-      { title: 'My Company', component: Mycompany },
       { title: 'Logout', component: this.logout() }  
     ];
   }

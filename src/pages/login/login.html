@@ -1,14 +1,4 @@
-<ion-content class="login-content bgn-image" id padding>
-    
-    <!--<ion-row class="logo-row">
-        <ion-col></ion-col>
-        <ion-col width-67>
-            <img src="http://placehold.it/300x200" />
-        </ion-col>
-        <ion-col></ion-col>
-    </ion-row>
-    -->
-
+<!--<ion-content class="login-content bgn-image" id padding>
     <div class="login-box">
         <form (ngSubmit)="login()" #registerForm="ngForm">
             <ion-row>
@@ -36,8 +26,6 @@
 
             <ion-row>
                 <ion-col class="signup-col">
-                    <!--<button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Login</button>-->
-                    <!--<button ion-button class="submit-btn" full [disabled]="!registerForm.form.valid" (click)="login()">Login</button>-->
                     <button ion-button class="login-btn" block clear [disabled]="!registerForm.form.valid" (click)="login()">Login</button>
                     <br>
                     <br>
@@ -47,10 +35,47 @@
 
         </form>
     </div>
+</ion-content>-->
+
+
+
+<ion-header>
+    <ion-title></ion-title>
+</ion-header>
+
+<ion-content class="bg-img">
+  <h2 style="margin-top: 65px;">X-Tour | Travel</h2>
+  <ion-card>
+    <ion-card-header>
+      Login
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list no-line>
+        <ion-item>
+          
+          <ion-icon name="briefcase"  item-left></ion-icon> 
+          <ion-input type="number" placeholder="Company ID" name="companyid" [(ngModel)]="registerCredentials.companyid"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="person" item-left></ion-icon>
+          <ion-input type="text"placeholder="User Name" [(ngModel)]="registerCredentials.username"></ion-input>
+        </ion-item>
+        <ion-item>
+          <!--<ion-label floating>Password</ion-label>-->
+          <ion-icon name="lock" item-left></ion-icon>
+          <ion-input type="password" placeholder="Password"  [(ngModel)]="registerCredentials.password"></ion-input>
+          <!--<button ion-button clear color="dark" type="button" item-right style="height: 28px;padding-right: 0px;padding-left: 0px;"> <ion-icon name="eye" isActive="false"></ion-icon> </button>-->
+        </ion-item>
+        <br>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
 
-
-
-
-
-
+<ion-footer class="bottom-bar">
+    <button ion-button class="btn-login" style="margin-top: 5px;margin-bottom: 0px;" (click)="login()" full>Login</button>
+    <button ion-button class="btn-register" style="margin-top: 10px;margin-bottom: 0px;" (click)="createAccount()" full>Don't have an account? Sign up.</button>
+    <p class="p-center" style="margin-top: 10px;margin-bottom: 10px;">
+      By creating an account, you accept our <b><a class="p-center"href="">User Agreement</a></b>.
+    </p>
+</ion-footer>

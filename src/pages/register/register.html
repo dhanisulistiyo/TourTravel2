@@ -1,54 +1,57 @@
 ﻿<ion-header>
-    <ion-navbar color="dark">
-        <ion-title>Register</ion-title>
-    </ion-navbar>
+  <ion-navbar>
+    <ion-title>
+      Register
+    </ion-title>
+  </ion-navbar>
 </ion-header>
 
-<ion-content class="login-content" padding>
-    <div class="login-box">
-
-        <form (ngSubmit)="register()" #registerForm="ngForm">
-            <ion-row>
-                <ion-col>
-                    <ion-list inset>
-                        
-                        <ion-item>
-                            <ion-input type="text" placeholder="Company Name" name="company_name" [(ngModel)]="registerCredentials.company_name" required></ion-input>
-                        </ion-item>
-
-                        <ion-item>
-                            <ion-input type="text" placeholder="First Name" name="first_name" [(ngModel)]="registerCredentials.first_name" required></ion-input>
-                        </ion-item>
-                        <ion-item>
-                            <ion-input type="text" placeholder="Last Name" name="last_name" [(ngModel)]="registerCredentials.last_name" required></ion-input>
-                        </ion-item>
-
-                        <ion-item>
-                            <ion-input type="email" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
-                        </ion-item>
-
-                        <ion-item>
-                            <ion-input type="text" placeholder="Username" name="username" [(ngModel)]="registerCredentials.username" required></ion-input>
-                        </ion-item>
-
-                         <ion-item>
-                            <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
-                        </ion-item>
-
-                        <ion-item>
-                            <ion-input type="password" placeholder="Confirm Password" name="con_password" [(ngModel)]="registerCredentials.con_password" required></ion-input>
-                        </ion-item>
-
-                    </ion-list>
-                </ion-col>
-            </ion-row>
-
-            <ion-row>
-                <ion-col class="signup-col">
-                    <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Register</button>
-                </ion-col>
-            </ion-row>
-
-        </form>
-    </div>
+<ion-content class="bg-img">
+  <h2 >X-Tour | Travel</h2>
+  <ion-card>
+    <!--<ion-card-header>
+      Register Form
+    </ion-card-header>-->
+    <ion-card-content>
+      <ion-list no-line>
+        <ion-item>
+          <ion-label floating>Company Name</ion-label>
+          <ion-input type="text"  [(ngModel)]="registerCredentials.company_name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>First Name</ion-label>
+          <ion-input type="text"  [(ngModel)]="registerCredentials.first_name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Last Name</ion-label>
+          <ion-input type="text"  [(ngModel)]="registerCredentials.last_name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Email</ion-label>
+          <ion-input type="email"  [(ngModel)]="registerCredentials.email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>User Name</ion-label>
+          <ion-input type="text"  [(ngModel)]="registerCredentials.username"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password"  [(ngModel)]="registerCredentials.password"></ion-input> 
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Confirm Password</ion-label>
+          <ion-input type="password"  [(ngModel)]="registerCredentials.con_password"></ion-input>
+        </ion-item>
+        <br>
+      </ion-list>
+      <a class="p-center">Already have an account? <b (click)="login()">Sign in.</b></a>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+
+<ion-footer class="bottom-bar">
+    <button ion-button class="btn-register" style="margin-top: 5px;margin-bottom: 0px;" (click)="register()" full>Create an Account</button>
+    <p class="p-center" style="margin-top: 10px;margin-bottom: 10px;">
+      By creating an account, you accept our <b><a class="p-center"href="http://ionicframework.com/docs/v2">User Agreement</a></b>.
+    </p>
+</ion-footer>

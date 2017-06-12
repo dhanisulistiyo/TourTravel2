@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Architects+Daughter");
+@import url("https://fonts.googleapis.com/css?family=Quicksand");
 .ion-ios-add:before {
   content: "\f102";
 }
@@ -24763,6 +24765,97 @@ page-app .header-menu-user .toolbar-title-md {
   color: #f9f7f7;
 }
 
+page-changepassword .toolbar-background-md {
+  border-color: #008149;
+  background: #008149;
+}
+
+page-changepassword .bar-button-default-md, page-changepassword .bar-button-clear-md-default, page-changepassword .bar-button-md-default {
+  color: #ffffff;
+  background-color: transparent;
+}
+
+page-changepassword .toolbar-title-md {
+  color: #f9f7f7;
+}
+
+page-changepassword .changepassword ion-card-header.card-header {
+  color: #000;
+  text-align: center;
+}
+
+page-changepassword .changepassword ion-card {
+  width: 100%;
+  height: 100%;
+  margin-top: 100px;
+  overflow: visible;
+}
+
+page-changepassword .changepassword ion-card ion-card-content {
+  margin-left: -10px;
+  background-color: #488aff;
+  color: #FFFFFF;
+  margin-top: -100px;
+  text-align: center;
+  padding-top: 22px;
+  padding-bottom: 22px;
+  background: url("../assets/img/profile_bg.png") center center no-repeat;
+  background-size: cover;
+}
+
+page-changepassword .changepassword ion-card ion-card-content img {
+  height: 140px;
+  width: 140px;
+  border-radius: 50%;
+  border: solid 4px #FFFFFF;
+  display: inline;
+}
+
+page-changepassword .changepassword ion-card ion-card-content h2 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 2.5rem;
+  margin-top: .5rem;
+  color: white;
+}
+
+page-changepassword .changepassword ion-card ion-card-content h3 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.8rem;
+  color: white;
+}
+
+page-changepassword .list > .item-block:first-child {
+  border: medium none;
+}
+
+page-changepassword .item {
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border: medium none;
+  border-radius: 5px;
+}
+
+page-changepassword .item-md {
+  width: 100vw;
+  padding-left: 16px;
+  padding-right: 0;
+  position: relative;
+  font-size: 1.6rem;
+  font-weight: normal;
+  text-transform: none;
+  color: #000;
+  background-color: #fff;
+  box-shadow: none;
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+page-changepassword .btn-update {
+  text-transform: none;
+  font-size: 16px;
+  margin-left: 0px;
+  margin-right: 20px;
+}
+
 page-confirm-booking .toolbar-background-md {
   border-color: #008149;
   background: #008149;
@@ -24775,6 +24868,10 @@ page-confirm-booking .bar-button-default-md, page-confirm-booking .bar-button-cl
 
 page-confirm-booking .toolbar-title-md {
   color: #f9f7f7;
+}
+
+page-confirm-booking .border-daily {
+  border: 1px solid black;
 }
 
 page-custome-package .toolbar-background-md {
@@ -25645,12 +25742,206 @@ page-list-transport ion-icon {
   color: white;
 }
 
-page-login .bgn-image {
-  background: url("../assets/image/Login-background.jpg") no-repeat center center fixed;
+page-login .bottom-bar {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+page-login h2 {
+  font-family: 'Quicksand', sans-serif;
+  color: white;
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 120px;
+}
+
+page-login h3 {
+  font-family: 'Architects Daughter', cursive;
+  color: white;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+page-login .p-center {
+  text-align: center;
+  font-size: 1em;
+  color: white;
+}
+
+page-login .item.item-list {
+  border-color: red;
+  border-radius: 6px;
+  background-color: #000000;
+  color: white;
+  opacity: .6;
+  padding-bottom: 10px;
+}
+
+page-login .item.item-trns {
+  border-color: red;
+  border-radius: 6px;
+  background-color: #000000;
+  color: white;
+  padding-right: 15px;
+}
+
+page-login .list-background {
+  background: transparent !important;
+  border-color: red;
+  border-radius: 12px;
+  background-color: #000000;
+  color: white;
+  opacity: .6;
+}
+
+page-login .signup-background {
+  background-image: url("../assets/img/signup_bg.jpg");
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
-page-login .input-has-focus .label-md[floating], page-login .input-has-value .label-md[floating] {
+page-login .signup-background:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to bottom right, #002f4b, #ffffff);
+  opacity: .6;
+}
+
+page-login .bg-img {
+  width: 100%;
+  height: 100%;
+  background: url("../assets/img/image_bg.jpeg") center center no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+page-login .scroll-content {
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+
+page-login ion-card.card {
+  box-shadow: none;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+
+page-login ion-card-header.card-header {
+  color: #fff;
+}
+
+page-login .list > .item-block:first-child {
+  border: medium none;
+}
+
+page-login .item {
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border: medium none;
+  border-radius: 5px;
+}
+
+page-login .item .text-input {
+  color: #ffffff;
+}
+
+page-login .item .text-input-md {
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-top: 13px;
+  margin-bottom: 13px;
+  padding: 0;
+  width: calc(100% - 8px - 8px);
+}
+
+page-login .item *:-moz-placeholder {
+  color: #2979ff !important;
+}
+
+page-login .item *:-ms-input-placeholder {
+  color: #00ff00;
+}
+
+page-login .item *::-webkit-input-placeholder {
+  color: #ffffff;
+}
+
+page-login .item input::-moz-placeholder {
+  color: #ff00ff;
+}
+
+page-login .item input:-moz-placeholder {
+  color: #00ffff;
+}
+
+page-login .btn-register {
+  background-color: #FF9800;
+  text-transform: none;
+  font-size: 16px;
+}
+
+page-login .btn-register:hover {
+  background-color: #FF8100 !important;
+}
+
+page-login .btn-login {
+  background-color: #2979ff;
+  text-transform: none;
+  font-size: 16px;
+}
+
+page-login .btn-login:hover {
+  background-color: #1587b9 !important;
+}
+
+page-login .center {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-line-pack: stretch;
+  -webkit-align-content: stretch;
+  align-content: stretch;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+page-login .item-input .label-md,
+page-login .item-select .label-md,
+page-login .item-datetime .label-md {
+  color: white;
+}
+
+page-login .input-has-focus .label-md[floating],
+page-login .input-has-value .label-md[floating] {
   -webkit-transform: translate3d(0, 0, 0) scale(1.1);
   transform: translate3d(0, 0, 0) scale(1.1);
 }
@@ -25660,36 +25951,42 @@ page-login .input-has-focus .label-md[floating] {
 }
 
 page-login .label-md[floating] {
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 page-login .item-label-floating .text-input-md {
-  font-size: 1.3em;
+  font-size: 1em;
 }
 
-page-login .login-content .item-bgn {
-  background-color: transparent;
+page-login ion-icon.icon {
+  display: inline;
   color: white;
 }
 
-page-login .login-content .login-box {
-  padding-top: 200px;
-  opacity: 1;
+page-login .item-md .item-button {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 25px;
+  font-size: 1.6rem;
 }
 
-page-login .login-content .signup-col {
-  margin: 0px 16px 0px 16px;
-  padding-bottom: 20px;
-}
-
-page-login .login-content .login-btn {
+page-myaccount .tab-button[aria-selected=true] {
+  border-style: solid;
+  border-bottom: thick solid white;
   color: white;
-  font-size: x-large;
 }
 
-page-login .login-content .register-btn {
+page-myaccount .tabs-md .tab-button-text {
+  font-size: 1.5rem;
   color: white;
-  font-size: medium;
+}
+
+page-myaccount ion-tab {
+  font-size: 90px;
+}
+
+page-myaccount .tabs-md .tabbar {
+  background: #008149;
 }
 
 page-mybooking .tab-button[aria-selected=true] {
@@ -25753,6 +26050,131 @@ page-mybooking-on .toolbar-title-md {
   color: #f9f7f7;
 }
 
+.company h5 {
+  color: black;
+  padding: 1rem;
+  font-weight: 600;
+}
+
+.company ion-card {
+  width: 100%;
+  height: 100%;
+  margin-top: 100px;
+  overflow: visible;
+}
+
+.company ion-card ion-card-content {
+  margin-left: -10px;
+  background-color: #488aff;
+  color: #FFFFFF;
+  margin-top: -100px;
+  text-align: center;
+  padding-top: 22px;
+  padding-bottom: 22px;
+  background: url("../assets/img/profile_bg.png") center center no-repeat;
+  background-size: cover;
+}
+
+.company ion-card ion-card-content img {
+  height: 100px;
+  width: 100px;
+  border-radius: 5%;
+  border: solid 4px #FFFFFF;
+  display: inline;
+}
+
+.company ion-card ion-card-content h2 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 2.5rem;
+  margin-top: .5rem;
+  color: white;
+}
+
+.company ion-card ion-card-content h3 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.8rem;
+  color: white;
+}
+
+.company .item-md {
+  width: 100vw;
+  padding-left: 16px;
+  padding-right: 0;
+  position: relative;
+  font-size: 1.6rem;
+  font-weight: normal;
+  text-transform: none;
+  color: #000;
+  background-color: #fff;
+  box-shadow: none;
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+page-myprofile .profile ion-card {
+  width: 100%;
+  height: 100%;
+  margin-top: 100px;
+  overflow: visible;
+}
+
+page-myprofile .profile ion-card ion-card-content {
+  margin-left: -10px;
+  background-color: #488aff;
+  color: #FFFFFF;
+  margin-top: -100px;
+  text-align: center;
+  padding-top: 22px;
+  padding-bottom: 22px;
+  background: url("../assets/img/profile_bg.png") center center no-repeat;
+  background-size: cover;
+}
+
+page-myprofile .profile ion-card ion-card-content img {
+  height: 140px;
+  width: 140px;
+  border-radius: 50%;
+  border: solid 4px #FFFFFF;
+  display: inline;
+}
+
+page-myprofile .profile ion-card ion-card-content h2 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 2.5rem;
+  margin-top: .5rem;
+  color: white;
+}
+
+page-myprofile .profile ion-card ion-card-content h3 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.8rem;
+  color: white;
+}
+
+page-myprofile .list > .item-block:first-child {
+  border: medium none;
+}
+
+page-myprofile .item {
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border: medium none;
+  border-radius: 5px;
+}
+
+page-myprofile .item-md {
+  width: 100vw;
+  padding-left: 16px;
+  padding-right: 0;
+  position: relative;
+  font-size: 1.6rem;
+  font-weight: normal;
+  text-transform: none;
+  color: #000;
+  background-color: #fff;
+  box-shadow: none;
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 page-promo-package .toolbar-background-md {
   border-color: #008149;
   background: #008149;
@@ -25768,47 +26190,200 @@ page-promo-package .content-md {
   background-color: #008149;
 }
 
-page-register .login-content {
-  background: #56CA96;
+page-register .bottom-bar {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-page-register .login-content .login-box {
-  background: #509287;
-  padding: 20px 20px 0px 20px;
-  margin-top: 30px;
+page-register h2 {
+  font-family: 'Quicksand', sans-serif;
+  color: white;
+  font-size: 30px;
+  font-weight: 500;
 }
 
-page-register .login-content ion-row {
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
+page-register h3 {
+  font-family: 'Architects Daughter', cursive;
+  color: white;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+page-register .p-center {
+  text-align: center;
+  font-size: 1em;
+  color: white;
+}
+
+page-register .item.item-list {
+  border-color: red;
+  border-radius: 6px;
+  background-color: #000000;
+  color: white;
+  opacity: .6;
+  padding-bottom: 10px;
+}
+
+page-register .item.item-trns {
+  border-color: red;
+  border-radius: 6px;
+  background-color: #000000;
+  color: white;
+  padding-right: 15px;
+}
+
+page-register .list-background {
+  background: transparent !important;
+  border-color: red;
+  border-radius: 12px;
+  background-color: #000000;
+  color: white;
+  opacity: .6;
+}
+
+page-register .signup-background {
+  background-image: url("../assets/img/signup_bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+page-register .signup-background:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to bottom right, #002f4b, #ffffff);
+  opacity: .6;
+}
+
+page-register .bg-img {
+  width: 100%;
+  height: 100%;
+  background: url("../assets/img/image_bg.jpeg") center center no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+page-register .scroll-content {
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   text-align: center;
 }
 
-page-register .login-content ion-item {
-  border-radius: 30px !important;
-  padding-left: 30px !important;
-  font-size: 0.9em;
+page-register ion-card.card {
+  box-shadow: none;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+page-register ion-card-header.card-header {
+  color: #fff;
+}
+
+page-register .list > .item-block:first-child {
+  border: medium none;
+}
+
+page-register .item {
   margin-bottom: 10px;
-  border: 1px solid #ffffff;
-  border-bottom: 0px !important;
-  box-shadow: none !important;
+  background: rgba(255, 255, 255, 0.2);
+  border: medium none;
+  border-radius: 5px;
 }
 
-page-register .login-content .signup-col {
-  margin: 0px 16px 0px 16px;
-  padding-bottom: 20px;
+page-register .item .text-input {
+  color: #ffffff;
 }
 
-page-register .login-content .item-inner {
-  border-bottom-color: #ffffff !important;
-  box-shadow: none !important;
+page-register .item *:-moz-placeholder {
+  color: #2979ff !important;
 }
 
-page-register .login-content .submit-btn {
-  background: #51CFB1;
-  border-radius: 30px !important;
-  border: 1px solid #ffffff;
+page-register .item *:-ms-input-placeholder {
+  color: #00ff00;
+}
+
+page-register .item *::-webkit-input-placeholder {
+  color: #FF9800;
+}
+
+page-register .item input::-moz-placeholder {
+  color: #ff00ff;
+}
+
+page-register .item input:-moz-placeholder {
+  color: #00ffff;
+}
+
+page-register .btn-register {
+  background-color: #2979ff;
+  text-transform: none;
+  font-size: 16px;
+}
+
+page-register .btn-register:hover {
+  background-color: #1587b9 !important;
+}
+
+page-register .btn-login {
+  background-color: #FF9800;
+  text-transform: none;
+  font-size: 16px;
+}
+
+page-register .btn-login:hover {
+  background-color: #FF8100 !important;
+}
+
+page-register .center {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-line-pack: stretch;
+  -webkit-align-content: stretch;
+  align-content: stretch;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+page-register .item-input .label-md, page-register .item-select .label-md, page-register .item-datetime .label-md {
+  color: white;
+}
+
+page-register .input-has-focus .label-md[floating], page-register .input-has-value .label-md[floating] {
+  -webkit-transform: translate3d(0, 0, 0) scale(1.1);
+  transform: translate3d(0, 0, 0) scale(1.1);
+}
+
+page-register .input-has-focus .label-md[floating] {
+  color: white;
+}
+
+page-register .label-md[floating] {
+  font-size: 1em;
+}
+
+page-register .item-label-floating .text-input-md {
+  font-size: 1em;
 }
 
 page-tour-details .toolbar-background-md {
@@ -25823,6 +26398,10 @@ page-tour-details .bar-button-default-md, page-tour-details .bar-button-clear-md
 
 page-tour-details .toolbar-title-md {
   color: #f9f7f7;
+}
+
+page-tour-details .border-daily {
+  border: 1px solid black;
 }
 
 page-transport-airportservice .toolbar-background-md {

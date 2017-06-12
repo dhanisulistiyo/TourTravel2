@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { UserandcompanyDetails } from '../../providers/userandcompany-details';
+
 
 /**
- * Generated class for the Mycompany page.
+ * Generated class for the MycompanyPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
@@ -12,13 +14,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-mycompany',
   templateUrl: 'mycompany.html',
 })
-export class Mycompany {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+export class MycompanyPage {
+  Company;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public info : UserandcompanyDetails) {
+    this.info.getCompany().subscribe(data => {
+    this.Company = data
+    });
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Mycompany');
+    console.log('ionViewDidLoad MycompanyPage');
   }
 
+  ionViewWillEnter() {
+    
+  }
 }

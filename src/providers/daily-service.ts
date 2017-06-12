@@ -8,11 +8,13 @@ export class TransportAirport {
   transportation;
   transportservice;
   location;
+  date;
   constructor() {
     window.console.log("Making a DailyProgram.");
     this.transportation = null;
     this.transportservice = null;
     this.location = null;
+    this.date = null;
   }
 }
 
@@ -74,14 +76,13 @@ export class DailyService {
   }
 
   public setTransportAirport(service) {
-
     if (service == 'PickAndDrop') {
       for (let i = 0; i < 2; i++) {
         let tra = new TransportAirport();
         tra.transportation = null;
         tra.location = null;
-        if (i == 0) tra.transportservice = "PickUp"
-        if (i == 1) tra.transportservice = "DropOff"
+        if (i == 0) {tra.transportservice = "PickUp"; tra.date= this.ite.getDateTour().ev['monthStart'] }
+        if (i == 1) {tra.transportservice = "DropOff"; tra.date= this.ite.getDateTour().ev['monthEnd'] }
         this.transairport[i] = tra;
       }
     } else {
@@ -89,6 +90,9 @@ export class DailyService {
       tra.location = null;
       tra.transportation = null;
       tra.transportservice = service;
+      if (service == "PickUp") tra.date= this.ite.getDateTour().ev['monthStart'];
+      else tra.date= this.ite.getDateTour().ev['monthEnd'];
+
       this.transairport[0] = tra;
     }
 
