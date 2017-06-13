@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { HistoryService } from '../../providers/history-service';
 import { MultiTransactionService } from '../../providers/multi-transaction-service';
 /*
@@ -19,7 +19,9 @@ export class TourDetailsPage {
   curency;
   selectedId: any;
   isValid;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public his: HistoryService, public mulTra: MultiTransactionService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public his: HistoryService, 
+  public mulTra: MultiTransactionService,
+  public load: LoadingController) {
     this.BookingDetailSum = null;
     this.DailyPrograms = null;
     this.TourPriceSum = null;
@@ -29,14 +31,18 @@ export class TourDetailsPage {
   }
 
   ionViewWillEnter() {
+    let loader = this.load.create({
+      content: 'Please wait...'
+    });
+    loader.present();
     this.his.getTransactionsSumarry(this.selectedId).subscribe(data => {
       this.BookingDetailSum = Array.of(data['BookingDetailSum']);
       this.DailyPrograms = (data['DailyPrograms'])
       this.TourPriceSum = Array.of(data['TourPriceSum']);
+      loader.dismiss();
       if (this.BookingDetailSum[0].Status == 'Booking_created') {
         this.isValid = true;
       }
-
     }, err => {
       console.log(err);
     },

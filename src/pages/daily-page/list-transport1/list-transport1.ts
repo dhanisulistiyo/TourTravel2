@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 //import {FilterTransportPage} from '../filter-transport/filter-transport';
 import { FilterTransport1Page } from '../filter-transport1/filter-transport1';
 import { TransportAirportservice1Page } from '../transport-airportservice1/transport-airportservice1';
@@ -20,7 +20,8 @@ export class ListTransportPage1 {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public ds: DailyService,
-    public tra: TransportService
+    public tra: TransportService,
+    public load: LoadingController
   ) {
     this.des = navParams.data['des']
     this.idAwal = navParams.data['id']
@@ -28,11 +29,17 @@ export class ListTransportPage1 {
   }
 
   ionViewWillEnter() {
+    let loader = this.load.create({
+      content: 'Please wait...'
+    });
+    loader.present();
     this.tra.listTransportFilterDaily(this.des).subscribe(data => {
       this.listtransports = data;
       this.transport = this.listtransports;
+      loader.dismiss();
       console.log(this.listtransports);
     }, err => {
+      loader.dismiss();
       console.log(err);
     },
       () => console.log('Transport Search Complete')

@@ -164,6 +164,7 @@ export class MultiTransactionService {
     this.ite.delLocalStorage();
     this.destroyObject();
     this.ds.destroyObject();
+    this.ds.destroyTransport();
     return response;
   }
 

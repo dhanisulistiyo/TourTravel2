@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import {FilacomodationService} from '../../../providers/filacomodation-service';
 import {AcomodationService} from '../../../providers/acomodation-service';
 
@@ -21,18 +21,25 @@ export class FilterHotel1Page {
   idAwal;
   idAkhir;
   des;
-  constructor(public navCtrl: NavController, public navParams: NavParams , public fil:FilacomodationService, public aco: AcomodationService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams , public fil:FilacomodationService, 
+  public aco: AcomodationService,
+  public load : LoadingController) {
     this.des = navParams.data['des']
     this.idAwal = navParams.data['id']
     this.idAkhir = navParams.data['i']
   }
 
   ionViewWillEnter() {
+let loader = this.load.create({
+      content: 'Please wait...'
+    });
+    loader.present();
         this.listRating();
         this.listArea();
         this.listLocation();
         this.listType();
         this.listFacility();
+        loader.dismiss();
   }
 
     listRating() {

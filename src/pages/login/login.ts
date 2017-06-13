@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController, Loading, MenuController } from 'ionic-angular';
+import { NavController, AlertController, LoadingController, MenuController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-token-service';
 import { RegisterPage } from '../register/register';
 import { HomePage } from '../../pages/home/home';
@@ -11,10 +11,10 @@ import { HomePage } from '../../pages/home/home';
     templateUrl: 'login.html'
 })
 export class LoginPage {
-    loading: Loading;
+    public loader= this.load.create();
     registerCredentials = { companyid:'' ,username: '', password: '' };
 
-    constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController,public menu: MenuController) { 
+    constructor(public nav: NavController, private auth: AuthService, private alertCtrl: AlertController,public load : LoadingController, public menu: MenuController) { 
     this.menu.enable(false);
     }
 
@@ -23,18 +23,19 @@ export class LoginPage {
     }
 
     public login() {
+         let loader = this.load.create({
+            content: 'Please wait...'
+        });
+        loader.present();
         this.auth.login(this.registerCredentials).then(allowed => {           
-            if (allowed) {
-                // setTimeout(() => {                  
-                //     this.loading.dismiss();
+            if (allowed) {              
+                    loader.dismiss();
                     this.nav.setRoot(HomePage);
                     this.auth.getUserInfo();
-                    this.menu.enable(true);
-                    //this.myApp.menuOpened();
-                    
-                // });
+                    this.menu.enable(true);         
             } else {
-                this.showError("Username And password not match");
+                this.showError("Username and password is incorrect or connection failed");
+                loader.dismiss();
                 return 0;
             }
         },
@@ -43,19 +44,7 @@ export class LoginPage {
             });
     }
 
-
-    showLoading() {
-        this.loading = this.loadingCtrl.create({
-            content: 'Please wait...'
-        });
-        this.loading.present();
-    }
-
     showError(text) {
-        setTimeout(() => {
-            //this.loading.dismiss();
-        });
-
         let alert = this.alertCtrl.create({
             title: 'Failed!',
             subTitle: text,

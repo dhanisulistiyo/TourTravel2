@@ -66,7 +66,9 @@ export class DailyService {
   destroyObject() {
     this.daily = {}
   }
-
+  destroyTransport() {
+    this.transairport = {}
+  }
 
   public setID(id) {
     this.id = id
@@ -81,8 +83,8 @@ export class DailyService {
         let tra = new TransportAirport();
         tra.transportation = null;
         tra.location = null;
-        if (i == 0) {tra.transportservice = "PickUp"; tra.date= this.ite.getDateTour().ev['monthStart'] }
-        if (i == 1) {tra.transportservice = "DropOff"; tra.date= this.ite.getDateTour().ev['monthEnd'] }
+        if (i == 0) { tra.transportservice = "PickUp"; tra.date = this.ite.getDateTour().ev['monthStart'] }
+        if (i == 1) { tra.transportservice = "DropOff"; tra.date = this.ite.getDateTour().ev['monthEnd'] }
         this.transairport[i] = tra;
       }
     } else {
@@ -90,8 +92,8 @@ export class DailyService {
       tra.location = null;
       tra.transportation = null;
       tra.transportservice = service;
-      if (service == "PickUp") tra.date= this.ite.getDateTour().ev['monthStart'];
-      else tra.date= this.ite.getDateTour().ev['monthEnd'];
+      if (service == "PickUp") tra.date = this.ite.getDateTour().ev['monthStart'];
+      else tra.date = this.ite.getDateTour().ev['monthEnd'];
 
       this.transairport[0] = tra;
     }
@@ -111,14 +113,16 @@ export class DailyService {
 
   dailyProgram(days) {
     var today = new Date(this.ite.getDateTour().ev['monthStart'])
-    for (let i = 0; i <= days; i++) {
-      let tomorrow = new Date()
-      tomorrow.setDate(today.getDate() + i)
-      let dateDaily = tomorrow.toISOString().substring(0, 10)
-      let p = new DailyProgram()
-      p.datetour = dateDaily
-      p.program_daily = Array.of(this.dailyDetails(i, days))
-      this.daily[i] = p
+    if (days != (Object.keys(this.daily).length) - 1) {
+      for (let i = 0; i <= days; i++) {
+        let tomorrow = new Date()
+        tomorrow.setDate(today.getDate() + i)
+        let dateDaily = tomorrow.toISOString().substring(0, 10)
+        let p = new DailyProgram()
+        p.datetour = dateDaily
+        p.program_daily = Array.of(this.dailyDetails(i, days))
+        this.daily[i] = p
+      }
     }
     console.log(this.daily);
     console.log(DailyProgram)
@@ -204,16 +208,39 @@ export class DailyService {
 
   setLocation(id, i, data) {
     this.daily[id].program_daily[i].location = Array.of(data)
+    this.daily[id].program_daily[i].acomodation = null
+    this.daily[id].program_daily[i].transportation = null
+    this.daily[id].program_daily[i].attraction = null
   }
   setAcomodation(id, i, data) {
+    var no = Object.keys(this.daily).length;
     this.daily[id].program_daily[i].acomodation = data
+    for (let j = id + 1; j < no - 1; j++) {
+      for (let k = 0; k < Object.keys(this.daily[j].program_daily).length; k++) { 
+        this.daily[j].program_daily[k].acomodation = null 
+      }
+    }
+
+    for (let j = id + 1; j < no - 1; j++) {
+      this.daily[j].program_daily[0].location = this.daily[id].program_daily[i].location;
+      this.daily[j].program_daily[0].acomodation = data
+    }
+
   }
   setRoomType(id, i, data) {
+    var no = Object.keys(this.daily).length;
     this.daily[id].program_daily[i].roomtype = data
+    for (let i = id + 1; i < no - 1; i++) {
+      this.daily[i].program_daily[0].roomtype = data
+    }
   }
 
   setRoomService(id, i, data) {
+    var no = Object.keys(this.daily).length;
     this.daily[id].program_daily[i].roomservice = data
+    for (let i = id + 1; i < no - 1; i++) {
+      this.daily[i].program_daily[0].roomservice = data
+    }
   }
 
   setRoomAllocate(id, i, data) {

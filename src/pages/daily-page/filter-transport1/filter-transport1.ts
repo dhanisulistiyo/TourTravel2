@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { FiltransportService} from '../../../providers/filtransport-service';
 import { TransportService} from '../../../providers/transport-service';
 import {ListTransportPage1 } from '../list-transport1/list-transport1';
@@ -23,7 +23,10 @@ export class FilterTransport1Page {
   idAkhir;
   des;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public fil:FiltransportService, public tra: TransportService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public fil:FiltransportService,
+   public tra: TransportService,
+   public load : LoadingController
+   ) {
 
     this.des = navParams.data['des']
     this.idAwal = navParams.data['id']
@@ -31,9 +34,14 @@ export class FilterTransport1Page {
   }
 
   ionViewWillEnter() {
+    let loader = this.load.create({
+      content: 'Please wait...'
+    });
+    loader.present();
     this.listRating();
     this.listType();
     this.listSeat();
+    loader.dismiss();
   }
 
   public listType(){

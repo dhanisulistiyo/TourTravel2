@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { HistoryService} from '../../providers/history-service';
-import {TourDetailsPage } from '../tour-details/tour-details';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import { HistoryService } from '../../providers/history-service';
+import { TourDetailsPage } from '../tour-details/tour-details';
 /*
   Generated class for the MybookingCom page.
 
@@ -13,24 +13,26 @@ import {TourDetailsPage } from '../tour-details/tour-details';
   templateUrl: 'mybooking-com.html'
 })
 export class MybookingComPage {
-HistoryBookingConfirm: Array<any>;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public his: HistoryService) {}
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MybookingComPage');
-  }
+  HistoryBookingConfirm: Array<any>;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public his: HistoryService, public load: LoadingController) { }
 
   ionViewWillEnter() {
-    this.his.getHistoryTransactionsConfirm().subscribe(data=>{
-            this.HistoryBookingConfirm= data;
-            },err => {
-                    console.log(err);
-                },
-                () => console.log('Get History Transaction Complete')
-            );
+    let loader = this.load.create({
+      content: 'Please wait...'
+    });
+    loader.present();
+    this.his.getHistoryTransactionsConfirm().subscribe(data => {
+      loader.dismiss();
+      this.HistoryBookingConfirm = data;
+    }, err => {
+      console.log(err);
+      loader.dismiss();
+    },
+      () => console.log('Get History Transaction Complete')
+    );
   }
 
-   detailTourTapped(event, id){
+  detailTourTapped(event, id) {
     this.navCtrl.push(TourDetailsPage, id);
   }
 

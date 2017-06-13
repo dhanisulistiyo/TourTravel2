@@ -1,5 +1,5 @@
 ﻿import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, LoadingController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-token-service';
 
 @Component({
@@ -8,31 +8,37 @@ import { AuthService } from '../../providers/auth-token-service';
 })
 export class RegisterPage {
     createSuccess = false;
-    registerCredentials = { company_name: '', first_name: '', last_name: '', email:'', username:'' , password:'', con_password:'' };
+    registerCredentials = { company_name: '', first_name: '', last_name: '', email: '', username: '', password: '', con_password: '' };
 
-    constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController) { }
+    constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, public load: LoadingController) { }
 
     public register() {
         let reg = this.registerCredentials;
-        if(reg.password != reg.con_password){
+        if (reg.password != reg.con_password) {
             this.showAlertValidasiPassword();
-        }else {
-        this.auth.register(this.registerCredentials).then(success => {
-            //console.log(success);
-            if (success) {
-                this.createSuccess = true;
-                this.showPopup("Success", "Account created.");
-            } else {
-                this.showPopup("Error", "Problem creating account.");
-            }
-        },
-            error => {
-                this.showPopup("Error", error);
+        } else {
+            let loader = this.load.create({
+                content: 'Please wait...'
             });
+            loader.present();
+            this.auth.register(this.registerCredentials).then(success => {
+                if (success) {
+                    loader.dismiss();
+                    this.createSuccess = true;
+                    this.showPopup("Success", "Account created.");
+                } else {
+                    loader.dismiss();
+                    this.showPopup("Error", "Problem creating account.");
+                }
+            },
+                error => {
+                    loader.dismiss();
+                    this.showPopup("Error", error);
+                });
         }
     }
 
-   public login() {
+    public login() {
         this.nav.pop();
     }
 
@@ -56,11 +62,11 @@ export class RegisterPage {
 
 
     showAlertValidasiPassword() {
-    let alert = this.alertCtrl.create({
-      subTitle: 'Password and Confirm Password Not Match',
-      buttons: ['OK']
-    });
-    alert.present();
-  }
+        let alert = this.alertCtrl.create({
+            subTitle: 'Password and Confirm Password Not Match',
+            buttons: ['OK']
+        });
+        alert.present();
+    }
 
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { AttractionService } from '../../../providers/attraction-service';
 import {DailyService} from '../../../providers/daily-service';
 @Component({
@@ -19,7 +19,8 @@ export class ListAttractionPage1 {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private attSer: AttractionService,
-    public ds: DailyService
+    public ds: DailyService,
+    public load: LoadingController
   ) {
     
     this.des = navParams.data['des']
@@ -28,15 +29,23 @@ export class ListAttractionPage1 {
   }
 
   ionViewWillEnter() {
+
+    let loader = this.load.create({
+      content: 'Please wait...'
+    });
+    loader.present();
     this.attSer.listAttractionDaily(this.des).subscribe(data => {
       this.listattractions = data;
       this.attractions = this.listattractions;
+      loader.dismiss();
       console.log(this.listattractions);
     }, err => {
+      loader.dismiss();
       console.log(err);
     },
       () => console.log('Attraction Search Complete')
     );
+
   }
 
   listAttraction() {

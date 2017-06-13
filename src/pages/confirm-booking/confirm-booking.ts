@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams,AlertController } from 'ionic-angular';
+import { NavController, NavParams,AlertController , LoadingController} from 'ionic-angular';
 import {CustomePackagePage} from '../custome-package/custome-package';
 import {MultiTransactionService} from '../../providers/multi-transaction-service';
 import {DailyService} from '../../providers/daily-service';
@@ -23,6 +23,7 @@ export class ConfirmBookingPage {
   public mulTra : MultiTransactionService, 
   public alertCtrl : AlertController,
   public ds: DailyService,
+  public load: LoadingController
   ) {
   this.BookingDetailSum= null;
   this.DailyPrograms= null;
@@ -33,13 +34,19 @@ export class ConfirmBookingPage {
 
   ionViewWillEnter() {
     //this.DailyPrograms=[]
+    let loader = this.load.create({
+      content: 'Please wait...'
+    });
+    loader.present();
     this.mulTra.mulDemoTransaction().subscribe(data=>{
             this.BookingDetailSum= Array.of(data['BookingDetailSum']);
             this.DailyPrograms = (data['DailyPrograms'])
             console.log(this.DailyPrograms)
             this.TourPriceSum=Array.of(data['TourPriceSum']);
+            loader.dismiss();
             },err => {
                     console.log(err);
+                    loader.dismiss();
                 },
                 () => console.log('Get Transaction Complete')
             );
@@ -66,8 +73,13 @@ export class ConfirmBookingPage {
         {
           text: 'OK',
           handler: () => {
+                    let loader = this.load.create({
+              content: 'Please wait...'
+            });
+            loader.present();
             this.mulTra.getTourTransaksi().subscribe(data=>{console.log(data);} ,err =>{console.log(err);}, ()=> console.log('post Transaction Complete'));
             console.log('Saved clicked');
+            loader.dismiss();
             this.alertSuccess();
             
           }

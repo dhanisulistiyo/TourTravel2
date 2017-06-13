@@ -70,6 +70,5 @@ export class DailyProgram {
   createSummary(event) {
     //this.ds.destroyObject();
     this.navCtrl.push(ConfirmBookingPage);
-    //this.mt.mulDemoTransaction();
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { HistoryService} from '../../providers/history-service';
 import {TourDetailsPage } from '../tour-details/tour-details';
 
@@ -16,18 +16,21 @@ import {TourDetailsPage } from '../tour-details/tour-details';
 })
 export class MybookingCancel {
 HistoryBookingCancel: Array<any>;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public his: HistoryService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public his: HistoryService, public load: LoadingController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MybookingCancel');
-  }
 
 ionViewWillEnter() {
+  let loader = this.load.create({
+      content: 'Please wait...'
+    });
+    loader.present();
     this.his.getHistoryTransactionsCancel().subscribe(data=>{
+            loader.dismiss();
             this.HistoryBookingCancel= data;
             },err => {
                     console.log(err);
+                    loader.dismiss();
                 },
                 () => console.log('Get History Transaction Complete')
             );

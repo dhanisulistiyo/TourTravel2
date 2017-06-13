@@ -213,11 +213,12 @@ export class IteneraryBuilderPage {
 
   createItenerary(event) {
     if (this.toursname == '') this.showAlertTourName();
-    else if (this.destination == '') this.showAlertDestination();
+    else if (this.destination == '')this.showAlertDestination();
     else if (this.ite.getDateTour() == null) this.showAlertDates();
+    else if(this.totalDays < 0) this.showAlertValidasiDates();
     else if (this.passenger == '') this.showAlertGuest();
     else {
-      this.ds.destroyObject();
+      //this.ds.destroyObject();
       this.ds.dailyProgram(this.totalDays);
       this.navCtrl.push(DailyProgram);
     }
@@ -244,6 +245,14 @@ export class IteneraryBuilderPage {
   showAlertDates() {
     let alert = this.alertCtrl.create({
       subTitle: 'Please Change Your Date Tour ',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+  showAlertValidasiDates() {
+    let alert = this.alertCtrl.create({
+      subTitle: 'Please Change the end date is greater than the start date ',
       buttons: ['OK']
     });
     alert.present();
