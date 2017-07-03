@@ -89,6 +89,23 @@ export class TransportService {
         return response;
     }
 
+    listTransportDaily(from, to) {
+        var headers = new Headers();
+        let token = this.auth.AuthToken;
+        let rat = window.localStorage.getItem('ratTrans');
+        let se = window.localStorage.getItem('seTrans');
+        let ty = window.localStorage.getItem('tyTrans');
+
+        if (rat == null) { rat = ''; }
+        if (se == null) { se = ''; }
+        if (ty == null) { ty = ''; }
+
+        headers.append('Authorization', 'Bearer ' + token);
+        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TransportationUnits/TransportationService?fromLocation='+from+'&toLocation='+to+'&RatingId=' + rat + '&seatTypeId=' + se + '&typeId=' + ty;
+        var response = this.http.get(url, { headers: headers }).map(res => res.json());
+        return response;
+    }
+
     listTransport() {
         var headers = new Headers();
         let token = this.auth.AuthToken;

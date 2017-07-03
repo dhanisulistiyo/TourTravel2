@@ -77,34 +77,34 @@
     </ion-row>
     <ion-row>
       <ion-col col-77>
-        <h5>Staying in Twin Room ({{price.SharingRoomSum['Pax']}} X {{price.SharingRoomSum['Currency']}} {{price.SharingRoomSum['PricePerPax']}},-/Guest)</h5>
+        <h5>Staying in Twin Room ({{price.SharingRoomSum['Pax']}} X {{price.SharingRoomSum['Currency']}} {{price.SharingRoomSum['PricePerPax'] | number:'.0'}}.-/Guest)</h5>
       </ion-col>
       <ion-col>
-        <h5>{{price.SharingRoomSum['Currency']}} {{price.SharingRoomSum['TotalPrice']}},-</h5>
+        <h5>{{price.SharingRoomSum['Currency']}} {{price.SharingRoomSum['TotalPrice']| number:'.0'}}.-</h5>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-77>
-        <h5>Staying in Single Room ({{price.SingleRoomSum['Pax']}} X {{price.SingleRoomSum['Currency']}} {{price.SingleRoomSum['PricePerPax']}},-/Guest)</h5>
+        <h5>Staying in Single Room ({{price.SingleRoomSum['Pax']}} X {{price.SingleRoomSum['Currency']}} {{price.SingleRoomSum['PricePerPax']| number:'.0'}}.-/Guest)</h5>
       </ion-col>
       <ion-col>
-        <h5>{{price.SingleRoomSum['Currency']}} {{price.SingleRoomSum['TotalPrice']}},-</h5>
+        <h5>{{price.SingleRoomSum['Currency']}} {{price.SingleRoomSum['TotalPrice'] | number:'.0'}}.-</h5>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-77>
-        <h5>Staying in Extra Bed ({{price.ExtraBedSum['Pax']}} X {{price.ExtraBedSum['Currency']}} {{price.ExtraBedSum['PricePerPax']}},-/Guest)</h5>
+        <h5>Staying in Extra Bed ({{price.ExtraBedSum['Pax']}} X {{price.ExtraBedSum['Currency']}} {{price.ExtraBedSum['PricePerPax']| number:'.0'}}.-/Guest)</h5>
       </ion-col>
       <ion-col>
-        <h5>{{price.ExtraBedSum['Currency']}} {{price.ExtraBedSum['TotalPrice']}},-</h5>
+        <h5>{{price.ExtraBedSum['Currency']}} {{price.ExtraBedSum['TotalPrice'] | number:'.0' }}.-</h5>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-77>
-        <h5>Staying in Sharing Bed ({{price.SharingBedSum['Pax']}} X {{price.SharingBedSum['Currency']}} {{price.SharingBedSum['PricePerPax']}},-/Guest)</h5>
+        <h5>Staying in Sharing Bed ({{price.SharingBedSum['Pax']}} X {{price.SharingBedSum['Currency']}} {{price.SharingBedSum['PricePerPax'] | number:'.0'}}.-/Guest)</h5>
       </ion-col>
       <ion-col>
-        <h5>{{price.SharingBedSum['Currency']}} {{price.SharingBedSum['TotalPrice']}},-</h5>
+        <h5>{{price.SharingBedSum['Currency']}} {{price.SharingBedSum['TotalPrice'] | number:'.0'}}.-</h5>
       </ion-col>
     </ion-row>
     <ion-row style="border-top:1px solid ;">
@@ -112,7 +112,7 @@
         <h2>Total Price</h2>
       </ion-col>
       <ion-col>
-        <h2>{{price.SharingBedSum['Currency']}} <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice}}</span>,-</h2>
+        <h2>{{price.SharingBedSum['Currency']}} <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice | number:'.0'}}</span>.-</h2>
       </ion-col>
     </ion-row>
 
@@ -136,11 +136,11 @@
     </ion-row>
 
     <ion-row *ngFor="let dp of DailyPrograms ; let j of index">
-      <ion-col>
-        <h3>Day {{dp.Day}}, {{dp.Date | date:'dd MMMM yyyy'}}</h3>
-      </ion-col>
+        <ion-col>
+          <h3>Day {{dp.Day}}, {{dp.Date | date:'dd MMMM yyyy'}}</h3>
+           <h2 *ngIf="dp.TourDestinations.length == 0">There is no activities</h2>
+        </ion-col>
       <ion-grid class="border-daily" *ngFor="let p of dp.TourDestinations; let i = index">
-
         <ion-row *ngIf="p.Destination != null">
           <ion-col>
             <h2>{{p.Destination}}</h2>
@@ -155,8 +155,9 @@
           <ion-col col-1></ion-col>
         </ion-row>
         <ion-row *ngIf="p.AccommodationSummary != null">
-          <ion-col text-center>
-            <h3>{{p.AccommodationSummary["Name"]}}<span>, {{p.AccommodationSummary["RoomType"]}}</span><span>, ....</span></h3>
+          <ion-col col-1></ion-col>  
+          <ion-col style="padding-left: 40px;">
+            <h3>{{p.AccommodationSummary["Name"]}}<span>, {{p.AccommodationSummary["RoomName"]}}</span><span *ngIf="p.AccommodationSummary.RoomService != null">, {{p.AccommodationSummary["RoomService"].replace('_', ' ')}}</span></h3>
           </ion-col>
         </ion-row>
 
@@ -168,7 +169,8 @@
           <ion-col col-1></ion-col>
         </ion-row>
         <ion-row *ngIf="p.TransportationSummary.length > 0">
-          <ion-col text-center>
+           <ion-col col-1></ion-col>  
+          <ion-col style="padding-left: 40px;">
             <h3> <span *ngFor="let a of p.TransportationSummary ;let i = index">{{a.TransportationType}}, {{a.TransportationCapacity}} Seater <span>, {{a.TransportationService}}</span></span>
             </h3>
           </ion-col>
@@ -183,7 +185,8 @@
           <ion-col col-1></ion-col>
         </ion-row>
         <ion-row *ngIf="p.AttractionSummary.length > 0">
-          <ion-col text-center>
+          <ion-col col-1></ion-col>  
+          <ion-col style="padding-left: 40px;">
             <h3><span *ngFor="let a of p.AttractionSummary ;let i = index">{{a.Name}}<span *ngIf="p.AttractionSummary.length > 1 && i  != p.AttractionSummary.length - 1 ">, </span></span>
             </h3>
           </ion-col>

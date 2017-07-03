@@ -28,9 +28,9 @@
             <ion-option *ngFor="let rat of listRatings" [value]="rat.Id">{{rat.Name}}</ion-option>
           </ion-select>
         </ion-item>
-        <ion-item>
+        <!--<ion-item>
           <ion-input disabled="true" type="text" aria-placeholder="ratings" [(ngModel)]="ratings" ></ion-input>
-        </ion-item>
+        </ion-item>-->
       </ion-col>
     </ion-row>
 
@@ -48,9 +48,9 @@
             <ion-option *ngFor="let ar of listAreas" [value]="ar.Id">{{ar.Name}}</ion-option>
           </ion-select>
         </ion-item>
-        <ion-item>
+        <!--<ion-item>
           <ion-input disabled="true" type="text" aria-placeholder="areas" [(ngModel)]="areas" ></ion-input>
-        </ion-item>
+        </ion-item>-->
       </ion-col>
     </ion-row>
 
@@ -68,9 +68,9 @@
             <ion-option *ngFor="let loc of listLocations" [value]="loc.Id">{{loc.Name}}</ion-option>
           </ion-select>
         </ion-item>
-        <ion-item>
+        <!--<ion-item>
           <ion-input disabled="true" type="text" aria-placeholder="locations" [(ngModel)]="locations"></ion-input>
-        </ion-item>
+        </ion-item>-->
       </ion-col>
     </ion-row>
 
@@ -88,9 +88,9 @@
             <ion-option *ngFor="let ty of listTypes" [value]="ty.Id">{{ty.Name}}</ion-option>
           </ion-select>
         </ion-item>
-        <ion-item>
+        <!--<ion-item>
           <ion-input disabled="true" type="text" aria-placeholder="types" [(ngModel)]="types" (onChange)=filterType(types)></ion-input>
-        </ion-item>
+        </ion-item>-->
       </ion-col>
     </ion-row>
 
@@ -109,9 +109,9 @@
             <ion-option *ngFor="let fac of listFacilities" [value]="fac.Id">{{fac.Name}}</ion-option>
           </ion-select>
         </ion-item>
-        <ion-item>
+        <!--<ion-item>
           <ion-input disabled="true" type="text" aria-placeholder="facilities" [(ngModel)]="facilities"></ion-input>
-        </ion-item>
+        </ion-item>-->
       </ion-col>
     </ion-row>
   </ion-grid>

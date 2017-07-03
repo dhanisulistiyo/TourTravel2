@@ -1,0 +1,44 @@
+<!--
+  Generated template for the FilterAttraction page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Filter Attraction</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-grid style="text-align:center">
+    <ion-row>
+      <ion-col>
+        <h3>Types</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Choose Types</ion-label>
+          <ion-select [(ngModel)]="type" multiple="true" (ionChange)=filterType(type)>
+            <ion-option *ngFor="let type of listTypes" [value]="type.Id">{{type.Name}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <!--<ion-item>
+          <ion-input disabled="true" type="text" aria-placeholder="type" [(ngModel)]="type" ></ion-input>
+        </ion-item>-->
+      </ion-col>
+    </ion-row>
+</ion-grid>
+</ion-content>
+
+
+
+<ion-footer>
+    <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="listTapped($event)" full large >Go to List</button>
+</ion-footer>
+

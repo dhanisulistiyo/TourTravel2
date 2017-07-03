@@ -14,27 +14,43 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
+
+
+
 <ion-content padding>
 
-<ion-card *ngFor="let his of HistoryBookingOpen" (click)="detailTourTapped($event, his?.Id)" >
+<ion-card *ngFor="let his of HistoryBookingOpen" (click)="detailTourTapped($event, his?.TourTransactionSummaryViewModel.BookingDetailSum.Id)" >
   <ion-row>
     <ion-col>
-      <h2>{{his?.Title}}</h2>
+      <h2>{{his?.TourTransactionSummaryViewModel.BookingDetailSum.Title}} ({{his?.TourTransactionSummaryViewModel.BookingDetailSum.Id}})</h2>
     </ion-col>
+    <ion-col ><h2 style="float: right;">Created</h2></ion-col>
   </ion-row>
 <ion-row>
   <ion-col>
-      <h4>Destination : {{his?.Destination}}</h4>
-      <h4>Acomodation : {{his.AccommodationName}}, {{his.AccommodationDesc}}</h4>
-      <h4>From : {{his?.StartDate | date:'dd MMMM yyyy'}}</h4>
+      <h4>Guest : {{his?.TourTransactionSummaryViewModel.BookingDetailSum.AdultQty}} Adult,  {{his?.TourTransactionSummaryViewModel.BookingDetailSum.ChildQty}} Child,  {{his?.TourTransactionSummaryViewModel.BookingDetailSum.InfantQty}} Infant</h4>
   </ion-col>
   <ion-col >
-    <h4>Total Guest :  {{his?.TotalGuest}}</h4><br>
-    <h4>Until : {{his?.EndDate | date:'dd MMMM yyyy'}}</h4>
+    <h4>Total Guest :  {{his?.TourTransactionSummaryViewModel.BookingDetailSum.TotalGuest}}</h4>
   </ion-col>
 </ion-row>
 <ion-row>
-  <h4 style="float: right;">Total Price : USD  {{his?.TourTotalPrice}},-</h4>
+  <ion-col>
+      <h4>From : {{his?.TourTransactionSummaryViewModel.BookingDetailSum.StartDate | date:'dd MMMM yyyy'}}</h4>
+  </ion-col>
+  <ion-col >
+    <h4>Until : {{his?.TourTransactionSummaryViewModel.BookingDetailSum.EndDate | date:'dd MMMM yyyy'}}</h4>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col>
+    <h4>Expired Date : {{his?.TourTransactionSummaryViewModel.BookingDetailSum.ExpiredOn  | date:'dd MMMM yyyy'}}</h4>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col>
+    <h4 style="float: right;">Total Price : IDR  {{his?.TourTransactionSummaryViewModel.BookingDetailSum.TourTotalPrice  | number:'.0'}}.-</h4>
+  </ion-col>
 </ion-row>
 </ion-card>
 

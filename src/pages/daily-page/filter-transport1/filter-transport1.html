@@ -9,6 +9,25 @@
 
 <ion-content padding>
 <ion-grid style="text-align:center">
+
+ <ion-row>
+      <ion-col>
+        <h3>Destination</h3>
+      </ion-col>
+    </ion-row>
+     <ion-row>
+      <ion-col>
+        <ion-item (click)="filterDestination(0)"><span *ngIf="daily?.destinationFrom != null">{{daily?.destinationFrom[0].Name}}</span></ion-item>
+      </ion-col>
+      <ion-col col-1>
+        <span>To</span>
+      </ion-col>
+      <ion-col>
+        <ion-item style="padding-left: 0px"  (click)="filterDestination(1)"><span *ngIf="daily?.destinationTo != null">{{daily?.destinationTo[0].Name}}</span></ion-item>
+      </ion-col>
+    </ion-row>
+
+
     <ion-row>
       <ion-col>
         <h3>Rating</h3>
@@ -22,9 +41,9 @@
             <ion-option *ngFor="let rat of listRatings" [value]="rat.Id">{{rat.Name}}</ion-option>
           </ion-select>
         </ion-item>
-        <ion-item>
+        <!--<ion-item>
           <ion-input disabled="true" type="text" aria-placeholder="ratings" [(ngModel)]="ratings" ></ion-input>
-        </ion-item>
+        </ion-item>-->
       </ion-col>
     </ion-row>
 
@@ -42,9 +61,9 @@
             <ion-option *ngFor="let type of listTypes" [value]="type.Id">{{type.Name}}</ion-option>
           </ion-select>
         </ion-item>
-        <ion-item>
+        <!--<ion-item>
           <ion-input disabled="true" type="text" aria-placeholder="type" [(ngModel)]="type" ></ion-input>
-        </ion-item>
+        </ion-item>-->
       </ion-col>
     </ion-row>
 
@@ -62,11 +81,13 @@
             <ion-option *ngFor="let se of listSeats" [value]="se.Id">{{se.Name}}</ion-option>
           </ion-select>
         </ion-item>
-        <ion-item>
+        <!--<ion-item>
           <ion-input disabled="true" type="text" aria-placeholder="seat" [(ngModel)]="seat"></ion-input>
-        </ion-item>
+        </ion-item>-->
       </ion-col>
     </ion-row>
+   
+
 </ion-grid>
 </ion-content>
 

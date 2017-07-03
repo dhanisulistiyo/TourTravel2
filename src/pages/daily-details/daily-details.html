@@ -14,6 +14,8 @@
 
 
 <ion-content padding>
+  <ion-col center text-center> <h3> Day {{idAwal + 1}} : {{tanggal | date:'dd MMMM yyyy'}}</h3> </ion-col>
+  
   <ion-card *ngFor="let d of selectedItem ; let j = index">
     <ion-card-header center text-center>
      Destination {{d.id}}
@@ -33,7 +35,7 @@
               <ion-col>
                 <ion-label stacked>
                   <ion-icon ios="ios-cloudy-night" md="md-cloudy-night"></ion-icon> Acomodation</ion-label>
-                   <ion-item style="padding-left: 0px" (click)="acomodationTapped(j)"><span *ngIf="d.acomodation != null">{{d.acomodation.Name}}<span *ngIf="d.roomtype != null">, {{d.roomtype.AccommodationItemTypeName}}</span><span *ngIf="d.roomservice != null">, {{d.roomservice}}</span></span>
+                   <ion-item style="padding-left: 0px" (click)="acomodationTapped(j)"><span *ngIf="d.acomodation != null">{{d.acomodation.Name}}<span *ngIf="d.roomtype != null">, {{d.roomtype.Name}}</span><span *ngIf="d.roomservice != null">, {{(d.roomservice).replace('_', ' ')}}</span></span>
                 
                 </ion-item>
               </ion-col>
@@ -43,7 +45,7 @@
               <ion-col>
                 <ion-label stacked>
                   <ion-icon ios="ios-bus" md="md-bus"></ion-icon> Transportation</ion-label>
-                  <ion-item style="padding-left: 0px" (click)="transportationTapped(j)"><span *ngIf="d.transportation != null">{{d.transportation.Name}}, {{d.transportation.TransportationSeatTypeName}} Seater</span><span *ngIf="d.transportservice != null">, {{d.transportservice}}</span>
+                  <ion-item style="padding-left: 0px" (click)="transportationTapped(j)"><span *ngIf="d.transportation != null">{{d.transportation.Name}}, {{d.transportation.TransportationSeatTypeName}} Seater</span><span *ngIf="d.transportservice != null">, {{(d.transportservice).split("_").join(" ")}}</span>
                 </ion-item>
               </ion-col>
             </ion-row>

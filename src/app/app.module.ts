@@ -56,7 +56,8 @@ import { ListHotelPage1 } from '../pages/daily-page/list-hotel1/list-hotel1';
 import { HotelRoomtypePage1 } from '../pages/daily-page/hotel-roomtype1/hotel-roomtype1';
 import { HotelRoomservicePage1 } from '../pages/daily-page/hotel-roomservice1/hotel-roomservice1';
 import { HotelRoomallocatePage1 } from '../pages/daily-page/hotel-roomallocate1/hotel-roomallocate1';
-
+import { FilterDestinationPage } from '../pages/daily-page/filter-destination/filter-destination';
+import {FilterAttraction  } from '../pages/daily-page/filter-attraction/filter-attraction';
 //result
 import { DailyProgram } from '../pages/daily-program/daily-program';
 import { DailyDetails } from '../pages/daily-details/daily-details';
@@ -80,7 +81,7 @@ import { HistoryService } from '../providers/history-service';
 import { DailyService } from '../providers/daily-service';
 import { MultiTransactionService } from '../providers/multi-transaction-service';
 import { UserandcompanyDetails } from '../providers/userandcompany-details';
-
+import { FilattractionService } from '../providers/filattraction-service';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -134,6 +135,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HotelRoomtypePage1,
     HotelRoomservicePage1,
     HotelRoomallocatePage1,
+    FilterDestinationPage,
+    FilterAttraction,
 
     //result
     ConfirmBookingPage,
@@ -211,6 +214,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HotelRoomtypePage1,
     HotelRoomservicePage1,
     HotelRoomallocatePage1,
+    FilterDestinationPage,
+    FilterAttraction,
+
 
     //component
     LocationPopoverComponent,
@@ -239,7 +245,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HistoryService,
     DailyService,
     MultiTransactionService,
-    UserandcompanyDetails
+    UserandcompanyDetails, 
+    FilattractionService
   ]
 })
 export class AppModule { }

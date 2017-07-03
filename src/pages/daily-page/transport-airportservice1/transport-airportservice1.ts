@@ -16,11 +16,14 @@ export class TransportAirportservice1Page {
     this.idAwal = navParams.data['id']
     this.idAkhir = navParams.data['i']
     this.transportser=navParams.data['ser']
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TransportAirportservicePage');
   }
+  
+  
 
   setTransService(itemser){
      let id = this.idAwal;

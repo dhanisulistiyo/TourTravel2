@@ -171,7 +171,6 @@ export class IteneraryBuilderPage {
   }
 
   inputDateTours(ev) {
-    
     let today =new Date(ev['monthStart'])
     let tomorrow = new Date();
     tomorrow.setDate(today.getDate()+1)
@@ -212,7 +211,7 @@ export class IteneraryBuilderPage {
 
 
   createItenerary(event) {
-    if (this.toursname == '') this.showAlertTourName();
+    if (this.ite.getToursName() == null) this.showAlertTourName();
     else if (this.destination == '')this.showAlertDestination();
     else if (this.ite.getDateTour() == null) this.showAlertDates();
     else if(this.totalDays < 0) this.showAlertValidasiDates();

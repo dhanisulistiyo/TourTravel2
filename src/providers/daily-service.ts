@@ -33,6 +33,8 @@ export class DailyProgram {
 export class DailyDetailsProgram {
   id;
   location;
+  destinationFrom;
+  destinationTo;
   acomodation;
   roomtype;
   roomservice;
@@ -43,6 +45,8 @@ export class DailyDetailsProgram {
   constructor() {
     this.id = null;
     this.location = null;
+    this.destinationFrom = null;
+    this.destinationTo = null;
     this.acomodation = null;
     this.roomtype = null;
     this.roomservice = null;
@@ -76,6 +80,9 @@ export class DailyService {
   public getID() {
     return this.id
   }
+
+
+
 
   public setTransportAirport(service) {
     if (service == 'PickAndDrop') {
@@ -114,6 +121,7 @@ export class DailyService {
   dailyProgram(days) {
     var today = new Date(this.ite.getDateTour().ev['monthStart'])
     if (days != (Object.keys(this.daily).length) - 1) {
+      this.destroyObject();
       for (let i = 0; i <= days; i++) {
         let tomorrow = new Date()
         tomorrow.setDate(today.getDate() + i)
@@ -172,6 +180,8 @@ export class DailyService {
 
     d.id = 1
     d.location = location
+    d.destinationFrom = location;
+    d.destinationTo= location;
     d.roomtype = null
     d.roomservice = null
     d.roomallocate = null
@@ -208,9 +218,12 @@ export class DailyService {
 
   setLocation(id, i, data) {
     this.daily[id].program_daily[i].location = Array.of(data)
+     this.daily[id].program_daily[i].destinationFrom = Array.of(data)
+     this.daily[id].program_daily[i].destinationTo = Array.of(data)
     this.daily[id].program_daily[i].acomodation = null
     this.daily[id].program_daily[i].transportation = null
     this.daily[id].program_daily[i].attraction = null
+    this.daily[id].program_daily[i].transportservice = null
   }
   setAcomodation(id, i, data) {
     var no = Object.keys(this.daily).length;
@@ -221,9 +234,9 @@ export class DailyService {
       }
     }
 
-    for (let j = id + 1; j < no - 1; j++) {
+    for (let j = id + 1; j < no; j++) {
       this.daily[j].program_daily[0].location = this.daily[id].program_daily[i].location;
-      this.daily[j].program_daily[0].acomodation = data
+      if (j != no-1) this.daily[j].program_daily[0].acomodation = data
     }
 
   }
@@ -259,10 +272,19 @@ export class DailyService {
   setAttraction(id, i, data) {
     this.daily[id].program_daily[i].attraction = data
     console.log(this.daily[id])
-    console.log(this.daily[id].program_daily[i])
-
   }
 
+  getAttraction(id, i) {
+    return this.daily[id].program_daily[i].attraction
+  }
+  
+    public setDestinationFrom(id, i, data){
+      this.daily[id].program_daily[i].destinationFrom = Array.of(data);
+  }
+
+    public setDestinationTo(id, i, data){
+    this.daily[id].program_daily[i].destinationTo = Array.of(data);
+  }
 
 
 }

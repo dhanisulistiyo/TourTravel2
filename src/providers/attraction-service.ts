@@ -12,11 +12,20 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class AttractionService {
-
+  types;
   constructor(public http: Http,public auth:AuthService, public ite:IteneraryService ) {
     console.log('Hello AttractionService Provider');
   }
 
+
+  delStorFilAttrac(){
+            localStorage.removeItem('tyAttrac');
+  }
+
+    public setTypes(ty) {
+        window.localStorage.setItem('tyAttrac', ty);
+        this.types = ty;
+    }
   searchListAttraction() {
         var headers = new Headers();
         let des = this.ite.getDestination();
@@ -38,5 +47,19 @@ export class AttractionService {
         var response = this.http.get(url, {headers : headers}).map(res => res.json());        
         return response;
     }
+
+    listAttractionDailyFilter(des) {
+        var headers = new Headers();
+        let token = this.auth.AuthToken;
+        let ty = window.localStorage.getItem('tyAttrac');
+        if (ty == null) { ty = '' }
+        console.log(token);
+        headers.append('Authorization', 'Bearer ' +token);
+        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/AttractionObjects/ByCityWithFilter?cityid='+des+'&attractionTypeId='+ty; 
+        var response = this.http.get(url, {headers : headers}).map(res => res.json());        
+        return response;
+    }
+
+
 
 }

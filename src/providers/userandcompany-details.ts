@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http,Headers } from '@angular/http';
-import {AuthService} from '../providers/auth-token-service'
+import { Http, Headers, RequestOptions } from '@angular/http';
+import { AuthService } from '../providers/auth-token-service'
 import 'rxjs/add/operator/map';
 
 /*
@@ -12,29 +12,59 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class UserandcompanyDetails {
 
-  constructor(public http: Http, public auth:AuthService) {
+  constructor(public http: Http, public auth: AuthService) {
     console.log('Hello UserandcompanyDetails Provider');
   }
 
-   getCompany() {
-        var headers = new Headers();
-        let token = this.auth.AuthToken;
-        console.log(token);
-        headers.append('Authorization', 'Bearer ' +token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/Companies/CompanyProfile'; 
-        var response = this.http.get(url, {headers : headers}).map(res => res.json());        
-        return response;
-    }
+  getCompany() {
+    var headers = new Headers();
+    let token = this.auth.AuthToken;
+    console.log(token);
+    headers.append('Authorization', 'Bearer ' + token);
+    var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/Companies/CompanyProfile';
+    var response = this.http.get(url, { headers: headers }).map(res => res.json());
+    return response;
+  }
 
-      getUser() {
-        var headers = new Headers();
-        let token = this.auth.AuthToken;
-        console.log(token);
-        headers.append('Authorization', 'Bearer ' +token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/Account/UserInfo'; 
-        var response = this.http.get(url, {headers : headers}).map(res => res.json());        
-        return response;
+  getUser() {
+    var headers = new Headers();
+    let token = this.auth.AuthToken;
+    console.log(token);
+    headers.append('Authorization', 'Bearer ' + token);
+    var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/Account/UserInfo';
+    var response = this.http.get(url, { headers: headers }).map(res => res.json());
+    return response;
+  }
+
+  changePassword(c) {
+    let token = this.auth.AuthToken;
+    let change = {
+      "OldPassword": c.old_password,
+      "NewPassword": c.new_password,
+      "ConfirmPassword": c.con_password
     }
+    var headers = new Headers({ 'Content-Type': 'application/json' });
+    headers.append('Authorization', 'Bearer ' + token);
+    let options = new RequestOptions({ headers: headers });
+
+    return new Promise(resolve => {
+      this.http.post('http://cloud.basajans.com:8868/tripplannerdev/api/Account/ChangePassword', change, options).map(res => res
+      ).subscribe(res => {
+        if (res.status < 200 || res.status >= 300) {
+          console.log(res);
+          resolve(false);
+        } else {
+          console.log(res);
+          resolve(true);
+        }
+      }, (error => {
+        console.log(error)
+        resolve(false);
+      })
+
+        );
+    });
+  }
 
 
 

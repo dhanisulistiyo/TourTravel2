@@ -24990,6 +24990,44 @@ page-destination2 .searchbar-md {
   background: #008149;
 }
 
+page-filter-attraction .toolbar-background-md {
+  border-color: #008149;
+  background: #008149;
+}
+
+page-filter-attraction .bar-button-default-md, page-filter-attraction .bar-button-clear-md-default, page-filter-attraction .bar-button-md-default {
+  color: #ffffff;
+  background-color: transparent;
+}
+
+page-filter-attraction .toolbar-title-md {
+  color: #f9f7f7;
+}
+
+page-filter-attraction .searchbar-md {
+  padding: 8px;
+  background: #008149;
+}
+
+page-filter-destination .toolbar-background-md {
+  border-color: #008149;
+  background: #008149;
+}
+
+page-filter-destination .bar-button-default-md, page-filter-destination .bar-button-clear-md-default, page-filter-destination .bar-button-md-default {
+  color: #ffffff;
+  background-color: transparent;
+}
+
+page-filter-destination .toolbar-title-md {
+  color: #f9f7f7;
+}
+
+page-filter-destination .searchbar-md {
+  padding: 8px;
+  background: #008149;
+}
+
 page-filter-hotel1 .toolbar-background-md {
   border-color: #008149;
   background: #008149;
@@ -25132,6 +25170,12 @@ page-list-attraction1 ion-col[width-60] {
   -ms-flex: 0 0 60%;
   flex: 0 0 60%;
   max-width: 60%;
+}
+
+page-list-attraction1 ion-icon {
+  display: inline-block;
+  font-size: 1.5em;
+  color: white;
 }
 
 page-list-hotel1 .toolbar-background-md {

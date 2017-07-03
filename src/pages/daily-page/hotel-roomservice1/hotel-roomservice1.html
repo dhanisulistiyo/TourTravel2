@@ -17,7 +17,7 @@
  
  <ion-item-group  >
    <h4>Choose Room Services</h4>
-    <ion-item *ngFor="let srooms of roomtypes" (click)="setSelectedRoomSer(srooms)">{{srooms}}</ion-item>
+    <ion-item *ngFor="let srooms of roomtypes" (click)="setSelectedRoomSer(srooms)">{{(srooms).replace('_', ' ')}}</ion-item>
   </ion-item-group>
 </ion-content>
 

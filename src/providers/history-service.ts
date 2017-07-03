@@ -23,7 +23,7 @@ export class HistoryService {
         let token = this.auth.AuthToken;
         console.log(token);
         headers.append('Authorization', 'Bearer ' +token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TourTransactions/TransactionHistory?status=Booking_created'; 
+        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TourTransactions/TransactionHistoryDetailed?status=Booking_created'; 
         var response = this.http.get(url, {headers : headers}).map(res => res.json());        
         return response;
     }
@@ -45,7 +45,7 @@ export class HistoryService {
         let token = this.auth.AuthToken;
         console.log(token);
         headers.append('Authorization', 'Bearer ' +token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TourTransactions/TransactionHistory?status=Booking_confirmed'; 
+        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TourTransactions/TransactionHistoryDetailed?status=Booking_confirmed'; 
         var response = this.http.get(url, {headers : headers}).map(res => res.json());        
         return response;
     }
@@ -55,7 +55,7 @@ export class HistoryService {
         let token = this.auth.AuthToken;
         console.log(token);
         headers.append('Authorization', 'Bearer ' +token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TourTransactions/TransactionHistory?status=Booking_cancelled'; 
+        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TourTransactions/TransactionHistoryDetailed?status=Booking_cancelled'; 
         var response = this.http.get(url, {headers : headers}).map(res => res.json());        
         return response;
     }

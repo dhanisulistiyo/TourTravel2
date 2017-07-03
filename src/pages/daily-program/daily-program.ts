@@ -60,10 +60,10 @@ export class DailyProgram {
     }
   }
 
-  Details(event, i) {
+  Details(event, i, date) {
     let item = this.ds.getDetails(i);
     //this.mt.destroyObject();
-    this.navCtrl.push(DailyDetails ,{awal : i,item:item} )
+    this.navCtrl.push(DailyDetails ,{awal : i,item:item, date:date} )
 }
 
 

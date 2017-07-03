@@ -16,14 +16,16 @@ export class ListTransportPage1 {
   transport: Array<any>;
   idAwal;
   idAkhir;
-  des;
+  from;
+  to;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public ds: DailyService,
     public tra: TransportService,
     public load: LoadingController
   ) {
-    this.des = navParams.data['des']
+    this.from = navParams.data['from']
+    this.to = navParams.data['to']
     this.idAwal = navParams.data['id']
     this.idAkhir = navParams.data['i']
   }
@@ -33,7 +35,7 @@ export class ListTransportPage1 {
       content: 'Please wait...'
     });
     loader.present();
-    this.tra.listTransportFilterDaily(this.des).subscribe(data => {
+    this.tra.listTransportDaily(this.from, this.to).subscribe(data => {
       this.listtransports = data;
       this.transport = this.listtransports;
       loader.dismiss();
@@ -84,10 +86,9 @@ export class ListTransportPage1 {
   filtertransTapped(event) {
     this.tra.delStorFilTra();
     this.navCtrl.pop();
-    let des = this.des;
     let id = this.idAwal;
     let i = this.idAkhir;
-    this.navCtrl.push(FilterTransport1Page,{ des, id, i});
+    this.navCtrl.push(FilterTransport1Page,{ id, i});
   }
 
 

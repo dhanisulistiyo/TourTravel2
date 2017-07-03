@@ -40,6 +40,9 @@ export class ListHotelPage1 {
 
     }, err => {
       console.log(err);
+      this.listhotels = [];
+      loader.dismiss();
+
     },
       () => console.log('Hotel Search Complete')
     );

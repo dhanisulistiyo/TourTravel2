@@ -14,7 +14,7 @@
 <ion-content padding> 
   <ion-item-group  >
     <h5> Choose Transport Service</h5>
-      <ion-item *ngFor="let ts of transportser" (click)="setTransService(ts)">{{ts}}</ion-item>
+      <ion-item *ngFor="let ts of transportser" (click)="setTransService(ts)">{{ts.split("_").join(" ")}}</ion-item>
     </ion-item-group>
 
       <!--<ion-list radio-group>

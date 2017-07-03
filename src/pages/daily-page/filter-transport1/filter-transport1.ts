@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { FiltransportService} from '../../../providers/filtransport-service';
+import { DailyService } from '../../../providers/daily-service';
 import { TransportService} from '../../../providers/transport-service';
 import {ListTransportPage1 } from '../list-transport1/list-transport1';
-
+import {FilterDestinationPage } from '../filter-destination/filter-destination';
 /*
   Generated class for the FilterTransport2 page.
 
@@ -21,14 +22,12 @@ export class FilterTransport1Page {
   listSeats: Array<any>;
   idAwal;
   idAkhir;
-  des;
-
+  daily;
   constructor(public navCtrl: NavController, public navParams: NavParams, public fil:FiltransportService,
    public tra: TransportService,
-   public load : LoadingController
+   public load : LoadingController,
+   public ds : DailyService
    ) {
-
-    this.des = navParams.data['des']
     this.idAwal = navParams.data['id']
     this.idAkhir = navParams.data['i']
   }
@@ -37,7 +36,10 @@ export class FilterTransport1Page {
     let loader = this.load.create({
       content: 'Please wait...'
     });
+
     loader.present();
+    this.daily = this.ds.daily[this.idAwal].program_daily[this.idAkhir];
+    console.log(this.daily);
     this.listRating();
     this.listType();
     this.listSeat();
@@ -102,13 +104,21 @@ export class FilterTransport1Page {
     this.tra.setSeats(seat);
   }
 
+  filterDestination(details){
+    let id = this.idAwal;
+    let i = this.idAkhir;
+    this.navCtrl.push(FilterDestinationPage, { details,id, i});
+
+  }
 
  listTapped(event) {
     this.navCtrl.pop();
-    let des = this.des;
+
     let id = this.idAwal;
     let i = this.idAkhir;
-    this.navCtrl.push(ListTransportPage1, {des, id, i});
+    let from =this.ds.daily[id].program_daily[i].destinationFrom[0].Id;
+    let to = this.ds.daily[id].program_daily[i].destinationTo[0].Id;
+    this.navCtrl.push(ListTransportPage1, {from, to, id, i});
     
   }
 

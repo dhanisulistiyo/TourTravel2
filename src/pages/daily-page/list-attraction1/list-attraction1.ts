@@ -1,3 +1,4 @@
+import { FilterAttraction } from './../filter-attraction/filter-attraction';
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { AttractionService } from '../../../providers/attraction-service';
@@ -34,7 +35,10 @@ export class ListAttractionPage1 {
       content: 'Please wait...'
     });
     loader.present();
-    this.attSer.listAttractionDaily(this.des).subscribe(data => {
+    // this.selectedQuestions = this.ds.getAttraction(this.idAwal, this.idAkhir);
+    // if(this.selectedQuestions == null) this.selectedQuestions = []
+    // console.log(this.selectedQuestions);
+    this.attSer.listAttractionDailyFilter(this.des).subscribe(data => {
       this.listattractions = data;
       this.attractions = this.listattractions;
       loader.dismiss();
@@ -89,6 +93,15 @@ export class ListAttractionPage1 {
         this.ds.setAttraction(this.idAwal, this.idAkhir, attrac);
         this.navCtrl.pop();
     }
+
+
+  filterattracTapped(event) {
+    this.attSer.delStorFilAttrac();
+    this.navCtrl.pop();
+    let id = this.idAwal;
+    let i = this.idAkhir;
+    this.navCtrl.push(FilterAttraction,{ id, i});
+  }
 
 
 }

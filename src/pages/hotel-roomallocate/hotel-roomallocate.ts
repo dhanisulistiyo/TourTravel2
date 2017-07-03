@@ -20,7 +20,7 @@ export class HotelRoomallocatePage {
   adult;
   child;
   infant;
-  
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public ite: IteneraryService,
@@ -31,7 +31,8 @@ export class HotelRoomallocatePage {
     this.adult = Number(this.ite.getPassenger().guestTour['AdultQty']);
     this.child = Number(this.ite.getPassenger().guestTour['ChildQty']);
     this.infant = Number(this.ite.getPassenger().guestTour['InfantQty']);
-    this.totalGuest =  this.dataGuest();
+    //this.totalGuest =  this.dataGuest();
+    this.totalGuest = 0;
   }
 
   dataGuest() {
@@ -48,16 +49,16 @@ export class HotelRoomallocatePage {
 
   guestRemaining(allocroom) {
     let remGuest = this.remGuest(allocroom);
-
     if (typeof remGuest != "number" || String(remGuest) == "NaN") {
       this.showAlertValidasi();
     }else{
         if(Number(allocroom.sharingBed)<= this.child){
-          if(remGuest != 0)  this.totalGuest = this.dataGuest() - remGuest - this.infant;
-          else  this.totalGuest = this.dataGuest();
+          //untuk pengurangan
+          // if(remGuest != 0)  this.totalGuest = this.dataGuest() - remGuest - this.infant;
+          if(remGuest != 0)  this.totalGuest = remGuest
+          else  this.totalGuest = remGuest
         }else this.showAlertChilds();
     }
-
   }
 
 
@@ -76,7 +77,7 @@ export class HotelRoomallocatePage {
   //       this.navCtrl.remove(index - 1);
   //       this.navCtrl.remove(index - 2);
   //     });
-  //     }else this.showAlertAllocate(); 
+  //     }else this.showAlertAllocate();
   // }
 
 
@@ -88,7 +89,7 @@ export class HotelRoomallocatePage {
           var data = JSON.stringify({ allocroom });
           this.ite.setRoomAllo(data);
           this.navCtrl.pop();
-      }else this.showAlertAllocate(); 
+      }else this.showAlertAllocate();
   }
 
   showAlertValidasi() {
@@ -115,7 +116,7 @@ export class HotelRoomallocatePage {
     });
     alert.present();
   }
- 
+
 
 
 }
