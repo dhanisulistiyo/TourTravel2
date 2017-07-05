@@ -119,11 +119,12 @@ export class DailyService {
 
 
   dailyProgram(days) {
-    var today = new Date(this.ite.getDateTour().ev['monthStart'])
+    
     if (days != (Object.keys(this.daily).length) - 1) {
       this.destroyObject();
-      for (let i = 0; i <= days; i++) {
-        let tomorrow = new Date()
+      let today = new Date(this.ite.getDateTour().ev['monthStart'])
+      let tomorrow = new Date(this.ite.getDateTour().ev['monthStart'])
+      for (let i = 0; i <= days; i++) {       
         tomorrow.setDate(today.getDate() + i)
         let dateDaily = tomorrow.toISOString().substring(0, 10)
         let p = new DailyProgram()

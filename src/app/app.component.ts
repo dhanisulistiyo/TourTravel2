@@ -1,5 +1,5 @@
 import { Component, ViewChild,Injectable } from '@angular/core';
-import { Platform, MenuController, Nav } from 'ionic-angular';
+import { Platform, MenuController, Nav, LoadingController, AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 //screen Page
@@ -33,7 +33,9 @@ export class MyApp {
     public menu: MenuController,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    public auth: AuthService
+    public auth: AuthService,
+    public alertCtrl : AlertController,
+    public load: LoadingController
     ) {
       
     this.initializeApp();
@@ -77,10 +79,14 @@ export class MyApp {
     this.password = info.password;
   }
 
-  public logout() {
-        this.auth.logout();
-        this.username=null;
-        this.password=null;
-        return LoginPage;
+    public logout() {
+       this.auth.logout();
+            this.username=null;
+            this.password=null;
+             return LoginPage;
     }
+
+
+    
+    
 }
