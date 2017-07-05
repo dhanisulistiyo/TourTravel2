@@ -1,21 +1,5 @@
 page-custome-package {
-    // //header
-    // .toolbar-background-md {
-    // border-color: #008149;
-    // background: #008149;
-    // }
-
-    // .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
-    // color: #ffffff;
-    // background-color: transparent;
-    // }
-
-    // //content
-    // .content-bgn{
-    //     background: #008149;
-    // }
-
-    //ends
+    
     ion-card {
       position: relative;
       text-align: center;
@@ -27,8 +11,6 @@ page-custome-package {
     .button-md:hover:not(.disable-hover) {
         background-color: transparent; 
     }
-
-
         .toolbar-title{
           text-align: right;
                 .button-inner{
@@ -49,8 +31,4 @@ page-custome-package {
                   box-shadow: none;
                 }
           }
-      
-
-
-
   }
