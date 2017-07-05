@@ -15,6 +15,9 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+@import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
 page-app{
 
@@ -22,8 +25,8 @@ page-app{
 .header-menu-user{
     min-height: 200px;
             .toolbar-background-md {
-            border-color: green;
-            background: green;
+            border-color: #ffffff;
+            background: #ffffff;
         }
 
          .toolbar-title-md {
@@ -39,8 +42,8 @@ page-app{
 }
 
 .toolbar-background-md {
-    border-color: #008149;
-    background: #008149;
+    border-color: #00a497;
+    background: #00a497;
     }
 
     .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
@@ -51,3 +54,50 @@ page-app{
     .toolbar-title-md {
     color: #f9f7f7;
     }
+    
+    //header
+    .toolbar-background-md {
+    border-color: #00a497;
+    background: #00a497;
+    }
+
+    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: #ffffff;
+    background-color: transparent;
+    }
+
+    //content
+    .content-bgn{
+        background: #ffffff;
+    }
+
+    .tab-text {
+        font-family: 'Quicksand', sans-serif;
+        color: white;
+        font-size: 30px;
+        font-weight: 400;
+    }
+
+page-home {
+
+    .tab-button[aria-selected=true] {
+    // text-decoration: underline !important;
+        border-style : solid;
+        border-bottom: thick solid white;
+        color: white;
+    }
+    .tabs-md .tab-button-text{
+        font-size:1.5rem;
+        color: white;
+    }
+
+    ion-tab{
+        font-size: 90px; 
+    }
+
+    .tabs-md .tabbar {
+        background: #00a497;
+    }
+
+
+}

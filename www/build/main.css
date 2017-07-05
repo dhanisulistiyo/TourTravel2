@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Architects+Daughter");
 @import url("https://fonts.googleapis.com/css?family=Quicksand");
+@import url("https://fonts.googleapis.com/css?family=Lato");
 .ion-ios-add:before {
   content: "\f102";
 }
@@ -24739,8 +24740,8 @@ page-app .header-menu-user {
 }
 
 page-app .header-menu-user .toolbar-background-md {
-  border-color: green;
-  background: green;
+  border-color: #ffffff;
+  background: #ffffff;
 }
 
 page-app .header-menu-user .toolbar-title-md {
@@ -24752,8 +24753,8 @@ page-app .header-menu-user .toolbar-title-md {
 }
 
 .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
+  border-color: #00a497;
+  background: #00a497;
 }
 
 .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
@@ -24763,6 +24764,46 @@ page-app .header-menu-user .toolbar-title-md {
 
 .toolbar-title-md {
   color: #f9f7f7;
+}
+
+.toolbar-background-md {
+  border-color: #00a497;
+  background: #00a497;
+}
+
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+  color: #ffffff;
+  background-color: transparent;
+}
+
+.content-bgn {
+  background: #ffffff;
+}
+
+.tab-text {
+  font-family: 'Quicksand', sans-serif;
+  color: white;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+page-home .tab-button[aria-selected=true] {
+  border-style: solid;
+  border-bottom: thick solid white;
+  color: white;
+}
+
+page-home .tabs-md .tab-button-text {
+  font-size: 1.5rem;
+  color: white;
+}
+
+page-home ion-tab {
+  font-size: 90px;
+}
+
+page-home .tabs-md .tabbar {
+  background: #00a497;
 }
 
 page-changepassword .toolbar-background-md {
@@ -24872,20 +24913,6 @@ page-confirm-booking .toolbar-title-md {
 
 page-confirm-booking .border-daily {
   border: 1px solid black;
-}
-
-page-custome-package .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-custome-package .bar-button-default-md, page-custome-package .bar-button-clear-md-default, page-custome-package .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-custome-package .content-bgn {
-  background: #008149;
 }
 
 page-custome-package ion-card {
@@ -25460,19 +25487,9 @@ page-filter-transport2 .toolbar-title-md {
   color: #f9f7f7;
 }
 
-page-fixed-package .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
 page-fixed-package .bar-button-default-md, page-fixed-package .bar-button-clear-md-default, page-fixed-package .bar-button-md-default {
   color: #ffffff;
   background-color: transparent;
-}
-
-page-fixed-package .content-md {
-  color: white;
-  background-color: #008149;
 }
 
 page-fixed-package ion-card {
@@ -25495,25 +25512,6 @@ page-fixed-package .card-subtitle {
   top: 52%;
   width: 100%;
   color: #fff;
-}
-
-page-home .tab-button[aria-selected=true] {
-  border-style: solid;
-  border-bottom: thick solid white;
-  color: white;
-}
-
-page-home .tabs-md .tab-button-text {
-  font-size: 1.5rem;
-  color: white;
-}
-
-page-home ion-tab {
-  font-size: 90px;
-}
-
-page-home .tabs-md .tabbar {
-  background: #008149;
 }
 
 page-hotel-roomallocate .toolbar-background-md {
@@ -25798,7 +25796,7 @@ page-login h2 {
   font-family: 'Quicksand', sans-serif;
   color: white;
   font-size: 30px;
-  font-weight: 500;
+  font-weight: 700;
   margin-bottom: 120px;
 }
 
@@ -25861,9 +25859,21 @@ page-login .signup-background:before {
 page-login .bg-img {
   width: 100%;
   height: 100%;
-  background: url("../assets/img/image_bg.jpeg") center center no-repeat;
+  background: url("../assets/img/login-bg.jpg") center center no-repeat;
   background-size: cover;
   background-repeat: no-repeat;
+  background-size: cover;
+}
+
+page-login .bg-img:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to bottom right, #002f4b, #ffffff);
+  opacity: .2;
 }
 
 page-login .scroll-content {
@@ -26219,21 +26229,6 @@ page-myprofile .item-md {
   transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-page-promo-package .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-promo-package .bar-button-default-md, page-promo-package .bar-button-clear-md-default, page-promo-package .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-promo-package .content-md {
-  color: white;
-  background-color: #008149;
-}
-
 page-register .bottom-bar {
   position: fixed;
   bottom: 0px;
@@ -26246,7 +26241,7 @@ page-register h2 {
   font-family: 'Quicksand', sans-serif;
   color: white;
   font-size: 30px;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 page-register h3 {
@@ -26308,9 +26303,21 @@ page-register .signup-background:before {
 page-register .bg-img {
   width: 100%;
   height: 100%;
-  background: url("../assets/img/image_bg.jpeg") center center no-repeat;
+  background: url("../assets/img/login-bg.jpg") center center no-repeat;
   background-size: cover;
   background-repeat: no-repeat;
+  background-size: cover;
+}
+
+page-register .bg-img:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to bottom right, #002f4b, #ffffff);
+  opacity: .2;
 }
 
 page-register .scroll-content {
