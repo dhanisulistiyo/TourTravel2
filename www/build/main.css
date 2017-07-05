@@ -24740,8 +24740,8 @@ page-app .header-menu-user {
 }
 
 page-app .header-menu-user .toolbar-background-md {
-  border-color: #ffffff;
-  background: #ffffff;
+  border-color: #00a497;
+  background: #00a497;
 }
 
 page-app .header-menu-user .toolbar-title-md {
@@ -24750,6 +24750,11 @@ page-app .header-menu-user .toolbar-title-md {
   font-weight: 500;
   color: white;
   text-align: center;
+}
+
+.searchbar-md {
+  padding: 8px;
+  background: #00a497;
 }
 
 .toolbar-background-md {
@@ -24804,11 +24809,6 @@ page-home ion-tab {
 
 page-home .tabs-md .tabbar {
   background: #00a497;
-}
-
-page-changepassword .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
 }
 
 page-changepassword .bar-button-default-md, page-changepassword .bar-button-clear-md-default, page-changepassword .bar-button-md-default {
@@ -24897,24 +24897,6 @@ page-changepassword .btn-update {
   margin-right: 20px;
 }
 
-page-confirm-booking .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-confirm-booking .bar-button-default-md, page-confirm-booking .bar-button-clear-md-default, page-confirm-booking .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-confirm-booking .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-confirm-booking .border-daily {
-  border: 1px solid black;
-}
-
 page-custome-package ion-card {
   position: relative;
   text-align: center;
@@ -24951,22 +24933,6 @@ page-custome-package .toolbar-title .button-clear-md-dark.activated {
   box-shadow: none;
 }
 
-page-daily-details .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-daily-details .bar-button-default-md,
-page-daily-details .bar-button-clear-md-default,
-page-daily-details .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-daily-details .toolbar-title-md {
-  color: #f9f7f7;
-}
-
 page-daily-details .card-header-md {
   border-bottom: 1px solid grey;
   padding-top: 5px;
@@ -24998,110 +24964,6 @@ page-daily-details .card-content-md {
   padding-bottom: 0px;
 }
 
-page-destination2 .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-destination2 .bar-button-default-md, page-destination2 .bar-button-clear-md-default, page-destination2 .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-destination2 .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-destination2 .searchbar-md {
-  padding: 8px;
-  background: #008149;
-}
-
-page-filter-attraction .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-filter-attraction .bar-button-default-md, page-filter-attraction .bar-button-clear-md-default, page-filter-attraction .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-filter-attraction .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-filter-attraction .searchbar-md {
-  padding: 8px;
-  background: #008149;
-}
-
-page-filter-destination .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-filter-destination .bar-button-default-md, page-filter-destination .bar-button-clear-md-default, page-filter-destination .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-filter-destination .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-filter-destination .searchbar-md {
-  padding: 8px;
-  background: #008149;
-}
-
-page-filter-hotel1 .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-filter-hotel1 .bar-button-default-md, page-filter-hotel1 .bar-button-clear-md-default, page-filter-hotel1 .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-filter-hotel1 .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-filter-transport1 .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-filter-transport1 .bar-button-default-md, page-filter-transport1 .bar-button-clear-md-default, page-filter-transport1 .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-filter-transport1 .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-filter-transport1 .searchbar-md {
-  padding: 8px;
-  background: #008149;
-}
-
-page-hotel-roomallocate1 .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-hotel-roomallocate1 .bar-button-default-md, page-hotel-roomallocate1 .bar-button-clear-md-default, page-hotel-roomallocate1 .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-hotel-roomallocate1 .toolbar-title-md {
-  color: #f9f7f7;
-}
-
 page-hotel-roomallocate1 .vertical-align-content > * {
   display: -webkit-flex !important;
   display: -ms-flexbox !important;
@@ -25122,36 +24984,8 @@ page-hotel-roomallocate1 .text-input-md {
   font-size: large;
 }
 
-page-hotel-roomservice1 .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-hotel-roomservice1 .bar-button-default-md, page-hotel-roomservice1 .bar-button-clear-md-default, page-hotel-roomservice1 .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-hotel-roomservice1 .toolbar-title-md {
-  color: #f9f7f7;
-}
-
 page-hotel-roomservice1 .label-md {
   font-size: x-large;
-}
-
-page-hotel-roomtype1 .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-hotel-roomtype1 .bar-button-default-md, page-hotel-roomtype1 .bar-button-clear-md-default, page-hotel-roomtype1 .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-hotel-roomtype1 .toolbar-title-md {
-  color: #f9f7f7;
 }
 
 page-hotel-roomtype1 ion-card img {
@@ -25165,25 +24999,6 @@ page-hotel-roomtype1 ion-col[width-60] {
   -ms-flex: 0 0 60%;
   flex: 0 0 60%;
   max-width: 60%;
-}
-
-page-list-attraction1 .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-list-attraction1 .bar-button-default-md, page-list-attraction1 .bar-button-clear-md-default, page-list-attraction1 .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-list-attraction1 .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-list-attraction1 .searchbar-md {
-  padding: 8px;
-  background: #008149;
 }
 
 page-list-attraction1 ion-card img {
@@ -25205,25 +25020,6 @@ page-list-attraction1 ion-icon {
   color: white;
 }
 
-page-list-hotel1 .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-list-hotel1 .bar-button-default-md, page-list-hotel1 .bar-button-clear-md-default, page-list-hotel1 .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-list-hotel1 .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-list-hotel1 .searchbar-md {
-  padding: 8px;
-  background: #008149;
-}
-
 page-list-hotel1 ion-card img {
   display: block;
   width: 155px;
@@ -25243,25 +25039,6 @@ page-list-hotel1 ion-icon {
   color: white;
 }
 
-page-list-transport1 .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-list-transport1 .bar-button-default-md, page-list-transport1 .bar-button-clear-md-default, page-list-transport1 .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-list-transport1 .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-list-transport1 .searchbar-md {
-  padding: 8px;
-  background: #008149;
-}
-
 page-list-transport1 ion-card img {
   display: block;
   width: 155px;
@@ -25279,32 +25056,6 @@ page-list-transport1 ion-icon {
   display: inline-block;
   font-size: 1.5em;
   color: white;
-}
-
-page-transport-airportservice1 .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-transport-airportservice1 .bar-button-default-md, page-transport-airportservice1 .bar-button-clear-md-default, page-transport-airportservice1 .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-transport-airportservice1 .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-daily-program .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-daily-program .bar-button-default-md,
-page-daily-program .bar-button-clear-md-default,
-page-daily-program .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
 }
 
 page-daily-program .list-md .item-block .item-inner {
@@ -25368,128 +25119,10 @@ page-daily-program ion-list ion-icon:before {
   font-weight: bold;
 }
 
-page-destination .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-destination .bar-button-default-md, page-destination .bar-button-clear-md-default, page-destination .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-destination .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-destination .searchbar-md {
-  padding: 8px;
-  background: #008149;
-}
-
-page-destination-transport .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-destination-transport .bar-button-default-md, page-destination-transport .bar-button-clear-md-default, page-destination-transport .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-destination-transport .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-destination-transport .searchbar-md {
-  padding: 8px;
-  background: #008149;
-}
-
-page-destination1 .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-destination1 .bar-button-default-md, page-destination1 .bar-button-clear-md-default, page-destination1 .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-destination1 .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-destination1 .searchbar-md {
-  padding: 8px;
-  background: #008149;
-}
-
-page-filter-hotel .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-filter-hotel .bar-button-default-md, page-filter-hotel .bar-button-clear-md-default, page-filter-hotel .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-filter-hotel .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-filter-hotel2 .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-filter-hotel2 .bar-button-default-md, page-filter-hotel2 .bar-button-clear-md-default, page-filter-hotel2 .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-filter-hotel2 .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-filter-transport .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-filter-transport .bar-button-default-md, page-filter-transport .bar-button-clear-md-default, page-filter-transport .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-filter-transport .toolbar-title-md {
-  color: #f9f7f7;
-}
-
 page-filter-transport .button-outline-md-dark.active {
   border-color: #2d2d2d;
   color: #f4f4f4;
   background-color: blue;
-}
-
-page-filter-transport2 .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-filter-transport2 .bar-button-default-md, page-filter-transport2 .bar-button-clear-md-default, page-filter-transport2 .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-filter-transport2 .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-fixed-package .bar-button-default-md, page-fixed-package .bar-button-clear-md-default, page-fixed-package .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
 }
 
 page-fixed-package ion-card {
@@ -25514,20 +25147,6 @@ page-fixed-package .card-subtitle {
   color: #fff;
 }
 
-page-hotel-roomallocate .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-hotel-roomallocate .bar-button-default-md, page-hotel-roomallocate .bar-button-clear-md-default, page-hotel-roomallocate .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-hotel-roomallocate .toolbar-title-md {
-  color: #f9f7f7;
-}
-
 page-hotel-roomallocate .vertical-align-content > * {
   display: -webkit-flex !important;
   display: -ms-flexbox !important;
@@ -25548,38 +25167,6 @@ page-hotel-roomallocate .text-input-md {
   font-size: large;
 }
 
-page-hotel-roomservice .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-hotel-roomservice .bar-button-default-md, page-hotel-roomservice .bar-button-clear-md-default, page-hotel-roomservice .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-hotel-roomservice .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-hotel-roomservice .label-md {
-  font-size: x-large;
-}
-
-page-hotel-roomtype .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-hotel-roomtype .bar-button-default-md, page-hotel-roomtype .bar-button-clear-md-default, page-hotel-roomtype .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-hotel-roomtype .toolbar-title-md {
-  color: #f9f7f7;
-}
-
 page-hotel-roomtype ion-card img {
   display: block;
   width: 155px;
@@ -25591,20 +25178,6 @@ page-hotel-roomtype ion-col[width-60] {
   -ms-flex: 0 0 60%;
   flex: 0 0 60%;
   max-width: 60%;
-}
-
-page-input-travellers .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-input-travellers .bar-button-default-md, page-input-travellers .bar-button-clear-md-default, page-input-travellers .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-input-travellers .toolbar-title-md {
-  color: #f9f7f7;
 }
 
 page-input-travellers .vertical-align-content > * {
@@ -25676,25 +25249,6 @@ page-itenerary-builder .modal-wrapper {
   height: 500px;
 }
 
-page-list-attraction .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-list-attraction .bar-button-default-md, page-list-attraction .bar-button-clear-md-default, page-list-attraction .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-list-attraction .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-list-attraction .searchbar-md {
-  padding: 8px;
-  background: #008149;
-}
-
 page-list-attraction ion-card img {
   display: block;
   width: 155px;
@@ -25706,25 +25260,6 @@ page-list-attraction ion-col[width-60] {
   -ms-flex: 0 0 60%;
   flex: 0 0 60%;
   max-width: 60%;
-}
-
-page-list-hotel .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-list-hotel .bar-button-default-md, page-list-hotel .bar-button-clear-md-default, page-list-hotel .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-list-hotel .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-list-hotel .searchbar-md {
-  padding: 8px;
-  background: #008149;
 }
 
 page-list-hotel ion-card img {
@@ -25744,25 +25279,6 @@ page-list-hotel ion-icon {
   display: inline-block;
   font-size: 1.5em;
   color: white;
-}
-
-page-list-transport .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-list-transport .bar-button-default-md, page-list-transport .bar-button-clear-md-default, page-list-transport .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-list-transport .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-list-transport .searchbar-md {
-  padding: 8px;
-  background: #008149;
 }
 
 page-list-transport ion-card img {
@@ -26040,7 +25556,7 @@ page-myaccount ion-tab {
 }
 
 page-myaccount .tabs-md .tabbar {
-  background: #008149;
+  background: #00a497;
 }
 
 page-mybooking .tab-button[aria-selected=true] {
@@ -26056,52 +25572,6 @@ page-mybooking .tabs-md .tab-button-text {
 
 page-mybooking ion-tab {
   font-size: 90px;
-}
-
-page-mybooking .tabs-md .tabbar {
-  background: #008149;
-}
-
-page-mybooking-cancel .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-mybooking-cancel .bar-button-default-md, page-mybooking-cancel .bar-button-clear-md-default, page-mybooking-cancel .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-mybooking-cancel .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-mybooking-com .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-mybooking-com .bar-button-default-md, page-mybooking-com .bar-button-clear-md-default, page-mybooking-com .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-mybooking-com .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-mybooking-on .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-mybooking-on .bar-button-default-md, page-mybooking-on .bar-button-clear-md-default, page-mybooking-on .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-mybooking-on .toolbar-title-md {
-  color: #f9f7f7;
 }
 
 .company h5 {
@@ -26435,52 +25905,6 @@ page-register .label-md[floating] {
 
 page-register .item-label-floating .text-input-md {
   font-size: 1em;
-}
-
-page-tour-details .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-tour-details .bar-button-default-md, page-tour-details .bar-button-clear-md-default, page-tour-details .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-tour-details .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-tour-details .border-daily {
-  border: 1px solid black;
-}
-
-page-transport-airportservice .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-transport-airportservice .bar-button-default-md, page-transport-airportservice .bar-button-clear-md-default, page-transport-airportservice .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-transport-airportservice .toolbar-title-md {
-  color: #f9f7f7;
-}
-
-page-transport-locationservice .toolbar-background-md {
-  border-color: #008149;
-  background: #008149;
-}
-
-page-transport-locationservice .bar-button-default-md, page-transport-locationservice .bar-button-clear-md-default, page-transport-locationservice .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-page-transport-locationservice .toolbar-title-md {
-  color: #f9f7f7;
 }
 
 page-transport-locationservice .item-md.item-block .item-inner {

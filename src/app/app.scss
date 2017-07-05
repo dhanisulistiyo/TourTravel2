@@ -25,8 +25,8 @@ page-app{
 .header-menu-user{
     min-height: 200px;
             .toolbar-background-md {
-            border-color: #ffffff;
-            background: #ffffff;
+            border-color: #00a497;
+            background: #00a497;
         }
 
          .toolbar-title-md {
@@ -38,8 +38,12 @@ page-app{
         }
     }
 
-
 }
+
+.searchbar-md {
+    padding: 8px;
+    background: #00a497;
+    }
 
 .toolbar-background-md {
     border-color: #00a497;
