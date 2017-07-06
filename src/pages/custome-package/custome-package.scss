@@ -3,6 +3,112 @@ page-custome-package {
         position: relative;
         text-align: center;
     }
+    .toolbar-title .button-inner {
+        font-family: 'Quicksand', cursive;
+        font-size: 2rem;
+        font-weight: 600;
+        text-transform: none;
+    }
+    div.custom-padding {
+        padding-top: 130px;
+    }
+    h4.custom-view {
+        background-color: transparent;
+        margin: 0;
+        text-align: center;
+        width: 100%;
+        padding: 10px;
+        font-family: 'Quicksand', cursive;
+        color: #4d4d4d;
+        font-size: 1.8 rem;
+        font-weight: bold;
+    }
+    .custom-label {
+        background-color: #e6e6e6;
+        margin: 0;
+        text-align: left;
+        width: 100%;
+        padding: 10px;
+        font-family: 'Quicksand', cursive;
+        color: #4d4d4d;
+        font-size: 1 rem;
+        font-weight: bold;
+    }
+    label.label-create {
+        font-family: 'Quicksand', cursive;
+        color: #4d4d4d;
+        font-size: 2 rem;
+        font-weight: bold;
+    }
+    button.btn-custom {
+        text-align: center;
+        width: 100%;
+        background-color: transparent;
+        font-family: 'Quicksand', cursive;
+        font-size: 3 rem;
+        font-weight: bold;
+    }
+    ion-icon {
+        font-size: 100px; //Preferred size here
+        width: 100%;
+    }
+    ion-icon.custom-icon {
+        text-align: center;
+        color: #00a497;
+        font-size: 100px; //Preferred size here
+        width: 100%;
+    }
+    .fab-md-secondary {
+        color: #fff;
+        background-color: #00a497;
+    } // Ion Card
+    ion-card.card {
+        box-shadow: 2px;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+        float: left;
+        /* important */
+        position: relative;
+        /* important(so we can absolutely position the description div */
+    }
+    .card-title-md {
+        margin-bottom: 10px;
+        border: medium none;
+        border-radius: 5px;
+        display: block;
+        margin: 2px 0 2px;
+        padding: 8px 0 8px 0;
+        font-size: 2.4rem;
+        line-height: 1.2;
+        color: white;
+    }
+    .card-md h2 {
+        font-size: 2.5rem;
+        font-weight: normal;
+        font-family: 'Architects Daughter', cursive;
+        color: white;
+    }
+    .card-md h3 {
+        font-family: 'Quicksand', cursive;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+    .card-content-md {
+        background-color: black;
+        opacity: 0.7;
+        right: 0;
+        bottom: 0;
+        font-size: 2em;
+        font-weight: 900;
+        text-align: left;
+        left: 0;
+        font-family: "Quicksand";
+        position: absolute;
+        padding: 0px 16px 0px 16px;
+        font-size: 1.4rem;
+        line-height: 1.5;
+    }
     .button-clear-md:hover:not(.disable-hover) {
         background-color: rgba(158, 158, 158, 1);
     }

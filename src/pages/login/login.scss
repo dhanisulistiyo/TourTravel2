@@ -48,7 +48,8 @@ page-login {
         background-color: #000000;
         color: white;
         opacity: .6;
-    } // Register Background CSS
+    } 
+    // Register Background CSS
     .signup-background {
         background-image: url('../assets/img/signup_bg.jpg'); //background-image: url('../../img/inner_bg.png');
         // background: url('../../img/getstart.png');
@@ -89,7 +90,8 @@ page-login {
         align-content: center;
         justify-content: center;
         text-align: center;
-    } // Ion Card
+    } 
+    // Ion Card
     ion-card.card {
         box-shadow: none;
         background: rgba(0, 0, 0, 0.5);
@@ -136,7 +138,8 @@ page-login {
         input:-moz-placeholder {
             color: #00ffff;
         }
-    } // Button CSS
+    } 
+    // Button CSS
     .btn-register {
         background-color: #FF9800;
         text-transform: none;
@@ -210,46 +213,5 @@ page-login {
         padding-bottom: 0;
         height: 25px;
         font-size: 1.6rem;
-    } // .bgn-image {
-    //     background: url('../assets/image/Login-background.jpg') no-repeat center center fixed;
-    //     -webkit-background-size: cover;
-    //     -moz-background-size: cover;
-    //     -o-background-size: cover;
-    //     background-size: cover;
-    // }
-    // .input-has-focus .label-md[floating],
-    // .input-has-value .label-md[floating] {
-    //     transform: translate3d(0, 0, 0) scale(1.1);
-    // }
-    // .input-has-focus .label-md[floating] {
-    //     color: white;
-    // }
-    // .label-md[floating] {
-    //     font-size: 1.2em;
-    // }
-    // .item-label-floating .text-input-md {
-    //     font-size: 1.3em;
-    // }
-    // .login-content {
-    //     .item-bgn {
-    //         background-color: transparent;
-    //         color: white;
-    //     }
-    //     .login-box {
-    //         padding-top: 200px;
-    //         opacity: 1;
-    //     }
-    //     .signup-col {
-    //         margin: 0px 16px 0px 16px;
-    //         padding-bottom: 20px;
-    //     }
-    //     .login-btn {
-    //         color: white;
-    //         font-size: x-large;
-    //     }
-    //     .register-btn {
-    //         color: white;
-    //         font-size: medium;
-    //     }
-    // }
+    } 
 }
