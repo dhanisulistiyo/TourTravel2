@@ -8,17 +8,22 @@
   <ion-navbar>
     <ion-title>Choose Destination</ion-title>
   </ion-navbar>
-  <ion-searchbar placeholder="Search a location..." (ionInput)="searchLocationDB($event, searchKey)"></ion-searchbar>
+  <ion-searchbar placeholder="Search a location..." (ionInput)="searchLocationDB($event)"></ion-searchbar>
 </ion-header>
 
 
 
 <ion-content padding>
 <ion-list>
-  <ion-item *ngFor="let keys of myKeys" (click)="setSelectedLocation(locations[keys].Id)">
-    <h1>{{ locations[keys].Name }}</h1>
-    <br>
-    <h3>{{ locations[keys].Country }}</h3>
+  <ion-item *ngFor="let loc of locations" (click)="setSelectedLocation(loc.Id)">
+     <ion-avatar item-start *ngIf="loc.ImageUrl == null">
+      <img src="../assets/img/locationIcon.png">
+    </ion-avatar>
+    <ion-avatar item-start *ngIf="loc.ImageUrl != null">
+      <img src="{{loc.ImageUrl}}">
+    </ion-avatar>
+    <h2>{{loc.Name}}</h2>
+    <p>{{loc.Country }}</p>
   </ion-item>
 </ion-list>
 </ion-content>

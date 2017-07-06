@@ -303,3 +303,4 @@ $RECYCLE.BIN/
 *.lnk
 www/build/main.css
 www/build/main.js.map
+*.map
