@@ -11,8 +11,8 @@ import {DailyService} from '../../../providers/daily-service';
   providers: [LocationService]
 })
 export class FilterDestinationPage {
-  locations : any = {};
-  myKeys: String[];
+  listLocations: Array<any>;
+  locations: Array<any>;
   idAwal;
   idAkhir;
   details;
@@ -33,33 +33,42 @@ export class FilterDestinationPage {
     console.log(this.details)
   }
 
-  searchLocationDB(event, key) {
-      if(event.target.value != null){
-        if(event.target.value.length > 2) {
-            this.locService.searchLocation(event.target.value).subscribe(
-                data =>  {        
-                    console.log(data["Id"]) ;     
-                    if(data["Id"]!=null) { 
-                        var data1 = JSON.stringify({data});
-                        var data2 = JSON.stringify(data)
-                        console.log(data1);
-                        console.log(data2);
-                        this.locations= JSON.parse(data1);
-                        this.myKeys = Object.keys(this.locations);
-                     console.log(this.locations);
-                    }else{ 
-                    this.locations = data;
-                    this.myKeys = Object.keys(this.locations);
-                    console.log(this.locations);
-                    }
-                },
-                err => {
-                    console.log(err);
-                },
-                () => console.log('Location Search Complete')
-            );
-        }
-      }
+    ionViewWillEnter() {
+        this.locService.searchAllLocation().subscribe(data => {
+            this.listLocations = data;
+            this.locations = this.listLocations;
+        }, err => {
+            console.log(err);
+        },
+            () => console.log('Hotel Search Complete')
+        );
+    }
+
+    listDestination() {
+        this.locations = this.listLocations;
+    }
+
+    searchLocationDB(searchbar) {
+        // Reset items back to all of the items
+        this.locations;
+        // set q to the value of the searchbar
+        var q = searchbar.target.value;
+        // if the value is an empty string don't filter the items
+        if (q != undefined) {
+            if (q.trim() == '') {
+                this.listDestination();
+                return;
+            }
+
+            this.locations = this.locations.filter((v) => {
+
+            if (v.Id.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+                return true;
+            }
+            return false;
+        })
+
+        }else this.listDestination();
     }
 
 

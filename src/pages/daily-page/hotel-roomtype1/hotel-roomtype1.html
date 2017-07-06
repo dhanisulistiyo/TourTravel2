@@ -22,9 +22,12 @@
     <div >
     <h2>{{itemroom.Name}}</h2>
     <h3>{{itemroom.AccommodationItemTypeName}}</h3>
-    <p style=" white-space: pre-wrap;" >Facilities: <span *ngFor="let facilities of itemroom.SimpleAccommodationItemFacilities ;let i = index">{{facilities.AccommodationFacilityName}}<span *ngIf="itemroom.SimpleAccommodationItemFacilities.length > 1 && i  != itemroom.SimpleAccommodationItemFacilities.length - 1 ">,</span> </span></p>
+    <h2 *ngIf="itemroom.IsPromo == true" >PROMO</h2>
+    <h3 *ngIf="itemroom.IsPromo == true" >Valid Until : {{itemroom.CutOffDate  | date:'dd MMMM yyyy'}} </h3>
+    <h3 *ngIf="itemroom.IsPromo == true" >Minimum Night : {{itemroom.MinDays}} Night</h3>
     
-    </div></ion-col>
+    </div>
+    </ion-col>
 </ion-row>
 </ion-card>
 </ion-content>
