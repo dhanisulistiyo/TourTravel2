@@ -24762,6 +24762,17 @@ page-app .header-menu-user .toolbar-title-md {
   background: #00a497;
 }
 
+.toolbar-background-md:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to bottom right, #00a497, #000000);
+  opacity: .1;
+}
+
 .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
   color: #ffffff;
   background-color: transparent;
@@ -24769,16 +24780,6 @@ page-app .header-menu-user .toolbar-title-md {
 
 .toolbar-title-md {
   color: #f9f7f7;
-}
-
-.toolbar-background-md {
-  border-color: #00a497;
-  background: #00a497;
-}
-
-.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
-  color: #ffffff;
-  background-color: transparent;
 }
 
 .content-bgn {
@@ -24790,6 +24791,11 @@ page-app .header-menu-user .toolbar-title-md {
   color: white;
   font-size: 30px;
   font-weight: 400;
+}
+
+.tabs-md .tabbar {
+  border-color: #00a497;
+  background: #00a497;
 }
 
 page-home .tab-button[aria-selected=true] {
@@ -24808,6 +24814,25 @@ page-home ion-tab {
 }
 
 page-home .tabs-md .tabbar {
+  background: #00a497;
+}
+
+page-mybooking .tab-button[aria-selected=true] {
+  border-style: solid;
+  border-bottom: thick solid white;
+  color: white;
+}
+
+page-mybooking .tabs-md .tab-button-text {
+  font-size: 1.5rem;
+  color: white;
+}
+
+page-mybooking ion-tab {
+  font-size: 90px;
+}
+
+page-mybooking .tabs-md .tabbar {
   background: #00a497;
 }
 
@@ -25557,21 +25582,6 @@ page-myaccount ion-tab {
 
 page-myaccount .tabs-md .tabbar {
   background: #00a497;
-}
-
-page-mybooking .tab-button[aria-selected=true] {
-  border-style: solid;
-  border-bottom: thick solid white;
-  color: white;
-}
-
-page-mybooking .tabs-md .tab-button-text {
-  font-size: 1.5rem;
-  color: white;
-}
-
-page-mybooking ion-tab {
-  font-size: 90px;
 }
 
 .company h5 {
