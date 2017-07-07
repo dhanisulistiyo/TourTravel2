@@ -81,10 +81,20 @@ page-app {
     background: #f2f2f2;
 }
 
-// .scroll-content{
-//     background: #f2f2f2;
-// }
+.scroll-content{
+    background: #f2f2f2;
+}
 
+page-login .scroll-content {
+    background: transparent;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+}
 .tab-text {
     font-family: 'Lato', sans-serif;
     color: white;
