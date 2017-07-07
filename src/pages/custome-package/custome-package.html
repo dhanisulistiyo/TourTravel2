@@ -13,12 +13,12 @@
 </ion-header>
 
 <ion-content class="content-bgn">
-  <div class="custom-padding">
+  <!--<div class="custom-padding">
     <ion-icon name="ios-briefcase" class="custom-icon"></ion-icon>
     <h4 class="custom-view"><b>You have no active tours.</b><br> Wanna plan something new?</h4>
-  </div>
+  </div>-->
 
-  <!--<div>
+  <div>
     <p style="font-size: 1.8rem;" class="custom-label">Please review your tour booking details.</p>
     <ion-card (click)="itineraryCusTapped($event)">
       <img src="../assets/img/bali-wallpaper.jpg" />
@@ -30,7 +30,10 @@
         </ion-card-title>
       </ion-card-content>
     </ion-card>
-  </div>-->
+  </div>
+  <div class="custom-padding">
+    <h4 class="custom-view">Do you wanna create another plan?</h4>
+  </div>
   <ion-fab right bottom>
     <button ion-fab color="secondary" (click)="itineraryCusTapped($event)"><ion-icon name="md-add"></ion-icon></button>
   </ion-fab>
