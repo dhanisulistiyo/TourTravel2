@@ -13,25 +13,27 @@
 </ion-header>
 
 <ion-content class="content-bgn">
-  <!--<div class="custom-padding">
-    <ion-icon name="ios-briefcase" class="custom-icon"></ion-icon>
-    <h4 class="custom-view"><b>You have no active tours.</b><br> Wanna plan something new?</h4>
-  </div>-->
 
-  <div>
+  <div *ngIf="HistoryBookingOpen == null" class="custom-padding">
+    <ion-icon name="ios-briefcase" class="custom-icon"></ion-icon>
+    <h4 class="custom-view"><b>You have no active tours.</b><br> Wanna plan something new?<br>Create another plan, just click "+" button.</h4>
+    <h4 class="custom-view"></h4>
+  </div>
+
+  <div *ngIf="HistoryBookingOpen != null">
     <p style="font-size: 1.8rem;" class="custom-label">Please review your tour booking details.</p>
     <ion-card (click)="itineraryCusTapped($event)">
-      <img src="../assets/img/bali-wallpaper.jpg" />
+      <img src="{{HistoryBookingOpen?.TourTransactionHistoryViewModel.City.ImageUrl}}" />
       <ion-card-content>
         <ion-card-title>
-          <h2>Sample Trip to Bali</h2>
-          <h3>Jul 10, 2017 - Jul 15, 2017</h3>
-          <h3>Expiration date: Jul 01, 2017</h3>
+          <h2>{{HistoryBookingOpen?.TourTransactionSummaryViewModel.BookingDetailSum.Title}}</h2>
+          <h3>{{HistoryBookingOpen?.TourTransactionSummaryViewModel.BookingDetailSum.StartDate | date:'dd MMMM yyyy'}}-{{HistoryBookingOpen?.TourTransactionSummaryViewModel.BookingDetailSum.EndDate | date:'dd MMMM yyyy'}}</h3>
+          <h3>Expiration date: {{HistoryBookingOpen?.TourTransactionSummaryViewModel.BookingDetailSum.ExpiredOn  | date:'dd MMM yyyy'}}</h3>
         </ion-card-title>
       </ion-card-content>
     </ion-card>
   </div>
-  <div class="custom-padding">
+  <div *ngIf="HistoryBookingOpen != null" class="custom-padding">
     <h4 class="custom-add">Create another plan, just click "+" button.</h4>
   </div>
   <ion-fab right bottom>

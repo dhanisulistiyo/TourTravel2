@@ -25,9 +25,9 @@ ionViewWillEnter() {
       content: 'Please wait...'
     });
     loader.present();
-    this.his.getHistoryTransactionsCancel().subscribe(data=>{
-            loader.dismiss();
+    this.his.getHistoryTransactionsCancel().subscribe(data=>{          
             this.HistoryBookingCancel= data;
+            loader.dismiss();
             },err => {
                     console.log(err);
                     loader.dismiss();
