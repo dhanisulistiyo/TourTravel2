@@ -22,8 +22,8 @@ export class MybookingComPage {
     });
     loader.present();
     this.his.getHistoryTransactionsConfirm().subscribe(data => {
-      loader.dismiss();
       this.HistoryBookingConfirm = data;
+      loader.dismiss();
     }, err => {
       console.log(err);
       loader.dismiss();

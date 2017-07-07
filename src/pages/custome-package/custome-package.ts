@@ -21,8 +21,7 @@ export class CustomePackagePage {
     public popoverCtrl: PopoverController,
     public his: HistoryService
   ) {
-    this.selectedLocation = this.ite.destination;
-
+    this.selectedLocation = this.ite.destination;   
   }
 
 
@@ -35,8 +34,10 @@ export class CustomePackagePage {
 
     this.his.getHistoryTransactions().subscribe(data => {
       this.HistoryBookingOpen = data[0];
+      console.log( this.HistoryBookingOpen);
     }, err => {
       console.log(err);
+      this.HistoryBookingOpen = null;
     },
       () => console.log('Get History Transaction Complete')
     );
