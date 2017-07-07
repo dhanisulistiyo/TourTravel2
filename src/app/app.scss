@@ -66,7 +66,8 @@ page-app {
     font-family: 'Quicksand', cursive;
     font-size: 2rem;
     font-weight: 600;
-} 
+}
+
 // //header
 // .toolbar-background-md {
 // border-color: #00a497;
@@ -81,7 +82,7 @@ page-app {
     background: #f2f2f2;
 }
 
-.scroll-content{
+.scroll-content {
     background: #f2f2f2;
 }
 
@@ -95,6 +96,7 @@ page-login .scroll-content {
     justify-content: center;
     text-align: center;
 }
+
 .tab-text {
     font-family: 'Lato', sans-serif;
     color: white;
@@ -103,6 +105,31 @@ page-login .scroll-content {
     // font-weight: 700;
 }
 
+.back-button-icon-md {
+    text-align: left;
+    text-align: start;
+    margin: 0;
+    padding: 0 6px;
+    font-size: 2.4rem;
+    font-weight: normal;
+    color: white;
+}
+
+// .md,
+// .wp {
+//     .back-button {
+//         color: white !important;//what ever the color you like
+//     }
+// }
+
+// button.back-button{
+// color: white;
+// }
+
+// ion-icon.icon.icon-md {
+//     color: #00a497;
+// }
+
 ion-label.label.label-md[stacked] {
     font-family: 'Quicksand', cursive;
     font-size: 1.9rem;
@@ -110,7 +137,7 @@ ion-label.label.label-md[stacked] {
     font-weight: 500;
 }
 
-.button-inner{
+.button-inner {
     text-transform: none;
     font-family: 'Quicksand', cursive;
     font-weight: 700;
