@@ -29,7 +29,10 @@ export class CustomePackagePage {
           this.selectedLocation = this.ite.getDestination(); 
         }else{
           this.selectedLocation = "Selected Destination";   
-        }   
+        }
+
+        
+
       }
 
       itineraryCusTapped(event) {
