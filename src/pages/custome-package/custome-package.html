@@ -16,13 +16,13 @@
 
   <div *ngIf="HistoryBookingOpen == null" class="custom-padding">
     <ion-icon name="ios-briefcase" class="custom-icon"></ion-icon>
-    <h4 class="custom-view"><b>You have no active tours.</b><br> Wanna plan something new?<br>Create another plan, just click "+" button.</h4>
+    <h4 class="custom-view"><b>You have no active tours.</b><br> Wanna plan something new?<br>Just click "+" button.</h4>
     <h4 class="custom-view"></h4>
   </div>
 
   <div *ngIf="HistoryBookingOpen != null">
     <p style="font-size: 1.8rem;" class="custom-label">Please review your tour booking details.</p>
-    <ion-card (click)="itineraryCusTapped($event)">
+    <ion-card (click)="detailTourTapped($event, HistoryBookingOpen?.TourTransactionSummaryViewModel.BookingDetailSum.Id)" >
       <img src="{{HistoryBookingOpen?.TourTransactionHistoryViewModel.City.ImageUrl}}" />
       <ion-card-content>
         <ion-card-title>

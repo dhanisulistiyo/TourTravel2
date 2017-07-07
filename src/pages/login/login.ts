@@ -28,11 +28,11 @@ export class LoginPage {
         });
         loader.present();
         this.auth.login(this.registerCredentials).then(allowed => {           
-            if (allowed) {              
-                    loader.dismiss();
+            if (allowed) {                     
                     this.nav.setRoot(HomePage);
                     this.auth.getUserInfo();
-                    this.menu.enable(true);         
+                    this.menu.enable(true); 
+                    loader.dismiss();        
             } else {
                 this.showError("Username and password is incorrect or connection failed");
                 loader.dismiss();
