@@ -118,13 +118,16 @@ page-login .scroll-content {
 // .md,
 // .wp {
 //     .back-button {
-//         color: white !important;//what ever the color you like
+//         color: red !important;//what ever the color you like
 //     }
 // }
 
-// button.back-button{
-// color: white;
-// }
+button.back-button{
+color: red;
+}
+ion-icon.custom-color{
+    color: #00a497;
+}
 
 // ion-icon.icon.icon-md {
 //     color: #00a497;
