@@ -1,50 +1,71 @@
 page-itenerary-builder {
-  .label-md[stacked] {
-    font-size: 1.9rem;
-    color: grey;
-  }
-
-  .text-input-md {
-    margin: 13px 8px 13px 8px;
-    padding: 0;
-    width: calc(100% - 8px - 8px);
-    color: black;
-    font-size: large;
-}
-.text-input[disabled] {
-    opacity: 1;
-}
-
-
-.label-md {
-    margin: 13px 8px 13px 8px;
-    color: black;
-    font-size: large;
-}
-
-
-.item-md.item-block .item-inner {
-    padding-right: 8px;
-    border-bottom: 1px solid gray;
-}
-
-    ion-input, ion-textarea {
+    .label-md[stacked] {
+        font-size: 1.9rem;
+        color: grey;
+    }
+    .text-input-md {
+        margin: 13px 8px 13px 8px;
+        padding: 0;
+        width: calc(100% - 8px - 8px);
+        color: black;
+        font-size: large;
+    }
+    .text-input[disabled] {
+        opacity: 1;
+    }
+    .label-md {
+        margin: 13px 8px 13px 8px;
+        color: black;
+        font-size: large;
+    }
+    .item-md.item-block .item-inner {
+        padding-right: 8px;
         border-bottom: 1px solid gray;
     }
-      .datetime-text {
+    ion-input,
+    ion-textarea {
+        border-bottom: 1px solid gray;
+    }
+    .datetime-text {
         font-size: large;
         color: black;
-      }
-
-      .alert-md .alert-title {
+    }
+    .alert-md .alert-title {
         text-align: center;
-      }
-      
-      .modal-wrapper {
+    }
+    .modal-wrapper {
         position: absolute;
         top: calc(50% - (500px/2));
         left: calc(50% - (500px/2));
         width: 500px;
         height: 500px;
-      }
+    }
+    ion-input,
+    ion-textarea {
+        position: relative;
+        display: block;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        width: 92%;
+        margin-left: 17pt;
+    }
+    .text-input-md {
+        margin: 13px 8px 13px 0px;
+        padding: 0;
+        width: calc(100% - 8px - 8px);
+        color: black;
+        font-size: large;
+    }
+    .datetime-md {
+        padding: 13px 8px 13px 0px;
+    }
+    ion-datetime {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        overflow: hidden;
+        margin-left: 21px;
+        margin-right: 5px;
+    }
 }
