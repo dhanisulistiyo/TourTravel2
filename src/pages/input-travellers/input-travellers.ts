@@ -19,6 +19,40 @@ export class InputTravellersPage {
   constructor(public navCtrl: NavController, public ite : IteneraryService, public alertCtrl: AlertController) {
     this.guestTour = { AdultQty: 0, ChildQty: 0, InfantQty: 0}
   }
+
+  incrAdultQty(index:number){
+    this.guestTour.AdultQty += 1;
+  }
+
+  incrChildQty(index:number){
+    this.guestTour.ChildQty += 1;
+  }
+
+  incrInfantQty(index:number){
+    this.guestTour.InfantQty += 1;
+  }
+
+  decrAdultQty(index:number){
+    if(this.guestTour.AdultQty < 0){
+         this.guestTour.AdultQty = 0;  
+    }
+    this.guestTour.AdultQty -= 1;
+  }
+
+  decrChildQty(index:number){
+    if(this.guestTour.ChildQty < 0){
+         this.guestTour.ChildQty = 0;  
+    }
+    this.guestTour.ChildQty -= 1;
+  }
+
+  decrInfantQty(index:number){
+    if(this.guestTour.InfantQty < 0){
+         this.guestTour.InfantQty = 0;  
+    }
+    this.guestTour.InfantQty -= 1;
+
+  }
   
 
   ionViewDidLoad() {
