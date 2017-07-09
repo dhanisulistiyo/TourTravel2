@@ -1,16 +1,38 @@
 page-input-travellers {
-
-    .vertical-align-content > *
-    {
+    .vertical-align-content>* {
         display: flex!important;
         align-content: center!important;
         align-items: center!important;
     }
-
-    h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 0rem;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-bottom: 0rem;
     }
     .text-input-md {
-    font-size: large;
+        font-size: large;
+    }
+    button {
+        border: 0;
+        background: transparent;
+    }
+    .ion-md-remove-circle:before {
+        font-size: 28px;
+        color: #bc2620;
+    }
+    .ion-md-add-circle:before {
+        font-size: 28px;
+        color: #5ba509;
+    }
+    [col-4] {
+        -webkit-flex: 0 0 33.33333%;
+        -ms-flex: 0 0 33.33333%;
+        flex: 0 0 33.33333%;
+        width: 33.33333%;
+        max-width: 20%;
+        align-self: center;
     }
 }
