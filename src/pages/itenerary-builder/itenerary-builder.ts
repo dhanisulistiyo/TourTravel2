@@ -54,6 +54,8 @@ export class IteneraryBuilderPage {
 
   ionViewWillEnter() {
     var des = this.ite.getDestination();
+    var loc = this.ite.getObjectLocation();
+    console.log(loc[0].Name);
     var att = this.ite.getAttraction();
     var tourName = this.ite.getToursName();
     //var transportName = this.ite.getTransport();
