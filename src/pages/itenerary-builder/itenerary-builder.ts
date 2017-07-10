@@ -53,9 +53,7 @@ export class IteneraryBuilderPage {
   }
 
   ionViewWillEnter() {
-    var des = this.ite.getDestination();
     var loc = this.ite.getObjectLocation();
-    //console.log(loc[0].Name);
     var att = this.ite.getAttraction();
     var tourName = this.ite.getToursName();
     //var transportName = this.ite.getTransport();
@@ -69,11 +67,8 @@ export class IteneraryBuilderPage {
     if (loc != null) { 
       this.destination = loc.Name; 
     }
-    else { if (des != null) this.destination = des; }
-
-
+ 
     if (att != null) {
-      //let n = att.attrac.length;
       this.attraction = att.attrac
     }
     if (tourName != null) {
