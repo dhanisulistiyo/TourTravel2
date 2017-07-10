@@ -16,7 +16,72 @@
 <ion-content padding>
 <h3> Allocate Room</h3>
 
-<ion-grid class="vertical-align-content">
+  <ion-grid class="vertical-align-content">
+    <ion-row>
+      <ion-col>
+        <ion-label stacked>
+          <ion-icon ios="ios-person" md="md-person" class="custom-color"></ion-icon> Sharing Room</ion-label>
+      </ion-col>
+      <ion-row>
+        <ion-col col-4 style="text-align:right;"><button clear (click)="decrAdultQty()"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
+        <ion-col col-4 style="text-align:center;">
+          <ion-input type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;" maxlength="3" min="0"
+            name="AdultQty" [value]="guestTour.AdultQty" [(ngModel)]="guestTour.AdultQty"></ion-input>
+        </ion-col>
+        <ion-col col-4><button clear (click)="incrAdultQty()"><ion-icon name="add-circle"></ion-icon></button></ion-col>
+      </ion-row>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label stacked>
+          <ion-icon ios="ios-body" md="md-body" class="custom-color"></ion-icon> Single Room</ion-label>
+      </ion-col>
+      <ion-row>
+        <ion-col col-4 style="text-align:right;"><button clear (click)="decrChildQty()"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
+        <ion-col col-4 style="text-align:center;">
+          <ion-input type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;" maxlength="3" min="0"
+            name="ChildQty" [value]="guestTour.ChildQty" [(ngModel)]="guestTour.ChildQty"></ion-input>
+        </ion-col>
+        <ion-col col-4><button clear (click)="incrChildQty()"><ion-icon name="add-circle"></ion-icon></button></ion-col>
+      </ion-row>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label stacked>
+          <ion-icon ios="ios-ionitron" md="md-ionitron" class="custom-color"></ion-icon> Extra Bed</ion-label>
+      </ion-col>
+      <ion-row>
+        <ion-col col-4 style="text-align:right;"><button clear (click)="decrInfantQty()"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
+        <ion-col col-4 style="text-align:center;">
+          <ion-input type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;" maxlength="3" min="0"
+            name="InfantQty" [value]="guestTour.InfantQty" [(ngModel)]="guestTour.InfantQty"></ion-input>
+        </ion-col>
+        <ion-col col-4><button clear (click)="incrInfantQty()"><ion-icon name="add-circle"></ion-icon></button></ion-col>
+      </ion-row>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label stacked>
+          <ion-icon ios="ios-ionitron" md="md-ionitron" class="custom-color"></ion-icon> Sharing Bed with Parents</ion-label>
+      </ion-col>
+      <ion-row>
+        <ion-col col-4 style="text-align:right;"><button clear (click)="decrInfantQty()"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
+        <ion-col col-4 style="text-align:center;">
+          <ion-input type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;" maxlength="3" min="0"
+            name="InfantQty" [value]="guestTour.InfantQty" [(ngModel)]="guestTour.InfantQty"></ion-input>
+        </ion-col>
+        <ion-col col-4><button clear (click)="incrInfantQty()"><ion-icon name="add-circle"></ion-icon></button></ion-col>
+      </ion-row>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-label stacked>
+          <ion-icon ios="ios-people" md="md-people" class="custom-color"></ion-icon> Total Guest : 5</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+<!--<ion-grid class="vertical-align-content">
   <ion-row>
     <ion-col col-2>
     </ion-col>
@@ -82,7 +147,7 @@
     </ion-col>
   </ion-row>
 
-</ion-grid>
+</ion-grid>-->
 </ion-content>
 
 <ion-footer>
