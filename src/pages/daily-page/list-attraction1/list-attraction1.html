@@ -23,7 +23,8 @@
 <!--<ion-card *ngFor="let attrac of attractions" (click)="setSelectedAttraction(attrac)">-->
 <ion-card *ngFor="let attrac of attractions">
 <ion-row>
-  <ion-col><img src="{{attrac.ImageUrl}}"/></ion-col>
+  <ion-col *ngIf="attrac.ImageUrl != '' ;else other_content"><img src="{{attrac.ImageUrl}}"/></ion-col>
+  <ng-template #other_content><ion-col><img src="../assets/img/no-image.jpg"/></ion-col></ng-template>
   <ion-col width-60>
     <div >
     <h2>{{attrac.Name}}</h2>
