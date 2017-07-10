@@ -21,125 +21,121 @@
   </ion-navbar>
 </ion-header>-->
 
-<ion-content fullscreen>
-  <div>
-    <ion-card>
-      <img src="../assets/img/bali-wallpaper.jpg" style="height: 330px;"/>
-      <ion-card-content>
-        <ion-card-title>
-          <h2>{{toursname}}</h2>
-          <h3>{{guest}} Guest</h3>
-          <h3>From {{event.monthStart | date:'dd MMMM yyyy'}} Until {{event.monthEnd | date:'dd MMMM yyyy'}}</h3>
-        </ion-card-title>
-      </ion-card-content>
-    </ion-card>
-  </div>
-
-  <div class="divider-title"><h2>Recent</h2></div>
-  <ul class="timeline">
-        <li>
-          <div class="timeline-thumb bg-color-blue timeline-icon">
-            <ion-icon ios="ios-heart" md="md-heart"></ion-icon>
-          </div>
-          <div class="timeline-item">
-            <h4>Like Title</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, error.....</p>
-            <div class="timeline-stats">
-              <i class="ion-heart"></i> 2,450
-              <span class="pos-absolute-right"><i class="ion-ios-clock"></i> 2 mins ago</span>
-            </div>
-          </div>
-        </li>
-        <li>
-          <img src="http://lorempixel.com/people/400/400/" alt="" class="timeline-thumb">
-          <div class="timeline-item">
-            <h4>Updated Profile Picture</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, error.....</p>
-            <div class="timeline-stats">
-              <i class="ion-heart"></i> 2,450
-              <span class="pos-absolute-right"><i class="ion-ios-clock"></i> 2 mins ago</span>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-thumb bg-color-lightblue timeline-icon">
-            <i class="ion-wineglass"></i>
-          </div>
-          <div class="timeline-item">
-            <h4>A Wine Glass</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, error.....</p>
-            <div class="timeline-stats">
-              <i class="ion-heart"></i> 2,450
-              <span class="pos-absolute-right"><i class="ion-ios-clock"></i> 2 mins ago</span>
-            </div>
-          </div>
-        </li>
-      </ul>
-      <div class="divider-title">October 25, 2016</div>
-      <ul class="timeline">
-        <li>
-          <div class="timeline-thumb bg-color-red timeline-icon">
-            <i class="ion-ios-chatbubble"></i>
-          </div>
-          <div class="timeline-item">
-            <h4>New Message</h4>
-            <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <div class="timeline-stats">
-              <i class="ion-heart"></i> 2,450
-              <span class="pos-absolute-right"><i class="ion-ios-clock"></i> 2 mins ago</span>
-            </div>
-          </div>
-        </li>
-        <li>
-          <img src="http://lorempixel.com/people/400/400/" alt="" class="timeline-thumb">
-          <div class="timeline-item">
-            <h4>Colors</h4>
-            <p>
-              <i class="ion-ios-circle-filled icon-size-lg color-red"></i>
-              <i class="ion-ios-circle-filled icon-size-lg color-yellow"></i>
-              <i class="ion-ios-circle-filled icon-size-lg color-orange"></i>
-              <i class="ion-ios-circle-filled icon-size-lg color-blue"></i>
-              <i class="ion-ios-circle-filled icon-size-lg color-lightblue"></i>
-              <i class="ion-ios-circle-filled icon-size-lg color-bluegray"></i>
-              <i class="ion-ios-circle-filled icon-size-lg color-black"></i>
-              <i class="ion-ios-circle-filled icon-size-lg color-green"></i>
-            </p>
-            <div class="timeline-stats">
-              <i class="ion-heart"></i> 2,450
-              <span class="pos-absolute-right"><i class="ion-ios-clock"></i> 2 mins ago</span>
-            </div>
-          </div>
-        </li>
-        <li>
-          <img src="http://lorempixel.com/people/400/400/" alt="" class="timeline-thumb">
-          <div class="timeline-item">
-            <h4>Title</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, error.....</p>
-            <div class="timeline-stats">
-              <i class="ion-heart"></i> 2,450
-              <span class="pos-absolute-right"><i class="ion-ios-clock"></i> 2 mins ago</span>
-            </div>
-          </div>
-        </li>
-      </ul>
-
-    <!--<ion-row style="justify-content: center;">
-      <ion-col center text-center>
-        <h3 center text-center> {{toursname}} </h3>
-      </ion-col>
-    </ion-row>
-    <ion-row style="justify-content: center;">
-      <h3>{{guest}} Guest </h3>
-    </ion-row>
-    <ion-row style="justify-content: center;">
-      <h4> From {{event.monthStart | date:'dd MMMM yyyy'}} Until {{event.monthEnd | date:'dd MMMM yyyy'}}</h4>
-    </ion-row>-->
+<ion-content>
+  <ion-card>
+    <img src="../assets/img/bali-wallpaper.jpg" style="height: 330px;" />
+    <ion-card-content>
+      <ion-card-title>
+        <h2>{{toursname}}</h2>
+        <h3>{{guest}} Guest</h3>
+        <h3>From {{event.monthStart | date:'dd MMMM yyyy'}} Until {{event.monthEnd | date:'dd MMMM yyyy'}}</h3>
+      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+  <p class="custom-label" style="font-size: 1.8rem; bottom: -21px;bottom: 215px;">Please review your itinerary details.</p>
 
   <ion-list>
+    <ion-item *ngFor="let d of data;  let j = index" class="label-title-item" (click)="toggleDetails(d)">
+      <ion-icon color="primary" item-right [name]="d.icon" (click)="toggleDetails(d)"></ion-icon>
+      <div class="divider-title">
+        Day {{d.id + 1}} : {{d.dailyProgram.datetour | date:'dd MMMM yyyy' }}
+      </div>
+      <div style="padding-bottom: 0px;" *ngIf="d.showDetails" (click)="Details($event, j, d.dailyProgram.datetour)">
+        <ul class="timeline" *ngFor="let p of d.dailyProgram.program_daily; let i = index">
+          <li>
+            <div class="timeline-thumb bg-color-positive timeline-icon" *ngIf="p.location != null">
+              <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
+            </div>
+            <div class="timeline-item" *ngIf="p.location != null">
+              <h4>{{p.location.Name}}</h4>
+              <p>Denpasar is the capital of Bali, and is the main gateway to the island. The city is also a hub for other cities in the Lesser Sunda Islands.</p>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-thumb bg-color-dark timeline-icon" *ngIf="p.acomodation != null">
+              <ion-icon ios="ios-cloudy-night" md="md-cloudy-night" class="timeline-icon"></ion-icon>
+            </div>
+            <div class="timeline-item" *ngIf="p.acomodation != null">
+              <h4>{{p.acomodation.Name}}</h4>
+              <p><span *ngIf="p.roomtype != null">, {{p.roomtype.Name}}</span><span *ngIf="p.roomservice != null">, {{(p.roomservice).replace('_', ' ')}}</span></p>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-thumb bg-color-calm timeline-icon" *ngIf="p.transportation != null">
+              <ion-icon ios="ios-bus" md="md-bus" class="timeline-icon"></ion-icon>
+            </div>
+            <div class="timeline-item" *ngIf="p.transportation != null">
+              <h4>{{p.transportation.Name}}</h4>
+              <p>{{p.transportation.TransportationSeatTypeName}} Seater <span *ngIf="p.transportservice != null">, {{(p.transportservice).split("_").join(" ")}}</span></p>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-thumb bg-color-energized timeline-icon" *ngIf="p.attraction != null">
+              <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle" class="timeline-icon"></ion-icon>
+            </div>
+            <div class="timeline-item" *ngIf="p.attraction != null">
+              <h4>{{p.attraction.Name}}</h4>
+              <p><span *ngFor="let attrac of p.attraction ;let i = index">{{attrac.Name}}<span *ngIf="p.attraction.length > 1 && i  != p.attraction.length - 1 ">, </span></span></p>
+            </div>
+          </li>
+          <!--<ion-grid *ngFor="let p of d.dailyProgram.program_daily; let i = index">
+
+          <ion-row *ngIf="p.location != null">
+            <ion-col>
+              <h2>{{p.location.Name}}</h2>
+            </ion-col>
+          </ion-row>
+
+          <ion-row *ngIf="p.acomodation != null">
+            <ion-col col-1></ion-col>
+            <ion-col>
+              <h2> Acomodation :</h2>
+            </ion-col>
+            <ion-col col-1></ion-col>
+          </ion-row>
+          <ion-row *ngIf="p.acomodation != null">
+            <ion-col col-1></ion-col>
+            <ion-col style="padding-left: 40px;">
+              <h3>{{p.acomodation.Name}}<span *ngIf="p.roomtype != null">, {{p.roomtype.Name}}</span><span *ngIf="p.roomservice != null">, {{(p.roomservice).replace('_', ' ')}}</span></h3>
+            </ion-col>
+          </ion-row>
+
+          <ion-row *ngIf="p.transportation != null">
+            <ion-col col-1></ion-col>
+            <ion-col>
+              <h2> Transportation :</h2>
+            </ion-col>
+            <ion-col col-1></ion-col>
+          </ion-row>
+          <ion-row *ngIf="p.transportation != null">
+            <ion-col col-1></ion-col>
+            <ion-col style="padding-left: 40px;">
+              <h3>{{p.transportation.Name}}, {{p.transportation.TransportationSeatTypeName}} Seater <span *ngIf="p.transportservice != null">, {{(p.transportservice).split("_").join(" ")}}</span></h3>
+            </ion-col>
+          </ion-row>
+
+
+          <ion-row *ngIf="p.attraction != null">
+            <ion-col col-1></ion-col>
+            <ion-col>
+              <h2> Attraction :</h2>
+            </ion-col>
+            <ion-col col-1></ion-col>
+          </ion-row>
+          <ion-row *ngIf="p.attraction != null">
+            <ion-col col-1></ion-col>
+            <ion-col style="padding-left: 40px;">
+              <h3><span *ngFor="let attrac of p.attraction ;let i = index">{{attrac.Name}}<span *ngIf="p.attraction.length > 1 && i  != p.attraction.length - 1 ">, </span></span>
+              </h3>
+            </ion-col>
+          </ion-row>
+        </ion-grid>-->
+        </ul>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <!--<ion-list>
     <ion-item padding *ngFor="let d of data;  let j = index" class="label-title-item" (click)="toggleDetails(d)">
       <ion-icon color="primary" item-right [name]="d.icon" (click)="toggleDetails(d)"></ion-icon>
       Day {{d.id + 1}} : {{d.dailyProgram.datetour | date:'dd MMMM yyyy' }}
@@ -191,9 +187,9 @@
         </ion-grid>
       </div>
     </ion-item>
-  </ion-list>
+  </ion-list>-->
 </ion-content>
 
 <ion-footer>
-    <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="createSummary($event)" full large >Booking Now</button>
+  <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="createSummary($event)" full large>Booking Now</button>
 </ion-footer>

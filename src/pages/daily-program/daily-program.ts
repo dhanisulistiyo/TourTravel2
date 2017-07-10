@@ -41,7 +41,7 @@ export class DailyProgram {
       this.data.push({
         id: i,
         dailyProgram: this.ds.daily[i],
-        icon: 'ios-add-circle-outline',
+        icon: 'ios-arrow-dropright-outline',
         showDetails: false
       });
     }
@@ -53,10 +53,10 @@ export class DailyProgram {
   toggleDetails(data) {
     if (data.showDetails) {
       data.showDetails = false;
-      data.icon = 'ios-add-circle-outline';
+      data.icon = 'ios-arrow-dropright-outline';
     } else {
       data.showDetails = true;
-      data.icon = 'ios-remove-circle-outline';
+      data.icon = 'ios-arrow-dropdown-outline';
     }
   }
 
