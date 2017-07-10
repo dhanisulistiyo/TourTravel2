@@ -31,8 +31,15 @@ export class HotelRoomallocatePage {
     this.adult = Number(this.ite.getPassenger().guestTour['AdultQty']);
     this.child = Number(this.ite.getPassenger().guestTour['ChildQty']);
     this.infant = Number(this.ite.getPassenger().guestTour['InfantQty']);
-    //this.totalGuest =  this.dataGuest();
     this.totalGuest = 0;
+  }
+
+  decValue(par){
+
+  }
+
+  incValue(par){
+    
   }
 
   dataGuest() {
