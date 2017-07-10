@@ -27,9 +27,6 @@
       <!--<h4> From <span><ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="bookdetails?.StartDate"></ion-datetime></span> Until <span><ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="bookdetails?.EndDate"></ion-datetime></span></h4>-->
     </ion-row>
 
-
-
-
   <ion-list>
     <ion-item padding *ngFor="let d of data;  let j = index" class="label-title-item" (click)="toggleDetails(d)">
       <ion-icon color="primary" item-right [name]="d.icon" (click)="toggleDetails(d)"></ion-icon>

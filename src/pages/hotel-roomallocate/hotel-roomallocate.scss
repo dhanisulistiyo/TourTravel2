@@ -13,4 +13,25 @@ page-hotel-roomallocate {
     .text-input-md {
     font-size: large;
     }
+    
+    button {
+        border: 0;
+        background: transparent;
+    }
+    .ion-md-remove-circle:before {
+        font-size: 28px;
+        color: #ff7d16;
+    }
+    .ion-md-add-circle:before {
+        font-size: 28px;
+        color: #5ba509;
+    }
+    [col-4] {
+        -webkit-flex: 0 0 33.33333%;
+        -ms-flex: 0 0 33.33333%;
+        flex: 0 0 33.33333%;
+        width: 33.33333%;
+        max-width: 20%;
+        align-self: center;
+    }
 }
