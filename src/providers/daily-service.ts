@@ -119,7 +119,6 @@ export class DailyService {
 
 
   dailyProgram(days) {
-    
     if (days != (Object.keys(this.daily).length) - 1) {
       this.destroyObject();
       let today = new Date(this.ite.getDateTour().ev['monthStart'])
@@ -218,9 +217,9 @@ export class DailyService {
   }
 
   setLocation(id, i, data) {
-    this.daily[id].program_daily[i].location = Array.of(data)
-     this.daily[id].program_daily[i].destinationFrom = Array.of(data)
-     this.daily[id].program_daily[i].destinationTo = Array.of(data)
+    this.daily[id].program_daily[i].location = data
+     this.daily[id].program_daily[i].destinationFrom = data
+     this.daily[id].program_daily[i].destinationTo = data
     this.daily[id].program_daily[i].acomodation = null
     this.daily[id].program_daily[i].transportation = null
     this.daily[id].program_daily[i].attraction = null

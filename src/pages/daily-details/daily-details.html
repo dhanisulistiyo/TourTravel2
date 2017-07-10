@@ -26,7 +26,7 @@
               <ion-col>
                 <ion-label stacked>
                   <ion-icon ios="ios-briefcase" md="md-briefcase"></ion-icon> Destination</ion-label>
-                    <ion-item style="padding-left: 0px"  (click)="destinatinTapped(j)"><span *ngIf="d.location != null">{{d.location[0].Name}}</span>
+                    <ion-item style="padding-left: 0px"  (click)="destinatinTapped(j)"><span *ngIf="d.location != null">{{d.location.Name}}</span>
                 </ion-item>
               </ion-col>
             </ion-row>

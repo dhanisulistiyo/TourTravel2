@@ -17,13 +17,13 @@
     </ion-row>
      <ion-row>
       <ion-col>
-        <ion-item (click)="filterDestination(0)"><span *ngIf="daily?.destinationFrom != null">{{daily?.destinationFrom[0].Name}}</span></ion-item>
+        <ion-item (click)="filterDestination(0)"><span *ngIf="daily?.destinationFrom != null">{{daily?.destinationFrom.Name}}</span></ion-item>
       </ion-col>
       <ion-col col-1>
         <span>To</span>
       </ion-col>
       <ion-col>
-        <ion-item style="padding-left: 0px"  (click)="filterDestination(1)"><span *ngIf="daily?.destinationTo != null">{{daily?.destinationTo[0].Name}}</span></ion-item>
+        <ion-item style="padding-left: 0px"  (click)="filterDestination(1)"><span *ngIf="daily?.destinationTo != null">{{daily?.destinationTo.Name}}</span></ion-item>
       </ion-col>
     </ion-row>
 

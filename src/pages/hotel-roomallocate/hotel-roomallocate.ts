@@ -34,16 +34,98 @@ export class HotelRoomallocatePage {
     this.totalGuest = 0;
   }
 
-  decValue(par){
-
+  dataGuest() {
+    return this.adult + this.child;
   }
 
-  incValue(par){
+  decValue(par){
+   if (par == 'SR'){
+      if(this.allocRoom.sharingRooms != 0){
+      this.allocRoom.sharingRooms -= 1;
+       this.totalGuest -=1;
+      }
+    }
+    else if (par == 'SiR' ){
+      if(this.allocRoom.singleRoom != 0){
+      this.allocRoom.singleRoom -=1;
+      this.totalGuest -=1;
+      }
+    }
+    else if (par == 'EB' ){
+      if(this.allocRoom.extraBed != 0){
+      this.allocRoom.extraBed -=1;
+      this.totalGuest -=1;
+      }
+    }
+    else if(par == 'SB'){
+      if(this.allocRoom.sharingBed != 0){
+      this.allocRoom.sharingBed -=1;
+      this.totalGuest -=1;
+      }
+    }
     
   }
 
-  dataGuest() {
-    return this.adult + this.child + this.infant;
+  incValue(par){
+    if (par == 'SR'){
+      this.allocRoom.sharingRooms += 1;
+      this.totalGuest +=1;
+    }
+    else if (par == 'SiR' ){
+     this.allocRoom.singleRoom +=1;
+     this.totalGuest +=1;
+    }
+    else if (par == 'EB' ){
+      this.allocRoom.extraBed +=1;
+      this.totalGuest +=1;
+    }
+    else if(par == 'SB'){
+      if(this.allocRoom.sharingBed <= this.child){
+      this.allocRoom.sharingBed +=1;
+      this.totalGuest +=1;
+      }else {this.showAlertChilds}
+    }   
+  }
+
+   validateNumber(allocroom){
+      console.log(allocroom);
+      let SR = Number(allocroom.sharingRooms)
+      let SiR = Number(allocroom.singleRoom)
+      let EB = Number(allocroom.extraBed)
+      let SB = Number(allocroom.sharingBed)
+      if (typeof SR != "number"  || String(SR) == "NaN" ){
+        this.showAlertValidasi();
+        this.allocRoom.sharingRooms = 0;
+        this.totalGuest = this.allocRoom.sharingRooms + this.allocRoom.singleRoom + this.allocRoom.extraBed +  this.allocRoom.sharingBed  ;
+        return
+      }
+      else if (typeof SiR != "number" || String(SiR) == "NaN" ){
+        this.showAlertValidasi();
+        this.allocRoom.singleRoom = 0;
+        this.totalGuest = this.allocRoom.sharingRooms + this.allocRoom.singleRoom + this.allocRoom.extraBed +  this.allocRoom.sharingBed  ;
+        return
+      }
+      else if(typeof EB != "number"  || String(EB) == "NaN" ){
+        this.showAlertValidasi();
+        this.allocRoom.extraBed = 0;
+        this.totalGuest = this.allocRoom.sharingRooms + this.allocRoom.singleRoom + this.allocRoom.extraBed +  this.allocRoom.sharingBed  ;
+        return
+      } else if(typeof SB != "number"  || String(SB) == "NaN" ){
+        this.showAlertValidasi();
+        this.allocRoom.sharingBed = 0;
+        this.totalGuest = this.allocRoom.sharingRooms + this.allocRoom.singleRoom + this.allocRoom.extraBed +  this.allocRoom.sharingBed  ;
+        return
+      }else{
+        this.allocRoom.sharingRooms = SR
+        this.allocRoom.singleRoom = SiR
+        this.allocRoom.extraBed = EB
+        if(allocroom.sharingBed > this.child){
+          this.showAlertChilds();
+           this.allocRoom.sharingBed = this.child;
+        }else { this.allocRoom.sharingBed = SB } 
+        this.totalGuest = SR+SiR+EB+SB;
+      }
+
   }
 
   remGuest(allocroom){
@@ -54,20 +136,19 @@ export class HotelRoomallocatePage {
     return asha + asi + ae + ash;
   }
 
-  guestRemaining(allocroom) {
-    let remGuest = this.remGuest(allocroom);
-    if (typeof remGuest != "number" || String(remGuest) == "NaN") {
-      this.showAlertValidasi();
-    }else{
-        if(Number(allocroom.sharingBed)<= this.child){
-          //untuk pengurangan
-          // if(remGuest != 0)  this.totalGuest = this.dataGuest() - remGuest - this.infant;
-          if(remGuest != 0)  this.totalGuest = remGuest
-          else  this.totalGuest = remGuest
-        }else this.showAlertChilds();
-    }
-  }
-
+  // guestRemaining(allocroom) {
+  //   let remGuest = this.remGuest(allocroom);
+  //   if (typeof remGuest != "number" || String(remGuest) == "NaN") {
+  //     this.showAlertValidasi();
+  //   }else{
+  //       if(Number(allocroom.sharingBed)<= this.child){
+  //         //untuk pengurangan
+  //         // if(remGuest != 0)  this.totalGuest = this.dataGuest() - remGuest - this.infant;
+  //         if(remGuest != 0)  this.totalGuest = remGuest
+  //         else  this.totalGuest = remGuest
+  //       }else this.showAlertChilds();
+  //   }
+  // }
 
   // doneTapped(allocroom) {
   //   console.log(allocroom);
@@ -87,11 +168,21 @@ export class HotelRoomallocatePage {
   //     }else this.showAlertAllocate();
   // }
 
+  // doneTapped(allocroom) {
+  //   console.log(allocroom);
+  //     let remGuest = this.remGuest(allocroom);
+  //     let dataGuest = this.dataGuest() - this.infant;
+  //     if(remGuest == dataGuest){
+  //         var data = JSON.stringify({ allocroom });
+  //         this.ite.setRoomAllo(data);
+  //         this.navCtrl.pop();
+  //     }else this.showAlertAllocate();
+  // }
 
-  doneTapped(allocroom) {
+    doneTapped(allocroom) {
     console.log(allocroom);
       let remGuest = this.remGuest(allocroom);
-      let dataGuest = this.dataGuest() - this.infant;
+      let dataGuest = this.dataGuest();
       if(remGuest == dataGuest){
           var data = JSON.stringify({ allocroom });
           this.ite.setRoomAllo(data);
@@ -114,7 +205,6 @@ export class HotelRoomallocatePage {
     });
     alert.present();
   }
-
 
  showAlertChilds() {
     let alert = this.alertCtrl.create({

@@ -116,8 +116,8 @@ export class FilterTransport1Page {
 
     let id = this.idAwal;
     let i = this.idAkhir;
-    let from =this.ds.daily[id].program_daily[i].destinationFrom[0].Id;
-    let to = this.ds.daily[id].program_daily[i].destinationTo[0].Id;
+    let from =this.ds.daily[id].program_daily[i].destinationFrom.Id;
+    let to = this.ds.daily[id].program_daily[i].destinationTo.Id;
     this.navCtrl.push(ListTransportPage1, {from, to, id, i});
     
   }
