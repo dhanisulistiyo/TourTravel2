@@ -4,17 +4,130 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Daily Program</ion-title>
+    <ion-title>{{toursname}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-<ion-content padding>
+<!--<ion-header no-border>
+  <ion-navbar color="secondary">
+    <ion-buttons left>
+        <button ion-button icon-only color="light"><ion-icon name="arrow-back">Daily Program</ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>-->
 
-    <ion-row style="justify-content: center;">
+<ion-content fullscreen>
+  <div>
+    <ion-card>
+      <img src="../assets/img/bali-wallpaper.jpg" style="height: 330px;"/>
+      <ion-card-content>
+        <ion-card-title>
+          <h2>{{toursname}}</h2>
+          <h3>{{guest}} Guest</h3>
+          <h3>From {{event.monthStart | date:'dd MMMM yyyy'}} Until {{event.monthEnd | date:'dd MMMM yyyy'}}</h3>
+        </ion-card-title>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div class="divider-title"><h2>Recent</h2></div>
+  <ul class="timeline">
+        <li>
+          <div class="timeline-thumb bg-color-blue timeline-icon">
+            <ion-icon ios="ios-heart" md="md-heart"></ion-icon>
+          </div>
+          <div class="timeline-item">
+            <h4>Like Title</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, error.....</p>
+            <div class="timeline-stats">
+              <i class="ion-heart"></i> 2,450
+              <span class="pos-absolute-right"><i class="ion-ios-clock"></i> 2 mins ago</span>
+            </div>
+          </div>
+        </li>
+        <li>
+          <img src="http://lorempixel.com/people/400/400/" alt="" class="timeline-thumb">
+          <div class="timeline-item">
+            <h4>Updated Profile Picture</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, error.....</p>
+            <div class="timeline-stats">
+              <i class="ion-heart"></i> 2,450
+              <span class="pos-absolute-right"><i class="ion-ios-clock"></i> 2 mins ago</span>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="timeline-thumb bg-color-lightblue timeline-icon">
+            <i class="ion-wineglass"></i>
+          </div>
+          <div class="timeline-item">
+            <h4>A Wine Glass</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, error.....</p>
+            <div class="timeline-stats">
+              <i class="ion-heart"></i> 2,450
+              <span class="pos-absolute-right"><i class="ion-ios-clock"></i> 2 mins ago</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="divider-title">October 25, 2016</div>
+      <ul class="timeline">
+        <li>
+          <div class="timeline-thumb bg-color-red timeline-icon">
+            <i class="ion-ios-chatbubble"></i>
+          </div>
+          <div class="timeline-item">
+            <h4>New Message</h4>
+            <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <div class="timeline-stats">
+              <i class="ion-heart"></i> 2,450
+              <span class="pos-absolute-right"><i class="ion-ios-clock"></i> 2 mins ago</span>
+            </div>
+          </div>
+        </li>
+        <li>
+          <img src="http://lorempixel.com/people/400/400/" alt="" class="timeline-thumb">
+          <div class="timeline-item">
+            <h4>Colors</h4>
+            <p>
+              <i class="ion-ios-circle-filled icon-size-lg color-red"></i>
+              <i class="ion-ios-circle-filled icon-size-lg color-yellow"></i>
+              <i class="ion-ios-circle-filled icon-size-lg color-orange"></i>
+              <i class="ion-ios-circle-filled icon-size-lg color-blue"></i>
+              <i class="ion-ios-circle-filled icon-size-lg color-lightblue"></i>
+              <i class="ion-ios-circle-filled icon-size-lg color-bluegray"></i>
+              <i class="ion-ios-circle-filled icon-size-lg color-black"></i>
+              <i class="ion-ios-circle-filled icon-size-lg color-green"></i>
+            </p>
+            <div class="timeline-stats">
+              <i class="ion-heart"></i> 2,450
+              <span class="pos-absolute-right"><i class="ion-ios-clock"></i> 2 mins ago</span>
+            </div>
+          </div>
+        </li>
+        <li>
+          <img src="http://lorempixel.com/people/400/400/" alt="" class="timeline-thumb">
+          <div class="timeline-item">
+            <h4>Title</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, error.....</p>
+            <div class="timeline-stats">
+              <i class="ion-heart"></i> 2,450
+              <span class="pos-absolute-right"><i class="ion-ios-clock"></i> 2 mins ago</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+    <!--<ion-row style="justify-content: center;">
       <ion-col center text-center>
         <h3 center text-center> {{toursname}} </h3>
       </ion-col>
@@ -24,8 +137,7 @@
     </ion-row>
     <ion-row style="justify-content: center;">
       <h4> From {{event.monthStart | date:'dd MMMM yyyy'}} Until {{event.monthEnd | date:'dd MMMM yyyy'}}</h4>
-      <!--<h4> From <span><ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="bookdetails?.StartDate"></ion-datetime></span> Until <span><ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="bookdetails?.EndDate"></ion-datetime></span></h4>-->
-    </ion-row>
+    </ion-row>-->
 
   <ion-list>
     <ion-item padding *ngFor="let d of data;  let j = index" class="label-title-item" (click)="toggleDetails(d)">

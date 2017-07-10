@@ -107,20 +107,18 @@ page-custome-package {
         font-size: 1.5rem;
         font-weight: 500;
     }
-    .card-content-md {
-        background-color: #404040;
-        opacity: 0.8;
+    .card-content{
+        box-shadow: none;
+        background: rgba(0, 0, 0, 0.6);
         right: 0;
+        display: block;
         bottom: 0;
         font-size: 2em;
         font-weight: 900;
         text-align: left;
         left: 0;
-        font-family: "Quicksand";
         position: absolute;
         padding: 0px 16px 0px 16px;
-        font-size: 1.4rem;
-        line-height: 1.5;
     }
     .button-clear-md:hover:not(.disable-hover) {
         background-color: rgba(158, 158, 158, 1);

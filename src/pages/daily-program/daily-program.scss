@@ -1,284 +1,292 @@
-page-daily-program {
-    /* -------------------------------- 
-
-All the CSS needed for the timeline!
-
--------------------------------- */
-    /* -------------------------------- 
-
-Paddings and margins
-
--------------------------------- */
-    .marginBottom0 {
-        margin-bottom: 0;
-    }
-    .marginTop0 {
-        margin-top: 0;
-    }
-    .marginTop5 {
-        margin-top: 5px !important;
-    }
-    /* -------------------------------- 
-
-Modules - reusable parts of our design
-
--------------------------------- */
-    .cd-container {
-        /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
-        width: 93%;
-        max-width: 1170px;
-        margin: 0 auto;
-    }
-    .cd-container::after {
-        /* clearfix */
-        content: '';
-        display: table;
-        clear: both;
-    }
-    /* -------------------------------- 
-
-Main components 
-
--------------------------------- */
-    .timelineText {
-        color: black;
-    }
-    .timelineIcon {
-        font-size: 25px;
-        color: white;
-    }
-    .cd-author {
-        color: gray;
-    }
-    #cd-timeline {
-        position: relative;
-        margin-top: 2em;
-        margin-bottom: 2em;
-        margin-left: 10px !important;
-    }
-    #cd-timeline::before {
-        /* this is the vertical line */
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 18px;
-        height: 100%;
-        width: 4px;
-        background: gray;
-    }
-    .cd-timeline-block {
-        position: relative;
-        margin: 2em 0;
-    }
-    .cd-timeline-block:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-    .cd-timeline-block:first-child {
-        margin-top: 0;
-    }
-    .cd-timeline-block:last-child {
-        margin-bottom: 0;
-    }
-    .cd-timeline-icon {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border-color: #4a87ee;
-        border-style: solid;
-        border-width: 2px;
-        padding-top: 5px;
-        background: white;
-        text-align: center;
-    }
-    .cd-timeline-icon i {
-        color: #4a87ee;
-    }
-    .cd-timeline-picture {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border-color: #4a87ee;
-        border-style: solid;
-        border-width: 2px;
-        background: white;
-    }
-    .cd-timeline-picture img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        border-radius: 50%;
-    }
-    .cd-timeline-content {
-        position: relative;
-        margin-left: 60px;
-        background: white;
-        border-radius: 0.25em;
-        border-color: #BDDFB3;
-        border-style: solid;
-        border-width: 2px;
-        margin-bottom: 10px;
-        padding: 10px;
-    }
-    .cd-timeline-content:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-    .cd-timeline-content h2 {
-        color: #303e49;
-    }
-    .cd-timeline-content p,
-    .cd-timeline-content .cd-read-more,
-    .cd-timeline-content .cd-date {
-        font-size: 13px;
-        font-size: 0.8125rem;
-    }
-    .cd-timeline-content .cd-read-more,
-    .cd-timeline-content .cd-date {
-        display: inline-block;
-    }
-    .cd-timeline-content p {
-        margin: 1em 0;
-        line-height: 1.6;
-    }
-    .cd-timeline-content::before {
-        content: '';
-        position: absolute;
-        right: 100%;
-        height: 0;
-        width: 0;
-        border: 7px solid transparent;
-        border-right: 7px solid white;
-        border-right-color: inherit;
-    }
-    /*COLORS*/
-    /*POSITIVE*/
-    .positive {
-        border-color: #4a87ee;
-    }
-    .positive i {
-        color: #4a87ee;
-    }
-    /*CALM*/
-    .calm {
-        border-color: #43cee6;
-    }
-    .calm i {
-        color: #43cee6;
-    }
-    /*BALANCED*/
-    .balanced {
-        border-color: #66cc33;
-    }
-    .balanced i {
-        color: #66cc33;
-    }
-    /*ENERGIZED*/
-    .energized {
-        border-color: #f0b840;
-    }
-    .energized i {
-        color: #f0b840;
-    }
-    /*ASSERTIVE*/
-    .assertive {
-        border-color: #ef4e3a;
-    }
-    .assertive i {
-        color: #ef4e3a;
-    }
-    /*ROYAL*/
-    .royal {
-        border-color: #8a6de9;
-    }
-    .royal i {
-        color: #8a6de9;
-    }
-    /*DARK*/
-    .dark {
-        border-color: #444;
-    }
-    .dark i {
-        color: #444;
-    }
-    @media only screen and (min-width: 768px) {
-        .cd-timeline-content h2 {
-            font-size: 20px;
-            font-size: 1.25rem;
+.ios,
+.md {
+    page-daily-program {
+        .header-image {
+            background-image: url(https://ununsplash.imgix.net/photo-1421091242698-34f6ad7fc088?fit=crop&fm=jpg&h=650&q=75&w=950);
+            height: 40vh;
         }
-        .cd-timeline-content p {
-            font-size: 16px;
-            font-size: 1rem;
+        .main-content {
+            background-color: map-get($colors, dark);
+            box-shadow: 0px -1px 13px 1px rgba(0, 0, 0, 0.3);
         }
-        .cd-timeline-content .cd-read-more,
-        .cd-timeline-content .cd-date {
-            font-size: 14px;
-            font-size: 0.875rem;
+        .scroll-content {
+            padding-top: 0 !important;
         }
-    }
-    /*End-of-timeline-CSS*/
-
-    .list-md .item-block .item-inner {
-        border-bottom: 0.5px solid #1d1c1c;
-        padding-right: 0px;
-    }
-    .toolbar-title-md {
-        color: #f9f7f7;
-    }
-    .label-title-item {
-        font-size: large;
-    }
-    .label-title-title {
-        font-size: medium;
-    }
-    .label-md {
-        margin: 0 0 0 0;
-    }
-    .grid {
-        border: 1px solid black;
-    }
-    .item-label-stacked .input-wrapper,
-    .item-label-floating .input-wrapper {
-        padding-bottom: 0px;
-    }
-    .item-label-stacked .input-wrapper,
-    page-daily-program .item-label-floating .input-wrapper {
-        padding-bottom: 0px;
-        border-bottom: solid 1px black;
-    }
-    ion-list {
-        ion-item {
-            background-color: transparent;
-            padding-left: 0;
+        ion-header {
+            backdrop-filter: blur(8px);
+        }
+        ion-navbar {
+            opacity: 1;
+            box-shadow: 0px 1px 13px 1px rgba(0, 0, 0, 0.77);
+        }
+        ion-segment {
+            padding: 0px 12px;
+            opacity: 0.7;
             position: relative;
+            top: -50px;
         }
-        ion-label {
-            div {
-                text-transform: none;
-                font-size: 1em;
-                padding: 1em 0;
-                white-space: normal;
-                text-align: justify;
+        ion-segment-button {
+            border-color: map-get($colors, primary) !important;
+            color: #fff !important;
+        }
+        ion-card {
+            background-color: #fff;
+            width: 100%;
+            margin: 0;
+            margin-bottom: 25px;
+            position: relative;
+            top: -30px;
+        }
+        ion-card:last-of-type {
+            margin-bottom: 0 !important;
+        }
+        ion-card.card {
+            box-shadow: 2px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            float: left;
+            /* important */
+            position: relative;
+            /* important(so we can absolutely position the description div */
+        }
+        .custom-label {
+            background-color: #e6e6e6;
+            margin: 0;
+            text-align: left;
+            width: 100%;
+            padding: 10px;
+            font-family: 'Quicksand', cursive;
+            color: #4d4d4d;
+            font-size: 1 rem;
+            font-weight: bold;
+        }
+        .card-title-md {
+            margin-bottom: 10px;
+            border: medium none;
+            border-radius: 5px;
+            display: block;
+            margin: 2px 0 2px;
+            padding: 8px 0 8px 0;
+            font-size: 2.4rem;
+            line-height: 1.2;
+            color: white;
+        }
+        .card-md h2 {
+            font-size: 2.5rem;
+            font-weight: normal;
+            font-family: 'Architects Daughter', cursive;
+            color: white;
+        }
+        .card-md h3 {
+            font-family: 'Quicksand', cursive;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        .card-content {
+            box-shadow: none;
+            background: rgba(0, 0, 0, 0.6);
+            right: 0;
+            display: block;
+            bottom: 0;
+            font-size: 2em;
+            font-weight: 900;
+            text-align: left;
+            left: 0;
+            position: absolute;
+            padding: 0px 16px 0px 16px;
+        }
+        ion-item {
+            background-color: #fff;
+        }
+        /* -------------------------------- All the CSS needed for the timeline! -------------------------------- */
+        /* -------------------------------- Paddings and margins -------------------------------- */
+        /*Optional*/
+        .bar-stable {
+            background-color: #d9d9d9 !important;
+        }
+        .tabs {
+            background-color: #d9d9d9 !important;
+        }
+        .icon-size-lg {
+            font-size: 40px;
+        }
+        /*Timeline*/
+        .pos-absolute-right {
+            position: absolute;
+            right: 8px;
+        }
+        .timeline {
+            position: relative;
+            margin: 15px 0 0 0;
+        }
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background: #afdcf8;
+            left: 44px;
+            margin-left: -10px;
+            z-index: 1;
+        }
+        .timeline .timeline-thumb {
+            border-radius: 500px;
+            width: 50px;
+            z-index: 2;
+            position: absolute;
+            left: 10px
+        }
+        .timeline .timeline-thumb.timeline-icon {
+            height: 50px;
+            text-align: center;
+            color: white;
+            border: 5px solid #CBD0D3;
+        }
+        .timeline .timeline-thumb.timeline-icon i {
+            font-size: 28px;
+            margin: 6px 0;
+            display: block;
+        }
+        .timeline .timeline-item {
+            margin-left: 72px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 8px;
+        }
+        .timeline .timeline-stats {
+            position: relative;
+            font-size: 12px;
+            color: #7F8C8D;
+        }
+        .divider-title {
+            background: #e4e4e4;
+            padding: 5px 15px;
+            align-content: center;
+            justify-content: center;
+            text-align: center;
+            h2 {
+                font-family: 'Lato', cursive;
+                color: black;
+                font-size: 2rem;
+                font-weight: 600;
             }
         }
-        ion-icon {
-            font-size: 1.8rem;
-            padding: 0;
-            text-align: center;
-            position: absolute;
-            right: 10px;
-            top: 3px;
-            &:before {
-                font-weight: bold;
+        /* === Color Themes === */
+        .text-muted {
+            color: #6d6d72 !important;
+        }
+        .color-gray {
+            color: #8e8e93 !important;
+        }
+        .color-red {
+            color: #ff3b30 !important;
+        }
+        .bg-color-red {
+            background-color: #ff3b30 !important;
+        }
+        .color-white {
+            color: #ffffff !important;
+        }
+        .color-yellow {
+            color: #ffcc00 !important;
+        }
+        .bg-color-yellow {
+            background-color: #ffcc00 !important;
+        }
+        .color-green {
+            color: #4cd964 !important;
+        }
+        .color-orange {
+            color: #ff9500 !important;
+        }
+        .bg-color-orange {
+            background-color: #ff9500 !important;
+        }
+        .color-blue {
+            color: #007aff !important;
+        }
+        .bg-color-blue {
+            background-color: #007aff !important;
+        }
+        .color-lightblue {
+            color: #5ac8fa !important;
+        }
+        .bg-color-lightblue {
+            background-color: #5ac8fa !important;
+        }
+        .color-bluegray {
+            color: #607d8b !important;
+        }
+        .bg-color-bluegray {
+            background-color: #607d8b !important;
+        }
+        .color-night {
+            color: #2B1B17 !important;
+        }
+        .color-black {
+            color: black !important;
+        }
+        .bg-color-white {
+            background-color: #ffffff;
+        }
+        .bg-color-green {
+            background-color: #4cd964 !important;
+        }
+        /*End-of-timeline-CSS*/
+        .list-md .item-block .item-inner {
+            border-bottom: 0.5px solid #1d1c1c;
+            padding-right: 0px;
+        }
+        .toolbar-title-md {
+            color: #f9f7f7;
+        }
+        .label-title-item {
+            font-size: large;
+        }
+        .label-title-title {
+            font-size: medium;
+        }
+        .label-md {
+            margin: 0 0 0 0;
+        }
+        .grid {
+            border: 1px solid black;
+        }
+        .item-label-stacked .input-wrapper,
+        .item-label-floating .input-wrapper {
+            padding-bottom: 0px;
+        }
+        .item-label-stacked .input-wrapper,
+        page-daily-program .item-label-floating .input-wrapper {
+            padding-bottom: 0px;
+            border-bottom: solid 1px black;
+        }
+        ion-list {
+            ion-item {
+                background-color: transparent;
+                padding-left: 0;
+                position: relative;
+            }
+            ion-label {
+                div {
+                    text-transform: none;
+                    font-size: 1em;
+                    padding: 1em 0;
+                    white-space: normal;
+                    text-align: justify;
+                }
+            }
+            ion-icon {
+                font-size: 1.8rem;
+                padding: 0;
+                text-align: center;
+                position: absolute;
+                right: 10px;
+                top: 3px;
+                &:before {
+                    font-weight: bold;
+                }
             }
         }
     }
