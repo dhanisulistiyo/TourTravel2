@@ -65,7 +65,8 @@ export class DestinationPage1 {
 
     setSelectedLocation(selectedItem) {
      console.log(selectedItem);
-     this.ite.setDestination(selectedItem);
+     this.ite.setDestination(selectedItem.Id);
+     this.ite.setObjectLocation(JSON.stringify(selectedItem));
      this.navCtrl.pop();
      //this.navCtrl.push(IteneraryBuilderPage);
   }
