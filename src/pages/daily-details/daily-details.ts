@@ -44,7 +44,7 @@ export class DailyDetails {
   attractionTapped(i) {
     if (this.selectedItem[i].location!=null){
     console.log(i);
-    let des = this.selectedItem[i].location[0].Id
+    let des = this.selectedItem[i].location.Id
     console.log(des)
     let id = this.idAwal
     this.navCtrl.push(FilterAttraction, { des, id, i })
@@ -62,7 +62,7 @@ export class DailyDetails {
 
   acomodationTapped(i) {
 if (this.selectedItem[i].location!=null){
-    let des = this.selectedItem[i].location[0].Id
+    let des = this.selectedItem[i].location.Id
     let id = this.idAwal
     let no = Object.keys(this.ds.daily).length;
     if(id != no-1) this.navCtrl.push(FilterHotel1Page, { des, id, i })

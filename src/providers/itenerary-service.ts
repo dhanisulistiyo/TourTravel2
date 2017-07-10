@@ -59,7 +59,7 @@ export class IteneraryService {
     public setDestination(des) {
         var firstDes = window.localStorage.getItem('des');
         if (firstDes != des) {
-            this.delLocalStorage();
+            //this.delLocalStorage();
         }
 
         window.localStorage.setItem('des', des);

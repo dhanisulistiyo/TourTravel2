@@ -16,7 +16,7 @@
 <ion-content padding>
 <h3> Allocate Room</h3>
 
-  <!--<ion-grid class="vertical-align-content">
+  <ion-grid class="vertical-align-content">
     <ion-row>
       <ion-col>
         <ion-label stacked>
@@ -25,7 +25,7 @@
       <ion-row>
         <ion-col col-4 style="text-align:right;"><button clear (click)="decValue('SR')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
         <ion-col col-4 style="text-align:center;">
-          <ion-input type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;" maxlength="3" min="0"
+          <ion-input (input)="validateNumber(allocRoom)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;" maxlength="3" min="0"
            name="sharingRooms" [value]="allocRoom.sharingRooms" [(ngModel)]="allocRoom.sharingRooms"></ion-input>
         </ion-col>
         <ion-col col-4><button clear (click)="incValue('SR')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
@@ -39,7 +39,7 @@
       <ion-row>
         <ion-col col-4 style="text-align:right;"><button clear (click)="decValue('SiR')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
         <ion-col col-4 style="text-align:center;">
-          <ion-input type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;" maxlength="3" min="0"
+          <ion-input (input)="validateNumber(allocRoom)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;" maxlength="3" min="0"
            name="singleRoom" [value]="allocRoom.singleRoom" [(ngModel)]="allocRoom.singleRoom"></ion-input>
         </ion-col>
         <ion-col col-4><button clear (click)="incValue('SiR')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
@@ -53,7 +53,7 @@
       <ion-row>
         <ion-col col-4 style="text-align:right;"><button clear (click)="decValue('EB')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
         <ion-col col-4 style="text-align:center;">
-          <ion-input type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;" maxlength="3" min="0"
+          <ion-input (input)="validateNumber(allocRoom)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;" maxlength="3" min="0"
              name="extraBed" [value]="allocRoom.extraBed" [(ngModel)]="allocRoom.extraBed"></ion-input>
         </ion-col>
         <ion-col col-4><button clear (click)="incValue('EB')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
@@ -67,7 +67,7 @@
       <ion-row>
         <ion-col col-4 style="text-align:right;"><button clear (click)="decValue('SB')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
         <ion-col col-4 style="text-align:center;">
-          <ion-input type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;" maxlength="3" min="0"
+          <ion-input (input)="validateNumber(allocRoom)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;" maxlength="3" min="0"
             name="sharingBed" [value]="allocRoom.sharingBed" [(ngModel)]="allocRoom.sharingBed"></ion-input>
         </ion-col>
         <ion-col col-4><button clear (click)="incValue('SB')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
@@ -76,12 +76,12 @@
     <ion-row>
       <ion-col col-12>
         <ion-label stacked>
-          <ion-icon ios="ios-people" md="md-people" class="custom-color"></ion-icon> Total Guest : 5</ion-label>
+          <ion-icon ios="ios-people" md="md-people" class="custom-color"></ion-icon> Total Room(s) : {{totalGuest}}</ion-label>
       </ion-col>
     </ion-row>
-  </ion-grid>-->
+  </ion-grid>
 
-<ion-grid class="vertical-align-content">
+<!--<ion-grid class="vertical-align-content">
   <ion-row>
     <ion-col col-2>
     </ion-col>
@@ -146,8 +146,8 @@
     <ion-col col-2>
     </ion-col>
   </ion-row>
+</ion-grid>-->
 
-</ion-grid>
 </ion-content>
 
 <ion-footer>
