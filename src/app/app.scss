@@ -100,6 +100,16 @@ page-login .scroll-content {
     justify-content: center;
     text-align: center;
 }
+page-register .scroll-content {
+    background: transparent;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+}
 
 .tab-text {
     font-family: 'Open Sans', sans-serif;
