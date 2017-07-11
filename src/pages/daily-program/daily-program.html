@@ -48,34 +48,35 @@
             </div>
             <div class="timeline-item" *ngIf="p.location != null">
               <h4>{{p.location.Name}}</h4>
-              <p>Denpasar is the capital of Bali, and is the main gateway to the island. The city is also a hub for other cities in the Lesser Sunda Islands.</p>
+              <p>{{p.location.RegionId}}, {{p.location.Country}}</p>
             </div>
           </li>
-          <li>
+          <li *ngIf="p.acomodation != null">
             <div class="timeline-thumb bg-color-dark timeline-icon" *ngIf="p.acomodation != null">
               <ion-icon ios="ios-cloudy-night" md="md-cloudy-night" class="timeline-icon"></ion-icon>
             </div>
-            <div class="timeline-item" *ngIf="p.acomodation != null">
+            <div class="timeline-item" >
               <h4>{{p.acomodation.Name}}</h4>
-              <p><span *ngIf="p.roomtype != null">, {{p.roomtype.Name}}</span><span *ngIf="p.roomservice != null">, {{(p.roomservice).replace('_', ' ')}}</span></p>
+              <p><span *ngIf="p.roomtype != null">{{p.roomtype.Name}}</span><span *ngIf="p.roomservice != null">, {{(p.roomservice).replace('_', ' ')}}</span><br>{{p.acomodation.Desc}} </p>
             </div>
           </li>
-          <li>
+          <li *ngIf="p.transportation != null">
             <div class="timeline-thumb bg-color-calm timeline-icon" *ngIf="p.transportation != null">
               <ion-icon ios="ios-bus" md="md-bus" class="timeline-icon"></ion-icon>
             </div>
-            <div class="timeline-item" *ngIf="p.transportation != null">
+            <div class="timeline-item" >
               <h4>{{p.transportation.Name}}</h4>
               <p>{{p.transportation.TransportationSeatTypeName}} Seater <span *ngIf="p.transportservice != null">, {{(p.transportservice).split("_").join(" ")}}</span></p>
             </div>
           </li>
-          <li>
-            <div class="timeline-thumb bg-color-energized timeline-icon" *ngIf="p.attraction != null">
+          <li *ngIf="p.attraction != null">
+            <div class="timeline-thumb bg-color-energized timeline-icon">
               <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle" class="timeline-icon"></ion-icon>
             </div>
-            <div class="timeline-item" *ngIf="p.attraction != null">
-              <h4>{{p.attraction.Name}}</h4>
-              <p><span *ngFor="let attrac of p.attraction ;let i = index">{{attrac.Name}}<span *ngIf="p.attraction.length > 1 && i  != p.attraction.length - 1 ">, </span></span></p>
+            <div class="timeline-item" *ngFor="let attrac of p.attraction ;let i = index">
+              <h4>{{attrac.Name}}</h4>
+              <!--<p><span *ngFor="let attrac of p.attraction ;let i = index">{{attrac.Name}}<span *ngIf="p.attraction.length > 1 && i  != p.attraction.length - 1 ">, </span></span></p>-->
+              <p><span maxlength="100">{{attrac.Description}}</span></p>
             </div>
           </li>
           <!--<ion-grid *ngFor="let p of d.dailyProgram.program_daily; let i = index">
