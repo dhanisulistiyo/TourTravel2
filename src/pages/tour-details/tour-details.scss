@@ -1,59 +1,162 @@
+$SIDEMENU_TOP: #00a497;
+$SIDEMENU_BOTTOM: #2cbaae;
+$SIDEMENU_TRANSPARENCY: rgba(255, 255, 255, 0.4);
 page-tour-details {
     ion-card {
         width: 100%;
         height: 100%;
         margin-top: 100px;
+        margin-left: 0px;
         overflow: visible;
-        top: 0;
-        .card-md {
-            margin: 10px 10px 10px 10px;
-            width: calc(100%);
-            border-radius: 2px;
-            font-size: 1.4rem;
-            background: #fff;
-            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        ion-card-header {
+            h2.card-title {
+                font-family: 'Open Sans', sans-serif;
+                font-size: 1.8rem;
+                color: white;
+                font-weight: 600;
+            }
         }
         ion-card-content {
             // width: 100vw;
             margin-left: -10px;
-            color: #FFFFFF;
-            text-align: center;
+            text-align: left;
             padding-top: 22px;
             padding-bottom: 22px;
-            background-size: cover;
+            overflow: visible;
+            background-color: #f9f9f9;
+            h2.card-title {
+                font-family: 'Lato', sans-serif;
+                font-size: 2.5rem;
+                margin-top: .5rem;
+                color: black;
+            }
+            h3.card-title {
+                font-family: 'Lato', sans-serif;
+                font-size: 1.8rem;
+                color: #595959;
+                font-weight: 600;
+                text-align: right;
+            }
+            h3.card-title-label {
+                font-family: 'Lato', sans-serif;
+                font-size: 1.8rem;
+                color: #808080;
+                font-weight: 600;
+                text-align: left;
+            }
+            h3.card-title-total {
+                font-family: 'Lato', sans-serif;
+                font-size: 1.8rem;
+                color: black;
+                font-weight: 600;
+                text-align: right;
+            }
+            h3.card-label {
+                font-family: 'Lato', sans-serif;
+                font-size: 1.8rem;
+                color: #808080;
+            }
         }
     }
-    .card-md h2 {
-        font-size: 2.5rem;
-        font-weight: 500;
-        font-family: 'Lato', cursive;
-        color: white;
+    .card-header-md {
+        padding: 15px;
+        font-size: 1rem;
+        color: #222;
+        background-color: #2cbaae;
     }
-    .card-md h3 {
-        font-family: 'Open Sans', cursive;
-        color: white;
-        font-size: 2rem;
-        font-weight: 500;
+    .card-md.card-custom {
+        background: -webkit-gradient(left top, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+        background: -o-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+        background: -moz-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+        background: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+        background-repeat: repeat-x;
+        padding: 20px 15px 20px 15px;
+        h2 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.8rem;
+            color: white;
+            font-weight: 600;
+        }
+        h2.card-title {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.9rem;
+            color: white;
+            border-radius: 5%;
+            border: white solid 1px;
+            background-color: #27a59b;
+            padding: 2px;
+            font-weight: 600;
+        }
+        h3.card-title {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.3rem;
+            color: white;
+            padding: 2px;
+            font-weight: 600;
+        }
+        p.p-custom {
+            color: white;
+            font-family: 'Open Sans', sans-serif;
+            text-transform: uppercase;
+            font-size: 1.3rem;
+            width: 40%;
+            border-radius: 5%;
+            text-align: center;
+            padding: 2px;
+            font-weight: 600;
+            border: #f0b840 solid 1px;
+            background-color: #f0b840;
+        }
     }
-    .card-content-md {
-        // padding: 13px 16px 13px 16px;
-        // font-size: 1.4rem;
-        // line-height: 1.5;
-        // background: black;
-        // box-shadow: none;
-        background: rgba(0, 0, 0, 0.6);
-        right: 0;
+    .item-md {
+        //width: 100vw; // margin-left: -10px;
+        padding-left: 0px;
+        padding-right: 0px;
+        position: relative;
+        color: white;
+        background-color: transparent;
+        box-shadow: none;
+    }
+    ion-avatar img,
+    ion-thumbnail img {
         display: block;
-        bottom: 0;
-        font-size: 2em;
-        width: 100%;
-        top: 0;
-        height: 38.5%;
-        font-weight: 900;
+        border-radius: 50%;
+        border: white solid 2px;
+        display: inline;
+    }
+    ion-note {
+        color: map-get($colors, primary);
+        font-weight: normal;
+    }
+    .scroll-content {
+        background: #eeeced;
+    }
+    [col-1] {
+        -webkit-flex: 0 0 8.33333%;
+        -ms-flex: 0 0 8.33333%;
+        flex: 0 0 8.33333%;
+        width: 8.33333%;
+        max-width: 4%;
+    }
+    ion-note {
+        color: map-get($colors, primary);
+        font-weight: normal;
+    }
+    .button-custom {
+        border: 0;
+        background: transparent;
+        font-family: inherit;
+        font-style: inherit;
+        font-variant: inherit;
+        line-height: 1;
+        text-transform: none;
+        cursor: pointer;
+        -webkit-appearance: button;
+    }
+    .custom-padding{
         text-align: center;
-        left: 0;
-        position: absolute;
-        padding: 0px 16px 0px 16px;
-        overflow: visible;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 500;
+        font-size: 1.5rem;
     }
 }
