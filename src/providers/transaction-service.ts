@@ -28,8 +28,8 @@ export class TransactionService {
       "InfantPaxQty": Number(this.ite.getPassenger().guestTour['InfantQty']),
       "StartDate": this.ite.getDateTour().ev['monthStart'],
       "EndDate": this.ite.getDateTour().ev['monthEnd'],
-      "CityDestinationId": null,
-      "RegionDestinationId": this.ite.getObjectLocation()[0].RegionId,
+      "CityDestinationId": this.ite.getObjectLocation().Id,
+      "RegionDestinationId": this.ite.getObjectLocation().RegionId,
       "Attractions": this.attraction,
       "Transportations": this.transportation,
       "Accommodations": this.accomodation
@@ -58,8 +58,8 @@ export class TransactionService {
       "InfantPaxQty": Number(this.ite.getPassenger().guestTour['InfantQty']),
       "StartDate": this.ite.getDateTour().ev['monthStart'],
       "EndDate": this.ite.getDateTour().ev['monthEnd'],
-      "CityDestinationId": null,
-      "RegionDestinationId": this.ite.getObjectLocation()[0].RegionId,
+      "CityDestinationId": this.ite.getObjectLocation().Id,
+      "RegionDestinationId": this.ite.getObjectLocation().RegionId,
       "Attractions": this.attraction,
       "Transportations": this.transportation,
       "Accommodations": this.accomodation
