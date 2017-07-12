@@ -21,18 +21,18 @@ page-input-travellers {
     }
     .ion-md-remove-circle:before {
         font-size: 28px;
-        color: #ff7d16;
+        color: #55bbd4;
     }
     .ion-md-add-circle:before {
         font-size: 28px;
-        color: #5ba509;
+        color: #2cbaae;
     }
-    [col-4] {
-        -webkit-flex: 0 0 33.33333%;
-        -ms-flex: 0 0 33.33333%;
-        flex: 0 0 33.33333%;
-        width: 33.33333%;
-        max-width: 20%;
-        align-self: center;
+    ion-row.row-label {
+        text-align: left;
+        align-content: left;
+    }
+    ion-row.row-content {
+        text-align: center;
+        align-content: center;
     }
 }

@@ -7,147 +7,77 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Allocations</ion-title>
+    <ion-title> Add Room Allocations</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-<h3> Allocate Room</h3>
-
   <ion-grid class="vertical-align-content">
-    <ion-row>
-      <ion-col>
+    <ion-row class="row-label">
+      <ion-col col-12>
         <ion-label stacked>
-          <ion-icon ios="ios-person" md="md-person" class="custom-color"></ion-icon> Twin Room</ion-label>
+          <ion-icon ios="ios-contacts" md="md-contacts" class="custom-color"></ion-icon> Sharing Room</ion-label>
       </ion-col>
-      <ion-row>
-        <ion-col col-4 style="text-align:right;"><button clear (click)="decValue('SR')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
-        <ion-col col-4 style="text-align:center;">
+    </ion-row>
+      <ion-row class="row-content">
+        <ion-col col-5 style="text-align:right;"><button clear (click)="decValue('SR')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
+        <ion-col col-2 style="text-align:center;">
           <ion-input (input)="validateNumber(allocRoom)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;" maxlength="3" min="0"
            name="sharingRooms" [value]="allocRoom.sharingRooms" [(ngModel)]="allocRoom.sharingRooms"></ion-input>
         </ion-col>
-        <ion-col col-4><button clear (click)="incValue('SR')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
+        <ion-col col-5 style="text-align:left;"><button clear (click)="incValue('SR')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
       </ion-row>
-    </ion-row>
-    <ion-row>
-      <ion-col>
+    <ion-row class="row-label">
+      <ion-col col-12>
         <ion-label stacked>
           <ion-icon ios="ios-body" md="md-body" class="custom-color"></ion-icon> Single Room</ion-label>
       </ion-col>
-      <ion-row>
-        <ion-col col-4 style="text-align:right;"><button clear (click)="decValue('SiR')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
-        <ion-col col-4 style="text-align:center;">
+    </ion-row>
+      <ion-row class="row-content">
+        <ion-col col-5 style="text-align:right;"><button clear (click)="decValue('SiR')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
+        <ion-col col-2 style="text-align:center;">
           <ion-input (input)="validateNumber(allocRoom)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;" maxlength="3" min="0"
            name="singleRoom" [value]="allocRoom.singleRoom" [(ngModel)]="allocRoom.singleRoom"></ion-input>
         </ion-col>
-        <ion-col col-4><button clear (click)="incValue('SiR')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
+        <ion-col col-5 style="text-align:left;"><button clear (click)="incValue('SiR')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
       </ion-row>
-    </ion-row>
-    <ion-row>
-      <ion-col>
+    <ion-row class="row-label">
+      <ion-col col-12>
         <ion-label stacked>
-          <ion-icon ios="ios-ionitron" md="md-ionitron" class="custom-color"></ion-icon> Extra Bed</ion-label>
+          <ion-icon ios="ios-albums" md="md-albums" class="custom-color"></ion-icon> Extra Bed</ion-label>
       </ion-col>
-      <ion-row>
-        <ion-col col-4 style="text-align:right;"><button clear (click)="decValue('EB')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
-        <ion-col col-4 style="text-align:center;">
+    </ion-row>
+      <ion-row class="row-content">
+        <ion-col col-5 style="text-align:right;"><button clear (click)="decValue('EB')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
+        <ion-col col-2 style="text-align:center;">
           <ion-input (input)="validateNumber(allocRoom)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;" maxlength="3" min="0"
              name="extraBed" [value]="allocRoom.extraBed" [(ngModel)]="allocRoom.extraBed"></ion-input>
         </ion-col>
-        <ion-col col-4><button clear (click)="incValue('EB')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
+        <ion-col col-5 style="text-align:left;"><button clear (click)="incValue('EB')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
       </ion-row>
-    </ion-row>
-    <ion-row>
-      <ion-col>
+    <ion-row class="row-label">
+      <ion-col col-12>
         <ion-label stacked>
-          <ion-icon ios="ios-ionitron" md="md-ionitron" class="custom-color"></ion-icon> Sharing Bed with Parents</ion-label>
+          <ion-icon ios="ios-person-add" md="md-person-add" class="custom-color"></ion-icon> Sharing Bed with Parents</ion-label>
       </ion-col>
-      <ion-row>
-        <ion-col col-4 style="text-align:right;"><button clear (click)="decValue('SB')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
-        <ion-col col-4 style="text-align:center;">
+    </ion-row>
+      <ion-row class="row-content">
+        <ion-col col-5 style="text-align:right;"><button clear (click)="decValue('SB')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
+        <ion-col col-2 style="text-align:center;">
           <ion-input (input)="validateNumber(allocRoom)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;" maxlength="3" min="0"
             name="sharingBed" [value]="allocRoom.sharingBed" [(ngModel)]="allocRoom.sharingBed"></ion-input>
         </ion-col>
-        <ion-col col-4><button clear (click)="incValue('SB')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
+        <ion-col col-5 style="text-align:left;"><button clear (click)="incValue('SB')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
       </ion-row>
-    </ion-row>
-    <ion-row>
+    <ion-row class="row-label">
       <ion-col col-12>
         <ion-label stacked>
-          <ion-icon ios="ios-people" md="md-people" class="custom-color"></ion-icon> Total Room(s) : {{totalGuest}}</ion-label>
+          <ion-icon ios="ios-filing" md="md-filing" class="custom-color"></ion-icon> Total Room(s) : <strong>{{totalGuest}}</strong></ion-label>
       </ion-col>
     </ion-row>
   </ion-grid>
-
-<!--<ion-grid class="vertical-align-content">
-  <ion-row>
-    <ion-col col-2>
-    </ion-col>
-     <ion-col col-5>
-       <h4>Sharing Room</h4>
-    </ion-col>
-     <ion-col col-2>
-       <ion-input (input)="guestRemaining(allocRoom)"  type="tel" style="border:1px solid ;" maxlength="2" name="sharingRooms" [value]="allocRoom.sharingRooms" [(ngModel)]="allocRoom.sharingRooms"></ion-input>
-    </ion-col>
-    <ion-col col-2>
-    </ion-col>
-  </ion-row>
-  
-  <ion-row>
-    <ion-col col-2>
-    </ion-col>
-     <ion-col col-5>
-       <h4>Single Room</h4>
-    </ion-col>
-     <ion-col col-2>
-       <ion-input (input)="guestRemaining(allocRoom)"  type="tel" style="border:1px solid ;" maxlength="2" name="singleRoom" [value]="allocRoom.singleRoom" [(ngModel)]="allocRoom.singleRoom"></ion-input>
-    </ion-col>
-    <ion-col col-2>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col col-2>
-    </ion-col>
-     <ion-col col-5>
-       <h4>Extra Bed</h4>
-    </ion-col>
-     <ion-col col-2>
-       <ion-input (input)="guestRemaining(allocRoom)"  type="tel" style="border:1px solid ;" maxlength="2"  name="extraBed" [value]="allocRoom.extraBed" [(ngModel)]="allocRoom.extraBed"></ion-input>
-    </ion-col>
-    <ion-col col-2>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col col-2>
-    </ion-col>
-     <ion-col col-5>
-       <h4>Sharing Bed with Parents</h4>
-    </ion-col>
-     <ion-col col-2>
-       <ion-input (input)="guestRemaining(allocRoom)"  type="tel" style="border:1px solid ;" maxlength="2"  name="sharingBed" [value]="allocRoom.sharingBed" [(ngModel)]="allocRoom.sharingBed"></ion-input>
-    </ion-col>
-    <ion-col col-2>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-  <ion-col col-2>
-    </ion-col>
-     <ion-col col-5>
-       <h4>Total Guest:</h4>
-    </ion-col>
-     <ion-col col-2>
-       <ion-input disable type="text" [(ngModel)]="totalGuest"></ion-input>
-    </ion-col>
-    <ion-col col-2>
-    </ion-col>
-  </ion-row>
-</ion-grid>-->
-
 </ion-content>
 
 <ion-footer>

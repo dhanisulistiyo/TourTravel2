@@ -72,7 +72,6 @@ page-tour-details {
         margin-left: -10px;
         width: 105%;
     }
-
     .card-md.card-custom {
         background: -webkit-gradient(left top, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
         background: -o-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
@@ -164,6 +163,19 @@ page-tour-details {
         font-weight: 500;
         font-size: 1.5rem;
     }
+    .btn-accept {
+        background-color: #55bbd4;
+        padding: 28px;
+    }
+    .btn-cancel {
+        background-color: #2cbaae;
+    }
+    span.button-inner {
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    font-family: 'Open Sans', cursive;
+    font-weight: 700;
+}
     /* -------------------------------- All the CSS needed for the timeline! -------------------------------- */
     /* -------------------------------- Paddings and margins -------------------------------- */
     /*Optional*/
