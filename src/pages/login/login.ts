@@ -4,8 +4,6 @@ import { AuthService } from '../../providers/auth-token-service';
 import { RegisterPage } from '../register/register';
 import { HomePage } from '../../pages/home/home';
 
-
-
 @Component({
     selector: 'page-login',
     templateUrl: 'login.html'

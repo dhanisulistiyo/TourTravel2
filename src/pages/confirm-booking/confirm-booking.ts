@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams,AlertController , LoadingController} from 'ionic-angular';
-import {CustomePackagePage} from '../custome-package/custome-package';
 import {PaymentPage} from '../payment/payment';
 import {MultiTransactionService} from '../../providers/multi-transaction-service';
 import {DailyService} from '../../providers/daily-service';
@@ -24,7 +23,6 @@ export class ConfirmBookingPage {
   public navParams: NavParams, 
   public mulTra : MultiTransactionService, 
   public alertCtrl : AlertController,
-  public ds: DailyService,
   public load: LoadingController
   ) {
   this.BookingDetailSum= null;
@@ -75,37 +73,13 @@ export class ConfirmBookingPage {
         {
           text: 'OK',
           handler: () => {
-                    let loader = this.load.create({
-              content: 'Please wait...'
-            });
-            loader.present();
-            this.mulTra.getTourTransaksi().subscribe(data=>{console.log(data);} ,err =>{console.log(err);}, ()=> console.log('post Transaction Complete'));
             console.log('Saved clicked');
-            loader.dismiss();
-            this.alertSuccess();
-            
+            this.navCtrl.push(PaymentPage);
+            //this.alertSuccess();         
           }
         }
       ]
     });
     prompt.present();
-  }
-
-
-
-alertSuccess() {
-    let alert = this.alertCtrl.create({
-      title: 'Booking Saved',
-      subTitle: 'Your Booking has been saved in Sistem',
-      buttons: [{
-          text: 'OK',
-          handler: ()=> {
-            this.navCtrl.setRoot(CustomePackagePage);
-            //this.navCtrl.push(PaymentPage);
-            console.log('Saved clicked');
-          }
-        }]
-    });
-    alert.present();
   }
 }
