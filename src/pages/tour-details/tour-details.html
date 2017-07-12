@@ -75,15 +75,15 @@
         </ion-card-header>
         <ion-card-content style="margin-left: 0px;">
           <ion-grid>
-            <ion-row>
+            <ion-row *ngIf="price.SharingRoomSum['Pax'] != 0" >
               <ion-col col-7>
-                <h3 class="card-label">Twin Room:</h3>
+                <h3 class="card-label">Sharing Room:</h3>
               </ion-col>
               <ion-col col-5>
                 <h3 class="card-title">{{price.SharingRoomSum['Pax']}}</h3>
               </ion-col>
             </ion-row>
-            <ion-row>
+            <ion-row *ngIf="price.SingleRoomSum['Pax'] != 0">
               <ion-col col-7>
                 <h3 class="card-label">Single Room: </h3>
               </ion-col>
@@ -91,20 +91,20 @@
                 <h3 class="card-title">{{price.SingleRoomSum['Pax']}}</h3>
               </ion-col>
             </ion-row>
-            <ion-row>
+            <ion-row *ngIf="price.ExtraBedSum['Pax'] != 0">
               <ion-col col-7>
                 <h3 class="card-label">Extra Bed: </h3>
               </ion-col>
               <ion-col col-5>
-                <h3 class="card-title">{{price.SingleRoomSum['Pax']}}</h3>
+                <h3 class="card-title">{{price.ExtraBedSum['Pax']}}</h3>
               </ion-col>
             </ion-row>
-            <ion-row>
+            <ion-row *ngIf="price.SharingBedSum['Pax'] != 0">
               <ion-col col-7>
                 <h3 class="card-label">Sharing Bed with Parents: </h3>
               </ion-col>
               <ion-col col-5>
-                <h3 class="card-title">{{price.ExtraBedSum['Pax']}}</h3>
+                <h3 class="card-title">{{price.SharingBedSum['Pax']}}</h3>
               </ion-col>
             </ion-row>
             <ion-row style="border-top:#b3b3b3 1px solid;">
@@ -127,7 +127,7 @@
           <ion-grid>
             <ion-row>
               <ion-col col-7>
-                <h3 class="card-label">Staying in Twin Room ({{price.SharingRoomSum['Pax']}} X {{price.SharingRoomSum['Currency']}} {{price.SharingRoomSum['PricePerPax']
+                <h3 class="card-label">Staying in Sharing Room ({{price.SharingRoomSum['Pax']}} X {{price.SharingRoomSum['Currency']}} {{price.SharingRoomSum['PricePerPax']
                   | number:'.0'}}.-/Guest): </h3>
               </ion-col>
               <ion-col col-5>
@@ -166,7 +166,7 @@
                 <h3 class="card-title-label">Total Prices: </h3>
               </ion-col>
               <ion-col col-6>
-                <h3 class="card-title-total">{{price.SharingBedSum['Currency']}} <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice | number:'.0'}}</span>.-</h3>
+                <h3 class="card-title-total">{{price.SharingRoomSum['Currency']}} <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice | number:'.0'}}</span>.-</h3>
               </ion-col>
             </ion-row>
           </ion-grid>

@@ -39,6 +39,7 @@ export class TourDetailsPage {
       this.BookingDetailSum = Array.of(data['BookingDetailSum']);
       this.DailyPrograms = (data['DailyPrograms'])
       this.TourPriceSum = Array.of(data['TourPriceSum']);
+      console.log(this.TourPriceSum )
       loader.dismiss();
       if (this.BookingDetailSum[0].Status == 'Booking_created') {
         this.isValid = true;
