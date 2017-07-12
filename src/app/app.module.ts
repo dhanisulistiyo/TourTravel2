@@ -64,7 +64,8 @@ import { ConfirmBookingPage } from '../pages/confirm-booking/confirm-booking';
 import { TourDetailsPage } from '../pages/tour-details/tour-details';
 //component
 import { LocationPopoverComponent } from '../components/location-popover/location-popover';
-
+//payment
+import { PaymentPage } from '../pages/payment/payment';
 
 //service
 import { AcomodationService } from '../providers/acomodation-service';
@@ -81,6 +82,8 @@ import { DailyService } from '../providers/daily-service';
 import { MultiTransactionService } from '../providers/multi-transaction-service';
 import { UserandcompanyDetails } from '../providers/userandcompany-details';
 import { FilattractionService } from '../providers/filattraction-service';
+
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -100,7 +103,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MybookingPage,
     MybookingComPage,
     MybookingOnPage,
-    //MybookingCancel,
 
     //itinerarybuilder
     IteneraryBuilderPage,
@@ -114,7 +116,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
     ListTransportPage,
     TransportAirportservicePage,
-    //TransportLocationservice,
     ListAttractionPage,
     FilterTransportPage,
     InputTravellersPage,
@@ -135,22 +136,25 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HotelRoomservicePage1,
     HotelRoomallocatePage1,
     FilterDestinationPage,
-    // FilterAttraction,
-
+    
     //result
      ConfirmBookingPage,
-    // DailyProgram,
-    // DailyDetails,
      TourDetailsPage,
 
     //component
     LocationPopoverComponent,
 
     //Details Profile
-    // MyprofilePage,
-    // MycompanyPage,
-    // MyaccountPage,
-    // ChangepasswordPage,
+    MyprofilePage,
+    MycompanyPage,
+    MyaccountPage,
+    ChangepasswordPage,
+    MybookingCancel,
+    DailyProgram,
+    DailyDetails,
+    FilterAttraction,
+    TransportLocationservice,
+    PaymentPage,
   ],
   imports: [
     BrowserModule,
@@ -173,7 +177,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MybookingPage,
     MybookingComPage,
     MybookingOnPage,
-    //MybookingCancel,
+   
 
     //itineraryBuilder
     IteneraryBuilderPage,
@@ -186,7 +190,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
     ListTransportPage,
     TransportAirportservicePage,
-    //TransportLocationservice,
     ListAttractionPage,
     FilterHotelPage,
     FilterTransportPage,
@@ -199,8 +202,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
     //result
      ConfirmBookingPage,
-    // DailyProgram,
-    // DailyDetails,
      TourDetailsPage,
 
     //Daily Program
@@ -215,19 +216,23 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HotelRoomservicePage1,
     HotelRoomallocatePage1,
     FilterDestinationPage,
-    // FilterAttraction,
+    
 
 
     //component
     LocationPopoverComponent,
 
     //Details Profile
-    // MyprofilePage,
-    // MycompanyPage,
-    // MyaccountPage,
-    // ChangepasswordPage,
-
-
+    MyprofilePage,
+    MycompanyPage,
+    MyaccountPage,
+    ChangepasswordPage,
+    DailyProgram,
+    DailyDetails,
+    FilterAttraction,
+    MybookingCancel,
+    PaymentPage,
+    TransportLocationservice,
   ],
   providers: [
     StatusBar,

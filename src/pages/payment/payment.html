@@ -7,12 +7,43 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>payment</ion-title>
+    <ion-title>Tap And Pay</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+<ion-list radio-group>
+  <ion-list-header>
+    Language
+  </ion-list-header>
+
+  <ion-item>
+    <ion-label>Deposit</ion-label>
+    <ion-radio checked="true" value="go"></ion-radio>
+  </ion-item>
+
+ <ion-item>
+    <ion-thumbnail item-start>
+      <img src="../assets/img/deposit.png">
+    </ion-thumbnail>
+    <h2>Deposit</h2>
+    <ion-radio checked="true" value="deposit"></ion-radio>
+  </ion-item>
+
+  <ion-item>
+    <ion-thumbnail item-start>
+      <img src="../assets/img/credit-card.png">
+    </ion-thumbnail>
+    <h2>Creadit/debit card</h2>
+    <ion-radio checked="true" value="card"></ion-radio>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Creadit/debit card</ion-label>
+    <ion-radio value="rust"></ion-radio>
+  </ion-item>
+</ion-list>
 
 </ion-content>

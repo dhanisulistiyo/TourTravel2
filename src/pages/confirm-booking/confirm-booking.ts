@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams,AlertController , LoadingController} from 'ionic-angular';
 import {CustomePackagePage} from '../custome-package/custome-package';
+import {PaymentPage} from '../payment/payment';
 import {MultiTransactionService} from '../../providers/multi-transaction-service';
 import {DailyService} from '../../providers/daily-service';
+
 /*
   Generated class for the ConfirmBooking page.
 
@@ -99,6 +101,7 @@ alertSuccess() {
           text: 'OK',
           handler: ()=> {
             this.navCtrl.setRoot(CustomePackagePage);
+            //this.navCtrl.push(PaymentPage);
             console.log('Saved clicked');
           }
         }]
