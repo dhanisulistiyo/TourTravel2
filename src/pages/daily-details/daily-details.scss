@@ -1,29 +1,147 @@
-    page-daily-details {
-
-        .card-header-md {
-            border-bottom: 1px solid grey;
-            padding-top: 5px;
-            padding-right: 5px;
-            padding-left: 5px;
-            padding-bottom: 5px;
-            font-size: 2rem;
+$SIDEMENU_TOP: #00a497;
+$SIDEMENU_BOTTOM: #2cbaae;
+$SIDEMENU_TRANSPARENCY: rgba(255, 255, 255, 0.4);
+page-daily-details {
+    ion-card.card {
+        box-shadow: 2px;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+        float: left;
+        /* important */
+        position: relative;
+        /* important(so we can absolutely position the description div */
+    }
+    .custom-label {
+        background-color: #e6e6e6;
+        margin: 0;
+        text-align: left;
+        width: 100%;
+        padding: 10px;
+        font-family: 'Lato', cursive;
+        color: #4d4d4d;
+        font-size: 1 rem;
+        font-weight: bold;
+    }
+    .card-custom {
+        margin-bottom: 10px;
+        border: medium none;
+        border-radius: 5px;
+        display: block;
+        text-align: center;
+        margin: 2px 0 2px;
+        padding: 80px 0 8px 0;
+        font-size: 2.4rem;
+        line-height: 1.2;
+        color: white;
+    }
+    .card-header-md {
+        padding: 15px;
+        font-size: 1rem;
+        color: #222;
+        background-color: #2cbaae;
+    }
+    .card-md h2 {
+        font-size: 2rem;
+        font-weight: normal;
+        font-family: 'Open Sans', cursive;
+        color: white;
+    }
+    .card-md h3 {
+        font-family: 'Quicksand', cursive;
+        color: white;
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+    .h2-title {
+        font-size: 2.2rem;
+        font-weight: 600;
+        font-family: 'Lato', cursive;
+        color: black;
+        align-content: center;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin: 0;
+    }
+    .h3-subtitle {
+        align-content: center;
+        text-align: center;
+        font-family: 'Lato', cursive;
+        color: #8c8c8c;
+        margin: 0;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        padding: 5px 0 5px 0;
+        font-weight: 600;
+    }
+    .content-custom {
+        box-shadow: none;
+        background: rgba(0, 0, 0, 0.6);
+        right: 0;
+        display: block;
+        bottom: 0;
+        top: 50px;
+        font-size: 2em;
+        font-weight: 900;
+        text-align: left;
+        left: 0;
+        position: absolute;
+        padding: 0px 16px 10px 16px;
+    }
+    .card-md.card-custom {
+        background: -webkit-gradient(left top, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+        background: -o-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+        background: -moz-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+        background: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+        background-repeat: repeat-x;
+        padding: 20px 15px 20px 15px;
+        h2 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.8rem;
+            color: white;
+            font-weight: 600;
         }
-        .input-wrapper {
-            border-bottom: 1px solid;
-            height: 36px;
+        h2.card-title {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.9rem;
+            color: white;
+            border-radius: 5%;
+            border: white solid 1px;
+            background-color: #27a59b;
+            padding: 2px;
+            font-weight: 600;
         }
-        .label-md[stacked] {
-            font-size: 1.6rem;
-            margin-top: 0px;
-            margin-right: 0px;
+        h3.card-title {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.3rem;
+            color: white;
+            padding: 2px;
+            font-weight: 600;
         }
-        .label-md {
-            margin: 13px 8px 13px 0;
-            margin-top: 5px;
-            margin-bottom: 5px;
-            margin-right: 0px;
-        }
-        .card-content-md {
-            padding-bottom: 0px;
+        p.p-custom {
+            color: white;
+            font-family: 'Open Sans', sans-serif;
+            text-transform: uppercase;
+            font-size: 1.3rem;
+            width: 40%;
+            border-radius: 5%;
+            text-align: center;
+            padding: 2px;
+            font-weight: 600;
+            border: #f0b840 solid 1px;
+            background-color: #f0b840;
         }
     }
+    .item-md {
+        //width: 100vw; // margin-left: -10px;
+        padding-left: 0px;
+        padding-right: 0px;
+        position: relative;
+        color: white;
+        background-color: transparent;
+        box-shadow: none;
+    }
+    .scroll-content {
+        background-color: #f9f9f9;
+    }
+}

@@ -7,12 +7,81 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Daily Tour Details</ion-title>
+    <ion-title>Add Daily Tours</ion-title>
   </ion-navbar>
 
 </ion-header>
 
+<!--<div class="selection" style="margin-left: -10px; width:105%;">
+  <ion-card style="top:0; margin-top:0px;">
+    <img src="../assets/img/bali-wallpaper.jpg" style="height:250px;" />
+    <ion-card-content class="content-header">
+      <ion-card-title>
+        <h2>Bali Trip</h2>
+        <h3>JUL 7 - 9</h3>
+      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+</div>-->
 
+<ion-content style="margin-left: -10px; width:105%; overflow: visible; margin-top: -10px;">
+  <ion-card class="page-daily-details">
+    <img src="../assets/img/bali-wallpaper.jpg" style="height: 230px;" />
+    <ion-card-content class="content-custom" style="top: 0px;">
+      <ion-card-title class="card-custom">
+        <h2>Bali Trip</h2>
+        <h3>JUL 7 - 9</h3>
+      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+  <h2 class="h2-title">{{tanggal | date:'MMM dd'}}</h2>
+  <h3 class="h3-subtitle">Day {{idAwal + 1}}</h3>
+  <ion-card *ngFor="let d of selectedItem ; let j = index">
+      <ion-card-header>
+        <h2 class="card-title">Destination {{d.id}}</h2>
+      </ion-card-header>
+      <ion-card-content style="margin-left: 0px;">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+              <h3 class="card-label">Destination: </h3>
+            </ion-col>
+            <ion-col col-8>
+              <h3 class="card-title">Bali</h3>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4>
+              <h3 class="card-label">Accomodation: </h3>
+            </ion-col>
+            <ion-col col-8>
+              <h3 class="card-title">Basajans Hotel</h3>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4>
+              <h3 class="card-label">Transportation: </h3>
+            </ion-col>
+            <ion-col col-8>
+              <h3 class="card-title">Bus 15 Seat</h3>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4>
+              <h3 class="card-label">Attraction Packages: </h3>
+            </ion-col>
+            <ion-col col-8>
+              <h3 class="card-title">Kuta Rock City</h3>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+</ion-content>
+
+
+
+<!--
 <ion-content padding>
   <ion-col center text-center> <h3> Day {{idAwal + 1}} : {{tanggal | date:'dd MMMM yyyy'}}</h3> </ion-col>
   
@@ -56,7 +125,7 @@
                   <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle"></ion-icon> Attraction Package</ion-label>
                 <ion-item style="padding-left: 0px" (click)="attractionTapped(j)"><span *ngIf="d.attraction != null"><span *ngFor="let attrac of d.attraction ;let i = index">{{attrac.Name}}<span *ngIf="d.attraction.length > 1 && i  != d.attraction.length - 1 ">, </span></span></span>
                 </ion-item>
-                <!--<ion-input type="text" disabled="true" [(ngModel)]="attraction" aria-placeholder="attraction" (click)="attractionTapped($event)"></ion-input>-->
+                <ion-input type="text" disabled="true" [(ngModel)]="attraction" aria-placeholder="attraction" (click)="attractionTapped($event)"></ion-input>
               </ion-col>
             </ion-row>
         </ion-grid>
@@ -65,9 +134,9 @@
 <ion-fab right bottom>
     <button ion-fab color="secondary"  (click)="AddCard($event)"><ion-icon name="md-add"></ion-icon></button>
   </ion-fab>
-</ion-content>
+</ion-content>-->
 
 
 <ion-footer>
-    <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="doneTap($event)" full large >Done</button>
+  <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="doneTap($event)" full large>Done</button>
 </ion-footer>
