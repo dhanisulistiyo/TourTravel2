@@ -1,3 +1,99 @@
 page-mybooking-com {
-
+    ion-card.card {
+        box-shadow: 2px;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+        float: left;
+        /* important */
+        position: relative;
+        /* important(so we can absolutely position the description div */
+    }
+    .row {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        padding-top: 30px;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    .card-custom {
+        margin-bottom: 10px;
+        border: medium none;
+        border-radius: 5px;
+        display: block;
+        text-align: center;
+        margin: 2px 0 2px;
+        padding: 50px 0 8px 0;
+        font-size: 2.4rem;
+        line-height: 1.2;
+        color: white;
+    }
+    .h2-title-header {
+        font-size: 4rem;
+        font-weight: normal;
+        font-family: 'Open Sans', cursive;
+        color: white;
+    }
+    .h3-subtitle-header {
+        font-family: 'Quicksand', cursive;
+        color: white;
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
+    .content-custom {
+        box-shadow: none;
+        background: rgba(0, 0, 0, 0.5);
+        right: 0;
+        display: block;
+        bottom: 0;
+        top: 50px;
+        font-size: 2em;
+        font-weight: 900;
+        text-align: left;
+        left: 0;
+        position: absolute;
+        padding: 0px 16px 10px 16px;
+    }
+    .button-inner {
+        text-transform: none;
+        font-family: 'Open Sans', cursive;
+        font-weight: 700;
+        color: white;
+        font-size: 1.4rem;
+    }
+    .custom-row {
+        padding: 0;
+        .col {
+            &:first-child {
+                position: relative;
+                padding: 0;
+                .corner-ribbon {
+                    width: 800px;
+                    background: #22c1c3;
+                    /* fallback for old browsers */
+                    background: -webkit-linear-gradient(to right, #fdbb2d, #22c1c3);
+                    /* Chrome 10-25, Safari 5.1-6 */
+                    background: linear-gradient(to right, #fdbb2d, #22c1c3);
+                    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                    position: absolute;
+                    top: 25px;
+                    left: -65px;
+                    text-align: center;
+                    line-height: 35px;
+                    letter-spacing: 0px;
+                    font-family: 'Open Sans', cursive;
+                    font-size: 20px;
+                    margin-left: 10px;
+                    font-weight: 700;
+                    color: white;
+                    -ms-transform: rotate(40deg);
+                    /* IE 9 */
+                    -webkit-transform: rotate(40deg);
+                    /* Chrome, Safari, Opera */
+                    transform: rotate(40deg);
+                }
+            }
+        }
+    }
 }

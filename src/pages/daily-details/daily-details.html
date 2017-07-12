@@ -88,10 +88,10 @@
     </ion-card-content>
   </ion-card>
   <ion-grid>
-    <ion-row>
+    <ion-row (click)="AddCard($event)">
   <ion-col col-12>
         <button ion-button icon-left outline round>
-  <ion-icon name="ios-add-circle-outline" (click)="AddCard($event)"></ion-icon>
+  <ion-icon name="ios-add-circle-outline"></ion-icon>
   Add more destination
 </button>
   </ion-col>
