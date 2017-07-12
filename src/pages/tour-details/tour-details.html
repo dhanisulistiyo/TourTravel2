@@ -15,40 +15,54 @@
 
 <ion-content>
   <div *ngFor="let bookdetails of BookingDetailSum" class="selection" style="margin-left: -10px; width:105%; overflow: visible;">
-            <ion-card class="card-custom" style="top:0; margin-top:0px;" *ngFor="let price of TourPriceSum">
-              <ion-row>
-                <ion-col col-2>
-                    <ion-avatar item-start>
-                      <img src="../assets/img/user_pic.jpg" style="width:50px; height: 50px;">
-                    </ion-avatar>
-                </ion-col>
-                <ion-col col-5>
-                  <h2>Dhani Sulistiyo</h2>
-                  <p class ="p-custom">Unpaid</p>
-                </ion-col>
-                <ion-col col-5>
-                  <h3 class="card-title" style="text-align: right;">Total Price</h3>
-                  <h2 class="card-title" style="text-align: right;">{{price.SharingBedSum['Currency']}} <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice | number:'.0'}}</span>.-</h2>
-                </ion-col>
-              </ion-row>
-            </ion-card>
-            
-                  <p class="custom-padding">This booking request will be expired on {{bookdetails?.ExpiredOn | date:'dd MMMM yyyy'}}</p>
+    <ion-card class="card-custom" style="top:0; margin-top:0px;" *ngFor="let price of TourPriceSum">
+      <ion-row>
+        <ion-col col-2>
+          <ion-avatar item-start>
+            <img src="../assets/img/user_pic.jpg" style="width:50px; height: 50px;">
+          </ion-avatar>
+        </ion-col>
+        <ion-col col-5>
+          <h2>Dhani Sulistiyo</h2>
+          <p class="p-custom">Unpaid</p>
+        </ion-col>
+        <ion-col col-5>
+          <h3 class="card-title" style="text-align: right;">Total Price</h3>
+          <h2 class="card-title" style="text-align: right;">{{price.SharingBedSum['Currency']}} <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice | number:'.0'}}</span>.-</h2>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+    <p class="custom-padding">This booking request will be expired on {{bookdetails?.ExpiredOn | date:'dd MMMM yyyy'}}</p>
     <ion-card>
-      <ion-card-header><h2 class="card-title">Tour Detail</h2></ion-card-header>
+      <ion-card-header>
+        <h2 class="card-title">Tour Detail</h2>
+      </ion-card-header>
       <ion-card-content style="margin-left: 0px;">
         <ion-grid>
           <ion-row>
-            <ion-col col-4><h3 class="card-label">Tour Name: </h3></ion-col>
-            <ion-col col-8><h3 class="card-title">{{bookdetails?.Title}}</h3></ion-col>
+            <ion-col col-4>
+              <h3 class="card-label">Tour Name: </h3>
+            </ion-col>
+            <ion-col col-8>
+              <h3 class="card-title">{{bookdetails?.Title}}</h3>
+            </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col col-4><h3 class="card-label">Total Guest(s): </h3></ion-col>
-            <ion-col col-8><h3 class="card-title">{{bookdetails?.TotalGuest}} Guest(s)</h3></ion-col>
+            <ion-col col-4>
+              <h3 class="card-label">Start Date: </h3>
+            </ion-col>
+            <ion-col col-8>
+              <h3 class="card-title">{{bookdetails?.StartDate | date:'dd MMM'}} - {{bookdetails?.EndDate | date:'dd MMM yyyy'}}</h3>
+            </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col col-4><h3 class="card-label">Start Date: </h3></ion-col>
-            <ion-col col-8><h3 class="card-title">{{bookdetails?.StartDate | date:'dd MMM'}} - {{bookdetails?.EndDate | date:'dd MMM yyyy'}}</h3></ion-col>
+            <ion-col col-4>
+              <h3 class="card-label">Total Guest(s): </h3>
+            </ion-col>
+            <ion-col col-8>
+              <h3 class="card-title">{{bookdetails?.TotalGuest}} Guest(s)</h3>
+            </ion-col>
           </ion-row>
         </ion-grid>
       </ion-card-content>
@@ -56,63 +70,172 @@
 
     <ion-list *ngFor="let price of TourPriceSum">
       <ion-card>
-<ion-card-header><h2 class="card-title">Room Allocation</h2></ion-card-header>
+        <ion-card-header>
+          <h2 class="card-title">Room Allocation</h2>
+        </ion-card-header>
         <ion-card-content style="margin-left: 0px;">
-        <ion-grid>
-          <ion-row>
-            <ion-col col-7><h3 class="card-label">Twin Room:</h3></ion-col>
-            <ion-col col-5><h3 class="card-title">{{price.SharingRoomSum['Pax']}}</h3></ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-7><h3 class="card-label">Single Room: </h3></ion-col>
-            <ion-col col-5><h3 class="card-title">{{price.SingleRoomSum['Pax']}}</h3></ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-7><h3 class="card-label">Extra Bed: </h3></ion-col>
-            <ion-col col-5><h3 class="card-title">{{price.SingleRoomSum['Pax']}}</h3></ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-7><h3 class="card-label">Sharing Bed with Parents: </h3></ion-col>
-            <ion-col col-5><h3 class="card-title">{{price.ExtraBedSum['Pax']}}</h3></ion-col>
-          </ion-row>
-          <ion-row style="border-top:#b3b3b3 1px solid;">
-            <ion-col col-10><h3 class="card-title-label">Total Room(s): </h3></ion-col>
-            <ion-col col-2><h3 class="card-title-total">{{price.SharingRoomSum['Pax']}}</h3></ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-7>
+                <h3 class="card-label">Twin Room:</h3>
+              </ion-col>
+              <ion-col col-5>
+                <h3 class="card-title">{{price.SharingRoomSum['Pax']}}</h3>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-7>
+                <h3 class="card-label">Single Room: </h3>
+              </ion-col>
+              <ion-col col-5>
+                <h3 class="card-title">{{price.SingleRoomSum['Pax']}}</h3>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-7>
+                <h3 class="card-label">Extra Bed: </h3>
+              </ion-col>
+              <ion-col col-5>
+                <h3 class="card-title">{{price.SingleRoomSum['Pax']}}</h3>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-7>
+                <h3 class="card-label">Sharing Bed with Parents: </h3>
+              </ion-col>
+              <ion-col col-5>
+                <h3 class="card-title">{{price.ExtraBedSum['Pax']}}</h3>
+              </ion-col>
+            </ion-row>
+            <ion-row style="border-top:#b3b3b3 1px solid;">
+              <ion-col col-10>
+                <h3 class="card-title-label">Total Room(s): </h3>
+              </ion-col>
+              <ion-col col-2>
+                <h3 class="card-title-total">{{price.SharingRoomSum['Pax']}}</h3>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
       </ion-card>
 
       <ion-card>
-<ion-card-header><h2 class="card-title">Tour Prices</h2></ion-card-header>
+        <ion-card-header>
+          <h2 class="card-title">Tour Prices</h2>
+        </ion-card-header>
         <ion-card-content style="margin-left: 0px;">
+          <ion-grid>
+            <ion-row>
+              <ion-col col-7>
+                <h3 class="card-label">Staying in Twin Room ({{price.SharingRoomSum['Pax']}} X {{price.SharingRoomSum['Currency']}} {{price.SharingRoomSum['PricePerPax']
+                  | number:'.0'}}.-/Guest): </h3>
+              </ion-col>
+              <ion-col col-5>
+                <h3 class="card-title">{{price.SharingRoomSum['Currency']}} {{price.SharingRoomSum['TotalPrice']| number:'.0'}}.-</h3>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-7>
+                <h3 class="card-label">Staying in Single Room ({{price.SingleRoomSum['Pax']}} X {{price.SingleRoomSum['Currency']}} {{price.SingleRoomSum['PricePerPax']|
+                  number:'.0'}}.-/Guest): </h3>
+              </ion-col>
+              <ion-col col-5>
+                <h3 class="card-title">{{price.SingleRoomSum['Currency']}} {{price.SingleRoomSum['TotalPrice'] | number:'.0'}}.-</h3>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-7>
+                <h3 class="card-label">Staying in Extra Bed ({{price.ExtraBedSum['Pax']}} X {{price.ExtraBedSum['Currency']}} {{price.ExtraBedSum['PricePerPax']|
+                  number:'.0'}}.-/Guest): </h3>
+              </ion-col>
+              <ion-col col-5>
+                <h3 class="card-title">{{price.ExtraBedSum['Currency']}} {{price.ExtraBedSum['TotalPrice'] | number:'.0' }}.-</h3>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-7>
+                <h3 class="card-label">Staying in Sharing Bed ({{price.SharingBedSum['Pax']}} X {{price.SharingBedSum['Currency']}} {{price.SharingBedSum['PricePerPax']
+                  | number:'.0'}}.-/Guest): </h3>
+              </ion-col>
+              <ion-col col-5>
+                <h3 class="card-title">{{price.SharingBedSum['Currency']}} {{price.SharingBedSum['TotalPrice'] | number:'.0'}}.-</h3>
+              </ion-col>
+            </ion-row>
+            <ion-row style="border-top:#b3b3b3 1px solid;">
+              <ion-col col-6>
+                <h3 class="card-title-label">Total Prices: </h3>
+              </ion-col>
+              <ion-col col-6>
+                <h3 class="card-title-total">{{price.SharingBedSum['Currency']}} <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice | number:'.0'}}</span>.-</h3>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+
+
+      <ion-card-content style="margin-left: 0px;">
+        <ion-card-title>
+          <h2 class="card-title" style="height: 55px;padding-top: 15px;padding-left: 15px;padding-right: 15px;padding-bottom: 15px;margin-top: 0px; font-size:1.8rem;">Tour Schedules</h2>
+        </ion-card-title>
         <ion-grid>
-          <ion-row>
-            <ion-col col-7><h3 class="card-label">Staying in Twin Room ({{price.SharingRoomSum['Pax']}} X {{price.SharingRoomSum['Currency']}} {{price.SharingRoomSum['PricePerPax'] | number:'.0'}}.-/Guest): </h3></ion-col>
-            <ion-col col-5><h3 class="card-title">{{price.SharingRoomSum['Currency']}} {{price.SharingRoomSum['TotalPrice']| number:'.0'}}.-</h3></ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-7><h3 class="card-label">Staying in Single Room ({{price.SingleRoomSum['Pax']}} X {{price.SingleRoomSum['Currency']}} {{price.SingleRoomSum['PricePerPax']| number:'.0'}}.-/Guest): </h3></ion-col>
-            <ion-col col-5><h3 class="card-title">{{price.SingleRoomSum['Currency']}} {{price.SingleRoomSum['TotalPrice'] | number:'.0'}}.-</h3></ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-7><h3 class="card-label">Staying in Extra Bed ({{price.ExtraBedSum['Pax']}} X {{price.ExtraBedSum['Currency']}} {{price.ExtraBedSum['PricePerPax']| number:'.0'}}.-/Guest): </h3></ion-col>
-            <ion-col col-5><h3 class="card-title">{{price.ExtraBedSum['Currency']}} {{price.ExtraBedSum['TotalPrice'] | number:'.0' }}.-</h3></ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-7><h3 class="card-label">Staying in Sharing Bed ({{price.SharingBedSum['Pax']}} X {{price.SharingBedSum['Currency']}} {{price.SharingBedSum['PricePerPax'] | number:'.0'}}.-/Guest): </h3></ion-col>
-            <ion-col col-5><h3 class="card-title">{{price.SharingBedSum['Currency']}} {{price.SharingBedSum['TotalPrice'] | number:'.0'}}.-</h3></ion-col>
-          </ion-row>
-          <ion-row style="border-top:#b3b3b3 1px solid;">
-            <ion-col col-6><h3 class="card-title-label">Total Prices: </h3></ion-col>
-            <ion-col col-6><h3 class="card-title-total">{{price.SharingBedSum['Currency']}} <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice | number:'.0'}}</span>.-</h3></ion-col>
-          </ion-row>
+          <ion-item *ngFor="let dp of DailyPrograms ; let j of index" class="label-title-item">
+            <ion-icon color="primary"></ion-icon>
+            <div class="divider-title">
+              Day {{dp.Day}}, {{dp.Date | date:'dd MMMM yyyy'}}
+            </div>
+            <div style="padding-bottom: 0px;">
+              <ul class="timeline" *ngFor="let p of dp.TourDestinations; let i = index">
+                <li>
+                  <div class="timeline-thumb bg-color-positive timeline-icon" *ngIf="p.Destination != null">
+                    <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
+                  </div>
+                  <div class="timeline-item" *ngIf="p.Destination != null">
+                    <h4>{{p.Destination}}</h4>
+                    <p>Denpasar is the capital of Bali, and is the main gateway to the island. The city is also a hub for other
+                      cities in the Lesser Sunda Islands.</p>
+                  </div>
+                  <div class="timeline-item" *ngIf="dp.TourDestinations.length == 0">
+                    <p class="custom-label" style="font-size: 1.8rem; bottom: -21px;bottom: 215px;">No activities.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="timeline-thumb bg-color-dark timeline-icon" *ngIf="p.AccommodationSummary != null">
+                    <ion-icon ios="ios-cloudy-night" md="md-cloudy-night" class="timeline-icon"></ion-icon>
+                  </div>
+                  <div class="timeline-item" *ngIf="p.AccommodationSummary != null">
+                    <h4>{{p.AccommodationSummary["Name"]}}<span>, {{p.AccommodationSummary["RoomName"]}}</span><span *ngIf="p.AccommodationSummary.RoomService != null">, {{p.AccommodationSummary["RoomService"].replace('_', ' ')}}</span></h4>
+                  </div>
+                </li>
+                <li>
+                  <div class="timeline-thumb bg-color-calm timeline-icon" *ngIf="p.TransportationSummary.length > 0">
+                    <ion-icon ios="ios-bus" md="md-bus" class="timeline-icon"></ion-icon>
+                  </div>
+                  <div class="timeline-item" *ngIf="p.TransportationSummary.length > 0">
+                    <h4><span *ngFor="let a of p.TransportationSummary ;let i = index">{{a.TransportationType}}, {{a.TransportationCapacity}} Seater <span>, {{a.TransportationService}}</span></span>
+                    </h4>
+                  </div>
+                </li>
+                <li>
+                  <div class="timeline-thumb bg-color-energized timeline-icon" *ngIf="p.AttractionSummary.length > 0">
+                    <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle" class="timeline-icon"></ion-icon>
+                  </div>
+                  <div class="timeline-item" *ngIf="p.AttractionSummary.length > 0">
+                    <h4><span *ngFor="let a of p.AttractionSummary ;let i = index">{{a.Name}}<span *ngIf="p.AttractionSummary.length > 1 && i  != p.AttractionSummary.length - 1 ">, </span></span>
+                    </h4>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </ion-item>
         </ion-grid>
       </ion-card-content>
-      </ion-card>
     </ion-list>
   </div>
 </ion-content>
+<ion-footer>
+  <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="confirmTour()" full large>Continue</button>
+</ion-footer>
 
 <!--<ion-content class="content-bgn">
 <ion-card *ngFor="let bookdetails of BookingDetailSum" style="margin-left: 0px; width:100%;">
@@ -135,6 +258,7 @@
   </ion-navbar>
 
 </ion-header>
+
 
 
 <ion-content padding>

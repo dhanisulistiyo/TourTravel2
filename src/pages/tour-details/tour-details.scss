@@ -64,6 +64,15 @@ page-tour-details {
         color: #222;
         background-color: #2cbaae;
     }
+    .card-title-md {
+        padding: 0px;
+        margin: 0px;
+        color: white;
+        background-color: #2cbaae;
+        margin-left: -10px;
+        width: 105%;
+    }
+
     .card-md.card-custom {
         background: -webkit-gradient(left top, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
         background: -o-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
@@ -138,10 +147,6 @@ page-tour-details {
         width: 8.33333%;
         max-width: 4%;
     }
-    ion-note {
-        color: map-get($colors, primary);
-        font-weight: normal;
-    }
     .button-custom {
         border: 0;
         background: transparent;
@@ -153,10 +158,192 @@ page-tour-details {
         cursor: pointer;
         -webkit-appearance: button;
     }
-    .custom-padding{
+    .custom-padding {
         text-align: center;
         font-family: 'Open Sans', sans-serif;
         font-weight: 500;
         font-size: 1.5rem;
     }
+    /* -------------------------------- All the CSS needed for the timeline! -------------------------------- */
+    /* -------------------------------- Paddings and margins -------------------------------- */
+    /*Optional*/
+    .bar-stable {
+        background-color: #d9d9d9 !important;
+    }
+    .tabs {
+        background-color: #d9d9d9 !important;
+    }
+    .icon-size-lg {
+        font-size: 40px;
+    }
+    /*Timeline*/
+    .pos-absolute-right {
+        position: absolute;
+        right: 8px;
+    }
+    .timeline {
+        position: relative;
+        margin: 15px 0 30px 0;
+    }
+    .timeline:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 5px;
+        background: #afdcf8;
+        left: 44px;
+        margin-left: -10px;
+        z-index: 1;
+    }
+    .timeline .timeline-thumb {
+        border-radius: 500px;
+        width: 50px;
+        z-index: 2;
+        position: absolute;
+        left: 10px;
+        border: 5px solid #CBD0D3;
+    }
+    .timeline .timeline-thumb.timeline-icon {
+        height: 50px;
+        text-align: center;
+        color: white;
+        font-size: 40px;
+    }
+    .timeline .timeline-thumb.timeline-icon i {
+        font-size: 28px;
+        margin: 6px 0;
+        display: block;
+    }
+    .timeline .timeline-item {
+        margin-left: 72px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 8px;
+    }
+    .timeline .timeline-stats {
+        position: relative;
+        font-size: 12px;
+        color: #7F8C8D;
+    }
+    .item-md p {
+        overflow: inherit;
+        margin: 0 0 2px;
+        font-size: 1.4rem;
+        padding-right: 20px;
+        line-height: normal;
+        text-overflow: inherit;
+        color: #666;
+    }
+    .item-md ion-icon[item-left],
+    .item-md ion-icon[item-right],
+    .item-md ion-icon[item-start],
+    .item-md ion-icon[item-end] {
+        margin-top: 8px;
+        margin-bottom: 0;
+        margin-left: 0;
+    }
+    .divider-title {
+        background: #f2f2f2;
+        padding: 16px 15px;
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+        font-family: 'Lato', cursive;
+        h2 {
+            font-family: 'Lato', cursive;
+            color: black;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+    }
+    /* === Color Themes === */
+    .text-muted {
+        color: #6d6d72 !important;
+    }
+    .color-gray {
+        color: #8e8e93 !important;
+    }
+    .color-red {
+        color: #ff3b30 !important;
+    }
+    .bg-color-red {
+        background-color: #ff3b30 !important;
+    }
+    .color-white {
+        color: #ffffff !important;
+    }
+    .color-yellow {
+        color: #ffcc00 !important;
+    }
+    .bg-color-yellow {
+        background-color: #ffcc00 !important;
+    }
+    .color-green {
+        color: #4cd964 !important;
+    }
+    .color-orange {
+        color: #ff9500 !important;
+    }
+    .bg-color-orange {
+        background-color: #ff9500 !important;
+    }
+    .color-blue {
+        color: #007aff !important;
+    }
+    .bg-color-blue {
+        background-color: #007aff !important;
+    }
+    .color-lightblue {
+        color: #5ac8fa !important;
+    }
+    .bg-color-lightblue {
+        background-color: #5ac8fa !important;
+    }
+    .color-bluegray {
+        color: #607d8b !important;
+    }
+    .bg-color-bluegray {
+        background-color: #607d8b !important;
+    }
+    .color-night {
+        color: #2B1B17 !important;
+    }
+    .color-black {
+        color: black !important;
+    }
+    .bg-color-white {
+        background-color: #ffffff;
+    }
+    .bg-color-green {
+        background-color: #4cd964 !important;
+    }
+    /*POSITIVE*/
+    .bg-color-positive {
+        background-color: #4a87ee !important;
+    }
+    /*CALM*/
+    .bg-color-calm {
+        background-color: #43cee6 !important;
+    }
+    /*BALANCED*/
+    .bg-color-balanced {
+        background-color: #66cc33 !important;
+    }
+    /*ENERGIZED*/
+    .bg-color-energized {
+        background-color: #f0b840 !important;
+    }
+    /*ASSERTIVE*/
+    .bg-color-assertive {
+        color: #ef4e3a !important;
+    }
+    /*ROYAL*/
+    .bg-color-royal {
+        background-color: #8a6de9 !important;
+    }
+    /*DARK*/
+    .bg-color-dark {
+        background-color: #444 !important;
+    }
+    /*End-of-timeline-CSS*/
 }
