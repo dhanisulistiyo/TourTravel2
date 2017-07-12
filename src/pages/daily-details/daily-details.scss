@@ -34,23 +34,29 @@ page-daily-details {
         line-height: 1.2;
         color: white;
     }
+    .h2-title-header {
+        font-size: 4rem;
+        font-weight: normal;
+        font-family: 'Open Sans', cursive;
+        color: white;
+    }
+    .h3-subtitle-header {
+        font-family: 'Quicksand', cursive;
+        color: white;
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
     .card-header-md {
         padding: 15px;
         font-size: 1rem;
         color: #222;
         background-color: #2cbaae;
     }
-    .card-md h2 {
+    .card-md h2.card-title {
         font-size: 2rem;
         font-weight: normal;
         font-family: 'Open Sans', cursive;
         color: white;
-    }
-    .card-md h3 {
-        font-family: 'Quicksand', cursive;
-        color: white;
-        font-size: 1.6rem;
-        font-weight: 600;
     }
     .h2-title {
         font-size: 2.2rem;
@@ -132,6 +138,27 @@ page-daily-details {
             background-color: #f0b840;
         }
     }
+    .input-wrapper {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        border-bottom: 1px solid #999999;
+        overflow: hidden;
+        margin-left: 24px;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        -webkit-flex-direction: inherit;
+        -ms-flex-direction: inherit;
+        flex-direction: inherit;
+        -webkit-align-items: inherit;
+        -ms-flex-align: inherit;
+        align-items: inherit;
+        -webkit-align-self: stretch;
+        -ms-flex-item-align: stretch;
+        align-self: stretch;
+        text-overflow: ellipsis;
+    }
     .item-md {
         //width: 100vw; // margin-left: -10px;
         padding-left: 0px;
@@ -143,5 +170,22 @@ page-daily-details {
     }
     .scroll-content {
         background-color: #f9f9f9;
+    }
+    .content-custom-item {
+        padding: 13px 16px 13px 16px;
+        font-size: 1.4rem;
+        line-height: 1.5;
+        background-color: white;
+    }
+    .span-custom-null {
+        color: #999999;
+    }
+    [col-12] {
+        -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
     }
 }

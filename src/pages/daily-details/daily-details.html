@@ -29,54 +29,74 @@
     <img src="../assets/img/bali-wallpaper.jpg" style="height: 230px;" />
     <ion-card-content class="content-custom" style="top: 0px;">
       <ion-card-title class="card-custom">
-        <h2>Bali Trip</h2>
-        <h3>JUL 7 - 9</h3>
+        <h2 class="h2-title-header">Bali Trip</h2>
+        <h3 class="h3-subtitle-header">JUL 7 - 9</h3>
       </ion-card-title>
     </ion-card-content>
   </ion-card>
   <h2 class="h2-title">{{tanggal | date:'MMM dd'}}</h2>
   <h3 class="h3-subtitle">Day {{idAwal + 1}}</h3>
   <ion-card *ngFor="let d of selectedItem ; let j = index">
-      <ion-card-header>
-        <h2 class="card-title">Destination {{d.id}}</h2>
-      </ion-card-header>
-      <ion-card-content style="margin-left: 0px;">
-        <ion-grid>
-          <ion-row>
-            <ion-col col-4>
-              <h3 class="card-label">Destination: </h3>
-            </ion-col>
-            <ion-col col-8>
-              <h3 class="card-title">Bali</h3>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-4>
-              <h3 class="card-label">Accomodation: </h3>
-            </ion-col>
-            <ion-col col-8>
-              <h3 class="card-title">Basajans Hotel</h3>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-4>
-              <h3 class="card-label">Transportation: </h3>
-            </ion-col>
-            <ion-col col-8>
-              <h3 class="card-title">Bus 15 Seat</h3>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-4>
-              <h3 class="card-label">Attraction Packages: </h3>
-            </ion-col>
-            <ion-col col-8>
-              <h3 class="card-title">Kuta Rock City</h3>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-card-content>
-    </ion-card>
+    <ion-card-header>
+      <h2 class="card-title">Destination {{d.id}}</h2>
+    </ion-card-header>
+    <ion-card-content class="content-custom-item" style="margin-left: 0px;">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label stacked>
+              <ion-icon ios="ios-briefcase" md="md-briefcase" class="custom-color"></ion-icon> Destination</ion-label>
+            <ion-item style="padding-left: 0px" (click)="destinatinTapped(j)"><span *ngIf="d.location != null">{{d.location.Name}}</span><span class="span-custom-null" *ngIf="d.location == null">Tap to choose destination.</span>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-label stacked>
+              <ion-icon ios="ios-cloudy-night" md="md-cloudy-night" class="custom-color"></ion-icon> Accomodation</ion-label>
+            <ion-item style="padding-left: 0px" (click)="acomodationTapped(j)"><span *ngIf="d.acomodation != null">{{d.acomodation.Name}}<span *ngIf="d.roomtype != null">, {{d.roomtype.Name}}</span>
+              <span *ngIf="d.roomservice != null">, {{(d.roomservice).replace('_', ' ')}}</span>
+              </span><span class="span-custom-null" *ngIf="d.acomodation == null">Tap to choose accomodation.</span>
+
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-label stacked>
+              <ion-icon ios="ios-bus" md="md-bus" class="custom-color"></ion-icon> Transportation</ion-label>
+            <ion-item style="padding-left: 0px" (click)="transportationTapped(j)"><span *ngIf="d.transportation != null">{{d.transportation.Name}}, {{d.transportation.TransportationSeatTypeName}} Seater</span>
+              <span *ngIf="d.transportservice != null">, {{(d.transportservice).split("_").join(" ")}}</span><span class="span-custom-null"
+                *ngIf="d.transportation == null">Tap to choose transporation.</span>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-label stacked>
+              <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle" class="custom-color"></ion-icon> Attraction Package</ion-label>
+            <ion-item style="padding-left: 0px" (click)="attractionTapped(j)"><span *ngIf="d.attraction != null"><span *ngFor="let attrac of d.attraction ;let i = index">{{attrac.Name}}<span *ngIf="d.attraction.length > 1 && i  != d.attraction.length - 1 ">, </span></span>
+              </span><span class="span-custom-null" *ngIf="d.attraction == null">Tap to choose attraction.</span>
+            </ion-item>
+            <!--<ion-input type="text" disabled="true" [(ngModel)]="attraction" aria-placeholder="attraction" (click)="attractionTapped($event)"></ion-input>-->
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <ion-grid>
+    <ion-row>
+  <ion-col col-12>
+        <button ion-button icon-left outline round>
+  <ion-icon name="ios-add-circle-outline" (click)="AddCard($event)"></ion-icon>
+  Add more destination
+</button>
+  </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
 
 
