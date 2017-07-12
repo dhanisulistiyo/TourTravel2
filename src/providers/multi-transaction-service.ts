@@ -26,10 +26,9 @@ export class MultiTransactionService {
 
 
   dailyAttraction() {
+    this.daily = this.ds.daily
     this.attraction = [];
     console.log(this.daily);
-    
-
     for (let i = 0; i < (Object.keys(this.daily).length); i++) {
       for (let j = 0; j < (Object.keys(this.daily[i].program_daily).length); j++) {
         let cek = this.daily[i].program_daily[j].attraction;
@@ -51,6 +50,7 @@ export class MultiTransactionService {
 
   dailyTransportation() {
     this.transportation = [];
+    this.daily = this.ds.daily
     console.log(this.airport);
 
     if((Object.keys(this.airport).length)>0){
@@ -86,6 +86,7 @@ export class MultiTransactionService {
 
   dailyAccomodation() {
     this.accomodation = [];
+    this.daily = this.ds.daily
     console.log(this.daily);
     for (let i = 0; i < (Object.keys(this.daily).length); i++) {
       for (let j = 0; j < (Object.keys(this.daily[i].program_daily).length); j++) {
