@@ -1,2 +1,45 @@
-webpackJsonp([0],{348:function(n,t,e){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),e.d(t,"PaymentPageModuleNgFactory",function(){return w});var l=e(0),u=e(367),a=e(7),i=e(24),o=e(175),_=e(216),r=e(217),s=e(218),c=e(219),d=e(220),h=e(221),f=e(222),p=e(223),g=e(368),b=e(350),y=e(73),m=this&&this.__extends||function(){var n=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(n,t){n.__proto__=t}||function(n,t){for(var e in t)t.hasOwnProperty(e)&&(n[e]=t[e])};return function(t,e){function l(){this.constructor=t}n(t,e),t.prototype=null===e?Object.create(e):(l.prototype=e.prototype,new l)}}(),P=function(n){function t(t){return n.call(this,t,[_.a,r.a,s.a,c.a,d.a,h.a,f.a,p.a,g.a],[])||this}return m(t,n),Object.defineProperty(t.prototype,"_NgLocalization_7",{get:function(){return null==this.__NgLocalization_7&&(this.__NgLocalization_7=new a.a(this.parent.get(l.c))),this.__NgLocalization_7},enumerable:!0,configurable:!0}),Object.defineProperty(t.prototype,"_ɵi_8",{get:function(){return null==this.__ɵi_8&&(this.__ɵi_8=new i.a),this.__ɵi_8},enumerable:!0,configurable:!0}),Object.defineProperty(t.prototype,"_FormBuilder_9",{get:function(){return null==this.__FormBuilder_9&&(this.__FormBuilder_9=new i.b),this.__FormBuilder_9},enumerable:!0,configurable:!0}),t.prototype.createInternal=function(){return this._CommonModule_0=new a.d,this._ɵba_1=new i.c,this._FormsModule_2=new i.d,this._ReactiveFormsModule_3=new i.e,this._IonicModule_4=new o.b,this._IonicPageModule_5=new o.c,this._PaymentPageModule_6=new u.a,this._LAZY_LOADED_TOKEN_10=b.a,this._PaymentPageModule_6},t.prototype.getInternal=function(n,t){return n===a.d?this._CommonModule_0:n===i.c?this._ɵba_1:n===i.d?this._FormsModule_2:n===i.e?this._ReactiveFormsModule_3:n===o.b?this._IonicModule_4:n===o.c?this._IonicPageModule_5:n===u.a?this._PaymentPageModule_6:n===a.e?this._NgLocalization_7:n===i.a?this._ɵi_8:n===i.b?this._FormBuilder_9:n===y.d?this._LAZY_LOADED_TOKEN_10:t},t.prototype.destroyInternal=function(){},t}(l.x),w=new l.y(P,u.a)},350:function(n,t,e){"use strict";e.d(t,"a",function(){return l});var l=(e(0),e(10),this&&this.__decorate,this&&this.__metadata,function(){function n(n,t){this.navCtrl=n,this.navParams=t}return n.prototype.ionViewDidLoad=function(){console.log("ionViewDidLoad PaymentPage")},n}())},367:function(n,t,e){"use strict";e.d(t,"a",function(){return l});var l=(e(0),e(10),e(350),this&&this.__decorate,function(){function n(){}return n}())},368:function(n,t,e){"use strict";function l(n){return a._14(0,[(n()(),a._18(null,["\n"])),(n()(),a._15(0,null,null,10,"ion-header",[],null,null,null,null,null)),a._16(16384,null,0,i.a,[o.c,a.H,a.I,[2,_.a]],null,null),(n()(),a._18(null,["\n\n  "])),(n()(),a._15(0,null,null,6,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,r.a,r.b)),a._16(49152,null,0,s.a,[c.a,[2,_.a],[2,d.a],o.c,a.H,a.I],null,null),(n()(),a._18(3,["\n    "])),(n()(),a._15(0,null,3,2,"ion-title",[],null,null,null,h.a,h.b)),a._16(49152,null,0,f.a,[o.c,a.H,a.I,[2,p.a],[2,s.a]],null,null),(n()(),a._18(0,["payment"])),(n()(),a._18(3,["\n  "])),(n()(),a._18(null,["\n\n"])),(n()(),a._18(null,["\n\n\n"])),(n()(),a._15(0,null,null,2,"ion-content",[["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,g.a,g.b)),a._16(4374528,null,0,b.a,[o.c,y.b,m.a,a.H,a.I,c.a,P.a,a.g,[2,_.a],[2,d.a]],null,null),(n()(),a._18(1,["\n\n"])),(n()(),a._18(null,["\n"]))],null,function(n,t){n(t,4,0,a._20(t,5)._hidden,a._20(t,5)._sbPadding),n(t,13,0,a._20(t,14).statusbarPadding,a._20(t,14)._hasRefresher)})}function u(n){return a._14(0,[(n()(),a._15(0,null,null,1,"page-payment",[],null,null,null,l,O)),a._16(49152,null,0,w.a,[d.a,M.a],null,null)],null,null)}e.d(t,"a",function(){return I});var a=e(0),i=e(19),o=e(1),_=e(3),r=e(27),s=e(13),c=e(4),d=e(8),h=e(28),f=e(22),p=e(14),g=e(21),b=e(12),y=e(2),m=e(5),P=e(11),w=e(350),M=e(9),v=[],O=a._13({encapsulation:2,styles:v,data:{}}),I=a._21("page-payment",w.a,u,{},{},[])}});
-//# sourceMappingURL=F:\Ionic\TourTravel2\www\build\0.main.js.map
+webpackJsonp([0],{
+
+/***/ 332:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PaymentPageModule", function() { return PaymentPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__payment__ = __webpack_require__(334);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var PaymentPageModule = (function () {
+    function PaymentPageModule() {
+    }
+    return PaymentPageModule;
+}());
+PaymentPageModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_2__payment__["a" /* PaymentPage */],
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__payment__["a" /* PaymentPage */]),
+        ],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_2__payment__["a" /* PaymentPage */]
+        ]
+    })
+], PaymentPageModule);
+
+//# sourceMappingURL=payment.module.js.map
+
+/***/ })
+
+});
+//# sourceMappingURL=0.main.js.map
