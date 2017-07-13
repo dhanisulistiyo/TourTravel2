@@ -90,8 +90,15 @@ export class TransportService {
     }
 
     listTransportDaily(from, to) {
+
         var headers = new Headers();
         let token = this.auth.AuthToken;
+        console.log(from)
+        console.log(to)
+        let fr = from.Region.Id;
+        let fc = from.Id ;
+        let tr = to.Region.Id ;
+        let tc = to.Id;
         let rat = window.localStorage.getItem('ratTrans');
         let se = window.localStorage.getItem('seTrans');
         let ty = window.localStorage.getItem('tyTrans');
@@ -101,7 +108,8 @@ export class TransportService {
         if (ty == null) { ty = ''; }
 
         headers.append('Authorization', 'Bearer ' + token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TransportationUnits/TransportationService?fromLocation='+from+'&toLocation='+to+'&RatingId=' + rat + '&seatTypeId=' + se + '&typeId=' + ty;
+        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TransportationUnits/TransportationService?fromRegion='+fr+'&fromCity='+fc+'&toRegion='+tr+'&toCity='+tc+'&RatingId=' + rat + '&seatTypeId=' + se + '&typeId=' + ty;
+        //var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TransportationUnits/TransportationService?fromLocation='+from+'&toLocation='+to+'&RatingId=' + rat + '&seatTypeId=' + se + '&typeId=' + ty;
         var response = this.http.get(url, { headers: headers }).map(res => res.json());
         return response;
     }

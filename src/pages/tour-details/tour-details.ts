@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { HistoryService } from '../../providers/history-service';
 import { MultiTransactionService } from '../../providers/multi-transaction-service';
+import { UserandcompanyDetails } from '../../providers/userandcompany-details';
 /*
   Generated class for the TourDetails page.
 
@@ -21,9 +22,12 @@ export class TourDetailsPage {
   curency;
   selectedId: any;
   isValid;
+  userinfo;
   constructor(public navCtrl: NavController, public navParams: NavParams, public his: HistoryService, 
   public mulTra: MultiTransactionService,
-  public load: LoadingController) {
+  public load: LoadingController,
+  public info:UserandcompanyDetails
+  ) {
     this.BookingDetailSum = null;
     this.DailyPrograms = null;
     this.TourPriceSum = null;
@@ -37,6 +41,15 @@ export class TourDetailsPage {
       content: 'Please wait...'
     });
     loader.present();
+
+    this.info.getUser().subscribe(data=>{
+      this.userinfo = data;
+    },err => {
+                    console.log(err);
+                    //loader.dismiss();
+                },
+                () => console.log('Get Transaction Complete')
+    );   
 
     this.his.getTransactionsSumarry(this.selectedId).subscribe(data => {
       this.BookingDetailSum = Array.of(data['BookingDetailSum']);

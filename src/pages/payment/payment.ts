@@ -14,7 +14,9 @@ import { CustomePackagePage } from '../custome-package/custome-package';
   templateUrl: 'payment.html',
 })
 export class PaymentPage {
-  pay
+  pay;
+  Id;
+  Status;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController,
@@ -23,18 +25,14 @@ export class PaymentPage {
     public toastCtrl: ToastController
   ) {
     this.pay = null;
+    this.Id = navParams.data['id']
+    this.Status = navParams.data['status']
   }
 
   payTour() {
     console.log(this.pay);
     if (this.pay != "card") {
-      let loader = this.load.create({
-        content: 'Please wait...'
-      });
-      loader.present();
-      this.mulTra.getTourTransaksi().subscribe(data => { console.log(data); }, err => { console.log(err); }, () => console.log('post Transaction Complete'));
-      loader.dismiss();
-      
+          //this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, status)
       this.presentToast();
     }else{
         this.alertPay();

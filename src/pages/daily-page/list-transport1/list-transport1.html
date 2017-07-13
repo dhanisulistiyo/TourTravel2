@@ -16,7 +16,9 @@
 <h5>Show Result</h5>
 <ion-card *ngFor="let trans of transport" (click)="setSelectedTransport(trans)">
 <ion-row>
-  <ion-col><img src="{{trans.ImageUrl}}"/></ion-col>
+  <!--<ion-col><img src="{{trans.ImageUrl}}"/></ion-col>-->
+  <ion-col *ngIf="trans.ImageUrl != '' ;else other_content"><img src="{{trans.ImageUrl}}"/></ion-col>
+  <ng-template #other_content><ion-col><img src="../assets/img/no-image.jpg"/></ion-col></ng-template>
   <ion-col width-60>
     <div>
     <h2>{{trans.TransportationSeatTypeName}} Seater {{trans.Name}}</h2>

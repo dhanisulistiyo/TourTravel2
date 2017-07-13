@@ -279,11 +279,11 @@ export class DailyService {
   }
   
     public setDestinationFrom(id, i, data){
-      this.daily[id].program_daily[i].destinationFrom = Array.of(data);
+      this.daily[id].program_daily[i].destinationFrom =(data);
   }
 
     public setDestinationTo(id, i, data){
-    this.daily[id].program_daily[i].destinationTo = Array.of(data);
+    this.daily[id].program_daily[i].destinationTo =(data);
   }
 
 

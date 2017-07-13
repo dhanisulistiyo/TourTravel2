@@ -85,7 +85,7 @@ export class AcomodationService {
         let token = this.auth.AuthToken;
         console.log(token);
         headers.append('Authorization', 'Bearer ' + token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/AccommodationProfiles/Filter?cityId=' + des + '&ratingId=' + rat + '&areaId=' + ar + '&locationId=' + loc + '&typeId=' + ty + '&facilityId=' + fac;
+        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/AccommodationProfiles/Filter?cityId=' + des + '&ratingId=' + rat + '&areaId=' + ar + '&locationId=' + loc + '&typeId=' + ty + '&facilityId=' + fac+'&promoOnly=False';
         var response = this.http.get(url, { headers: headers }).map(res => res.json());
         return response;
     }
@@ -108,7 +108,7 @@ export class AcomodationService {
         let token = this.auth.AuthToken;
         console.log(token);
         headers.append('Authorization', 'Bearer ' + token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/AccommodationProfiles/Filter?cityId=' + des + '&ratingId=' + rat + '&areaId=' + ar + '&locationId=' + loc + '&typeId=' + ty + '&facilityId=' + fac;
+        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/AccommodationProfiles/Filter?cityId=' + des + '&ratingId=' + rat + '&areaId=' + ar + '&locationId=' + loc + '&typeId=' + ty + '&facilityId=' + fac+'&promoOnly=False';
         var response = this.http.get(url, { headers: headers }).map(res => res.json());
         return response;
     }

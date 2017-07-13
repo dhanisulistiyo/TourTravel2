@@ -5,6 +5,235 @@
 </ion-header>
 
 
+<ion-content>
+  <div *ngFor="let bookdetails of BookingDetailSum" class="selection" style="margin-left: -10px; width:105%; overflow: visible;">
+    <ion-card class="card-custom" style="top:0; margin-top:0px;" *ngFor="let price of TourPriceSum">
+      <ion-row>
+        <ion-col col-2>
+          <ion-avatar item-start>
+            <img src="../assets/img/user_pic.jpg" style="width:50px; height: 50px;">
+          </ion-avatar>
+        </ion-col>
+        <ion-col col-5>
+          <h2>{{userinfo?.Username}}</h2>
+          <p class="p-custom">Unpaid</p>
+        </ion-col>
+        <ion-col col-5>
+          <h3 class="card-title" style="text-align: right;">Total Price</h3>
+          <h2 class="card-title" style="text-align: right;">{{price.SharingRoomSum['Currency']}} <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice | number:'.0'}}</span>.-</h2>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+    <p class="custom-padding">This booking request will be expired on {{bookdetails?.ExpiredOn | date:'dd MMMM yyyy'}}</p>
+    
+    <ion-card>
+      <ion-card-header (click)="toggleDetails(data[0])">
+        <h2 class="card-title">Tour Detail</h2>
+        <!--<ion-icon color="primary" item-right [name]="data[0].icon" (click)="toggleDetails(d)"></ion-icon>-->
+      </ion-card-header>
+      <ion-card-content style="margin-left: 0px;" *ngIf="data[0].showDetails">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+              <h3 class="card-label">Tour Name: </h3>
+            </ion-col>
+            <ion-col col-8>
+              <h3 class="card-title">{{bookdetails?.Title}}</h3>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4>
+              <h3 class="card-label">Start Date: </h3>
+            </ion-col>
+            <ion-col col-8>
+              <h3 class="card-title">{{bookdetails?.StartDate | date:'dd MMM'}} - {{bookdetails?.EndDate | date:'dd MMM yyyy'}}</h3>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4>
+              <h3 class="card-label">Total Guest(s): </h3>
+            </ion-col>
+            <ion-col col-8>
+              <h3 class="card-title">{{bookdetails?.TotalGuest}} Guest(s)</h3>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-list *ngFor="let price of TourPriceSum">
+      <ion-card>
+        <ion-card-header (click)="toggleDetails(data[1])">
+          <h2 class="card-title">Room Allocation</h2>
+        </ion-card-header>
+        <ion-card-content style="margin-left: 0px;" *ngIf="data[1].showDetails">
+          <ion-grid>
+            <ion-row *ngIf="price.SharingRoomSum['Pax'] != 0" >
+              <ion-col col-7>
+                <h3 class="card-label">Sharing Room:</h3>
+              </ion-col>
+              <ion-col col-5>
+                <h3 class="card-title">{{price.SharingRoomSum['Pax']}}</h3>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="price.SingleRoomSum['Pax'] != 0">
+              <ion-col col-7>
+                <h3 class="card-label">Single Room: </h3>
+              </ion-col>
+              <ion-col col-5>
+                <h3 class="card-title">{{price.SingleRoomSum['Pax']}}</h3>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="price.ExtraBedSum['Pax'] != 0">
+              <ion-col col-7>
+                <h3 class="card-label">Extra Bed: </h3>
+              </ion-col>
+              <ion-col col-5>
+                <h3 class="card-title">{{price.ExtraBedSum['Pax']}}</h3>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="price.SharingBedSum['Pax'] != 0">
+              <ion-col col-7>
+                <h3 class="card-label">Sharing Bed with Parents: </h3>
+              </ion-col>
+              <ion-col col-5>
+                <h3 class="card-title">{{price.SharingBedSum['Pax']}}</h3>
+              </ion-col>
+            </ion-row>
+            <ion-row style="border-top:#b3b3b3 1px solid;">
+              <ion-col col-10>
+                <h3 class="card-title-label">Total Room(s): </h3>
+              </ion-col>
+              <ion-col col-2>
+                <h3 class="card-title-total">{{price.SharingRoomSum['Pax']+price.SingleRoomSum['Pax']+price.ExtraBedSum['Pax']+price.SharingBedSum['Pax']}}</h3>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-header (click)="toggleDetails(data[2])">
+          <h2 class="card-title">Tour Prices</h2>
+        </ion-card-header>
+        <ion-card-content style="margin-left: 0px;" *ngIf="data[2].showDetails">
+          <ion-grid>
+            <ion-row *ngIf="price.SharingRoomSum['Pax'] !=0" >
+              <ion-col col-7>
+                <h3 class="card-label">Staying in Sharing Room ({{price.SharingRoomSum['Pax']}} X {{price.SharingRoomSum['Currency']}} {{price.SharingRoomSum['PricePerPax']
+                  | number:'.0'}}.-/Guest): </h3>
+              </ion-col>
+              <ion-col col-5>
+                <h3 class="card-title">{{price.SharingRoomSum['Currency']}} {{price.SharingRoomSum['TotalPrice']| number:'.0'}}.-</h3>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="price.SingleRoomSum['Pax'] != 0" >
+              <ion-col col-7>
+                <h3 class="card-label">Staying in Single Room ({{price.SingleRoomSum['Pax']}} X {{price.SingleRoomSum['Currency']}} {{price.SingleRoomSum['PricePerPax']|
+                  number:'.0'}}.-/Guest): </h3>
+              </ion-col>
+              <ion-col col-5>
+                <h3 class="card-title">{{price.SingleRoomSum['Currency']}} {{price.SingleRoomSum['TotalPrice'] | number:'.0'}}.-</h3>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="price.ExtraBedSum['Pax'] != 0" >
+              <ion-col col-7>
+                <h3 class="card-label">Staying in Extra Bed ({{price.ExtraBedSum['Pax']}} X {{price.ExtraBedSum['Currency']}} {{price.ExtraBedSum['PricePerPax']|
+                  number:'.0'}}.-/Guest): </h3>
+              </ion-col>
+              <ion-col col-5>
+                <h3 class="card-title">{{price.ExtraBedSum['Currency']}} {{price.ExtraBedSum['TotalPrice'] | number:'.0' }}.-</h3>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="price.SharingBedSum['Pax'] != 0" >
+              <ion-col col-7>
+                <h3 class="card-label">Staying in Sharing Bed ({{price.SharingBedSum['Pax']}} X {{price.SharingBedSum['Currency']}} {{price.SharingBedSum['PricePerPax']
+                  | number:'.0'}}.-/Guest): </h3>
+              </ion-col>
+              <ion-col col-5>
+                <h3 class="card-title">{{price.SharingBedSum['Currency']}} {{price.SharingBedSum['TotalPrice'] | number:'.0'}}.-</h3>
+              </ion-col>
+            </ion-row>
+            <ion-row style="border-top:#b3b3b3 1px solid;">
+              <ion-col col-6>
+                <h3 class="card-title-label">Total Prices: </h3>
+              </ion-col>
+              <ion-col col-6>
+                <h3 class="card-title-total">{{price.SharingRoomSum['Currency']}} <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice | number:'.0'}}</span>.-</h3>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+
+
+      <ion-card-content style="margin-left: 0px;">
+        <ion-card-title (click)="toggleDetails(data[3])">
+          <h2 class="card-title" style="height: 55px;padding-top: 15px;padding-left: 15px;padding-right: 15px;padding-bottom: 15px;margin-top: 0px; font-size:1.8rem;">Tour Schedules</h2>
+        </ion-card-title>
+        <ion-grid *ngIf="data[3].showDetails">
+          <ion-item *ngFor="let dp of DailyPrograms ; let j of index" class="label-title-item">
+            <ion-icon color="primary"></ion-icon>
+            <div class="divider-title">
+              Day {{dp.Day}}, {{dp.Date | date:'dd MMMM yyyy'}}
+            </div>
+
+            <div style="padding-bottom: 0px;" *ngIf="dp.TourDestinations.length == 0">
+                    <p class="custom-label" style="font-size: 1.8rem; bottom: -21px;bottom: 215px;">No activities.</p>
+            </div>
+
+            <div style="padding-bottom: 0px;" *ngIf="dp.TourDestinations.length > 0">
+              <ul class="timeline" *ngFor="let p of dp.TourDestinations; let i = index">
+                <li>
+                  <div class="timeline-thumb bg-color-positive timeline-icon" *ngIf="p.Destination != null">
+                    <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
+                  </div>
+                  <div class="timeline-item" *ngIf="p.Destination != null">
+                    <h4>{{p.Destination}}</h4>
+                  </div>               
+                </li>
+
+                <li *ngIf="p.AccommodationSummary != null">
+                  <div class="timeline-thumb bg-color-dark timeline-icon" *ngIf="p.AccommodationSummary != null">
+                    <ion-icon ios="ios-cloudy-night" md="md-cloudy-night" class="timeline-icon"></ion-icon>
+                  </div>
+                  <div class="timeline-item" *ngIf="p.AccommodationSummary != null">
+                    <h4>{{p.AccommodationSummary["Name"]}}<span>, {{p.AccommodationSummary["RoomName"]}}</span><span *ngIf="p.AccommodationSummary.RoomService != null">, {{p.AccommodationSummary["RoomService"].replace('_', ' ')}}</span></h4>
+                  </div>
+                </li>
+
+                <li *ngIf="p.TransportationSummary.length > 0">
+                  <div class="timeline-thumb bg-color-calm timeline-icon" *ngIf="p.TransportationSummary.length > 0">
+                    <ion-icon ios="ios-bus" md="md-bus" class="timeline-icon"></ion-icon>
+                  </div>
+                  <div class="timeline-item" *ngIf="p.TransportationSummary.length > 0">
+                    <h4><span *ngFor="let a of p.TransportationSummary ;let i = index">{{a.TransportationType}}, {{a.TransportationCapacity}} Seater <span>, {{a.TransportationService}}</span></span>
+                    </h4>
+                  </div>
+                </li>
+
+                <li  *ngIf="p.AttractionSummary.length > 0">
+                  <div class="timeline-thumb bg-color-energized timeline-icon">
+                    <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle" class="timeline-icon"></ion-icon>
+                  </div>
+                  <div class="timeline-item" *ngIf="p.AttractionSummary.length > 0">
+                    <h4><span *ngFor="let a of p.AttractionSummary ;let i = index">{{a.Name}}<span *ngIf="p.AttractionSummary.length > 1 && i  != p.AttractionSummary.length - 1 ">, </span></span>
+                    </h4>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+          </ion-item>
+        </ion-grid>
+      </ion-card-content>
+    </ion-list>
+  </div>
+</ion-content>
+
+
+<!--
 <ion-content padding>
   <ion-grid style="justify-content: center;" *ngFor="let bookdetails of BookingDetailSum">
     <ion-row style="justify-content: center;">
@@ -23,7 +252,7 @@
     </ion-row>
     <ion-row style="justify-content: center;">
       <h4> From {{bookdetails?.StartDate | date:'dd MMMM yyyy'}} Until {{bookdetails?.EndDate | date:'dd MMMM yyyy'}}</h4>
-      <!--<h4> From <span><ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="bookdetails?.StartDate"></ion-datetime></span> Until <span><ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="bookdetails?.EndDate"></ion-datetime></span></h4>-->
+      <h4> From <span><ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="bookdetails?.StartDate"></ion-datetime></span> Until <span><ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="bookdetails?.EndDate"></ion-datetime></span></h4>
     </ion-row>
   </ion-grid>
 
@@ -178,91 +407,7 @@
         </ion-grid>
     </ion-row>
   </ion-card>
-
-
-</ion-content>
-
-
-
-<!--
-<ion-card *ngFor="let dp of DailyPrograms" >
-  <ion-row>
-    <ion-col>
-      <h2>Days {{dp.Day}}, <span *ngIf="dp.AccommodationSummary != null">{{dp.AccommodationSummary.Date}}</span></h2>
-    </ion-col>
-  </ion-row>
-<ion-row>
-  <ion-col>
-      <h3>{{accom.Name}}</h3>
-      <h4>Address : {{accom.Address}}</h4>
-      <h4>Room Type : {{accom.RoomType}}, Service</h4>
-      
-      <h4>Allocations</h4>
-  </ion-col>
-</ion-row>
-</ion-card>
-
-<ion-card *ngFor="let accom of AccommodationSum" >
-  <ion-row>
-    <ion-col>
-      <h2>Accomodations</h2>
-    </ion-col>
-  </ion-row>
-<ion-row>
-  <ion-col>
-      <h3>{{accom.Name}}</h3>
-      <h4>Address : {{accom.Address}}</h4>
-      <h4>Room Type : {{accom.RoomType}}, Service</h4>
-      
-      <h4>Allocations</h4>
-  </ion-col>
-</ion-row>
-<ion-row>
-  <ion-col col-1>
-  </ion-col>
- <ion-col >
-   <h5>Twin Room</h5>
-   <h5>Single Room</h5>
-   <h5>Extra Bed</h5>
-   <h5>Sharing Bed with Parents</h5>
- </ion-col>
- <ion-col >
-   <h5>{{accom.Allocations['SharingRoomPax']}} Guest</h5>
-   <h5>{{accom.Allocations['SingleRoomPax']}} Guest</h5>
-   <h5>{{accom.Allocations['ExtraBedPax']}} Guest</h5>
-   <h5>{{accom.Allocations['SharingBedPax']}} Guest</h5>
- </ion-col>
- <ion-col col-1>
-  </ion-col>
-</ion-row>
-</ion-card>
-
-<ion-card  *ngIf="TransportationSum != null">
-  <ion-row>
-    <ion-col>
-      <h2>Transportation</h2>
-    </ion-col>
-  </ion-row>
-<ion-row *ngFor="let tra of TransportationSum">
-  <ion-col *ngIf="tra.TransportationType != null">
-      <h4>{{tra.VehicleQty}} {{tra.TransportationType}}, {{tra.TransportationCapacity}} Seater</h4>
-      <h4>Services : {{tra.TransportationService}}</h4>
-  </ion-col>
-</ion-row>
-</ion-card>
-
-<ion-card>
-  <ion-row>
-    <ion-col>
-      <h2>Attractions</h2>
-    </ion-col>
-  </ion-row>
-<ion-row>
-  <ion-col >
-      <h4 *ngFor="let att of AttractionSum"> {{att.Name}}</h4>
-  </ion-col>
-</ion-row>
-</ion-card>-->
+</ion-content>-->
 
 <ion-footer>
   <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="confirmTapped($event)" full large>Next</button>
