@@ -121,7 +121,7 @@ export class MultiTransactionService {
       "StartDate": this.ite.getDateTour().ev['monthStart'],
       "EndDate": this.ite.getDateTour().ev['monthEnd'],
       "CityDestinationId": this.ite.getObjectLocation().Id,
-      "RegionDestinationId": this.ite.getObjectLocation().RegionId,
+      "RegionDestinationId": this.ite.getObjectLocation().Region.Id,
       "Attractions": this.attraction,
       "Transportations": this.transportation,
       "Accommodations": this.accomodation
@@ -150,7 +150,7 @@ export class MultiTransactionService {
       "StartDate": this.ite.getDateTour().ev['monthStart'],
       "EndDate": this.ite.getDateTour().ev['monthEnd'],
       "CityDestinationId": this.ite.getObjectLocation().Id,
-      "RegionDestinationId": this.ite.getObjectLocation().RegionId,
+      "RegionDestinationId": this.ite.getObjectLocation().Region.Id,
       "Attractions": this.attraction,
       "Transportations": this.transportation,
       "Accommodations": this.accomodation
