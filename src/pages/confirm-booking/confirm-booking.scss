@@ -1,4 +1,3 @@
-
 $SIDEMENU_TOP: #00a497;
 $SIDEMENU_BOTTOM: #2cbaae;
 $SIDEMENU_TRANSPARENCY: rgba(255, 255, 255, 0.4);
@@ -172,11 +171,11 @@ page-confirm-booking {
         background-color: #2cbaae;
     }
     span.button-inner {
-    text-transform: uppercase;
-    font-size: 1.7rem;
-    font-family: 'Open Sans', cursive;
-    font-weight: 700;
-}
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        font-family: 'Open Sans', cursive;
+        font-weight: 700;
+    }
     /* -------------------------------- All the CSS needed for the timeline! -------------------------------- */
     /* -------------------------------- Paddings and margins -------------------------------- */
     /*Optional*/
@@ -205,23 +204,24 @@ page-confirm-booking {
         bottom: 0;
         width: 5px;
         background: #afdcf8;
-        left: 44px;
+        left: 47px;
         margin-left: -10px;
         z-index: 1;
     }
     .timeline .timeline-thumb {
         border-radius: 500px;
-        width: 50px;
+        width: 60px;
         z-index: 2;
         position: absolute;
         left: 10px;
         border: 5px solid #CBD0D3;
     }
     .timeline .timeline-thumb.timeline-icon {
-        height: 50px;
+        height: 60px;
         text-align: center;
         color: white;
-        font-size: 40px;
+        font-size: 25px;
+        padding-top: 7px;
     }
     .timeline .timeline-thumb.timeline-icon i {
         font-size: 28px;
@@ -231,6 +231,7 @@ page-confirm-booking {
     .timeline .timeline-item {
         margin-left: 72px;
         border-bottom: 1px solid #ccc;
+        margin-top: 60px;
         padding-bottom: 8px;
     }
     .timeline .timeline-stats {
@@ -240,12 +241,13 @@ page-confirm-booking {
     }
     .item-md p {
         overflow: inherit;
-        margin: 0 0 2px;
+        margin: 20px 0 0 0;
         font-size: 1.4rem;
         padding-right: 20px;
         line-height: normal;
         text-overflow: inherit;
         color: #666;
+        text-align: center;
     }
     .item-md ion-icon[item-left],
     .item-md ion-icon[item-right],
@@ -268,6 +270,11 @@ page-confirm-booking {
             font-size: 2rem;
             font-weight: 600;
         }
+    }
+    .card-content-md {
+        padding: 0px 16px 13px 16px;
+        font-size: 1.4rem;
+        line-height: 1.5;
     }
     /* === Color Themes === */
     .text-muted {

@@ -53,7 +53,7 @@ page-filter-hotel1 {
         flex-wrap: wrap;
     }
     .scroll-content {
-        background: #eeeced;
+        background: #f9f9f9;
     }
     .card-header-md+.card-content-md,
     .card-md .item+.card-content-md {
@@ -63,5 +63,57 @@ page-filter-hotel1 {
     .card {
         border-radius: 10px;
     }
-    
+    ion-row.row-label {
+        text-align: left;
+        align-content: left;
+    }
+    ion-row.row-content {
+        text-align: center;
+        align-content: center;
+    }
+    ion-label.label.label-md[stacked] {
+        font-family: 'Open Sans', cursive;
+        font-size: 1.6rem;
+        color: black;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+    .col-custom {
+        background-color: white;
+        position: relative;
+        padding: 5px;
+        width: 100%;
+        border: 1px solid #a6a6a6;
+        margin: 0;
+        border-radius: 4%;
+        min-height: 1px;
+        -webkit-flex-basis: 0;
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+    .item-md.item-block .item-inner {
+        padding-right: 8px;
+    }
+    .item-md {
+        position: relative;
+        padding-right: 0;
+        padding-left: 16px;
+        font-size: 1.6rem;
+        font-weight: normal;
+        text-transform: none;
+        color: #9d9d9d;
+        background-color: white;
+        box-shadow: none;
+        transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .label-md {
+        font-family: 'Open Sans', cursive;
+        font-size: 1.9rem;
+        color: #595959;
+        font-weight: 600;
+    }
 }

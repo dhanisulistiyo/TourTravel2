@@ -36,7 +36,7 @@
 
   <ion-list>
     <ion-item *ngFor="let d of data;  let j = index" class="label-title-item" (click)="toggleDetails(d)">
-      <ion-icon color="primary" item-right [name]="d.icon" (click)="toggleDetails(d)"></ion-icon>
+      <ion-icon style="color: #fff" item-right [name]="d.icon" (click)="toggleDetails(d)"></ion-icon>
       <div class="divider-title">
         Day {{d.id + 1}} : {{d.dailyProgram.datetour | date:'dd MMMM yyyy' }}
       </div>

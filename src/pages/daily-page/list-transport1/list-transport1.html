@@ -1,36 +1,45 @@
-
 <ion-header>
 
   <ion-navbar>
     <ion-title>Choose Transport</ion-title>
   </ion-navbar>
-  <ion-row center style="text-align:center;background:#4fd2c2;" >
-    <ion-col (click)="filtertransTapped($event)"><ion-icon ios="ios-funnel" md="md-funnel">  Filter</ion-icon> </ion-col>
-    <ion-col width-60><ion-searchbar (ionInput)="getItems($event)"></ion-searchbar></ion-col>
+  <ion-row center style="text-align:center;background:#4fd2c2;">
+    <ion-col col-4 (click)="filtertransTapped($event)">
+      <button ion-button icon-left clear>
+        <ion-icon ios="ios-funnel" md="md-funnel"></ion-icon>
+        <div>Filter</div>
+      </button>
+    </ion-col>
+    <ion-col col-8>
+      <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    </ion-col>
   </ion-row>
 </ion-header>
 
 
 
 <ion-content padding>
-<h5>Show Result</h5>
-<ion-card *ngFor="let trans of transport" (click)="setSelectedTransport(trans)">
-<ion-row>
-  <!--<ion-col><img src="{{trans.ImageUrl}}"/></ion-col>-->
-  <ion-col *ngIf="trans.ImageUrl != '' ;else other_content"><img src="{{trans.ImageUrl}}"/></ion-col>
-  <ng-template #other_content><ion-col><img src="../assets/img/no-image.jpg"/></ion-col></ng-template>
-  <ion-col width-60>
-    <div>
-    <h2>{{trans.TransportationSeatTypeName}} Seater {{trans.Name}}</h2>
-    <h3>Rating: {{trans.TransportationRatingName}}</h3>
-    <p style=" white-space: pre-wrap;">Review: Good</p>
-    <br>
-    <br>
-    <br>
-    <br>
-    <!--<h3 style="float: right;">From IDR 12.000.000</h3>-->
-    </div></ion-col>
-</ion-row>
-</ion-card>
+  <h5>Show Result</h5>
+  <ion-card *ngFor="let trans of transport" (click)="setSelectedTransport(trans)">
+    <ion-row>
+      <!--<ion-col><img src="{{trans.ImageUrl}}"/></ion-col>-->
+      <ion-col *ngIf="trans.ImageUrl != '' ;else other_content"><img src="{{trans.ImageUrl}}" /></ion-col>
+      <ng-template #other_content>
+        <ion-col><img src="../assets/img/no-image.jpg" /></ion-col>
+      </ng-template>
+      <ion-col width-60>
+        <div>
+          <h2>{{trans.TransportationSeatTypeName}} Seater {{trans.Name}}</h2>
+          <h3>Rating: {{trans.TransportationRatingName}}</h3>
+          <p style=" white-space: pre-wrap;">Review: Good</p>
+          <br>
+          <br>
+          <br>
+          <br>
+          <!--<h3 style="float: right;">From IDR 12.000.000</h3>-->
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 
 </ion-content>

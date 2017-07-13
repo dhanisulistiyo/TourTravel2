@@ -237,10 +237,10 @@
 
   <ion-row *ngIf="isValid">
     <ion-col>
-      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full color="danger" (click)="cancelTour()">Cancel</button>
+      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-cancel" (click)="cancelTour()">Cancel</button>
     </ion-col>
     <ion-col>
-      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full (click)="confirmTour()">Confirm</button>
+      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-accept" (click)="confirmTour()">Confirm</button>
     </ion-col>
   </ion-row>
 
