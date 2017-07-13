@@ -7,137 +7,115 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Filter Hotel Manual</ion-title>
+    <ion-title>Filter Hotel</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  <ion-grid style="text-align:center">
-    <ion-row>
-      <ion-col>
-        <h3>Star Rating</h3>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-4>
-        <button ion-button icon-left clear small>
-        <ion-icon ios="ios-people" md="md-people"></ion-icon>
-        <div>{{his?.TourTransactionSummaryViewModel.BookingDetailSum.TotalGuest}} Guest(s)</div>
-      </button>
-      </ion-col>
-      <ion-col col-4>
-        <button ion-button icon-left clear small>
-        <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
-        <div>{{his?.TourTransactionSummaryViewModel.BookingDetailSum.ExpiredOn | date:'dd/MMM/yy'}}</div>
-      </button>
-      </ion-col>
-      <ion-col col-4>
-        <button ion-button icon-left clear small>
-        <ion-icon ios="ios-pricetags" md="md-pricetags"></ion-icon>
-        <div>IDR  {{his?.TourTransactionSummaryViewModel.BookingDetailSum.TourTotalPrice | number:'.0'}}.-</div>
-      </button>
-      </ion-col>
-    </ion-row>
-    <!--<ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label>Choose Ratings</ion-label>
-          <ion-select [(ngModel)]="ratings" multiple="true" (ionChange)=filterRat(ratings)>
-            <ion-option *ngFor="let rat of listRatings" [value]="rat.Id">{{rat.Name}}</ion-option>
-          </ion-select>
-        </ion-item>
-        <ion-item>
-          <ion-input disabled="true" type="text" aria-placeholder="ratings" [(ngModel)]="ratings" ></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>-->
-
-
-    <ion-row>
-      <ion-col>
-        <h3>Area</h3>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label>Choose Area</ion-label>
-          <ion-select [(ngModel)]="areas" multiple="true" (ionChange)=filterAr(areas)>
-            <ion-option *ngFor="let ar of listAreas" [value]="ar.Id">{{ar.Name}}</ion-option>
-          </ion-select>
-        </ion-item>
-        <!--<ion-item>
-          <ion-input disabled="true" type="text" aria-placeholder="areas" [(ngModel)]="areas" ></ion-input>
-        </ion-item>-->
-      </ion-col>
-    </ion-row>
-
-
-    <ion-row>
-      <ion-col>
-        <h3>Location</h3>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label>Choose Locations</ion-label>
-          <ion-select [(ngModel)]="locations" multiple="true" (ionChange)=filterLoc(locations)>
-            <ion-option *ngFor="let loc of listLocations" [value]="loc.Id">{{loc.Name}}</ion-option>
-          </ion-select>
-        </ion-item>
-        <!--<ion-item>
-          <ion-input disabled="true" type="text" aria-placeholder="locations" [(ngModel)]="locations"></ion-input>
-        </ion-item>-->
-      </ion-col>
-    </ion-row>
-
-
-    <ion-row>
-      <ion-col>
-        <h3>Accomodation Type</h3>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label>Choose Type</ion-label>
-          <ion-select [(ngModel)]="types" multiple="true">
-            <ion-option *ngFor="let ty of listTypes" [value]="ty.Id">{{ty.Name}}</ion-option>
-          </ion-select>
-        </ion-item>
-        <!--<ion-item>
-          <ion-input disabled="true" type="text" aria-placeholder="types" [(ngModel)]="types" (onChange)=filterType(types)></ion-input>
-        </ion-item>-->
-      </ion-col>
-    </ion-row>
-
-
-
-    <ion-row>
-      <ion-col>
-        <h3>Facilities</h3>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label>Choose Facilities</ion-label>
-          <ion-select [(ngModel)]="facilities" multiple="true" (ionChange)=filterFac(facilities)>
-            <ion-option *ngFor="let fac of listFacilities" [value]="fac.Id">{{fac.Name}}</ion-option>
-          </ion-select>
-        </ion-item>
-        <!--<ion-item>
-          <ion-input disabled="true" type="text" aria-placeholder="facilities" [(ngModel)]="facilities"></ion-input>
-        </ion-item>-->
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-
-
+<ion-content fullscreen>
+  <ion-card>
+    <ion-card-header>
+      Star Rating
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row class="row-custom">
+          <rating [(ngModel)]="ratings" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star"
+            nullable="true">
+          </rating>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Area
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label>Choose Area</ion-label>
+              <ion-select [(ngModel)]="areas" multiple="true" (ionChange)=filterAr(areas)>
+                <ion-option *ngFor="let ar of listAreas" [value]="ar.Id">{{ar.Name}}</ion-option>
+              </ion-select>
+            </ion-item>
+            <!--<ion-item>
+              <ion-input disabled="true" type="text" aria-placeholder="areas" [(ngModel)]="areas"></ion-input>
+            </ion-item>-->
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Location
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label>Choose Locations</ion-label>
+              <ion-select [(ngModel)]="locations" multiple="true" (ionChange)=filterLoc(locations)>
+                <ion-option *ngFor="let loc of listLocations" [value]="loc.Id">{{loc.Name}}</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-input disabled="true" type="text" aria-placeholder="locations" [(ngModel)]="locations"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Accomodation Type
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label>Choose Type</ion-label>
+              <ion-select [(ngModel)]="types" multiple="true">
+                <ion-option *ngFor="let ty of listTypes" [value]="ty.Id">{{ty.Name}}</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-input disabled="true" type="text" aria-placeholder="types" [(ngModel)]="types" (onChange)=filterType(types)></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Facilities
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label>Choose Facilities</ion-label>
+              <ion-select [(ngModel)]="facilities" multiple="true" (ionChange)=filterFac(facilities)>
+                <ion-option *ngFor="let fac of listFacilities" [value]="fac.Id">{{fac.Name}}</ion-option>
+              </ion-select>
+            </ion-item>
+            <!--<ion-item>
+              <ion-input disabled="true" type="text" aria-placeholder="facilities" [(ngModel)]="facilities"></ion-input>
+            </ion-item>-->
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
 
 

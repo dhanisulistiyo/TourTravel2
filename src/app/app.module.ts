@@ -83,6 +83,8 @@ import { MultiTransactionService } from '../providers/multi-transaction-service'
 import { UserandcompanyDetails } from '../providers/userandcompany-details';
 import { FilattractionService } from '../providers/filattraction-service';
 
+// Import ionic2-rating module
+import { Ionic2RatingModule } from 'ionic2-rating';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -160,6 +162,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BrowserModule,
     IonicModule.forRoot(MyApp, { tabsHideOnSubPages: "true" }),
     HttpModule,
+    Ionic2RatingModule // Put ionic2-rating module here
   ],
   bootstrap: [IonicApp],
   entryComponents: [

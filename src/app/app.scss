@@ -23,8 +23,8 @@ page-app {
     .header-menu-user {
         min-height: 200px;
         .toolbar-background-md {
-            border-color: #00a497;
-            background: #00a497;
+            border-color: #4fd2c2;
+            background: #4fd2c2;
         }
         .toolbar-title-md {
             padding: 0 12px;
@@ -39,13 +39,13 @@ page-app {
 
 .searchbar-md {
     padding: 8px;
-    background: #00a497;
+    background: #4fd2c2;
     font-family: 'Open Sans', sans-serif;
 }
 
 .toolbar-background-md {
-    border-color: #00a497;
-    background: #00a497;
+    border-color: #4fd2c2;
+    background: #4fd2c2;
     &:before {
         content: '';
         position: absolute;
@@ -53,7 +53,7 @@ page-app {
         right: 0;
         bottom: 0;
         left: 0;
-        background-image: linear-gradient(to bottom right, #00a497, #000000);
+        background-image: linear-gradient(to bottom right, #4fd2c2, #000000);
         opacity: .1;
     }
 }
@@ -140,7 +140,7 @@ button.back-button{
 color: red;
 }
 ion-icon.custom-color{
-    color: #00a497;
+    color: #4fd2c2;
 }
 
 // ion-icon.icon.icon-md {
@@ -169,8 +169,8 @@ ion-label.label.label-md[stacked] {
 }
 
 .tabs-md .tabbar {
-    border-color: #00a497;
-    background: #00a497;
+    border-color: #4fd2c2;
+    background: #4fd2c2;
 }
 
 .tab-button[aria-selected=true] {
@@ -195,5 +195,5 @@ ion-tab {
 }
 
 .tabs-md .tabbar {
-    background: #00a497;
+    background: #4fd2c2;
 }
