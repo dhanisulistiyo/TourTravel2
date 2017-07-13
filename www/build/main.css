@@ -26277,6 +26277,29 @@ page-list-transport1 ion-icon {
   font-weight: 600;
 }
 
+.ios page-daily-program .divider-footer,
+.md page-daily-program .divider-footer {
+  background: white;
+  padding: 5px 0 10px 10px;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Lato', cursive;
+}
+
+.ios page-daily-program .divider-footer h2,
+.md page-daily-program .divider-footer h2 {
+  font-family: 'Lato', cursive;
+  color: black;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
 .ios page-daily-program .text-muted,
 .md page-daily-program .text-muted {
   color: #6d6d72 !important;
@@ -26487,6 +26510,12 @@ page-list-transport1 ion-icon {
 .ios page-daily-program ion-list ion-icon:before,
 .md page-daily-program ion-list ion-icon:before {
   font-weight: bold;
+}
+
+.ios page-daily-program .button-round-md,
+.md page-daily-program .button-round-md {
+  padding: 0 2.6rem;
+  border-radius: 40px;
 }
 
 page-filter-transport .button-outline-md-dark.active {
@@ -27102,7 +27131,7 @@ page-mybooking-com .h3-subtitle-header {
 page-mybooking-com .content-custom {
   -webkit-box-shadow: none;
   box-shadow: none;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   right: 0;
   display: block;
   bottom: 0;
@@ -27209,7 +27238,7 @@ page-mybooking-on .h3-subtitle-header {
 page-mybooking-on .content-custom {
   -webkit-box-shadow: none;
   box-shadow: none;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   right: 0;
   display: block;
   bottom: 0;

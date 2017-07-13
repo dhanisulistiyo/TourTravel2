@@ -228,6 +228,20 @@
                 font-weight: 600;
             }
         }
+        .divider-footer {
+            background: white;
+            padding: 5px 0 10px 10px;
+            align-content: center;
+            justify-content: center;
+            text-align: center;
+            font-family: 'Lato', cursive;
+            h2 {
+                font-family: 'Lato', cursive;
+                color: black;
+                font-size: 2rem;
+                font-weight: 600;
+            }
+        }
         /* === Color Themes === */
         .text-muted {
             color: #6d6d72 !important;
@@ -372,6 +386,10 @@
                     font-weight: bold;
                 }
             }
+        }
+        .button-round-md {
+            padding: 0 2.6rem;
+            border-radius: 40px;
         }
     }
 }
