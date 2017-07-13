@@ -119,9 +119,9 @@ export class IteneraryBuilderPage {
         var sharingBed = Number(alloc.allocroom.sharingBed)
 
         if (sharingRooms != 0 && singleRoom != 0 && extraBed != 0 && sharingBed != 0) {
-          this.allocation = +sharingRooms + ' Twin Room, ' + singleRoom + ' Single Room, ' + extraBed + ' Extra Bed, ' + sharingBed + ' Sharing Bed With Parents';
+          this.allocation = +sharingRooms + ' Sharing Room, ' + singleRoom + ' Single Room, ' + extraBed + ' Extra Bed, ' + sharingBed + ' Sharing Bed With Parents';
         } else if (sharingRooms != 0 && singleRoom == 0 && extraBed == 0 && sharingBed == 0) {
-          this.allocation = +sharingRooms + ' Twin Room';
+          this.allocation = +sharingRooms + ' Sharing Room';
         } else if (sharingRooms == 0 && singleRoom != 0 && extraBed == 0 && sharingBed == 0) {
           this.allocation = + singleRoom + ' Single Room';
         } else if (sharingRooms == 0 && singleRoom == 0 && extraBed != 0 && sharingBed == 0) {
@@ -131,11 +131,11 @@ export class IteneraryBuilderPage {
 
 
         } else if (sharingRooms != 0 && singleRoom != 0 && extraBed == 0 && sharingBed == 0) {
-          this.allocation = +sharingRooms + ' Twin Room, ' + singleRoom + ' Single Room';
+          this.allocation = +sharingRooms + ' Sharing Room, ' + singleRoom + ' Single Room';
         } else if (sharingRooms != 0 && singleRoom == 0 && extraBed != 0 && sharingBed == 0) {
-          this.allocation = +sharingRooms + ' Twin Room, ' + extraBed + ' Extra Bed ';
+          this.allocation = +sharingRooms + ' Sharing Room, ' + extraBed + ' Extra Bed ';
         } else if (sharingRooms != 0 && singleRoom == 0 && extraBed == 0 && sharingBed != 0) {
-          this.allocation = +sharingRooms + ' Twin Room, ' + sharingBed + ' Sharing Bed With Parents';
+          this.allocation = +sharingRooms + ' Sharing Room, ' + sharingBed + ' Sharing Bed With Parents';
 
 
         } else if (sharingRooms == 0 && singleRoom != 0 && extraBed != 0 && sharingBed == 0) {
@@ -147,11 +147,11 @@ export class IteneraryBuilderPage {
 
 
         } else if (sharingRooms != 0 && singleRoom != 0 && extraBed != 0 && sharingBed == 0) {
-          this.allocation = +sharingRooms + ' Twin Room, ' + singleRoom + ' Single Room, ' + extraBed + ' Extra Bed ';
+          this.allocation = +sharingRooms + ' Sharing Room, ' + singleRoom + ' Single Room, ' + extraBed + ' Extra Bed ';
         } else if (sharingRooms != 0 && singleRoom != 0 && extraBed == 0 && sharingBed != 0) {
-          this.allocation = +sharingRooms + ' Twin Room, ' + singleRoom + ' Single Room, ' + sharingBed + ' Sharing Bed With Parents ';
+          this.allocation = +sharingRooms + ' Sharing Room, ' + singleRoom + ' Single Room, ' + sharingBed + ' Sharing Bed With Parents ';
         } else if (sharingRooms != 0 && singleRoom == 0 && extraBed != 0 && sharingBed != 0) {
-          this.allocation = +sharingRooms + ' Twin Room, ' + extraBed + ' Extra Bed, ' + sharingBed + ' Sharing Bed With Parents ';
+          this.allocation = +sharingRooms + ' Sharing Room, ' + extraBed + ' Extra Bed, ' + sharingBed + ' Sharing Bed With Parents ';
         } else if (sharingRooms == 0 && singleRoom != 0 && extraBed != 0 && sharingBed != 0) {
           this.allocation = + singleRoom + ' Single Room, ' + extraBed + ' Extra Bed, ' + sharingBed + ' Sharing Bed With Parents ';
         } else if (sharingRooms == 0 && singleRoom == 0 && extraBed == 0 && sharingBed == 0) {

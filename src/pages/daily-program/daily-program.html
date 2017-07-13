@@ -48,7 +48,7 @@
             </div>
             <div class="timeline-item" *ngIf="p.location != null">
               <h4>{{p.location.Name}}</h4>
-              <p>{{p.location.RegionId}}, {{p.location.Country}}</p>
+              <p>{{p.location.Region.Name}}, {{p.location.Country.Name}}</p>
             </div>
             <div class="timeline-item" *ngIf="p.location == null">
               <p class="custom-label" style="font-size: 1.8rem; bottom: -21px;bottom: 215px;">Add more attraction?.</p>
