@@ -18,7 +18,7 @@ import { DailyDetails  } from '../daily-details/daily-details';
   templateUrl: 'daily-program.html',
 })
 export class DailyProgram {
-  data: Array<{id:any; dailyProgram: any, icon: string, showDetails: boolean }> = [];
+   data: Array<{id:any; dailyProgram: any, icon: string, showDetails: boolean }> = [];
    toursname;
    guest;
    event;

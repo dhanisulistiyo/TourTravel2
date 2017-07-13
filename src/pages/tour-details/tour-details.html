@@ -28,17 +28,19 @@
         </ion-col>
         <ion-col col-5>
           <h3 class="card-title" style="text-align: right;">Total Price</h3>
-          <h2 class="card-title" style="text-align: right;">{{price.SharingBedSum['Currency']}} <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice | number:'.0'}}</span>.-</h2>
+          <h2 class="card-title" style="text-align: right;">{{price.SharingRoomSum['Currency']}} <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice | number:'.0'}}</span>.-</h2>
         </ion-col>
       </ion-row>
     </ion-card>
 
     <p class="custom-padding">This booking request will be expired on {{bookdetails?.ExpiredOn | date:'dd MMMM yyyy'}}</p>
+    
     <ion-card>
-      <ion-card-header>
+      <ion-card-header (click)="toggleDetails(data[0])">
         <h2 class="card-title">Tour Detail</h2>
+        <ion-icon color="primary" item-right [name]="data[0].icon" (click)="toggleDetails(d)"></ion-icon>
       </ion-card-header>
-      <ion-card-content style="margin-left: 0px;">
+      <ion-card-content style="margin-left: 0px;" *ngIf="data[0].showDetails">
         <ion-grid>
           <ion-row>
             <ion-col col-4>
@@ -70,10 +72,10 @@
 
     <ion-list *ngFor="let price of TourPriceSum">
       <ion-card>
-        <ion-card-header>
+        <ion-card-header (click)="toggleDetails(data[1])">
           <h2 class="card-title">Room Allocation</h2>
         </ion-card-header>
-        <ion-card-content style="margin-left: 0px;">
+        <ion-card-content style="margin-left: 0px;" *ngIf="data[1].showDetails">
           <ion-grid>
             <ion-row *ngIf="price.SharingRoomSum['Pax'] != 0" >
               <ion-col col-7>
@@ -112,7 +114,7 @@
                 <h3 class="card-title-label">Total Room(s): </h3>
               </ion-col>
               <ion-col col-2>
-                <h3 class="card-title-total">{{price.SharingRoomSum['Pax']}}</h3>
+                <h3 class="card-title-total">{{price.SharingRoomSum['Pax']+price.SingleRoomSum['Pax']+price.ExtraBedSum['Pax']+price.SharingBedSum['Pax']}}</h3>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -120,12 +122,12 @@
       </ion-card>
 
       <ion-card>
-        <ion-card-header>
+        <ion-card-header (click)="toggleDetails(data[2])">
           <h2 class="card-title">Tour Prices</h2>
         </ion-card-header>
-        <ion-card-content style="margin-left: 0px;">
+        <ion-card-content style="margin-left: 0px;" *ngIf="data[2].showDetails">
           <ion-grid>
-            <ion-row>
+            <ion-row *ngIf="price.SharingRoomSum['Pax'] !=0" >
               <ion-col col-7>
                 <h3 class="card-label">Staying in Sharing Room ({{price.SharingRoomSum['Pax']}} X {{price.SharingRoomSum['Currency']}} {{price.SharingRoomSum['PricePerPax']
                   | number:'.0'}}.-/Guest): </h3>
@@ -134,7 +136,7 @@
                 <h3 class="card-title">{{price.SharingRoomSum['Currency']}} {{price.SharingRoomSum['TotalPrice']| number:'.0'}}.-</h3>
               </ion-col>
             </ion-row>
-            <ion-row>
+            <ion-row *ngIf="price.SingleRoomSum['Pax'] != 0" >
               <ion-col col-7>
                 <h3 class="card-label">Staying in Single Room ({{price.SingleRoomSum['Pax']}} X {{price.SingleRoomSum['Currency']}} {{price.SingleRoomSum['PricePerPax']|
                   number:'.0'}}.-/Guest): </h3>
@@ -143,7 +145,7 @@
                 <h3 class="card-title">{{price.SingleRoomSum['Currency']}} {{price.SingleRoomSum['TotalPrice'] | number:'.0'}}.-</h3>
               </ion-col>
             </ion-row>
-            <ion-row>
+            <ion-row *ngIf="price.ExtraBedSum['Pax'] != 0" >
               <ion-col col-7>
                 <h3 class="card-label">Staying in Extra Bed ({{price.ExtraBedSum['Pax']}} X {{price.ExtraBedSum['Currency']}} {{price.ExtraBedSum['PricePerPax']|
                   number:'.0'}}.-/Guest): </h3>
@@ -152,7 +154,7 @@
                 <h3 class="card-title">{{price.ExtraBedSum['Currency']}} {{price.ExtraBedSum['TotalPrice'] | number:'.0' }}.-</h3>
               </ion-col>
             </ion-row>
-            <ion-row>
+            <ion-row *ngIf="price.SharingBedSum['Pax'] != 0" >
               <ion-col col-7>
                 <h3 class="card-label">Staying in Sharing Bed ({{price.SharingBedSum['Pax']}} X {{price.SharingBedSum['Currency']}} {{price.SharingBedSum['PricePerPax']
                   | number:'.0'}}.-/Guest): </h3>
@@ -175,16 +177,21 @@
 
 
       <ion-card-content style="margin-left: 0px;">
-        <ion-card-title>
+        <ion-card-title (click)="toggleDetails(data[3])">
           <h2 class="card-title" style="height: 55px;padding-top: 15px;padding-left: 15px;padding-right: 15px;padding-bottom: 15px;margin-top: 0px; font-size:1.8rem;">Tour Schedules</h2>
         </ion-card-title>
-        <ion-grid>
+        <ion-grid *ngIf="data[3].showDetails">
           <ion-item *ngFor="let dp of DailyPrograms ; let j of index" class="label-title-item">
             <ion-icon color="primary"></ion-icon>
             <div class="divider-title">
               Day {{dp.Day}}, {{dp.Date | date:'dd MMMM yyyy'}}
             </div>
-            <div style="padding-bottom: 0px;">
+
+            <div style="padding-bottom: 0px;" *ngIf="dp.TourDestinations.length == 0">
+                    <p class="custom-label" style="font-size: 1.8rem; bottom: -21px;bottom: 215px;">No activities.</p>
+            </div>
+
+            <div style="padding-bottom: 0px;" *ngIf="dp.TourDestinations.length > 0">
               <ul class="timeline" *ngFor="let p of dp.TourDestinations; let i = index">
                 <li>
                   <div class="timeline-thumb bg-color-positive timeline-icon" *ngIf="p.Destination != null">
@@ -192,14 +199,10 @@
                   </div>
                   <div class="timeline-item" *ngIf="p.Destination != null">
                     <h4>{{p.Destination}}</h4>
-                    <p>Denpasar is the capital of Bali, and is the main gateway to the island. The city is also a hub for other
-                      cities in the Lesser Sunda Islands.</p>
-                  </div>
-                  <div class="timeline-item" *ngIf="dp.TourDestinations.length == 0">
-                    <p class="custom-label" style="font-size: 1.8rem; bottom: -21px;bottom: 215px;">No activities.</p>
-                  </div>
+                  </div>               
                 </li>
-                <li>
+
+                <li *ngIf="p.AccommodationSummary != null">
                   <div class="timeline-thumb bg-color-dark timeline-icon" *ngIf="p.AccommodationSummary != null">
                     <ion-icon ios="ios-cloudy-night" md="md-cloudy-night" class="timeline-icon"></ion-icon>
                   </div>
@@ -207,7 +210,8 @@
                     <h4>{{p.AccommodationSummary["Name"]}}<span>, {{p.AccommodationSummary["RoomName"]}}</span><span *ngIf="p.AccommodationSummary.RoomService != null">, {{p.AccommodationSummary["RoomService"].replace('_', ' ')}}</span></h4>
                   </div>
                 </li>
-                <li>
+
+                <li *ngIf="p.TransportationSummary.length > 0">
                   <div class="timeline-thumb bg-color-calm timeline-icon" *ngIf="p.TransportationSummary.length > 0">
                     <ion-icon ios="ios-bus" md="md-bus" class="timeline-icon"></ion-icon>
                   </div>
@@ -216,8 +220,9 @@
                     </h4>
                   </div>
                 </li>
-                <li>
-                  <div class="timeline-thumb bg-color-energized timeline-icon" *ngIf="p.AttractionSummary.length > 0">
+
+                <li  *ngIf="p.AttractionSummary.length > 0">
+                  <div class="timeline-thumb bg-color-energized timeline-icon">
                     <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle" class="timeline-icon"></ion-icon>
                   </div>
                   <div class="timeline-item" *ngIf="p.AttractionSummary.length > 0">
@@ -225,6 +230,7 @@
                     </h4>
                   </div>
                 </li>
+
               </ul>
             </div>
           </ion-item>

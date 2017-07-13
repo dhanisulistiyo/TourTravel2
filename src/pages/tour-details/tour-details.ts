@@ -13,6 +13,8 @@ import { MultiTransactionService } from '../../providers/multi-transaction-servi
   templateUrl: 'tour-details.html'
 })
 export class TourDetailsPage {
+
+  data: Array<{info: any, icon: string, showDetails: boolean }> = [];
   BookingDetailSum: Array<any>;
   DailyPrograms: Array<any>;
   TourPriceSum: Array<any>;
@@ -35,12 +37,39 @@ export class TourDetailsPage {
       content: 'Please wait...'
     });
     loader.present();
+
     this.his.getTransactionsSumarry(this.selectedId).subscribe(data => {
       this.BookingDetailSum = Array.of(data['BookingDetailSum']);
       this.DailyPrograms = (data['DailyPrograms'])
       this.TourPriceSum = Array.of(data['TourPriceSum']);
-      console.log(this.TourPriceSum )
+
+      this.data.push({
+        info: "Tour Detail",
+        icon: 'ios-arrow-dropright-outline',
+        showDetails: true
+      });
+
+       this.data.push({
+        info: "Room Allocation",
+        icon: 'ios-arrow-dropright-outline',
+        showDetails: true
+      });
+
+      this.data.push({
+        info: "Tour Prices",
+        icon: 'ios-arrow-dropright-outline',
+        showDetails: true
+      });
+
+       this.data.push({
+        info: "Tour Schedules",
+        icon: 'ios-arrow-dropright-outline',
+        showDetails: true
+      });
+
+      console.log(this.data)
       loader.dismiss();
+
       if (this.BookingDetailSum[0].Status == 'Booking_created') {
         this.isValid = true;
       }
@@ -51,6 +80,16 @@ export class TourDetailsPage {
     );
   }
 
+
+ toggleDetails(data) {
+    if (data.showDetails) {
+      data.showDetails = false;
+      data.icon = 'ios-arrow-dropright-outline';
+    } else {
+      data.showDetails = true;
+      data.icon = 'ios-arrow-dropdown-outline';
+    }
+  }
 
   confirmTour() {
     let status = "confirm"
