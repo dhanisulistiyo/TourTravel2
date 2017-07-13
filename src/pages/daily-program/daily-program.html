@@ -50,9 +50,6 @@
               <h4>{{p.location.Name}}</h4>
               <p>{{p.location.RegionId}}, {{p.location.Country}}</p>
             </div>
-            <div class="timeline-item" *ngIf="p.location == null">
-              <p class="custom-label" style="font-size: 1.8rem; bottom: -21px;bottom: 215px;">Add more attraction?.</p>
-            </div>
           </li>
           <li *ngIf="p.acomodation != null">
             <div class="timeline-thumb bg-color-dark timeline-icon" *ngIf="p.acomodation != null">
@@ -61,7 +58,7 @@
             <div class="timeline-item" *ngIf="p.acomodation != null">
               <h4>{{p.acomodation.Name}}</h4>
               <p><span *ngIf="p.roomtype != null">{{p.roomtype.Name}}</span><span *ngIf="p.roomservice != null">, {{(p.roomservice).replace('_', ' ')}}</span><br>{{p.acomodation.Desc}}
-                </p>
+              </p>
             </div>
           </li>
           <li *ngIf="p.transportation != null">
@@ -79,120 +76,19 @@
             </div>
             <div class="timeline-item" *ngFor="let attrac of p.attraction ;let i = index">
               <h4>{{attrac.Name}}</h4>
-              <!--<p><span *ngFor="let attrac of p.attraction ;let i = index">{{attrac.Name}}<span *ngIf="p.attraction.length > 1 && i  != p.attraction.length - 1 ">, </span></span></p>-->
               <p><span maxlength="100">{{attrac.Description}}</span></p>
             </div>
           </li>
         </ul>
+
+        <div class="divider-footer">
+          <button ion-button outline round style="font-size: 14px;">
+            Add more destination
+          </button>
+        </div>
       </div>
     </ion-item>
   </ion-list>
-  <!--<ion-grid *ngFor="let p of d.dailyProgram.program_daily; let i = index">
-          <ion-row *ngIf="p.location != null">
-            <ion-col>
-              <h2>{{p.location.Name}}</h2>
-            </ion-col>
-          </ion-row>
-
-          <ion-row *ngIf="p.acomodation != null">
-            <ion-col col-1></ion-col>
-            <ion-col>
-              <h2> Acomodation :</h2>
-            </ion-col>
-            <ion-col col-1></ion-col>
-          </ion-row>
-          <ion-row *ngIf="p.acomodation != null">
-            <ion-col col-1></ion-col>
-            <ion-col style="padding-left: 40px;">
-              <h3>{{p.acomodation.Name}}<span *ngIf="p.roomtype != null">, {{p.roomtype.Name}}</span><span *ngIf="p.roomservice != null">, {{(p.roomservice).replace('_', ' ')}}</span></h3>
-            </ion-col>
-          </ion-row>
-
-          <ion-row *ngIf="p.transportation != null">
-            <ion-col col-1></ion-col>
-            <ion-col>
-              <h2> Transportation :</h2>
-            </ion-col>
-            <ion-col col-1></ion-col>
-          </ion-row>
-          <ion-row *ngIf="p.transportation != null">
-            <ion-col col-1></ion-col>
-            <ion-col style="padding-left: 40px;">
-              <h3>{{p.transportation.Name}}, {{p.transportation.TransportationSeatTypeName}} Seater <span *ngIf="p.transportservice != null">, {{(p.transportservice).split("_").join(" ")}}</span></h3>
-            </ion-col>
-          </ion-row>
-
-
-          <ion-row *ngIf="p.attraction != null">
-            <ion-col col-1></ion-col>
-            <ion-col>
-              <h2> Attraction :</h2>
-            </ion-col>
-            <ion-col col-1></ion-col>
-          </ion-row>
-          <ion-row *ngIf="p.attraction != null">
-            <ion-col col-1></ion-col>
-            <ion-col style="padding-left: 40px;">
-              <h3><span *ngFor="let attrac of p.attraction ;let i = index">{{attrac.Name}}<span *ngIf="p.attraction.length > 1 && i  != p.attraction.length - 1 ">, </span></span>
-              </h3>
-            </ion-col>
-          </ion-row>
-        </ion-grid>-->
-
-
-  <!--<ion-list>
-    <ion-item padding *ngFor="let d of data;  let j = index" class="label-title-item" (click)="toggleDetails(d)">
-      <ion-icon color="primary" item-right [name]="d.icon" (click)="toggleDetails(d)"></ion-icon>
-      Day {{d.id + 1}} : {{d.dailyProgram.datetour | date:'dd MMMM yyyy' }}
-      <div style="padding-bottom: 0px;" *ngIf="d.showDetails" (click)="Details($event, j, d.dailyProgram.datetour)">
-        <ion-grid *ngFor="let p of d.dailyProgram.program_daily; let i = index">
-
-          <ion-row  *ngIf="p.location != null">
-            <ion-col>
-              <h2>{{p.location.Name}}</h2>
-            </ion-col>
-          </ion-row>
-
-          <ion-row *ngIf="p.acomodation != null">
-            <ion-col col-1></ion-col>
-            <ion-col>
-              <h2> Acomodation :</h2>          
-            </ion-col>   
-            <ion-col col-1></ion-col>         
-          </ion-row>
-          <ion-row *ngIf="p.acomodation != null">
-            <ion-col col-1></ion-col>    
-            <ion-col style="padding-left: 40px;"><h3>{{p.acomodation.Name}}<span *ngIf="p.roomtype != null">, {{p.roomtype.Name}}</span><span *ngIf="p.roomservice != null">, {{(p.roomservice).replace('_', ' ')}}</span></h3></ion-col>         
-          </ion-row>
-
-          <ion-row *ngIf="p.transportation != null">
-            <ion-col col-1></ion-col>
-            <ion-col>
-              <h2> Transportation :</h2>
-            </ion-col>
-            <ion-col col-1></ion-col>
-          </ion-row>
-            <ion-row *ngIf="p.transportation != null">
-            <ion-col col-1></ion-col> 
-            <ion-col style="padding-left: 40px;"><h3>{{p.transportation.Name}}, {{p.transportation.TransportationSeatTypeName}} Seater <span *ngIf="p.transportservice != null">, {{(p.transportservice).split("_").join(" ")}}</span></h3></ion-col>         
-          </ion-row>
-
-
-          <ion-row  *ngIf="p.attraction != null">
-            <ion-col col-1></ion-col>
-            <ion-col>
-              <h2> Attraction :</h2>
-            </ion-col>
-            <ion-col col-1></ion-col>
-          </ion-row>
-            <ion-row  *ngIf="p.attraction != null">
-              <ion-col col-1></ion-col>  
-              <ion-col style="padding-left: 40px;"><h3><span *ngFor="let attrac of p.attraction ;let i = index">{{attrac.Name}}<span *ngIf="p.attraction.length > 1 && i  != p.attraction.length - 1 ">, </span></span></h3></ion-col>         
-          </ion-row>
-        </ion-grid>
-      </div>
-    </ion-item>
-  </ion-list>-->
 </ion-content>
 
 <ion-footer>
