@@ -110,7 +110,6 @@ export class TourDetailsPage {
     let status = "confirm"
     this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, status)
     this.navCtrl.pop();
-
   }
 
   cancelTour() {
@@ -123,7 +122,7 @@ export class TourDetailsPage {
 
   allertConfirmBooking() {
     let details = this.BookingDetailSum;
-    let status = "confirm"
+    let status = "created"
     let prompt = this.alertCtrl.create({
       title: 'Confirm Booking',
       message: "Do you agree with this booking?",

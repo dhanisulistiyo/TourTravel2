@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, LoadingController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController, ToastController, ViewController } from 'ionic-angular';
 import { MultiTransactionService } from '../../providers/multi-transaction-service';
 import { CustomePackagePage } from '../custome-package/custome-package';
 import { UserandcompanyDetails } from '../../providers/userandcompany-details';
@@ -25,7 +25,8 @@ export class PaymentPage {
     public load: LoadingController,
     public mulTra: MultiTransactionService,
     public toastCtrl: ToastController,
-     public info:UserandcompanyDetails
+    public info:UserandcompanyDetails,
+    private viewCtrl: ViewController,
   ) {
     this.pay = null;
     this.BookingDetailSum = navParams.data['details']
@@ -53,8 +54,23 @@ export class PaymentPage {
   payTour() {
     console.log(this.pay);
     if (this.pay != "card") {
+        if(this.Status == "created"){
           //this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, status)
+        let status = "confirm"
+        this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, status)
+        
+        this.navCtrl.pop().then(() => {
+        // first we find the index of the current view controller:
+        const index = this.viewCtrl.index;
+        // then we remove it from the navigation stack
+        this.navCtrl.remove(index);
+        });
       this.presentToast();
+      }else{
+        this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, this.Status)
+        this.presentToast();
+        this.navCtrl.setRoot(CustomePackagePage);
+      }
     }else{
         this.alertPay();
     }
@@ -67,12 +83,12 @@ export class PaymentPage {
 
   presentToast() {
     let toast = this.toastCtrl.create({
-      message: 'Your Booking has been saved in Sistem',
+      message: 'Your Booking has been payed',
       duration: 1500,
       position: 'bottom'
     });
     toast.present();
-    this.navCtrl.setRoot(CustomePackagePage);
+    
   }
 
   alertPay() {

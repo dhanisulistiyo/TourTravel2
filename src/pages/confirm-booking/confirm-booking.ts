@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams,AlertController , LoadingController} from 'ionic-angular';
+import { NavController, NavParams,AlertController , LoadingController, ToastController} from 'ionic-angular';
 import {PaymentPage} from '../payment/payment';
 import {MultiTransactionService} from '../../providers/multi-transaction-service';
 import { UserandcompanyDetails } from '../../providers/userandcompany-details';
@@ -30,7 +30,8 @@ export class ConfirmBookingPage {
   public mulTra : MultiTransactionService, 
   public alertCtrl : AlertController,
   public load: LoadingController,
-  public info:UserandcompanyDetails
+  public info:UserandcompanyDetails,
+  public toastCtrl: ToastController,
   ) {
   this.BookingDetailSum= null;
   this.DailyPrograms= null;
@@ -115,8 +116,6 @@ export class ConfirmBookingPage {
   }
 
   allertConfirmBooking() {
-    let id = this.BookingDetailSum['Id'];
-    let status = "confirm"
     let prompt = this.alertCtrl.create({
       title: 'Confirm Booking',
       message: "Do you agree with this booking?",
@@ -132,11 +131,16 @@ export class ConfirmBookingPage {
           handler: () => {
             console.log('Saved clicked');
             if(this.dateNow >= this.dateEx){
-              this.allertExpireDate();
+              prompt.dismiss().then(() =>{
+                this.allertExpireDate();
+              });
+              
             }else{
-              this.allertNoExpireDate();
-            }
-            
+              prompt.dismiss().then(() =>{
+               this.allertNoExpireDate();
+              });
+              
+            }       
             //this.alertSuccess();         
           }
         }
@@ -188,7 +192,7 @@ export class ConfirmBookingPage {
             loader.present();
             this.mulTra.getTourTransaksi().subscribe(data => { console.log(data); }, err => { console.log(err); }, () => console.log('post Transaction Complete'));
             loader.dismiss();
-            this.navCtrl.push(ConfirmBookingPage);
+            this.presentToast();
           }
         },
         {
@@ -211,5 +215,15 @@ export class ConfirmBookingPage {
     prompt.present();
   }
 
+
+presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'Your Booking has been saved in Sistem',
+      duration: 1500,
+      position: 'bottom'
+    });
+    toast.present();
+    this.navCtrl.setRoot(CustomePackagePage);
+  }
 
 }
