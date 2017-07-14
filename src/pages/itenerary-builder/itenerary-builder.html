@@ -68,7 +68,7 @@
         <ion-label stacked>
           <ion-icon ios="ios-cloudy-night" md="md-cloudy-night" class="custom-color"></ion-icon> Room Allocations</ion-label>
         <!--<ion-input type="text" disabled="true" [(ngModel)]="allocation" aria-placeholder="allocation" (click)="hotelTapped($event)"></ion-input>-->
-      <ion-item (click)="hotelTapped($event)" style="background-color: transparent;padding-left: 0px"><span *ngFor="let all of allocation ;let i = index">{{all.guest}} {{all.name}}<span *ngIf="allocation.length > 1 && i  != allocation.length - 1 ">, </span></span></ion-item>
+      <ion-item class="line-break" (click)="hotelTapped($event)" style="background-color: transparent;padding-left: 0px"><span class="line-break" *ngFor="let all of allocation ;let i = index">{{all.guest}} {{all.name}}<span class="line-break" *ngIf="allocation.length > 1 && i  != allocation.length - 1 ">, </span></span></ion-item>
       </ion-col>
     </ion-row>
 

@@ -19,8 +19,6 @@
 @import url('https://fonts.googleapis.com/css?family=Slabo+27px');
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700');
-
-
 page-app {
     .header-menu-user {
         min-height: 200px;
@@ -102,6 +100,7 @@ page-login .scroll-content {
     justify-content: center;
     text-align: center;
 }
+
 page-register .scroll-content {
     background: transparent;
     -webkit-align-content: center;
@@ -137,18 +136,17 @@ page-register .scroll-content {
 //         color: red !important;//what ever the color you like
 //     }
 // }
-
-button.back-button{
-color: red;
+button.back-button {
+    color: red;
 }
-ion-icon.custom-color{
+
+ion-icon.custom-color {
     color: #4fd2c2;
 }
 
 // ion-icon.icon.icon-md {
 //     color: #00a497;
 // }
-
 ion-label.label.label-md[stacked] {
     font-family: 'Open Sans', cursive;
     font-size: 1.9rem;
@@ -198,4 +196,10 @@ ion-tab {
 
 .tabs-md .tabbar {
     background: #4fd2c2;
+}
+
+.line-break {
+    overflow: inherit;
+    text-overflow: inherit;
+    white-space: normal;
 }
