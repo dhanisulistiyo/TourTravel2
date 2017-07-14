@@ -23,12 +23,26 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content fullscreen>
+<!--<h5 class="custom-h5" *ngIf="hotels?.length == 0">Attraction not found</h5>-->
+<h5 class="custom-h5">Showing results attraction in Destination</h5>
 
-<h5>Show Result in Destination</h5>
-
-
-<!--<ion-card *ngFor="let attrac of attractions" (click)="setSelectedAttraction(attrac)">-->
+<ion-card *ngFor="let attrac of attractions">
+<ion-row>
+  <ion-col class ="col-custom" style="padding: 0;" *ngIf="attrac.ImageUrl != '' ;else other_content"><img src="{{attrac.ImageUrl}}"/></ion-col>
+  <ng-template #other_content><ion-col class ="col-custom"><img src="assets/img/gwk-bali.jpg" class="cover"/></ion-col></ng-template>
+  <ion-col width-60>
+    <div >
+    <h2>{{attrac.Name}}</h2>
+    <ion-icon ios="ios-star" md="md-star" class="custom-star"></ion-icon>
+    <!--<h3>Rating: {{hotel.AccommodationRating.Name}}</h3>-->
+    <p style=" white-space: pre-wrap;"> <ion-icon ios="ios-pin" md="ios-pin-outline" class="custom-pin"></ion-icon>{{attrac.Address}}</p> 
+    <ion-checkbox (ionChange)="printf2(attrac)"></ion-checkbox>
+    </div></ion-col>
+</ion-row>
+</ion-card>
+<!--
+<ion-card *ngFor="let attrac of attractions" (click)="setSelectedAttraction(attrac)">
 <ion-card *ngFor="let attrac of attractions">
 <ion-row>
   <ion-col *ngIf="attrac.ImageUrl != '' ;else other_content"><img src="{{attrac.ImageUrl}}"/></ion-col>
@@ -41,8 +55,8 @@
     <br>
     <ion-checkbox (ionChange)="printf2(attrac)"></ion-checkbox>
     </div></ion-col>
-</ion-row>
-</ion-card>
+</ion-row>    
+</ion-card>-->
 
 </ion-content>
 

@@ -1,13 +1,195 @@
 page-hotel-roomtype1 {
+    .col {
+        position: relative;
+        padding: 0;
+        width: 100%;
+        height: 200px;
+        margin: 0;
+        min-height: 1px;
+        -webkit-flex-basis: 0;
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+    .box {
+        position: relative;
+        width: 90%;
+        background: #fff;
+        box-shadow: 0 0 15px rgba(0, 0, 0, .1);
+    }
+    /* common */
+    .ribbon {
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+        position: absolute;
+    }
+    .ribbon::before,
+    .ribbon::after {
+        position: absolute;
+        z-index: -1;
+        content: '';
+        display: block;
+        border: 5px solid #2980b9;
+    }
+    .ribbon span {
+        position: absolute;
+        display: block;
+        width: 225px;
+        padding: 12px 15px 12px 20px;
+        background-color: #e82;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+        color: #fff;
+        font: 700 18px/1 'Lato', sans-serif;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+        text-transform: uppercase;
+        text-align: center;
+    }
+    /* top left*/
+    .ribbon-top-left {
+        top: -10px;
+        left: -10px;
+    }
+    .ribbon-top-left::before,
+    .ribbon-top-left::after {
+        border-top-color: transparent;
+        border-left-color: transparent;
+    }
+    .ribbon-top-left::before {
+        top: 0;
+        right: 0;
+    }
+    .ribbon-top-left::after {
+        bottom: 0;
+        left: 0;
+    }
+    .ribbon-top-left span {
+        right: 0px;
+        top: 20px;
+        transform: rotate(-45deg);
+    }
     ion-card img {
         display: block;
         width: 155px;
-        height: 120px;
+        height: 200px;
+    }
+    .cover {
+        width: 100%;
+        object-fit: cover;
     }
     ion-col[width-60] {
         -webkit-flex: 0 0 60%;
         -ms-flex: 0 0 60%;
         flex: 0 0 60%;
         max-width: 60%;
+        padding-left: 0px;
+    }
+    ion-icon {
+        display: inline-block;
+        font-size: 1.5em;
+        color: white;
+    }
+    .button-inner {
+        text-transform: none;
+        font-family: 'Open Sans', cursive;
+        font-weight: 700;
+        color: white;
+        font-size: 2rem;
+        letter-spacing: 2px;
+        margin-top: 5px;
+    }
+    .searchbar-md .searchbar-input {
+        padding: 6px 55px;
+        height: auto;
+        border-radius: 4%;
+        font-family: 'Open Sans', cursive;
+        font-size: 1.6rem;
+        font-weight: 400;
+        line-height: 3rem;
+        color: #f9f9f9;
+        background-color: #fff;
+        background-position: 8px center;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    }
+    .custom-h5 {
+        margin: 0;
+        font-family: 'Open Sans', cursive;
+        font-size: 1.7rem;
+        font-weight: 500;
+        padding: 10px 0 10px 12px;
+        line-height: 3rem;
+        color: #4d4d4d;
+        background-color: #f2f2f2;
+    }
+    .card-md h2 {
+        margin: 0;
+        font-size: 1.8rem;
+        color: #3498db;
+        font-family: 'Open Sans', cursive;
+        font-weight: 500;
+        line-height: 3rem;
+    }
+    ion-col.col-custom {
+        position: relative;
+        padding: 0px;
+        margin: 0;
+        min-height: 1px;
+        -webkit-flex-basis: 0;
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+    ion-card {
+        height: 200px;
+        border-radius: 5%;
+        display: block;
+        overflow: hidden;
+        margin: 10px 0 10px 0;
+    }
+    ion-icon.custom-star {
+        color: #ffcd25;
+        font-size: 24px;
+    }
+    ion-icon.custom-pin {
+        color: #808080;
+        padding-right: 5px;
+        font-size: 1.6rem;
+    }
+    .card-md p {
+        font-family: 'Open Sans', cursive;
+        font-weight: 500;
+        line-height: 4px;
+        margin-left: -50px;
+        font-size: 1.6rem;
+        color: #808080;
+    }
+    .div-promo {
+        background-color: #e82;
+        padding: 10px;
+        opacity: .9;
+        margin-left: -17px;
+    }
+    h2.title-promo {
+        color: #fff;
+        font-family: 'Lato', sans-serif;
+        font-weight: 700;
+        font-size: 18px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+        text-transform: uppercase;
+    }
+    h3.subtitle-promo {
+        color: #fff;
+        font-family: 'Lato', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 2rem;
+        letter-spacing: 1px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
     }
 }

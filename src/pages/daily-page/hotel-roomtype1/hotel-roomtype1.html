@@ -12,24 +12,42 @@
 </ion-header>
 
 
-<ion-content padding>
-  <h5>Pick your room type</h5>
+<ion-content fullscreen>
+  <h5 class="custom-h5">Pick your room type</h5>
 
   <ion-card *ngFor="let itemroom of listroomtypes" (click)="setSelectedRoomAllo(itemroom)">
-<ion-row>
-  <ion-col *ngIf="itemroom.ImageUrl != '' ;else other_content"><img src="{{itemroom.ImageUrl}}"/></ion-col>
-  <ng-template #other_content><ion-col><img src="assets/img/no-image.jpg"/></ion-col></ng-template>
-  <ion-col width-60>
-    <div >
-    <h2>{{itemroom.Name}}</h2>
-    <h3>{{itemroom.AccommodationType.Name}}</h3>
-    <h3>Capacity: {{itemroom.AccommodationType.Capacity}} Guest</h3>
-    <h2 *ngIf="itemroom.IsPromo == true" >PROMO</h2>
-    <h3 *ngIf="itemroom.IsPromo == true" >Valid Until : {{itemroom.CutOffDate  | date:'dd MMMM yyyy'}} </h3>
-    <h3 *ngIf="itemroom.IsPromo == true" >Minimum Night : {{itemroom.MinDays}} Night</h3>
-    
-    </div>
-    </ion-col>
-</ion-row>
-</ion-card>
+    <ion-row>
+      <ion-col style="padding: 0;" *ngIf="itemroom.ImageUrl != '' ;else other_content">
+        <div class="box">
+          <div class="ribbon ribbon-top-left"><span>PROMO</span></div>
+          <img src="{{itemroom.ImageUrl}}" class="cover" /></div>
+      </ion-col>
+      <ng-template #other_content>
+        <ion-col>
+          <div class="box">
+            <div class="ribbon ribbon-top-left"><span>PROMO</span></div>
+            <img src="assets/img/room-bali-hotel.jpg" class="cover" /></div>
+        </ion-col>
+      </ng-template>
+      <ion-col width-60>
+        <div>
+          <h2 style=" white-space: pre-wrap;">{{itemroom.Name}}</h2>
+          <!--<h2>{{itemroom.Name}}</h2>-->
+          <p style=" white-space: pre-wrap;">
+            <ion-icon ios="ios-medal" md="ios-medal-outline" class="custom-pin"></ion-icon>{{itemroom.AccommodationType.Name}}</p>
+          <!--<h3>{{itemroom.AccommodationType.Name}}</h3>-->
+          <p style=" white-space: pre-wrap;">
+            <ion-icon ios="ios-people" md="ios-people-outline" class="custom-pin"></ion-icon>{{itemroom.AccommodationType.Capacity}} Guest</p>
+          <!--<h3>Capacity: {{itemroom.AccommodationType.Capacity}} Guest</h3>-->
+          <div class="div-promo" *ngIf="itemroom.IsPromo == true">
+
+            <h2 class="title-promo" *ngIf="itemroom.IsPromo == true">PROMO</h2>
+            <h3 class="subtitle-promo" *ngIf="itemroom.IsPromo == true">Valid Until : {{itemroom.CutOffDate | date:'dd MMMM yyyy'}} </h3>
+            <h3 class="subtitle-promo" *ngIf="itemroom.IsPromo == true">Minimum Night : {{itemroom.MinDays}} Night</h3>
+          </div>
+
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 </ion-content>

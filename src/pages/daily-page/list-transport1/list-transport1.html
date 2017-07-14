@@ -18,23 +18,21 @@
 
 
 
-<ion-content padding>
-<h5>Show Result</h5>
+<ion-content fullscreen>
+<!--<h5 class="custom-h5" *ngIf="hotels?.length == 0">Transportation not found</h5>-->
+<h5 class="custom-h5">Showing result transportation in destination</h5>
 <ion-card *ngFor="let trans of transport" (click)="setSelectedTransport(trans)">
-<ion-row>
-  <!--<ion-col><img src="{{trans.ImageUrl}}"/></ion-col>-->
-  <ion-col *ngIf="trans.ImageUrl != '' ;else other_content"><img src="{{trans.ImageUrl}}"/></ion-col>
-  <ng-template #other_content><ion-col><img src="assets/img/no-image.jpg"/></ion-col></ng-template>
+  <ion-row>
+  <ion-col class ="col-custom" style="padding: 0;" *ngIf="trans.ImageUrl != '' ;else other_content"><img src="{{trans.ImageUrl}}"/></ion-col>
+  <ng-template #other_content><ion-col class ="col-custom"><img src="assets/img/no-image.jpg" class="cover"/></ion-col></ng-template>
   <ion-col width-60>
-    <div>
-    <h2>{{trans.TransportationSeatTypeName}} Seater {{trans.Name}}</h2>
-    <h3>Rating: {{trans.TransportationRatingName}}</h3>
-    <p style=" white-space: pre-wrap;">Review: Good</p>
-    <br>
-    <br>
-    <br>
-    <br>
-    <!--<h3 style="float: right;">From IDR 12.000.000</h3>-->
+    <div >
+    <h2>{{trans.Name}}</h2>
+    <h3><ion-icon ios="ios-bus" md="ios-bus-outline" class="custom-bus"></ion-icon>{{trans.TransportationSeatTypeName}} Seater </h3>
+    <h3><ion-icon ios="ios-star" md="ios-star-outline" class="custom-bus"></ion-icon>{{trans.TransportationRatingName}} Class</h3> 
+    <!--<h3>Rating: {{trans.TransportationRatingName}}</h3>-->
+    <!--<p style=" white-space: pre-wrap;"> <ion-icon ios="ios-pin" md="ios-pin-outline" class="custom-pin"></ion-icon>Klungkung, Bali, Indonesia</p> 
+    <p style=" white-space: pre-wrap;" > <ion-icon ios="ios-list-box" md="ios-list-box-outline" class="custom-pin" ></ion-icon>Wifi, AC, TV, Coffee </p>-->
     </div></ion-col>
 </ion-row>
 </ion-card>

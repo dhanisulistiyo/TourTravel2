@@ -11,16 +11,16 @@
     <ion-card-content>
       <ion-list no-line>
         <ion-item>
-          <ion-icon name="briefcase"  item-left></ion-icon> 
+          <ion-icon ios="ios-briefcase" md="ios-briefcase-outline" item-left></ion-icon>
           <ion-input type="number" placeholder="Company ID" name="companyid" [(ngModel)]="registerCredentials.companyid"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-icon name="person" item-left></ion-icon>
+          <ion-icon ios="ios-person" md="ios-person-outline" item-left></ion-icon>
           <ion-input type="text"placeholder="User Name" [(ngModel)]="registerCredentials.username"></ion-input>
         </ion-item>
         <ion-item>
           <!--<ion-label floating>Password</ion-label>-->
-          <ion-icon name="lock" item-left></ion-icon>
+          <ion-icon ios="ios-lock" md="ios-lock-outline" item-left></ion-icon>
           <ion-input type="password" placeholder="Password"  [(ngModel)]="registerCredentials.password"></ion-input>
           <!--<button ion-button clear color="dark" type="button" item-right style="height: 28px;padding-right: 0px;padding-left: 0px;"> <ion-icon name="eye" isActive="false"></ion-icon> </button>-->
         </ion-item>
