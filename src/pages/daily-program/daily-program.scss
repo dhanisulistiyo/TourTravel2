@@ -215,11 +215,12 @@
             margin-left: 0;
         }
         .divider-title {
-            background: #f2f2f2;
+            background: #4dcfbe;
             padding: 16px 15px;
             align-content: center;
             justify-content: center;
             text-align: center;
+            color: white;
             font-family: 'Lato', cursive;
             h2 {
                 font-family: 'Lato', cursive;
@@ -228,8 +229,12 @@
                 font-weight: 600;
             }
         }
+        .ios page-daily-program ion-list ion-icon:before, .md page-daily-program ion-list ion-icon:before {
+    font-weight: bold;
+    color: white;
+}
         .divider-footer {
-            background: white;
+            background: #f9f9f9;
             padding: 5px 0 10px 10px;
             align-content: center;
             justify-content: center;
