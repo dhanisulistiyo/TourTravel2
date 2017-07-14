@@ -15,71 +15,184 @@
 
 <ion-content padding>
   <ion-grid class="vertical-align-content">
+
+  <!--Sharing Room-->
     <ion-row class="row-label">
       <ion-col col-12>
         <ion-label stacked>
           <ion-icon ios="ios-contacts" md="md-contacts" class="custom-color"></ion-icon> Sharing Room</ion-label>
       </ion-col>
     </ion-row>
-      <ion-row class="row-content">
-        <ion-col col-5 style="text-align:right;"><button clear (click)="decValue('SR')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
-        <ion-col col-2 style="text-align:center;">
-          <ion-input (input)="validateNumber(allocRoom)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;" maxlength="3" min="0"
-           name="sharingRooms" [value]="allocRoom.sharingRooms" [(ngModel)]="allocRoom.sharingRooms"></ion-input>
-        </ion-col>
-        <ion-col col-5 style="text-align:left;"><button clear (click)="incValue('SR')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
-      </ion-row>
+    <ion-row class="row-label">
+      <ion-col style="text-align:center;">
+        <ion-label stacked>
+          <ion-icon ios="ios-contacts" md="md-contacts" class="custom-color"></ion-icon> Adult</ion-label>
+      </ion-col>
+      <ion-col style="text-align:center;">
+        <ion-label stacked>
+          <ion-icon ios="ios-contacts" md="md-contacts" class="custom-color"></ion-icon> Children</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row-content" style="padding-left:15px">
+      <ion-col col-2 style="text-align:right;"><button clear (click)="decValue('SRA')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
+      <ion-col col-2 style="text-align:center;">
+        <ion-input (input)="validateNumber(allocRoom)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;"
+          maxlength="3" min="0" name="sharingRooms" [value]="SR.adult" [(ngModel)]="SR.adult"></ion-input>
+      </ion-col>
+      <ion-col col-2 style="text-align:left;"><button clear (click)="incValue('SRA')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
+
+      <ion-col col-2 style="text-align:right;"><button clear (click)="decValue('SRC')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
+      <ion-col col-2 style="text-align:center;">
+        <ion-input (input)="validateNumber(allocRoom)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;"
+          maxlength="3" min="0" name="sharingRooms" [value]="SR.child" [(ngModel)]="SR.child"></ion-input>
+      </ion-col>
+      <ion-col col-2 style="text-align:left;"><button clear (click)="incValue('SRC')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
+    </ion-row>
+
+
+    <!--Single Room-->
     <ion-row class="row-label">
       <ion-col col-12>
         <ion-label stacked>
           <ion-icon ios="ios-body" md="md-body" class="custom-color"></ion-icon> Single Room</ion-label>
       </ion-col>
     </ion-row>
-      <ion-row class="row-content">
-        <ion-col col-5 style="text-align:right;"><button clear (click)="decValue('SiR')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
-        <ion-col col-2 style="text-align:center;">
-          <ion-input (input)="validateNumber(allocRoom)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;" maxlength="3" min="0"
-           name="singleRoom" [value]="allocRoom.singleRoom" [(ngModel)]="allocRoom.singleRoom"></ion-input>
-        </ion-col>
-        <ion-col col-5 style="text-align:left;"><button clear (click)="incValue('SiR')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
-      </ion-row>
+    <ion-row class="row-label">
+      <ion-col style="text-align:center;">
+        <ion-label stacked>
+          <ion-icon ios="ios-contacts" md="md-contacts" class="custom-color"></ion-icon> Adult</ion-label>
+      </ion-col>
+      <ion-col style="text-align:center;">
+        <ion-label stacked>
+          <ion-icon ios="ios-contacts" md="md-contacts" class="custom-color"></ion-icon> Children</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row-content" style="padding-left:15px">
+      <ion-col col-2 style="text-align:right;"><button clear (click)="decValue('SiRA')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
+      <ion-col col-2 style="text-align:center;">
+        <ion-input (input)="validateNumber(allocRoom)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;"
+          maxlength="3" min="0" name="singleRoom" [value]="SiR.adult" [(ngModel)]="SiR.adult"></ion-input>
+      </ion-col>
+      <ion-col col-2 style="text-align:left;"><button clear (click)="incValue('SiRA')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
+
+      <ion-col col-2 style="text-align:right;"><button clear (click)="decValue('SiRC')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
+      <ion-col col-2 style="text-align:center;">
+        <ion-input (input)="validateNumber(allocRoom)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;"
+          maxlength="3" min="0" name="singleRoom" [value]="SiR.child" [(ngModel)]="SiR.child"></ion-input>
+      </ion-col>
+      <ion-col col-2 style="text-align:left;"><button clear (click)="incValue('SiRC')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
+    </ion-row>
+
+    <!--Extra Bed-->
     <ion-row class="row-label">
       <ion-col col-12>
         <ion-label stacked>
           <ion-icon ios="ios-albums" md="md-albums" class="custom-color"></ion-icon> Extra Bed</ion-label>
       </ion-col>
     </ion-row>
-      <ion-row class="row-content">
-        <ion-col col-5 style="text-align:right;"><button clear (click)="decValue('EB')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
-        <ion-col col-2 style="text-align:center;">
-          <ion-input (input)="validateNumber(allocRoom)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;" maxlength="3" min="0"
-             name="extraBed" [value]="allocRoom.extraBed" [(ngModel)]="allocRoom.extraBed"></ion-input>
-        </ion-col>
-        <ion-col col-5 style="text-align:left;"><button clear (click)="incValue('EB')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
-      </ion-row>
+    <ion-row class="row-label">
+      <ion-col style="text-align:center;">
+        <ion-label stacked>
+          <ion-icon ios="ios-contacts" md="md-contacts" class="custom-color"></ion-icon> Adult</ion-label>
+      </ion-col>
+      <ion-col style="text-align:center;">
+        <ion-label stacked>
+          <ion-icon ios="ios-contacts" md="md-contacts" class="custom-color"></ion-icon> Children</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row-content" style="padding-left:15px">
+      <ion-col col-2 style="text-align:right;"><button clear (click)="decValue('EBA')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
+      <ion-col col-2 style="text-align:center;">
+        <ion-input (input)="validateNumber(allocRoom)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;"
+          maxlength="3" min="0" name="extraBed" [value]="EB.adult" [(ngModel)]="EB.adult"></ion-input>
+      </ion-col>
+      <ion-col col-2 style="text-align:left;"><button clear (click)="incValue('EBA')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
+
+      <ion-col col-2 style="text-align:right;"><button clear (click)="decValue('EBC')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
+      <ion-col col-2 style="text-align:center;">
+        <ion-input (input)="validateNumber(allocRoom)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;"
+          maxlength="3" min="0" name="extraBed" [value]="EB.child" [(ngModel)]="EB.child"></ion-input>
+      </ion-col>
+      <ion-col col-2 style="text-align:left;"><button clear (click)="incValue('EBC')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
+    </ion-row>
+
+
+    <!--Sharing Bed-->
     <ion-row class="row-label">
       <ion-col col-12>
         <ion-label stacked>
           <ion-icon ios="ios-person-add" md="md-person-add" class="custom-color"></ion-icon> Sharing Bed with Parents</ion-label>
       </ion-col>
     </ion-row>
-      <ion-row class="row-content">
-        <ion-col col-5 style="text-align:right;"><button clear (click)="decValue('SB')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
-        <ion-col col-2 style="text-align:center;">
-          <ion-input (input)="validateNumber(allocRoom)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;" maxlength="3" min="0"
-            name="sharingBed" [value]="allocRoom.sharingBed" [(ngModel)]="allocRoom.sharingBed"></ion-input>
-        </ion-col>
-        <ion-col col-5 style="text-align:left;"><button clear (click)="incValue('SB')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
-      </ion-row>
+    <ion-row class="row-label">
+      <ion-col style="text-align:center;">
+        <ion-label stacked>
+          <ion-icon ios="ios-contacts" md="md-contacts" class="custom-color"></ion-icon> Children</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row-content" style="padding-left:15px">
+      <ion-col col-5 style="text-align:right;"><button clear (click)="decValue('SB')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
+      <ion-col col-2 style="text-align:center;">
+        <ion-input (input)="validateNumber(allocRoom)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;"
+          maxlength="3" min="0" name="sharingBed" [value]="allocRoom.sharingBed" [(ngModel)]="allocRoom.sharingBed"></ion-input>
+      </ion-col>
+      <ion-col col-5 style="text-align:left;"><button clear (click)="incValue('SB')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
+    </ion-row>
+
+    <!--BABY CRIB-->
     <ion-row class="row-label">
       <ion-col col-12>
         <ion-label stacked>
-          <ion-icon ios="ios-filing" md="md-filing" class="custom-color"></ion-icon> Total Room(s) : <strong>{{totalGuest}}</strong></ion-label>
+          <ion-icon ios="ios-person-add" md="md-person-add" class="custom-color"></ion-icon> Baby Crib</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row-label">
+      <ion-col style="text-align:center;">
+        <ion-label stacked>
+          <ion-icon ios="ios-contacts" md="md-contacts" class="custom-color"></ion-icon> Infant</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row-content" style="padding-left:15px">
+      <ion-col col-5 style="text-align:right;"><button clear (click)="decValue('BC')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
+      <ion-col col-2 style="text-align:center;">
+        <ion-input (input)="validateNumber(allocRoom)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;"
+          maxlength="3" min="0" name="babyCrib" [value]="allocRoom.babyCrib" [(ngModel)]="allocRoom.babyCrib"></ion-input>
+      </ion-col>
+      <ion-col col-5 style="text-align:left;"><button clear (click)="incValue('BC')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
+    </ion-row>
+
+
+    <!--NO BED-->
+    <ion-row class="row-label">
+      <ion-col col-12>
+        <ion-label stacked>
+          <ion-icon ios="ios-person-add" md="md-person-add" class="custom-color"></ion-icon> No Bed</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row-label">
+      <ion-col style="text-align:center;">
+        <ion-label stacked>
+          <ion-icon ios="ios-contacts" md="md-contacts" class="custom-color"></ion-icon> Infant</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row-content" style="padding-left:15px">
+      <ion-col col-5 style="text-align:right;"><button clear (click)="decValue('NB')"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
+      <ion-col col-2 style="text-align:center;">
+        <ion-input (input)="validateNumber(allocRoom)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;"
+          maxlength="3" min="0" name="noBed" [value]="allocRoom.noBed" [(ngModel)]="allocRoom.noBed"></ion-input>
+      </ion-col>
+      <ion-col col-5 style="text-align:left;"><button clear (click)="incValue('NB')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
+    </ion-row>
+    <ion-row class="row-label">
+      <ion-col col-12>
+        <ion-label stacked>You have allocated <strong>{{totalAlloc}}</strong> guests out of <strong>{{totalGuest}}</strong></ion-label>
+        <ion-label stacked><strong>{{Tadult}}</strong> adult(s), <strong>{{Tchild}}</strong> child(ren) and <strong>{{Tinfant}}</strong> infant(s)</ion-label>
+        <ion-label stacked>Remaining</ion-label>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
 
 <ion-footer>
-    <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="doneTapped(allocRoom)" full large >Done</button>
+  <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="doneTapped(allocRoom)" full large>Done</button>
 </ion-footer>
