@@ -12,8 +12,34 @@
 
 </ion-header>
 
+<ion-content style="margin-left: -10px; width:105%; overflow: visible; margin-top: -10px;">
+  <ion-card class="page-hotel-roomservice1" *ngFor="let srooms of roomtypes" (click)="setSelectedRoomSer(srooms)">
+    <img src="assets/img/breakfast-time.jpeg" style="height: 230px;" />
+    <ion-card-content class="content-custom" style="top: 0px;">
+      <ion-card-title class="card-custom">
+        <h2 class="h2-title-header">{{(srooms).replace('_', ' ')}}</h2>
+        <h3 class="h3-subtitle-header">Start the day with a rich and balanced breakfast in this hotel.</h3>
+      </ion-card-title>
+      <ion-row>
+        <ion-col col-6>
+          <button ion-button icon-left clear small>
+        <ion-icon ios="ios-alarm" md="md-alarm"></ion-icon>
+        <div> 06.00 - 09.00 A.M</div>
+      </button>
+        </ion-col>
+        <ion-col col-6>
+          <button ion-button icon-left clear small>
+        <ion-icon ios="ios-cafe" md="md-cafe"></ion-icon>
+        <div>Free Coffee & Tea</div>
+      </button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
 
-<ion-content fullscreen>
+
+<!--<ion-content fullscreen>
   <ion-list>
     <ion-list-header>
       <h4>Choose Room Services</h4>
@@ -22,9 +48,9 @@
       <ion-icon ios="ios-ice-cream" md="md-ice-cream" item-start></ion-icon>
       <ion-item *ngFor="let srooms of roomtypes" (click)="setSelectedRoomSer(srooms)">{{(srooms).replace('_', ' ')}}</ion-item>
     </ion-item>
-  </ion-list>
+  </ion-list>-->
 
-  <!--<ion-item-group  >
+<!--<ion-item-group  >
    <h4>Choose Room Services</h4>
     <ion-item *ngFor="let srooms of roomtypes" (click)="setSelectedRoomSer(srooms)">{{(srooms).replace('_', ' ')}}</ion-item>
   </ion-item-group>

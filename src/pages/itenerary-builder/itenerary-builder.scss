@@ -17,9 +17,13 @@ page-itenerary-builder {
         margin: 13px 8px 13px 8px;
         color: black;
         font-size: large;
+        font-weight: 500;
     }
     .item-md.item-block .item-inner {
         padding-right: 8px;
+        margin-left: 18px;
+        width: 100%;
+        margin-right: 8px;
         border-bottom: 1px solid gray;
     }
     ion-input,
@@ -48,7 +52,32 @@ page-itenerary-builder {
         -ms-flex: 1;
         flex: 1;
         width: 92%;
-        margin-left: 17pt;
+        margin-left: 18pt;
+    }
+    .input-label {
+        white-space: normal !important;
+        max-width: none !important;
+        width: 100%;
+    }
+    .input-wrapper {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        overflow: hidden;
+        -webkit-flex: 1;
+        background-color: transparent;
+        -ms-flex: 1;
+        flex: 1;
+        -webkit-flex-direction: inherit;
+        -ms-flex-direction: inherit;
+        flex-direction: inherit;
+        -webkit-align-items: inherit;
+        -ms-flex-align: inherit;
+        align-items: inherit;
+        -webkit-align-self: stretch;
+        -ms-flex-item-align: stretch;
+        align-self: stretch;
+        text-overflow: ellipsis;
     }
     .text-input-md {
         margin: 13px 8px 13px 0px;
@@ -67,5 +96,10 @@ page-itenerary-builder {
         overflow: hidden;
         margin-left: 21px;
         margin-right: 5px;
+    }
+    .line-break {
+        overflow: inherit;
+        text-overflow: inherit;
+        white-space: normal;
     }
 }

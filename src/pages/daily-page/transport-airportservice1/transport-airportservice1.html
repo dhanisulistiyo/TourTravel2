@@ -11,18 +11,43 @@
 </ion-header>
 
 
-<ion-content padding> 
+<ion-content style="margin-left: -10px; width:105%; overflow: visible; margin-top: -10px;">
+  <ion-card class="page-transport-airportservice1" *ngFor="let ts of transportser" (click)="setTransService(ts)">
+    <img src="assets/img/breakfast-time.jpeg" style="height: 230px;" />
+    <ion-card-content class="content-custom" style="top: 0px;">
+      <ion-card-title class="card-custom">
+        <h2 class="h2-title-header">{{ts.split("_").join(" ")}}</h2>
+        <h3 class="h3-subtitle-header">All rides are a door to door service for your convenience.</h3>
+      </ion-card-title>
+      <ion-row>
+        <ion-col col-6>
+          <button ion-button icon-left clear small>
+        <ion-icon ios="ios-alarm" md="md-alarm"></ion-icon>
+        <div>24 Hours</div>
+      </button>
+        </ion-col>
+        <ion-col col-6>
+          <button ion-button icon-left clear small>
+        <ion-icon ios="ios-ribbon" md="md-ribbon"></ion-icon>
+        <div>Comfort & Flexibility</div>
+      </button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+
+<!--<ion-content padding> 
   <ion-item-group  >
     <h5> Choose Transport Service</h5>
       <ion-item *ngFor="let ts of transportser" (click)="setTransService(ts)">{{ts.split("_").join(" ")}}</ion-item>
     </ion-item-group>
 
-      <!--<ion-list radio-group>
+      <ion-list radio-group>
       <ion-item *ngFor="let ts of transportser">
         <ion-label>{{ts}}</ion-label>
         <ion-radio value="Pick-up and Drop-off" (ionSelect)=setTransService(ts)></ion-radio>
       </ion-item>
-    </ion-list>-->
-</ion-content>
-
-
+    </ion-list>
+</ion-content>-->

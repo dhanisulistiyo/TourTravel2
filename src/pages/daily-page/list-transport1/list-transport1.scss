@@ -6,7 +6,7 @@ page-list-transport1 {
     }
     .cover {
         width: 100%;
-        object-fit: cover;
+        object-fit: fill;
     }
     ion-col[width-60] {
         -webkit-flex: 0 0 60%;

@@ -24,7 +24,7 @@
 <ion-card *ngFor="let trans of transport" (click)="setSelectedTransport(trans)">
   <ion-row>
   <ion-col class ="col-custom" style="padding: 0;" *ngIf="trans.ImageUrl != '' ;else other_content"><img src="{{trans.ImageUrl}}"/></ion-col>
-  <ng-template #other_content><ion-col class ="col-custom"><img src="assets/img/no-image.jpg" class="cover"/></ion-col></ng-template>
+  <ng-template #other_content><ion-col class ="col-custom"><img src="assets/img/elf-long.jpg" class="cover"/></ion-col></ng-template>
   <ion-col width-60>
     <div >
     <h2>{{trans.Name}}</h2>
