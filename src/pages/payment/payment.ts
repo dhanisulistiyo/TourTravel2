@@ -16,7 +16,7 @@ import { UserandcompanyDetails } from '../../providers/userandcompany-details';
 })
 export class PaymentPage {
   pay;
-  Id;
+  BookingDetailSum;
   Status;
   userinfo;
   constructor(public navCtrl: NavController,
@@ -28,7 +28,7 @@ export class PaymentPage {
      public info:UserandcompanyDetails
   ) {
     this.pay = null;
-    this.Id = navParams.data['id']
+    this.BookingDetailSum = navParams.data['details']
     this.Status = navParams.data['status']
   }
 
@@ -41,9 +41,10 @@ export class PaymentPage {
 
     this.info.getUser().subscribe(data=>{
       this.userinfo = data;
+      loader.dismiss();
     },err => {
                     console.log(err);
-                    //loader.dismiss();
+                    loader.dismiss();
                 },
                 () => console.log('Get Transaction Complete')
     );   

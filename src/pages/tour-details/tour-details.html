@@ -214,7 +214,7 @@
                   </div>
                   <div class="timeline-item" *ngIf="p.TransportationSummary.length > 0">
                     <h4 class="line-break" *ngFor="let a of p.TransportationSummary ;let i = index">{{a.TransportationType}}</h4>
-                    <p class="line-break" *ngFor="let a of p.TransportationSummary ;let i = index">{{a.TransportationCapacity}} Seater, {{a.TransportationService}}</p>
+                    <p class="line-break" *ngFor="let a of p.TransportationSummary ;let i = index">{{a.TransportationCapacity}} Seater, {{a.TransportationService.split("_").join(" ")}}</p>
                   </div>
                 </li>
 
