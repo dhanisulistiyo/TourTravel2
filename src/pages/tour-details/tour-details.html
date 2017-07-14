@@ -1,4 +1,3 @@
-
 <ion-header>
 
   <ion-navbar>
@@ -12,16 +11,16 @@
     <ion-card class="card-custom" style="top:0; margin-top:0px;" *ngFor="let price of TourPriceSum">
       <ion-row>
         <ion-col col-2>
-          
+
           <ion-avatar item-start>
             <img src="assets/img/user_pic.jpg" style="width:50px; height: 50px;">
           </ion-avatar>
         </ion-col>
         <ion-col col-5>
           <h2>{{userinfo?.Username}}</h2>
-          <p class="p-custom" *ngIf="bookdetails?.Status == 'Booking_created'" >Unpaid</p>
-          <p class="p-custom" *ngIf="bookdetails?.Status == 'Booking_confirmed'" >Paid</p>
-          <p class="p-custom" *ngIf="bookdetails?.Status == 'Booking_Cancelled'" >Cancel</p>
+          <p class="p-custom" *ngIf="bookdetails?.Status == 'Booking_created'">Unpaid</p>
+          <p class="p-custom" *ngIf="bookdetails?.Status == 'Booking_confirmed'">Paid</p>
+          <p class="p-custom" *ngIf="bookdetails?.Status == 'Booking_Cancelled'">Cancel</p>
         </ion-col>
         <ion-col col-5>
           <h3 class="card-title" style="text-align: right;">Total Price</h3>
@@ -31,7 +30,7 @@
     </ion-card>
 
     <p class="custom-padding">This booking request will be expired on {{bookdetails?.ExpiredOn | date:'dd MMMM yyyy'}}</p>
-    
+
     <ion-card>
       <ion-card-header (click)="toggleDetails(data[0])">
         <h2 class="card-title">Tour Detail</h2>
@@ -74,7 +73,7 @@
         </ion-card-header>
         <ion-card-content style="margin-left: 0px;" *ngIf="data[1].showDetails">
           <ion-grid>
-            <ion-row *ngIf="price.SharingRoomSum['Pax'] != 0" >
+            <ion-row *ngIf="price.SharingRoomSum['Pax'] != 0">
               <ion-col col-7>
                 <h3 class="card-label">Sharing Room:</h3>
               </ion-col>
@@ -124,7 +123,7 @@
         </ion-card-header>
         <ion-card-content style="margin-left: 0px;" *ngIf="data[2].showDetails">
           <ion-grid>
-            <ion-row *ngIf="price.SharingRoomSum['Pax'] !=0" >
+            <ion-row *ngIf="price.SharingRoomSum['Pax'] !=0">
               <ion-col col-7>
                 <h3 class="card-label">Staying in Sharing Room ({{price.SharingRoomSum['Pax']}} X {{price.SharingRoomSum['Currency']}} {{price.SharingRoomSum['PricePerPax']
                   | number:'.0'}}.-/Guest): </h3>
@@ -133,7 +132,7 @@
                 <h3 class="card-title">{{price.SharingRoomSum['Currency']}} {{price.SharingRoomSum['TotalPrice']| number:'.0'}}.-</h3>
               </ion-col>
             </ion-row>
-            <ion-row *ngIf="price.SingleRoomSum['Pax'] != 0" >
+            <ion-row *ngIf="price.SingleRoomSum['Pax'] != 0">
               <ion-col col-7>
                 <h3 class="card-label">Staying in Single Room ({{price.SingleRoomSum['Pax']}} X {{price.SingleRoomSum['Currency']}} {{price.SingleRoomSum['PricePerPax']|
                   number:'.0'}}.-/Guest): </h3>
@@ -142,7 +141,7 @@
                 <h3 class="card-title">{{price.SingleRoomSum['Currency']}} {{price.SingleRoomSum['TotalPrice'] | number:'.0'}}.-</h3>
               </ion-col>
             </ion-row>
-            <ion-row *ngIf="price.ExtraBedSum['Pax'] != 0" >
+            <ion-row *ngIf="price.ExtraBedSum['Pax'] != 0">
               <ion-col col-7>
                 <h3 class="card-label">Staying in Extra Bed ({{price.ExtraBedSum['Pax']}} X {{price.ExtraBedSum['Currency']}} {{price.ExtraBedSum['PricePerPax']|
                   number:'.0'}}.-/Guest): </h3>
@@ -151,7 +150,7 @@
                 <h3 class="card-title">{{price.ExtraBedSum['Currency']}} {{price.ExtraBedSum['TotalPrice'] | number:'.0' }}.-</h3>
               </ion-col>
             </ion-row>
-            <ion-row *ngIf="price.SharingBedSum['Pax'] != 0" >
+            <ion-row *ngIf="price.SharingBedSum['Pax'] != 0">
               <ion-col col-7>
                 <h3 class="card-label">Staying in Sharing Bed ({{price.SharingBedSum['Pax']}} X {{price.SharingBedSum['Currency']}} {{price.SharingBedSum['PricePerPax']
                   | number:'.0'}}.-/Guest): </h3>
@@ -185,7 +184,7 @@
             </div>
 
             <div style="padding-bottom: 0px;" *ngIf="dp.TourDestinations.length == 0">
-                    <p class="custom-label" style="font-size: 1.8rem; bottom: -21px;bottom: 215px;">No activities.</p>
+              <p class="custom-label" style="font-size: 1.8rem; bottom: -21px;bottom: 215px;">No activities.</p>
             </div>
 
             <div style="padding-bottom: 0px;" *ngIf="dp.TourDestinations.length > 0">
@@ -196,7 +195,7 @@
                   </div>
                   <div class="timeline-item" *ngIf="p.Destination != null">
                     <h4 class="line-break">{{p.Destination}}</h4>
-                  </div>               
+                  </div>
                 </li>
 
                 <li *ngIf="p.AccommodationSummary != null">
@@ -204,7 +203,8 @@
                     <ion-icon ios="ios-cloudy-night" md="md-cloudy-night" class="timeline-icon"></ion-icon>
                   </div>
                   <div class="timeline-item" *ngIf="p.AccommodationSummary != null">
-                    <h4 class="line-break">{{p.AccommodationSummary["Name"]}}<span class="line-break">, {{p.AccommodationSummary["RoomName"]}}</span><span class="line-break" *ngIf="p.AccommodationSummary.RoomService != null">, {{p.AccommodationSummary["RoomService"].replace('_', ' ')}}</span></h4>
+                    <h4 class="line-break">{{p.AccommodationSummary["Name"]}}</h4>
+                    <p class="line-break">{{p.AccommodationSummary["RoomName"]}}<span class="line-break" *ngIf="p.AccommodationSummary.RoomService != null">, {{p.AccommodationSummary["RoomService"].replace('_', ' ')}}</span></p>
                   </div>
                 </li>
 
@@ -213,18 +213,18 @@
                     <ion-icon ios="ios-bus" md="md-bus" class="timeline-icon"></ion-icon>
                   </div>
                   <div class="timeline-item" *ngIf="p.TransportationSummary.length > 0">
-                    <h4 class="line-break"><span class="line-break" *ngFor="let a of p.TransportationSummary ;let i = index">{{a.TransportationType}}, {{a.TransportationCapacity}} Seater<span class="line-break">, {{a.TransportationService}}</span></span>
-                    </h4>
+                    <h4 class="line-break" *ngFor="let a of p.TransportationSummary ;let i = index">{{a.TransportationType}}</h4>
+                    <p class="line-break" *ngFor="let a of p.TransportationSummary ;let i = index">{{a.TransportationCapacity}} Seater, {{a.TransportationService}}</p>
                   </div>
                 </li>
 
-                <li  *ngIf="p.AttractionSummary.length > 0">
+                <li *ngIf="p.AttractionSummary.length > 0">
                   <div class="timeline-thumb bg-color-energized timeline-icon">
                     <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle" class="timeline-icon"></ion-icon>
                   </div>
                   <div class="timeline-item" *ngIf="p.AttractionSummary.length > 0">
-                    <h4 class="line-break"><span class="line-break" *ngFor="let a of p.AttractionSummary ;let i = index">{{a.Name}}<span class="line-break"*ngIf="p.AttractionSummary.length > 1 && i  != p.AttractionSummary.length - 1 ">, </span></span>
-                    </h4>
+                    <h4 class="line-break" *ngFor="let a of p.AttractionSummary ;let i = index">{{a.Name}}</h4>
+                    <p class="line-break" *ngIf="p.AttractionSummary.length > 1 && i  != p.AttractionSummary.length - 1 ">,</p>
                   </div>
                 </li>
 
@@ -242,7 +242,7 @@
 
 
 <ion-footer>
-    <ion-row *ngIf="isValid">
+  <ion-row *ngIf="isValid">
     <ion-col>
       <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-cancel" (click)="allertCancelBooking()">Cancel</button>
     </ion-col>

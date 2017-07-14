@@ -3,8 +3,8 @@ $SIDEMENU_BOTTOM: #2cbaae;
 $SIDEMENU_TRANSPARENCY: rgba(255, 255, 255, 0.4);
 page-tour-details {
     ion-footer {
-    background: grey;
-}
+        background: grey;
+    }
     ion-card {
         width: 100%;
         height: 100%;
@@ -374,22 +374,33 @@ page-tour-details {
     .item-md h4 {
         margin: 2px 0;
         font-size: 2rem;
-        font-weight: normal;
+        font-weight: bold;
         line-height: normal;
     }
     .item-md p {
         overflow: inherit;
-        margin: 20px 0 0 0;
-        font-size: 1.4rem;
-        padding-right: 20px;
+        margin: 10px 0 0 0;
+        font-size: 1.7rem;
+        padding-right: 10px;
         line-height: normal;
         text-overflow: inherit;
         color: #666;
-        text-align: center;
+        text-align: left;
     }
-
-    .label-md{
+    .label-md {
         margin: 0px;
         padding: 0px;
+    }
+    p.custom-label {
+        background-color: #e6e6e6;
+        margin: 0;
+        text-align: center;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 50px;
+        font-family: 'Lato', cursive;
+        color: #4d4d4d;
+        font-size: 1 rem;
+        font-weight: bold;
     }
 }

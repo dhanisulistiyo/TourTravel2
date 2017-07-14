@@ -47,8 +47,8 @@
               <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
             </div>
             <div class="timeline-item" *ngIf="p.location != null">
-              <h4>{{p.location.Name}}</h4>
-              <p>{{p.location.Region.Name}}, {{p.location.Country.Name}}</p>
+              <h4 class="line-break">{{p.location.Name}}</h4>
+              <p class="line-break">{{p.location.Region.Name}}, {{p.location.Country.Name}}</p>
             </div>
           </li>
           <li *ngIf="p.acomodation != null">

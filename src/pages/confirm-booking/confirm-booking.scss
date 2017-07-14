@@ -366,4 +366,32 @@ page-confirm-booking {
         background-color: #444 !important;
     }
     /*End-of-timeline-CSS*/
+    .item-md h4 {
+        margin: 2px 0;
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: normal;
+    }
+    p.custom-label {
+        background-color: #e6e6e6;
+        margin: 0;
+        text-align: center;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 50px;
+        font-family: 'Lato', cursive;
+        color: #4d4d4d;
+        font-size: 1 rem;
+        font-weight: bold;
+    }
+    .item-md p {
+        overflow: inherit;
+        margin: 10px 0 0 0;
+        font-size: 1.7rem;
+        padding-right: 10px;
+        line-height: normal;
+        text-overflow: inherit;
+        color: #666;
+        text-align: left;
+    }
 }
