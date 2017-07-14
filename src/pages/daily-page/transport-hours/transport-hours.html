@@ -7,14 +7,21 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>transport-hours</ion-title>
+    <ion-title>Hours of Service</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <ion-item-divider color="light">Select hours based on what you need </ion-item-divider>
+  <ion-item-group *ngFor="let item of hours" no-lines>
+    <ion-item (click)="setHours(item)"><ion-icon ios="ios-time" md="md-time" class="custom-icon"></ion-icon>{{item}} Hour(s)</ion-item>
+  </ion-item-group>
+</ion-content>
+
+<!--<ion-content padding>
   <ion-list *ngFor="let item of hours" >
     <ion-item (click)="setHours(item)">{{item}}</ion-item>
   </ion-list>
 
-</ion-content>
+</ion-content>-->

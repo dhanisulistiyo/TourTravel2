@@ -199,7 +199,7 @@
                     <ion-icon ios="ios-cloudy-night" md="md-cloudy-night" class="timeline-icon"></ion-icon>
                   </div>
                   <div class="timeline-item" *ngIf="p.AccommodationSummary != null">
-                    <h4>{{p.AccommodationSummary["Name"]}}<span>, {{p.AccommodationSummary["RoomName"]}}</span><span *ngIf="p.AccommodationSummary.RoomService != null">, {{p.AccommodationSummary["RoomService"].replace('_', ' ')}}</span></h4>
+                    <h4>{{p.AccommodationSummary["Name"]}}<span class="line-break">, {{p.AccommodationSummary["RoomName"]}}</span><span class="line-break" *ngIf="p.AccommodationSummary.RoomService != null">, {{p.AccommodationSummary["RoomService"].replace('_', ' ')}}</span></h4>
                   </div>
                 </li>
 
@@ -208,17 +208,17 @@
                     <ion-icon ios="ios-bus" md="md-bus" class="timeline-icon"></ion-icon>
                   </div>
                   <div class="timeline-item" *ngIf="p.TransportationSummary.length > 0">
-                    <h4><span *ngFor="let a of p.TransportationSummary ;let i = index">{{a.TransportationType}}, {{a.TransportationCapacity}} Seater <span>, {{a.TransportationService.split("_").join(" ")}}</span></span>
+                    <h4><span class="line-break" *ngFor="let a of p.TransportationSummary ;let i = index">{{a.TransportationType}}, {{a.TransportationCapacity}} Seater <span class="line-break">, {{a.TransportationService.split("_").join(" ")}}</span></span>
                     </h4>
                   </div>
                 </li>
 
-                <li  *ngIf="p.AttractionSummary.length > 0">
+                <li *ngIf="p.AttractionSummary.length > 0">
                   <div class="timeline-thumb bg-color-energized timeline-icon">
                     <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle" class="timeline-icon"></ion-icon>
                   </div>
                   <div class="timeline-item" *ngIf="p.AttractionSummary.length > 0">
-                    <h4><span *ngFor="let a of p.AttractionSummary ;let i = index">{{a.Name}}<span *ngIf="p.AttractionSummary.length > 1 && i  != p.AttractionSummary.length - 1 ">, </span></span>
+                    <h4><span class="line-break" *ngFor="let a of p.AttractionSummary ;let i = index">{{a.Name}}<span class="line-break" *ngIf="p.AttractionSummary.length > 1 && i  != p.AttractionSummary.length - 1 ">, </span></span>
                     </h4>
                   </div>
                 </li>

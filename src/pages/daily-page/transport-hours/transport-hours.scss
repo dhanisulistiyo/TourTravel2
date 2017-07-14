@@ -1,3 +1,18 @@
 page-transport-hours {
-
+    .item-md-light,
+    .item-divider-md-light {
+        color: #000;
+        background-color: #f4f4f4;
+    }
+    .label-md {
+        font-family: 'Open Sans', cursive;
+        font-size: 1.9rem;
+        color: black;
+        font-weight: 500;
+        padding: 10px;
+    }
+    ion-icon.custom-icon {
+        color: #4fd2c2;
+        padding-right: 10px
+    }
 }
