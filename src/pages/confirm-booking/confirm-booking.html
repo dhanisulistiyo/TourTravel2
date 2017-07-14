@@ -26,7 +26,7 @@
     </ion-card>
 
     <p class="custom-padding">This booking request will be expired on {{bookdetails?.ExpiredOn | date:'dd MMMM yyyy'}}</p>
-    
+
     <ion-card>
       <ion-card-header (click)="toggleDetails(data[0])">
         <h2 class="card-title">Tour Detail</h2>
@@ -69,7 +69,7 @@
         </ion-card-header>
         <ion-card-content style="margin-left: 0px;" *ngIf="data[1].showDetails">
           <ion-grid>
-            <ion-row *ngIf="price.SharingRoomSum['Pax'] != 0" >
+            <ion-row *ngIf="price.SharingRoomSum['Pax'] != 0">
               <ion-col col-7>
                 <h3 class="card-label">Sharing Room:</h3>
               </ion-col>
@@ -119,7 +119,7 @@
         </ion-card-header>
         <ion-card-content style="margin-left: 0px;" *ngIf="data[2].showDetails">
           <ion-grid>
-            <ion-row *ngIf="price.SharingRoomSum['Pax'] !=0" >
+            <ion-row *ngIf="price.SharingRoomSum['Pax'] !=0">
               <ion-col col-7>
                 <h3 class="card-label">Staying in Sharing Room ({{price.SharingRoomSum['Pax']}} X {{price.SharingRoomSum['Currency']}} {{price.SharingRoomSum['PricePerPax']
                   | number:'.0'}}.-/Guest): </h3>
@@ -128,7 +128,7 @@
                 <h3 class="card-title">{{price.SharingRoomSum['Currency']}} {{price.SharingRoomSum['TotalPrice']| number:'.0'}}.-</h3>
               </ion-col>
             </ion-row>
-            <ion-row *ngIf="price.SingleRoomSum['Pax'] != 0" >
+            <ion-row *ngIf="price.SingleRoomSum['Pax'] != 0">
               <ion-col col-7>
                 <h3 class="card-label">Staying in Single Room ({{price.SingleRoomSum['Pax']}} X {{price.SingleRoomSum['Currency']}} {{price.SingleRoomSum['PricePerPax']|
                   number:'.0'}}.-/Guest): </h3>
@@ -137,7 +137,7 @@
                 <h3 class="card-title">{{price.SingleRoomSum['Currency']}} {{price.SingleRoomSum['TotalPrice'] | number:'.0'}}.-</h3>
               </ion-col>
             </ion-row>
-            <ion-row *ngIf="price.ExtraBedSum['Pax'] != 0" >
+            <ion-row *ngIf="price.ExtraBedSum['Pax'] != 0">
               <ion-col col-7>
                 <h3 class="card-label">Staying in Extra Bed ({{price.ExtraBedSum['Pax']}} X {{price.ExtraBedSum['Currency']}} {{price.ExtraBedSum['PricePerPax']|
                   number:'.0'}}.-/Guest): </h3>
@@ -146,7 +146,7 @@
                 <h3 class="card-title">{{price.ExtraBedSum['Currency']}} {{price.ExtraBedSum['TotalPrice'] | number:'.0' }}.-</h3>
               </ion-col>
             </ion-row>
-            <ion-row *ngIf="price.SharingBedSum['Pax'] != 0" >
+            <ion-row *ngIf="price.SharingBedSum['Pax'] != 0">
               <ion-col col-7>
                 <h3 class="card-label">Staying in Sharing Bed ({{price.SharingBedSum['Pax']}} X {{price.SharingBedSum['Currency']}} {{price.SharingBedSum['PricePerPax']
                   | number:'.0'}}.-/Guest): </h3>
@@ -179,8 +179,11 @@
               Day {{dp.Day}}, {{dp.Date | date:'dd MMMM yyyy'}}
             </div>
 
+            <!--<h4 class="line-break" *ngFor="let a of p.AttractionSummary ;let i = index">{{a.Name}}</h4>
+                    <p class="line-break"*ngIf="p.AttractionSummary.length > 1 && i  != p.AttractionSummary.length - 1 ">,</p>-->
+
             <div style="padding-bottom: 0px;" *ngIf="dp.TourDestinations.length == 0">
-                    <p class="custom-label" style="font-size: 1.8rem; bottom: -21px;bottom: 215px;">No activities.</p>
+              <p class="custom-label" style="text-align:center; font-size: 1.8rem; bottom: -21px;bottom: 215px;">No activities.</p>
             </div>
 
             <div style="padding-bottom: 0px;" *ngIf="dp.TourDestinations.length > 0">
@@ -190,8 +193,8 @@
                     <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
                   </div>
                   <div class="timeline-item" *ngIf="p.Destination != null">
-                    <h4>{{p.Destination}}</h4>
-                  </div>               
+                    <h4 class="line-break">{{p.Destination}}</h4>
+                  </div>
                 </li>
 
                 <li *ngIf="p.AccommodationSummary != null">
@@ -199,7 +202,8 @@
                     <ion-icon ios="ios-cloudy-night" md="md-cloudy-night" class="timeline-icon"></ion-icon>
                   </div>
                   <div class="timeline-item" *ngIf="p.AccommodationSummary != null">
-                    <h4>{{p.AccommodationSummary["Name"]}}<span>, {{p.AccommodationSummary["RoomName"]}}</span><span *ngIf="p.AccommodationSummary.RoomService != null">, {{p.AccommodationSummary["RoomService"].replace('_', ' ')}}</span></h4>
+                    <h4 class="line-break">{{p.AccommodationSummary["Name"]}}</h4>
+                    <p class="line-break">, {{p.AccommodationSummary["RoomName"]}} <span class="line-break" *ngIf="p.AccommodationSummary.RoomService != null">, {{p.AccommodationSummary["RoomService"].replace('_', ' ')}}</span></p>
                   </div>
                 </li>
 
@@ -208,18 +212,18 @@
                     <ion-icon ios="ios-bus" md="md-bus" class="timeline-icon"></ion-icon>
                   </div>
                   <div class="timeline-item" *ngIf="p.TransportationSummary.length > 0">
-                    <h4><span *ngFor="let a of p.TransportationSummary ;let i = index">{{a.TransportationType}}, {{a.TransportationCapacity}} Seater <span>, {{a.TransportationService.split("_").join(" ")}}</span></span>
-                    </h4>
+                    <h4 class="line-break" *ngFor="let a of p.TransportationSummary ;let i = index">{{a.TransportationType}}</h4>
+                    <p class="line-break" *ngFor="let a of p.TransportationSummary ;let i = index">, {{a.TransportationCapacity}} Seater <span class="line-break">, {{a.TransportationService.split("_").join(" ")}}</span></p>
                   </div>
                 </li>
 
-                <li  *ngIf="p.AttractionSummary.length > 0">
+                <li *ngIf="p.AttractionSummary.length > 0">
                   <div class="timeline-thumb bg-color-energized timeline-icon">
                     <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle" class="timeline-icon"></ion-icon>
                   </div>
                   <div class="timeline-item" *ngIf="p.AttractionSummary.length > 0">
-                    <h4><span *ngFor="let a of p.AttractionSummary ;let i = index">{{a.Name}}<span *ngIf="p.AttractionSummary.length > 1 && i  != p.AttractionSummary.length - 1 ">, </span></span>
-                    </h4>
+                    <h4 class="line-break" *ngFor="let a of p.AttractionSummary ;let i = index">{{a.Name}}</h4>
+                    <p class="line-break" *ngIf="p.AttractionSummary.length > 1 && i  != p.AttractionSummary.length - 1 ">, </p>
                   </div>
                 </li>
 

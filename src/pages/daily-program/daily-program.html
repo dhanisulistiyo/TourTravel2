@@ -47,8 +47,8 @@
               <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
             </div>
             <div class="timeline-item" *ngIf="p.location != null">
-              <h4>{{p.location.Name}}</h4>
-              <p>{{p.location.Region.Name}}, {{p.location.Country.Name}}</p>
+              <h4 class="line-break">{{p.location.Name}}</h4>
+              <p class="line-break">{{p.location.Region.Name}}, {{p.location.Country.Name}}</p>
             </div>
           </li>
           <li *ngIf="p.acomodation != null">
@@ -57,7 +57,7 @@
             </div>
             <div class="timeline-item" *ngIf="p.acomodation != null">
               <h4>{{p.acomodation.Name}}</h4>
-              <p><span *ngIf="p.roomtype != null">{{p.roomtype.Name}}</span><span *ngIf="p.roomservice != null">, {{(p.roomservice).replace('_', ' ')}}</span><br>{{p.acomodation.Desc}}
+              <p><span class="line-break" *ngIf="p.roomtype != null">{{p.roomtype.Name}}</span><span class="line-break" *ngIf="p.roomservice != null">, {{(p.roomservice).replace('_', ' ')}}</span><br class="line-break">{{p.acomodation.Desc}}
               </p>
             </div>
           </li>
@@ -67,7 +67,7 @@
             </div>
             <div class="timeline-item" *ngIf="p.transportation != null">
               <h4>{{p.transportation.Name}}</h4>
-              <p>{{p.transportation.TransportationSeatTypeName}} Seater <span *ngIf="p.transportservice != null">, {{(p.transportservice).split("_").join(" ")}}</span></p>
+              <p class="line-break">{{p.transportation.TransportationSeatTypeName}} Seater<span class="line-break" *ngIf="p.transportservice != null">, {{(p.transportservice).split("_").join(" ")}}</span></p>
             </div>
           </li>
           <li *ngIf="p.attraction != null">
@@ -76,7 +76,7 @@
             </div>
             <div class="timeline-item" *ngFor="let attrac of p.attraction ;let i = index">
               <h4>{{attrac.Name}}</h4>
-              <p><span maxlength="100">{{attrac.Description}}</span></p>
+              <p class="line-break"><span class="line-break" maxlength="100">{{attrac.Description}}</span></p>
             </div>
           </li>
         </ul>
