@@ -18,7 +18,7 @@
 <ion-row>
   <!--<ion-col><img src="{{trans.ImageUrl}}"/></ion-col>-->
   <ion-col *ngIf="trans.ImageUrl != '' ;else other_content"><img src="{{trans.ImageUrl}}"/></ion-col>
-  <ng-template #other_content><ion-col><img src="../assets/img/no-image.jpg"/></ion-col></ng-template>
+  <ng-template #other_content><ion-col><img src="assets/img/no-image.jpg"/></ion-col></ng-template>
   <ion-col width-60>
     <div>
     <h2>{{trans.TransportationSeatTypeName}} Seater {{trans.Name}}</h2>

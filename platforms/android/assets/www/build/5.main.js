@@ -1,2 +1,45 @@
-webpackJsonp([5],{344:function(t,n,e){"use strict";Object.defineProperty(n,"__esModule",{value:!0}),e.d(n,"MyaccountPageModuleNgFactory",function(){return P});var o=e(0),a=e(359),l=e(7),_=e(24),i=e(175),u=e(216),r=e(217),c=e(218),s=e(219),b=e(220),d=e(221),p=e(222),h=e(223),f=e(360),y=e(227),g=e(73),M=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,n){t.__proto__=n}||function(t,n){for(var e in n)n.hasOwnProperty(e)&&(t[e]=n[e])};return function(n,e){function o(){this.constructor=n}t(n,e),n.prototype=null===e?Object.create(e):(o.prototype=e.prototype,new o)}}(),m=function(t){function n(n){return t.call(this,n,[u.a,r.a,c.a,s.a,b.a,d.a,p.a,h.a,f.a],[])||this}return M(n,t),Object.defineProperty(n.prototype,"_NgLocalization_7",{get:function(){return null==this.__NgLocalization_7&&(this.__NgLocalization_7=new l.a(this.parent.get(o.c))),this.__NgLocalization_7},enumerable:!0,configurable:!0}),Object.defineProperty(n.prototype,"_ɵi_8",{get:function(){return null==this.__ɵi_8&&(this.__ɵi_8=new _.a),this.__ɵi_8},enumerable:!0,configurable:!0}),Object.defineProperty(n.prototype,"_FormBuilder_9",{get:function(){return null==this.__FormBuilder_9&&(this.__FormBuilder_9=new _.b),this.__FormBuilder_9},enumerable:!0,configurable:!0}),n.prototype.createInternal=function(){return this._CommonModule_0=new l.d,this._ɵba_1=new _.c,this._FormsModule_2=new _.d,this._ReactiveFormsModule_3=new _.e,this._IonicModule_4=new i.b,this._IonicPageModule_5=new i.c,this._MyaccountPageModule_6=new a.a,this._LAZY_LOADED_TOKEN_10=y.a,this._MyaccountPageModule_6},n.prototype.getInternal=function(t,n){return t===l.d?this._CommonModule_0:t===_.c?this._ɵba_1:t===_.d?this._FormsModule_2:t===_.e?this._ReactiveFormsModule_3:t===i.b?this._IonicModule_4:t===i.c?this._IonicPageModule_5:t===a.a?this._MyaccountPageModule_6:t===l.e?this._NgLocalization_7:t===_.a?this._ɵi_8:t===_.b?this._FormBuilder_9:t===g.d?this._LAZY_LOADED_TOKEN_10:n},n.prototype.destroyInternal=function(){},n}(o.x),P=new o.y(m,a.a)},359:function(t,n,e){"use strict";e.d(n,"a",function(){return o});var o=(e(0),e(10),e(227),this&&this.__decorate,function(){function t(){}return t}())},360:function(t,n,e){"use strict";function o(t){return l._14(0,[(t()(),l._18(null,["\n"])),(t()(),l._18(null,["\n\n"])),(t()(),l._15(0,null,null,9,"ion-tabs",[["tabsPlacement","top"]],null,null,null,_.a,_.b)),l._16(4374528,null,0,i.a,[[2,u.a],[2,r.a],c.a,s.c,l.H,b.b,l.I,d.b,p.a],{tabsPlacement:[0,"tabsPlacement"]},null),l._26(6144,null,h.a,null,[i.a]),(t()(),l._18(0,["\n  "])),(t()(),l._15(0,null,0,1,"ion-tab",[["role","tabpanel"],["tabTitle","My Contact"]],[[1,"id",0],[1,"aria-labelledby",0]],null,null,f.a,f.b)),l._16(245760,null,0,y.a,[i.a,c.a,s.c,b.b,l.H,l.g,l.I,l.K,l.T,g.a,M.a,[2,d.b],m.a,l.p],{root:[0,"root"],tabTitle:[1,"tabTitle"]},null),(t()(),l._18(0,["\n  "])),(t()(),l._15(0,null,0,1,"ion-tab",[["role","tabpanel"],["tabTitle","My User"]],[[1,"id",0],[1,"aria-labelledby",0]],null,null,f.a,f.b)),l._16(245760,null,0,y.a,[i.a,c.a,s.c,b.b,l.H,l.g,l.I,l.K,l.T,g.a,M.a,[2,d.b],m.a,l.p],{root:[0,"root"],tabTitle:[1,"tabTitle"]},null),(t()(),l._18(0,["\n"])),(t()(),l._18(null,["\n\n"]))],function(t,n){var e=n.component;t(n,3,0,"top");t(n,7,0,e.tab1Root,"My Contact");t(n,10,0,e.tab2Root,"My User")},function(t,n){t(n,6,0,l._20(n,7)._tabId,l._20(n,7)._btnId),t(n,9,0,l._20(n,10)._tabId,l._20(n,10)._btnId)})}function a(t){return l._14(0,[(t()(),l._15(0,null,null,1,"page-myaccount",[],null,null,null,o,I)),l._16(49152,null,0,P.a,[],null,null)],null,null)}e.d(n,"a",function(){return O});var l=e(0),_=e(178),i=e(71),u=e(8),r=e(3),c=e(4),s=e(1),b=e(2),d=e(35),p=e(11),h=e(57),f=e(177),y=e(87),g=e(18),M=e(58),m=e(5),P=e(227),w=[],I=l._13({encapsulation:2,styles:w,data:{}}),O=l._21("page-myaccount",P.a,a,{},{},[])}});
-//# sourceMappingURL=F:\Ionic\TourTravel2\www\build\5.main.js.map
+webpackJsonp([5],{
+
+/***/ 329:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyaccountPageModule", function() { return MyaccountPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__myaccount__ = __webpack_require__(124);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var MyaccountPageModule = (function () {
+    function MyaccountPageModule() {
+    }
+    return MyaccountPageModule;
+}());
+MyaccountPageModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_2__myaccount__["a" /* MyaccountPage */],
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__myaccount__["a" /* MyaccountPage */]),
+        ],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_2__myaccount__["a" /* MyaccountPage */]
+        ]
+    })
+], MyaccountPageModule);
+
+//# sourceMappingURL=myaccount.module.js.map
+
+/***/ })
+
+});
+//# sourceMappingURL=5.main.js.map

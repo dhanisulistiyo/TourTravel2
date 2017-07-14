@@ -18,7 +18,7 @@
 <ion-list>
   <ion-item *ngFor="let loc of locations" (click)="setSelectedLocation(loc)">
      <ion-avatar item-start *ngIf="loc.Region.ImageUrl == null">
-      <img src="../assets/img/locationIcon.png">
+      <img src="assets/img/locationIcon.png">
     </ion-avatar>
     <ion-avatar item-start *ngIf="loc.Region.ImageUrl != null">
       <img src="{{loc.Region.ImageUrl}}">

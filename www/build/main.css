@@ -25455,6 +25455,434 @@ page-changepassword .btn-update {
   margin-right: 20px;
 }
 
+page-confirm-booking {
+  /* -------------------------------- All the CSS needed for the timeline! -------------------------------- */
+  /* -------------------------------- Paddings and margins -------------------------------- */
+  /*Optional*/
+  /*Timeline*/
+  /* === Color Themes === */
+  /*POSITIVE*/
+  /*CALM*/
+  /*BALANCED*/
+  /*ENERGIZED*/
+  /*ASSERTIVE*/
+  /*ROYAL*/
+  /*DARK*/
+  /*End-of-timeline-CSS*/
+}
+
+page-confirm-booking ion-card {
+  width: 100%;
+  height: 100%;
+  margin-top: 100px;
+  margin-left: 0px;
+  overflow: visible;
+}
+
+page-confirm-booking ion-card ion-card-header h2.card-title {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.8rem;
+  color: white;
+  font-weight: 600;
+}
+
+page-confirm-booking ion-card ion-card-content {
+  margin-left: -10px;
+  text-align: left;
+  padding-top: 22px;
+  padding-bottom: 22px;
+  overflow: visible;
+  background-color: #f9f9f9;
+}
+
+page-confirm-booking ion-card ion-card-content h2.card-title {
+  font-family: 'Lato', sans-serif;
+  font-size: 2.5rem;
+  margin-top: .5rem;
+  color: black;
+}
+
+page-confirm-booking ion-card ion-card-content h3.card-title {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.8rem;
+  color: #595959;
+  font-weight: 600;
+  text-align: right;
+}
+
+page-confirm-booking ion-card ion-card-content h3.card-title-label {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.8rem;
+  color: #808080;
+  font-weight: 600;
+  text-align: left;
+}
+
+page-confirm-booking ion-card ion-card-content h3.card-title-total {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.8rem;
+  color: black;
+  font-weight: 600;
+  text-align: right;
+}
+
+page-confirm-booking ion-card ion-card-content h3.card-label {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.8rem;
+  color: #808080;
+}
+
+page-confirm-booking .card-header-md {
+  padding: 15px;
+  font-size: 1rem;
+  color: #222;
+  background-color: #2cbaae;
+}
+
+page-confirm-booking .card-title-md {
+  padding: 0px;
+  margin: 0px;
+  color: white;
+  background-color: #2cbaae;
+  margin-left: -10px;
+  width: 105%;
+}
+
+page-confirm-booking .card-md.card-custom {
+  background: -webkit-gradient(left top, #00a497, #2cbaae);
+  background: -webkit-gradient(linear, left top, right bottom, from(#00a497), to(#2cbaae));
+  background: linear-gradient(to bottom right, #00a497, #2cbaae);
+  background-repeat: repeat-x;
+  padding: 20px 15px 20px 15px;
+}
+
+page-confirm-booking .card-md.card-custom h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.8rem;
+  color: white;
+  font-weight: 600;
+}
+
+page-confirm-booking .card-md.card-custom h2.card-title {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.9rem;
+  color: white;
+  border-radius: 5%;
+  border: white solid 1px;
+  background-color: #27a59b;
+  padding: 2px;
+  font-weight: 600;
+}
+
+page-confirm-booking .card-md.card-custom h3.card-title {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.3rem;
+  color: white;
+  padding: 2px;
+  font-weight: 600;
+}
+
+page-confirm-booking .card-md.card-custom p.p-custom {
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  width: 40%;
+  border-radius: 5%;
+  text-align: center;
+  padding: 2px;
+  font-weight: 600;
+  border: #f0b840 solid 1px;
+  background-color: #f0b840;
+}
+
+page-confirm-booking .item-md {
+  padding-left: 0px;
+  padding-right: 0px;
+  position: relative;
+  color: white;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+page-confirm-booking ion-avatar img,
+page-confirm-booking ion-thumbnail img {
+  display: block;
+  border-radius: 50%;
+  border: white solid 2px;
+  display: inline;
+}
+
+page-confirm-booking ion-note {
+  color: #488aff;
+  font-weight: normal;
+}
+
+page-confirm-booking .scroll-content {
+  background: #eeeced;
+}
+
+page-confirm-booking [col-1] {
+  -webkit-flex: 0 0 8.33333%;
+  -ms-flex: 0 0 8.33333%;
+  -webkit-box-flex: 0;
+  flex: 0 0 8.33333%;
+  width: 8.33333%;
+  max-width: 4%;
+}
+
+page-confirm-booking .button-custom {
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  font-style: inherit;
+  font-variant: inherit;
+  line-height: 1;
+  text-transform: none;
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+
+page-confirm-booking .custom-padding {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+page-confirm-booking .btn-accept {
+  background-color: #55bbd4;
+  padding: 28px;
+}
+
+page-confirm-booking .btn-cancel {
+  background-color: #2cbaae;
+}
+
+page-confirm-booking span.button-inner {
+  text-transform: uppercase;
+  font-size: 1.7rem;
+  font-family: 'Open Sans', cursive;
+  font-weight: 700;
+}
+
+page-confirm-booking .bar-stable {
+  background-color: #d9d9d9 !important;
+}
+
+page-confirm-booking .tabs {
+  background-color: #d9d9d9 !important;
+}
+
+page-confirm-booking .icon-size-lg {
+  font-size: 40px;
+}
+
+page-confirm-booking .pos-absolute-right {
+  position: absolute;
+  right: 8px;
+}
+
+page-confirm-booking .timeline {
+  position: relative;
+  margin: 15px 0 30px 0;
+}
+
+page-confirm-booking .timeline:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: #afdcf8;
+  left: 44px;
+  margin-left: -10px;
+  z-index: 1;
+}
+
+page-confirm-booking .timeline .timeline-thumb {
+  border-radius: 500px;
+  width: 50px;
+  z-index: 2;
+  position: absolute;
+  left: 10px;
+  border: 5px solid #CBD0D3;
+}
+
+page-confirm-booking .timeline .timeline-thumb.timeline-icon {
+  height: 50px;
+  text-align: center;
+  color: white;
+  font-size: 40px;
+}
+
+page-confirm-booking .timeline .timeline-thumb.timeline-icon i {
+  font-size: 28px;
+  margin: 6px 0;
+  display: block;
+}
+
+page-confirm-booking .timeline .timeline-item {
+  margin-left: 72px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 8px;
+}
+
+page-confirm-booking .timeline .timeline-stats {
+  position: relative;
+  font-size: 12px;
+  color: #7F8C8D;
+}
+
+page-confirm-booking .item-md p {
+  overflow: inherit;
+  margin: 0 0 2px;
+  font-size: 1.4rem;
+  padding-right: 20px;
+  line-height: normal;
+  text-overflow: inherit;
+  color: #666;
+}
+
+page-confirm-booking .item-md ion-icon[item-left],
+page-confirm-booking .item-md ion-icon[item-right],
+page-confirm-booking .item-md ion-icon[item-start],
+page-confirm-booking .item-md ion-icon[item-end] {
+  margin-top: 8px;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+page-confirm-booking .divider-title {
+  background: #f2f2f2;
+  padding: 16px 15px;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Lato', cursive;
+}
+
+page-confirm-booking .divider-title h2 {
+  font-family: 'Lato', cursive;
+  color: black;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+page-confirm-booking .text-muted {
+  color: #6d6d72 !important;
+}
+
+page-confirm-booking .color-gray {
+  color: #8e8e93 !important;
+}
+
+page-confirm-booking .color-red {
+  color: #ff3b30 !important;
+}
+
+page-confirm-booking .bg-color-red {
+  background-color: #ff3b30 !important;
+}
+
+page-confirm-booking .color-white {
+  color: #ffffff !important;
+}
+
+page-confirm-booking .color-yellow {
+  color: #ffcc00 !important;
+}
+
+page-confirm-booking .bg-color-yellow {
+  background-color: #ffcc00 !important;
+}
+
+page-confirm-booking .color-green {
+  color: #4cd964 !important;
+}
+
+page-confirm-booking .color-orange {
+  color: #ff9500 !important;
+}
+
+page-confirm-booking .bg-color-orange {
+  background-color: #ff9500 !important;
+}
+
+page-confirm-booking .color-blue {
+  color: #007aff !important;
+}
+
+page-confirm-booking .bg-color-blue {
+  background-color: #007aff !important;
+}
+
+page-confirm-booking .color-lightblue {
+  color: #5ac8fa !important;
+}
+
+page-confirm-booking .bg-color-lightblue {
+  background-color: #5ac8fa !important;
+}
+
+page-confirm-booking .color-bluegray {
+  color: #607d8b !important;
+}
+
+page-confirm-booking .bg-color-bluegray {
+  background-color: #607d8b !important;
+}
+
+page-confirm-booking .color-night {
+  color: #2B1B17 !important;
+}
+
+page-confirm-booking .color-black {
+  color: black !important;
+}
+
+page-confirm-booking .bg-color-white {
+  background-color: #ffffff;
+}
+
+page-confirm-booking .bg-color-green {
+  background-color: #4cd964 !important;
+}
+
+page-confirm-booking .bg-color-positive {
+  background-color: #4a87ee !important;
+}
+
+page-confirm-booking .bg-color-calm {
+  background-color: #43cee6 !important;
+}
+
+page-confirm-booking .bg-color-balanced {
+  background-color: #66cc33 !important;
+}
+
+page-confirm-booking .bg-color-energized {
+  background-color: #f0b840 !important;
+}
+
+page-confirm-booking .bg-color-assertive {
+  color: #ef4e3a !important;
+}
+
+page-confirm-booking .bg-color-royal {
+  background-color: #8a6de9 !important;
+}
+
+page-confirm-booking .bg-color-dark {
+  background-color: #444 !important;
+}
+
 page-custome-package ion-card {
   position: relative;
   text-align: center;
@@ -27077,6 +27505,113 @@ page-myaccount ion-tab {
 
 page-myaccount .tabs-md .tabbar {
   background: #00a497;
+}
+
+page-mybooking-cancel ion-card.card {
+  -webkit-box-shadow: 2px;
+  box-shadow: 2px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  float: left;
+  /* important */
+  position: relative;
+  /* important(so we can absolutely position the description div */
+}
+
+page-mybooking-cancel .row {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  padding-top: 30px;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+page-mybooking-cancel .card-custom {
+  margin-bottom: 10px;
+  border: medium none;
+  border-radius: 5px;
+  display: block;
+  text-align: center;
+  margin: 2px 0 2px;
+  padding: 50px 0 8px 0;
+  font-size: 2.4rem;
+  line-height: 1.2;
+  color: white;
+}
+
+page-mybooking-cancel .h2-title-header {
+  font-size: 4rem;
+  font-weight: normal;
+  font-family: 'Open Sans', cursive;
+  color: white;
+}
+
+page-mybooking-cancel .h3-subtitle-header {
+  font-family: 'Quicksand', cursive;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+page-mybooking-cancel .content-custom {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: rgba(0, 0, 0, 0.7);
+  right: 0;
+  display: block;
+  bottom: 0;
+  top: 50px;
+  font-size: 2em;
+  font-weight: 900;
+  text-align: left;
+  left: 0;
+  position: absolute;
+  padding: 0px 16px 10px 16px;
+}
+
+page-mybooking-cancel .button-inner {
+  text-transform: none;
+  font-family: 'Open Sans', cursive;
+  font-weight: 700;
+  color: white;
+  font-size: 1.4rem;
+}
+
+page-mybooking-cancel .custom-row {
+  padding: 0;
+}
+
+page-mybooking-cancel .custom-row .col:first-child {
+  position: relative;
+  padding: 0;
+}
+
+page-mybooking-cancel .custom-row .col:first-child .corner-ribbon {
+  width: 800px;
+  background: #D31027;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#EA384D), to(#D31027));
+  background: linear-gradient(to right, #EA384D, #D31027);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  position: absolute;
+  top: 25px;
+  left: -65px;
+  text-align: center;
+  line-height: 35px;
+  letter-spacing: 0px;
+  font-family: 'Open Sans', cursive;
+  font-size: 20px;
+  margin-left: 10px;
+  font-weight: 700;
+  color: white;
+  /* IE 9 */
+  -webkit-transform: rotate(40deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(40deg);
 }
 
 page-mybooking-com ion-card.card {

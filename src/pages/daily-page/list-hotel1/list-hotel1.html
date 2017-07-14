@@ -21,7 +21,7 @@
 <ion-card  *ngFor="let hotel of hotels"  (click)="setSelectedHotel(hotel)">
 <ion-row>
   <ion-col *ngIf="hotel.ImageUrl != '' ;else other_content"><img src="{{hotel.ImageUrl}}"/></ion-col>
-  <ng-template #other_content><ion-col><img src="../assets/img/no-image.jpg"/></ion-col></ng-template>
+  <ng-template #other_content><ion-col><img src="assets/img/no-image.jpg"/></ion-col></ng-template>
   <ion-col width-60>
     <div >
     <h2>{{hotel.Name}}</h2>
