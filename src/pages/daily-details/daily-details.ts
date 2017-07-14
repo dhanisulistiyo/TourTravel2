@@ -8,6 +8,7 @@ import { DestinationPage2 } from '../daily-page/destination2/destination2';
 import {FilterTransport1Page  } from '../daily-page/filter-transport1/filter-transport1';
 import { FilterAttraction } from '../daily-page/filter-attraction/filter-attraction';
 import { FilterHotel1Page  } from '../daily-page/filter-hotel1/filter-hotel1';
+import { IteneraryService } from '../../providers/itenerary-service'
 
 @IonicPage()
 @Component({
@@ -20,10 +21,17 @@ export class DailyDetails {
   selectedItem: any;
   idAwal;
   tanggal;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public ds: DailyService) {
+  toursname;
+  guest;
+  event;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public ds: DailyService, public it : IteneraryService) {
     this.selectedItem = navParams.get('item');
     this.idAwal = navParams.get('awal');
     this.tanggal = navParams.get('date');
+    var pt = this.it.getPassenger();
+    this.toursname = this.it.getToursName();
+    this.guest = Number(pt.guestTour['AdultQty'])+ Number(pt.guestTour['ChildQty'])+ Number(pt.guestTour['InfantQty']);
+    this.event = this.it.getDateTour().ev; 
     console.log(this.selectedItem);
   }
 

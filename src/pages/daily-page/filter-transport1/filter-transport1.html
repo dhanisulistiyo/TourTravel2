@@ -25,19 +25,33 @@
         <ion-item class="custom-item" style=" border-bottom: 0" (click)="filterDestination(1)"><span *ngIf="daily?.destinationTo != null">{{daily?.destinationTo.Name}}</span></ion-item>
       </ion-col>
     </ion-row>
+
     <ion-row class="row-label">
       <ion-col col-12>
         <ion-label stacked>
-          <ion-icon ios="ios-star" md="md-star" class="custom-color"></ion-icon> Star Rating</ion-label>
+          <ion-icon ios="ios-star" md="md-star" class="custom-color"></ion-icon> Rating</ion-label>
       </ion-col>
     </ion-row>
     <ion-row class="row-content">
-      <ion-col class="col-custom">
+      <!--<ion-col class="col-custom">
         <rating [(ngModel)]="ratings" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star"
           nullable="true">
         </rating>
+      </ion-col>-->
+      <ion-col col-12 class="col-custom">
+        <ion-item class="custom-item">
+          <ion-label>Choose Types</ion-label>
+          <ion-select [(ngModel)]="rat" multiple="true" (ionChange)=filterRat(rat)>
+            <ion-option *ngFor="let rat of listRatings" [value]="rat.Id">{{rat.Name}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item class="custom-item" style=" border-bottom: 0">
+          <ion-input disabled="true" type="text" aria-placeholder="rat" [(ngModel)]="rat"></ion-input>
+        </ion-item>
       </ion-col>
     </ion-row>
+
+
     <ion-row class="row-label">
       <ion-col col-12>
         <ion-label stacked>

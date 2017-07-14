@@ -131,21 +131,22 @@ export class ConfirmBookingPage {
           handler: () => {
             console.log('Saved clicked');
             if(this.dateNow >= this.dateEx){
-              prompt.dismiss().then(() =>{
+              
                 this.allertExpireDate();
-              });
+              
               
             }else{
-              prompt.dismiss().then(() =>{
+             
                this.allertNoExpireDate();
-              });
-              
+               prompt.dismiss();
+               
             }       
             //this.alertSuccess();         
           }
         }
       ]
     });
+    
     prompt.present();
   }
 
@@ -193,6 +194,8 @@ export class ConfirmBookingPage {
             this.mulTra.getTourTransaksi().subscribe(data => { console.log(data); }, err => { console.log(err); }, () => console.log('post Transaction Complete'));
             loader.dismiss();
             this.presentToast();
+            this.navCtrl.setRoot(CustomePackagePage);
+            return false;
           }
         },
         {
@@ -207,11 +210,12 @@ export class ConfirmBookingPage {
             this.mulTra.getTourTransaksi().subscribe(data => { console.log(data); }, err => { console.log(err); }, () => console.log('post Transaction Complete'));
             loader.dismiss();
             this.navCtrl.push(PaymentPage,{detail, status});
+            prompt.dismiss();
             
              }
         }
       ]
-    });
+    });   
     prompt.present();
   }
 
@@ -223,7 +227,6 @@ presentToast() {
       position: 'bottom'
     });
     toast.present();
-    this.navCtrl.setRoot(CustomePackagePage);
   }
 
 }
