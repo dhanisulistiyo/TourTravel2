@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController, ToastController } from 'ionic-angular';
 import { MultiTransactionService } from '../../providers/multi-transaction-service';
 import { CustomePackagePage } from '../custome-package/custome-package';
+import { UserandcompanyDetails } from '../../providers/userandcompany-details';
 /**
  * Generated class for the PaymentPage page.
  *
@@ -17,17 +18,36 @@ export class PaymentPage {
   pay;
   Id;
   Status;
+  userinfo;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController,
     public load: LoadingController,
     public mulTra: MultiTransactionService,
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,
+     public info:UserandcompanyDetails
   ) {
     this.pay = null;
     this.Id = navParams.data['id']
     this.Status = navParams.data['status']
   }
+
+   ionViewWillEnter() {
+    let loader = this.load.create({
+      content: 'Please wait...'
+    });
+    loader.present();
+
+
+    this.info.getUser().subscribe(data=>{
+      this.userinfo = data;
+    },err => {
+                    console.log(err);
+                    //loader.dismiss();
+                },
+                () => console.log('Get Transaction Complete')
+    );   
+   }
 
   payTour() {
     console.log(this.pay);

@@ -3,6 +3,7 @@ import { NavController, NavParams,AlertController , LoadingController} from 'ion
 import {PaymentPage} from '../payment/payment';
 import {MultiTransactionService} from '../../providers/multi-transaction-service';
 import { UserandcompanyDetails } from '../../providers/userandcompany-details';
+import {CustomePackagePage} from '../custome-package/custome-package';
 //import {DailyService} from '../../providers/daily-service';
 
 /*
@@ -22,6 +23,8 @@ export class ConfirmBookingPage {
   TourPriceSum: Array<any>;
   curency;
   userinfo;
+  dateEx;
+  dateNow;
   constructor(public navCtrl: NavController, 
   public navParams: NavParams, 
   public mulTra : MultiTransactionService, 
@@ -56,7 +59,11 @@ export class ConfirmBookingPage {
             this.BookingDetailSum= Array.of(data['BookingDetailSum']);
             this.DailyPrograms = (data['DailyPrograms'])
             this.TourPriceSum=Array.of(data['TourPriceSum']);
-             this.data.push({
+
+      this.dateEx = new Date(this.BookingDetailSum[0].ExpiredOn) ; 
+      this.dateNow = new Date();
+
+      this.data.push({
         info: "Tour Detail",
         icon: 'ios-arrow-dropright-outline',
         showDetails: true
@@ -124,13 +131,12 @@ export class ConfirmBookingPage {
           text: 'OK',
           handler: () => {
             console.log('Saved clicked');
-            let loader = this.load.create({
-              content: 'Please wait...'
-            });
-            loader.present();
-            this.mulTra.getTourTransaksi().subscribe(data => { console.log(data); }, err => { console.log(err); }, () => console.log('post Transaction Complete'));
-            loader.dismiss();
-            this.navCtrl.push(PaymentPage,{id, status});
+            if(this.dateNow >= this.dateEx){
+              this.allertExpireDate();
+            }else{
+              this.allertNoExpireDate();
+            }
+            
             //this.alertSuccess();         
           }
         }
@@ -138,4 +144,72 @@ export class ConfirmBookingPage {
     });
     prompt.present();
   }
+
+
+  allertExpireDate(){
+    let prompt = this.alertCtrl.create({
+      title: 'Booking Expired',
+      message: "Do you want to pay this booking?",
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: ()=> {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'OK',
+          handler: () => {
+                console.log('Save clicked');
+             }
+        }
+      ]
+    });
+    prompt.present();
+  }
+
+
+   allertNoExpireDate(){
+    let detail = this.BookingDetailSum;
+    let status = "confirm";
+
+    let prompt = this.alertCtrl.create({
+      title: 'Pay Booking ',
+      message: "Do you want to pay this booking now?",
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: ()=> {
+
+            console.log('Cancel clicked');
+            let loader = this.load.create({
+              content: 'Please wait...'
+            });
+            loader.present();
+            this.mulTra.getTourTransaksi().subscribe(data => { console.log(data); }, err => { console.log(err); }, () => console.log('post Transaction Complete'));
+            loader.dismiss();
+            this.navCtrl.push(ConfirmBookingPage);
+          }
+        },
+        {
+          text: 'OK',
+          handler: () => {
+
+            console.log('Sukses clicked');
+            let loader = this.load.create({
+              content: 'Please wait...'
+            });
+            loader.present();
+            this.mulTra.getTourTransaksi().subscribe(data => { console.log(data); }, err => { console.log(err); }, () => console.log('post Transaction Complete'));
+            loader.dismiss();
+            this.navCtrl.push(PaymentPage,{detail, status});
+            
+             }
+        }
+      ]
+    });
+    prompt.present();
+  }
+
+
 }
