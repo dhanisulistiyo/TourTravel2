@@ -40,6 +40,7 @@ export class DailyDetailsProgram {
   roomservice;
   roomallocate;
   transportation;
+  hourstrans;
   transportservice;
   attraction: any = {};
   constructor() {
@@ -53,6 +54,7 @@ export class DailyDetailsProgram {
     this.roomallocate = null;
     this.transportation = null;
     this.transportservice = null;
+    this.hourstrans = null;
     this.attraction = {};
   }
 }
@@ -188,6 +190,7 @@ export class DailyService {
     d.transportation = null
     d.transportservice = null
     d.attraction = null
+    d.hourstrans = null
     d.acomodation = null
     let program = d
     return program
@@ -204,6 +207,7 @@ export class DailyService {
     dP.roomservice = null
     dP.roomallocate = null
     dP.transportation = null
+    dP.hourstrans = null
     dP.transportservice = null
     dP.attraction = null
     //let data = (dP);
@@ -266,6 +270,11 @@ export class DailyService {
 
   setTransportService(id, i, data) {
     this.daily[id].program_daily[i].transportservice = data
+    console.log(this.daily)
+  }
+
+  setHourTransport(id, i, data) {
+    this.daily[id].program_daily[i].hourstrans = data
     console.log(this.daily)
   }
 
