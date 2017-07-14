@@ -35,4 +35,31 @@ page-hotel-roomallocate {
         text-align: center;
         align-content: center;
     }
+    .scroll-content {
+        padding: 10px;
+    }
+    .custom-div {
+        border: 1px solid #f2f2f2;
+        border-radius: 4%;
+        padding: 5px;
+        background-color: white;
+    }
+    [col-12] {
+        -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        background-color: #f8f8ff;
+    }
+    .custom-col {
+        -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        align-content: center;
+        text-align: center;
+        width: 100%;
+        max-width: 100%;
+        background-color: #f8f8ff;
+    }
 }

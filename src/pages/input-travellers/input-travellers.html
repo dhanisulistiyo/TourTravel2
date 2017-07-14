@@ -3,9 +3,9 @@
     <ion-title>Add Total Guest(s)</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
+<ion-content>
 
-  <ion-grid class="vertical-align-content">
+  <div class="custom-div">
     <ion-row class="row-label">
       <ion-col col-12>
         <ion-label stacked>
@@ -20,6 +20,9 @@
       </ion-col>
       <ion-col col-5 style="text-align:left;"><button clear (click)="incrAdultQty()"><ion-icon name="add-circle"></ion-icon></button></ion-col>
     </ion-row>
+  </div>
+
+  <div class="custom-div">
     <ion-row class="row-label">
       <ion-col col-12>
         <ion-label stacked>
@@ -34,10 +37,14 @@
       </ion-col>
       <ion-col col-5 style="text-align:left;"><button clear (click)="incrChildQty()"><ion-icon name="add-circle"></ion-icon></button></ion-col>
     </ion-row>
+  </div>
+
+  <div class="custom-div">
     <ion-row class="row-label">
       <ion-col col-12>
         <ion-label stacked>
-          <ion-icon ios="ios-ionitron" md="md-ionitron" class="custom-color"></ion-icon> Infants ( < 2 Years )</ion-label>
+          <ion-icon ios="ios-ionitron" md="md-ionitron" class="custom-color"></ion-icon> Infants (
+          < 2 Years )</ion-label>
       </ion-col>
     </ion-row>
     <ion-row class="row-content">
@@ -48,13 +55,16 @@
       </ion-col>
       <ion-col col-5 style="text-align:left;"><button clear (click)="incrInfantQty()"><ion-icon name="add-circle"></ion-icon></button></ion-col>
     </ion-row>
+  </div>
+  <div class="custom-div">
     <ion-row class="row-label">
       <ion-col col-12>
         <ion-label stacked>
           <ion-icon ios="ios-people" md="md-people" class="custom-color"></ion-icon> Total Guest(s) : <strong>{{total}}</strong></ion-label>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </div>
+
 
 </ion-content>
 

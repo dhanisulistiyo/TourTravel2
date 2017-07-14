@@ -13,10 +13,9 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-grid class="vertical-align-content">
-
+<ion-content>
   <!--Sharing Room-->
+  <div class="custom-div">
     <ion-row class="row-label">
       <ion-col col-12>
         <ion-label stacked>
@@ -48,9 +47,11 @@
       </ion-col>
       <ion-col col-2 style="text-align:left;"><button clear (click)="incValue('SRC')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
     </ion-row>
+  </div>
 
 
-    <!--Single Room-->
+  <!--Single Room-->
+  <div class="custom-div">
     <ion-row class="row-label">
       <ion-col col-12>
         <ion-label stacked>
@@ -60,11 +61,11 @@
     <ion-row class="row-label">
       <ion-col style="text-align:center;">
         <ion-label stacked>
-          <ion-icon ios="ios-contacts" md="md-contacts" class="custom-color"></ion-icon> Adult</ion-label>
+          <ion-icon ios="ios-man" md="md-man" class="custom-color"></ion-icon> Adult</ion-label>
       </ion-col>
       <ion-col style="text-align:center;">
         <ion-label stacked>
-          <ion-icon ios="ios-contacts" md="md-contacts" class="custom-color"></ion-icon> Children</ion-label>
+          <ion-icon ios="ios-body" md="md-body" class="custom-color"></ion-icon> Children</ion-label>
       </ion-col>
     </ion-row>
     <ion-row class="row-content" style="padding-left:15px">
@@ -82,8 +83,10 @@
       </ion-col>
       <ion-col col-2 style="text-align:left;"><button clear (click)="incValue('SiRC')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
     </ion-row>
+  </div>
 
-    <!--Extra Bed-->
+  <!--Extra Bed-->
+  <div class="custom-div">
     <ion-row class="row-label">
       <ion-col col-12>
         <ion-label stacked>
@@ -93,11 +96,11 @@
     <ion-row class="row-label">
       <ion-col style="text-align:center;">
         <ion-label stacked>
-          <ion-icon ios="ios-contacts" md="md-contacts" class="custom-color"></ion-icon> Adult</ion-label>
+          <ion-icon ios="ios-man" md="md-man" class="custom-color"></ion-icon> Adult</ion-label>
       </ion-col>
       <ion-col style="text-align:center;">
         <ion-label stacked>
-          <ion-icon ios="ios-contacts" md="md-contacts" class="custom-color"></ion-icon> Children</ion-label>
+          <ion-icon ios="ios-body" md="md-body" class="custom-color"></ion-icon> Children</ion-label>
       </ion-col>
     </ion-row>
     <ion-row class="row-content" style="padding-left:15px">
@@ -115,9 +118,11 @@
       </ion-col>
       <ion-col col-2 style="text-align:left;"><button clear (click)="incValue('EBC')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
     </ion-row>
+  </div>
 
 
-    <!--Sharing Bed-->
+  <!--Sharing Bed-->
+  <div class="custom-div">
     <ion-row class="row-label">
       <ion-col col-12>
         <ion-label stacked>
@@ -127,7 +132,7 @@
     <ion-row class="row-label">
       <ion-col style="text-align:center;">
         <ion-label stacked>
-          <ion-icon ios="ios-contacts" md="md-contacts" class="custom-color"></ion-icon> Children</ion-label>
+          <ion-icon ios="ios-body" md="md-body" class="custom-color"></ion-icon> Children</ion-label>
       </ion-col>
     </ion-row>
     <ion-row class="row-content" style="padding-left:15px">
@@ -138,8 +143,10 @@
       </ion-col>
       <ion-col col-5 style="text-align:left;"><button clear (click)="incValue('SB')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
     </ion-row>
+  </div>
 
-    <!--BABY CRIB-->
+  <!--BABY CRIB-->
+  <div class="custom-div">
     <ion-row class="row-label">
       <ion-col col-12>
         <ion-label stacked>
@@ -160,19 +167,21 @@
       </ion-col>
       <ion-col col-5 style="text-align:left;"><button clear (click)="incValue('BC')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
     </ion-row>
+  </div>
 
 
-    <!--NO BED-->
+  <!--NO BED-->
+  <div class="custom-div">
     <ion-row class="row-label">
       <ion-col col-12>
         <ion-label stacked>
-          <ion-icon ios="ios-person-add" md="md-person-add" class="custom-color"></ion-icon> No Bed</ion-label>
+          <ion-icon ios="ios-tennisball" md="md-tennisball" class="custom-color"></ion-icon> No Bed</ion-label>
       </ion-col>
     </ion-row>
     <ion-row class="row-label">
       <ion-col style="text-align:center;">
         <ion-label stacked>
-          <ion-icon ios="ios-contacts" md="md-contacts" class="custom-color"></ion-icon> Infant</ion-label>
+          <ion-icon ios="ios-ionitron" md="md-ionitron" class="custom-color"></ion-icon> Infant</ion-label>
       </ion-col>
     </ion-row>
     <ion-row class="row-content" style="padding-left:15px">
@@ -183,14 +192,16 @@
       </ion-col>
       <ion-col col-5 style="text-align:left;"><button clear (click)="incValue('NB')"><ion-icon name="add-circle"></ion-icon></button></ion-col>
     </ion-row>
+  </div>
+  <div class="custom-div">
     <ion-row class="row-label">
-      <ion-col col-12>
+      <ion-col class="custom-col">
         <ion-label stacked>You have allocated <strong>{{totalAlloc}}</strong> guests out of <strong>{{totalGuest}}</strong></ion-label>
-        <ion-label stacked><strong>{{Tadult}}</strong> adult(s), <strong>{{Tchild}}</strong> child(ren) and <strong>{{Tinfant}}</strong> infant(s)</ion-label>
+        <ion-label stacked><strong>{{Tadult}}</strong> adult(s), <strong>{{Tchild}}</strong> children and <strong>{{Tinfant}}</strong> infant(s)</ion-label>
         <ion-label stacked>Remaining</ion-label>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </div>
 </ion-content>
 
 <ion-footer>
