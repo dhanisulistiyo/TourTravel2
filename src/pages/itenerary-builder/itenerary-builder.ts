@@ -25,7 +25,7 @@ export class IteneraryBuilderPage {
   tranportation: string;
   acomodation: string;
   totalDays;
-  allocation: string;
+  allocation: Array<{guest: number, name: string}>;
   public event = {
     monthStart: '',
     monthEnd: ''
@@ -44,7 +44,7 @@ export class IteneraryBuilderPage {
     this.attraction = '';
     this.tranportation = '';
     this.acomodation = '';
-    this.allocation = '';
+    this.allocation = [];
     this.event = {
       monthStart: new Date().toISOString().substring(0, 10),
       monthEnd: new Date().toISOString().substring(0, 10)
@@ -113,50 +113,57 @@ export class IteneraryBuilderPage {
       }
 
       if (alloc != null) {
-        var sharingRooms = Number(alloc.allocroom.sharingRooms);
-        var singleRoom = Number(alloc.allocroom.singleRoom)
-        var extraBed = Number(alloc.allocroom.extraBed)
-        var sharingBed = Number(alloc.allocroom.sharingBed)
+        console.log(alloc)
+        this.allocation = [];
+        var SR = Number(alloc.allocroom.sharingRooms);
+        var SiR = Number(alloc.allocroom.singleRoom)
+        var EB = Number(alloc.allocroom.extraBed)
+        var SB = Number(alloc.allocroom.sharingBed)
+        var BC =  Number(alloc.allocroom.babyCrib)
+        var NB =  Number(alloc.allocroom.noBed)
 
-        if (sharingRooms != 0 && singleRoom != 0 && extraBed != 0 && sharingBed != 0) {
-          this.allocation = +sharingRooms + ' Sharing Room, ' + singleRoom + ' Single Room, ' + extraBed + ' Extra Bed, ' + sharingBed + ' Sharing Bed With Parents';
-        } else if (sharingRooms != 0 && singleRoom == 0 && extraBed == 0 && sharingBed == 0) {
-          this.allocation = +sharingRooms + ' Sharing Room';
-        } else if (sharingRooms == 0 && singleRoom != 0 && extraBed == 0 && sharingBed == 0) {
-          this.allocation = + singleRoom + ' Single Room';
-        } else if (sharingRooms == 0 && singleRoom == 0 && extraBed != 0 && sharingBed == 0) {
-          this.allocation = + extraBed + ' Extra Bed ';
-        } else if (sharingRooms == 0 && singleRoom == 0 && extraBed == 0 && sharingBed != 0) {
-          this.allocation = + sharingBed + '  Sharing Bed With Parents';
+        if(SR != 0 ) this.allocation.push({guest : SR, name : "Sharing Room"})
+        if(SiR != 0 ) this.allocation.push({guest : SiR, name : "Single Room"})
+        if(EB != 0 ) this.allocation.push({guest : EB, name : "Extra Bed"})
+        if(SB != 0 ) this.allocation.push({guest : SB, name : "Sharing Bed"})
+        if(BC != 0 ) this.allocation.push({guest : BC, name : "Baby Crib"})
+        if(NB != 0 ) this.allocation.push({guest : NB, name : "No Bed"})
 
+        console.log(this.allocation);
 
-        } else if (sharingRooms != 0 && singleRoom != 0 && extraBed == 0 && sharingBed == 0) {
-          this.allocation = +sharingRooms + ' Sharing Room, ' + singleRoom + ' Single Room';
-        } else if (sharingRooms != 0 && singleRoom == 0 && extraBed != 0 && sharingBed == 0) {
-          this.allocation = +sharingRooms + ' Sharing Room, ' + extraBed + ' Extra Bed ';
-        } else if (sharingRooms != 0 && singleRoom == 0 && extraBed == 0 && sharingBed != 0) {
-          this.allocation = +sharingRooms + ' Sharing Room, ' + sharingBed + ' Sharing Bed With Parents';
-
-
-        } else if (sharingRooms == 0 && singleRoom != 0 && extraBed != 0 && sharingBed == 0) {
-          this.allocation = + singleRoom + ' Single Room, ' + extraBed + ' Extra Bed ';
-        } else if (sharingRooms == 0 && singleRoom != 0 && extraBed == 0 && sharingBed != 0) {
-          this.allocation = + singleRoom + ' Single Room, ' + sharingBed + ' Sharing Bed With Parents';
-        } else if (sharingRooms == 0 && singleRoom == 0 && extraBed != 0 && sharingBed != 0) {
-          this.allocation = + extraBed + ' Extra Bed, ' + sharingBed + ' Sharing Bed With Parents';
-
-
-        } else if (sharingRooms != 0 && singleRoom != 0 && extraBed != 0 && sharingBed == 0) {
-          this.allocation = +sharingRooms + ' Sharing Room, ' + singleRoom + ' Single Room, ' + extraBed + ' Extra Bed ';
-        } else if (sharingRooms != 0 && singleRoom != 0 && extraBed == 0 && sharingBed != 0) {
-          this.allocation = +sharingRooms + ' Sharing Room, ' + singleRoom + ' Single Room, ' + sharingBed + ' Sharing Bed With Parents ';
-        } else if (sharingRooms != 0 && singleRoom == 0 && extraBed != 0 && sharingBed != 0) {
-          this.allocation = +sharingRooms + ' Sharing Room, ' + extraBed + ' Extra Bed, ' + sharingBed + ' Sharing Bed With Parents ';
-        } else if (sharingRooms == 0 && singleRoom != 0 && extraBed != 0 && sharingBed != 0) {
-          this.allocation = + singleRoom + ' Single Room, ' + extraBed + ' Extra Bed, ' + sharingBed + ' Sharing Bed With Parents ';
-        } else if (sharingRooms == 0 && singleRoom == 0 && extraBed == 0 && sharingBed == 0) {
-          this.allocation = '';
-        }
+        // if (sharingRooms != 0 && singleRoom != 0 && extraBed != 0 && sharingBed != 0) {
+        //   this.allocation = +sharingRooms + ' Sharing Room, ' + singleRoom + ' Single Room, ' + extraBed + ' Extra Bed, ' + sharingBed + ' Sharing Bed With Parents';
+        // } else if (sharingRooms != 0 && singleRoom == 0 && extraBed == 0 && sharingBed == 0) {
+        //   this.allocation = +sharingRooms + ' Sharing Room';
+        // } else if (sharingRooms == 0 && singleRoom != 0 && extraBed == 0 && sharingBed == 0) {
+        //   this.allocation = + singleRoom + ' Single Room';
+        // } else if (sharingRooms == 0 && singleRoom == 0 && extraBed != 0 && sharingBed == 0) {
+        //   this.allocation = + extraBed + ' Extra Bed ';
+        // } else if (sharingRooms == 0 && singleRoom == 0 && extraBed == 0 && sharingBed != 0) {
+        //   this.allocation = + sharingBed + '  Sharing Bed With Parents';
+        // } else if (sharingRooms != 0 && singleRoom != 0 && extraBed == 0 && sharingBed == 0) {
+        //   this.allocation = +sharingRooms + ' Sharing Room, ' + singleRoom + ' Single Room';
+        // } else if (sharingRooms != 0 && singleRoom == 0 && extraBed != 0 && sharingBed == 0) {
+        //   this.allocation = +sharingRooms + ' Sharing Room, ' + extraBed + ' Extra Bed ';
+        // } else if (sharingRooms != 0 && singleRoom == 0 && extraBed == 0 && sharingBed != 0) {
+        //   this.allocation = +sharingRooms + ' Sharing Room, ' + sharingBed + ' Sharing Bed With Parents';
+        // } else if (sharingRooms == 0 && singleRoom != 0 && extraBed != 0 && sharingBed == 0) {
+        //   this.allocation = + singleRoom + ' Single Room, ' + extraBed + ' Extra Bed ';
+        // } else if (sharingRooms == 0 && singleRoom != 0 && extraBed == 0 && sharingBed != 0) {
+        //   this.allocation = + singleRoom + ' Single Room, ' + sharingBed + ' Sharing Bed With Parents';
+        // } else if (sharingRooms == 0 && singleRoom == 0 && extraBed != 0 && sharingBed != 0) {
+        //   this.allocation = + extraBed + ' Extra Bed, ' + sharingBed + ' Sharing Bed With Parents';
+        // } else if (sharingRooms != 0 && singleRoom != 0 && extraBed != 0 && sharingBed == 0) {
+        //   this.allocation = +sharingRooms + ' Sharing Room, ' + singleRoom + ' Single Room, ' + extraBed + ' Extra Bed ';
+        // } else if (sharingRooms != 0 && singleRoom != 0 && extraBed == 0 && sharingBed != 0) {
+        //   this.allocation = +sharingRooms + ' Sharing Room, ' + singleRoom + ' Single Room, ' + sharingBed + ' Sharing Bed With Parents ';
+        // } else if (sharingRooms != 0 && singleRoom == 0 && extraBed != 0 && sharingBed != 0) {
+        //   this.allocation = +sharingRooms + ' Sharing Room, ' + extraBed + ' Extra Bed, ' + sharingBed + ' Sharing Bed With Parents ';
+        // } else if (sharingRooms == 0 && singleRoom != 0 && extraBed != 0 && sharingBed != 0) {
+        //   this.allocation = + singleRoom + ' Single Room, ' + extraBed + ' Extra Bed, ' + sharingBed + ' Sharing Bed With Parents ';
+        // } else if (sharingRooms == 0 && singleRoom == 0 && extraBed == 0 && sharingBed == 0) {
+        //   this.allocation = '';
+        // }
 
       }
     }
