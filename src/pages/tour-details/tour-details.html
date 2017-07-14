@@ -236,13 +236,18 @@
     </ion-list>
   </div>
 
-  <ion-row *ngIf="isValid">
-    <ion-col>
-      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-cancel" (click)="cancelTour()">Cancel</button>
-    </ion-col>
-    <ion-col>
-      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-accept" (click)="confirmTour()">Confirm</button>
-    </ion-col>
-  </ion-row>
+
 
 </ion-content>
+
+
+<ion-footer>
+    <ion-row *ngIf="isValid">
+    <ion-col>
+      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-cancel" (click)="allertCancelBooking()">Cancel</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-accept" (click)="allertConfirmBooking()">Confirm</button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

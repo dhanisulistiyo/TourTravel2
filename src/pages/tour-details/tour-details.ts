@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { HistoryService } from '../../providers/history-service';
 import { MultiTransactionService } from '../../providers/multi-transaction-service';
 import { UserandcompanyDetails } from '../../providers/userandcompany-details';
+import {PaymentPage} from '../payment/payment';
 /*
   Generated class for the TourDetails page.
 
@@ -26,7 +27,8 @@ export class TourDetailsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public his: HistoryService, 
   public mulTra: MultiTransactionService,
   public load: LoadingController,
-  public info:UserandcompanyDetails
+  public info:UserandcompanyDetails,
+    public alertCtrl : AlertController,
   ) {
     this.BookingDetailSum = null;
     this.DailyPrograms = null;
@@ -116,6 +118,56 @@ export class TourDetailsPage {
     this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, status)
     this.navCtrl.pop();
 
+  }
+
+
+  allertConfirmBooking() {
+    let details = this.BookingDetailSum;
+    let status = "confirm"
+    let prompt = this.alertCtrl.create({
+      title: 'Confirm Booking',
+      message: "Do you agree with this booking?",
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: ()=> {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'OK',
+          handler: () => {
+            this.navCtrl.push(PaymentPage,{status, details});       
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
+
+
+allertCancelBooking() {
+    let details = this.BookingDetailSum;
+    let status = "confirm"
+    let prompt = this.alertCtrl.create({
+      title: 'Cancel Booking',
+      message: "Do you agree cancel this booking?",
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: ()=> {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'OK',
+          handler: () => {
+            this.cancelTour();       
+          }
+        }
+      ]
+    });
+    prompt.present();
   }
 
 
