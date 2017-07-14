@@ -208,7 +208,7 @@
                     <ion-icon ios="ios-bus" md="md-bus" class="timeline-icon"></ion-icon>
                   </div>
                   <div class="timeline-item" *ngIf="p.TransportationSummary.length > 0">
-                    <h4><span *ngFor="let a of p.TransportationSummary ;let i = index">{{a.TransportationType}}, {{a.TransportationCapacity}} Seater <span>, {{a.TransportationService}}</span></span>
+                    <h4><span *ngFor="let a of p.TransportationSummary ;let i = index">{{a.TransportationType}}, {{a.TransportationCapacity}} Seater <span>, {{a.TransportationService.split("_").join(" ")}}</span></span>
                     </h4>
                   </div>
                 </li>
@@ -410,5 +410,5 @@
 </ion-content>-->
 
 <ion-footer>
-  <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="confirmTapped($event)" full large>Next</button>
+  <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="confirmTapped($event)" full large>Booking Now</button>
 </ion-footer>

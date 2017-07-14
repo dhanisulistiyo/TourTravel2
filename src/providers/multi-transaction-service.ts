@@ -74,7 +74,10 @@ export class MultiTransactionService {
           let item = {
             ServiceItemId: this.daily[i].program_daily[j].transportation.ServiceItemId,
             TransportationItemServiceType: this.daily[i].program_daily[j].transportservice,
-            Date: this.daily[i].datetour
+            Date: this.daily[i].datetour,
+            CityId: this.daily[i].program_daily[j].destinationFrom.Id,
+            Hours: this.daily[i].program_daily[j].hourstrans
+
           }
           this.transportation.push(item);
 
