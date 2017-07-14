@@ -57,6 +57,7 @@ import { HotelRoomservicePage1 } from '../pages/daily-page/hotel-roomservice1/ho
 import { HotelRoomallocatePage1 } from '../pages/daily-page/hotel-roomallocate1/hotel-roomallocate1';
 import { FilterDestinationPage } from '../pages/daily-page/filter-destination/filter-destination';
 import {FilterAttraction  } from '../pages/daily-page/filter-attraction/filter-attraction';
+import {TransportHoursPage  } from '../pages/daily-page/transport-hours/transport-hours';
 //result
 import { DailyProgram } from '../pages/daily-program/daily-program';
 import { DailyDetails } from '../pages/daily-details/daily-details';
@@ -157,6 +158,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     FilterAttraction,
     TransportLocationservice,
     PaymentPage,
+    TransportHoursPage
   ],
   imports: [
     BrowserModule,
@@ -236,6 +238,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MybookingCancel,
     PaymentPage,
     TransportLocationservice,
+    TransportHoursPage
   ],
   providers: [
     StatusBar,

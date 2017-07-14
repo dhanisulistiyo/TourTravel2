@@ -13,10 +13,10 @@
 
 <ion-content style="margin-left: -10px; width:105%; overflow: visible; margin-top: -10px;">
   <ion-card class="page-transport-airportservice1" *ngFor="let ts of transportser" (click)="setTransService(ts)">
-    <img src="assets/img/breakfast-time.jpeg" style="height: 230px;" />
+    <img src="assets/img/no-image.jpg" style="height: 230px;" />
     <ion-card-content class="content-custom" style="top: 0px;">
       <ion-card-title class="card-custom">
-        <h2 class="h2-title-header">{{ts.split("_").join(" ")}}</h2>
+        <h2 class="h2-title-header">{{ts.ServiceType.split("_").join(" ")}}</h2>
         <h3 class="h3-subtitle-header">All rides are a door to door service for your convenience.</h3>
       </ion-card-title>
       <ion-row>
