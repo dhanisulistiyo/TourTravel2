@@ -23,7 +23,7 @@ export class MyApp {
   // make HelloIonicPage the root (or first) page
   rootPage: any = LoginPage;
   
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: any}>;
   username;
   password;
   //userInfo: Array<{username: string, email: string}>;
@@ -42,11 +42,11 @@ export class MyApp {
     //this.userInfo = this.user;
     // set our app's pages
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'My Account', component: MyaccountPage },
-      { title: 'My Company', component: MycompanyPage },
-      { title: 'My Booking', component: MybookingPage },
-      { title: 'Logout', component: this.logout() }  
+      { title: 'Home', component: HomePage, icon: 'ios-home-outline' },
+      { title: 'My Account', component: MyaccountPage, icon: 'ios-contact-outline' },
+      { title: 'My Company', component: MycompanyPage, icon: 'ios-laptop-outline' },
+      { title: 'My Booking', component: MybookingPage, icon: 'ios-list-box-outline' },
+      { title: 'Logout', component: this.logout(), icon: 'ios-log-out-outline' }  
     ];
   }
 

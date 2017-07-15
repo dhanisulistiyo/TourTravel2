@@ -21,7 +21,7 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700');
 page-app {
     .header-menu-user {
-        min-height: 200px;
+        min-height: 160px;
         .toolbar-background-md {
             border-color: #4fd2c2;
             background: #4fd2c2;
@@ -34,6 +34,23 @@ page-app {
             color: white;
             text-align: center;
         }
+    }
+    .item-md ion-icon[item-left]+.item-inner,
+    .item-md ion-icon[item-left]+.item-input,
+    .item-md ion-icon[item-start]+.item-inner,
+    .item-md ion-icon[item-start]+.item-input {
+        margin-left: 4px;
+    }
+    ion-icon.custom-font {
+        color: #4fd2c2;
+        font-size: 2.6rem;
+    }
+    p.custom-text {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1.6rem;
+        font-weight: 500;
+        color: black;
+        text-align: left;
     }
 }
 

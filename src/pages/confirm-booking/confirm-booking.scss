@@ -11,7 +11,7 @@ page-confirm-booking {
         ion-card-header {
             h2.card-title {
                 font-family: 'Open Sans', sans-serif;
-                font-size: 1.8rem;
+                font-size: 1.4rem;
                 color: white;
                 font-weight: 600;
             }
@@ -26,20 +26,20 @@ page-confirm-booking {
             background-color: #f9f9f9;
             h2.card-title {
                 font-family: 'Lato', sans-serif;
-                font-size: 2.5rem;
+                font-size: 1.6rem;
                 margin-top: .5rem;
                 color: black;
             }
             h3.card-title {
                 font-family: 'Lato', sans-serif;
-                font-size: 1.8rem;
+                font-size: 1.6rem;
                 color: #595959;
                 font-weight: 600;
                 text-align: right;
             }
             h3.card-title-label {
                 font-family: 'Lato', sans-serif;
-                font-size: 1.8rem;
+                font-size: 1.6rem;
                 color: #808080;
                 font-weight: 600;
                 text-align: left;
@@ -53,13 +53,13 @@ page-confirm-booking {
             }
             h3.card-label {
                 font-family: 'Lato', sans-serif;
-                font-size: 1.8rem;
+                font-size: 1.6rem;
                 color: #808080;
             }
         }
     }
     .card-header-md {
-        padding: 15px;
+        padding: 10px;
         font-size: 1rem;
         color: #222;
         background-color: #2cbaae;
@@ -107,7 +107,7 @@ page-confirm-booking {
             font-family: 'Open Sans', sans-serif;
             text-transform: uppercase;
             font-size: 1.3rem;
-            width: 40%;
+            width: 50%;
             border-radius: 5%;
             text-align: center;
             padding: 2px;
@@ -161,14 +161,17 @@ page-confirm-booking {
         text-align: center;
         font-family: 'Open Sans', sans-serif;
         font-weight: 500;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+        padding-left: 12px;
+        padding-right: 12px
     }
     .btn-accept {
         background-color: #55bbd4;
-        padding: 28px;
+        padding: 14px;
     }
     .btn-cancel {
         background-color: #2cbaae;
+        padding: 14px;
     }
     span.button-inner {
         text-transform: uppercase;
@@ -263,6 +266,7 @@ page-confirm-booking {
         align-content: center;
         justify-content: center;
         text-align: center;
+        font-size: 1.7rem;
         font-family: 'Lato', cursive;
         h2 {
             font-family: 'Lato', cursive;
