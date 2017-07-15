@@ -39,7 +39,7 @@
     </ion-card>
   </div>
 
- <ion-item (click)="setPay('1')">
+ <ion-item >
     <ion-thumbnail item-start>
       <img src="assets/img/deposit.png">
     </ion-thumbnail>
@@ -47,13 +47,22 @@
     <ion-radio (click)="setPay('deposit')" value="deposit" item-end></ion-radio>
   </ion-item>
 
-  <ion-item (click)="setPay('2')">
+  <ion-item >
     <ion-thumbnail item-start>
       <img src="assets/img/credit-card.png">
     </ion-thumbnail>
-    <ion-label>Creadit/debit card</ion-label>
+    <ion-label>Credit/debit card</ion-label>
     <ion-radio (click)="setPay('card')" value="card" item-end></ion-radio>
   </ion-item>
+
+  <ion-item  *ngIf="Status != 'created'">
+    <ion-thumbnail item-start>
+      <img src="assets/img/deposit.png">
+    </ion-thumbnail>
+    <ion-label>Booking Hold</ion-label>
+    <ion-radio (click)="setPay('hold')" value="hold" item-end></ion-radio>
+  </ion-item>
+
 </ion-list>
 </ion-content>
 

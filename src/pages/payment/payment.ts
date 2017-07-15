@@ -19,60 +19,87 @@ export class PaymentPage {
   BookingDetailSum;
   Status;
   userinfo;
+  dateEx;
+  dateNow;
+  allow;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController,
     public load: LoadingController,
     public mulTra: MultiTransactionService,
     public toastCtrl: ToastController,
-    public info:UserandcompanyDetails,
+    public info: UserandcompanyDetails,
     private viewCtrl: ViewController,
   ) {
     this.pay = null;
     this.BookingDetailSum = navParams.data['details']
     this.Status = navParams.data['status']
+    this.allow = true;
   }
 
-   ionViewWillEnter() {
+  ionViewWillEnter() {
+    this.dateEx = new Date(this.BookingDetailSum[0].ExpiredOn);
+    this.dateNow = new Date();
+    if (this.dateNow >= this.dateEx) {
+      this.allow = false;
+    }
+
     let loader = this.load.create({
       content: 'Please wait...'
     });
     loader.present();
 
 
-    this.info.getUser().subscribe(data=>{
+    this.info.getUser().subscribe(data => {
       this.userinfo = data;
       loader.dismiss();
-    },err => {
-                    console.log(err);
-                    loader.dismiss();
-                },
-                () => console.log('Get Transaction Complete')
-    );   
-   }
+    }, err => {
+      console.log(err);
+      loader.dismiss();
+    },
+      () => console.log('Get Transaction Complete')
+    );
+  }
 
   payTour() {
     console.log(this.pay);
-    if (this.pay != "card") {
-        if(this.Status == "created"){
-          //this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, status)
+    if (this.pay == "deposit") {
+      if (this.Status == "created") {
+        //this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, status)
         let status = "confirm"
         this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, status)
-        
+
         this.navCtrl.pop().then(() => {
-        // first we find the index of the current view controller:
-        const index = this.viewCtrl.index;
-        // then we remove it from the navigation stack
-        this.navCtrl.remove(index);
+          const index = this.viewCtrl.index;
+          this.navCtrl.remove(index);
         });
-      this.presentToast();
-      }else{
-        this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, this.Status)
+        this.presentToast();
+      } else {
+        let loader = this.load.create({
+          content: 'Please wait...'
+        });
+        loader.present();
+        this.mulTra.getTourTransaksi().subscribe(data => { console.log(data);
+        this.BookingDetailSum = Array.of(data['BookingDetailSum']);
+        }, err => { console.log(err); }, () => console.log('post Transaction Complete'));
+
+        this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, this.Status);
+        loader.dismiss();
         this.presentToast();
         this.navCtrl.setRoot(CustomePackagePage);
       }
-    }else{
-        this.alertPay();
+    } else if (this.pay == "hold") {
+      let loader = this.load.create({
+        content: 'Please wait...'
+      });
+      loader.present();
+      this.mulTra.getTourTransaksi().subscribe(data => { console.log(data); }, err => { console.log(err); }, () => console.log('post Transaction Complete'));
+      loader.dismiss();
+      this.presentToast();
+      this.navCtrl.setRoot(CustomePackagePage);
+    }
+    else {
+      this.alertPay();
     }
   }
 
@@ -88,7 +115,7 @@ export class PaymentPage {
       position: 'bottom'
     });
     toast.present();
-    
+
   }
 
   alertPay() {

@@ -105,7 +105,7 @@ export class ConfirmBookingPage {
   }
 
 
- toggleDetails(data) {
+toggleDetails(data) {
     if (data.showDetails) {
       data.showDetails = false;
       data.icon = 'ios-arrow-dropright-outline';
@@ -113,9 +113,12 @@ export class ConfirmBookingPage {
       data.showDetails = true;
       data.icon = 'ios-arrow-dropdown-outline';
     }
-  }
+}
+
 
   allertConfirmBooking() {
+     let details = this.BookingDetailSum;
+     let status= "confirm"
     let prompt = this.alertCtrl.create({
       title: 'Confirm Booking',
       message: "Do you agree with this booking?",
@@ -129,95 +132,106 @@ export class ConfirmBookingPage {
         {
           text: 'OK',
           handler: () => {
-            console.log('Saved clicked');
-            if(this.dateNow >= this.dateEx){
-              
-                this.allertExpireDate();
-              
-              
-            }else{
-             
-               this.allertNoExpireDate();
-               prompt.dismiss();
-               
-            }       
+            console.log('Saved clicked');          
+            this.navCtrl.push(PaymentPage,{details, status});
+
+
+            // if(this.dateNow >= this.dateEx){
+            //    prompt.dismiss().then(() => {
+            //     this.allertExpireDate();
+            //    }); 
+            // }else{
+            //    this.allertNoExpireDate();
+            //    prompt.dismiss();
+            // }       
             //this.alertSuccess();         
           }
         }
       ]
     });
-    
+    //prompt.fireOtherLifecycles = true;
     prompt.present();
   }
 
 
-  allertExpireDate(){
-    let prompt = this.alertCtrl.create({
-      title: 'Booking Expired',
-      message: "Do you want to pay this booking?",
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: ()=> {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'OK',
-          handler: () => {
-                console.log('Save clicked');
-             }
-        }
-      ]
-    });
-    prompt.present();
-  }
+  // allertExpireDate(){
+  //   let detail = this.BookingDetailSum;
+  //   let status= "confirm"
+  //   let prompt = this.alertCtrl.create({
+  //     title: 'Booking Expired',
+  //     message: "Do you want to pay this booking?",
+  //     buttons: [
+  //       {
+  //         text: 'Cancel',
+  //         handler: ()=> {
+  //           console.log('Cancel clicked');
+  //           prompt.dismiss();
+  //         }
+  //       },
+  //       {
+  //         text: 'OK',
+  //         handler: () => {
+  //           console.log('Save clicked');
+
+  //           let loader = this.load.create({
+  //             content: 'Please wait...'
+  //           });
+  //           loader.present();
+  //           this.mulTra.getTourTransaksi().subscribe(data => { console.log(data); }, err => { console.log(err); }, () => console.log('post Transaction Complete'));
+  //           loader.dismiss();
+  //           this.navCtrl.push(PaymentPage,{detail, status});
+  //            }
+  //       }
+  //     ]
+  //   });
+  //   prompt.present();
+  // }
 
 
-   allertNoExpireDate(){
-    let detail = this.BookingDetailSum;
-    let status = "confirm";
+  //  allertNoExpireDate(){
+  //   let detail = this.BookingDetailSum;
+  //   let status = "confirm";
 
-    let prompt = this.alertCtrl.create({
-      title: 'Pay Booking ',
-      message: "Do you want to pay this booking now?",
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: ()=> {
+  //   let prompt = this.alertCtrl.create({
+  //     title: 'Pay Booking ',
+  //     message: "Do you want to pay this booking now?",
+  //     buttons: [
+  //       {
+  //         text: 'Cancel',
+  //         handler: ()=> {
 
-            console.log('Cancel clicked');
-            let loader = this.load.create({
-              content: 'Please wait...'
-            });
-            loader.present();
-            this.mulTra.getTourTransaksi().subscribe(data => { console.log(data); }, err => { console.log(err); }, () => console.log('post Transaction Complete'));
-            loader.dismiss();
-            this.presentToast();
-            this.navCtrl.setRoot(CustomePackagePage);
-            return false;
-          }
-        },
-        {
-          text: 'OK',
-          handler: () => {
+  //           console.log('Cancel clicked');
+  //           let loader = this.load.create({
+  //             content: 'Please wait...'
+  //           });
+  //           loader.present();
+  //           this.mulTra.getTourTransaksi().subscribe(data => { console.log(data); }, err => { console.log(err); }, () => console.log('post Transaction Complete'));
+  //           loader.dismiss();
+  //           this.presentToast();
+  //           this.navCtrl.setRoot(CustomePackagePage);
+  //           return false;
+  //         }
+  //       },
+  //       {
+  //         text: 'OK',
+  //         handler: () => {
 
-            console.log('Sukses clicked');
-            let loader = this.load.create({
-              content: 'Please wait...'
-            });
-            loader.present();
-            this.mulTra.getTourTransaksi().subscribe(data => { console.log(data); }, err => { console.log(err); }, () => console.log('post Transaction Complete'));
-            loader.dismiss();
-            this.navCtrl.push(PaymentPage,{detail, status});
-            prompt.dismiss();
+  //           console.log('Sukses clicked');
+  //           let loader = this.load.create({
+  //             content: 'Please wait...'
+  //           });
+  //           loader.present();
+  //           this.mulTra.getTourTransaksi().subscribe(data => { console.log(data); }, err => { console.log(err); }, () => console.log('post Transaction Complete'));
+  //           loader.dismiss();
+
+  //           this.navCtrl.push(PaymentPage,{detail, status});
             
-             }
-        }
-      ]
-    });   
-    prompt.present();
-  }
+  //            }
+  //       }
+  //     ]
+  //   });   
+  //   prompt.present();
+  // }
 
 
 presentToast() {
