@@ -30,12 +30,12 @@
       </ion-col>
     </ion-row>
     <ion-row class="row-content">
-      <ion-col col-5 style="text-align:right;"><button clear (click)="decrChildQty()"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
+      <ion-col col-5 style="text-align:right; margin-top: 10px;"><button clear (click)="decrChildQty()"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
       <ion-col col-2 style="text-align:center;">
         <ion-input (input)="validateNumber(guestTour)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;"
           maxlength="3" min="0" name="ChildQty" [value]="guestTour.ChildQty" [(ngModel)]="guestTour.ChildQty"></ion-input>
       </ion-col>
-      <ion-col col-5 style="text-align:left;"><button clear (click)="incrChildQty()"><ion-icon name="add-circle"></ion-icon></button></ion-col>
+      <ion-col col-5 style="text-align:left; margin-top: 10px;"><button clear (click)="incrChildQty()"><ion-icon name="add-circle"></ion-icon></button></ion-col>
     </ion-row>
   </div>
 
@@ -48,12 +48,12 @@
       </ion-col>
     </ion-row>
     <ion-row class="row-content">
-      <ion-col col-5 style="text-align:right;"><button clear (click)="decrInfantQty()"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
+      <ion-col col-5 style="text-align:right; margin-top: 10px;"><button clear (click)="decrInfantQty()"><ion-icon name="remove-circle"></ion-icon></button></ion-col>
       <ion-col col-2 style="text-align:center;">
         <ion-input (input)="validateNumber(guestTour)" type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;"
           maxlength="3" min="0" name="InfantQty" [value]="guestTour.InfantQty" [(ngModel)]="guestTour.InfantQty"></ion-input>
       </ion-col>
-      <ion-col col-5 style="text-align:left;"><button clear (click)="incrInfantQty()"><ion-icon name="add-circle"></ion-icon></button></ion-col>
+      <ion-col col-5 style="text-align:left; margin-top: 10px;"><button clear (click)="incrInfantQty()"><ion-icon name="add-circle"></ion-icon></button></ion-col>
     </ion-row>
   </div>
   <div class="custom-div">

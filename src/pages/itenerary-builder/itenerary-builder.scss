@@ -1,14 +1,15 @@
 page-itenerary-builder {
     .label-md[stacked] {
-        font-size: 1.9rem;
+        font-size: 1.7rem;
         color: grey;
     }
     .text-input-md {
-        margin: 13px 8px 13px 8px;
+        margin: 0;
         padding: 0;
         width: calc(100% - 8px - 8px);
         color: black;
-        font-size: large;
+        font-size: 1.7 rem;
+        font-weight: 400;
     }
     .text-input[disabled] {
         opacity: 1;
@@ -17,7 +18,7 @@ page-itenerary-builder {
         margin: 13px 8px 13px 8px;
         color: black;
         font-size: large;
-        font-weight: 500;
+        font-weight: 400;
     }
     .item-md.item-block .item-inner {
         padding-right: 8px;
@@ -29,10 +30,20 @@ page-itenerary-builder {
     ion-input,
     ion-textarea {
         border-bottom: 1px solid gray;
+        width: 100%;
+        position: relative;
+        display: block;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        width: 92%;
+        margin-left: 18pt;
+        padding: 0
     }
     .datetime-text {
-        font-size: large;
+        font-size: 1.7rem;
         color: black;
+        font-weight: 400;
     }
     .alert-md .alert-title {
         text-align: center;
@@ -43,16 +54,6 @@ page-itenerary-builder {
         left: calc(50% - (500px/2));
         width: 500px;
         height: 500px;
-    }
-    ion-input,
-    ion-textarea {
-        position: relative;
-        display: block;
-        -webkit-flex: 1;
-        -ms-flex: 1;
-        flex: 1;
-        width: 92%;
-        margin-left: 18pt;
     }
     .input-label {
         white-space: normal !important;
@@ -80,14 +81,20 @@ page-itenerary-builder {
         text-overflow: ellipsis;
     }
     .text-input-md {
-        margin: 13px 8px 13px 0px;
+        margin: 10px 8px 8px 0px;
         padding: 0;
         width: calc(100% - 8px - 8px);
         color: black;
         font-size: large;
     }
     .datetime-md {
-        padding: 13px 8px 13px 0px;
+        padding: 10px 8px 8px 0px;
+    }
+    .label-md {
+        margin: 13px 8px 13px 3px;
+        color: black;
+        font-size: large;
+        font-weight: 400;
     }
     ion-datetime {
         display: -webkit-flex;
@@ -97,7 +104,15 @@ page-itenerary-builder {
         margin-left: 21px;
         margin-right: 5px;
     }
-    .scroll-content{
+    .scroll-content {
         padding: 10px;
     }
+    ion-label.label.label-md[stacked] {
+        font-family: 'Open Sans', cursive;
+        font-size: 1.7rem;
+        color: black;
+        font-weight: 500;
+        text-transform: none;
+    }
+    
 }

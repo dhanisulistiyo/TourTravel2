@@ -20,11 +20,11 @@ page-input-travellers {
         background: transparent;
     }
     .ion-md-remove-circle:before {
-        font-size: 28px;
+        font-size: 2.5rem;
         color: #55bbd4;
     }
     .ion-md-add-circle:before {
-        font-size: 28px;
+        font-size: 2.5rem;
         color: #2cbaae;
     }
     ion-row.row-label {
@@ -51,5 +51,20 @@ page-input-travellers {
         width: 100%;
         max-width: 100%;
         background-color: #f8f8ff;
+    }
+    ion-label.label.label-md[stacked] {
+        font-family: 'Open Sans', cursive;
+        font-size: 1.6rem;
+        color: black;
+        font-weight: 500;
+        text-transform: none;
+    }
+    [col-5] {
+        -webkit-flex: 0 0 41.66667%;
+        -ms-flex: 0 0 41.66667%;
+        flex: 0 0 41.66667%;
+        width: 41.66667%;
+        max-width: 41.66667%;
+        margin-top: 10px;
     }
 }
