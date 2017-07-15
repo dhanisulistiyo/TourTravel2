@@ -29,7 +29,7 @@
       </ion-row>
     </ion-card>
 
-    <p class="custom-padding">This booking request will be expired on {{bookdetails?.ExpiredOn | date:'dd MMMM yyyy'}}</p>
+    <p class="custom-padding">This booking request will be expired on <strong>{{bookdetails?.ExpiredOn | date:'dd MMMM yyyy'}}</strong></p>
 
     <ion-card>
       <ion-card-header (click)="toggleDetails(data[0])">
@@ -174,7 +174,7 @@
 
       <ion-card-content style="margin-left: 0px;">
         <ion-card-title (click)="toggleDetails(data[3])">
-          <h2 class="card-title" style="height: 55px;padding-top: 15px;padding-left: 15px;padding-right: 15px;padding-bottom: 15px;margin-top: 0px; font-size:1.8rem;">Tour Schedules</h2>
+          <h2 class="card-title" style="height: 40px;padding-top: 10px;padding-left: 10px;padding-right: 10px;padding-bottom: 10px;margin-top: 0px; font-size:1.6rem;">Tour Schedules</h2>
         </ion-card-title>
         <ion-grid *ngIf="data[3].showDetails">
           <ion-item *ngFor="let dp of DailyPrograms ; let j of index" class="label-title-item">

@@ -14,7 +14,7 @@ page-tour-details {
         ion-card-header {
             h2.card-title {
                 font-family: 'Open Sans', sans-serif;
-                font-size: 1.8rem;
+                font-size: 1.4rem;
                 color: white;
                 font-weight: 600;
             }
@@ -29,20 +29,20 @@ page-tour-details {
             background-color: #f9f9f9;
             h2.card-title {
                 font-family: 'Lato', sans-serif;
-                font-size: 2.5rem;
+                font-size: 1.6rem;
                 margin-top: .5rem;
                 color: black;
             }
             h3.card-title {
                 font-family: 'Lato', sans-serif;
-                font-size: 1.8rem;
+                font-size: 1.6rem;
                 color: #595959;
                 font-weight: 600;
                 text-align: right;
             }
             h3.card-title-label {
                 font-family: 'Lato', sans-serif;
-                font-size: 1.8rem;
+                font-size: 1.6rem;
                 color: #808080;
                 font-weight: 600;
                 text-align: left;
@@ -56,18 +56,13 @@ page-tour-details {
             }
             h3.card-label {
                 font-family: 'Lato', sans-serif;
-                font-size: 1.8rem;
+                font-size: 1.6rem;
                 color: #808080;
             }
         }
     }
-    .card-content-md {
-        padding: 0px 16px 13px 16px;
-        font-size: 1.4rem;
-        line-height: 1.5;
-    }
     .card-header-md {
-        padding: 15px;
+        padding: 10px;
         font-size: 1rem;
         color: #222;
         background-color: #2cbaae;
@@ -115,7 +110,7 @@ page-tour-details {
             font-family: 'Open Sans', sans-serif;
             text-transform: uppercase;
             font-size: 1.3rem;
-            width: 40%;
+            width: 50%;
             border-radius: 5%;
             text-align: center;
             padding: 2px;
@@ -169,17 +164,17 @@ page-tour-details {
         text-align: center;
         font-family: 'Open Sans', sans-serif;
         font-weight: 500;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+        padding-left: 12px;
+        padding-right: 12px
     }
     .btn-accept {
         background-color: #55bbd4;
-        padding: 20px;
-        border-radius: 4%;
+        padding: 14px;
     }
     .btn-cancel {
         background-color: #2cbaae;
-        padding: 20px;
-        border-radius: 4%;
+        padding: 14px;
     }
     span.button-inner {
         text-transform: uppercase;
@@ -252,12 +247,13 @@ page-tour-details {
     }
     .item-md p {
         overflow: inherit;
-        margin: 0 0 2px;
+        margin: 20px 0 0 0;
         font-size: 1.4rem;
         padding-right: 20px;
         line-height: normal;
         text-overflow: inherit;
         color: #666;
+        text-align: center;
     }
     .item-md ion-icon[item-left],
     .item-md ion-icon[item-right],
@@ -273,6 +269,7 @@ page-tour-details {
         align-content: center;
         justify-content: center;
         text-align: center;
+        font-size: 1.7rem;
         font-family: 'Lato', cursive;
         h2 {
             font-family: 'Lato', cursive;
@@ -280,6 +277,11 @@ page-tour-details {
             font-size: 2rem;
             font-weight: 600;
         }
+    }
+    .card-content-md {
+        padding: 0px 16px 13px 16px;
+        font-size: 1.4rem;
+        line-height: 1.5;
     }
     /* === Color Themes === */
     .text-muted {
@@ -377,20 +379,6 @@ page-tour-details {
         font-weight: bold;
         line-height: normal;
     }
-    .item-md p {
-        overflow: inherit;
-        margin: 10px 0 0 0;
-        font-size: 1.7rem;
-        padding-right: 10px;
-        line-height: normal;
-        text-overflow: inherit;
-        color: #666;
-        text-align: left;
-    }
-    .label-md {
-        margin: 0px;
-        padding: 0px;
-    }
     p.custom-label {
         background-color: #e6e6e6;
         margin: 0;
@@ -402,5 +390,15 @@ page-tour-details {
         color: #4d4d4d;
         font-size: 1 rem;
         font-weight: bold;
+    }
+    .item-md p {
+        overflow: inherit;
+        margin: 10px 0 0 0;
+        font-size: 1.7rem;
+        padding-right: 10px;
+        line-height: normal;
+        text-overflow: inherit;
+        color: #666;
+        text-align: left;
     }
 }

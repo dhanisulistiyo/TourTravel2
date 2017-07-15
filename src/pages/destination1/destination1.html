@@ -17,11 +17,11 @@
 <ion-content padding>
 <ion-list>
   <ion-item *ngFor="let loc of locations" (click)="setSelectedLocation(loc)">
-     <ion-avatar item-start *ngIf="loc.Region.ImageUrl == null">
+     <ion-avatar item-start *ngIf="loc.ImageUrl == null">
       <img src="assets/img/locationIcon.png">
     </ion-avatar>
-    <ion-avatar item-start *ngIf="loc.Region.ImageUrl != null">
-      <img src="{{loc.Region.ImageUrl}}">
+    <ion-avatar item-start *ngIf="loc.ImageUrl != null">
+      <img src="{{loc.ImageUrl}}">
     </ion-avatar>
     <h2>{{loc.Name}}</h2>
     <p>{{loc.Region.Name }} ,{{loc.Country.Name}}</p>
