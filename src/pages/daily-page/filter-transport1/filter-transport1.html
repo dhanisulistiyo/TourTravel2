@@ -21,7 +21,7 @@
       <ion-col col-2>
         <h2 class="custom-h2">to</h2>
       </ion-col>
-      <ion-col col-5  class="col-custom">
+      <ion-col col-5 class="col-custom">
         <ion-item class="custom-item" style=" border-bottom: 0" (click)="filterDestination(1)"><span *ngIf="daily?.destinationTo != null">{{daily?.destinationTo.Name}}</span></ion-item>
       </ion-col>
     </ion-row>
@@ -33,12 +33,19 @@
       </ion-col>
     </ion-row>
     <ion-row class="row-content">
-      <ion-col class="col-custom">
-        <rating [(ngModel)]="ratings" readOnly="false" max="3" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star"
-          nullable="true">
-        </rating>
-      </ion-col>-->
-      <ion-col col-12 class="col-custom">
+      <ion-col col-4>
+        <button ion-button icon-left clear class="custom-button"><div>Regular</div>
+            </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button icon-left clear class="custom-button"><div>Premium</div>
+            </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button icon-left clear class="custom-button"><div>Luxury</div>
+            </button>
+      </ion-col>
+       <!-- <ion-col col-12 class="col-custom">
         <ion-item class="custom-item">
           <ion-label>Choose Types</ion-label>
           <ion-select [(ngModel)]="rat" multiple="true" (ionChange)=filterRat(rat)>
@@ -48,7 +55,7 @@
         <ion-item class="custom-item" style=" border-bottom: 0">
           <ion-input disabled="true" type="text" aria-placeholder="rat" [(ngModel)]="rat"></ion-input>
         </ion-item>
-      </ion-col>
+      </ion-col>  -->
     </ion-row>
 
 
@@ -59,16 +66,16 @@
       </ion-col>
     </ion-row>
     <ion-row class="row-content">
-      <ion-col col-12 class="col-custom">
+      <ion-col col-12>
         <ion-item class="custom-item">
           <ion-label>Choose Types</ion-label>
           <ion-select [(ngModel)]="type" multiple="true" (ionChange)=filterType(type)>
             <ion-option *ngFor="let type of listTypes" [value]="type.Id">{{type.Name}}</ion-option>
           </ion-select>
         </ion-item>
-        <ion-item class="custom-item" style=" border-bottom: 0">
+        <!-- <ion-item class="custom-item" style=" border-bottom: 0">
           <ion-input disabled="true" type="text" aria-placeholder="type" [(ngModel)]="type"></ion-input>
-        </ion-item>
+        </ion-item> -->
       </ion-col>
     </ion-row>
 
@@ -79,16 +86,16 @@
       </ion-col>
     </ion-row>
     <ion-row class="row-content">
-      <ion-col col-12 class="col-custom">
+      <ion-col col-12>
         <ion-item class="custom-item" style=" border-bottom: 0">
           <ion-label>Choose Seat</ion-label>
           <ion-select [(ngModel)]="seat" multiple="true" (ionChange)=filterSeats(seat)>
             <ion-option *ngFor="let se of listSeats" [value]="se.Id">{{se.Name}}</ion-option>
           </ion-select>
         </ion-item>
-        <ion-item class="custom-item" style=" border-bottom: 0">
+        <!-- <ion-item class="custom-item" style=" border-bottom: 0">
           <ion-input disabled="true" type="text" aria-placeholder="seat" [(ngModel)]="seat"></ion-input>
-        </ion-item>
+        </ion-item> -->
       </ion-col>
     </ion-row>
   </ion-grid>
