@@ -8,9 +8,32 @@ page-filter-hotel1 {
         align-self: flex-end;
         width: 100%;
     }
-    .custom-button {
-        padding: 1rem;
-        border-radius: 10px;
+    span.button-inner {
+        text-transform: none;
+        font-family: 'Open Sans', cursive;
+        font-weight: 700;
+        font-size: 1.6rem;
+    }
+    .button-clear-md {
+        border-color: transparent;
+        color: #2cbaae;
+        background-color: transparent;
+        padding: 0px;
+        box-shadow: none;
+        opacity: 1;
+    }
+    [col-2] {
+        -webkit-flex: 0 0 25%;
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        width: 25%;
+        max-width: 20%;
+        background-color: white;
+        position: relative;
+        border-radius: 4%;
+        padding: 5px;
+        width: 100%;
+        border: 1px solid #a6a6a6;
     }
     .col-3-custom {
         -webkit-flex: 0 0 25%;

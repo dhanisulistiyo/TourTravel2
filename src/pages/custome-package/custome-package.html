@@ -22,24 +22,34 @@
 
   <div *ngIf="HistoryBookingOpen != null">
     <p style="font-size: 1.8rem;" class="custom-label">Please review your tour booking details.</p>
-    <ion-card  *ngIf="HistoryBookingOpen?.TourTransactionHistoryViewModel.City.ImageUrl != null" (click)="detailTourTapped($event, HistoryBookingOpen?.TourTransactionSummaryViewModel.BookingDetailSum.Id)" >
+    <ion-card *ngIf="HistoryBookingOpen?.TourTransactionHistoryViewModel.City.ImageUrl != null" (click)="detailTourTapped($event, HistoryBookingOpen?.TourTransactionSummaryViewModel.BookingDetailSum.Id)">
       <img src="{{HistoryBookingOpen?.TourTransactionHistoryViewModel.City.ImageUrl}}" />
       <ion-card-content>
         <ion-card-title>
-          <h2>{{HistoryBookingOpen?.TourTransactionSummaryViewModel.BookingDetailSum.Title}}</h2>
-          <h3>{{HistoryBookingOpen?.TourTransactionSummaryViewModel.BookingDetailSum.StartDate | date:'dd MMMM yyyy'}}-{{HistoryBookingOpen?.TourTransactionSummaryViewModel.BookingDetailSum.EndDate | date:'dd MMMM yyyy'}}</h3>
-          <h3>Expiration date: {{HistoryBookingOpen?.TourTransactionSummaryViewModel.BookingDetailSum.ExpiredOn  | date:'dd MMM yyyy'}}</h3>
+          <ion-row>
+              <div><h2>{{HistoryBookingOpen?.TourTransactionSummaryViewModel.BookingDetailSum.Title}}</h2></div>
+          </ion-row>
+          <ion-row>
+            <button ion-button icon-left clear small><ion-icon ios="ios-calendar" md="ios-calendar-outline" class="custom-h3"></ion-icon>
+              <div><h3>{{HistoryBookingOpen?.TourTransactionSummaryViewModel.BookingDetailSum.StartDate | date:'dd MMMM yyyy'}}-{{HistoryBookingOpen?.TourTransactionSummaryViewModel.BookingDetailSum.EndDate | date:'dd MMMM yyyy'}}</h3></div>
+            </button>
+          </ion-row>
+          <ion-row>
+            <button ion-button icon-left clear small><ion-icon ios="ios-information-circle" md="ios-information-circle-outline" class="custom-h3"></ion-icon>
+              <div><h3>Expiration date: {{HistoryBookingOpen?.TourTransactionSummaryViewModel.BookingDetailSum.ExpiredOn | date:'dd MMM yyyy'}}</h3></div>
+            </button>
+          </ion-row>
         </ion-card-title>
       </ion-card-content>
     </ion-card>
 
-    <ion-card  *ngIf="HistoryBookingOpen?.TourTransactionHistoryViewModel.City.ImageUrl == null" (click)="detailTourTapped($event, HistoryBookingOpen?.TourTransactionSummaryViewModel.BookingDetailSum.Id)" >
+    <ion-card *ngIf="HistoryBookingOpen?.TourTransactionHistoryViewModel.City.ImageUrl == null" (click)="detailTourTapped($event, HistoryBookingOpen?.TourTransactionSummaryViewModel.BookingDetailSum.Id)">
       <img src="assets/img/no-image.jpg" />
       <ion-card-content>
         <ion-card-title>
           <h2>{{HistoryBookingOpen?.TourTransactionSummaryViewModel.BookingDetailSum.Title}}</h2>
           <h3>{{HistoryBookingOpen?.TourTransactionSummaryViewModel.BookingDetailSum.StartDate | date:'dd MMMM yyyy'}}-{{HistoryBookingOpen?.TourTransactionSummaryViewModel.BookingDetailSum.EndDate | date:'dd MMMM yyyy'}}</h3>
-          <h3>Expiration date: {{HistoryBookingOpen?.TourTransactionSummaryViewModel.BookingDetailSum.ExpiredOn  | date:'dd MMM yyyy'}}</h3>
+          <h3>Expiration date: {{HistoryBookingOpen?.TourTransactionSummaryViewModel.BookingDetailSum.ExpiredOn | date:'dd MMM yyyy'}}</h3>
         </ion-card-title>
       </ion-card-content>
     </ion-card>

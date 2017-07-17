@@ -22,10 +22,30 @@
       </ion-col>
     </ion-row>
     <ion-row class="row-content">
-      <ion-col class="col-custom">
-        <rating [(ngModel)]="ratings" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star"
-          nullable="true">
-        </rating>
+      <ion-col col-2>
+        <button ion-button icon-left clear class="custom-button"><ion-icon ios="ios-star" md="ios-star-outline" isActive="false"></ion-icon>
+              <div>1</div>
+            </button>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button icon-left clear class="custom-button"><ion-icon ios="ios-star" md="ios-star-outline" isActive="false"></ion-icon>
+              <div>2</div>
+            </button>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button icon-left clear class="custom-button"><ion-icon ios="ios-star" md="ios-star-outline" isActive="false"></ion-icon>
+              <div>3</div>
+            </button>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button icon-left clear class="custom-button"><ion-icon ios="ios-star" md="ios-star-outline" isActive="false"></ion-icon>
+              <div>4</div>
+            </button>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button icon-left clear class="custom-button"><ion-icon ios="ios-star" md="ios-star-outline" isActive="false"></ion-icon>
+              <div>5</div>
+            </button>
       </ion-col>
     </ion-row>
     <ion-row class="row-label">
@@ -42,9 +62,9 @@
             <ion-option *ngFor="let ar of listAreas" [value]="ar.Id">{{ar.Name}}</ion-option>
           </ion-select>
         </ion-item>
-        <ion-item>
-          <ion-input disabled="true" type="text" aria-placeholder="areas" [(ngModel)]="areas"></ion-input>
-        </ion-item>
+        <!-- <ion-item class="line-break">
+          <ion-input class="line-break" disabled="true" type="text" aria-placeholder="areas" [(ngModel)]="areas"></ion-input>
+        </ion-item> -->
       </ion-col>
     </ion-row>
     <ion-row class="row-label">
@@ -61,9 +81,9 @@
             <ion-option *ngFor="let loc of listLocations" [value]="loc.Id">{{loc.Name}}</ion-option>
           </ion-select>
         </ion-item>
-        <ion-item>
-          <ion-input disabled="true" type="text" aria-placeholder="locations" [(ngModel)]="locations"></ion-input>
-        </ion-item>
+        <!-- <ion-item class="line-break">
+          <ion-input class="line-break" disabled="true" type="text" aria-placeholder="locations" [(ngModel)]="locations"></ion-input>
+        </ion-item> -->
       </ion-col>
     </ion-row>
 
@@ -81,9 +101,9 @@
             <ion-option *ngFor="let ty of listTypes" [value]="ty.Id">{{ty.Name}}</ion-option>
           </ion-select>
         </ion-item>
-        <ion-item>
-          <ion-input disabled="true" type="text" aria-placeholder="types" [(ngModel)]="types" (onChange)=filterType(types)></ion-input>
-        </ion-item>
+        <!-- <ion-item class="line-break">
+          <ion-input class="line-break" disabled="true" type="text" aria-placeholder="types" [(ngModel)]="types" (onChange)=filterType(types)></ion-input>
+        </ion-item> -->
       </ion-col>
     </ion-row>
 
@@ -97,13 +117,13 @@
       <ion-col class="col-custom">
         <ion-item>
           <ion-label>Choose Facilities</ion-label>
-          <ion-select [(ngModel)]="facilities" multiple="true" (ionChange)=filterFac(facilities)>
-            <ion-option *ngFor="let fac of listFacilities" [value]="fac.Id">{{fac.Name}}</ion-option>
+          <ion-select class="line-break" [(ngModel)]="facilities" multiple="true" (ionChange)=filterFac(facilities)>
+            <ion-option class="line-break" *ngFor="let fac of listFacilities" [value]="fac.Id">{{fac.Name}}</ion-option>
           </ion-select>
         </ion-item>
-        <ion-item>
-          <ion-input disabled="true" type="text" aria-placeholder="facilities" [(ngModel)]="facilities"></ion-input>
-        </ion-item>
+        <!-- <ion-item class="line-break">
+          <ion-input class="line-break" disabled="true" type="text" aria-placeholder="facilities" [(ngModel)]="facilities"></ion-input>
+        </ion-item> -->
       </ion-col>
     </ion-row>
   </ion-grid>
