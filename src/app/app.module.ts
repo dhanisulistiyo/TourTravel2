@@ -56,8 +56,12 @@ import { HotelRoomtypePage1 } from '../pages/daily-page/hotel-roomtype1/hotel-ro
 import { HotelRoomservicePage1 } from '../pages/daily-page/hotel-roomservice1/hotel-roomservice1';
 import { HotelRoomallocatePage1 } from '../pages/daily-page/hotel-roomallocate1/hotel-roomallocate1';
 import { FilterDestinationPage } from '../pages/daily-page/filter-destination/filter-destination';
-import {FilterAttraction  } from '../pages/daily-page/filter-attraction/filter-attraction';
-import {TransportHoursPage  } from '../pages/daily-page/transport-hours/transport-hours';
+import { FilterAttraction } from '../pages/daily-page/filter-attraction/filter-attraction';
+import { TransportHoursPage } from '../pages/daily-page/transport-hours/transport-hours';
+import { TransportDetailsPage } from '../pages/daily-page/transport-details/transport-details';
+import { HotelDetailsPage } from '../pages/daily-page/hotel-details/hotel-details';
+import { AttractionDetailsPage } from '../pages/daily-page/attraction-details/attraction-details';
+
 //result
 import { DailyProgram } from '../pages/daily-program/daily-program';
 import { DailyDetails } from '../pages/daily-details/daily-details';
@@ -139,10 +143,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HotelRoomservicePage1,
     HotelRoomallocatePage1,
     FilterDestinationPage,
-    
+    TransportDetailsPage,
+    HotelDetailsPage,
+    AttractionDetailsPage,
+
     //result
-     ConfirmBookingPage,
-     TourDetailsPage,
+    ConfirmBookingPage,
+    TourDetailsPage,
 
     //component
     LocationPopoverComponent,
@@ -182,7 +189,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MybookingPage,
     MybookingComPage,
     MybookingOnPage,
-   
+
 
     //itineraryBuilder
     IteneraryBuilderPage,
@@ -206,8 +213,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     FilterTransport2Page,
 
     //result
-     ConfirmBookingPage,
-     TourDetailsPage,
+    ConfirmBookingPage,
+    TourDetailsPage,
 
     //Daily Program
     DestinationPage2,
@@ -221,7 +228,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HotelRoomservicePage1,
     HotelRoomallocatePage1,
     FilterDestinationPage,
-    
+    TransportDetailsPage,
+    HotelDetailsPage,
+    AttractionDetailsPage,
 
 
     //component
@@ -256,7 +265,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HistoryService,
     DailyService,
     MultiTransactionService,
-    UserandcompanyDetails, 
+    UserandcompanyDetails,
     FilattractionService
   ]
 })
