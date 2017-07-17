@@ -132,7 +132,8 @@ toggleDetails(data) {
         {
           text: 'OK',
           handler: () => {
-            console.log('Saved clicked');          
+            console.log('Saved clicked');     
+                 
             this.navCtrl.push(PaymentPage,{details, status});
 
 

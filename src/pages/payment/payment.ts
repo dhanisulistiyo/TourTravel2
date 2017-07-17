@@ -65,10 +65,8 @@ export class PaymentPage {
     console.log(this.pay);
     if (this.pay == "deposit") {
       if (this.Status == "created") {
-        //this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, status)
         let status = "confirm"
         this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, status)
-
         this.navCtrl.pop().then(() => {
           const index = this.viewCtrl.index;
           this.navCtrl.remove(index);
@@ -79,14 +77,18 @@ export class PaymentPage {
           content: 'Please wait...'
         });
         loader.present();
-        this.mulTra.getTourTransaksi().subscribe(data => { console.log(data);
-        this.BookingDetailSum = Array.of(data['BookingDetailSum']);
-        }, err => { console.log(err); }, () => console.log('post Transaction Complete'));
+
+        this.mulTra.getTourTransaksi().subscribe(data => {
+          console.log(data);
+          this.BookingDetailSum = Array.of(data['BookingDetailSum']);
+        }, err => {
+          console.log(err);
+        }, () => console.log('post Transaction Complete'));
 
         this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, this.Status);
+        this.navCtrl.setRoot(CustomePackagePage);
         loader.dismiss();
         this.presentToast();
-        this.navCtrl.setRoot(CustomePackagePage);
       }
     } else if (this.pay == "hold") {
       let loader = this.load.create({
