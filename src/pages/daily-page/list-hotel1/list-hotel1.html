@@ -33,7 +33,7 @@
     <div >
     <h2>{{hotel.Name}}</h2>
     
-    <ion-icon ios="ios-star" md="md-star" class="custom-star"></ion-icon>
+    <ion-icon ios="ios-star" md="md-star" class="custom-star" *ngFor="let item of getNumber(hotel.AccommodationRating.Id )"></ion-icon>
     <!--<h3>Rating: {{hotel.AccommodationRating.Name}}</h3>-->
     <p style=" white-space: pre-wrap;"> <ion-icon ios="ios-pin" md="ios-pin-outline" class="custom-pin"></ion-icon>Klungkung, Bali, Indonesia {{hotel.Address}}</p> 
     <p style=" white-space: pre-wrap;" > <ion-icon ios="ios-list-box" md="ios-list-box-outline" class="custom-pin" ></ion-icon>Wifi, TV Cable, Lounge <span *ngFor="let facilities of hotel.ProfileFacilities ;let i = index">{{facilities.Name}}<span *ngIf=" hotel.ProfileFacilities.length > 1 && i  != hotel.ProfileFacilities.length - 1 ">,</span> </span></p>

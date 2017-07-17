@@ -48,6 +48,11 @@ export class ListHotelPage1 {
     );
   }
 
+  getNumber(n){
+      return new Array(Number(n));
+  }
+
+
   listHotel() {
     this.hotels = this.listhotels;
   }
