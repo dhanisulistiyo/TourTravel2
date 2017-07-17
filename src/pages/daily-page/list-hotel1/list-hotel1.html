@@ -31,8 +31,7 @@
   <ng-template #other_content><ion-col class ="col-custom"><img src="assets/img/grand-hyatt-hotel.jpg" class="cover"/></ion-col></ng-template>
   <ion-col width-60>
     <div >
-    <h2>{{hotel.Name}}</h2>
-    
+    <h2>{{hotel.Name}} <ion-icon ios="ios-alert" md="md-alert" (click)="detailsHotel('1')"></ion-icon></h2>
     <ion-icon ios="ios-star" md="md-star" class="custom-star" *ngFor="let item of getNumber(hotel.AccommodationRating.Id )"></ion-icon>
     <!--<h3>Rating: {{hotel.AccommodationRating.Name}}</h3>-->
     <p style=" white-space: pre-wrap;"> <ion-icon ios="ios-pin" md="ios-pin-outline" class="custom-pin"></ion-icon>Klungkung, Bali, Indonesia {{hotel.Address}}</p> 

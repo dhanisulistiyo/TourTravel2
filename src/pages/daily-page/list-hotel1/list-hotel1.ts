@@ -3,6 +3,7 @@ import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { HotelRoomtypePage1 } from '../hotel-roomtype1/hotel-roomtype1';
 import { AcomodationService } from '../../../providers/acomodation-service';
 import { FilterHotel1Page } from '../filter-hotel1/filter-hotel1';
+import { HotelDetailsPage } from '../hotel-details/hotel-details';
 import { DailyService } from '../../../providers/daily-service';
 
 @Component({
@@ -46,6 +47,10 @@ export class ListHotelPage1 {
     },
       () => console.log('Hotel Search Complete')
     );
+  }
+
+  detailsHotel(i){
+    this.navCtrl.push(HotelDetailsPage);
   }
 
   getNumber(n){
