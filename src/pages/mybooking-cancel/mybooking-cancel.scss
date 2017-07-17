@@ -62,6 +62,62 @@ page-mybooking-cancel {
         color: white;
         font-size: 1.4rem;
     }
+    /* common */
+    .ribbon {
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+        position: absolute;
+    }
+    .ribbon::before,
+    .ribbon::after {
+        position: absolute;
+        z-index: -1;
+        content: '';
+        display: block;
+        border: 5px solid #2980b9;
+    }
+    .ribbon span {
+        position: absolute;
+        display: block;
+        width: 225px;
+        padding: 12px 16px 12px 40px;
+        background: #D31027;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #EA384D, #D31027);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #EA384D, #D31027);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+        color: #fff;
+        font: 700 18px/1 'Lato', sans-serif;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+        text-transform: uppercase;
+        text-align: center;
+    }
+    /* top left*/
+    .ribbon-top-left {
+        top: -10px;
+        left: -20px;
+    }
+    .ribbon-top-left::before,
+    .ribbon-top-left::after {
+        border-top-color: transparent;
+        border-left-color: transparent;
+    }
+    .ribbon-top-left::before {
+        top: 0;
+        right: 0;
+    }
+    .ribbon-top-left::after {
+        bottom: 0;
+        left: 0;
+    }
+    .ribbon-top-left span {
+        right: 0px;
+        top: 40px;
+        transform: rotate(-45deg);
+    }
     .custom-row {
         padding: 0;
         .col {
