@@ -24,6 +24,7 @@ export class DailyDetails {
   toursname;
   guest;
   event;
+  location;
   constructor(public navCtrl: NavController, public navParams: NavParams, public ds: DailyService, public it : IteneraryService) {
     this.selectedItem = navParams.get('item');
     this.idAwal = navParams.get('awal');
@@ -32,6 +33,7 @@ export class DailyDetails {
     this.toursname = this.it.getToursName();
     this.guest = Number(pt.guestTour['AdultQty'])+ Number(pt.guestTour['ChildQty'])+ Number(pt.guestTour['InfantQty']);
     this.event = this.it.getDateTour().ev; 
+    this.location = this.it.getObjectLocation();
     console.log(this.selectedItem);
   }
 

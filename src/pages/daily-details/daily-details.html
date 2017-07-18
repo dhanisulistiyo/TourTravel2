@@ -26,7 +26,8 @@
 
 <ion-content style="margin-left: -10px; width:105%; overflow: visible; margin-top: -10px;">
   <ion-card class="page-daily-details">
-    <img src="assets/img/bali-wallpaper.jpg" style="height: 230px;" />
+     <img *ngIf="location?.ImageUrl == null"  src="assets/img/bali-wallpaper.jpg" style="height: 230px;" />
+    <img *ngIf="location?.ImageUrl != null" src="{{location?.ImageUrl}}" style="height: 230px;" />
     <ion-card-content class="content-custom" style="top: 0px;">
       <ion-card-title class="card-custom">
         <h2 class="h2-title-header">{{toursname}}</h2>

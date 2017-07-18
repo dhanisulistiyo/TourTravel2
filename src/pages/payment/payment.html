@@ -19,7 +19,7 @@
       <ion-card class="card-custom" style="top:0; margin-top:0px; margin-bottom:0px">
         <ion-row>
           <ion-col col-6>
-            <h2>{{userinfo?.Username}}</h2>
+            <h2>{{bookdetails?.Title}}</h2>
             <p class="p-custom" *ngFor="let bookdetails of BookingDetailSum">From {{bookdetails?.StartDate |  date:'dd MMM'}} -{{bookdetails?.EndDate | date:'dd MMM yyyy'}}</p>
           </ion-col>
           <ion-col col-6>

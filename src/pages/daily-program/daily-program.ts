@@ -22,6 +22,7 @@ export class DailyProgram {
    toursname;
    guest;
    event;
+   location;
   constructor(public navCtrl: NavController, public navParams: NavParams, public ds: DailyService, 
   public mt :MultiTransactionService,
   public it : IteneraryService
@@ -30,6 +31,8 @@ export class DailyProgram {
     this.toursname = this.it.getToursName();
     this.guest = Number(pt.guestTour['AdultQty'])+ Number(pt.guestTour['ChildQty'])+ Number(pt.guestTour['InfantQty']);
     this.event = this.it.getDateTour().ev; 
+    this.location = this.it.getObjectLocation();
+
   }
 
   ionViewWillEnter() {

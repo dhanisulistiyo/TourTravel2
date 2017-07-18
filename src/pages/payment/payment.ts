@@ -49,6 +49,13 @@ export class PaymentPage {
       content: 'Please wait...'
     });
     loader.present();
+    if(this.Status != "created")
+    this.mulTra.getTourTransaksi().subscribe(data => {
+      console.log(data);
+      this.BookingDetailSum = Array.of(data['BookingDetailSum']);
+    }, err => {
+      console.log(err);
+    }, () => console.log('post Transaction Complete'));
 
     this.info.getUser().subscribe(data => {
       this.userinfo = data;
@@ -57,9 +64,9 @@ export class PaymentPage {
     },
       () => console.log('Get Transaction Complete')
     );
-  
 
-  this.info.getCompany().subscribe(data => {
+
+    this.info.getCompany().subscribe(data => {
       this.companyInfo = data;
     }, err => {
       console.log(err);
@@ -67,9 +74,9 @@ export class PaymentPage {
     },
       () => console.log('Get Transaction Complete')
     );
-      loader.dismiss();
+    loader.dismiss();
 
-}
+  }
 
 
   payTour() {
@@ -85,16 +92,8 @@ export class PaymentPage {
         this.presentToast();
       } else {
         let loader = this.load.create({
-          content: 'Please wait...'
+        content: 'Please wait...'
         });
-        loader.present();
-
-        this.mulTra.getTourTransaksi().subscribe(data => {
-          console.log(data);
-          this.BookingDetailSum = Array.of(data['BookingDetailSum']);
-        }, err => {
-          console.log(err);
-        }, () => console.log('post Transaction Complete'));
 
         this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, this.Status);
         this.navCtrl.setRoot(CustomePackagePage);
@@ -102,12 +101,6 @@ export class PaymentPage {
         this.presentToast();
       }
     } else if (this.pay == "hold") {
-      let loader = this.load.create({
-        content: 'Please wait...'
-      });
-      loader.present();
-      this.mulTra.getTourTransaksi().subscribe(data => { console.log(data); }, err => { console.log(err); }, () => console.log('post Transaction Complete'));
-      loader.dismiss();
       this.presentToast();
       this.navCtrl.setRoot(CustomePackagePage);
     }
