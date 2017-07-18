@@ -201,4 +201,8 @@
     .text-input[disabled] {
         opacity: 1;
     }
+    .cover {
+        width: 100%;
+        object-fit: fill;
+    }
 }

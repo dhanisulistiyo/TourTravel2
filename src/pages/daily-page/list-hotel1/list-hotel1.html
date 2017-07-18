@@ -27,11 +27,11 @@
 <h5 class="custom-h5" *ngIf="hotels?.length > 0">Showing results hotel in Destination</h5>
 <ion-card  *ngFor="let hotel of hotels"  (click)="setSelectedHotel(hotel)">
 <ion-row>
-  <ion-col class ="col-custom" style="padding: 0;" *ngIf="hotel.ImageUrl != '' ;else other_content"><img src="{{hotel.ImageUrl}}"/></ion-col>
+  <ion-col class ="col-custom" style="padding: 0;" *ngIf="hotel.ImageUrl != '' ;else other_content"><img src="{{hotel.ImageUrl}}" class="cover"/></ion-col>
   <ng-template #other_content><ion-col class ="col-custom"><img src="assets/img/grand-hyatt-hotel.jpg" class="cover"/></ion-col></ng-template>
   <ion-col width-60>
     <div >
-    <h2>{{hotel.Name}} <ion-icon ios="ios-alert" md="md-alert" (click)="detailsHotel('1')"></ion-icon></h2>
+    <h2>{{hotel.Name}} <ion-icon ios="ios-information-circle" md="ios-information-circle-outline" (click)="detailsHotel('1')" class="custom-info"></ion-icon></h2>
     <ion-icon ios="ios-star" md="md-star" class="custom-star" *ngFor="let item of getNumber(hotel.AccommodationRating.Id )"></ion-icon>
     <!--<h3>Rating: {{hotel.AccommodationRating.Name}}</h3>-->
     <p style=" white-space: pre-wrap;"> <ion-icon ios="ios-pin" md="ios-pin-outline" class="custom-pin"></ion-icon>Klungkung, Bali, Indonesia {{hotel.Address}}</p> 

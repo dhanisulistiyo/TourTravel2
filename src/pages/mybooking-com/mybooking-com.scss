@@ -117,11 +117,11 @@ page-mybooking-com {
         width: 225px;
         padding: 12px 16px 12px 40px;
         background: #22c1c3;
-                    /* fallback for old browsers */
-                    background: -webkit-linear-gradient(to right, #fdbb2d, #22c1c3);
-                    /* Chrome 10-25, Safari 5.1-6 */
-                    background: linear-gradient(to right, #fdbb2d, #22c1c3);
-                    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #fdbb2d, #22c1c3);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #fdbb2d, #22c1c3);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
         color: #fff;
         font: 700 18px/1 'Lato', sans-serif;
@@ -152,5 +152,4 @@ page-mybooking-com {
         top: 40px;
         transform: rotate(-45deg);
     }
-    
 }
