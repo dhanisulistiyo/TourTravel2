@@ -18,6 +18,8 @@ export class FilterHotel1Page {
   listLocations: Array<any>;
   listTypes: Array<any>;
   listFacilities: Array<any>;
+
+  selectedRat:Number[] = [];
   idAwal;
   idAkhir;
   des;
@@ -101,11 +103,21 @@ let loader = this.load.create({
     }
 
 
-  filterRat(ratings){
-    console.log(ratings);
-    this.aco.setRatings(ratings);
+//   filterRat(ratings){
+//     console.log(ratings);
+//     this.aco.setRatings(ratings);
 
-  }
+//   }
+    filterRat(ratings){
+    const foundAt = this.selectedRat.indexOf(ratings);
+        if (foundAt >= 0) {
+            this.selectedRat.splice(foundAt, 1);
+        } else {
+            this.selectedRat.push(ratings);
+        }
+        console.log(this.selectedRat);
+        this.aco.setRatings(this.selectedRat);
+    }
 
   filterAr(areas){
     console.log(areas);
