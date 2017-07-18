@@ -33,15 +33,15 @@
       </ion-col>
     </ion-row>
     <ion-row class="row-content">
-      <ion-col col-4>
+      <ion-col col-4 (click)=" filterRat('REGULER')"> 
         <button ion-button icon-left clear class="custom-button"><div>Regular</div>
             </button>
       </ion-col>
-      <ion-col col-4>
+      <ion-col col-4 (click)=" filterRat('PREMIUM')">
         <button ion-button icon-left clear class="custom-button"><div>Premium</div>
             </button>
       </ion-col>
-      <ion-col col-4>
+      <ion-col col-4 (click)=" filterRat('LUXURY')">
         <button ion-button icon-left clear class="custom-button"><div>Luxury</div>
             </button>
       </ion-col>

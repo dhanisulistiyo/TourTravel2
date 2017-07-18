@@ -20,6 +20,7 @@ export class FilterTransport1Page {
   listRatings: Array<any>;
   listTypes: Array<any>;
   listSeats: Array<any>;
+   selectedRat:string[] = [];
   idAwal;
   idAkhir;
   daily;
@@ -89,8 +90,14 @@ export class FilterTransport1Page {
 
 
   filterRat(ratings){
-    console.log(ratings);
-    this.tra.setRatings(ratings);
+    const foundAt = this.selectedRat.indexOf(ratings);
+        if (foundAt >= 0) {
+            this.selectedRat.splice(foundAt, 1);
+        } else {
+            this.selectedRat.push(ratings);
+        }
+        console.log(this.selectedRat);
+    this.tra.setRatings(this.selectedRat);
 
   }
 
