@@ -22,6 +22,7 @@ export class PaymentPage {
   dateEx;
   dateNow;
   allow;
+  companyInfo;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController,
@@ -49,17 +50,27 @@ export class PaymentPage {
     });
     loader.present();
 
-
     this.info.getUser().subscribe(data => {
       this.userinfo = data;
-      loader.dismiss();
     }, err => {
       console.log(err);
-      loader.dismiss();
     },
       () => console.log('Get Transaction Complete')
     );
-  }
+  
+
+  this.info.getCompany().subscribe(data => {
+      this.companyInfo = data;
+    }, err => {
+      console.log(err);
+
+    },
+      () => console.log('Get Transaction Complete')
+    );
+      loader.dismiss();
+
+}
+
 
   payTour() {
     console.log(this.pay);

@@ -20,7 +20,7 @@
         <ion-row>
           <ion-col col-6>
             <h2>{{userinfo?.Username}}</h2>
-            <p class="p-custom">From 18 Jul - 31 Jul 2017</p>
+            <p class="p-custom" *ngFor="let bookdetails of BookingDetailSum">From {{bookdetails?.StartDate |  date:'dd MMM'}} -{{bookdetails?.EndDate | date:'dd MMM yyyy'}}</p>
           </ion-col>
           <ion-col col-6>
             <h2 class="card-title" style="text-align: right;">USD <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice | number:'.0'}}</span>.-</h2>
@@ -36,7 +36,7 @@
       <ion-row class="row-label">
         <ion-col col-10>
           <h2>Wallet</h2>
-          <p class="custom-label">Current balance: <strong>0</strong></p>
+          <p class="custom-label">Current balance: <strong>USD {{companyInfo?.Balance  | number:'.0'}}</strong></p>
         </ion-col>
         <ion-col class="col2-custom">
           <ion-radio (click)="setPay('deposit')" value="deposit" item-end></ion-radio>
@@ -61,11 +61,11 @@
       </ion-row>
     </div>
 
-    <div class="custom-div">
+    <div class="custom-div" *ngIf="Status=='confirm'" >
       <ion-row class="row-label">
         <ion-col col-10>
           <h2>Pay Later</h2>
-          <p class="custom-label">The booking will be on hold until <strong>24 July 2017</strong></p>
+          <p class="custom-label" *ngFor="let bookdetails of BookingDetailSum">The booking will be on hold until <strong>{{bookdetails?.ExpiredOn | date:'dd MMM yyyy'}}</strong></p>
         </ion-col>
         <ion-col class="col2-custom">
           <ion-radio (click)="setPay('hold')" value="hold" item-end></ion-radio>
