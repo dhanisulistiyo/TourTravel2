@@ -25,6 +25,8 @@ export class IteneraryBuilderPage {
   tranportation: string;
   acomodation: string;
   totalDays;
+  typeGuest : string[] = [];
+  maxGuest;
   allocation: Array<{guest: number, name: string}>;
   public event = {
     monthStart: '',
@@ -49,7 +51,7 @@ export class IteneraryBuilderPage {
       monthStart: new Date().toISOString().substring(0, 10),
       monthEnd: new Date().toISOString().substring(0, 10)
     };
-
+    this.typeGuest = ['Personal', 'Bussiness', 'Group', 'Honey Moon']
   }
 
   ionViewWillEnter() {
@@ -170,6 +172,14 @@ export class IteneraryBuilderPage {
   }
 
 
+  setTypeGuest(type){
+    console.log(type);
+    if(type == 'Personal') this.maxGuest = 10;
+    else if(type == 'Bussiness') this.maxGuest = 15;
+    else if(type == 'Group') this.maxGuest = 1000;
+    else if(type == 'Honey Moon') this.maxGuest = 2;
+
+  }
   inputToursName(event) {
     var data = event.target.value;
     console.log(this.toursname);
@@ -197,13 +207,15 @@ export class IteneraryBuilderPage {
   }
 
   passengerTapped(event) {
-    this.navCtrl.push(InputTravellersPage);
+    let count = this.maxGuest;
+    this.navCtrl.push(InputTravellersPage, {count});
   }
 
   hotelTapped(event) {
     if (this.passenger == '') this.showAlertGuest();
     else this.navCtrl.push(HotelRoomallocatePage);
   }
+
   transportTapped(event) {
     if (this.destination == '') this.showAlertDestination();
     else this.navCtrl.push(TransportAirportservicePage);
@@ -213,7 +225,6 @@ export class IteneraryBuilderPage {
     if (this.destination == '') this.showAlertDestination();
     else this.navCtrl.push(ListAttractionPage);
   }
-
 
 
   createItenerary(event) {

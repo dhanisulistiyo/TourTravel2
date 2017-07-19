@@ -22,6 +22,16 @@
     <ion-row>
       <ion-col>
         <ion-label stacked>
+         <ion-icon ios="ios-clipboard" md="md-clipboard" class="custom-color"></ion-icon> Guest Type</ion-label>
+         <ion-select [(ngModel)]="type" multiple="false" (ionChange)="setTypeGuest(type)">
+            <ion-option *ngFor="let type of typeGuest" [value]="type" aria-placeholder="Choose Type Guest">{{type}}</ion-option>
+          </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-label stacked>
           <ion-icon ios="ios-plane" md="md-plane" class="custom-color"></ion-icon> Arrival Destination</ion-label>
         <ion-input type="text" disabled="true" [(ngModel)]="destination" aria-placeholder="destination" (click)="destinationTapped($event)"></ion-input>
       </ion-col>
