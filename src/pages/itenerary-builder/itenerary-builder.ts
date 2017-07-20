@@ -55,7 +55,7 @@ export class IteneraryBuilderPage {
       monthStart: new Date().toISOString().substring(0, 10),
       monthEnd: new Date().toISOString().substring(0, 10)
     };
-    this.typeGuest = ['Personal', 'Bussiness', 'Group', 'Honey Moon']
+    this.typeGuest = ['Personal','Family', 'Bussiness', 'Group', 'Honey Moon']
   }
 
   ionViewWillEnter() {
