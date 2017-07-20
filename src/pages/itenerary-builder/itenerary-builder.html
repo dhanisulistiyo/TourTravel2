@@ -23,21 +23,34 @@
       </ion-row>
 
       <ion-row class="row-label">
-        <ion-col col-12>
+        <ion-col col-5-custom>
           <ion-label stacked>
             <ion-icon ios="ios-clipboard" md="md-clipboard" class="custom-color"></ion-icon> Guest Type</ion-label>
         </ion-col>
+          <ion-col col-2>
+          </ion-col>
+        <ion-col col-5-custom>
+          <ion-label stacked>
+            <ion-icon ios="ios-clipboard" md="md-clipboard" class="custom-color"></ion-icon> Travelling For</ion-label>
+        </ion-col>
       </ion-row>
       <ion-row class="row-content">
-        <ion-col col-12-custom>
-          <ion-select [(ngModel)]="kuo" multiple="false" (ionChange)="setKuotaGuest(kuo)" interface="action-sheet">
+        <ion-col col-5-custom>
+          <ion-select class="myCustomSelect" [(ngModel)]="kuo" multiple="false" (ionChange)="setKuotaGuest(kuo)" interface="action-sheet">
             <ion-option *ngFor="let kuo of kuotaGuest; let idx = index" [value]="kuo" selected="{{(idx==0)}}" aria-placeholder="Choose Type Guest">{{kuo}}</ion-option>
           </ion-select>
         </ion-col>
-      </ion-row>      
+        <ion-col col-2>
+        </ion-col>
+        <ion-col col-5-custom>
+          <ion-select class="myCustomSelect"  [(ngModel)]="type" multiple="false" (ionChange)="setTypeGuest(type)" interface="action-sheet">
+            <ion-option *ngFor="let type of typeGuest; let idx = index" [value]="type" selected="{{(idx==0)}}" aria-placeholder="Choose Type Guest">{{type}}</ion-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
 
 
-      <ion-row class="row-label" *ngIf="typeGuest != null" >
+      <!-- <ion-row class="row-label" *ngIf="typeGuest != null" >
         <ion-col col-12>
           <ion-label stacked>
             <ion-icon ios="ios-clipboard" md="md-clipboard" class="custom-color"></ion-icon> Travelling For</ion-label>
@@ -49,7 +62,7 @@
             <ion-option *ngFor="let type of typeGuest; let idx = index" [value]="type" selected="{{(idx==0)}}" aria-placeholder="Choose Type Guest">{{type}}</ion-option>
           </ion-select>
         </ion-col>
-      </ion-row>
+      </ion-row> -->
 
 
       <ion-row class="row-label">
@@ -59,7 +72,7 @@
         </ion-col>
       </ion-row>
       <ion-row class="row-content">
-        <ion-input type="text" disabled="true" [(ngModel)]="destination" aria-placeholder="destination" placeholder="Tap to choose your arrival location"
+        <ion-input type="text" disabled="true" [(ngModel)]="destination" aria-placeholder="destination" placeholder="Where do you want to go?"
           (click)="destinationTapped($event)"></ion-input>
       </ion-row>
 
@@ -77,18 +90,16 @@
         </ion-col>
       </ion-row>
 
-      
+
       <ion-row class="row-content">
-        <ion-col col-5>
-          <ion-datetime (ionChange)="inputDateTours(event)" min="2016" max="2030"  displayFormat="DD MMM YYYY"
-            [(ngModel)]="event.monthStart"></ion-datetime>
+        <ion-col col-5-custom>
+          <ion-datetime style="left: 0px;" (ionChange)="inputDateTours(event)" min="2016" max="2030" displayFormat="DD MMM YYYY" [(ngModel)]="event.monthStart"></ion-datetime>
         </ion-col>
         <ion-col style="text-align:center" col-2>
           <ion-label stacked>To</ion-label>
         </ion-col>
-        <ion-col col-5>
-          <ion-datetime (ionChange)="inputDateTours(event)" min="2016" max="2030"  displayFormat="DD MMM YYYY"
-            [(ngModel)]="event.monthEnd"></ion-datetime>
+        <ion-col col-5-custom>
+          <ion-datetime style="left: 0px;" (ionChange)="inputDateTours(event)" min="2016" max="2030" displayFormat="DD MMM YYYY" [(ngModel)]="event.monthEnd"></ion-datetime>
         </ion-col>
       </ion-row>
 
@@ -100,7 +111,7 @@
       </ion-row>
       <ion-row class="row-content">
         <ion-input disabled="true" type="text" (click)="passengerTapped($event)" [(ngModel)]="passenger" aria-placeholder="passenger"
-          placeholder="How many person you travelling with?"></ion-input>
+          placeholder="How many person you're travelling with?"></ion-input>
       </ion-row>
 
       <ion-row class="row-label">
@@ -111,8 +122,9 @@
         </ion-col>
       </ion-row>
       <ion-row class="row-content">
-        <ion-input *ngIf="allocation.length == 0"  disabled="true" type="text" (click)="hotelTapped($event)" aria-placeholder="passenger"  placeholder="Allocation your Person?" ></ion-input>
-        <ion-item *ngIf="allocation.length > 0" class="line-break" (click)="hotelTapped($event)" style="background-color: transparent;padding-left: 3px"><span class="line-break" style="font-weight:400;" placeholder="Tap to pick your type of room" *ngFor="let all of allocation ;let i = index">{{all.guest}} {{all.name}}<span placeholder="Tap to pick your type of room" class="line-break" style="font-weight:400;" *ngIf="allocation.length > 1 && i  != allocation.length - 1 ">, </span></span>
+        <ion-input *ngIf="allocation.length == 0" disabled="true" type="text" (click)="hotelTapped($event)" aria-placeholder="passenger"
+          placeholder="Tap to allocate your room"></ion-input>
+        <ion-item *ngIf="allocation.length > 0" class="line-break" (click)="hotelTapped($event)" style="background-color: transparent;padding-left: 3px"><span class="line-break" style="font-weight:400;" *ngFor="let all of allocation ;let i = index">{{all.guest}} {{all.name}}<span class="line-break" style="font-weight:400;" *ngIf="allocation.length > 1 && i  != allocation.length - 1 ">, </span></span>
         </ion-item>
       </ion-row>
     </div>

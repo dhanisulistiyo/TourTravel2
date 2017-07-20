@@ -1,3 +1,70 @@
 page-guest-details {
+    .custom-div {
+        border: 1px solid #f2f2f2;
+        border-radius: 4%;
+        padding: 5px 5px 25px 5px;
+        background-color: white;
+    }
+    ion-row.row-label {
+        text-align: left;
+        align-content: left;
+    }
+    ion-row.row-content {
+        border-bottom: 1px solid #999999;
+        margin: 0px 5px 0px 5px;
+    }
+    ion-row.row-header {
+        text-align: left;
+        align-content: left;
+        margin-top: 10px;
+    }
 
+    .text-input-md {
+        margin: 0;
+        padding: 0;
+        width: calc(100% - 8px - 8px);
+        color: black;
+        font-family: 'Lato', sans-serif;
+        font-size: 1.7 rem;
+        font-weight: 400;
+    }
+    .input-cover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    [col-12] {
+        -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        background-color: #f8f8ff;
+    }
+    .label-md {
+        margin: 0px 8px 13px 3px;
+        color: black;
+        font-size: large;
+        font-weight: 400;
+    }
+    h3.card-label {
+        font-family: 'Lato', sans-serif;
+        font-size: 1.3rem;
+        color: #999999;
+    }
+    h3.card-title {
+        font-family: 'Lato', sans-serif;
+        font-size: 1.6rem;
+        color: red;
+    }
+    [col-12-custom] {
+        -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        padding: 0px 6px 5px 0px;
+    }
 }
