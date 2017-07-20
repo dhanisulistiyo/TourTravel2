@@ -62,7 +62,7 @@ export class IteneraryBuilderPage {
     //this.typeGuest = ['Personal','Family', 'Bussiness', 'Group', 'Honey Moon']
   }
 
-  
+
   ionViewWillEnter() {
     var loc = this.ite.getObjectLocation();
     var att = this.ite.getAttraction();
@@ -184,9 +184,9 @@ export class IteneraryBuilderPage {
     console.log(kuo);
     this.kuotaG = kuo;
     if(kuo == 'Small Group'){
-      this.typeGuest = ['Choose Type','Personal','Family', 'Bussiness', 'Honey Moon']
+      this.typeGuest = ['Choose Type','Reguler','Family', 'Bussiness', 'Honey Moon']
     }else{
-      this.typeGuest = ['Choose Type','Personal','Family', 'Bussiness', 'Group']
+      this.typeGuest = ['Choose Type','Reguler','Family', 'Bussiness', 'Group']
     }
   }
   setTypeGuest(type){
@@ -195,7 +195,7 @@ export class IteneraryBuilderPage {
     if(this.kuotaG = 'Small Group'){
       if(type == 'Personal') this.maxGuest = 10;
       else if(type == 'Family') this.maxGuest = 10;
-      else if(type == 'Bussiness') this.maxGuest = 15;
+      else if(type == 'Bussiness') this.maxGuest = 10;
       else if(type == 'Honey Moon') this.maxGuest = 2;
     }else{
       if(type == 'Personal') this.maxGuest = 1000;
