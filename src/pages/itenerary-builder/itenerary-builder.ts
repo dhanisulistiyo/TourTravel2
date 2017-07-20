@@ -1,3 +1,5 @@
+import { GuestDetailsPage } from './../guest-details/guest-details';
+import { GuestServiceProvider } from './../../providers/guest-service';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
 
@@ -10,7 +12,7 @@ import { TransportAirportservicePage } from '../transport-airportservice/transpo
 import { HotelRoomallocatePage } from '../hotel-roomallocate/hotel-roomallocate';
 import { ListAttractionPage } from '../list-attraction/list-attraction';
 import { InputTravellersPage } from '../input-travellers/input-travellers';
-import { DailyProgram } from '../daily-program/daily-program';
+// import { DailyProgram } from '../daily-program/daily-program';
 
 @Component({
   selector: 'page-itenerary-builder',
@@ -26,6 +28,7 @@ export class IteneraryBuilderPage {
   acomodation: string;
   totalDays;
   typeGuest : string[] = [];
+  typeG;
   maxGuest;
   allocation: Array<{guest: number, name: string}>;
   public event = {
@@ -38,7 +41,8 @@ export class IteneraryBuilderPage {
     public modalCtrl: ModalController,
     private ite: IteneraryService,
     public ds: DailyService,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+    public gu: GuestServiceProvider
   ) {
     this.toursname = '';
     this.destination = this.ite.getDestination();
@@ -51,7 +55,7 @@ export class IteneraryBuilderPage {
       monthStart: new Date().toISOString().substring(0, 10),
       monthEnd: new Date().toISOString().substring(0, 10)
     };
-    this.typeGuest = ['Personal', 'Bussiness', 'Group', 'Honey Moon']
+    this.typeGuest = ['Personal','Family', 'Bussiness', 'Group', 'Honey Moon']
   }
 
   ionViewWillEnter() {
@@ -174,7 +178,9 @@ export class IteneraryBuilderPage {
 
   setTypeGuest(type){
     console.log(type);
+    this.typeG = type;
     if(type == 'Personal') this.maxGuest = 10;
+    else if(type == 'Family') this.maxGuest = 10;
     else if(type == 'Bussiness') this.maxGuest = 15;
     else if(type == 'Group') this.maxGuest = 1000;
     else if(type == 'Honey Moon') this.maxGuest = 2;
@@ -234,9 +240,15 @@ export class IteneraryBuilderPage {
     else if (this.totalDays < 0) this.showAlertValidasiDates();
     else if (this.passenger == '') this.showAlertGuest();
     else {
+      var adult = this.ite.getPassenger().guestTour['AdultQty'];
+      var child = this.ite.getPassenger().guestTour['ChildQty'];
+      var infant = this.ite.getPassenger().guestTour['InfantQty'];
+      let tot = adult+child+infant;
+      let type = this.typeG;
       //this.ds.destroyObject();
       this.ds.dailyProgram(this.totalDays);
-      this.navCtrl.push(DailyProgram);
+      this.gu.createGuest(tot,this.typeG)
+      this.navCtrl.push(GuestDetailsPage, {type});
     }
   }
 

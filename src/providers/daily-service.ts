@@ -210,7 +210,6 @@ export class DailyService {
     dP.hourstrans = null
     dP.transportservice = null
     dP.attraction = null
-    //let data = (dP);
     this.daily[i].program_daily.push(dP);
 
   }

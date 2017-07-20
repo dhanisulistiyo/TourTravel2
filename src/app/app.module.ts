@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -41,6 +42,7 @@ import { DestinationTransportPage } from '../pages/destination-transport/destina
 import { ListAttractionPage } from '../pages/list-attraction/list-attraction';
 //Guest
 import { InputTravellersPage } from '../pages/input-travellers/input-travellers';
+import { GuestDetailsPage } from '../pages/guest-details/guest-details';
 //Filter Without Button
 import { FilterTransport2Page } from '../pages/filter-transport2/filter-transport2';
 import { FilterHotel2Page } from '../pages/filter-hotel2/filter-hotel2';
@@ -87,6 +89,7 @@ import { DailyService } from '../providers/daily-service';
 import { MultiTransactionService } from '../providers/multi-transaction-service';
 import { UserandcompanyDetails } from '../providers/userandcompany-details';
 import { FilattractionService } from '../providers/filattraction-service';
+import { GuestServiceProvider } from '../providers/guest-service';
 
 // Import ionic2-rating module
 import { Ionic2RatingModule } from 'ionic2-rating';
@@ -94,6 +97,7 @@ import { Ionic2RatingModule } from 'ionic2-rating';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
 
 @NgModule({
   declarations: [
@@ -126,6 +130,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListAttractionPage,
     FilterTransportPage,
     InputTravellersPage,
+    GuestDetailsPage,
     DestinationTransportPage,
 
     //filterManual
@@ -206,6 +211,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     FilterHotelPage,
     FilterTransportPage,
     InputTravellersPage,
+    GuestDetailsPage,
     DestinationTransportPage,
 
     //filterManual
@@ -266,7 +272,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     DailyService,
     MultiTransactionService,
     UserandcompanyDetails,
-    FilattractionService
+    FilattractionService,
+    GuestServiceProvider
   ]
 })
 export class AppModule { }
