@@ -62,6 +62,7 @@ export class IteneraryBuilderPage {
     //this.typeGuest = ['Personal','Family', 'Bussiness', 'Group', 'Honey Moon']
   }
 
+  
   ionViewWillEnter() {
     var loc = this.ite.getObjectLocation();
     var att = this.ite.getAttraction();
