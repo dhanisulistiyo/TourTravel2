@@ -25,10 +25,25 @@
       <ion-row class="row-label">
         <ion-col col-12>
           <ion-label stacked>
-            <ion-icon ios="ios-clipboard" md="md-clipboard" class="custom-color"></ion-icon> Travelling For</ion-label>
+            <ion-icon ios="ios-clipboard" md="md-clipboard" class="custom-color"></ion-icon> Guest Type</ion-label>
         </ion-col>
       </ion-row>
       <ion-row class="row-content">
+        <ion-col col-12-custom>
+          <ion-select [(ngModel)]="kuo" multiple="false" (ionChange)="setKuotaGuest(kuo)" interface="action-sheet">
+            <ion-option *ngFor="let kuo of kuotaGuest; let idx = index" [value]="kuo" selected="{{(idx==0)}}" aria-placeholder="Choose Type Guest">{{kuo}}</ion-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>      
+
+
+      <ion-row class="row-label" *ngIf="typeGuest != null" >
+        <ion-col col-12>
+          <ion-label stacked>
+            <ion-icon ios="ios-clipboard" md="md-clipboard" class="custom-color"></ion-icon> Travelling For</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-content" *ngIf="typeGuest != null">
         <ion-col col-12-custom>
           <ion-select [(ngModel)]="type" multiple="false" (ionChange)="setTypeGuest(type)" interface="action-sheet">
             <ion-option *ngFor="let type of typeGuest; let idx = index" [value]="type" selected="{{(idx==0)}}" aria-placeholder="Choose Type Guest">{{type}}</ion-option>
@@ -95,7 +110,8 @@
         </ion-col>
       </ion-row>
       <ion-row class="row-content">
-        <ion-item class="line-break" (click)="hotelTapped($event)" style="background-color: transparent;padding-left: 3px"><span class="line-break" style="font-weight:400;" placeholder="Tap to pick your type of room" *ngFor="let all of allocation ;let i = index">{{all.guest}} {{all.name}}<span placeholder="Tap to pick your type of room" class="line-break" style="font-weight:400;" *ngIf="allocation.length > 1 && i  != allocation.length - 1 ">, </span></span>
+        <ion-input *ngIf="allocation.length == 0"  disabled="true" type="text" (click)="hotelTapped($event)" aria-placeholder="passenger"  placeholder="Allocation your Person?" ></ion-input>
+        <ion-item *ngIf="allocation.length > 0" class="line-break" (click)="hotelTapped($event)" style="background-color: transparent;padding-left: 3px"><span class="line-break" style="font-weight:400;" placeholder="Tap to pick your type of room" *ngFor="let all of allocation ;let i = index">{{all.guest}} {{all.name}}<span placeholder="Tap to pick your type of room" class="line-break" style="font-weight:400;" *ngIf="allocation.length > 1 && i  != allocation.length - 1 ">, </span></span>
         </ion-item>
       </ion-row>
     </div>

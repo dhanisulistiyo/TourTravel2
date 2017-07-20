@@ -27,6 +27,8 @@ export class IteneraryBuilderPage {
   tranportation: string;
   acomodation: string;
   totalDays;
+  kuotaGuest : string[] = [];
+  kuotaG;
   typeGuest : string[] = [];
   typeG;
   maxGuest;
@@ -55,7 +57,9 @@ export class IteneraryBuilderPage {
       monthStart: new Date().toISOString().substring(0, 10),
       monthEnd: new Date().toISOString().substring(0, 10)
     };
-    this.typeGuest = ['Personal','Family', 'Bussiness', 'Group', 'Honey Moon']
+    this.kuotaGuest = ['Choose Type Guest','Small Group', 'Large Group']
+    this.typeGuest = null;
+    //this.typeGuest = ['Personal','Family', 'Bussiness', 'Group', 'Honey Moon']
   }
 
   ionViewWillEnter() {
@@ -175,15 +179,29 @@ export class IteneraryBuilderPage {
     }
   }
 
-
+  setKuotaGuest(kuo){
+    console.log(kuo);
+    this.kuotaG = kuo;
+    if(kuo == 'Small Group'){
+      this.typeGuest = ['Choose Type','Personal','Family', 'Bussiness', 'Honey Moon']
+    }else{
+      this.typeGuest = ['Choose Type','Personal','Family', 'Bussiness', 'Group']
+    }
+  }
   setTypeGuest(type){
     console.log(type);
     this.typeG = type;
-    if(type == 'Personal') this.maxGuest = 10;
-    else if(type == 'Family') this.maxGuest = 10;
-    else if(type == 'Bussiness') this.maxGuest = 15;
-    else if(type == 'Group') this.maxGuest = 1000;
-    else if(type == 'Honey Moon') this.maxGuest = 2;
+    if(this.kuotaG = 'Small Group'){
+      if(type == 'Personal') this.maxGuest = 10;
+      else if(type == 'Family') this.maxGuest = 10;
+      else if(type == 'Bussiness') this.maxGuest = 15;
+      else if(type == 'Honey Moon') this.maxGuest = 2;
+    }else{
+      if(type == 'Personal') this.maxGuest = 1000;
+      else if(type == 'Family') this.maxGuest = 1000;
+      else if(type == 'Bussiness') this.maxGuest = 1000;
+      else if(type == 'Group') this.maxGuest = 1000;
+    }
 
   }
   inputToursName(event) {
