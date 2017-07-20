@@ -10,6 +10,7 @@ page-itenerary-builder {
         color: black;
         font-size: 1.7 rem;
         font-weight: 400;
+        border-bottom: 1px solid gray;
     }
     .text-input[disabled] {
         opacity: 1;
@@ -39,7 +40,7 @@ page-itenerary-builder {
         margin-left: 18px;
         width: 100%;
         margin-right: 8px;
-        border-bottom: 0;
+        border-bottom: 1px solid gray;
     }
     ion-input,
     ion-textarea {
@@ -56,6 +57,18 @@ page-itenerary-builder {
         font-size: 1.7rem;
         color: black;
         font-weight: 400;
+        max-width: 100%;
+        width: 100%;
+    }
+    [col-2] {
+        -webkit-flex: 0 0 10%;
+        -ms-flex: 0 0 10%;
+        flex: 0 0 10%;
+        width: 10%;
+        max-width: 10%;
+    }
+    div.datetime-text {
+        margin: 0;
     }
     .alert-md .alert-title {
         text-align: center;
@@ -100,24 +113,25 @@ page-itenerary-builder {
         max-width: 100%;
         background-color: #f8f8ff;
     }
-    [col-12-custom] {
-        -webkit-flex: 0 0 100%;
-        -ms-flex: 0 0 100%;
-        flex: 0 0 100%;
-        width: 100%;
-        max-width: 100%;
+    [col-6-custom] {
+        -webkit-flex: 0 0 50%;
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        width: 50%;
+        max-width: 50%;
+        background-color: #f8f8ff;
     }
     [col-5-custom] {
-        -webkit-flex: 0 0 41.66667%;
-        -ms-flex: 0 0 41.66667%;
-        flex: 0 0 41.66667%;
-        width: 41.66667%;
-        max-width: 41.66667%;
+        -webkit-flex: 0 0 45%;
+        -ms-flex: 0 0 45%;
+        flex: 0 0 45%;
+        width: 45%;
+        max-width: 45%;
         background-color: #f8f8ff
     }
     .text-input-md {
-        margin: 10px 8px 8px 0px;
-        padding: 0;
+        margin: 10px 8px 10px 0px;
+        padding: 0 0 5px 0;
         width: calc(100% - 8px - 8px);
         color: black;
         font-size: large;
@@ -140,7 +154,16 @@ page-itenerary-builder {
         margin-right: 5px;
     }
     .scroll-content {
-        padding: 10px;
+        padding: 0px;
+    }
+    .myCustomSelect {
+        max-width: 100% !important;
+    }
+    .select-text {
+        text-align: left;
+        font-family: 'Open Sans', cursive;
+        font-size: 1.6rem;
+        padding-left: 6px;
     }
     ion-label.label.label-md[stacked] {
         font-family: 'Open Sans', cursive;
