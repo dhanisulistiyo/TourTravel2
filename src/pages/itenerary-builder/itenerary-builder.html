@@ -11,77 +11,94 @@
 <ion-content>
   <ion-grid>
 
-    <ion-row>
-      <ion-col>
-        <ion-label stacked>
-          <ion-icon ios="ios-briefcase" md="md-briefcase" class="custom-color"></ion-icon> Tour Name</ion-label>
-        <ion-input type="text" (input)="inputToursName($event)" [(ngModel)]="toursname" aria-placeholder="toursname"></ion-input>
-      </ion-col>
-    </ion-row>
+    <div class="custom-div">
+      <ion-row class="row-label">
+        <ion-col col-12>
+          <ion-label stacked>
+            <ion-icon ios="ios-briefcase" md="md-briefcase" class="custom-color"></ion-icon> Tour Name</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-content">
+        <ion-input type="text" (input)="inputToursName($event)" [(ngModel)]="toursname" aria-placeholder="toursname" placeholder="Please input name of trip"></ion-input>
+      </ion-row>
 
-    <ion-row>
-      <ion-col>
-        <ion-label stacked>
-         <ion-icon ios="ios-clipboard" md="md-clipboard" class="custom-color"></ion-icon> Guest Type</ion-label>
-         <ion-select [(ngModel)]="type" multiple="false" (ionChange)="setTypeGuest(type)">
-            <ion-option *ngFor="let type of typeGuest" [value]="type" aria-placeholder="Choose Type Guest">{{type}}</ion-option>
+      <ion-row class="row-label">
+        <ion-col col-12>
+          <ion-label stacked>
+            <ion-icon ios="ios-clipboard" md="md-clipboard" class="custom-color"></ion-icon> Travelling For</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-content">
+        <ion-col col-12-custom>
+          <ion-select [(ngModel)]="type" multiple="false" (ionChange)="setTypeGuest(type)" interface="action-sheet">
+            <ion-option *ngFor="let type of typeGuest; let idx = index" [value]="type" selected="{{(idx==0)}}" aria-placeholder="Choose Type Guest">{{type}}</ion-option>
           </ion-select>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <ion-label stacked>
-          <ion-icon ios="ios-plane" md="md-plane" class="custom-color"></ion-icon> Arrival Destination</ion-label>
-        <ion-input type="text" disabled="true" [(ngModel)]="destination" aria-placeholder="destination" (click)="destinationTapped($event)"></ion-input>
-      </ion-col>
-    </ion-row>
+        </ion-col>
+      </ion-row>
 
 
-    <ion-row>
-      <ion-col>
-        <ion-label stacked>
-          <ion-icon ios="ios-calendar" md="md-calendar" class="custom-color"></ion-icon> Start Date</ion-label>
-      </ion-col>
-      <ion-col style="text-align:center" col-2>
-        <ion-label stacked></ion-label>
-      </ion-col>
-      <ion-col>
-        <ion-label stacked>
-          <ion-icon ios="ios-calendar" md="md-calendar" class="custom-color"></ion-icon> End Date</ion-label>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-datetime (ionChange)="inputDateTours(event)" min="2016" max="2030" style="border-bottom: 1px solid gray;" displayFormat="DD MMM YYYY"
-          [(ngModel)]="event.monthStart"></ion-datetime>
-      </ion-col>
-      <ion-col style="text-align:center" col-2>
-        <ion-label stacked>To</ion-label>
-      </ion-col>
-      <ion-col>
-        <ion-datetime (ionChange)="inputDateTours(event)" min="2016" max="2030" style="border-bottom: 1px solid gray;" displayFormat="DD MMM YYYY"
-          [(ngModel)]="event.monthEnd"></ion-datetime>
-      </ion-col>
-    </ion-row>
+      <ion-row class="row-label">
+        <ion-col col-12>
+          <ion-label stacked>
+            <ion-icon ios="ios-plane" md="md-plane" class="custom-color"></ion-icon> Arrival Destination</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-content">
+        <ion-input type="text" disabled="true" [(ngModel)]="destination" aria-placeholder="destination" placeholder="Tap to choose your arrival location"
+          (click)="destinationTapped($event)"></ion-input>
+      </ion-row>
 
-    <ion-row>
-      <ion-col>
-        <ion-label stacked>
-          <ion-icon ios="ios-people" md="md-people" class="custom-color"></ion-icon> Guest(s)</ion-label>
-        <ion-input disabled="true" type="text" (click)="passengerTapped($event)" [(ngModel)]="passenger" aria-placeholder="passenger"></ion-input>
-      </ion-col>
-    </ion-row>
+      <ion-row class="row-label">
+        <ion-col col-5-custom>
+          <ion-label stacked>
+            <ion-icon ios="ios-calendar" md="md-calendar" class="custom-color"></ion-icon> Start Date</ion-label>
+        </ion-col>
+        <ion-col style="text-align:center" col-2>
+          <ion-label stacked></ion-label>
+        </ion-col>
+        <ion-col col-5-custom>
+          <ion-label stacked>
+            <ion-icon ios="ios-calendar" md="md-calendar" class="custom-color"></ion-icon> End Date</ion-label>
+        </ion-col>
+      </ion-row>
 
-    <ion-row>
-      <ion-col>
-        <ion-label stacked>
-          <ion-icon ios="ios-cloudy-night" md="md-cloudy-night" class="custom-color"></ion-icon> Room Allocations</ion-label>
-        <!--<ion-input type="text" disabled="true" [(ngModel)]="allocation" aria-placeholder="allocation" (click)="hotelTapped($event)"></ion-input>-->
-      <ion-item class="line-break" (click)="hotelTapped($event)" style="background-color: transparent;padding-left: 3px"><span class="line-break" style="font-weight:400;" *ngFor="let all of allocation ;let i = index">{{all.guest}} {{all.name}}<span class="line-break" style="font-weight:400;" *ngIf="allocation.length > 1 && i  != allocation.length - 1 ">, </span></span></ion-item>
-      </ion-col>
-    </ion-row>
+      <ion-row class="row-content">
+        <ion-col col-5>
+          <ion-datetime (ionChange)="inputDateTours(event)" min="2016" max="2030"  displayFormat="DD MMM YYYY"
+            [(ngModel)]="event.monthStart"></ion-datetime>
+        </ion-col>
+        <ion-col style="text-align:center" col-2>
+          <ion-label stacked>To</ion-label>
+        </ion-col>
+        <ion-col col-5>
+          <ion-datetime (ionChange)="inputDateTours(event)" min="2016" max="2030"  displayFormat="DD MMM YYYY"
+            [(ngModel)]="event.monthEnd"></ion-datetime>
+        </ion-col>
+      </ion-row>
 
+      <ion-row class="row-label">
+        <ion-col col-12>
+          <ion-label stacked>
+            <ion-icon ios="ios-people" md="md-people" class="custom-color"></ion-icon> Guest(s)</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-content">
+        <ion-input disabled="true" type="text" (click)="passengerTapped($event)" [(ngModel)]="passenger" aria-placeholder="passenger"
+          placeholder="How many person you travelling with?"></ion-input>
+      </ion-row>
+
+      <ion-row class="row-label">
+        <ion-col col-12>
+          <ion-label stacked>
+            <ion-icon ios="ios-cloudy-night" md="md-cloudy-night" class="custom-color"></ion-icon> Room Allocations</ion-label>
+          <!--<ion-input type="text" disabled="true" [(ngModel)]="allocation" aria-placeholder="allocation" (click)="hotelTapped($event)"></ion-input>-->
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-content">
+        <ion-item class="line-break" (click)="hotelTapped($event)" style="background-color: transparent;padding-left: 3px"><span class="line-break" style="font-weight:400;" placeholder="Tap to pick your type of room" *ngFor="let all of allocation ;let i = index">{{all.guest}} {{all.name}}<span placeholder="Tap to pick your type of room" class="line-break" style="font-weight:400;" *ngIf="allocation.length > 1 && i  != allocation.length - 1 ">, </span></span>
+        </ion-item>
+      </ion-row>
+    </div>
   </ion-grid>
 </ion-content>
 

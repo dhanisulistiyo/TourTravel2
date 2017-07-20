@@ -14,6 +14,20 @@ page-itenerary-builder {
     .text-input[disabled] {
         opacity: 1;
     }
+    .custom-div {
+        border: 1px solid #f2f2f2;
+        border-radius: 4%;
+        padding: 5px;
+        background-color: white;
+    }
+    ion-row.row-label {
+        text-align: left;
+        align-content: left;
+    }
+    ion-row.row-content {
+        text-align: center;
+        align-content: center;
+    }
     .label-md {
         margin: 13px 8px 13px 8px;
         color: black;
@@ -29,16 +43,14 @@ page-itenerary-builder {
     }
     ion-input,
     ion-textarea {
-        border-bottom: 1px solid gray;
         width: 100%;
         position: relative;
         display: block;
         -webkit-flex: 1;
         -ms-flex: 1;
         flex: 1;
-        width: 92%;
-        margin-left: 18pt;
-        padding: 0
+        width: 100%;
+        padding: 5px 10px 5px 23px;
     }
     .datetime-text {
         font-size: 1.7rem;
@@ -80,6 +92,29 @@ page-itenerary-builder {
         align-self: stretch;
         text-overflow: ellipsis;
     }
+    [col-12] {
+        -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        background-color: #f8f8ff;
+    }
+    [col-12-custom] {
+        -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+    }
+    [col-5-custom] {
+        -webkit-flex: 0 0 41.66667%;
+        -ms-flex: 0 0 41.66667%;
+        flex: 0 0 41.66667%;
+        width: 41.66667%;
+        max-width: 41.66667%;
+        background-color: #f8f8ff
+    }
     .text-input-md {
         margin: 10px 8px 8px 0px;
         padding: 0;
@@ -88,10 +123,10 @@ page-itenerary-builder {
         font-size: large;
     }
     .datetime-md {
-        padding: 10px 8px 8px 0px;
+        padding: 10px 24px 18px 0px;
     }
     .label-md {
-        margin: 13px 8px 13px 3px;
+        margin: 0px 8px 13px 3px;
         color: black;
         font-size: large;
         font-weight: 400;
