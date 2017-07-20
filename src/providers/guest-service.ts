@@ -32,7 +32,8 @@ export class GuestServiceProvider {
 
 
   createGuest(count, type){
-      if(type == "Group"){
+      this.Guest = []
+      if(type == "Large Group"){
         let g = new GuestDetails();
         this.Guest[0]=(g);
       }else{

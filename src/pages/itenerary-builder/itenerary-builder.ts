@@ -186,22 +186,21 @@ export class IteneraryBuilderPage {
     if(kuo == 'Small Group'){
       this.typeGuest = ['Choose Type','Reguler','Family', 'Bussiness', 'Honey Moon']
     }else{
-      this.typeGuest = ['Choose Type','Reguler','Family', 'Bussiness', 'Group']
+      this.typeGuest = ['Choose Type','Reguler','Family', 'Bussiness']
     }
   }
   setTypeGuest(type){
     console.log(type);
     this.typeG = type;
-    if(this.kuotaG = 'Small Group'){
-      if(type == 'Personal') this.maxGuest = 10;
+    if(this.kuotaG == 'Small Group'){
+      if(type == 'Reguler') this.maxGuest = 10;
       else if(type == 'Family') this.maxGuest = 10;
       else if(type == 'Bussiness') this.maxGuest = 10;
       else if(type == 'Honey Moon') this.maxGuest = 2;
     }else{
-      if(type == 'Personal') this.maxGuest = 1000;
+      if(type == 'Reguler') this.maxGuest = 1000;
       else if(type == 'Family') this.maxGuest = 1000;
       else if(type == 'Bussiness') this.maxGuest = 1000;
-      else if(type == 'Group') this.maxGuest = 1000;
     }
 
   }
@@ -266,7 +265,7 @@ export class IteneraryBuilderPage {
       let type = this.typeG;
       //this.ds.destroyObject();
       this.ds.dailyProgram(this.totalDays);
-      this.gu.createGuest(tot,this.typeG)
+      this.gu.createGuest(tot,this.kuotaG)
       this.navCtrl.push(GuestDetailsPage, {type});
     }
   }
