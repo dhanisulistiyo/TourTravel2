@@ -185,13 +185,16 @@ export class IteneraryBuilderPage {
     this.kuotaG = kuo;
     if(kuo == 'Small Group'){
       this.typeGuest = ['Choose Type','Reguler','Family', 'Bussiness', 'Honey Moon']
+      this.ite.setGroupType("SMALL");
     }else{
-      this.typeGuest = ['Choose Type','Reguler','Family', 'Bussiness']
+      this.typeGuest = ['Choose Type','Reguler','Family', 'Bussiness'];
+      this.ite.setGroupType("LARGE");
     }
   }
   setTypeGuest(type){
     console.log(type);
     this.typeG = type;
+    this.ite.setTourType(type);
     if(this.kuotaG == 'Small Group'){
       if(type == 'Reguler') this.maxGuest = 10;
       else if(type == 'Family') this.maxGuest = 10;

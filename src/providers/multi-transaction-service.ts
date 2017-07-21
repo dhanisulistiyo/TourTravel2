@@ -1,3 +1,4 @@
+import { GuestServiceProvider } from './guest-service';
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { DailyService } from '../providers/daily-service';
@@ -11,8 +12,9 @@ export class MultiTransactionService {
   attraction: Array<any>;
   transportation: Array<any>;
   accomodation: Array<any>;
+  guest: Array<any>;
   airport:any;
-  constructor(public http: Http, public ds: DailyService, public ite: IteneraryService, public auth: AuthService) {
+  constructor(public http: Http, public ds: DailyService, public ite: IteneraryService, public auth: AuthService, public gu : GuestServiceProvider) {
     console.log('Hello MultiTransactionService Provider');
     this.daily = this.ds.daily
     this.airport = this.ds.transairport
@@ -22,6 +24,7 @@ export class MultiTransactionService {
     this.attraction = [];
     this.transportation = [];
     this.accomodation = [];
+    this.guest = [];
   }
 
 
@@ -111,11 +114,27 @@ export class MultiTransactionService {
     //console.log(this.attraction);
   }
 
+  memberGuest(){
+      this.guest= [];
+      for (let i = 0; i < (Object.keys(this.gu.Guest).length); i++) {
+         let item = {
+            	FirstName : this.gu.Guest[i].firstName,
+              LastName : this.gu.Guest[i].lastName,
+              IdentityNbr :  this.gu.Guest[i].id,
+              IdentityType :  this.gu.Guest[i].typeid,
+              GuestType :  this.gu.Guest[i].guestype,
+              CountryId :  "ID"
+         }
+         this.guest.push(item);
+      }
+
+  }
 
   mulDemoTransaction() {
     this.dailyAttraction();
     this.dailyTransportation();
     this.dailyAccomodation();
+    this.memberGuest()
     var json = {
       "title": this.ite.getToursName(),
       "AdultPaxQty": Number(this.ite.getPassenger().guestTour['AdultQty']),
@@ -125,9 +144,12 @@ export class MultiTransactionService {
       "EndDate": this.ite.getDateTour().ev['monthEnd'],
       "CityDestinationId": this.ite.getObjectLocation().Id,
       "RegionDestinationId": this.ite.getObjectLocation().Region.Id,
+      "TourType" : this.ite.getTourType(),
+	    "GroupType" : this.ite.getGroupType(),
       "Attractions": this.attraction,
       "Transportations": this.transportation,
-      "Accommodations": this.accomodation
+      "Accommodations": this.accomodation,
+      "Guests": this.guest
     };
 
     console.log(JSON.stringify(json));
@@ -154,6 +176,8 @@ export class MultiTransactionService {
       "EndDate": this.ite.getDateTour().ev['monthEnd'],
       "CityDestinationId": this.ite.getObjectLocation().Id,
       "RegionDestinationId": this.ite.getObjectLocation().Region.Id,
+      "TourType" : this.ite.getTourType(),
+	    "GroupType" : this.ite.getGroupType(),
       "Attractions": this.attraction,
       "Transportations": this.transportation,
       "Accommodations": this.accomodation

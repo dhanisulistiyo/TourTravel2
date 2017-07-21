@@ -14,8 +14,14 @@ export class GuestDetails {
   firstName;
   lastName;
   country;
+  id;
+	typeid;
+  guestype;
   constructor() {
     window.console.log("Making a Guest Details.");
+    this.id = null;
+	  this.typeid = null;
+    this.guestype = null;
     this.firstName = null;
     this.lastName = null;
     this.country = null;
@@ -35,10 +41,15 @@ export class GuestServiceProvider {
       this.Guest = []
       if(type == "Large Group"){
         let g = new GuestDetails();
+        g.typeid= 1;
+        g.guestype= "TOURLEADER";
         this.Guest[0]=(g);
       }else{
         for(let i = 0 ; i < count; i++){
           let g = new GuestDetails();
+          g.typeid= 1;
+          if(i == 0) g.guestype= "TOURLEADER";
+          else  g.guestype= "TOURMEMBER";
           this.Guest[i]=(g);
         }
       }

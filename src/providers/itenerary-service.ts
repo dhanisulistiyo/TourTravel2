@@ -21,6 +21,8 @@ export class IteneraryService {
     transportservice;
 
     //versi 2
+    tourtype;
+    grouptype;
 
     constructor(public http: Http, public auth: AuthService) {
         this.locations;
@@ -40,6 +42,8 @@ export class IteneraryService {
 
 
         //versi 2
+        this.tourtype = null;
+        this.grouptype = null;
     }
 
 
@@ -54,6 +58,27 @@ export class IteneraryService {
 
     }
 
+    public setTourType(ty){
+        window.localStorage.setItem('tourType', ty);
+        this.tourtype = ty;
+    }
+
+    public getTourType(){
+        var ty = JSON.parse(window.localStorage.getItem('tourType'));
+        this.tourtype = ty;
+        return this.tourtype;
+    }
+
+    public setGroupType(ty){
+        window.localStorage.setItem('groupType', ty);
+        this.grouptype = ty;
+    }
+
+    public getGroupType(){
+        var ty = JSON.parse(window.localStorage.getItem('groupType'));
+        this.grouptype = ty;
+        return this.grouptype;
+    }
 
 
     public setDestination(des) {
@@ -96,7 +121,6 @@ export class IteneraryService {
         return this.datetour;
     }
 
-
     public setPassenger(guest) {
         window.localStorage.setItem('guest', guest);
         this.passengger = guest;
@@ -108,7 +132,6 @@ export class IteneraryService {
         return this.passengger;
     }
 
-
     public setToursName(name) {
         window.localStorage.setItem('tNames', name);
         this.toursname = name;
@@ -119,12 +142,10 @@ export class IteneraryService {
         this.toursname = name;
         return this.toursname;
     }
-
     public setAttraction(att) {
         window.localStorage.setItem('att', att);
         this.attraction = att;
     }
-
     public getAttraction() {
         var att = JSON.parse(window.localStorage.getItem('att'));
         this.attraction = att;
@@ -141,7 +162,6 @@ export class IteneraryService {
         this.transportation = trans;
         return this.transportation;
     }
-
 
     public setAcomodation(hot) {
         window.localStorage.setItem('hot', hot);
