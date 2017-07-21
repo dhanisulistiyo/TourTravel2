@@ -35,14 +35,14 @@
         </ion-col>
       </ion-row>
       <ion-row class="row-content">
-        <ion-col col-5-custom>
+        <ion-col col-5-content>
           <ion-select class="myCustomSelect" [(ngModel)]="kuo" multiple="false" (ionChange)="setKuotaGuest(kuo)" interface="action-sheet">
             <ion-option *ngFor="let kuo of kuotaGuest; let idx = index" [value]="kuo" selected="{{(idx==0)}}" aria-placeholder="Choose Type Guest">{{kuo}}</ion-option>
           </ion-select>
         </ion-col>
         <ion-col col-2>
         </ion-col>
-        <ion-col col-5-custom>
+        <ion-col col-5-content>
           <ion-select class="myCustomSelect"  [(ngModel)]="type" multiple="false" (ionChange)="setTypeGuest(type)" interface="action-sheet">
             <ion-option *ngFor="let type of typeGuest; let idx = index" [value]="type" selected="{{(idx==0)}}" aria-placeholder="Choose Type Guest">{{type}}</ion-option>
           </ion-select>
@@ -92,13 +92,12 @@
 
 
       <ion-row class="row-content">
-        <ion-col col-5-custom>
+        <ion-col col-5-content>
           <ion-datetime style="left: 0px;" (ionChange)="inputDateTours(event)" min="2016" max="2030" displayFormat="DD MMM YYYY" [(ngModel)]="event.monthStart"></ion-datetime>
         </ion-col>
         <ion-col style="text-align:center" col-2>
-          <ion-label stacked>To</ion-label>
         </ion-col>
-        <ion-col col-5-custom>
+        <ion-col col-5-content>
           <ion-datetime style="left: 0px;" (ionChange)="inputDateTours(event)" min="2016" max="2030" displayFormat="DD MMM YYYY" [(ngModel)]="event.monthEnd"></ion-datetime>
         </ion-col>
       </ion-row>
