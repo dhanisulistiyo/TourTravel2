@@ -21,6 +21,37 @@
         </ion-col>
       </ion-row>
       <ion-row class="row-header">
+        <ion-col col-12-custom>
+          <h3 class="card-label">Types of ID (ex: ID Card/Passport/Driving License) </h3>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-content">
+        <ion-col col-12-custom>
+          <h3 class="card-title">
+            <ion-select interface="action-sheet">
+              <ion-option value="enable">ID Card</ion-option>
+              <ion-option value="mute">Passport</ion-option>
+              <ion-option value="mute_week">Driving License</ion-option>
+            </ion-select>
+          </h3>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-header">
+        <ion-col col-4>
+          <h3 class="card-label">ID Number </h3>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-content">
+        <ion-col col-12-custom>
+          <ion-input type="text" (input)="inputFirstName(i, $event)" placeholder="Please input your first name"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-header">
+        <ion-col col-4>
+          <h3 class="card-label">First Name: </h3>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-header">
         <ion-col col-4>
           <h3 class="card-label">First Name: </h3>
         </ion-col>

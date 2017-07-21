@@ -3,21 +3,12 @@ page-itenerary-builder {
         font-size: 1.7rem;
         color: grey;
     }
-    .text-input-md {
-        margin: 0;
-        padding: 0;
-        width: calc(100% - 8px - 8px);
-        color: black;
-        font-size: 1.7 rem;
-        font-weight: 400;
-        border-bottom: 1px solid gray;
-    }
     .text-input[disabled] {
         opacity: 1;
     }
     .custom-div {
         border: 1px solid #f2f2f2;
-        border-radius: 4%;
+        border-radius: 10px;
         padding: 5px;
         background-color: white;
     }
@@ -39,7 +30,7 @@ page-itenerary-builder {
         padding-right: 8px;
         margin-left: 18px;
         width: 100%;
-        margin-right: 8px;
+        margin-right: 0px;
         border-bottom: 1px solid gray;
     }
     ion-input,
@@ -111,7 +102,6 @@ page-itenerary-builder {
         flex: 0 0 100%;
         width: 100%;
         max-width: 100%;
-        background-color: #f8f8ff;
     }
     [col-6-custom] {
         -webkit-flex: 0 0 50%;
@@ -119,7 +109,6 @@ page-itenerary-builder {
         flex: 0 0 50%;
         width: 50%;
         max-width: 50%;
-        background-color: #f8f8ff;
     }
     [col-5-custom] {
         -webkit-flex: 0 0 45%;
@@ -127,17 +116,24 @@ page-itenerary-builder {
         flex: 0 0 45%;
         width: 45%;
         max-width: 45%;
-        background-color: #f8f8ff
+    }
+    [col-5-content] {
+        -webkit-flex: 0 0 45%;
+        -ms-flex: 0 0 45%;
+        flex: 0 0 45%;
+        width: 45%;
+        max-width: 45%;
     }
     .text-input-md {
         margin: 10px 8px 10px 0px;
         padding: 0 0 5px 0;
-        width: calc(100% - 8px - 8px);
+        width: 100%;
         color: black;
         font-size: large;
+        border-bottom: 1px solid gray;
     }
     .datetime-md {
-        padding: 10px 24px 18px 0px;
+        padding: 10px 24px 6px 0px;
     }
     .label-md {
         margin: 0px 8px 13px 3px;
@@ -152,6 +148,7 @@ page-itenerary-builder {
         overflow: hidden;
         margin-left: 21px;
         margin-right: 5px;
+        border-bottom: 1px solid gray;
     }
     .scroll-content {
         padding: 0px;
