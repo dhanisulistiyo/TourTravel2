@@ -3,7 +3,7 @@ import { Platform, MenuController, Nav, LoadingController, AlertController } fro
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 //screen Page
-import { HomePage } from '../pages/home/home';
+import { HomeScreenPage } from './../pages/home-screen/home-screen';
 import { MybookingPage } from '../pages/mybooking/mybooking';
 import { LoginPage } from '../pages/login/login';
 import { MycompanyPage } from '../pages/mycompany/mycompany';
@@ -42,7 +42,7 @@ export class MyApp {
     //this.userInfo = this.user;
     // set our app's pages
     this.pages = [
-      { title: 'Home', component: HomePage, icon: 'ios-home-outline' },
+      { title: 'Home', component: HomeScreenPage, icon: 'ios-home-outline' },
       { title: 'My Account', component: MyaccountPage, icon: 'ios-contact-outline' },
       { title: 'My Company', component: MycompanyPage, icon: 'ios-laptop-outline' },
       { title: 'My Booking', component: MybookingPage, icon: 'ios-list-box-outline' },

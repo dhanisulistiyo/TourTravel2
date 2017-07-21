@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -9,6 +8,7 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 //HomeScreen
 import { HomePage } from '../pages/home/home';
+import { HomeScreenPage } from './../pages/home-screen/home-screen';
 import { CustomePackagePage } from '../pages/custome-package/custome-package';
 import { FixedPackagePage } from '../pages/fixed-package/fixed-package';
 import { PromoPackagePage } from '../pages/promo-package/promo-package';
@@ -107,6 +107,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     RegisterPage,
     //Home Screen
     HomePage,
+    HomeScreenPage,
     CustomePackagePage,
     PromoPackagePage,
     FixedPackagePage,
@@ -187,6 +188,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     RegisterPage,
     //Home Screen
     HomePage,
+    HomeScreenPage,
     CustomePackagePage,
     PromoPackagePage,
     FixedPackagePage,

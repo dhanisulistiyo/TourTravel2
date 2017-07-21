@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, MenuController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-token-service';
 import { RegisterPage } from '../register/register';
-import { HomePage } from '../../pages/home/home';
+import { HomeScreenPage } from './../home-screen/home-screen';
 
 @Component({
     selector: 'page-login',
@@ -27,7 +27,7 @@ export class LoginPage {
         loader.present();
         this.auth.login(this.registerCredentials).then(allowed => {           
             if (allowed) {                     
-                    this.nav.setRoot(HomePage);
+                    this.nav.setRoot(HomeScreenPage);
                     this.auth.getUserInfo();
                     this.menu.enable(true); 
                     loader.dismiss();        

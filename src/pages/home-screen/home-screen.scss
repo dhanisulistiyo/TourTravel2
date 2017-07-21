@@ -1,0 +1,183 @@
+page-home-screen {
+    ion-card.card {
+        box-shadow: 2px;
+        background: rgba(0, 0, 0, 0.5);
+        float: left;
+        padding: 0;
+        margin: 1px;
+        /* important */
+        position: relative;
+        /* important(so we can absolutely position the description div */
+    }
+    .scroll-content {
+        height: auto;
+    }
+    .selection {
+        min-height: 480px;
+        height: auto;
+        width: 100%;
+    }
+    ion-card img {
+        display: block;
+        // width: 155px;
+        // height: 160px;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+    }
+    .cover {
+        width: 100%;
+        height: 160px;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+    }
+    .row {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        padding-top: 30px;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    .card-custom {
+        margin-bottom: 10px;
+        border: medium none;
+        border-radius: 5px;
+        display: block;
+        text-align: center;
+        margin: 2px 0 2px;
+        padding: 50px 0 8px 0;
+        font-size: 2.4rem;
+        line-height: 1.2;
+        height: 100%;
+        color: white;
+    }
+    .h2-title-header {
+        padding-left: 30px;
+        padding-top: 20px;
+        font-size: 1.7rem;
+        font-weight: 600;
+        font-family: 'Open Sans', cursive;
+        color: white;
+    }
+    .h3-subtitle-header {
+        font-family: 'Quicksand', cursive;
+        color: white;
+        padding-top: 10px;
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+    .content-custom {
+        box-shadow: none;
+        background: rgba(0, 0, 0, 0.6);
+        right: 0;
+        display: block;
+        bottom: 0;
+        top: 50px;
+        font-size: 2em;
+        font-weight: 900;
+        text-align: left;
+        left: 0;
+        position: absolute;
+        padding: 0px 16px 10px 16px;
+    }
+    .button-inner {
+        text-transform: none;
+        font-family: 'Open Sans', cursive;
+        font-weight: 700;
+        color: white;
+        font-size: 1.4rem;
+    }
+    .custom-row {
+        padding: 0;
+        .col {
+            &:first-child {
+                position: relative;
+                padding: 0;
+                .corner-ribbon {
+                    width: 800px;
+                    background: #22c1c3;
+                    /* fallback for old browsers */
+                    background: -webkit-linear-gradient(to right, #fdbb2d, #22c1c3);
+                    /* Chrome 10-25, Safari 5.1-6 */
+                    background: linear-gradient(to right, #fdbb2d, #22c1c3);
+                    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                    position: absolute;
+                    top: 25px;
+                    left: -65px;
+                    text-align: center;
+                    line-height: 35px;
+                    letter-spacing: 0px;
+                    font-family: 'Open Sans', cursive;
+                    font-size: 20px;
+                    margin-left: 10px;
+                    font-weight: 700;
+                    color: white;
+                    -ms-transform: rotate(40deg);
+                    /* IE 9 */
+                    -webkit-transform: rotate(40deg);
+                    /* Chrome, Safari, Opera */
+                    transform: rotate(40deg);
+                }
+            }
+        }
+    }
+    /* common */
+    .ribbon {
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+        position: absolute;
+    }
+    .ribbon::before,
+    .ribbon::after {
+        position: absolute;
+        z-index: -1;
+        content: '';
+        display: block;
+        border: 5px solid #2980b9;
+    }
+    .ribbon span {
+        position: absolute;
+        display: block;
+        width: 225px;
+        padding: 12px 16px 12px 40px;
+        background: #22c1c3;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #fdbb2d, #22c1c3);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #fdbb2d, #22c1c3);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+        color: #fff;
+        font: 700 18px/1 'Lato', sans-serif;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+        text-transform: uppercase;
+        text-align: center;
+    }
+    /* top left*/
+    .ribbon-top-left {
+        top: -10px;
+        left: -20px;
+    }
+    .ribbon-top-left::before,
+    .ribbon-top-left::after {
+        border-top-color: transparent;
+        border-left-color: transparent;
+    }
+    .ribbon-top-left::before {
+        top: 0;
+        right: 0;
+    }
+    .ribbon-top-left::after {
+        bottom: 0;
+        left: 0;
+    }
+    .ribbon-top-left span {
+        right: 0px;
+        top: 40px;
+        transform: rotate(-45deg);
+    }
+}
