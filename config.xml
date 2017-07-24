@@ -21,13 +21,11 @@
     <preference name="FadeSplashScreenDuration" value="300" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreen" value="screen" />
-    <!--<preference name="SplashScreenDelay" value="3000" />-->
-    <!--TEST-->
-    <preference name="AutoHideSplashScreen" value="false" />  
-    <preference name="ShowSplashScreen" value="true"/>
-    <preference name="SplashScreenDelay" value="30000"/>
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="ShowSplashScreen" value="true" />
+    <preference name="SplashScreenDelay" value="30000" />
     <platform name="android">
-    <preference name="loadUrlTimeoutValue" value="700000" />
+        <preference name="loadUrlTimeoutValue" value="700000" />
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
@@ -89,4 +87,5 @@
     <plugin name="cordova-plugin-device" spec="1.1.4" />
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" />
     <engine name="android" spec="~6.1.2" />
+    <plugin name="cordova-plugin-datepicker" spec="~0.9.3" />
 </widget>

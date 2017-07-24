@@ -93,8 +93,7 @@ import { GuestServiceProvider } from '../providers/guest-service';
 
 // Import ionic2-rating module
 import { Ionic2RatingModule } from 'ionic2-rating';
-
-
+import { DatetimePickerModule } from 'ion-datetime-picker';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -177,12 +176,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BrowserModule,
     IonicModule.forRoot(MyApp, { tabsHideOnSubPages: "true" }),
     HttpModule,
-    Ionic2RatingModule // Put ionic2-rating module here
+    Ionic2RatingModule, // Put ionic2-rating module here
+    DatetimePickerModule
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-
     //apps
     LoginPage,
     RegisterPage,

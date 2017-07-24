@@ -93,12 +93,12 @@
 
       <ion-row class="row-content">
         <ion-col col-5-content>
-          <ion-datetime style="left: 0px;" (ionChange)="inputDateTours(event)" min="2016" max="2030" displayFormat="DD MMM YYYY" [(ngModel)]="event.monthStart"></ion-datetime>
-        </ion-col>
-        <ion-col style="text-align:center" col-2>
-        </ion-col>
+          <ion-datetime picker style="left: 0px;" (ionChange)="inputDateTours(event)" min="2016" max="2030" displayFormat="DD MMM YYYY" [(ngModel)]="event.monthStart"></ion-datetime >
+            
+          </ion-col>
+        <ion-col style="text-align:center" col-2></ion-col>
         <ion-col col-5-content>
-          <ion-datetime style="left: 0px;" (ionChange)="inputDateTours(event)" min="2016" max="2030" displayFormat="DD MMM YYYY" [(ngModel)]="event.monthEnd"></ion-datetime>
+          <ion-datetime picker style="left: 0px;" (ionChange)="inputDateTours(event)" min="2016" max="2030" displayFormat="DD MMM YYYY" [(ngModel)]="event.monthEnd"></ion-datetime >
         </ion-col>
       </ion-row>
 
