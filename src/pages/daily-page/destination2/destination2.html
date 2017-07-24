@@ -10,7 +10,7 @@
     </button>
     <ion-title>Choose Destination</ion-title>
   </ion-navbar>
-  <ion-searchbar placeholder="Search a location..." (ionInput)="searchLocationDB($event)"></ion-searchbar>
+  <ion-searchbar placeholder="Where are you going?" (ionInput)="searchLocationDB($event)"></ion-searchbar>
 </ion-header>
 
 
@@ -24,7 +24,7 @@
       <img src="{{loc.ImageUrl}}">
     </ion-avatar>
     <h2>{{loc.Name}}</h2>
-    <p>{{loc.Region.Name}} ,{{loc.Country.Name }}</p>
+    <p>{{loc.Region.Name}}, {{loc.Country.Name }}</p>
   </ion-item>
 </ion-list>
 </ion-content>
