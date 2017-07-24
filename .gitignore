@@ -21,7 +21,7 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
-www/
+www/build/
 # Visual Studio 2015 cache/options directory
 .vs/
 # Uncomment if you have tasks that create the project's static files in wwwroot
@@ -307,3 +307,6 @@ www/build/main.js.map
 ionic.config.json
 *.js
 *.json
+www/build/0.main.js
+www/build/3.main.js
+package-lock.json
