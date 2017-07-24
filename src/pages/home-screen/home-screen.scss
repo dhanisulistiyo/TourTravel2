@@ -6,6 +6,7 @@ page-home-screen {
         padding: 0;
         margin: 1px;
         /* important */
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         position: relative;
         /* important(so we can absolutely position the description div */
     }
