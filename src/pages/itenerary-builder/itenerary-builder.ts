@@ -44,7 +44,7 @@ export class IteneraryBuilderPage {
     private ite: IteneraryService,
     public ds: DailyService,
     public alertCtrl: AlertController,
-    public gu: GuestServiceProvider
+    public gu: GuestServiceProvider,
   ) {
     this.toursname = '';
     this.destination = this.ite.getDestination();
@@ -272,7 +272,6 @@ export class IteneraryBuilderPage {
       this.navCtrl.push(GuestDetailsPage, {type});
     }
   }
-
 
   //alert-alert
   showAlertTourName() {

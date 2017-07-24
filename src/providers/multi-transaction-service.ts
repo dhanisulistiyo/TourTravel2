@@ -134,7 +134,7 @@ export class MultiTransactionService {
     this.dailyAttraction();
     this.dailyTransportation();
     this.dailyAccomodation();
-    this.memberGuest()
+    this.memberGuest();
     var json = {
       "title": this.ite.getToursName(),
       "AdultPaxQty": Number(this.ite.getPassenger().guestTour['AdultQty']),
@@ -167,6 +167,7 @@ export class MultiTransactionService {
     this.dailyAttraction();
     this.dailyTransportation();
     this.dailyAccomodation();
+    this.memberGuest();
     var json = {
       "title": this.ite.getToursName(),
       "AdultPaxQty": Number(this.ite.getPassenger().guestTour['AdultQty']),
@@ -180,7 +181,8 @@ export class MultiTransactionService {
 	    "GroupType" : this.ite.getGroupType(),
       "Attractions": this.attraction,
       "Transportations": this.transportation,
-      "Accommodations": this.accomodation
+      "Accommodations": this.accomodation,
+      "Guests": this.guest
     };
     console.log(JSON.stringify(json));
     let token = this.auth.AuthToken;
@@ -189,13 +191,16 @@ export class MultiTransactionService {
     let options = new RequestOptions({ headers: headers });
     var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TourTransactions/CreateTour';
     var response = this.http.post(url, json, options).map(res => res.json());
+   
+    return response;
+  }
+
+  clearCache(){
     this.ite.delLocalStorage();
     this.destroyObject();
     this.ds.destroyObject();
     this.ds.destroyTransport();
-    return response;
   }
-
 
   getConfirmTour(id, status) {
 

@@ -64,4 +64,7 @@
     <preference name="ShowSplashScreen" value="true" />
     <preference name="SplashScreenDelay" value="30000" />
     <preference name="loadUrlTimeoutValue" value="700000" />
+    <feature name="DatePickerPlugin">
+        <param name="android-package" value="com.plugin.datepicker.DatePickerPlugin" />
+    </feature>
 </widget>

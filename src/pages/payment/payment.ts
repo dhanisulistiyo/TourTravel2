@@ -49,13 +49,13 @@ export class PaymentPage {
       content: 'Please wait...'
     });
     loader.present();
-    if(this.Status != "created")
-    this.mulTra.getTourTransaksi().subscribe(data => {
-      console.log(data);
-      this.BookingDetailSum = Array.of(data['BookingDetailSum']);
-    }, err => {
-      console.log(err);
-    }, () => console.log('post Transaction Complete'));
+    if (this.Status != "created")
+      this.mulTra.getTourTransaksi().subscribe(data => {
+        console.log(data);
+        this.BookingDetailSum = Array.of(data['BookingDetailSum']);
+      }, err => {
+        console.log(err);
+      }, () => console.log('post Transaction Complete'));
 
     this.info.getUser().subscribe(data => {
       this.userinfo = data;
@@ -92,7 +92,7 @@ export class PaymentPage {
         this.presentToast();
       } else {
         let loader = this.load.create({
-        content: 'Please wait...'
+          content: 'Please wait...'
         });
 
         this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, this.Status);
@@ -102,6 +102,7 @@ export class PaymentPage {
       }
     } else if (this.pay == "hold") {
       this.presentToast();
+      this.mulTra.clearCache();
       this.navCtrl.setRoot(CustomePackagePage);
     }
     else {
