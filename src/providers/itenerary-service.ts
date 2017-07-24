@@ -64,7 +64,7 @@ export class IteneraryService {
     }
 
     public getTourType(){
-        var ty = JSON.parse(window.localStorage.getItem('tourType'));
+        var ty = window.localStorage.getItem('tourType');
         this.tourtype = ty;
         return this.tourtype;
     }
@@ -75,7 +75,7 @@ export class IteneraryService {
     }
 
     public getGroupType(){
-        var ty = JSON.parse(window.localStorage.getItem('groupType'));
+        var ty = window.localStorage.getItem('groupType');
         this.grouptype = ty;
         return this.grouptype;
     }

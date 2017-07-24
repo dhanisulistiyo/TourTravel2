@@ -29,9 +29,9 @@
         <ion-col col-12-custom>
           <h3 class="card-title">
             <ion-select interface="action-sheet">
-              <ion-option value="enable">ID Card</ion-option>
-              <ion-option value="mute">Passport</ion-option>
-              <ion-option value="mute_week">Driving License</ion-option>
+              <ion-option value="1">ID Card</ion-option>
+              <ion-option value="2">Passport</ion-option>
+              <ion-option value="3">Driving License</ion-option>
             </ion-select>
           </h3>
         </ion-col>
@@ -43,7 +43,7 @@
       </ion-row>
       <ion-row class="row-content">
         <ion-col col-12-custom>
-          <ion-input type="text" (input)="inputId(i, $event)" placeholder="Please input your ID"></ion-input>
+          <ion-input type="number" (input)="inputId(i, $event)" placeholder="Please input your ID"></ion-input>
         </ion-col>
       </ion-row>
       <ion-row class="row-header">
