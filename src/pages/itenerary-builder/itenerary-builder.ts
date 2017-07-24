@@ -184,10 +184,10 @@ export class IteneraryBuilderPage {
     console.log(kuo);
     this.kuotaG = kuo;
     if(kuo == 'Small Group'){
-      this.typeGuest = ['Choose Type','Reguler','Family', 'Bussiness', 'Honey Moon']
+      this.typeGuest = ['Choose Type','Regular','Family', 'Bussiness', 'Honey Moon']
       this.ite.setGroupType("SMALL");
     }else{
-      this.typeGuest = ['Choose Type','Reguler','Family', 'Bussiness'];
+      this.typeGuest = ['Choose Type','Regular','Family', 'Bussiness'];
       this.ite.setGroupType("LARGE");
     }
   }
