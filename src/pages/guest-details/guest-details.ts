@@ -20,16 +20,20 @@ export class GuestDetailsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public gu : GuestServiceProvider) {
     this.Type = navParams.data['type'];
     console.log(this.Type);
-    this.Guest = [];
-    var no = Object.keys(this.gu.Guest).length;
-     for (let i = 0; i < no; i++) {
-      this.Guest.push(this.gu.Guest[i])
-     }
-     console.log(this.Guest)
   }
 
     ionViewWillEnter(){
-       
+    this.Guest = [];
+    var no = Object.keys(this.gu.Guest).length;
+        for (let i = 0; i < no; i++) {
+          this.Guest.push(this.gu.Guest[i])
+        }
+        console.log(this.Guest)
+    }
+
+    inputId(i, event){
+        var data = event.target.value;
+        this.gu.setId(i, data);
     }
 
     inputFirstName(i, event){

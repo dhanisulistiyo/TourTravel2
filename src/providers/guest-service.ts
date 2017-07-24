@@ -60,6 +60,21 @@ export class GuestServiceProvider {
     this.Guest.push(g);
   }
 
+  setId(i, par){
+      this.Guest[i].id = par;
+      console.log(this.Guest)
+  }
+
+  setTypeId(i, par){
+      this.Guest[i].typeid = par;
+      console.log(this.Guest)
+  }
+
+  setGuesType(i, par){
+      this.Guest[i].guestype = par;
+      console.log(this.Guest)
+  }
+    
   setFirstName(i, par){
       this.Guest[i].firstName = par;
       console.log(this.Guest)
