@@ -1,209 +1,212 @@
-// http://ionicframework.com/docs/v2/theming/
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
-@import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
-@import url('https://fonts.googleapis.com/css?family=Quicksand');
-@import url('https://fonts.googleapis.com/css?family=Lato');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
-@import url('https://fonts.googleapis.com/css?family=Raleway');
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700');
-.ios,
-.md {
-    page-app {
-        .header-menu-user {
-            min-height: 160px;
-            .toolbar-background-md {
-                border-color: #4fd2c2;
-                background: #4fd2c2;
+    // http://ionicframework.com/docs/v2/theming/
+    // App Global Sass
+    // --------------------------------------------------
+    // Put style rules here that you want to apply globally. These
+    // styles are for the entire app and not just one component.
+    // Additionally, this file can be also used as an entry point
+    // to import other Sass files to be included in the output CSS.
+    //
+    // Shared Sass variables, which can be used to adjust Ionic's
+    // default Sass variables, belong in "theme/variables.scss".
+    //
+    // To declare rules for a specific mode, create a child rule
+    // for the .md, .ios, or .wp mode classes. The mode class is
+    // automatically applied to the <body> element in the app.
+    @import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
+    @import url('https://fonts.googleapis.com/css?family=Quicksand');
+    @import url('https://fonts.googleapis.com/css?family=Lato');
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+    @import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+    @import url('https://fonts.googleapis.com/css?family=Raleway');
+    @import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700');
+    .ios,
+    .md {
+        .content-bgn {
+            background: #f9f9f9;
+        }
+        .scroll-content {
+            background: #f9f9f9;
+        }
+        page-app {
+            .header-menu-user {
+                min-height: 160px;
+                .toolbar-background-md {
+                    border-color: #4fd2c2;
+                    background: #4fd2c2;
+                }
+                .toolbar-title-md {
+                    padding: 0 12px;
+                    font-family: 'Open Sans', sans-serif;
+                    font-size: 2rem;
+                    font-weight: 600;
+                    color: white;
+                    text-align: center;
+                }
             }
-            .toolbar-title-md {
-                padding: 0 12px;
+            .item-md ion-icon[item-left]+.item-inner,
+            .item-md ion-icon[item-left]+.item-input,
+            .item-md ion-icon[item-start]+.item-inner,
+            .item-md ion-icon[item-start]+.item-input {
+                margin-left: 4px;
+            }
+            ion-icon.custom-font {
+                color: #4fd2c2;
+                font-size: 2.6rem;
+            }
+            p.custom-text {
                 font-family: 'Open Sans', sans-serif;
-                font-size: 2rem;
-                font-weight: 600;
-                color: white;
-                text-align: center;
+                font-size: 1.6rem;
+                font-weight: 500;
+                color: black;
+                text-align: left;
             }
         }
-        .item-md ion-icon[item-left]+.item-inner,
-        .item-md ion-icon[item-left]+.item-input,
-        .item-md ion-icon[item-start]+.item-inner,
-        .item-md ion-icon[item-start]+.item-input {
-            margin-left: 4px;
+        page-login .scroll-content {
+            background: transparent;
+            -webkit-align-content: center;
+            -ms-flex-line-pack: center;
+            align-content: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            text-align: center;
         }
-        ion-icon.custom-font {
-            color: #4fd2c2;
-            font-size: 2.6rem;
+        page-register .scroll-content {
+            background: transparent;
+            -webkit-align-content: center;
+            -ms-flex-line-pack: center;
+            align-content: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            text-align: center;
         }
-        p.custom-text {
+        page-filter-hotel1 {
+            .button-clear-md {
+                border-color: transparent;
+                color: #a6a6a6;
+                background-color: transparent;
+                padding: 0px;
+                box-shadow: none;
+                opacity: 1;
+            }
+            .button-outline-md {
+                border-width: 1px;
+                border-style: solid;
+                border-color: #a6a6a6;
+                color: #a6a6a6;
+                background-color: transparent;
+                box-shadow: none;
+            }
+        }
+        
+        .searchbar-md {
+            padding: 8px;
+            background: #4fd2c2;
             font-family: 'Open Sans', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 500;
-            color: black;
+        }
+        .toolbar-background-md {
+            border-color: #4fd2c2;
+            background: #4fd2c2;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-image: linear-gradient(to bottom right, #4fd2c2, #000000);
+                opacity: .1;
+            }
+        }
+        .bar-button-default-md,
+        .bar-button-clear-md-default,
+        .bar-button-md-default {
+            color: #ffffff;
+            background-color: transparent;
+        }
+        .toolbar-title-md {
+            color: white;
+            font-family: 'Open Sans', cursive;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        .tab-text {
+            font-family: 'Open Sans', sans-serif;
+            color: white;
+            font-size: 30px;
+            font-weight: 400; // font-size: 2rem;
+            // font-weight: 700;
+        }
+        .back-button-icon-md {
             text-align: left;
+            text-align: start;
+            margin: 0;
+            padding: 0 6px;
+            font-size: 2.4rem;
+            font-weight: normal;
+            color: white;
+        }
+        button.back-button {
+            color: red;
+        }
+        ion-icon.custom-color {
+            color: #4fd2c2;
+        }
+        ion-label.label.label-md[stacked] {
+            font-family: 'Open Sans', cursive;
+            font-size: 1.7rem;
+            color: grey;
+            font-weight: 500;
+            text-transform: none;
+        }
+        .button-inner {
+            text-transform: none;
+            font-family: 'Open Sans', cursive;
+            font-weight: 700;
+        }
+        .label-md {
+            font-family: 'Open Sans', cursive;
+            font-size: 1.8rem;
+            color: black;
+            font-weight: 500;
+        }
+        .tabs-md .tabbar {
+            border-color: #4fd2c2;
+            background: #4fd2c2;
+        }
+        .tab-button[aria-selected=true] {
+            // text-decoration: underline !important;
+            font-family: 'Open Sans', sans-serif;
+            color: white;
+            font-size: 30px;
+            font-weight: 400;
+            border-style: solid;
+            border-bottom: 1.5px solid #f5f5ef;
+        }
+        .tabs-md .tab-button-text {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        ion-tab {
+            font-size: 90px;
+        }
+        .tabs-md .tabbar {
+            background: #4fd2c2;
+        }
+        .line-break {
+            overflow: inherit;
+            text-overflow: inherit;
+            white-space: normal;
+        }
+        .text-input[disabled] {
+            opacity: 1;
+        }
+        .cover {
+            width: 100%;
+            object-fit: fill;
         }
     }
-    .searchbar-md {
-        padding: 8px;
-        background: #4fd2c2;
-        font-family: 'Open Sans', sans-serif;
-    }
-    .toolbar-background-md {
-        border-color: #4fd2c2;
-        background: #4fd2c2;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-        &:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background-image: linear-gradient(to bottom right, #4fd2c2, #000000);
-            opacity: .1;
-        }
-    }
-    .bar-button-default-md,
-    .bar-button-clear-md-default,
-    .bar-button-md-default {
-        color: #ffffff;
-        background-color: transparent;
-    }
-    .toolbar-title-md {
-        color: white;
-        font-family: 'Open Sans', cursive;
-        font-size: 2rem;
-        font-weight: 600;
-    } // //header
-    // .toolbar-background-md {
-    // border-color: #00a497;
-    // background: #00a497;
-    // }
-    // .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
-    // color: #ffffff;
-    // background-color: transparent;
-    // }
-    //content
-    .content-bgn {
-        background: #f9f9f9;
-    }
-    .scroll-content {
-        background: #f9f9f9;
-    }
-    page-login .scroll-content {
-        background: transparent;
-        -webkit-align-content: center;
-        -ms-flex-line-pack: center;
-        align-content: center;
-        -webkit-justify-content: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        text-align: center;
-    }
-    page-register .scroll-content {
-        background: transparent;
-        -webkit-align-content: center;
-        -ms-flex-line-pack: center;
-        align-content: center;
-        -webkit-justify-content: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        text-align: center;
-    }
-    .tab-text {
-        font-family: 'Open Sans', sans-serif;
-        color: white;
-        font-size: 30px;
-        font-weight: 400; // font-size: 2rem;
-        // font-weight: 700;
-    }
-    .back-button-icon-md {
-        text-align: left;
-        text-align: start;
-        margin: 0;
-        padding: 0 6px;
-        font-size: 2.4rem;
-        font-weight: normal;
-        color: white;
-    } // .md,
-    // .wp {
-    //     .back-button {
-    //         color: red !important;//what ever the color you like
-    //     }
-    // }
-    button.back-button {
-        color: red;
-    }
-    ion-icon.custom-color {
-        color: #4fd2c2;
-    } // ion-icon.icon.icon-md {
-    //     color: #00a497;
-    // }
-    ion-label.label.label-md[stacked] {
-        font-family: 'Open Sans', cursive;
-        font-size: 1.7rem;
-        color: grey;
-        font-weight: 500;
-        text-transform: none;
-    }
-    .button-inner {
-        text-transform: none;
-        font-family: 'Open Sans', cursive;
-        font-weight: 700;
-    }
-    .label-md {
-        font-family: 'Open Sans', cursive;
-        font-size: 1.8rem;
-        color: black;
-        font-weight: 500;
-    }
-    .tabs-md .tabbar {
-        border-color: #4fd2c2;
-        background: #4fd2c2;
-    }
-    .tab-button[aria-selected=true] {
-        // text-decoration: underline !important;
-        font-family: 'Open Sans', sans-serif;
-        color: white;
-        font-size: 30px;
-        font-weight: 400;
-        border-style: solid;
-        border-bottom: 1.5px solid #f5f5ef;
-    }
-    .tabs-md .tab-button-text {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #ffffff;
-    }
-    ion-tab {
-        font-size: 90px;
-    }
-    .tabs-md .tabbar {
-        background: #4fd2c2;
-    }
-    .line-break {
-        overflow: inherit;
-        text-overflow: inherit;
-        white-space: normal;
-    }
-    .text-input[disabled] {
-        opacity: 1;
-    }
-    .cover {
-        width: 100%;
-        object-fit: fill;
-    }
-}

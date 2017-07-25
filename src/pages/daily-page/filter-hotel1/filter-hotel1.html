@@ -23,7 +23,7 @@
     </ion-row>
     <ion-row class="row-content">
       <ion-col col-2 (click)="filterRat(1)">
-        <button ion-button icon-left clear class="custom-button"><ion-icon ios="ios-star" md="ios-star-outline" isActive="true" ></ion-icon>
+        <button ion-button icon-left clear secondary [outline]="active" (click)="buttonClick()" class="custom-button"><ion-icon ios="ios-star" md="md-star" ></ion-icon>
               <div>1</div>
             </button>
       </ion-col>
