@@ -1,3 +1,4 @@
+import { FixedPackagePage } from './../fixed-package/fixed-package';
 import { IteneraryBuilderPage } from './../itenerary-builder/itenerary-builder';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -24,6 +25,9 @@ export class HomeScreenPage {
 
   customMenu(){
     this.navCtrl.push(IteneraryBuilderPage);
+  }
+  fixedMenu(){
+    this.navCtrl.push(FixedPackagePage);
   }
 
 }
