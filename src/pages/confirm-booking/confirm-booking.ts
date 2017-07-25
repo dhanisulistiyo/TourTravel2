@@ -21,6 +21,7 @@ export class ConfirmBookingPage {
   BookingDetailSum: Array<any>;
   DailyPrograms: Array<any>;
   TourPriceSum: Array<any>;
+  TourGuest: Array<any>;
   curency;
   userinfo;
   dateEx;
@@ -37,6 +38,7 @@ export class ConfirmBookingPage {
   this.DailyPrograms= null;
   this.TourPriceSum=null;
   this.curency=null;
+  this.TourGuest = null;
 
   }
 
@@ -58,6 +60,7 @@ export class ConfirmBookingPage {
 
     this.mulTra.mulDemoTransaction().subscribe(data=>{
             this.BookingDetailSum= Array.of(data['BookingDetailSum']);
+            this.TourGuest =(data['TourGuestSum']);
             this.DailyPrograms = (data['DailyPrograms'])
             this.TourPriceSum=Array.of(data['TourPriceSum']);
 
@@ -66,6 +69,12 @@ export class ConfirmBookingPage {
 
       this.data.push({
         info: "Tour Detail",
+        icon: 'ios-arrow-dropright-outline',
+        showDetails: true
+      });
+
+      this.data.push({
+        info: "Guest Detail",
         icon: 'ios-arrow-dropright-outline',
         showDetails: true
       });
