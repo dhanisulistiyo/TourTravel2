@@ -59,6 +59,40 @@ page-tour-details {
                 font-size: 1.6rem;
                 color: #808080;
             }
+            h3.card-leader {
+                color: white;
+                font-family: 'Open Sans', sans-serif;
+                text-transform: uppercase;
+                font-size: 1.3rem;
+                width: 50%;
+                border-radius: 5%;
+                text-align: center;
+                padding: 7px;
+                font-weight: 600; //border: #f0b840 solid 1px;
+                background: #F2994A;
+                /* fallback for old browsers */
+                background: -webkit-linear-gradient(to top, #F2C94C, #F2994A);
+                /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to top, #F2C94C, #F2994A);
+                /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            }
+            h3.card-member {
+                color: white;
+                font-family: 'Open Sans', sans-serif;
+                text-transform: uppercase;
+                font-size: 1.3rem;
+                width: 50%;
+                border-radius: 5%;
+                text-align: center;
+                padding: 7px;
+                font-weight: 600; //border: #f0b840 solid 1px;
+                background: #06beb6;
+                /* fallback for old browsers */
+                background: -webkit-linear-gradient(to top, #48b1bf, #06beb6);
+                /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to top, #48b1bf, #06beb6);
+                /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            }
         }
     }
     .card-header-md {
@@ -143,11 +177,25 @@ page-tour-details {
         background: #eeeced;
     }
     [col-1] {
-        -webkit-flex: 0 0 8.33333%;
-        -ms-flex: 0 0 8.33333%;
-        flex: 0 0 8.33333%;
-        width: 8.33333%;
-        max-width: 4%;
+        -webkit-flex: 0 0 8%;
+        -ms-flex: 0 0 8%;
+        flex: 0 0 8%;
+        width: 8%;
+        max-width: 8%;
+        padding: 5px 16px 13px 26px;
+    }
+    .grid-custom {
+        padding: 5px 0px 5px 0px;
+        border-bottom: 1px solid #b3b3b3;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
     }
     .button-custom {
         border: 0;
