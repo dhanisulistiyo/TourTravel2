@@ -186,7 +186,7 @@ export class IteneraryBuilderPage {
     console.log(kuo);
     this.kuotaG = kuo;
     if(kuo == 'Small Group'){
-      this.typeGuest = ['Choose Type','Regular','Family', 'Bussiness', 'Honey Moon']
+      this.typeGuest = ['Choose Type','Regular','Family', 'Bussiness', 'Honeymoon']
       this.ite.setGroupType("SMALL");
     }else{
       this.typeGuest = ['Choose Type','Regular','Family', 'Bussiness'];
@@ -202,9 +202,9 @@ export class IteneraryBuilderPage {
         if(type == 'Regular') this.maxGuest = 10;
         else if(type == 'Family') this.maxGuest = 10;
         else if(type == 'Bussiness') this.maxGuest = 10;
-        else if(type == 'Honey Moon') this.maxGuest = 2;
+        else if(type == 'Honeymoon') this.maxGuest = 2;
       }else{
-        if(type == 'Reguler') this.maxGuest = 1000;
+        if(type == 'Regular') this.maxGuest = 1000;
         else if(type == 'Family') this.maxGuest = 1000;
         else if(type == 'Bussiness') this.maxGuest = 1000;
       }
