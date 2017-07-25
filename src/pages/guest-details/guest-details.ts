@@ -1,3 +1,4 @@
+import { LocationGuestPage } from './../location-guest/location-guest';
 import { DailyProgram } from './../daily-program/daily-program';
 import { GuestServiceProvider } from './../../providers/guest-service';
 import { Component } from '@angular/core';
@@ -48,7 +49,7 @@ export class GuestDetailsPage {
 
     inputCountry(i, event){
       var data = event.target.value;
-      this.gu.setCountry(i, data);
+      this.navCtrl.push(LocationGuestPage,{i});
     }
 
     createItenerary(event) {

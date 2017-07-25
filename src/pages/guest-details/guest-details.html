@@ -78,7 +78,8 @@
       <ion-row class="row-content">
         <ion-col col-12-custom>
           <h3 class="card-title">
-            <ion-input type="text" (input)="inputCountry(i, $event)" placeholder="Tap to choose your country"></ion-input>
+            <ion-input *ngIf="item.country != null"  type="text" disabled="true" [(ngModel)]="item.country.Country.Name" (click)="inputCountry(i, $event)"></ion-input>
+            <ion-input *ngIf="item.country == null" type="text" disabled="true"  (click)="inputCountry(i, $event)" placeholder="Tap to choose your country"></ion-input>
           </h3>
         </ion-col>
       </ion-row>

@@ -123,7 +123,7 @@ export class MultiTransactionService {
               IdentityNbr :  this.gu.Guest[i].id,
               IdentityType :  this.gu.Guest[i].typeid,
               GuestType :  this.gu.Guest[i].guestype,
-              CountryId :  "ID"
+              CountryId :  this.gu.Guest[i].country.Country.Id
          }
          this.guest.push(item);
       }

@@ -71,6 +71,7 @@ import { ConfirmBookingPage } from '../pages/confirm-booking/confirm-booking';
 import { TourDetailsPage } from '../pages/tour-details/tour-details';
 //component
 import { LocationPopoverComponent } from '../components/location-popover/location-popover';
+import { LocationGuestPage } from './../pages/location-guest/location-guest';
 //payment
 import { PaymentPage } from '../pages/payment/payment';
 
@@ -158,7 +159,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
     //component
     LocationPopoverComponent,
-
+    LocationGuestPage,
     //Details Profile
     MyprofilePage,
     MycompanyPage,
@@ -240,9 +241,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HotelDetailsPage,
     AttractionDetailsPage,
 
-
     //component
     LocationPopoverComponent,
+    LocationGuestPage,
 
     //Details Profile
     MyprofilePage,
