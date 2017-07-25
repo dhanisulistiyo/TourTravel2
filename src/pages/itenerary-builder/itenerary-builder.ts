@@ -46,6 +46,8 @@ export class IteneraryBuilderPage {
     public alertCtrl: AlertController,
     public gu: GuestServiceProvider,
   ) {
+    this.kuotaG = null;
+    this.typeG = null;
     this.toursname = '';
     this.destination = this.ite.getDestination();
     this.passenger = '';
@@ -58,7 +60,7 @@ export class IteneraryBuilderPage {
       monthEnd: new Date().toISOString().substring(0, 10)
     };
     this.kuotaGuest = ['Choose Type Guest','Small Group', 'Large Group']
-    this.typeGuest = null;
+    this.typeGuest =  ['Choose Type'];
     //this.typeGuest = ['Personal','Family', 'Bussiness', 'Group', 'Honey Moon']
   }
 
@@ -191,25 +193,28 @@ export class IteneraryBuilderPage {
       this.ite.setGroupType("LARGE");
     }
   }
+
   setTypeGuest(type){
-    console.log(type);
-    this.typeG = type;
-    this.ite.setTourType(type);
-    if(this.kuotaG == 'Small Group'){
-      if(type == 'Reguler') this.maxGuest = 10;
-      else if(type == 'Family') this.maxGuest = 10;
-      else if(type == 'Bussiness') this.maxGuest = 10;
-      else if(type == 'Honey Moon') this.maxGuest = 2;
-    }else{
-      if(type == 'Reguler') this.maxGuest = 1000;
-      else if(type == 'Family') this.maxGuest = 1000;
-      else if(type == 'Bussiness') this.maxGuest = 1000;
-    }
+
+      this.typeG = type;
+      this.ite.setTourType(type);
+      if(this.kuotaG == 'Small Group'){
+        if(type == 'Regular') this.maxGuest = 10;
+        else if(type == 'Family') this.maxGuest = 10;
+        else if(type == 'Bussiness') this.maxGuest = 10;
+        else if(type == 'Honey Moon') this.maxGuest = 2;
+      }else{
+        if(type == 'Reguler') this.maxGuest = 1000;
+        else if(type == 'Family') this.maxGuest = 1000;
+        else if(type == 'Bussiness') this.maxGuest = 1000;
+      }
+    
+
 
   }
+
   inputToursName(event) {
     var data = event.target.value;
-    console.log(this.toursname);
     this.ite.setToursName(data);
   }
 
@@ -235,7 +240,8 @@ export class IteneraryBuilderPage {
 
   passengerTapped(event) {
     let count = this.maxGuest;
-    this.navCtrl.push(InputTravellersPage, {count});
+    if(this.typeG != null) this.navCtrl.push(InputTravellersPage, {count});
+    else this.showAlertTravelType();
   }
 
   hotelTapped(event) {
@@ -260,6 +266,8 @@ export class IteneraryBuilderPage {
     else if (this.ite.getDateTour() == null) this.showAlertDates();
     else if (this.totalDays < 0) this.showAlertValidasiDates();
     else if (this.passenger == '') this.showAlertGuest();
+    else if (this.kuotaG == null) this.showAlertGuestType();
+    else if (this.typeG == null) this.showAlertTravelType();
     else {
       var adult = this.ite.getPassenger().guestTour['AdultQty'];
       var child = this.ite.getPassenger().guestTour['ChildQty'];
@@ -277,6 +285,23 @@ export class IteneraryBuilderPage {
   showAlertTourName() {
     let alert = this.alertCtrl.create({
       subTitle: 'Please Input Tours Name ',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+
+   showAlertGuestType() {
+    let alert = this.alertCtrl.create({
+      subTitle: 'Please Choose Guest Type ',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+   showAlertTravelType() {
+    let alert = this.alertCtrl.create({
+      subTitle: 'Please Choose Travel Type ',
       buttons: ['OK']
     });
     alert.present();
