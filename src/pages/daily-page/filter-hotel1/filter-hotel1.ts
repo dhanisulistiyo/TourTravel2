@@ -18,8 +18,11 @@ export class FilterHotel1Page {
     listLocations: Array<any>;
     listTypes: Array<any>;
     listFacilities: Array<any>;
-    active: boolean = false;
-
+    active1: boolean = true;
+    active2: boolean = true;
+    active3: boolean = true;
+    active4: boolean = true;
+    active5: boolean = true;
     selectedRat: Number[] = [];
     idAwal;
     idAkhir;
@@ -109,15 +112,49 @@ export class FilterHotel1Page {
     //     this.aco.setRatings(ratings);
 
     //   }
+
+
     filterRat(ratings) {
         const foundAt = this.selectedRat.indexOf(ratings);
         if (foundAt >= 0) {
             this.selectedRat.splice(foundAt, 1);
-            this.active = !this.active;
-
-            console.log(this.active);
+            switch (ratings) { 
+                case 1: 
+                    this.active1 = true;
+                    break;
+                case 2: 
+                    this.active2 = true;
+                    break;
+                case 3: 
+                    this.active3 = true;
+                    break;
+                case 4: 
+                    this.active4 = true;
+                    break;
+                case 5: 
+                    this.active5 = true;
+                    break;
+            }
         } else {
             this.selectedRat.push(ratings);
+            switch (ratings) { 
+                case 1: 
+                    this.active1 = false;
+                    break;
+                case 2: 
+                    this.active2 = false;
+                    break;
+                case 3: 
+                    this.active3 = false;
+                    break;
+                case 4: 
+                    this.active4 = false;
+                    break;
+                case 5: 
+                    this.active5 = false;
+                    break;
+            }
+
         }
         console.log(this.selectedRat);
         this.aco.setRatings(this.selectedRat);
@@ -150,9 +187,7 @@ export class FilterHotel1Page {
         let i = this.idAkhir;
         this.navCtrl.push(ListHotelPage1, { des, id, i });
     }
-    buttonClick() {
-        this.active = !this.active;
-        console.log(this.active);
-    }
+
+
 
 }

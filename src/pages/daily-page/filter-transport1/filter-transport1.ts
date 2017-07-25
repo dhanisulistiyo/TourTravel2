@@ -24,6 +24,9 @@ export class FilterTransport1Page {
   idAwal;
   idAkhir;
   daily;
+    active1: boolean = true;
+    active2: boolean = true;
+    active3: boolean = true;
   constructor(public navCtrl: NavController, public navParams: NavParams, public fil:FiltransportService,
    public tra: TransportService,
    public load : LoadingController,
@@ -93,8 +96,30 @@ export class FilterTransport1Page {
     const foundAt = this.selectedRat.indexOf(ratings);
         if (foundAt >= 0) {
             this.selectedRat.splice(foundAt, 1);
+              switch (ratings) { 
+                case 'REGULER': 
+                    this.active1 = true;
+                    break;
+                case 'PREMIUM': 
+                    this.active2 = true;
+                    break;
+                case 'LUXURY': 
+                    this.active3 = true;
+                    break;
+              }
         } else {
             this.selectedRat.push(ratings);
+               switch (ratings) { 
+                case 'REGULER': 
+                    this.active1 = false;
+                    break;
+                case 'PREMIUM': 
+                    this.active2 = false;
+                    break;
+                case 'LUXURY': 
+                    this.active3 = false;
+                    break;
+              }
         }
         console.log(this.selectedRat);
     this.tra.setRatings(this.selectedRat);
