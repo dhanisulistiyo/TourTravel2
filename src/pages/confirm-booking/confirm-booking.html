@@ -62,6 +62,64 @@
       </ion-card-content>
     </ion-card>
 
+    <ion-card>
+      <ion-card-header (click)="toggleDetails(data[0])">
+        <h2 class="card-title">Guest(s) Detail</h2>
+        <!--<ion-icon color="primary" item-right [name]="data[0].icon" (click)="toggleDetails(d)"></ion-icon>-->
+      </ion-card-header>
+      <ion-card-content style="margin-left: 0px; padding-left: 0; padding-right: 0;" *ngIf="data[0].showDetails">
+        <ion-grid class="grid-custom">
+          <ion-row>
+            <ion-col col-1>
+              <h3 class="card-label">1</h3>
+            </ion-col>
+            <ion-col col-10>
+              <h3 class="card-label"><strong>Ucu Nurul Ulum</strong></h3>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-1>
+            </ion-col>
+            <ion-col col-10>
+              <h3 class="card-label">Indonesia</h3>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-1>
+            </ion-col>
+            <ion-col col-10>
+              <h3 class="card-leader">TOUR LEADER</h3>
+              <!-- <h3 class="card-member">TOUR MEMBER</h3> -->
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-grid class="grid-custom">
+          <ion-row>
+            <ion-col col-1>
+              <h3 class="card-label">1</h3>
+            </ion-col>
+            <ion-col col-10>
+              <h3 class="card-label"><strong>Dani S Wibowo</strong></h3>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-1>
+            </ion-col>
+            <ion-col col-10>
+              <h3 class="card-label">Indonesia</h3>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-1>
+            </ion-col>
+            <ion-col col-10>
+               <h3 class="card-member">TOUR MEMBER</h3> 
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
     <ion-list *ngFor="let price of TourPriceSum">
       <ion-card>
         <ion-card-header (click)="toggleDetails(data[1])">
