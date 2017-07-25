@@ -117,6 +117,9 @@ export class MultiTransactionService {
   memberGuest(){
       this.guest= [];
       for (let i = 0; i < (Object.keys(this.gu.Guest).length); i++) {
+        let a = this.gu.Guest[i];
+        if(a.firstName != null && a.lastName != null && a.id != null && a.typeid != null && a.guestype != null && a.country != null){
+
          let item = {
             	FirstName : this.gu.Guest[i].firstName,
               LastName : this.gu.Guest[i].lastName,
@@ -124,8 +127,10 @@ export class MultiTransactionService {
               IdentityType :  this.gu.Guest[i].typeid,
               GuestType :  this.gu.Guest[i].guestype,
               CountryId :  this.gu.Guest[i].country.Country.Id
-         }
-         this.guest.push(item);
+            }
+          this.guest.push(item);
+        }
+        
       }
 
   }

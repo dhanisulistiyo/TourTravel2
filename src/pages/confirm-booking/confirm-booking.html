@@ -62,70 +62,47 @@
       </ion-card-content>
     </ion-card>
 
-    <ion-card>
-      <ion-card-header (click)="toggleDetails(data[0])">
+    <ion-card *ngIf="TourGuest.length > 0">
+      <ion-card-header (click)="toggleDetails(data[1])">
         <h2 class="card-title">Guest(s) Detail</h2>
         <!--<ion-icon color="primary" item-right [name]="data[0].icon" (click)="toggleDetails(d)"></ion-icon>-->
       </ion-card-header>
-      <ion-card-content style="margin-left: 0px; padding-left: 0; padding-right: 0;" *ngIf="data[0].showDetails">
-        <ion-grid class="grid-custom">
+      <ion-card-content style="margin-left: 0px; padding-left: 0; padding-right: 0;" *ngIf="data[1].showDetails">
+        <ion-grid class="grid-custom" *ngFor="let item of TourGuest ; let i = index" >
           <ion-row>
             <ion-col col-1>
-              <h3 class="card-label">1</h3>
+              <h3 class="card-label">{{i+1}}</h3>
             </ion-col>
             <ion-col col-10>
-              <h3 class="card-label"><strong>Ucu Nurul Ulum</strong></h3>
+              <h3 class="card-label"><strong>{{item.FirstName}} {{item.LastName}}</strong></h3>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col col-1>
             </ion-col>
             <ion-col col-10>
-              <h3 class="card-label">Indonesia</h3>
+              <h3 class="card-label">{{item.CountryId}}</h3>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col col-1>
             </ion-col>
             <ion-col col-10>
-              <h3 class="card-leader">TOUR LEADER</h3>
-              <!-- <h3 class="card-member">TOUR MEMBER</h3> -->
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-        <ion-grid class="grid-custom">
-          <ion-row>
-            <ion-col col-1>
-              <h3 class="card-label">1</h3>
-            </ion-col>
-            <ion-col col-10>
-              <h3 class="card-label"><strong>Dani S Wibowo</strong></h3>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-1>
-            </ion-col>
-            <ion-col col-10>
-              <h3 class="card-label">Indonesia</h3>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-1>
-            </ion-col>
-            <ion-col col-10>
-               <h3 class="card-member">TOUR MEMBER</h3> 
+              <h3 *ngIf="item.GuestType == 'TOURLEADER'"  class="card-leader">TOUR LEADER</h3>
+              <h3 *ngIf="item.GuestType == 'TOURMEMBER'" class="card-member">TOUR MEMBER</h3>
             </ion-col>
           </ion-row>
         </ion-grid>
       </ion-card-content>
     </ion-card>
 
+
     <ion-list *ngFor="let price of TourPriceSum">
       <ion-card>
-        <ion-card-header (click)="toggleDetails(data[1])">
+        <ion-card-header (click)="toggleDetails(data[2])">
           <h2 class="card-title">Room Allocation</h2>
         </ion-card-header>
-        <ion-card-content style="margin-left: 0px;" *ngIf="data[1].showDetails">
+        <ion-card-content style="margin-left: 0px;" *ngIf="data[2].showDetails">
           <ion-grid>
             <ion-row *ngIf="price.SharingRoomSum['Pax'] != 0">
               <ion-col col-7>
@@ -172,10 +149,10 @@
       </ion-card>
 
       <ion-card>
-        <ion-card-header (click)="toggleDetails(data[2])">
+        <ion-card-header (click)="toggleDetails(data[3])">
           <h2 class="card-title">Tour Prices</h2>
         </ion-card-header>
-        <ion-card-content style="margin-left: 0px;" *ngIf="data[2].showDetails">
+        <ion-card-content style="margin-left: 0px;" *ngIf="data[3].showDetails">
           <ion-grid>
             <ion-row *ngIf="price.SharingRoomSum['Pax'] !=0">
               <ion-col col-7>
@@ -227,10 +204,10 @@
 
 
       <ion-card-content style="margin-left: 0px;">
-        <ion-card-title (click)="toggleDetails(data[3])">
+        <ion-card-title (click)="toggleDetails(data[4])">
           <h2 class="card-title" style="height: 40px;padding-top: 10px;padding-left: 10px;padding-right: 10px;padding-bottom: 10px;margin-top: 0px; font-size:1.6rem;">Tour Schedules</h2>
         </ion-card-title>
-        <ion-grid *ngIf="data[3].showDetails">
+        <ion-grid *ngIf="data[4].showDetails">
           <ion-item *ngFor="let dp of DailyPrograms ; let j of index" class="label-title-item">
             <ion-icon color="primary"></ion-icon>
             <div class="divider-title">

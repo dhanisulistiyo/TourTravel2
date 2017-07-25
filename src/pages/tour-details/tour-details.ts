@@ -20,6 +20,7 @@ export class TourDetailsPage {
   BookingDetailSum: Array<any>;
   DailyPrograms: Array<any>;
   TourPriceSum: Array<any>;
+  TourGuest: Array<any>;
   curency;
   selectedId: any;
   isValid;
@@ -33,6 +34,7 @@ export class TourDetailsPage {
     this.BookingDetailSum = null;
     this.DailyPrograms = null;
     this.TourPriceSum = null;
+    this.TourGuest = null;
     this.curency = null;
     this.selectedId = navParams.data;
     this.isValid = false;
@@ -55,11 +57,19 @@ export class TourDetailsPage {
 
     this.his.getTransactionsSumarry(this.selectedId).subscribe(data => {
       this.BookingDetailSum = Array.of(data['BookingDetailSum']);
+      this.TourGuest =(data['TourGuestSum']);
       this.DailyPrograms = (data['DailyPrograms'])
       this.TourPriceSum = Array.of(data['TourPriceSum']);
+      
 
       this.data.push({
         info: "Tour Detail",
+        icon: 'ios-arrow-dropright-outline',
+        showDetails: true
+      });
+
+       this.data.push({
+        info: "Guest Detail",
         icon: 'ios-arrow-dropright-outline',
         showDetails: true
       });
