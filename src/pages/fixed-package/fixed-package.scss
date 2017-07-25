@@ -1,44 +1,9 @@
 page-fixed-package {
     $line-height: 1;
-    $lines-to-show: 1;
+    $lines-to-show: 2;
     .scroll-content {
         padding-top: 0px;
-    } // ion-scroll {
-    //     width: 100%;
-    //     height: 300px;
-    //     white-space: nowrap;
-    //      ::-webkit-scrollbar {
-    //         display: none;
-    //     }
-    // }
-    // .info {
-    //     padding: 10px 15px;
-    //     margin: 10px 0px;
-    //     background-color: #FFFFFF;
-    // }
-    // .photos {
-    //     margin-bottom: 10px;
-    //     img {
-    //         margin: 0px 5px;
-    //         display: inline-block;
-    //         width: 150px;
-    //         height: 150px;
-    //         object-fit: cover;
-    //     }
-    // }
-    // .reviews,
-    // .photos {
-    //     background-color: transparent;
-    //     padding: 10px 0px;
-    //     h3 {
-    //         margin-top: 0px;
-    //         padding-left: 15px;
-    //         margin-bottom: 0px;
-    //     }
-    // }
-    // .active {
-    //     color: red;
-    // }
+    }
     ion-card {
         background-color: #fff;
         margin: 0;
@@ -47,6 +12,14 @@ page-fixed-package {
     }
     ion-card:last-of-type {
         margin-bottom: 0 !important;
+    }
+    .card-md {
+        margin: 10px 10px 10px 10px;
+        width: calc(100% - 20px);
+        border-radius: 2px;
+        font-size: 1.4rem;
+        background: #fff;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     }
     ion-card.card {
         box-shadow: 2px;
@@ -84,7 +57,7 @@ page-fixed-package {
         /* Fallback for non-webkit */
         display: -webkit-box;
         max-width: 400px;
-        height: 1.5rem *$line-height*$lines-to-show;
+        height: 1.6rem *$line-height*$lines-to-show;
         /* Fallback for non-webkit */
         margin: 0 auto;
         font-size: 1.5rem;
@@ -95,6 +68,7 @@ page-fixed-package {
         /* autoprefixer: on */
         overflow: hidden;
         text-overflow: ellipsis;
+        white-space: normal;
     }
     .card-md h3 {
         font-family: 'Quicksand', cursive;
@@ -118,7 +92,7 @@ page-fixed-package {
         text-align: left;
         left: 0;
         position: absolute;
-        padding: 20px 5px 10px 5px;
+        padding: 50px 5px 10px 5px;
     }
     ion-item {
         background-color: #fff;
@@ -141,5 +115,40 @@ page-fixed-package {
         .scroll-item {
             display: inline-block;
         }
+    }
+    SCROLL-CONTENT {
+        overflow-y: auto !important;
+    }
+    CODE {
+        background: #EFEFEF;
+    }
+    ion-scroll {
+        white-space: nowrap;
+        height: 150px
+    }
+    img {
+        margin: 10px;
+    }
+    .section {
+        display: inline-block;
+        white-space: nowrap;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+    .div-custom {
+        display: inline-block;
+        white-space: nowrap;
+        min-height: 180px;
+        overflow: scroll;
+    }
+    .img-custom {
+        height: 180px;
+        width: 130px;
+        margin: 1px;
+        display: inline-block;
+    }
+    ion-icon.custom-star {
+        color: #ffcd25;
+        font-size: 1.5rem;
     }
 }
