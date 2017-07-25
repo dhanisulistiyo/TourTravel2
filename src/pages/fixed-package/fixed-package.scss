@@ -1,6 +1,14 @@
 page-fixed-package {
     $line-height: 1;
     $lines-to-show: 2;
+    .opaque {
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        backdrop-filter: saturate(180%) blur(20px);
+    }
+    .opaque .toolbar-background {
+        background-color: transparent;
+        border: none;
+    }
     .scroll-content {
         padding-top: 0px;
     }
@@ -20,6 +28,33 @@ page-fixed-package {
         font-size: 1.4rem;
         background: #fff;
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    }
+    ion-slides {
+        width: 100%;
+        height: 40%;
+        display: block;
+    }
+    .swiper-slide {
+        text-align: center;
+        width: 100%;
+        height: 40%;
+        box-sizing: border-box;
+        font-size: 18px;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+    .slider {
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
     }
     ion-card.card {
         box-shadow: 2px;
@@ -122,12 +157,97 @@ page-fixed-package {
     CODE {
         background: #EFEFEF;
     }
+    .slide-pager {
+        min-height: 250px;
+        height: auto;
+        width: 100%;
+        position: relative;
+        .card-md h2 {
+            font-weight: 600;
+            font-family: 'Open Sans', cursive;
+            color: white;
+            display: block;
+            /* Fallback for non-webkit */
+            display: -webkit-box;
+            max-width: 400px;
+            /* Fallback for non-webkit */
+            margin: 0 auto;
+            padding: 0px 10px 0px 10px;
+            font-size: 3rem;
+        }
+        .card-md h3 {
+            font-family: 'Quicksand', cursive;
+            color: white;
+            font-size: 1.7rem;
+            letter-spacing: 1;
+            font-weight: 600;
+            padding: 0px 10px 0px 10px;
+        }
+    }
+    .honeymoon {
+        .div-custom {
+            display: inline-block;
+            white-space: nowrap;
+            min-height: 180px;
+            overflow: scroll;
+            .card-md h2 {
+                font-weight: 600;
+                font-family: 'Open Sans', cursive;
+                color: white;
+                /* Fallback for non-webkit */
+                display: -webkit-box;
+                max-width: 400px;
+                height: 1.6rem *$line-height*$lines-to-show;
+                /* Fallback for non-webkit */
+                margin: 0 auto;
+                font-size: 1.5rem;
+                line-height: $line-height;
+                -webkit-line-clamp: $lines-to-show;
+                /* autoprefixer: off */
+                -webkit-box-orient: vertical;
+                /* autoprefixer: on */
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: normal;
+            }
+            .card-md h3 {
+                font-family: 'Quicksand', cursive;
+                color: white;
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+            .img-custom {
+                height: 140px;
+                width: 250px;
+                margin: 1px;
+                display: inline-block;
+            }
+            ion-card.card {
+                box-shadow: 2px;
+                background: white;
+                float: left;
+                /* important */
+                position: relative;
+                /* important(so we can absolutely position the description div */
+            }
+            .card-content {
+                box-shadow: none;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+                right: 0;
+                display: block;
+                bottom: 0;
+                font-size: 2em;
+                font-weight: 900;
+                text-align: left;
+                left: 0;
+                position: fixed;
+                padding: 50px 5px 10px 5px;
+            }
+        }
+    }
     ion-scroll {
         white-space: nowrap;
         height: 150px
-    }
-    img {
-        margin: 10px;
     }
     .section {
         display: inline-block;

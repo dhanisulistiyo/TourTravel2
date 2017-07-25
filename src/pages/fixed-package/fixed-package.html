@@ -4,68 +4,202 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Fixed Date Packages</ion-title>
   </ion-navbar>
+</ion-header> -->
+
+<ion-header no-border [class.opaque]="!showToolbar">
+  <!--Navbar-->
+  <ion-navbar color="primary">
+    <!--Toggle title-->
+    <ion-title [hidden]="!showToolbar">
+      Fixed Date Packages
+    </ion-title>
+  </ion-navbar>
 </ion-header>
+<div class="scroll-content" style="padding-top:0px">
+  <ion-content fullscreen="true" style="padding-top: 0px;" (ionScroll)="onScroll($event)">
 
-<!-- <ion-content fullscreen> -->
+    <div class="slide-pager" style="margin-left: -18px; width:110%; overflow: visible; margin-top: -10px;">
+      <ion-slides pager="true" loop="true" speed="1000">
+        <ion-slide>
+           <ion-card>
+            <img src="http://www.explorer-bali.com/beta/wp-content/uploads/2011/04/bali-diving1.jpg" style="height:250px; width:100%;" />
+            <ion-card-content>
+              <h2>LET'S TRAVEL</h2>
+              <h3>Discover and book amazing things-to-do at exclusive prices</h3>
+            </ion-card-content>
+          </ion-card> 
+        </ion-slide>
+        <ion-slide>
+           <ion-card>
+            <img src="https://i1.wp.com/grrrltraveler.com/wordpress/wp-content/uploads/2014/02/inspirational-travel-quotes-susan-sontag.jpg" style="height:250px; width:100%;" />
+          </ion-card> 
+        </ion-slide>
+        <ion-slide>
+           <ion-card>
+            <img src="https://s-media-cache-ak0.pinimg.com/736x/7c/09/88/7c0988027044e746206564377124cc8d--quotes-on-adventure-adventure-travel.jpg" style="height:250px; width:100%;" />
+          </ion-card> 
+        </ion-slide>
+        <ion-slide>
+           <ion-card>
+            <img src="http://www.geckosadventures.com/tales/wp-content/uploads/2014/08/meme16.jpg" style="height:250px; width:100%;" />
+          </ion-card> 
+        </ion-slide>
+      </ion-slides>
+    </div>
+    
+    <div class="honeymoon">
+    <ion-row>
+      <ion-col col-8>
+        <div>
+          <h2>Honeymoon</h2>
+        </div>
+      </ion-col>
+      <ion-col col-4>
+        <p>See All</p>
+      </ion-col>
+    </ion-row>
+    <ion-scroll scrollX="true" style="overflow: scroll;white-space: nowrap; min-height:200px;">
+      <div class="div-custom">
+        <div class="div-custom">
+          <!-- <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> -->
+          <ion-card>
+            <img src="assets/img/bali-wallpaper.jpg" class="img-custom" />
+            <ion-card-content>
+              <h2>Bali Monkey Forest, Traditional Village, GWK and Batur Trekking</h2>
+              <h3>30 Guest(s)</h3>
+              <h3>24 Jul - 30 Jul 2017</h3>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </div>
 
-<!-- <div class="photos">
-    <h3>Pictures</h3>
-    <ion-scroll scrollX="true">
-      <div>
-        <img src="assets/img/bali-wallpaper.jpg">
-        <p style="-webkit-box-orient: vertical;">Bali Monkey Forest, Traditional Village, GWK and Batur Trekking</p>
+      <div class="div-custom">
+        <div class="div-custom">
+          <!-- <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> -->
+          <ion-card>
+            <img src="assets/img/bali-wallpaper.jpg" class="img-custom" />
+            <ion-card-content>
+              <ion-card-title>
+                <h2>Bali Monkey Forest, Traditional Village, GWK and Batur Trekking</h2>
+                <h3>30 Guest(s)</h3>
+                <h3>From 24 Jul Until 30 Jul 2017</h3>
+              </ion-card-title>
+            </ion-card-content>
+          </ion-card>
+        </div>
       </div>
-      <div>
-        <img src="assets/img/bali-wallpaper.jpg">
-        <p style="-webkit-box-orient: vertical;">Private Bali Ubud Volcano Day Trip</p>
-      </div>
-      <div>
-        <img src="assets/img/bali-wallpaper.jpg">
-        <p style="-webkit-box-orient: vertical;">Bali FullDay Tour with Lunch</p>
+
+      <div class="div-custom">
+        <div class="div-custom">
+          <!-- <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> -->
+          <ion-card>
+            <img src="assets/img/bali-wallpaper.jpg" class="img-custom" />
+            <ion-card-content>
+              <ion-card-title>
+                <h2>Bali Monkey Forest, Traditional Village, GWK and Batur Trekking</h2>
+                <h3>30 Guest(s)</h3>
+                <h3>From 24 Jul Until 30 Jul 2017</h3>
+              </ion-card-title>
+            </ion-card-content>
+          </ion-card>
+        </div>
       </div>
     </ion-scroll>
-  </div> -->
-
-<!-- <div class="photos">
-    <h3>Honeymoon</h3>
-    <ion-scroll scrollX="true" style="height:200px;">
-      <div class="scroll-item">
-        <ion-card>
-          <img src="assets/img/bali-wallpaper.jpg" class="cover" />
-          <ion-card-content>
-            <ion-card-title>
-              <h2 style="-webkit-box-orient: vertical;">Bali Monkey Forest, Traditional Village, GWK and Batur Trekking</h2>
+    </div>
+    <ion-row>
+      <ion-col col-8>
+        <div>
+          <h2>Business</h2>
+        </div>
+      </ion-col>
+      <ion-col col-4>
+        <p>See All</p>
+      </ion-col>
+    </ion-row>
+    <ion-scroll scrollX="true" style="overflow: scroll;white-space: nowrap; min-height:200px;">
+      <div class="div-custom">
+        <div class="div-custom">
+          <!-- <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> -->
+          <ion-card>
+            <img src="assets/img/bali-wallpaper.jpg" class="img-custom" />
+            <ion-card-content>
+              <h2>Bali Monkey Forest, Traditional Village, GWK and Batur Trekking</h2>
               <h3>30 Guest(s)</h3>
-              <h3>From 24 Jul Until 30 Jul 2017</h3>
-            </ion-card-title>
-          </ion-card-content>
-        </ion-card>
+              <h3>24 Jul - 30 Jul 2017</h3>
+            </ion-card-content>
+          </ion-card>
+        </div>
       </div>
-      <div class="scroll-item">
-        <ion-card>
-          <img src="assets/img/bali-wallpaper.jpg" class="cover" />
-          <ion-card-content>
-            <ion-card-title>
-              <h2 style="-webkit-box-orient: vertical;">Bali Monkey Forest, Traditional Village, GWK and Batur Trekking</h2>
-              <h3>30 Guest(s)</h3>
-              <h3>From 24 Jul Until 30 Jul 2017</h3>
-            </ion-card-title>
-          </ion-card-content>
-        </ion-card>
+
+      <div class="div-custom">
+        <div class="div-custom">
+          <!-- <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> -->
+          <ion-card>
+            <img src="assets/img/bali-wallpaper.jpg" class="img-custom" />
+            <ion-card-content>
+              <ion-card-title>
+                <h2>Bali Monkey Forest, Traditional Village, GWK and Batur Trekking</h2>
+                <h3>30 Guest(s)</h3>
+                <h3>From 24 Jul Until 30 Jul 2017</h3>
+              </ion-card-title>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </div>
+
+      <div class="div-custom">
+        <div class="div-custom">
+          <!-- <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> -->
+          <ion-card>
+            <img src="assets/img/bali-wallpaper.jpg" class="img-custom" />
+            <ion-card-content>
+              <ion-card-title>
+                <h2>Bali Monkey Forest, Traditional Village, GWK and Batur Trekking</h2>
+                <h3>30 Guest(s)</h3>
+                <h3>From 24 Jul Until 30 Jul 2017</h3>
+              </ion-card-title>
+            </ion-card-content>
+          </ion-card>
+        </div>
       </div>
     </ion-scroll>
+
+  </ion-content>
+
+</div>
+<!-- <ion-content fullscreen style="padding-top: 0px;">
+  <div class="slide-pager" style="margin-left: -18px; width:110%; overflow: visible; margin-top: -10px;">
+    <ion-slides autoplay="2000" loop="true" speed="1000">
+      <ion-slide>
+        <ion-card>
+          <img src="assets/img/bali-wallpaper.jpg" class="img-custom" style="height:250px; width:95%;" />
+          <ion-card-content>
+            <h2>Bali Monkey Forest, Traditional Village, GWK and Batur Trekking</h2>
+            <h3>30 Guest(s)</h3>
+            <h3>24 Jul - 30 Jul 2017</h3>
+          </ion-card-content>
+        </ion-card>
+         <img src="assets/img/bali-wallpaper.jpg" style="height:250px; width:95%;" /> 
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/img/rinjani-wallpaper.jpg" style="height:250px; width:95%;" />
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/img/lombok-wallpaper.jpg" style="height:250px; width:95%;" />
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/img/backpacker-wallpaper.jpg" style="height:250px; width:95%;" />
+      </ion-slide>
+    </ion-slides>
   </div>
 
-</ion-content> -->
-
-<ion-content class="has-header">
   <ion-row>
     <ion-col col-8>
       <div>
@@ -77,19 +211,15 @@
     </ion-col>
   </ion-row>
   <ion-scroll scrollX="true" style="overflow: scroll;white-space: nowrap; min-height:200px;">
-
     <div class="div-custom">
       <div class="div-custom">
-        <!-- <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> -->
+         <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> 
         <ion-card>
           <img src="assets/img/bali-wallpaper.jpg" class="img-custom" />
           <ion-card-content>
             <h2>Bali Monkey Forest, Traditional Village, GWK and Batur Trekking</h2>
-
             <h3>30 Guest(s)</h3>
             <h3>24 Jul - 30 Jul 2017</h3>
-
-
           </ion-card-content>
         </ion-card>
       </div>
@@ -97,7 +227,7 @@
 
     <div class="div-custom">
       <div class="div-custom">
-        <!-- <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> -->
+         <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> 
         <ion-card>
           <img src="assets/img/bali-wallpaper.jpg" class="img-custom" />
           <ion-card-content>
@@ -113,7 +243,7 @@
 
     <div class="div-custom">
       <div class="div-custom">
-        <!-- <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> -->
+         <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> 
         <ion-card>
           <img src="assets/img/bali-wallpaper.jpg" class="img-custom" />
           <ion-card-content>
@@ -127,18 +257,62 @@
       </div>
     </div>
   </ion-scroll>
-</ion-content>
 
-<!-- 
- <ion-content fullscreen>
-  <ion-card class="page-custome-package">
-    <img src="assets/img/bali-wallpaper.jpg" class="cover-custom" />
-    <ion-card-content>
-      <ion-card-title>
-        <h2>Bali Monkey Forest, Traditional Village, GWK and Batur Trekking</h2>
-        <h3>30 Guest(s)</h3>
-        <h3>From 24 Jul Until 30 Jul 2017</h3>
-      </ion-card-title>
-    </ion-card-content>
-  </ion-card>
-</ion-content>  -->
+  <ion-row>
+    <ion-col col-8>
+      <div>
+        <h2>Business</h2>
+      </div>
+    </ion-col>
+    <ion-col col-4>
+      <p>See All</p>
+    </ion-col>
+  </ion-row>
+  <ion-scroll scrollX="true" style="overflow: scroll;white-space: nowrap; min-height:200px;">
+    <div class="div-custom">
+      <div class="div-custom">
+         <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> 
+        <ion-card>
+          <img src="assets/img/bali-wallpaper.jpg" class="img-custom" />
+          <ion-card-content>
+            <h2>Bali Monkey Forest, Traditional Village, GWK and Batur Trekking</h2>
+            <h3>30 Guest(s)</h3>
+            <h3>24 Jul - 30 Jul 2017</h3>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+
+    <div class="div-custom">
+      <div class="div-custom">
+         <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> 
+        <ion-card>
+          <img src="assets/img/bali-wallpaper.jpg" class="img-custom" />
+          <ion-card-content>
+            <ion-card-title>
+              <h2>Bali Monkey Forest, Traditional Village, GWK and Batur Trekking</h2>
+              <h3>30 Guest(s)</h3>
+              <h3>From 24 Jul Until 30 Jul 2017</h3>
+            </ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+
+    <div class="div-custom">
+      <div class="div-custom">
+         <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> 
+        <ion-card>
+          <img src="assets/img/bali-wallpaper.jpg" class="img-custom" />
+          <ion-card-content>
+            <ion-card-title>
+              <h2>Bali Monkey Forest, Traditional Village, GWK and Batur Trekking</h2>
+              <h3>30 Guest(s)</h3>
+              <h3>From 24 Jul Until 30 Jul 2017</h3>
+            </ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+  </ion-scroll>
+</ion-content>   -->

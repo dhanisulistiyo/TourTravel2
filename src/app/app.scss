@@ -99,7 +99,9 @@
                 box-shadow: none;
             }
         }
-        
+        page-fixed-package {
+
+        }
         .searchbar-md {
             padding: 8px;
             background: #4fd2c2;
@@ -108,17 +110,7 @@
         .toolbar-background-md {
             border-color: #4fd2c2;
             background: #4fd2c2;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-            &:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                background-image: linear-gradient(to bottom right, #4fd2c2, #000000);
-                opacity: .1;
-            }
+
         }
         .bar-button-default-md,
         .bar-button-clear-md-default,

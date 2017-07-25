@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef  } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
@@ -7,16 +7,21 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class FixedPackagePage {
 
-  // sections;
-  items;
+  showToolbar: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  // this.sections = ['Culture 1', 'Culture 2', 'Culture 3']
-  this.items = [[0, 1, 2], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4]]
+
+  constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, public navParams: NavParams) {
+
+  }
+  onScroll($event: any) {
+    let scrollTop = $event.scrollTop;
+    this.showToolbar = scrollTop >= 120;
+    this.ref.detectChanges();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FixedPackagePage');
   }
+
 
 }
