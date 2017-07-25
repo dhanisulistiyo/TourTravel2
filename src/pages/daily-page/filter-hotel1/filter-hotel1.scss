@@ -30,10 +30,8 @@ page-filter-hotel1 {
         max-width: 20%;
         background-color: white;
         position: relative;
-        border-radius: 4%;
-        padding: 5px;
+        padding: 0px;
         width: 100%;
-        border: 1px solid #a6a6a6;
     }
     .col-3-custom {
         -webkit-flex: 0 0 25%;
@@ -137,6 +135,25 @@ page-filter-hotel1 {
         font-family: 'Open Sans', cursive;
         font-size: 1.9rem;
         color: #595959;
-        font-weight: 600;
+        font-weight: 600; //a6a6a6
+    }
+    .button-md {
+        overflow: hidden;
+        margin: 0;
+        padding: 14px;
+        height: 3.6rem;
+        border-radius: 2px;
+        font-size: 1.4rem;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+    .button-outline-md-primary {
+        border-color: #a6a6a6;
+        color: #a6a6a6;
+        background-color: transparent;
+    }
+    .button-md-primary {
+        color: #fff;
+        background-color: #2cbaae;
     }
 }
