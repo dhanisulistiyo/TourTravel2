@@ -61,7 +61,6 @@ export class IteneraryBuilderPage {
     };
     this.kuotaGuest = ['Choose Type Guest','Small Group', 'Large Group']
     this.typeGuest =  ['Choose Type'];
-    //this.typeGuest = ['Personal','Family', 'Bussiness', 'Group', 'Honey Moon']
   }
 
 
@@ -186,11 +185,11 @@ export class IteneraryBuilderPage {
     console.log(kuo);
     this.kuotaG = kuo;
     if(kuo == 'Small Group'){
-      this.typeGuest = ['Choose Type','Regular','Family', 'Bussiness', 'Honeymoon']
-      this.ite.setGroupType("SMALL");
+      this.typeGuest = ['Choose Type','Regular','Family', 'Business', 'Honeymoon']
+      this.ite.setGroupType("Small");
     }else{
-      this.typeGuest = ['Choose Type','Regular','Family', 'Bussiness'];
-      this.ite.setGroupType("LARGE");
+      this.typeGuest = ['Choose Type','Regular','Family', 'Business'];
+      this.ite.setGroupType("Large");
     }
   }
 
@@ -201,12 +200,12 @@ export class IteneraryBuilderPage {
       if(this.kuotaG == 'Small Group'){
         if(type == 'Regular') this.maxGuest = 10;
         else if(type == 'Family') this.maxGuest = 10;
-        else if(type == 'Bussiness') this.maxGuest = 10;
+        else if(type == 'Business') this.maxGuest = 10;
         else if(type == 'Honeymoon') this.maxGuest = 2;
       }else{
         if(type == 'Regular') this.maxGuest = 1000;
         else if(type == 'Family') this.maxGuest = 1000;
-        else if(type == 'Bussiness') this.maxGuest = 1000;
+        else if(type == 'Business') this.maxGuest = 1000;
       }
     
 
@@ -272,11 +271,10 @@ export class IteneraryBuilderPage {
       var adult = this.ite.getPassenger().guestTour['AdultQty'];
       var child = this.ite.getPassenger().guestTour['ChildQty'];
       var infant = this.ite.getPassenger().guestTour['InfantQty'];
-      let tot = adult+child+infant;
       let type = this.typeG;
       //this.ds.destroyObject();
       this.ds.dailyProgram(this.totalDays);
-      this.gu.createGuest(tot,this.kuotaG)
+      this.gu.createGuest(adult,child,infant,this.kuotaG)
       this.navCtrl.push(GuestDetailsPage, {type});
     }
   }

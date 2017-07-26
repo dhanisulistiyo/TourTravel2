@@ -15,6 +15,7 @@ export class GuestDetails {
   lastName;
   country;
   id;
+  typeperson;
 	typeid;
   guestype;
   constructor() {
@@ -22,6 +23,7 @@ export class GuestDetails {
     this.id = null;
 	  this.typeid = null;
     this.guestype = null;
+    this.typeperson = null;
     this.firstName = null;
     this.lastName = null;
     this.country = null;
@@ -37,17 +39,23 @@ export class GuestServiceProvider {
   }
 
 
-  createGuest(count, type){
+  createGuest(adult,child,infant, type){
+    let count = adult+child+infant
       this.Guest = []
       if(type == "Large Group"){
         let g = new GuestDetails();
         g.typeid= 1;
+        g.typeperson = "Adult"
         g.guestype= "TOURLEADER";
         this.Guest[0]=(g);
       }else{
         for(let i = 0 ; i < count; i++){
           let g = new GuestDetails();
           g.typeid= 1;
+          if(i < adult)g.typeperson = "Adult"
+          else if(i > adult-1 && i < (adult+child))g.typeperson = "Child"  
+          else if(i > adult+child-1 && i < (count))g.typeperson = "Infant" 
+
           if(i == 0) g.guestype= "TOURLEADER";
           else  g.guestype= "TOURMEMBER";
           this.Guest[i]=(g);
