@@ -272,11 +272,10 @@ export class IteneraryBuilderPage {
       var adult = this.ite.getPassenger().guestTour['AdultQty'];
       var child = this.ite.getPassenger().guestTour['ChildQty'];
       var infant = this.ite.getPassenger().guestTour['InfantQty'];
-      let tot = adult+child+infant;
       let type = this.typeG;
       //this.ds.destroyObject();
       this.ds.dailyProgram(this.totalDays);
-      this.gu.createGuest(tot,this.kuotaG)
+      this.gu.createGuest(adult,child,infant,this.kuotaG)
       this.navCtrl.push(GuestDetailsPage, {type});
     }
   }
