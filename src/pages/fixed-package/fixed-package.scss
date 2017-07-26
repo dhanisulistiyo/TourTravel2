@@ -1,167 +1,120 @@
-page-fixed-package {
-    $line-height: 1;
-    $lines-to-show: 2;
-    .opaque {
-        -webkit-backdrop-filter: saturate(180%) blur(20px);
-        backdrop-filter: saturate(180%) blur(20px);
-    }
-    .opaque .toolbar-background {
-        background-color: transparent;
-        border: none;
-    }
-    .scroll-content {
-        padding-top: 0px;
-    }
-    ion-card {
-        background-color: #fff;
-        margin: 0;
-        margin-bottom: 25px;
-        position: relative;
-    }
-    ion-card:last-of-type {
-        margin-bottom: 0 !important;
-    }
-    .card-md {
-        margin: 10px 10px 10px 10px;
-        width: calc(100% - 20px);
-        border-radius: 2px;
-        font-size: 1.4rem;
-        background: #fff;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-    }
-    ion-slides {
-        width: 100%;
-        height: 40%;
-        display: block;
-    }
-    .swiper-slide {
-        text-align: center;
-        width: 100%;
-        height: 40%;
-        box-sizing: border-box;
-        font-size: 18px;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-justify-content: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -webkit-align-items: center;
-        -ms-flex-align: center;
-        align-items: center;
-    }
-    .slider {
-        position: absolute !important;
-        top: 0 !important;
-        bottom: 0 !important;
-        width: 100% !important;
-    }
-    ion-card.card {
-        box-shadow: 2px;
-        background: rgba(0, 0, 0, 0.5);
-        float: left;
-        /* important */
-        position: relative;
-        /* important(so we can absolutely position the description div */
-    }
-    .custom-label {
-        background-color: #e6e6e6;
-        margin: 0;
-        text-align: left;
-        padding: 10px;
-        font-family: 'Lato', cursive;
-        color: #4d4d4d;
-        font-size: 1 rem;
-        font-weight: bold;
-    }
-    .card-title-md {
-        margin-bottom: 10px;
-        border: medium none;
-        display: block;
-        margin: 0;
-        padding: 0;
-        font-size: 2.4rem;
-        line-height: 1.2;
-        color: white;
-    }
-    .card-md h2 {
-        font-weight: 600;
-        font-family: 'Open Sans', cursive;
-        color: white;
-        display: block;
-        /* Fallback for non-webkit */
-        display: -webkit-box;
-        max-width: 400px;
-        height: 1.6rem *$line-height*$lines-to-show;
-        /* Fallback for non-webkit */
-        margin: 0 auto;
-        font-size: 1.5rem;
-        line-height: $line-height;
-        -webkit-line-clamp: $lines-to-show;
-        /* autoprefixer: off */
-        -webkit-box-orient: vertical;
-        /* autoprefixer: on */
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: normal;
-    }
-    .card-md h3 {
-        font-family: 'Quicksand', cursive;
-        color: white;
-        font-size: 1.2rem;
-        font-weight: 600;
-    }
-    .card-content {
-        box-shadow: none;
-        background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
-        /* FF3.6-15 */
-        background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
-        /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
-        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        right: 0;
-        display: block;
-        bottom: 0;
-        font-size: 2em;
-        font-weight: 900;
-        text-align: left;
-        left: 0;
-        position: absolute;
-        padding: 50px 5px 10px 5px;
-    }
-    ion-item {
-        background-color: #fff;
-        .label-title-item {
-            color: red;
+    page-fixed-package {
+        $line-height: 1;
+        $lines-to-show: 2;
+        .opaque {
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            backdrop-filter: saturate(180%) blur(20px);
         }
-    }
-    ion-card img {
-        display: block;
-        width: 150px;
-        height: 250px;
-    }
-    .cover-custom {
-        width: 150px;
-        height: 150px;
-        object-fit: cover;
-    }
-    ion-scroll[scrollX] {
-        white-space: nowrap;
-        .scroll-item {
-            display: inline-block;
+        .opaque .toolbar-background {
+            background-color: transparent;
+            border: none;
         }
-    }
-    SCROLL-CONTENT {
-        overflow-y: auto !important;
-    }
-    CODE {
-        background: #EFEFEF;
-    }
-    .slide-pager {
-        min-height: 250px;
-        height: auto;
-        width: 100%;
-        position: relative;
+        .scroll-content {
+            padding-top: 0px;
+        }
+        h2 {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-weight: 500;
+            line-height: 1.2;
+            font-size: 1.9rem;
+        }
+        p {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-weight: 500;
+            line-height: 1.2;
+            color: #007aff;
+        }
+        [col-4] {
+            -webkit-flex: 0 0 33.33333%;
+            -ms-flex: 0 0 33.33333%;
+            flex: 0 0 33.33333%;
+            width: 33.33333%;
+            max-width: 33.33333%;
+            align-content: center;
+            text-align: right;
+            align-self: flex-end;
+            padding-top: 10px;
+            padding-left: 0px;
+        }
+        [col-8] {
+            -webkit-flex: 0 0 66.66667%;
+            -ms-flex: 0 0 66.66667%;
+            flex: 0 0 66.66667%;
+            width: 66.66667%;
+            max-width: 66.66667%;
+            padding-left: 10px;
+        }
+        ion-card {
+            background-color: #fff;
+            margin: 0;
+            margin-bottom: 25px;
+        }
+        ion-card:last-of-type {
+            margin-bottom: 0 !important;
+        }
+        .card-md {
+            margin: 10px 10px 10px 10px;
+            width: calc(100% - 20px);
+            border-radius: 2px;
+            font-size: 1.4rem;
+            background: #fff; //box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        }
+        ion-slides {
+            width: 100%;
+            height: 40%;
+            display: block;
+        }
+        .swiper-slide {
+            text-align: center;
+            width: 100%;
+            height: 40%;
+            box-sizing: border-box;
+            font-size: 18px;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+        .slider {
+            position: absolute !important;
+            top: 0 !important;
+            bottom: 0 !important;
+            width: 100% !important;
+        }
+        ion-card.card {
+            box-shadow: 2px; //background: rgba(0, 0, 0, 0.5);
+            float: left;
+            /* important */
+            position: relative;
+            /* important(so we can absolutely position the description div */
+        }
+        .custom-label {
+            background-color: #e6e6e6;
+            margin: 0;
+            text-align: left;
+            padding: 10px;
+            font-family: 'Lato', cursive;
+            color: #4d4d4d;
+            font-size: 1 rem;
+            font-weight: bold;
+        }
+        .card-title-md {
+            margin-bottom: 10px;
+            border: medium none;
+            display: block;
+            margin: 0;
+            padding: 0;
+            font-size: 2.4rem;
+            line-height: 1.2;
+            color: white;
+        }
         .card-md h2 {
             font-weight: 600;
             font-family: 'Open Sans', cursive;
@@ -170,30 +123,229 @@ page-fixed-package {
             /* Fallback for non-webkit */
             display: -webkit-box;
             max-width: 400px;
+            height: 1.6rem *$line-height*$lines-to-show;
             /* Fallback for non-webkit */
             margin: 0 auto;
-            padding: 0px 10px 0px 10px;
-            font-size: 3rem;
+            font-size: 1.5rem;
+            line-height: $line-height;
+            -webkit-line-clamp: $lines-to-show;
+            /* autoprefixer: off */
+            -webkit-box-orient: vertical;
+            /* autoprefixer: on */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
         }
         .card-md h3 {
             font-family: 'Quicksand', cursive;
             color: white;
-            font-size: 1.7rem;
-            letter-spacing: 1;
+            font-size: 1.2rem;
             font-weight: 600;
-            padding: 0px 10px 0px 10px;
         }
-    }
-    .honeymoon {
-        .div-custom {
-            display: inline-block;
+        ion-item {
+            background-color: #fff;
+            .label-title-item {
+                color: red;
+            }
+        }
+        ion-card img {
+            display: block;
+            width: 150px;
+            height: 250px;
+        }
+        .cover-custom {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+        ion-scroll[scrollX] {
             white-space: nowrap;
-            min-height: 180px;
-            overflow: scroll;
+            .scroll-item {
+                display: inline-block;
+            }
+        }
+        .row-custom {
+            height: 3rem;
+        }
+        .row-label {
+            height: 2.3rem;
+        }
+        .slide-pager {
+            min-height: 250px;
+            height: auto;
+            width: 100%;
+            position: relative;
+            .card-content {
+                box-shadow: none;
+                background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
+                /* FF3.6-15 */
+                background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
+                /* Chrome10-25,Safari5.1-6 */
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+                /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                right: 0;
+                bottom: 0;
+                font-size: 2em;
+                font-weight: 900;
+                text-align: left;
+                left: 0;
+                position: absolute;
+                padding: 50px 5px 10px 5px;
+            }
             .card-md h2 {
                 font-weight: 600;
                 font-family: 'Open Sans', cursive;
                 color: white;
+                display: block;
+                /* Fallback for non-webkit */
+                display: -webkit-box;
+                max-width: 400px;
+                /* Fallback for non-webkit */
+                margin: 0 auto;
+                letter-spacing: 1px;
+                padding: 0px 10px 0px 10px;
+                font-size: 3rem;
+            }
+            .card-md h3 {
+                font-family: 'Quicksand', cursive;
+                color: white;
+                font-size: 1.7rem;
+                letter-spacing: 1;
+                font-weight: 600;
+                padding: 0px 10px 0px 10px;
+            }
+        }
+        .honeymoon {
+            .scroll-custom {
+                overflow: scroll;
+                white-space: nowrap;
+                min-height: 290px;
+            }
+            .div-custom {
+                display: inline-block;
+                white-space: nowrap;
+                width: 80%;
+                min-height: 180px;
+                overflow: scroll;
+                position: relative;
+                p {
+                    background: rgba(0, 0, 0, 0.7);
+                    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    bottom: 48%;
+                    color: white;
+                    font-family: Roboto;
+                    font-size: 1.25em;
+                    left: 1px;
+                    padding: 0.25em 0.75em;
+                    position: absolute;
+                }
+                .card-md h2 {
+                    font-weight: 600;
+                    font-family: 'Open Sans', cursive;
+                    color: black;
+                    /* Fallback for non-webkit */
+                    display: -webkit-box;
+                    max-width: 400px;
+                    height: 1rem *$line-height*$lines-to-show;
+                    /* Fallback for non-webkit */
+                    margin: 0 auto;
+                    font-size: 1.8rem;
+                    line-height: $line-height;
+                    -webkit-line-clamp: $lines-to-show;
+                    /* autoprefixer: off */
+                    -webkit-box-orient: vertical;
+                    /* autoprefixer: on */
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: normal;
+                }
+                .card-md h3 {
+                    font-family: 'Quicksand', cursive;
+                    color: #808080;
+                    font-size: 1.4rem;
+                    font-weight: 600;
+                }
+                .card-md h4 {
+                    font-family: 'Quicksand', cursive;
+                    color: #808080;
+                    font-size: 1.4rem;
+                    font-weight: 600;
+                    margin-bottom: 20px;
+                    display: -webkit-box;
+                    max-width: 400px;
+                    height: 1.5rem *$line-height*1;
+                    line-height: $line-height;
+                    -webkit-line-clamp: 1;
+                    /* autoprefixer: off */
+                    -webkit-box-orient: vertical;
+                    /* autoprefixer: on */
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: normal;
+                }
+                .img-custom {
+                    height: 140px;
+                    width: 100%;
+                    margin: 1px;
+                    display: inline-block;
+                }
+                ion-card.card {
+                    box-shadow: 2px;
+                    background: white;
+                    float: left;
+                    /* important */
+                    position: relative;
+                    /* important(so we can absolutely position the description div */
+                }
+                .card-content {
+                    box-shadow: none;
+                    background: white;
+                    right: 0;
+                    display: block;
+                    bottom: 0;
+                    font-size: 2em;
+                    font-weight: 900;
+                    text-align: left;
+                    left: 0;
+                    padding: 0px 5px 3px 5px;
+                }
+                btn-label {
+                    margin-left: 0px;
+                    padding-left: 0px;
+                }
+                .button-small-md {
+                    padding: 0;
+                    height: 2.1em;
+                    font-size: 1.3rem;
+                }
+                ion-icon.custom-star {
+                    color: #ffcd25;
+                }
+            }
+        }
+        .business {
+            .card-content {
+                box-shadow: none;
+                background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
+                /* FF3.6-15 */
+                background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
+                /* Chrome10-25,Safari5.1-6 */
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+                /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                right: 0;
+                bottom: 0;
+                font-size: 2em;
+                font-weight: 900;
+                text-align: left;
+                left: 0;
+                position: absolute;
+                padding: 50px 5px 10px 5px;
+            }
+            .card-md h2 {
+                font-weight: 600;
+                font-family: 'Open Sans', cursive;
+                color: white;
+                display: block;
                 /* Fallback for non-webkit */
                 display: -webkit-box;
                 max-width: 400px;
@@ -216,59 +368,31 @@ page-fixed-package {
                 font-size: 1.2rem;
                 font-weight: 600;
             }
-            .img-custom {
-                height: 140px;
-                width: 250px;
-                margin: 1px;
-                display: inline-block;
-            }
-            ion-card.card {
-                box-shadow: 2px;
-                background: white;
-                float: left;
-                /* important */
-                position: relative;
-                /* important(so we can absolutely position the description div */
-            }
-            .card-content {
-                box-shadow: none;
-                background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
-                right: 0;
-                display: block;
-                bottom: 0;
-                font-size: 2em;
-                font-weight: 900;
-                text-align: left;
-                left: 0;
-                position: fixed;
-                padding: 50px 5px 10px 5px;
-            }
+        }
+        ion-scroll {
+            white-space: nowrap;
+            height: 150px
+        }
+        .section {
+            display: inline-block;
+            white-space: nowrap;
+            overflow-x: scroll;
+            overflow-y: hidden;
+        }
+        .div-custom {
+            display: inline-block;
+            white-space: nowrap;
+            min-height: 180px;
+            overflow: scroll;
+        }
+        .img-custom {
+            height: 180px;
+            width: 130px;
+            margin: 1px;
+            display: inline-block;
+        }
+        ion-icon.custom-star {
+            color: #ffcd25;
+            font-size: 1.5rem;
         }
     }
-    ion-scroll {
-        white-space: nowrap;
-        height: 150px
-    }
-    .section {
-        display: inline-block;
-        white-space: nowrap;
-        overflow-x: scroll;
-        overflow-y: hidden;
-    }
-    .div-custom {
-        display: inline-block;
-        white-space: nowrap;
-        min-height: 180px;
-        overflow: scroll;
-    }
-    .img-custom {
-        height: 180px;
-        width: 130px;
-        margin: 1px;
-        display: inline-block;
-    }
-    ion-icon.custom-star {
-        color: #ffcd25;
-        font-size: 1.5rem;
-    }
-}
