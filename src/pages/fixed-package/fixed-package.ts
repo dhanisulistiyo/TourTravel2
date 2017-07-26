@@ -1,5 +1,6 @@
 import { Component, ChangeDetectorRef  } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { FixedpackageDetailsPage } from './../fixedpackage-details/fixedpackage-details';
 
 @Component({
   selector: 'page-fixed-package',
@@ -21,6 +22,9 @@ export class FixedPackagePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FixedPackagePage');
+  }
+  fixHoneymoon(){
+    this.navCtrl.push(FixedpackageDetailsPage);
   }
 
 

@@ -1,0 +1,95 @@
+<ion-header no-border [class.opaque]="!showToolbar">
+  <!--Navbar-->
+  <ion-navbar color="primary">
+    <!--Toggle title-->
+    <ion-title [hidden]="!showToolbar">
+      Bali Honeymoon Package
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<div class="scroll-content" style="padding-top:0px">
+  <ion-content fullscreen="true" style="padding-top: 0px;" (ionScroll)="onScroll($event)">
+
+    <div class="slide-pager" style="margin-left: -18px; width:110%; overflow: visible; margin-top: -10px;">
+      <ion-slides pager="true" loop="true" speed="1000">
+        <ion-slide>
+          <ion-card>
+            <img src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458194236/e4d8fu7a4hw2c4nkch1q.jpg"
+              style="height:250px; width:100%;" />
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card>
+            <img src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458193821/y0cmbplulajkj7dykkhc.jpg"
+              style="height:250px; width:100%;" />
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card>
+            <img src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458632152/wpqkqb6otqwti80ty7xp.png"
+              style="height:250px; width:100%;" />
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card>
+            <img src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458194054/g5hklg67zs4z7eeuoxsi.jpg"
+              style="height:250px; width:100%;" />
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </div>
+
+    <div class="info">
+      <h2>Bali Honeymoon Package</h2>
+      <p class="read-more-wrap">With an absolute beachfront location The InterContinental Bali Resort offers style, sophistication and romance.</p>
+      <p>
+        <ion-icon name="star"></ion-icon>
+        100 Reviews
+      </p>
+      <p>Seminyak, Bali</p>
+      <p>5D/4N</p>
+    </div>
+
+    <div class="photos">
+      <h2>Pictures</h2>
+      <ion-scroll scrollX="true">
+        <img src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458194236/e4d8fu7a4hw2c4nkch1q.jpg"
+        />
+        <img src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458193821/y0cmbplulajkj7dykkhc.jpg"
+        />
+        <img src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458632152/wpqkqb6otqwti80ty7xp.png"
+        />
+        <img src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458194054/g5hklg67zs4z7eeuoxsi.jpg"
+        />
+        <img src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458193793/jnjolgungeytsvordhn3.jpg"
+        />
+      </ion-scroll>
+    </div>
+
+    <div class="reviews">
+      <h2>Reviews</h2>
+      <!-- <p *ngIf="fixpackage.reviews.length==0">No reviews yet =(</p> -->
+      <div>
+        <!-- <review></review> -->
+        <ion-item>
+          <p>
+            <img src="assets/img/user_pic.jpg" style="width:50px; height: 50px;"> Dhani Sulistiyo
+          </p>
+          <p>
+            <ion-icon name="star"></ion-icon>
+            <!-- <ion-icon name="star" *ngFor="let star of itineraryService.getArray(reviewDetails.rating)"></ion-icon> -->
+          </p>
+          <p>Excellent Service</p>
+        </ion-item>
+      </div>
+    </div>
+  </ion-content>
+</div>
+<ion-footer>
+  <ion-row>
+    <ion-col>
+      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-accept">Book Now</button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

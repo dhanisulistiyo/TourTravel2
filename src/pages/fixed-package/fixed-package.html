@@ -1,18 +1,3 @@
-<!--
-  Generated template for the FixedPackage page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<!-- <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Fixed Date Packages</ion-title>
-  </ion-navbar>
-</ion-header> -->
-
 <ion-header no-border [class.opaque]="!showToolbar">
   <!--Navbar-->
   <ion-navbar color="primary">
@@ -70,11 +55,12 @@
         </ion-col>
       </ion-row>
       <ion-scroll scrollX="true" class="scroll-custom">
-        <div class="div-custom">
+        <div class="div-custom" (click)="fixHoneymoon()">
           <!-- <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> -->
           <ion-card>
-            <img src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458194236/e4d8fu7a4hw2c4nkch1q.jpg" class="img-custom" />
-            <p>idr <strong>599.000</strong></p>
+            <img src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458194236/e4d8fu7a4hw2c4nkch1q.jpg"
+              class="img-custom" />
+            <p>Rp <strong>599.000</strong></p>
             <ion-card-content>
               <h2>Bali Honeymoon Package</h2>
               <h4>With an absolute beachfront location The InterContinental Bali Resort offers style, sophistication and romance.</h4>
@@ -87,7 +73,9 @@
                 <ion-col col-4></ion-col>
                 <ion-col col-4>
                   <button ion-button icon-left clear small>
-                    <ion-icon ios="ios-star" md="md-star" class="custom-star"></ion-icon><h3>4.8</h3>
+                    <!-- <rating readOnly="true" max="5" emptyStarIconName="star" halfStarIconName="star-half" 
+                    starIconName="star" nullable="false"></rating> -->
+                     <ion-icon ios="ios-star" md="md-star" class="custom-star"></ion-icon><h3>4.8</h3> 
                   </button>
                 </ion-col>
               </ion-row>
@@ -115,10 +103,10 @@
           <!-- <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> -->
           <ion-card>
             <img src="https://trekpapua.files.wordpress.com/2013/05/raja-ampat-550x366.jpg" class="img-custom" />
-            <p>idr <strong>1.299.000</strong></p>
+            <p>Rp <strong>1.299.000</strong></p>
             <ion-card-content>
-              <h2>Private Honeymoon Raja Ampat</h2>
-              <h4>Raja Ampat is the bull’s-eye of the Coral Triangle in every sense. Papua Explorers is located on the island of Gam.</h4>
+              <h2>Honeymoon Raja Ampat</h2>
+              <h4>Raja Ampat is the bull’s-eye of the Coral Triangle in every sense.</h4>
               <ion-row class="row-label">
                 <ion-col col-4>
                   <button ion-button icon-left clear small>
@@ -155,14 +143,14 @@
           <!-- <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> -->
           <ion-card>
             <img src="http://visitrinjani.com/wp-content/uploads/2011/03/qunci-villa-honeymoon1.jpg" class="img-custom" />
-            <p>idr <strong>899.000</strong></p>
+            <p>Rp <strong>899.000</strong></p>
             <ion-card-content>
               <h2>Lombok Honeymoon Package</h2>
               <h4>With Excellent Beautiful Luxury Resort for Honeymoon.</h4>
               <ion-row class="row-label">
                 <ion-col col-4>
                   <button ion-button icon-left clear small>
-                    <ion-icon ios="ios-pin" md="md-pin" class="custom-color"></ion-icon><h3>Seminyak, Bali</h3>
+                    <ion-icon ios="ios-pin" md="md-pin" class="custom-color"></ion-icon><h3>Kuta, Lombok</h3>
                   </button>
                 </ion-col>
                 <ion-col col-4></ion-col>
@@ -197,7 +185,7 @@
       <ion-row class="row-custom">
         <ion-col col-8>
           <div>
-            <h2 class="h2-custom">Business</h2>
+            <h2 class="h2-custom">Regular / One Day Tour</h2>
           </div>
         </ion-col>
         <ion-col col-4>
@@ -206,49 +194,41 @@
       </ion-row>
       <ion-scroll scrollX="true" style="overflow: scroll;white-space: nowrap; min-height:200px;">
         <div class="div-custom">
-          <div class="div-custom">
-            <!-- <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> -->
-            <ion-card>
-              <img src="assets/img/bali-wallpaper.jpg" class="img-custom" />
-              <ion-card-content>
-                <h2>Bali Monkey Forest, Traditional Village, GWK and Batur Trekking</h2>
-                <h3>30 Guest(s)</h3>
-                <h3>24 Jul - 30 Jul 2017</h3>
-              </ion-card-content>
-            </ion-card>
-          </div>
+          <ion-card>
+            <img src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1457408744/kd6isr2f6xziuky84gno.jpg"
+              class="img-custom" />
+            <ion-card-content>
+              <h2>Mount Batur Sunrise Hiking and Coffee Plantation Tour</h2>
+              <h3>from</h3>
+              <h3>Rp 541.000</h3>
+            </ion-card-content>
+          </ion-card>
         </div>
-
         <div class="div-custom">
-          <div class="div-custom">
-            <!-- <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> -->
-            <ion-card>
-              <img src="assets/img/bali-wallpaper.jpg" class="img-custom" />
-              <ion-card-content>
-                <ion-card-title>
-                  <h2>Bali Monkey Forest, Traditional Village, GWK and Batur Trekking</h2>
-                  <h3>30 Guest(s)</h3>
-                  <h3>From 24 Jul Until 30 Jul 2017</h3>
-                </ion-card-title>
-              </ion-card-content>
-            </ion-card>
-          </div>
+          <ion-card>
+            <img src="https://cache-graphicslib.viator.com/graphicslib/thumbs674x446/22460/SITours/night-at-the-bali-zoo-including-dinner-experience-in-gianyar-253628.jpg"
+              class="img-custom" />
+            <ion-card-content>
+              <ion-card-title>
+                <h2>Night at the Bali Zoo Including Dinner</h2>
+                <h3>from</h3>
+                <h3>Rp 973.000</h3>
+              </ion-card-title>
+            </ion-card-content>
+          </ion-card>
         </div>
-
         <div class="div-custom">
-          <div class="div-custom">
-            <!-- <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> -->
-            <ion-card>
-              <img src="assets/img/bali-wallpaper.jpg" class="img-custom" />
-              <ion-card-content>
-                <ion-card-title>
-                  <h2>Bali Monkey Forest, Traditional Village, GWK and Batur Trekking</h2>
-                  <h3>30 Guest(s)</h3>
-                  <h3>From 24 Jul Until 30 Jul 2017</h3>
-                </ion-card-title>
-              </ion-card-content>
-            </ion-card>
-          </div>
+          <!-- <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> -->
+          <ion-card>
+            <img src="https://balitourvacation.files.wordpress.com/2013/05/sobekrafting2.jpg" class="img-custom" />
+            <ion-card-content>
+              <ion-card-title>
+                <h2>Full Day Bali Adventure Tour with Quad Bikes and Rafting</h2>
+                <h3>from</h3>
+                <h3>Rp 1.622.000</h3>
+              </ion-card-title>
+            </ion-card-content>
+          </ion-card>
         </div>
       </ion-scroll>
 
