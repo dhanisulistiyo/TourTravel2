@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DailyService } from '../../providers/daily-service'
 import { IteneraryService } from '../../providers/itenerary-service'
@@ -23,7 +23,8 @@ export class DailyProgram {
    guest;
    event;
    location;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public ds: DailyService, 
+   showToolbar: boolean = false;
+  constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, public navParams: NavParams, public ds: DailyService, 
   public mt :MultiTransactionService,
   public it : IteneraryService
   ) {
@@ -33,6 +34,12 @@ export class DailyProgram {
     this.event = this.it.getDateTour().ev; 
     this.location = this.it.getObjectLocation();
 
+  }
+
+  onScroll($event: any) {
+    let scrollTop = $event.scrollTop;
+    this.showToolbar = scrollTop >= 120;
+    this.ref.detectChanges();
   }
 
   ionViewWillEnter() {

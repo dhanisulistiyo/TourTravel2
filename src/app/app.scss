@@ -37,7 +37,7 @@
                 .toolbar-title-md {
                     padding: 0 12px;
                     font-family: 'Open Sans', sans-serif;
-                    font-size: 2rem;
+                    font-size: 4vw;
                     font-weight: 600;
                     color: white;
                     text-align: center;
@@ -48,6 +48,11 @@
             .item-md ion-icon[item-start]+.item-inner,
             .item-md ion-icon[item-start]+.item-input {
                 margin-left: 4px;
+            }
+            .item-md h2 {
+                margin: 2px 0;
+                font-size: 4.6vw;
+                font-weight: 500;
             }
             ion-icon.custom-font {
                 color: #4fd2c2;
@@ -99,9 +104,7 @@
                 box-shadow: none;
             }
         }
-        page-fixed-package {
-
-        }
+        page-fixed-package {}
         .searchbar-md {
             padding: 8px;
             background: #4fd2c2;
@@ -110,7 +113,6 @@
         .toolbar-background-md {
             border-color: #4fd2c2;
             background: #4fd2c2;
-
         }
         .bar-button-default-md,
         .bar-button-clear-md-default,
@@ -118,16 +120,19 @@
             color: #ffffff;
             background-color: transparent;
         }
+        ion-navbar.toolbar {
+            min-height: 13vw;
+        }
         .toolbar-title-md {
             color: white;
             font-family: 'Open Sans', cursive;
-            font-size: 2rem;
+            font-size: 4.8vw;
             font-weight: 600;
         }
         .tab-text {
             font-family: 'Open Sans', sans-serif;
             color: white;
-            font-size: 30px;
+            font-size: 6vw;
             font-weight: 400; // font-size: 2rem;
             // font-weight: 700;
         }
@@ -136,7 +141,7 @@
             text-align: start;
             margin: 0;
             padding: 0 6px;
-            font-size: 2.4rem;
+            font-size: 5vw;
             font-weight: normal;
             color: white;
         }
@@ -148,10 +153,11 @@
         }
         ion-label.label.label-md[stacked] {
             font-family: 'Open Sans', cursive;
-            font-size: 1.7rem;
+            font-size: 4vw;
             color: grey;
             font-weight: 500;
             text-transform: none;
+            margin: 0;
         }
         .button-inner {
             text-transform: none;
@@ -160,7 +166,7 @@
         }
         .label-md {
             font-family: 'Open Sans', cursive;
-            font-size: 1.8rem;
+            font-size: 4.4vw;
             color: black;
             font-weight: 500;
         }
@@ -171,7 +177,7 @@
         .tab-button[aria-selected=true] {
             // text-decoration: underline !important;
             font-family: 'Open Sans', sans-serif;
-            color: white;
+            color: blue;
             font-size: 30px;
             font-weight: 400;
             border-style: solid;
@@ -179,12 +185,13 @@
         }
         .tabs-md .tab-button-text {
             font-family: 'Open Sans', sans-serif;
-            font-size: 1.5rem;
+            font-size: 3.8vw;
             font-weight: 700;
-            color: #ffffff;
+            color: white;
         }
         ion-tab {
             font-size: 90px;
+            color: yellow;
         }
         .tabs-md .tabbar {
             background: #4fd2c2;

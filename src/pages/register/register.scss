@@ -10,26 +10,22 @@
     }
 
     // Page CSS
-    h2
-    {
+   h2 {
         font-family: 'Quicksand', sans-serif;
         color: white;
-        font-size: 30px;
+        font-size: 8vw;
         font-weight: 700;
+        margin-bottom: 120px;
     }
-
-    h3 
-    {
+    h3 {
         font-family: 'Architects Daughter', cursive;
         color: white;
-        font-size: 30px;
+        font-size: 8vw;
         font-weight: 500;
     }
-
-    .p-center
-    {
+    .p-center {
         text-align: center;
-        font-size: 1em;
+        font-size: 4vw;
         color: white;
     }
 
@@ -156,7 +152,8 @@
     {
         background-color: #2979ff;
         text-transform: none;
-        font-size: 16px;
+        font-size: 4vw;
+        font-family: 'Open Sans', cursive;
     }
     .btn-register:hover
     {
@@ -221,13 +218,11 @@
     }
 
     .label-md[floating] {
-        font-size: 1em;
+        font-size: 4vw;
     }
 
     .item-label-floating .text-input-md {
-        font-size: 1em;
+        font-size: 4vw;
     }
-
-
 }
 

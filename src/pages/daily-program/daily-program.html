@@ -5,25 +5,19 @@
   Ionic pages and navigation.
 -->
 
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>{{toursname}}</ion-title>
+<ion-header no-border [class.opaque]="!showToolbar">
+  <!--Navbar-->
+  <ion-navbar color="primary">
+    <!--Toggle title-->
+    <ion-title [hidden]="!showToolbar">
+      {{toursname}}
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
-
-<!--<ion-header no-border>
-  <ion-navbar color="secondary">
-    <ion-buttons left>
-        <button ion-button icon-only color="light"><ion-icon name="arrow-back">Daily Program</ion-icon></button>
-    </ion-buttons>
-  </ion-navbar>
-</ion-header>-->
-
-<ion-content>
+<div class="scroll-content" style="padding-top:0px">
+  <ion-content fullscreen="true" style="padding-top: 0px;" (ionScroll)="onScroll($event)">
   <ion-card>
-    <img *ngIf="location?.ImageUrl == null"  src="assets/img/bali-wallpaper.jpg" style="height: 330px;" />
+    <img *ngIf="location?.ImageUrl == null"  src="assets/img/bali-wallpaper.jpg" style="height: 300px;" />
     <img *ngIf="location?.ImageUrl != null" src="{{location?.ImageUrl}}" style="height: 330px;" />
     <ion-card-content>
       <ion-card-title>
@@ -33,8 +27,7 @@
       </ion-card-title>
     </ion-card-content>
   </ion-card>
-  <p class="custom-label" style="font-size: 1.8rem; position: initial;">Please review your itinerary details.</p>
-
+  <div class="timeline">
   <ion-list>
     <ion-item *ngFor="let d of data;  let j = index" class="label-title-item" (click)="toggleDetails(d)">
       <ion-icon style="color: #fff" item-right [name]="d.icon" (click)="toggleDetails(d)"></ion-icon>
@@ -90,8 +83,10 @@
       </div>
     </ion-item>
   </ion-list>
+  </div>
 </ion-content>
+</div>
 
 <ion-footer>
-  <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="createSummary($event)" full large>Continue</button>
+  <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="createSummary($event)" full>Continue</button>
 </ion-footer>
