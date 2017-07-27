@@ -14,11 +14,11 @@
 
 <ion-content style="margin-left: -10px; width:105%; overflow: visible; margin-top: -10px;">
   <ion-card class="page-hotel-roomservice1" *ngFor="let srooms of roomtypes" (click)="setSelectedRoomSer(srooms)">
-    <img src="assets/img/breakfast-time.jpeg" style="height: 230px;" />
+    <img src="assets/img/breakfast-time.jpeg" style="height: 170px;" />
     <ion-card-content class="content-custom" style="top: 0px;">
       <ion-card-title class="card-custom">
         <h2 class="h2-title-header">{{(srooms).replace('_', ' ')}}</h2>
-        <!--<h3 class="h3-subtitle-header">Start the day with a rich and balanced breakfast in this hotel.</h3>-->
+        <h3 class="h3-subtitle-header">Start the day with a rich and balanced breakfast in this hotel.</h3>
       </ion-card-title>
       <!--<ion-row>
         <ion-col col-6>

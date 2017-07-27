@@ -39,11 +39,11 @@ page-hotel-roomtype1 {
         position: absolute;
         display: block;
         width: 225px;
-        padding: 12px 15px 12px 20px;
+        padding: 8px 15px 8px 14px;
         background-color: #e82;
         box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
         color: #fff;
-        font: 700 18px/1 'Lato', sans-serif;
+        font: 700 14px/1 'Lato', sans-serif;
         text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
         text-transform: uppercase;
         text-align: center;
@@ -74,11 +74,11 @@ page-hotel-roomtype1 {
     ion-card img {
         display: block;
         width: 155px;
-        height: 200px;
+        height: 150px;
     }
     .cover {
         width: 100%;
-        object-fit: cover;
+        object-fit: fill;
     }
     ion-col[width-60] {
         -webkit-flex: 0 0 60%;
@@ -92,12 +92,18 @@ page-hotel-roomtype1 {
         font-size: 1.5em;
         color: white;
     }
+    [col-8] {
+        padding: 0px;
+    }
+    [col-4] {
+        padding: 5px;
+    }
     .button-inner {
         text-transform: none;
         font-family: 'Open Sans', cursive;
         font-weight: 700;
         color: white;
-        font-size: 2rem;
+        font-size: 4.2vw;
         letter-spacing: 2px;
         margin-top: 5px;
     }
@@ -109,7 +115,7 @@ page-hotel-roomtype1 {
         font-size: 1.6rem;
         font-weight: 400;
         line-height: 3rem;
-        color: #f9f9f9;
+        color: black;
         background-color: #fff;
         background-position: 8px center;
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -117,25 +123,26 @@ page-hotel-roomtype1 {
     .custom-h5 {
         margin: 0;
         font-family: 'Open Sans', cursive;
-        font-size: 1.7rem;
+        font-size: 4vw;
         font-weight: 500;
-        padding: 10px 0 10px 12px;
-        line-height: 3rem;
+        padding: 15px 0 10px 12px;
+        line-height: 1.5rem;
         color: #4d4d4d;
         background-color: #f2f2f2;
     }
-    .card-md h2 {
+        .card-md h2 {
         margin: 0;
-        font-size: 1.8rem;
+        font-size: 4.4vw;
         color: #3498db;
         font-family: 'Open Sans', cursive;
         font-weight: 500;
-        line-height: 3rem;
+        line-height: 2rem;
     }
     ion-col.col-custom {
         position: relative;
-        padding: 0px;
-        margin: 0;
+        padding: 0;
+        width: 100%;
+        margin: 0 0 0 0;
         min-height: 1px;
         -webkit-flex-basis: 0;
         -ms-flex-preferred-size: 0;
@@ -165,29 +172,33 @@ page-hotel-roomtype1 {
         font-family: 'Open Sans', cursive;
         font-weight: 500;
         line-height: 4px;
-        margin-left: -50px;
-        font-size: 1.6rem;
+        margin-left: -13vw;
+        font-size: 4vw;
         color: #808080;
     }
+
     .div-promo {
-        background-color: #e82;
+        border: 1px solid #e82;
+        border-radius: 5%;
+        //background-color: #e82;
+        margin-top: 2px;
         padding: 10px;
         opacity: .9;
         width: 100%;
     }
     h2.title-promo {
-        color: #fff;
+        color: #e82;
         font-family: 'Lato', sans-serif;
         font-weight: 700;
-        font-size: 18px;
+        font-size: 4vw;
         text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
         text-transform: uppercase;
     }
     h3.subtitle-promo {
-        color: #fff;
+        color: #e82;
         font-family: 'Lato', sans-serif;
         font-weight: 400;
-        font-size: 14px;
+        font-size: 3.4vw;
         line-height: 2rem;
         letter-spacing: 1px;
         text-shadow: 0 1px 1px rgba(0, 0, 0, .2);

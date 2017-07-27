@@ -28,7 +28,7 @@ page-filter-transport1 {
         background-color: transparent;
         position: relative;
         border-radius: 4%;
-        padding: 5px;
+        padding: 0px;
         width: 100%;
     }
     ul {
@@ -103,7 +103,7 @@ page-filter-transport1 {
     .col-custom {
         background-color: white;
         position: relative;
-        padding: 5px;
+        padding: 0px;
         width: 100%;
         border: 1px solid #a6a6a6;
         margin: 0;
@@ -120,7 +120,7 @@ page-filter-transport1 {
     .col2-custom {
         background-color: transparent;
         position: relative;
-        padding: 5px;
+        padding: 0px;
         width: 100%;
         // border: 1px solid #a6a6a6;
         margin: 0;
@@ -168,8 +168,8 @@ page-filter-transport1 {
         align-self: flex-end;
     }
     .custom-h2 {
-        font-size: 1.8rem;
-        margin-bottom: 15px;
+        font-size: 4.4vw;
+        margin-bottom: 10px;
     }
     .item-md.item-block .item-inner,
     .item-md.item-input.input-has-focus .item-inner,

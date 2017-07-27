@@ -11,13 +11,6 @@
             background-color: transparent;
             border: none;
         }
-        .timeline-item h4 {
-            font-size: 4.8vw;
-            font-family: 'Lato', cursive;
-            color: black;
-            font-weight: 600;
-            padding-right: 4vw;
-        }
         .custom-label {
             background-color: white;
             margin: 0;
@@ -82,7 +75,7 @@
         .info {
             padding: 10px 15px;
             margin: 0px 0px 10px 0px;
-            background-color: #FFFFFF;
+            background-color: #f9f9f9;
             h2 {
                 font-weight: 600;
                 font-family: 'Open Sans', cursive;
@@ -154,6 +147,13 @@
             .timeline {
                 position: relative;
                 margin: 15px 0 30px 0;
+            }
+            .timeline-item h4 {
+                font-size: 4.4vw;
+                font-family: 'Lato', cursive;
+                color: black;
+                font-weight: 600;
+                padding-right: 4vw;
             }
             .timeline:before {
                 content: '';
@@ -394,8 +394,8 @@
                 padding: 0 7vw;
                 border-radius: 40px;
             }
-            .addmore-button{
-                 font-size: 3.5vw;
+            .addmore-button {
+                font-size: 3.5vw;
             }
         }
     }
