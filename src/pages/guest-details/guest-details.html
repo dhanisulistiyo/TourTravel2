@@ -20,7 +20,8 @@
             <ion-icon ios="ios-people" md="md-people" class="custom-color"></ion-icon> Guest Details</ion-label>
         </ion-col>
       </ion-row>
-      <ion-row class="row-header">
+
+      <!-- <ion-row class="row-header">
         <ion-col col-12-custom>
           <h3 class="card-label">Types of ID (ex: ID Card/Passport/Driving License) </h3>
         </ion-col>
@@ -28,11 +29,9 @@
       <ion-row class="row-content">
         <ion-col col-12-custom>
           <h3 class="card-title">
-            <ion-select class="myCustomSelect" interface="action-sheet">
-              <ion-option value="1" selected="true">ID Card</ion-option>
-              <ion-option value="2">Passport</ion-option>
-              <ion-option value="3">Driving License</ion-option>
-            </ion-select>
+            <ion-select class="myCustomSelect" [(ngModel)]='item[i]' multiple="false" (ionChange)="setID(i, item[i])" interface="action-sheet">
+            <ion-option *ngFor="let kuo of ID;  let idx = index" [value]="kuo" selected="{{(idx==0)}}" aria-placeholder="Choose Type Guest">{{kuo}}</ion-option>
+          </ion-select>
           </h3>
         </ion-col>
       </ion-row>
@@ -45,7 +44,9 @@
         <ion-col col-12-custom>
           <ion-input type="number" (input)="inputId(i, $event)" placeholder="Please input your ID"></ion-input>
         </ion-col>
-      </ion-row>
+      </ion-row> -->
+
+
       <ion-row class="row-header">
         <ion-col col-12-custom>
           <h3 class="card-label">First Name: </h3>
@@ -78,7 +79,7 @@
       <ion-row class="row-content">
         <ion-col col-12-custom>
           <h3 class="card-title">
-            <ion-input *ngIf="item.country != null"  type="text" disabled="true" [(ngModel)]="item.country.Country.Name" (click)="inputCountry(i, $event)"></ion-input>
+            <ion-input *ngIf="item.country != null"  type="text" disabled="true" [(ngModel)]="item.country.Name" (click)="inputCountry(i, $event)"></ion-input>
             <ion-input *ngIf="item.country == null" type="text" disabled="true"  (click)="inputCountry(i, $event)" placeholder="Tap to choose your country"></ion-input>
           </h3>
         </ion-col>
@@ -105,5 +106,5 @@
 
 
 <ion-footer>
-  <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="createItenerary($event)" full large>Continue</button>
+  <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="createItenerary($event)" full>Continue</button>
 </ion-footer>

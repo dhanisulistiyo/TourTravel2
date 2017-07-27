@@ -104,19 +104,19 @@ export class IteneraryBuilderPage {
       var child = passengerTotal.guestTour['ChildQty'];
       var infant = passengerTotal.guestTour['InfantQty'];
       if (adult != 0 && child != 0 && infant != 0) {
-        this.passenger = +adult + ' Adults, ' + child + ' Childs, ' + infant + ' Infant ';
+        this.passenger = +adult + ' Adult(s), ' + child + ' Child(s), ' + infant + ' Infant(s) ';
       } else if (adult != 0 && child != 0 && infant == 0) {
-        this.passenger = +adult + ' Adults, ' + child + ' Childs';
+        this.passenger = +adult + ' Adult(s), ' + child + ' Child(s)';
       } else if (adult != 0 && child == 0 && infant != 0) {
-        this.passenger = +adult + ' Adults, ' + infant + ' Infant ';
+        this.passenger = +adult + ' Adult(s), ' + infant + ' Infant(s) ';
       } else if (adult == 0 && child != 0 && infant != 0) {
-        this.passenger = +child + ' Childs, ' + infant + ' Infant ';
+        this.passenger = +child + ' Child(s), ' + infant + ' Infant(s) ';
       } else if (adult != 0 && child == 0 && infant == 0) {
-        this.passenger = +adult + ' Adults';
+        this.passenger = +adult + ' Adult(s)';
       } else if (adult == 0 && child != 0 && infant == 0) {
-        this.passenger = +child + ' Childs';
+        this.passenger = +child + ' Child(s)';
       } else if (adult == 0 && child == 0 && infant != 0) {
-        this.passenger = +infant + ' Infant ';
+        this.passenger = +infant + ' Infant(s) ';
       } else if (adult == 0 && child == 0 && infant == 0) {
         this.passenger = '';
       }
@@ -260,9 +260,12 @@ export class IteneraryBuilderPage {
 
 
   createItenerary(event) {
+    let today = new Date(this.event.monthStart)
+    let tomorrow = new Date();
     if (this.ite.getToursName() == null) this.showAlertTourName();
     else if (this.destination == '') this.showAlertDestination();
     else if (this.ite.getDateTour() == null) this.showAlertDates();
+    else if (today.getDate()==tomorrow.getDate()) this.showAlertToday();
     else if (this.totalDays < 0) this.showAlertValidasiDates();
     else if (this.passenger == '') this.showAlertGuest();
     else if (this.kuotaG == null) this.showAlertGuestType();
@@ -337,6 +340,14 @@ export class IteneraryBuilderPage {
     alert.present();
   }
 
+
+  showAlertToday() {
+    let alert = this.alertCtrl.create({
+      subTitle: 'Cannot choose start date is today ',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
 
 
 

@@ -18,9 +18,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class GuestDetailsPage {
   Guest : Array<any>;
   Type;
+  ID
   constructor(public navCtrl: NavController, public navParams: NavParams, public gu : GuestServiceProvider) {
     this.Type = navParams.data['type'];
     console.log(this.Type);
+    this.ID = ['Choose Type Guest','ID Card', 'Passport','Driving License']
   }
 
     ionViewWillEnter(){
@@ -31,7 +33,12 @@ export class GuestDetailsPage {
         }
         console.log(this.Guest)
     }
-
+    setID(i, par){
+      console.log(par, i)
+      if (par == "ID Card" ) this.gu.setTypeId(i, "IDCARD");
+      else if (par =="Passport") this.gu.setTypeId(i, "PASSPORT");
+      else if (par =="Driving License") this.gu.setTypeId(i, "DRIVINGLICENSE");
+    }
     inputId(i, event){
         var data = event.target.value;
         this.gu.setId(i, data);

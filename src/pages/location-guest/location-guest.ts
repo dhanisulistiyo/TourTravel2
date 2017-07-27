@@ -25,7 +25,7 @@ export class LocationGuestPage {
 
 
    ionViewWillEnter() {
-    this.locService.searchAllLocation().subscribe(data => {
+    this.locService.searchCountry().subscribe(data => {
       this.listLocations = data;
       this.locations = this.listLocations;
     }, err => {

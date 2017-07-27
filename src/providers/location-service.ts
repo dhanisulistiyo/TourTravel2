@@ -38,6 +38,12 @@ export class LocationService {
         return response;
     }
 
+     searchCountry() {
+        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/countries'; 
+        var response = this.http.get(url).map(res => res.json());        
+        return response;
+    }
+
 
 
 }

@@ -19,4 +19,8 @@ export class PromoPackagePage {
     console.log('ionViewDidLoad PromoPackagePage');
   }
 
+  cetakPDF(par){
+    window.open(par, '_system')
+    
+  }
 }

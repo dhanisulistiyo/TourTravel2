@@ -1,3 +1,4 @@
+import { PromoPackagePage } from './../promo-package/promo-package';
 import { FixedPackagePage } from './../fixed-package/fixed-package';
 import { IteneraryBuilderPage } from './../itenerary-builder/itenerary-builder';
 import { Component } from '@angular/core';
@@ -28,6 +29,10 @@ export class HomeScreenPage {
   }
   fixedMenu(){
     this.navCtrl.push(FixedPackagePage);
+  }
+
+  promoMenu(){
+    this.navCtrl.push(PromoPackagePage);
   }
 
 }

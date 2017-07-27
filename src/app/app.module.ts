@@ -97,6 +97,7 @@ import { Ionic2RatingModule } from 'ionic2-rating';
 import { DatetimePickerModule } from 'ion-datetime-picker';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { PromoPackageProvider } from '../providers/promo-package';
 
 // Fixed Package Page
 import { FixedpackageDetailsPage } from './../pages/fixedpackage-details/fixedpackage-details';
@@ -281,7 +282,8 @@ import { FixedpackageDetailsPage } from './../pages/fixedpackage-details/fixedpa
     MultiTransactionService,
     UserandcompanyDetails,
     FilattractionService,
-    GuestServiceProvider
+    GuestServiceProvider,
+    PromoPackageProvider
   ]
 })
 export class AppModule { }
