@@ -97,6 +97,7 @@ import { Ionic2RatingModule } from 'ionic2-rating';
 import { DatetimePickerModule } from 'ion-datetime-picker';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { PromoPackageProvider } from '../providers/promo-package';
 
 
 @NgModule({
@@ -276,7 +277,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MultiTransactionService,
     UserandcompanyDetails,
     FilattractionService,
-    GuestServiceProvider
+    GuestServiceProvider,
+    PromoPackageProvider
   ]
 })
 export class AppModule { }
