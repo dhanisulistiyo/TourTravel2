@@ -21,7 +21,7 @@
 <ion-content fullscreen>
 <!--<h5 class="custom-h5" *ngIf="hotels?.length == 0">Transportation not found</h5>-->
 <h5 class="custom-h5">Showing result transportation in destination</h5>
-<ion-card *ngFor="let trans of transport" (click)="setSelectedTransport(trans)">
+<ion-card *ngFor="let trans of transport" (click)="setSelectedTransport(trans)" style="height:150px;">
   <ion-row>
   <ion-col class ="col-custom" style="padding: 0;" *ngIf="trans.ImageUrl != '' ;else other_content"><img src="{{trans.ImageUrl}}"/></ion-col>
   <ng-template #other_content><ion-col class ="col-custom"><img src="assets/img/elf-long.jpg" class="cover"/></ion-col></ng-template>

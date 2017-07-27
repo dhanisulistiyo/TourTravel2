@@ -95,6 +95,7 @@
                 box-shadow: none;
                 opacity: 1;
             }
+            
             .button-outline-md {
                 border-width: 1px;
                 border-style: solid;
@@ -102,6 +103,11 @@
                 color: #a6a6a6;
                 background-color: transparent;
                 box-shadow: none;
+            }
+        }
+        page-daily-program {
+            .scroll-content {
+                background: white;
             }
         }
         page-fixed-package {}
@@ -166,7 +172,7 @@
         }
         .label-md {
             font-family: 'Open Sans', cursive;
-            font-size: 4.4vw;
+            font-size: 4vw;
             color: black;
             font-weight: 500;
         }
@@ -206,6 +212,6 @@
         }
         .cover {
             width: 100%;
-            object-fit: fill;
+            object-fit: cover;
         }
     }

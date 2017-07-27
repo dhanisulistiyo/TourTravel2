@@ -27,7 +27,7 @@
 <!--<h5 class="custom-h5" *ngIf="hotels?.length == 0">Attraction not found</h5>-->
 <h5 class="custom-h5">Showing results attraction in Destination</h5>
 
-<ion-card *ngFor="let attrac of attractions">
+<ion-card *ngFor="let attrac of attractions" style="height:150px;">
 <ion-row>
   <ion-col class ="col-custom" style="padding: 0;" *ngIf="attrac.ImageUrl != '' ;else other_content"><img src="{{attrac.ImageUrl}}"/></ion-col>
   <ng-template #other_content><ion-col class ="col-custom"><img src="assets/img/gwk-bali.jpg" class="cover"/></ion-col></ng-template>
@@ -41,26 +41,9 @@
     </div></ion-col>
 </ion-row>
 </ion-card>
-<!--
-<ion-card *ngFor="let attrac of attractions" (click)="setSelectedAttraction(attrac)">
-<ion-card *ngFor="let attrac of attractions">
-<ion-row>
-  <ion-col *ngIf="attrac.ImageUrl != '' ;else other_content"><img src="{{attrac.ImageUrl}}"/></ion-col>
-  <ng-template #other_content><ion-col><img src="assets/img/no-image.jpg"/></ion-col></ng-template>
-  <ion-col width-60>
-    <div >
-    <h2>{{attrac.Name}}</h2>
-    <h3>Rating: 5</h3>
-    <p style=" white-space: pre-wrap;">Address: {{attrac.Address}}</p>
-    <br>
-    <ion-checkbox (ionChange)="printf2(attrac)"></ion-checkbox>
-    </div></ion-col>
-</ion-row>    
-</ion-card>-->
-
 </ion-content>
 
 
 <ion-footer>
-  <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="setSelectedAttraction()" full large>Done</button>
+  <button ion-button style="margin-top: 0px;margin-bottom: 0px; padding-bottom:10px;" (click)="setSelectedAttraction()" full>Done</button>
 </ion-footer>

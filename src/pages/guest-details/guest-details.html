@@ -73,14 +73,14 @@
       </ion-row>
       <ion-row class="row-header">
         <ion-col col-12-custom>
-          <h3 class="card-label">Country: </h3>
+          <h3 class="card-label">Nationality: </h3>
         </ion-col>
       </ion-row>
       <ion-row class="row-content">
         <ion-col col-12-custom>
           <h3 class="card-title">
             <ion-input *ngIf="item.country != null"  type="text" disabled="true" [(ngModel)]="item.country.Name" (click)="inputCountry(i, $event)"></ion-input>
-            <ion-input *ngIf="item.country == null" type="text" disabled="true"  (click)="inputCountry(i, $event)" placeholder="Tap to choose your country"></ion-input>
+            <ion-input *ngIf="item.country == null" type="text" disabled="true"  (click)="inputCountry(i, $event)" placeholder="Tap to choose your nationality"></ion-input>
           </h3>
         </ion-col>
       </ion-row>

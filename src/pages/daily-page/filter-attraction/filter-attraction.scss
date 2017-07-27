@@ -80,7 +80,7 @@ page-filter-attraction {
         position: relative;
         padding: 5px;
         width: 100%;
-        border: 1px solid #a6a6a6;
+        //border: 1px solid #a6a6a6;
         margin: 0;
         border-radius: 4%;
         min-height: 1px;
@@ -115,5 +115,20 @@ page-filter-attraction {
         font-size: 1.9rem;
         color: #595959;
         font-weight: 600;
+    }
+    .item-md.item-block .item-inner,
+    .item-md.item-input.input-has-focus .item-inner,
+    .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner,
+    .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner,
+    .list-md .item-input.input-has-focus:last-child,
+    .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child,
+    .list-md .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child {
+        border-bottom: none;
+        box-shadow: none;
+    }
+    .list-md .item-input.input-has-focus:last-child .item-inner,
+    .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child .item-inner,
+    .list-md .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child .item-inner {
+        box-shadow: none;
     }
 }
