@@ -17,8 +17,8 @@
 
 <ion-content style="margin-left: -10px; width:105%; overflow: visible; margin-top: -10px;">
   <ion-card class="mybooking-on" *ngFor="let his of HistoryBookingOpen" (click)="detailTourTapped($event, his?.TourTransactionSummaryViewModel.BookingDetailSum.Id)">
-    <img *ngIf="his?.TourTransactionHistoryViewModel.City.ImageUrl == null"  src="assets/img/bali-wallpaper.jpg" style="height: 230px;" />
-    <img *ngIf="his?.TourTransactionHistoryViewModel.City.ImageUrl != null" src="{{his?.TourTransactionHistoryViewModel.City.ImageUrl}}" style="height: 230px;" />
+    <img *ngIf="his?.TourTransactionHistoryViewModel.City.ImageUrl == null"  src="assets/img/bali-wallpaper.jpg" style="height: 190px;" />
+    <img *ngIf="his?.TourTransactionHistoryViewModel.City.ImageUrl != null" src="{{his?.TourTransactionHistoryViewModel.City.ImageUrl}}" style="height: 190px;" />
     <ion-card-content class="content-custom" style="top: 0px;">
       <ion-row class="custom-row">
         <ion-col col-4>

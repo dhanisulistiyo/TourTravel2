@@ -27,8 +27,7 @@ page-filter-hotel1 {
         -ms-flex: 0 0 25%;
         flex: 0 0 25%;
         width: 25%;
-        max-width: 20%;
-        background-color: white;
+        max-width: 20%; //background-color: white;
         position: relative;
         padding: 0px;
         width: 100%;
@@ -100,11 +99,10 @@ page-filter-hotel1 {
         text-transform: uppercase;
     }
     .col-custom {
-        background-color: white;
+        //background-color: white;
         position: relative;
         padding: 5px;
-        width: 100%;
-        border: 1px solid #a6a6a6;
+        width: 100%; //border: 0.5px solid #a6a6a6;
         margin: 0;
         border-radius: 4%;
         min-height: 1px;
@@ -126,8 +124,7 @@ page-filter-hotel1 {
         font-size: 1.6rem;
         font-weight: normal;
         text-transform: none;
-        color: #9d9d9d;
-        background-color: white;
+        color: #9d9d9d; //background-color: white;
         box-shadow: none;
         transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -141,19 +138,34 @@ page-filter-hotel1 {
         overflow: hidden;
         margin: 0;
         padding: 14px;
-        height: 3.6rem;
+        height: 0;
         border-radius: 2px;
         font-size: 1.4rem;
         font-weight: 500;
         text-transform: uppercase;
     }
     .button-outline-md-primary {
-        border-color: #a6a6a6;
+        //border-color: #a6a6a6;
         color: #a6a6a6;
         background-color: transparent;
     }
     .button-md-primary {
         color: #fff;
         background-color: #2cbaae;
+    }
+    .item-md.item-block .item-inner,
+    .item-md.item-input.input-has-focus .item-inner,
+    .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner,
+    .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner,
+    .list-md .item-input.input-has-focus:last-child,
+    .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child,
+    .list-md .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child {
+        border-bottom: none;
+        box-shadow: none;
+    }
+    .list-md .item-input.input-has-focus:last-child .item-inner,
+    .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child .item-inner,
+    .list-md .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child .item-inner {
+        box-shadow: none;
     }
 }

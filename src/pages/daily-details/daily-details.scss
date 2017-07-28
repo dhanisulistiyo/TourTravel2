@@ -2,6 +2,14 @@ $SIDEMENU_TOP: #00a497;
 $SIDEMENU_BOTTOM: #2cbaae;
 $SIDEMENU_TRANSPARENCY: rgba(255, 255, 255, 0.4);
 page-daily-details {
+    .opaque {
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        backdrop-filter: saturate(180%) blur(20px);
+    }
+    .opaque .toolbar-background {
+        background-color: transparent;
+        border: none;
+    }
     ion-card.card {
         box-shadow: 2px;
         background: rgba(0, 0, 0, 0.5);
@@ -41,31 +49,30 @@ page-daily-details {
         color: white;
     }
     .h2-title-header {
-        font-size: 4rem;
+        font-size: 8vw;
         font-weight: normal;
         font-family: 'Open Sans', cursive;
         color: white;
     }
     .h3-subtitle-header {
-        font-family: 'Quicksand', cursive;
+        font-family: 'Open Sans', cursive;
         color: white;
-        font-size: 1.8rem;
-        font-weight: 600;
+        font-size: 4vw;
+        font-weight: 500;
     }
     .card-header-md {
-        padding: 15px;
-        font-size: 1rem;
-        color: #222;
+        padding: 10px;
         background-color: #2cbaae;
     }
     .card-md h2.card-title {
-        font-size: 2rem;
+        font-size: 4vw;
         font-weight: normal;
         font-family: 'Open Sans', cursive;
         color: white;
     }
     .h2-title {
-        font-size: 2.2rem;
+        font-size: 5vw;
+        ;
         font-weight: 600;
         font-family: 'Lato', cursive;
         color: black;
@@ -82,8 +89,8 @@ page-daily-details {
         color: #8c8c8c;
         margin: 0;
         text-transform: uppercase;
-        font-size: 1.7rem;
-        padding: 5px 0 5px 0;
+        font-size: 4vw;
+        padding: 5px 0 0px 0;
         font-weight: 600;
     }
     .content-custom {
@@ -98,7 +105,16 @@ page-daily-details {
         text-align: left;
         left: 0;
         position: absolute;
-        padding: 0px 16px 10px 16px;
+        padding: 0px 10px 10px 10px;
+    }
+    .col {
+        padding: 5px 0px 0px 0px;
+    }
+    .label-md {
+        margin: 0px 8px 0px 3px;
+        color: black;
+        font-size: 4.3vw;
+        font-weight: 400;
     }
     .card-md.card-custom {
         background: -webkit-gradient(left top, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
@@ -149,6 +165,8 @@ page-daily-details {
         display: -ms-flexbox;
         display: flex;
         border-bottom: 1px solid #999999;
+        margin-bottom: 10px;
+        margin-top: 5px;
         overflow: hidden;
         margin-left: 24px;
         -webkit-flex: 1;
@@ -193,5 +211,6 @@ page-daily-details {
         width: 100%;
         max-width: 100%;
         text-align: center;
+        padding-bottom: 30px;
     }
 }

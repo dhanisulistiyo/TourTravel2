@@ -91,7 +91,7 @@
       </ion-row>
 
 
-      <ion-row class="row-content">
+      <ion-row class="row-datetime">
         <ion-col col-5-content>
           <ion-datetime picker date style="left: 0px;" (ionChange)="inputDateTours(event)" min="2016" max="2030" displayFormat="DD MMM YYYY" [(ngModel)]="event.monthStart"></ion-datetime >
             
@@ -120,10 +120,10 @@
           <!--<ion-input type="text" disabled="true" [(ngModel)]="allocation" aria-placeholder="allocation" (click)="hotelTapped($event)"></ion-input>-->
         </ion-col>
       </ion-row>
-      <ion-row class="row-content">
+      <ion-row class="row-content" style="margin-bottom:10px;">
         <ion-input *ngIf="allocation.length == 0" disabled="true" type="text" (click)="hotelTapped($event)" aria-placeholder="passenger"
           placeholder="Tap to allocate your room"></ion-input>
-        <ion-item *ngIf="allocation.length > 0" class="line-break" (click)="hotelTapped($event)" style="background-color: transparent;padding-left: 3px"><span class="line-break" style="font-weight:400;" *ngFor="let all of allocation ;let i = index">{{all.guest}} {{all.name}}<span class="line-break" style="font-weight:400;" *ngIf="allocation.length > 1 && i  != allocation.length - 1 ">, </span></span>
+        <ion-item *ngIf="allocation.length > 0" class="line-break" (click)="hotelTapped($event)" style="background-color: transparent;padding-left: 3px; margin-bottom:10px;"><span class="line-break" style="font-weight:400; margin-bottom:10px;" *ngFor="let all of allocation ;let i = index">{{all.guest}} {{all.name}}<span class="line-break" style="font-weight:400; margin-bottom:10px;" *ngIf="allocation.length > 1 && i  != allocation.length - 1 ">, </span></span>
         </ion-item>
       </ion-row>
     </div>
@@ -131,5 +131,5 @@
 </ion-content>
 
 <ion-footer>
-  <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="createItenerary($event)" full large>Continue</button>
+  <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="createItenerary($event)" full>Continue</button>
 </ion-footer>

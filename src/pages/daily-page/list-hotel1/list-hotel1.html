@@ -25,7 +25,7 @@
 <ion-content fullscreen>
 <h5 class="custom-h5" *ngIf="hotels?.length == 0">Hotels not found</h5>
 <h5 class="custom-h5" *ngIf="hotels?.length > 0">Showing results hotel in Destination</h5>
-<ion-card  *ngFor="let hotel of hotels"  (click)="setSelectedHotel(hotel)">
+<ion-card  *ngFor="let hotel of hotels"  (click)="setSelectedHotel(hotel)" style="height:150px;">
 <ion-row>
   <ion-col class ="col-custom" style="padding: 0;" *ngIf="hotel.ImageUrl != '' ;else other_content"><img src="{{hotel.ImageUrl}}" class="cover"/></ion-col>
   <ng-template #other_content><ion-col class ="col-custom"><img src="assets/img/grand-hyatt-hotel.jpg" class="cover"/></ion-col></ng-template>

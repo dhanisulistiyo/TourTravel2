@@ -72,7 +72,7 @@
         <!--<ion-icon color="primary" item-right [name]="data[0].icon" (click)="toggleDetails(d)"></ion-icon>-->
       </ion-card-header>
       <ion-card-content style="margin-left: 0px; padding-left: 0; padding-right: 0;" *ngIf="data[1].showDetails">
-        <ion-grid class="grid-custom" *ngFor="let item of TourGuest ; let i = index" >
+        <ion-grid class="grid-custom" *ngFor="let item of TourGuest ; let i = index">
           <ion-row>
             <ion-col col-1>
               <h3 class="card-label">{{i+1}}</h3>
@@ -92,7 +92,7 @@
             <ion-col col-1>
             </ion-col>
             <ion-col col-10>
-              <h3 *ngIf="item.GuestType == 'TOURLEADER'"  class="card-leader">TOUR LEADER</h3>
+              <h3 *ngIf="item.GuestType == 'TOURLEADER'" class="card-leader">TOUR LEADER</h3>
               <h3 *ngIf="item.GuestType == 'TOURMEMBER'" class="card-member">TOUR MEMBER</h3>
             </ion-col>
           </ion-row>
@@ -208,64 +208,66 @@
 
       <ion-card-content style="margin-left: 0px;">
         <ion-card-title (click)="toggleDetails(data[4])">
-          <h2 class="card-title" style="height: 40px;padding-top: 10px;padding-left: 10px;padding-right: 10px;padding-bottom: 10px;margin-top: 0px; font-size:1.6rem;">Tour Schedules</h2>
+          <h2 class="card-title" style="height: 30px;padding-top: 5px;padding-left: 10px;padding-right: 6px;padding-bottom: 5px;margin-top: 0px; font-size:3.8vw;">Tour Schedules</h2>
         </ion-card-title>
-        <ion-grid *ngIf="data[4].showDetails">
-          <ion-item *ngFor="let dp of DailyPrograms ; let j of index" class="label-title-item">
-            <ion-icon color="primary"></ion-icon>
-            <div class="divider-title">
-              Day {{dp.Day}}, {{dp.Date | date:'dd MMMM yyyy'}}
-            </div>
+        <div class=timeline>
+          <ion-grid *ngIf="data[4].showDetails">
+            <ion-item *ngFor="let dp of DailyPrograms ; let j of index" class="label-title-item">
+              <ion-icon color="primary"></ion-icon>
+              <div class="divider-title">
+                Day {{dp.Day}}, {{dp.Date | date:'dd MMMM yyyy'}}
+              </div>
 
-            <div style="padding-bottom: 0px;" *ngIf="dp.TourDestinations.length == 0">
-              <p class="custom-label" style="font-size: 1.8rem; bottom: -21px;bottom: 215px;">No activities.</p>
-            </div>
+              <div style="padding-bottom: 0px;" *ngIf="dp.TourDestinations.length == 0">
+                <p class="custom-label" style="text-align:center; font-size: 3.8vw; bottom: -21px;bottom: 215px;">No activities.</p>
+              </div>
 
-            <div style="padding-bottom: 0px;" *ngIf="dp.TourDestinations.length > 0">
-              <ul class="timeline" *ngFor="let p of dp.TourDestinations; let i = index">
-                <li>
-                  <div class="timeline-thumb bg-color-positive timeline-icon" *ngIf="p.Destination != null">
-                    <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
-                  </div>
-                  <div class="timeline-item" *ngIf="p.Destination != null">
-                    <h4 class="line-break">{{p.Destination}}</h4>
-                  </div>
-                </li>
+              <div style="padding-bottom: 0px;" *ngIf="dp.TourDestinations.length > 0">
+                <ul class="timeline" *ngFor="let p of dp.TourDestinations; let i = index">
+                  <li>
+                    <div class="timeline-thumb bg-color-positive timeline-icon" *ngIf="p.Destination != null">
+                      <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
+                    </div>
+                    <div class="timeline-item" *ngIf="p.Destination != null">
+                      <h4 class="line-break">{{p.Destination}}</h4>
+                    </div>
+                  </li>
 
-                <li *ngIf="p.AccommodationSummary != null">
-                  <div class="timeline-thumb bg-color-dark timeline-icon" *ngIf="p.AccommodationSummary != null">
-                    <ion-icon ios="ios-cloudy-night" md="md-cloudy-night" class="timeline-icon"></ion-icon>
-                  </div>
-                  <div class="timeline-item" *ngIf="p.AccommodationSummary != null">
-                    <h4 class="line-break">{{p.AccommodationSummary["Name"]}}</h4>
-                    <p class="line-break">{{p.AccommodationSummary["RoomName"]}}<span class="line-break" *ngIf="p.AccommodationSummary.RoomService != null">, {{p.AccommodationSummary["RoomService"].replace('_', ' ')}}</span></p>
-                  </div>
-                </li>
+                  <li *ngIf="p.AccommodationSummary != null">
+                    <div class="timeline-thumb bg-color-dark timeline-icon" *ngIf="p.AccommodationSummary != null">
+                      <ion-icon ios="ios-cloudy-night" md="md-cloudy-night" class="timeline-icon"></ion-icon>
+                    </div>
+                    <div class="timeline-item" *ngIf="p.AccommodationSummary != null">
+                      <h4 class="line-break">{{p.AccommodationSummary["Name"]}}</h4>
+                      <p class="line-break">{{p.AccommodationSummary["RoomName"]}}<span class="line-break" *ngIf="p.AccommodationSummary.RoomService != null">, {{p.AccommodationSummary["RoomService"].replace('_', ' ')}}</span></p>
+                    </div>
+                  </li>
 
-                <li *ngIf="p.TransportationSummary.length > 0">
-                  <div class="timeline-thumb bg-color-calm timeline-icon" *ngIf="p.TransportationSummary.length > 0">
-                    <ion-icon ios="ios-bus" md="md-bus" class="timeline-icon"></ion-icon>
-                  </div>
-                  <div class="timeline-item" *ngIf="p.TransportationSummary.length > 0">
-                    <h4 class="line-break" *ngFor="let a of p.TransportationSummary ;let i = index">{{a.TransportationType}}</h4>
-                    <p class="line-break" *ngFor="let a of p.TransportationSummary ;let i = index">{{a.TransportationCapacity}} Seater, {{a.TransportationService.split("_").join(" ")}}</p>
-                  </div>
-                </li>
+                  <li *ngIf="p.TransportationSummary.length > 0">
+                    <div class="timeline-thumb bg-color-calm timeline-icon" *ngIf="p.TransportationSummary.length > 0">
+                      <ion-icon ios="ios-bus" md="md-bus" class="timeline-icon"></ion-icon>
+                    </div>
+                    <div class="timeline-item" *ngIf="p.TransportationSummary.length > 0">
+                      <h4 class="line-break" *ngFor="let a of p.TransportationSummary ;let i = index">{{a.TransportationType}}</h4>
+                      <p class="line-break" *ngFor="let a of p.TransportationSummary ;let i = index">{{a.TransportationCapacity}} Seater, {{a.TransportationService.split("_").join(" ")}}</p>
+                    </div>
+                  </li>
 
-                <li *ngIf="p.AttractionSummary.length > 0">
-                  <div class="timeline-thumb bg-color-energized timeline-icon">
-                    <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle" class="timeline-icon"></ion-icon>
-                  </div>
-                  <div class="timeline-item" *ngIf="p.AttractionSummary.length > 0">
-                    <h4 class="line-break" *ngFor="let a of p.AttractionSummary ;let i = index">{{a.Name}}</h4>
-                    <p class="line-break" *ngIf="p.AttractionSummary.length > 1 && i  != p.AttractionSummary.length - 1 ">,</p>
-                  </div>
-                </li>
+                  <li *ngIf="p.AttractionSummary.length > 0">
+                    <div class="timeline-thumb bg-color-energized timeline-icon">
+                      <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle" class="timeline-icon"></ion-icon>
+                    </div>
+                    <div class="timeline-item" *ngIf="p.AttractionSummary.length > 0">
+                      <h4 class="line-break" *ngFor="let a of p.AttractionSummary ;let i = index">{{a.Name}}</h4>
+                      <p class="line-break" *ngIf="p.AttractionSummary.length > 1 && i  != p.AttractionSummary.length - 1 ">,</p>
+                    </div>
+                  </li>
 
-              </ul>
-            </div>
-          </ion-item>
-        </ion-grid>
+                </ul>
+              </div>
+            </ion-item>
+          </ion-grid>
+        </div>
       </ion-card-content>
     </ion-list>
   </div>

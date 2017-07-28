@@ -100,6 +100,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PromoPackageProvider } from '../providers/promo-package';
 
+// Fixed Package Page
+import { FixedpackageDetailsPage } from './../pages/fixedpackage-details/fixedpackage-details';
+
 
 @NgModule({
   declarations: [
@@ -113,6 +116,7 @@ import { PromoPackageProvider } from '../providers/promo-package';
     CustomePackagePage,
     PromoPackagePage,
     FixedPackagePage,
+    FixedpackageDetailsPage,
     //My Bookings
     MybookingPage,
     MybookingComPage,
@@ -196,6 +200,7 @@ import { PromoPackageProvider } from '../providers/promo-package';
     CustomePackagePage,
     PromoPackagePage,
     FixedPackagePage,
+    FixedpackageDetailsPage,
     //My Booking
     MybookingPage,
     MybookingComPage,

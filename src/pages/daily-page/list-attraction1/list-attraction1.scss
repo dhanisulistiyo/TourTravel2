@@ -2,11 +2,11 @@ page-list-attraction1 {
     ion-card img {
         display: block;
         width: 155px;
-        height: 200px;
+        height: 150px;
     }
     .cover {
         width: 100%;
-        object-fit: cover;
+        object-fit: fill;
     }
     ion-col[width-60] {
         -webkit-flex: 0 0 60%;
@@ -20,12 +20,18 @@ page-list-attraction1 {
         font-size: 1.5em;
         color: white;
     }
+    [col-8] {
+        padding: 0px;
+    }
+    [col-4] {
+        padding: 5px;
+    }
     .button-inner {
         text-transform: none;
         font-family: 'Open Sans', cursive;
         font-weight: 700;
         color: white;
-        font-size: 2rem;
+        font-size: 4.2vw;
         letter-spacing: 2px;
         margin-top: 5px;
     }
@@ -37,7 +43,7 @@ page-list-attraction1 {
         font-size: 1.6rem;
         font-weight: 400;
         line-height: 3rem;
-        color: #f9f9f9;
+        color: black;
         background-color: #fff;
         background-position: 8px center;
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -45,20 +51,20 @@ page-list-attraction1 {
     .custom-h5 {
         margin: 0;
         font-family: 'Open Sans', cursive;
-        font-size: 1.7rem;
+        font-size: 4vw;
         font-weight: 500;
-        padding: 10px 0 10px 12px;
-        line-height: 3rem;
+        padding: 15px 0 10px 12px;
+        line-height: 1.5rem;
         color: #4d4d4d;
         background-color: #f2f2f2;
     }
     .card-md h2 {
         margin: 0;
-        font-size: 1.8rem;
+        font-size: 4.4vw;
         color: #3498db;
         font-family: 'Open Sans', cursive;
         font-weight: 500;
-        line-height: 3rem;
+        line-height: 2rem;
     }
     ion-col.col-custom {
         position: relative;
@@ -83,19 +89,47 @@ page-list-attraction1 {
     }
     ion-icon.custom-star {
         color: #ffcd25;
-        font-size: 24px;
+        font-size: 4vw;
+        margin-bottom: 10px;
     }
     ion-icon.custom-pin {
         color: #808080;
         padding-right: 5px;
-        font-size: 1.6rem;
+        font-size: 4vw;
+    }
+    ion-icon.custom-info {
+        color: #3498db;
+        font-size: 4.4vw;
     }
     .card-md p {
         font-family: 'Open Sans', cursive;
         font-weight: 500;
-        line-height: 2.8rem;
         margin: 0 0 2px;
-        font-size: 1.6rem;
+        font-size: 4vw;
         color: #808080;
+    }
+    .col {
+        padding: 5px 5px 0px 0px;
+    }
+    ul {
+        padding: 0px;
+        &.rating li {
+            padding: 5px 10px !important;
+            background: none;
+            color: red;
+            ion-icon {
+                font-size: 30px;
+            }
+        }
+    }
+    .button-md {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        border-radius: 2px;
+        font-size: 2vw;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: #fff;
     }
 }

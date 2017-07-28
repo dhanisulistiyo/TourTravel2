@@ -10,19 +10,19 @@ page-login {
     h2 {
         font-family: 'Quicksand', sans-serif;
         color: white;
-        font-size: 30px;
+        font-size: 8vw;
         font-weight: 700;
         margin-bottom: 120px;
     }
     h3 {
         font-family: 'Architects Daughter', cursive;
         color: white;
-        font-size: 30px;
+        font-size: 8vw;
         font-weight: 500;
     }
     .p-center {
         text-align: center;
-        font-size: 1em;
+        font-size: 4vw;
         color: white;
     } // ion-list CSS
     // item item-trns list list-md
@@ -143,7 +143,8 @@ page-login {
     .btn-register {
         background-color: #FF9800;
         text-transform: none;
-        font-size: 16px;
+        font-size: 4vw;
+        font-family: 'Open Sans', cursive;
     }
     .btn-register:hover {
         background-color: #FF8100 !important;
@@ -151,7 +152,8 @@ page-login {
     .btn-login {
         background-color: #2979ff;
         text-transform: none;
-        font-size: 16px;
+        font-size: 4vw;
+        font-family: 'Open Sans', cursive;
     }
     .btn-login:hover {
         background-color: #1587b9 !important;
@@ -199,10 +201,11 @@ page-login {
         color: white;
     }
     .label-md[floating] {
-        font-size: 1em;
+        font-family: 'Open Sans', cursive;
+        font-size: 4vw;
     }
     .item-label-floating .text-input-md {
-        font-size: 1em;
+        font-size: 4vw;
     }
     ion-icon.icon {
         display: inline;
@@ -212,6 +215,7 @@ page-login {
         padding-top: 0;
         padding-bottom: 0;
         height: 25px;
-        font-size: 1.6rem;
+        font-size: 4vw;
+        font-family: 'Open Sans', cursive;
     } 
 }
