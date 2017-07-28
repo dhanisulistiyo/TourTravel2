@@ -226,6 +226,34 @@ page-confirm-booking {
         font-family: 'Open Sans', cursive;
         font-weight: 700;
     }
+    .item-md h4 {
+        margin: 2px 0;
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: normal;
+    }
+    p.custom-label {
+        background-color: #e6e6e6;
+        margin: 0;
+        text-align: center;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 50px;
+        font-family: 'Lato', cursive;
+        color: #4d4d4d;
+        font-size: 2 vw;
+        font-weight: bold;
+    }
+    .item-md p {
+        overflow: inherit;
+        margin: 10px 0 0 0;
+        font-size: 1.7rem;
+        padding-right: 10px;
+        line-height: normal;
+        text-overflow: inherit;
+        color: #666;
+        text-align: left;
+    }
     .timeline {
         height: auto;
         width: 100%;
@@ -505,33 +533,31 @@ page-confirm-booking {
         .addmore-button {
             font-size: 3.5vw;
         }
-    }
-    .item-md h4 {
-        margin: 2px 0;
-        font-size: 2rem;
-        font-weight: bold;
-        line-height: normal;
-    }
-    p.custom-label {
-        background-color: #e6e6e6;
-        margin: 0;
-        text-align: center;
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 50px;
-        font-family: 'Lato', cursive;
-        color: #4d4d4d;
-        font-size: 2 vw;
-        font-weight: bold;
-    }
-    .item-md p {
-        overflow: inherit;
-        margin: 10px 0 0 0;
-        font-size: 1.7rem;
-        padding-right: 10px;
-        line-height: normal;
-        text-overflow: inherit;
-        color: #666;
-        text-align: left;
+    } // Modal
+    .modal-wrapper {
+        &,
+        .ion-page,
+        .ion-page .content,
+        .ion-page .content .scroll-content {
+            contain: content;
+            position: relative;
+            top: auto;
+            left: auto;
+        }
+        z-index: $z-index-overlay-wrapper;
+        display: flex;
+        overflow: hidden;
+        flex-direction: column;
+        min-width: $alert-min-width;
+        max-height: $alert-max-height;
+        opacity: 0;
+        height: auto;
+        max-width: $alert-md-max-width;
+        border-radius: $alert-md-border-radius;
+        background-color: $alert-md-background-color;
+        box-shadow: $alert-md-box-shadow;
+        .ion-page .content {
+            background-color: color($colors, light);
+        }
     }
 }

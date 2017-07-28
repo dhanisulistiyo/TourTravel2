@@ -157,13 +157,13 @@ export class ConfirmBookingPage {
       message: "Do you agree with this booking?",
       buttons: [
         {
-          text: 'Cancel',
+          text: 'No',
           handler: () => {
             console.log('Cancel clicked');
           }
         },
         {
-          text: 'OK',
+          text: 'Yes',
           handler: () => {
             console.log('Saved clicked');
             //this.navCtrl.push(PaymentPage, { details, status });
@@ -188,7 +188,7 @@ export class ConfirmBookingPage {
   presentToast() {
     let toast = this.toastCtrl.create({
       message: 'Your Booking has been saved in Sistem',
-      duration: 1500,
+      duration: 3000,
       position: 'bottom'
     });
     toast.present();
@@ -279,18 +279,18 @@ export class ConfirmBookingPage {
 @Component({
   selector: 'page-confirm-booking',
   template: `
-
-<ion-content>
-<h3>Do you want to pay this booking now?</h3>
+  
+<ion-content  class="popup-modal">
+<h2>Do you want to pay this booking now?</h2>
   <ion-row>
     <ion-col>
-      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-cancel" (click)="dismiss()">Cancel</button>
+      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-cancel" (click)="dismiss()">No, Pay Later</button>
     </ion-col>
     <ion-col>
-      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-accept" (click)="payNow()">Confirm</button>
+      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-accept" (click)="payNow()">Yes, Pay Now</button>
     </ion-col>
   </ion-row>
-</ion-content>
+  </ion-content>
 `
 })
 export class ModalContentPage {
