@@ -21,6 +21,9 @@
     @import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700');
     .ios,
     .md {
+        ul {
+            list-style-type: none;
+        }
         .content-bgn {
             background: #f9f9f9;
         }
@@ -95,7 +98,6 @@
                 box-shadow: none;
                 opacity: 1;
             }
-            
             .button-outline-md {
                 border-width: 1px;
                 border-style: solid;
