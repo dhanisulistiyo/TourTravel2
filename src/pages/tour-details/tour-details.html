@@ -30,10 +30,13 @@
     </ion-card>
 
     <p class="custom-padding">This booking request will be expired on <strong>{{bookdetails?.ExpiredOn | date:'dd MMMM yyyy'}}</strong></p>
-
+    <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="cetakPDF()" icon-left block><ion-icon ios="ios-document" md="md-document" ></ion-icon>Download Invoice</button>  
     <ion-card>
       <ion-card-header (click)="toggleDetails(data[0])">
-        <h2 class="card-title">Tour Detail</h2>
+        <ion-row>
+        <ion-col><h2 class="card-title">Tour Detail</h2></ion-col>
+        <ion-col col-1 center><ion-icon style="color: #fff" [name]="data[0].icon"></ion-icon></ion-col>
+        </ion-row>
         <!--<ion-icon color="primary" item-right [name]="data[0].icon" (click)="toggleDetails(d)"></ion-icon>-->
       </ion-card-header>
       <ion-card-content style="margin-left: 0px;" *ngIf="data[0].showDetails">

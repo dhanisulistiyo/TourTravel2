@@ -281,6 +281,8 @@ export class ConfirmBookingPage {
   template: `
 
 <ion-content>
+<div>jajkajka
+</div>
 <h3>Do you want to pay this booking now?</h3>
   <ion-row>
     <ion-col>
@@ -290,7 +292,9 @@ export class ConfirmBookingPage {
       <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-accept" (click)="payNow()">Confirm</button>
     </ion-col>
   </ion-row>
+
 </ion-content>
+
 `
 })
 export class ModalContentPage {
