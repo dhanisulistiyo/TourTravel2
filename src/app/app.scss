@@ -268,6 +268,11 @@
             border: 1px solid #488aff;
             border-radius: 5px;
         }
+        .calendar[_ngcontent-c1] .day[_ngcontent-c1],
+        .calendar[_ngcontent-c1] .weekday[_ngcontent-c1] {
+            padding: 5px 5px;
+            font-family: 'Open Sans', sans-serif;
+        } // Alert
         .alert-button-group[_ngcontent-c0] {
             flex-shrink: 0;
             color: white;
@@ -283,21 +288,35 @@
             border-radius: 2px;
             font-weight: 500;
             text-transform: uppercase;
-            color: #4fd2c2;
+            color: #488aff;
             background-color: transparent;
         }
         .alert-md .alert-message {
             max-height: 240px;
             font-size: 4vw;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .alert-md .alert-sub-title {
+            font-size: 4vw;
+            font-family: 'Open Sans', sans-serif;
         }
         .alert-md .alert-message,
         .alert-md .alert-input-group {
             padding: 5vw;
             color: rgba(0, 0, 0, 0.5);
         }
-        .calendar[_ngcontent-c1] .day[_ngcontent-c1],
-        .calendar[_ngcontent-c1] .weekday[_ngcontent-c1] {
-            padding: 5px 5px;
-            font-family: 'Open Sans', sans-serif;
+        .alert-sub-title {
+            margin: 5px 0 0;
+            padding: 1vw 2vw 0 2vw;
+            font-weight: normal;
+        }
+        .alert-md .alert-button-group {
+            -webkit-flex-wrap: wrap-reverse;
+            -ms-flex-wrap: wrap-reverse;
+            flex-wrap: wrap-reverse;
+            -webkit-justify-content: flex-end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+            padding: 8px 8px 8px 24px;
         }
     }
