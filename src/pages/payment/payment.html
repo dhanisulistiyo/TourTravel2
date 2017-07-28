@@ -5,8 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
+  <ion-navbar hideBackButton="false">
     <ion-title>Payment</ion-title>
   </ion-navbar>
 
@@ -20,7 +19,7 @@
         <ion-row>
           <ion-col col-6>
             <h2>{{bookdetails?.Title}}</h2>
-            <p class="p-custom" *ngFor="let bookdetails of BookingDetailSum">From {{bookdetails?.StartDate |  date:'dd MMM'}} -{{bookdetails?.EndDate | date:'dd MMM yyyy'}}</p>
+            <p class="p-custom" *ngFor="let bookdetails of BookingDetailSum">From {{bookdetails?.StartDate | date:'dd MMM'}} -{{bookdetails?.EndDate | date:'dd MMM yyyy'}}</p>
           </ion-col>
           <ion-col col-6>
             <h2 class="card-title" style="text-align: right;">USD <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice | number:'.0'}}</span>.-</h2>
@@ -61,7 +60,7 @@
       </ion-row>
     </div>
 
-    <div class="custom-div" *ngIf="Status=='confirm'" >
+    <div class="custom-div" *ngIf="Status=='confirm'">
       <ion-row class="row-label">
         <ion-col col-10>
           <h2>Pay Later</h2>
