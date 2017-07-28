@@ -1,3 +1,4 @@
+import { ModalContentPage } from './../pages/confirm-booking/confirm-booking';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -172,7 +173,8 @@ import { PromoPackageProvider } from '../providers/promo-package';
     FilterAttraction,
     TransportLocationservice,
     PaymentPage,
-    TransportHoursPage
+    TransportHoursPage,
+    ModalContentPage
   ],
   imports: [
     BrowserModule,
@@ -257,7 +259,8 @@ import { PromoPackageProvider } from '../providers/promo-package';
     MybookingCancel,
     PaymentPage,
     TransportLocationservice,
-    TransportHoursPage
+    TransportHoursPage,
+    ModalContentPage
   ],
   providers: [
     StatusBar,
