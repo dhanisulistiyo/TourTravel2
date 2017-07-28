@@ -1,7 +1,8 @@
+import { HomeScreenPage } from './../home-screen/home-screen';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController, ToastController, ViewController } from 'ionic-angular';
 import { MultiTransactionService } from '../../providers/multi-transaction-service';
-import { CustomePackagePage } from '../custome-package/custome-package';
+//import { CustomePackagePage } from '../custome-package/custome-package';
 import { UserandcompanyDetails } from '../../providers/userandcompany-details';
 /**
  * Generated class for the PaymentPage page.
@@ -36,47 +37,49 @@ export class PaymentPage {
     this.BookingDetailSum = navParams.data['details']
     this.Status = navParams.data['status']
     this.allow = true;
+
+    //this.allertNoExpireDate();
   }
 
   ionViewWillEnter() {
-    this.dateEx = new Date(this.BookingDetailSum[0].ExpiredOn);
-    this.dateNow = new Date();
-    if (this.dateNow >= this.dateEx) {
-      this.allow = false;
-    }
+    // this.dateEx = new Date(this.BookingDetailSum[0].ExpiredOn);
+    // this.dateNow = new Date();
+    // if (this.dateNow >= this.dateEx) {
+    //   this.allow = false;
+    // }
 
     let loader = this.load.create({
       content: 'Please wait...'
     });
     loader.present();
-    if (this.Status != "created")
-      this.mulTra.getTourTransaksi().subscribe(data => {
-        console.log(data);
-        this.BookingDetailSum = Array.of(data['BookingDetailSum']);
-      }, err => {
-        console.log(err);
-      }, () => console.log('post Transaction Complete'));
+    // if (this.Status != "created")
+            // this.mulTra.getTourTransaksi().subscribe(data => {
+            //   console.log(data);
+            //   this.BookingDetailSum = Array.of(data['BookingDetailSum']);
+            // }, err => {
+            //   console.log(err);
+            // }, () => console.log('post Transaction Complete'));
 
-    this.info.getUser().subscribe(data => {
-      this.userinfo = data;
-    }, err => {
-      console.log(err);
-    },
-      () => console.log('Get Transaction Complete')
-    );
+            this.info.getUser().subscribe(data => {
+              this.userinfo = data;
+            }, err => {
+              console.log(err);
+            },
+              () => console.log('Get Transaction Complete')
+            );
 
 
-    this.info.getCompany().subscribe(data => {
-      this.companyInfo = data;
-    }, err => {
-      console.log(err);
+            this.info.getCompany().subscribe(data => {
+              this.companyInfo = data;
+            }, err => {
+              console.log(err);
 
-    },
-      () => console.log('Get Transaction Complete')
-    );
-    loader.dismiss();
+            },
+              () => console.log('Get Transaction Complete')
+            );
+        loader.dismiss();
 
-  }
+    }
 
 
   payTour() {
@@ -96,14 +99,14 @@ export class PaymentPage {
         });
 
         this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, this.Status);
-        this.navCtrl.setRoot(CustomePackagePage);
+        this.navCtrl.setRoot(HomeScreenPage);
         loader.dismiss();
         this.presentToast();
       }
     } else if (this.pay == "hold") {
       this.presentToast();
       this.mulTra.clearCache();
-      this.navCtrl.setRoot(CustomePackagePage);
+      this.navCtrl.setRoot(HomeScreenPage);
     }
     else {
       this.alertPay();
@@ -138,5 +141,41 @@ export class PaymentPage {
     });
     alert.present();
   }
+
+
+   allertNoExpireDate(){
+    let prompt = this.alertCtrl.create({
+      title: 'Pay Booking ',
+      message: "Do you want to pay this booking now?",
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: ()=> {
+            console.log('Cancel clicked');   
+            if (this.Status == "created") {
+                this.navCtrl.pop().then(() => {
+                const index = this.viewCtrl.index;
+                this.navCtrl.remove(index);
+              });
+            }else{
+                this.navCtrl.setRoot(HomeScreenPage);
+            }      
+          }
+        },
+        {
+          text: 'OK',
+          handler: () => {
+            console.log('Sukses clicked');
+          }
+        }
+      ]
+    });   
+    prompt.present();
+  }
+
+  back(){
+    this.navCtrl.pop();
+  }
+
 
 }

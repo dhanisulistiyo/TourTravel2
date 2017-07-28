@@ -263,7 +263,7 @@ export class IteneraryBuilderPage {
     let today = new Date(this.event.monthStart)
     let tomorrow = new Date();
     if (this.ite.getToursName() == null) this.showAlertTourName();
-    else if (this.destination == '') this.showAlertDestination();
+    else if (this.destination == null) this.showAlertDestination();
     else if (this.ite.getDateTour() == null) this.showAlertDates();
     else if (today.getDate()==tomorrow.getDate()) this.showAlertToday();
     else if (this.totalDays < 0) this.showAlertValidasiDates();
