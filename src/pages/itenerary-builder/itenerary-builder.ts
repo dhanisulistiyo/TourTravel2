@@ -142,41 +142,6 @@ export class IteneraryBuilderPage {
         if(NB != 0 ) this.allocation.push({guest : NB, name : "No Bed"})
 
         console.log(this.allocation);
-
-        // if (sharingRooms != 0 && singleRoom != 0 && extraBed != 0 && sharingBed != 0) {
-        //   this.allocation = +sharingRooms + ' Sharing Room, ' + singleRoom + ' Single Room, ' + extraBed + ' Extra Bed, ' + sharingBed + ' Sharing Bed With Parents';
-        // } else if (sharingRooms != 0 && singleRoom == 0 && extraBed == 0 && sharingBed == 0) {
-        //   this.allocation = +sharingRooms + ' Sharing Room';
-        // } else if (sharingRooms == 0 && singleRoom != 0 && extraBed == 0 && sharingBed == 0) {
-        //   this.allocation = + singleRoom + ' Single Room';
-        // } else if (sharingRooms == 0 && singleRoom == 0 && extraBed != 0 && sharingBed == 0) {
-        //   this.allocation = + extraBed + ' Extra Bed ';
-        // } else if (sharingRooms == 0 && singleRoom == 0 && extraBed == 0 && sharingBed != 0) {
-        //   this.allocation = + sharingBed + '  Sharing Bed With Parents';
-        // } else if (sharingRooms != 0 && singleRoom != 0 && extraBed == 0 && sharingBed == 0) {
-        //   this.allocation = +sharingRooms + ' Sharing Room, ' + singleRoom + ' Single Room';
-        // } else if (sharingRooms != 0 && singleRoom == 0 && extraBed != 0 && sharingBed == 0) {
-        //   this.allocation = +sharingRooms + ' Sharing Room, ' + extraBed + ' Extra Bed ';
-        // } else if (sharingRooms != 0 && singleRoom == 0 && extraBed == 0 && sharingBed != 0) {
-        //   this.allocation = +sharingRooms + ' Sharing Room, ' + sharingBed + ' Sharing Bed With Parents';
-        // } else if (sharingRooms == 0 && singleRoom != 0 && extraBed != 0 && sharingBed == 0) {
-        //   this.allocation = + singleRoom + ' Single Room, ' + extraBed + ' Extra Bed ';
-        // } else if (sharingRooms == 0 && singleRoom != 0 && extraBed == 0 && sharingBed != 0) {
-        //   this.allocation = + singleRoom + ' Single Room, ' + sharingBed + ' Sharing Bed With Parents';
-        // } else if (sharingRooms == 0 && singleRoom == 0 && extraBed != 0 && sharingBed != 0) {
-        //   this.allocation = + extraBed + ' Extra Bed, ' + sharingBed + ' Sharing Bed With Parents';
-        // } else if (sharingRooms != 0 && singleRoom != 0 && extraBed != 0 && sharingBed == 0) {
-        //   this.allocation = +sharingRooms + ' Sharing Room, ' + singleRoom + ' Single Room, ' + extraBed + ' Extra Bed ';
-        // } else if (sharingRooms != 0 && singleRoom != 0 && extraBed == 0 && sharingBed != 0) {
-        //   this.allocation = +sharingRooms + ' Sharing Room, ' + singleRoom + ' Single Room, ' + sharingBed + ' Sharing Bed With Parents ';
-        // } else if (sharingRooms != 0 && singleRoom == 0 && extraBed != 0 && sharingBed != 0) {
-        //   this.allocation = +sharingRooms + ' Sharing Room, ' + extraBed + ' Extra Bed, ' + sharingBed + ' Sharing Bed With Parents ';
-        // } else if (sharingRooms == 0 && singleRoom != 0 && extraBed != 0 && sharingBed != 0) {
-        //   this.allocation = + singleRoom + ' Single Room, ' + extraBed + ' Extra Bed, ' + sharingBed + ' Sharing Bed With Parents ';
-        // } else if (sharingRooms == 0 && singleRoom == 0 && extraBed == 0 && sharingBed == 0) {
-        //   this.allocation = '';
-        // }
-
       }
     }
   }
@@ -285,6 +250,7 @@ export class IteneraryBuilderPage {
   //alert-alert
   showAlertTourName() {
     let alert = this.alertCtrl.create({
+      title: 'Failed!',
       subTitle: 'Please Input Tours Name ',
       buttons: ['OK']
     });
@@ -294,6 +260,7 @@ export class IteneraryBuilderPage {
 
    showAlertGuestType() {
     let alert = this.alertCtrl.create({
+      title: 'Failed!',
       subTitle: 'Please Choose Guest Type ',
       buttons: ['OK']
     });
@@ -302,6 +269,7 @@ export class IteneraryBuilderPage {
 
    showAlertTravelType() {
     let alert = this.alertCtrl.create({
+      title: 'Failed!',
       subTitle: 'Please Choose Travel Type ',
       buttons: ['OK']
     });
@@ -310,6 +278,7 @@ export class IteneraryBuilderPage {
 
   showAlertDestination() {
     let alert = this.alertCtrl.create({
+      title: 'Failed!',
       subTitle: 'Please Choose Your Destination ',
       buttons: ['OK']
     });
@@ -318,6 +287,7 @@ export class IteneraryBuilderPage {
 
   showAlertDates() {
     let alert = this.alertCtrl.create({
+      title: 'Failed!',
       subTitle: 'Please Change Your Date Tour ',
       buttons: ['OK']
     });
@@ -326,6 +296,7 @@ export class IteneraryBuilderPage {
 
   showAlertValidasiDates() {
     let alert = this.alertCtrl.create({
+      title: 'Failed!',
       subTitle: 'Please Change the end date is greater than the start date ',
       buttons: ['OK']
     });
@@ -334,6 +305,7 @@ export class IteneraryBuilderPage {
 
   showAlertGuest() {
     let alert = this.alertCtrl.create({
+      title: 'Failed!',
       subTitle: 'Please Input Guest Tour ',
       buttons: ['OK']
     });
@@ -343,6 +315,7 @@ export class IteneraryBuilderPage {
 
   showAlertToday() {
     let alert = this.alertCtrl.create({
+      title: 'Failed!',
       subTitle: 'Cannot choose start date is today ',
       buttons: ['OK']
     });
