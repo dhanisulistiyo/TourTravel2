@@ -253,6 +253,8 @@
         .calendar[_ngcontent-c1] .day.today[_ngcontent-c1] {
             background-color: #e4e4e4;
             border-radius: 5px;
+            color: black;
+            font-weight: 500;
         }
         input[_ngcontent-c1],
         select[_ngcontent-c1] {
@@ -286,13 +288,16 @@
             text-align: end;
             position: relative;
             overflow: hidden;
-            margin: 0 8px 0 0;
-            padding: 10px;
+            margin: 0 0px 0 5px;
+            padding: 5px 10px 5px 10px;
             border-radius: 2px;
             font-weight: 500;
+            font-size: 3.5vw;
+            font-family: 'Open Sans', sans-serif;
             text-transform: uppercase;
-            color: #488aff;
-            background-color: transparent;
+            color: white;
+            background-color: #488aff;
+            border-radius: 5px;
         }
         .alert-md .alert-message {
             max-height: 240px;
@@ -305,8 +310,9 @@
         }
         .alert-md .alert-message,
         .alert-md .alert-input-group {
-            padding: 5vw;
+            padding: 0vw 3vw;
             color: rgba(0, 0, 0, 0.5);
+            text-align: center;
         }
         .alert-sub-title {
             margin: 5px 0 0;
@@ -321,5 +327,19 @@
             -ms-flex-pack: end;
             justify-content: flex-end;
             padding: 8px 8px 8px 24px;
+        }
+        .alert-md .alert-wrapper {
+            max-width: 280px;
+            border-radius: 5px;
+            background-color: #fafafa;
+            box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4);
+        }
+        .alert-md .alert-radio-group,
+        .alert-md .alert-checkbox-group {
+            position: relative;
+            overflow: auto;
+            max-height: 240px;
+            border-top: 1px solid transparent;
+            border-bottom: 1px solid transparent;
         }
     }
