@@ -17,17 +17,17 @@
     <div *ngFor="let bookdetails of BookingDetailSum" class="selection" style="margin-left: -10px; width:105%; overflow: visible;">
       <ion-card class="card-custom" style="top:0; margin-top:0px; margin-bottom:0px">
         <ion-row>
-          <ion-col col-6>
+          <ion-col col-8>
             <h2>{{bookdetails?.Title}}</h2>
-            <p class="p-custom" *ngFor="let bookdetails of BookingDetailSum">From {{bookdetails?.StartDate | date:'dd MMM'}} -{{bookdetails?.EndDate | date:'dd MMM yyyy'}}</p>
+            <p class="p-custom" *ngFor="let bookdetails of BookingDetailSum">From {{bookdetails?.StartDate | date:'dd MMM'}} - {{bookdetails?.EndDate | date:'dd MMM yyyy'}}</p>
           </ion-col>
-          <ion-col col-6>
+          <ion-col col-4>
             <h2 class="card-title" style="text-align: right;">USD <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice | number:'.0'}}</span>.-</h2>
           </ion-col>
         </ion-row>
       </ion-card>
     </div>
-    <p class="label-custom" style="font-size: 1.9rem;">
+    <p class="label-custom" style="font-size: 3.8vw;">
       Select your payment method.
     </p>
 
@@ -76,5 +76,5 @@
 
 
 <ion-footer>
-  <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="payTour($event)" full large>Continue</button>
+  <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="payTour($event)" full>Continue</button>
 </ion-footer>
