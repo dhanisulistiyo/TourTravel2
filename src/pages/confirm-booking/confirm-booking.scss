@@ -534,30 +534,43 @@ page-confirm-booking {
             font-size: 3.5vw;
         }
     } // Modal
-    .modal-wrapper {
-        &,
-        .ion-page,
-        .ion-page .content,
-        .ion-page .content .scroll-content {
-            contain: content;
-            position: relative;
-            top: auto;
-            left: auto;
+    .popup-modal {
+        // padding: 30px;
+        // background: rgba(0,0,0,0.5);
+        background: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        top: 170px;
+        left: 45px;
+        display: block;
+        width: 75%;
+        height: 48%;
+        h2 {
+            margin-top: 0;
+            padding: 10px;
+            font-size: 5vw;
+            text-align: center;
+            background-color: #4fd2c2;
+            color: white;
+            font-family: 'Open Sans', cursive;
+            font-weight: 600;
         }
-        z-index: $z-index-overlay-wrapper;
-        display: flex;
-        overflow: hidden;
-        flex-direction: column;
-        min-width: $alert-min-width;
-        max-height: $alert-max-height;
-        opacity: 0;
-        height: auto;
-        max-width: $alert-md-max-width;
-        border-radius: $alert-md-border-radius;
-        background-color: $alert-md-background-color;
-        box-shadow: $alert-md-box-shadow;
-        .ion-page .content {
-            background-color: color($colors, light);
+        h3 {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 4.5vw;
+            text-align: center;
+            color: black;
+            font-family: 'Open Sans', cursive;
+            font-weight: 600;
+        }
+        p {
+            margin-top: 0;
+            padding: 0px 10px;
+            font-size: 4vw;
+            text-align: justify;
+            color: black;
+            font-family: 'Open Sans', cursive;
+            font-weight: 500;
         }
     }
 }

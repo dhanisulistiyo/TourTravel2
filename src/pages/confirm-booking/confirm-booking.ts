@@ -280,8 +280,11 @@ export class ConfirmBookingPage {
   selector: 'page-confirm-booking',
   template: `
   
-<ion-content  class="popup-modal">
-<h2>Do you want to pay this booking now?</h2>
+<ion-content class="popup-modal" style="border: 1px solid gray;">
+<h2>Payment Options</h2>
+<h3>Thank you for your booking!</h3>
+<p>A confirmation email has been sent to your email address.</p>
+<p style="margin-bottom: 35px;">Please note that if you choose <strong>Pay Later</strong>, your booking must be paid before the expiry date.</p>
   <ion-row>
     <ion-col>
       <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-cancel" (click)="dismiss()">No, Pay Later</button>

@@ -116,11 +116,25 @@
                 background: white;
             }
         }
-        page-confirm-booking span.button-inner {
-            text-transform: none;
-            font-size: 1.4rem;
-            font-family: 'Open Sans', cursive;
-            font-weight: 700;
+        page-confirm-booking {
+            span.button-inner {
+                text-transform: none;
+                font-size: 1.4rem;
+                font-family: 'Open Sans', cursive;
+                font-weight: 700;
+            }
+            .card-content-md {
+                padding: 0px 16px 13px 20px;
+                font-size: 1.4rem;
+                line-height: 1.5;
+            }
+        }
+        page-tour-details {
+            .card-content-md {
+                padding: 0px 16px 13px 20px;
+                font-size: 1.4rem;
+                line-height: 1.5;
+            }
         }
         page-itenerary-builder {}
         page-fixed-package {}
@@ -247,12 +261,12 @@
         .calendar[_ngcontent-c1] .day.selected.activated[_ngcontent-c1] {
             background-color: #4fd2c2;
             color: white;
-            border-radius: 5px;
+            border-radius: 50%;
             font-weight: 600;
         }
         .calendar[_ngcontent-c1] .day.today[_ngcontent-c1] {
             background-color: #e4e4e4;
-            border-radius: 5px;
+            border-radius: 50%;
             color: black;
             font-weight: 500;
         }
@@ -341,5 +355,10 @@
             max-height: 240px;
             border-top: 1px solid transparent;
             border-bottom: 1px solid transparent;
+        } // Alert Modal Confirm Booking
+        .ion-page.show-page {
+            opacity: 1;
+            background: rgba(0, 0, 0, 0.7);
+            
         }
     }

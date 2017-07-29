@@ -208,7 +208,16 @@
 
       <ion-card-content style="margin-left: 0px;">
         <ion-card-title (click)="toggleDetails(data[4])">
-          <h2 class="card-title" style="height: 30px;padding-top: 5px;padding-left: 10px;padding-right: 6px;padding-bottom: 5px;margin-top: 0px; font-size:3.8vw;">Tour Schedules</h2>
+          <h2 class="card-title" style="height: 30px;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 6px;
+    padding-bottom: 0;
+    margin-top: 0px;
+    font-size: 3.8vw;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 0;">Tour Schedules</h2>
         </ion-card-title>
         <div class=timeline>
           <ion-grid *ngIf="data[4].showDetails">

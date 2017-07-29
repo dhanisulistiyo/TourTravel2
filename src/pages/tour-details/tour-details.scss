@@ -161,6 +161,11 @@ page-tour-details {
         background-color: transparent;
         box-shadow: none;
     }
+    .card-content-md {
+        padding: 0px 16px 13px 20px;
+        font-size: 1.4rem;
+        line-height: 1.5;
+    }
     ion-avatar img,
     ion-thumbnail img {
         display: block;
