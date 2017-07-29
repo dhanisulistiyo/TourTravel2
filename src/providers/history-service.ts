@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers,RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {AuthService} from '../providers/auth-token-service';
 import {IteneraryService} from '../providers/itenerary-service';
@@ -60,6 +60,15 @@ export class HistoryService {
         return response;
     }
 
+ generateInvoice(id){
+    let token = this.auth.AuthToken;
+    var headers = new Headers({ 'Content-Type': 'application/json' });
+    headers.append('Authorization', 'Bearer ' + token);
+    let options = new RequestOptions({ headers: headers });
+    var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TourTransactions/GeneratePDFTransaction?id='+id;
+    var response = this.http.get(url, options).map(res => res.json());
+    return response;
 
+  }
 
 }

@@ -25,6 +25,7 @@ export class TourDetailsPage {
   selectedId: any;
   isValid;
   userinfo;
+  pdf
   constructor(public navCtrl: NavController, public navParams: NavParams, public his: HistoryService, 
   public mulTra: MultiTransactionService,
   public load: LoadingController,
@@ -38,6 +39,7 @@ export class TourDetailsPage {
     this.curency = null;
     this.selectedId = navParams.data;
     this.isValid = false;
+    this.pdf=null;
   }
 
   ionViewWillEnter() {
@@ -54,6 +56,16 @@ export class TourDetailsPage {
                 },
                 () => console.log('Get Transaction Complete')
     );   
+     this.his.generateInvoice(this.selectedId).subscribe(data=>{
+      console.log(data);
+      this.pdf= data.substr(44);
+      console.log(this.pdf)
+    },err => {
+                    console.log(err);
+                    //loader.dismiss();
+                },
+                () => console.log('Get PDF Complete')
+    );  
 
     this.his.getTransactionsSumarry(this.selectedId).subscribe(data => {
       this.BookingDetailSum = Array.of(data['BookingDetailSum']);
@@ -64,31 +76,31 @@ export class TourDetailsPage {
 
       this.data.push({
         info: "Tour Detail",
-        icon: 'ios-arrow-dropright-outline',
+        icon: 'ios-arrow-dropdown-outline',
         showDetails: true
       });
 
        this.data.push({
         info: "Guest Detail",
-        icon: 'ios-arrow-dropright-outline',
+        icon: 'ios-arrow-dropdown-outline',
         showDetails: true
       });
 
        this.data.push({
         info: "Room Allocation",
-        icon: 'ios-arrow-dropright-outline',
+        icon: 'ios-arrow-dropdown-outline',
         showDetails: true
       });
 
       this.data.push({
         info: "Tour Prices",
-        icon: 'ios-arrow-dropright-outline',
+        icon: 'ios-arrow-dropdown-outline',
         showDetails: true
       });
 
        this.data.push({
         info: "Tour Schedules",
-        icon: 'ios-arrow-dropright-outline',
+        icon: 'ios-arrow-dropdown-outline',
         showDetails: true
       });
 
@@ -120,6 +132,11 @@ export class TourDetailsPage {
     let status = "confirm"
     this.mulTra.getConfirmTour(this.BookingDetailSum[0].Id, status)
     this.navCtrl.pop();
+  }
+
+    cetakPDF(){
+    window.open(this.pdf, '_system')
+    
   }
 
   cancelTour() {
@@ -178,6 +195,8 @@ allertCancelBooking() {
     });
     prompt.present();
   }
+
+
 
 
 }
