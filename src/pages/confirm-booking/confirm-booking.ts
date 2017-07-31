@@ -44,7 +44,16 @@ export class ConfirmBookingPage {
     });
     modal.present();
     //this.navCtrl.push(ModalController);
+  }
 
+    openModalExpired() {
+    let allow = null;
+    let modal = this.modalCtrl.create(ModalContentPageExpired, { data: allow });
+    modal.onDidDismiss(data => {
+      this.bookingTour(data);
+    });
+    modal.present();
+    //this.navCtrl.push(ModalController);
   }
 
   bookingTour(sta) {
@@ -52,6 +61,7 @@ export class ConfirmBookingPage {
       content: 'Please wait...'
     });
     loader.present();
+    if(sta!=null){
     this.mulTra.getTourTransaksi().subscribe(data => {
       this.BookingDetailSum = Array.of(data['BookingDetailSum']);
       if (sta == "yes") {
@@ -65,11 +75,8 @@ export class ConfirmBookingPage {
     }, err => {
       console.log(err);
     }, () => console.log('post Transaction Complete'));
-    loader.dismiss();
-
-
-
-
+    }
+  loader.dismiss();
   }
 
   ionViewWillEnter() {
@@ -150,6 +157,9 @@ export class ConfirmBookingPage {
     }
   }
   allertConfirmBooking() {
+    let today = (+new Date());
+    let exp =  (+new Date(this.BookingDetailSum[0].ExpiredOn))
+    let totalDays = (exp - today) / 86400000;
     let details = this.BookingDetailSum;
     let status = "confirm"
     let prompt = this.alertCtrl.create({
@@ -167,8 +177,8 @@ export class ConfirmBookingPage {
           handler: () => {
             console.log('Saved clicked');
             //this.navCtrl.push(PaymentPage, { details, status });
-            this.openModal();
-
+            if(totalDays > 3) this.openModal();
+            else this.openModalExpired();
             // if(this.dateNow >= this.dateEx){
             //    prompt.dismiss().then(() => {
             //     this.allertExpireDate();
@@ -187,7 +197,7 @@ export class ConfirmBookingPage {
   }
   presentToast() {
     let toast = this.toastCtrl.create({
-      message: 'Your Booking has been saved in Sistem',
+      message: 'Your Booking has been saved in Sistem, Please check in History',
       duration: 3000,
       position: 'bottom'
     });
@@ -321,6 +331,58 @@ export class ModalContentPage {
 
   dismiss() {
     this.viewCtrl.dismiss("no");
+    //  this.navCtrl.setRoot(HomeScreenPage);
+  }
+}
+
+
+
+
+@Component({
+  selector: 'page-confirm-booking',
+  template: `
+  
+<ion-content class="popup-modal" style="border: 1px solid gray;">
+<h2>Booking Expired</h2>
+<h3>Thank you for your booking!</h3>
+<p>A confirmation email has been sent to your email address.</p>
+<p>Do you want to pay now?</p>
+<p style="margin-bottom: 35px;">Please <strong>Pay Now</strong>, your booking must be paid because the expiry date.</p>
+  <ion-row>
+    <ion-col>
+      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-cancel" (click)="dismiss()">No</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-accept" (click)="payNow()">Yes, Pay Now</button>
+    </ion-col>
+  </ion-row>
+  </ion-content>
+`
+})
+export class ModalContentPageExpired {
+  BookingDetailSum;
+  constructor(
+    public platform: Platform,
+    public params: NavParams,
+    public viewCtrl: ViewController,
+    public mulTra: MultiTransactionService,
+    public alertCtrl: AlertController,
+    public load: LoadingController,
+    public navCtrl: NavController
+  ) {
+
+  }
+
+
+  payNow() {
+    this.viewCtrl.dismiss("yes");
+    // let details = this.BookingDetailSum;
+    // console.log(details);
+    // this.navCtrl.push(PaymentPage, { details, status });
+  }
+
+  dismiss() {
+    this.viewCtrl.dismiss();
     //  this.navCtrl.setRoot(HomeScreenPage);
   }
 }
