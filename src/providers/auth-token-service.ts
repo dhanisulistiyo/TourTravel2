@@ -1,3 +1,4 @@
+import { ConfigProvider } from './config';
 import { Injectable } from '@angular/core';
 // import { Observable } from 'rxjs/Observable';
 import { Http, Headers } from '@angular/http';
@@ -22,7 +23,7 @@ export class AuthService {
     AuthToken;
     currentUser: User;
 
-    constructor(public http: Http) {
+    constructor(public http: Http, public conf:ConfigProvider) {
         this.http = http;
         this.isLoggedin = false;
         this.AuthToken = null;
@@ -61,7 +62,7 @@ export class AuthService {
         headers.append('Content-Type', 'application/json');
 
         return new Promise(resolve => {
-            this.http.post('http://cloud.basajans.com:8868/tripplannerdev/api/Account/Login', login, { headers: headers }).map(res => res
+            this.http.post(this.conf.baseUrl+'/Account/Login', login, { headers: headers }).map(res => res
             ).subscribe(res => {
                 if (res.status < 200 || res.status >= 300) {
                     resolve(false);
@@ -101,7 +102,7 @@ export class AuthService {
 
 
         var myresult = new Promise(resolve => {
-            this.http.post('http://cloud.basajans.com:8868/tripplannerdev/api/Account/RegisterCompany', json, { headers: headers })
+            this.http.post(this.conf.baseUrl+'/Account/RegisterCompany', json, { headers: headers })
                 .map(res => res)
                 .subscribe(data => {
                     if (data.status < 200 || data.status >= 300) {
@@ -127,10 +128,9 @@ export class AuthService {
     public getUserInfo() {
         var headers = new Headers();
         this.loadUserCredentials();
-        //console.log(this.AuthToken);
         headers.append('Authorization', 'Bearer ' + this.AuthToken);
         var myresult = new Promise(resolve => {
-            this.http.get('http://cloud.basajans.com:8868/tripplannerdev/api/Account/UserInfo', { headers: headers })
+            this.http.get(this.conf.baseUrl+'/Account/UserInfo', { headers: headers })
                 .map(res => res)
                 .subscribe(data => {
                     if (data.status < 200 || data.status >= 300) {
@@ -142,10 +142,6 @@ export class AuthService {
                         resolve(data.json());
                         var result = data.json();
                         this.currentUser = new User(result["CompanyID"], result["Username"], result["Password"]);
-                        //console.log(this.currentUser);
-                        //console.log(data.json());
-                        //this.storeUserCredentials(data.json().token);
-                        //return res.json();
                     }
                 }, (error => {
                     console.log(error);

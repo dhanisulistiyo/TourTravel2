@@ -1,3 +1,4 @@
+import { ConfigProvider } from './config';
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { AuthService } from '../providers/auth-token-service'
@@ -11,11 +12,13 @@ export class TransportService {
     types;
     seats;
 
-    constructor(public http: Http, public auth: AuthService, public ite: IteneraryService, public ds: DailyService) {
+    constructor(public http: Http, public auth: AuthService, public ite: IteneraryService, 
+        public ds: DailyService,
+        public conf:ConfigProvider
+    ) {
     }
 
     public setRatings(rat) {
-        console.log(rat)
         window.localStorage.setItem('ratTrans', rat);
         this.ratings = rat;
     }
@@ -48,7 +51,7 @@ export class TransportService {
         if (ty == null) { ty = ''; }
 
         headers.append('Authorization', 'Bearer ' + token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TransportationUnits/AirportService?CityId=' + des + '&RatingId=' + rat + '&seatTypeId=' + se + '&typeId=' + ty;
+        var url = this.conf.baseUrl+'/TransportationUnits/AirportService?CityId=' + des + '&RatingId=' + rat + '&seatTypeId=' + se + '&typeId=' + ty;
         var response = this.http.get(url, { headers: headers }).map(res => res.json());
         return response;
     }
@@ -67,7 +70,7 @@ export class TransportService {
         if (ty == null) { ty = ''; }
 
         headers.append('Authorization', 'Bearer ' + token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TransportationUnits/AirportService?CityId=' + des + '&RatingId=' + rat + '&seatTypeId=' + se + '&typeId=' + ty + '&servicetype=' + ser;
+        var url = this.conf.baseUrl+'/TransportationUnits/AirportService?CityId=' + des + '&RatingId=' + rat + '&seatTypeId=' + se + '&typeId=' + ty + '&servicetype=' + ser;
         var response = this.http.get(url, { headers: headers }).map(res => res.json());
         return response;
     }
@@ -84,7 +87,7 @@ export class TransportService {
         if (ty == null) { ty = ''; }
 
         headers.append('Authorization', 'Bearer ' + token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TransportationUnits/TransportationService?CityId=' + des + '&RatingId=' + rat + '&seatTypeId=' + se + '&typeId=' + ty;
+        var url = this.conf.baseUrl+'/TransportationUnits/TransportationService?CityId=' + des + '&RatingId=' + rat + '&seatTypeId=' + se + '&typeId=' + ty;
         var response = this.http.get(url, { headers: headers }).map(res => res.json());
         return response;
     }
@@ -93,8 +96,6 @@ export class TransportService {
 
         var headers = new Headers();
         let token = this.auth.AuthToken;
-        console.log(from)
-        console.log(to)
         let fr = from.Region.Id;
         let fc = from.Id ;
         let tr = to.Region.Id ;
@@ -108,7 +109,7 @@ export class TransportService {
         if (ty == null) { ty = ''; }
 
         headers.append('Authorization', 'Bearer ' + token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TransportationUnits/TransportationService?fromRegion='+fr+'&fromCity='+fc+'&toRegion='+tr+'&toCity='+tc+'&RatingId=' + rat + '&seatTypeId=' + se + '&typeId=' + ty;
+        var url = this.conf.baseUrl+'/TransportationUnits/TransportationService?fromRegion='+fr+'&fromCity='+fc+'&toRegion='+tr+'&toCity='+tc+'&RatingId=' + rat + '&seatTypeId=' + se + '&typeId=' + ty;
         //var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TransportationUnits/TransportationService?fromLocation='+from+'&toLocation='+to+'&RatingId=' + rat + '&seatTypeId=' + se + '&typeId=' + ty;
         var response = this.http.get(url, { headers: headers }).map(res => res.json());
         return response;
@@ -118,7 +119,7 @@ export class TransportService {
         var headers = new Headers();
         let token = this.auth.AuthToken;
         headers.append('Authorization', 'Bearer ' + token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TransportationUnits';
+        var url = this.conf.baseUrl+'/TransportationUnits';
         var response = this.http.get(url, { headers: headers }).map(res => res.json());
         return response;
     }
@@ -128,7 +129,7 @@ export class TransportService {
         let token = this.auth.AuthToken;
         let des = this.ite.getDestination();
         headers.append('Authorization', 'Bearer ' + token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TransportationUnits/ByCity?CityId=' + des;
+        var url = this.conf.baseUrl+'/TransportationUnits/ByCity?CityId=' + des;
         var response = this.http.get(url, { headers: headers }).map(res => res.json());
         return response;
     }
@@ -139,7 +140,7 @@ export class TransportService {
         var headers = new Headers();
         let token = this.auth.AuthToken;
         headers.append('Authorization', 'Bearer ' + token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TransportationUnits/GetTransportationUnit?ratingId=3&seatTypeId=1&typeId=1&servicetypeid=1';
+        var url = this.conf.baseUrl+'/TransportationUnits/GetTransportationUnit?ratingId=3&seatTypeId=1&typeId=1&servicetypeid=1';
         var response = this.http.get(url, { headers: headers }).map(res => res.json());
         return response;
 

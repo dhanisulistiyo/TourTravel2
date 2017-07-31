@@ -1,3 +1,4 @@
+import { ConfigProvider } from './config';
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -15,7 +16,7 @@ export class TransactionService {
   transportation: Array<{ ServiceItemId: any, TransportationItemServiceType: any, Date: any }>;
   accomodation: Array<{ ServiceItemId, Date, SharingRoomQty, SingleRoomQty, ExtraBedQty, SharingBedQty, AccommodationItemServiceType }>;
 
-  constructor(public http: Http, public auth: AuthService, public ite: IteneraryService) {
+  constructor(public http: Http, public auth: AuthService, public ite: IteneraryService, public conf:ConfigProvider) {
   }
 
   getTourPrice() {
@@ -35,12 +36,10 @@ export class TransactionService {
       "Accommodations": this.accomodation
     };
 
-    console.log(token);
     var headers = new Headers({ 'Content-Type': 'application/json' });
     headers.append('Authorization', 'Bearer ' + token);
-    //headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({ headers: headers });
-    var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TourTransactions/DemoPrice';
+    var url = this.conf.baseUrl+'/TourTransactions/DemoPrice';
     var response = this.http.post(url, json, options).map(res => res.json());
     return response;
   }
@@ -67,12 +66,10 @@ export class TransactionService {
     };
 
 
-    console.log(token);
     var headers = new Headers({ 'Content-Type': 'application/json' });
     headers.append('Authorization', 'Bearer ' + token);
-    //headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({ headers: headers });
-    var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TourTransactions/';
+    var url = this.conf.baseUrl+'/TourTransactions/';
     var response = this.http.post(url, json, options).map(res => res.json());
     this.ite.delLocalStorage();
     return response;

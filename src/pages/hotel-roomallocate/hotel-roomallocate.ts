@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 //import {IteneraryBuilderPage} from '../itenerary-builder/itenerary-builder';
 import { IteneraryService } from '../../providers/itenerary-service';
 
@@ -30,7 +30,6 @@ export class HotelRoomallocatePage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public ite: IteneraryService,
-    private viewCtrl: ViewController,
     public alertCtrl: AlertController
   ) {
     this.SR = { adult: 0, child: 0 };
@@ -293,6 +292,7 @@ export class HotelRoomallocatePage {
 
   showAlertValidasi() {
     let alert = this.alertCtrl.create({
+      title: 'Wrong Input!',
       subTitle: 'Input Data Not Number',
       buttons: ['OK']
     });
@@ -301,6 +301,7 @@ export class HotelRoomallocatePage {
 
   showAlertAllocate() {
     let alert = this.alertCtrl.create({
+      title: 'Failed!',
       subTitle: 'Incorrect guest data allocation',
       buttons: ['OK']
     });
@@ -309,6 +310,7 @@ export class HotelRoomallocatePage {
 
   showAlertChilds() {
     let alert = this.alertCtrl.create({
+      title: 'Failed!',
       subTitle: 'Input Sharing Bed with Parents must less then or equals input childs',
       buttons: ['OK']
     });

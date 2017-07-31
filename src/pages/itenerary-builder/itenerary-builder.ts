@@ -27,12 +27,12 @@ export class IteneraryBuilderPage {
   tranportation: string;
   acomodation: string;
   totalDays;
-  kuotaGuest : string[] = [];
+  kuotaGuest: string[] = [];
   kuotaG;
-  typeGuest : string[] = [];
+  typeGuest: string[] = [];
   typeG;
   maxGuest;
-  allocation: Array<{guest: number, name: string}>;
+  allocation: Array<{ guest: number, name: string }>;
   public event = {
     monthStart: '',
     monthEnd: ''
@@ -59,8 +59,8 @@ export class IteneraryBuilderPage {
       monthStart: new Date().toISOString().substring(0, 10),
       monthEnd: new Date().toISOString().substring(0, 10)
     };
-    this.kuotaGuest = ['Choose Type Guest','Small Group', 'Large Group']
-    this.typeGuest =  ['Choose Type'];
+    this.kuotaGuest = ['Choose Type Guest', 'Small Group', 'Large Group']
+    this.typeGuest = ['Choose Type'];
   }
 
 
@@ -76,10 +76,10 @@ export class IteneraryBuilderPage {
     var dateTours = this.ite.getDateTour();
     var alloc = this.ite.getRoomAllo();
 
-    if (loc != null) { 
-      this.destination = loc.Name; 
+    if (loc != null) {
+      this.destination = loc.Name;
     }
- 
+
     if (att != null) {
       this.attraction = att.attrac
     }
@@ -131,48 +131,48 @@ export class IteneraryBuilderPage {
         var SiR = Number(alloc.allocroom.singleRoom)
         var EB = Number(alloc.allocroom.extraBed)
         var SB = Number(alloc.allocroom.sharingBed)
-        var BC =  Number(alloc.allocroom.babyCrib)
-        var NB =  Number(alloc.allocroom.noBed)
+        var BC = Number(alloc.allocroom.babyCrib)
+        var NB = Number(alloc.allocroom.noBed)
 
-        if(SR != 0 ) this.allocation.push({guest : SR, name : "Sharing Room"})
-        if(SiR != 0 ) this.allocation.push({guest : SiR, name : "Single Room"})
-        if(EB != 0 ) this.allocation.push({guest : EB, name : "Extra Bed"})
-        if(SB != 0 ) this.allocation.push({guest : SB, name : "Sharing Bed"})
-        if(BC != 0 ) this.allocation.push({guest : BC, name : "Baby Crib"})
-        if(NB != 0 ) this.allocation.push({guest : NB, name : "No Bed"})
+        if (SR != 0) this.allocation.push({ guest: SR, name: "Sharing Room" })
+        if (SiR != 0) this.allocation.push({ guest: SiR, name: "Single Room" })
+        if (EB != 0) this.allocation.push({ guest: EB, name: "Extra Bed" })
+        if (SB != 0) this.allocation.push({ guest: SB, name: "Sharing Bed" })
+        if (BC != 0) this.allocation.push({ guest: BC, name: "Baby Crib" })
+        if (NB != 0) this.allocation.push({ guest: NB, name: "No Bed" })
 
         console.log(this.allocation);
       }
     }
   }
 
-  setKuotaGuest(kuo){
+  setKuotaGuest(kuo) {
     console.log(kuo);
     this.kuotaG = kuo;
-    if(kuo == 'Small Group'){
-      this.typeGuest = ['Choose Type','Regular','Family', 'Business', 'Honeymoon']
+    if (kuo == 'Small Group') {
+      this.typeGuest = ['Choose Type', 'Regular', 'Family', 'Business', 'Honeymoon']
       this.ite.setGroupType("Small");
-    }else{
-      this.typeGuest = ['Choose Type','Regular','Family', 'Business'];
+    } else {
+      this.typeGuest = ['Choose Type', 'Regular', 'Family', 'Business'];
       this.ite.setGroupType("Large");
     }
   }
 
-  setTypeGuest(type){
+  setTypeGuest(type) {
 
-      this.typeG = type;
-      this.ite.setTourType(type);
-      if(this.kuotaG == 'Small Group'){
-        if(type == 'Regular') this.maxGuest = 10;
-        else if(type == 'Family') this.maxGuest = 10;
-        else if(type == 'Business') this.maxGuest = 10;
-        else if(type == 'Honeymoon') this.maxGuest = 2;
-      }else{
-        if(type == 'Regular') this.maxGuest = 1000;
-        else if(type == 'Family') this.maxGuest = 1000;
-        else if(type == 'Business') this.maxGuest = 1000;
-      }
-    
+    this.typeG = type;
+    this.ite.setTourType(type);
+    if (this.kuotaG == 'Small Group') {
+      if (type == 'Regular') this.maxGuest = 10;
+      else if (type == 'Family') this.maxGuest = 10;
+      else if (type == 'Business') this.maxGuest = 10;
+      else if (type == 'Honeymoon') this.maxGuest = 2;
+    } else {
+      if (type == 'Regular') this.maxGuest = 1000;
+      else if (type == 'Family') this.maxGuest = 1000;
+      else if (type == 'Business') this.maxGuest = 1000;
+    }
+
 
 
   }
@@ -204,7 +204,7 @@ export class IteneraryBuilderPage {
 
   passengerTapped(event) {
     let count = this.maxGuest;
-    if(this.typeG != null) this.navCtrl.push(InputTravellersPage, {count});
+    if (this.typeG != null) this.navCtrl.push(InputTravellersPage, { count });
     else this.showAlertTravelType();
   }
 
@@ -227,23 +227,33 @@ export class IteneraryBuilderPage {
   createItenerary(event) {
     let today = new Date(this.event.monthStart)
     let tomorrow = new Date();
+    var adult = this.ite.getPassenger().guestTour['AdultQty'];
+    var child = this.ite.getPassenger().guestTour['ChildQty'];
+    var infant = this.ite.getPassenger().guestTour['InfantQty'];
+    var alloc = this.ite.getRoomAllo()
     if (this.ite.getToursName() == null) this.showAlertTourName();
     else if (this.destination == null) this.showAlertDestination();
     else if (this.ite.getDateTour() == null) this.showAlertDates();
-    else if (today.getDate()==tomorrow.getDate()) this.showAlertToday();
+    else if (today.getDate() == tomorrow.getDate()) this.showAlertToday();
     else if (this.totalDays < 0) this.showAlertValidasiDates();
     else if (this.passenger == '') this.showAlertGuest();
     else if (this.kuotaG == null) this.showAlertGuestType();
     else if (this.typeG == null) this.showAlertTravelType();
+    else if (alloc == null) this.showAlertAllocation();
     else {
-      var adult = this.ite.getPassenger().guestTour['AdultQty'];
-      var child = this.ite.getPassenger().guestTour['ChildQty'];
-      var infant = this.ite.getPassenger().guestTour['InfantQty'];
-      let type = this.typeG;
-      //this.ds.destroyObject();
-      this.ds.dailyProgram(this.totalDays);
-      this.gu.createGuest(adult,child,infant,this.kuotaG)
-      this.navCtrl.push(GuestDetailsPage, {type});
+        var SR = Number(alloc.allocroom.sharingRooms);
+        var SiR = Number(alloc.allocroom.singleRoom)
+        var EB = Number(alloc.allocroom.extraBed)
+        var SB = Number(alloc.allocroom.sharingBed)
+        var BC = Number(alloc.allocroom.babyCrib)
+        var NB = Number(alloc.allocroom.noBed)
+        if((SR+SiR+EB+SB+BC+NB)==(adult+child+infant))
+          {
+              let type = this.typeG;
+              this.ds.dailyProgram(this.totalDays);
+              this.gu.createGuest(adult, child, infant, this.kuotaG)
+              this.navCtrl.push(GuestDetailsPage, { type });
+          }else this.showAlertAllocationVal();
     }
   }
 
@@ -258,7 +268,7 @@ export class IteneraryBuilderPage {
   }
 
 
-   showAlertGuestType() {
+  showAlertGuestType() {
     let alert = this.alertCtrl.create({
       title: 'Failed!',
       subTitle: 'Please Choose Guest Type ',
@@ -267,7 +277,7 @@ export class IteneraryBuilderPage {
     alert.present();
   }
 
-   showAlertTravelType() {
+  showAlertTravelType() {
     let alert = this.alertCtrl.create({
       title: 'Failed!',
       subTitle: 'Please Choose Travel Type ',
@@ -322,6 +332,22 @@ export class IteneraryBuilderPage {
     alert.present();
   }
 
+  showAlertAllocation() {
+    let alert = this.alertCtrl.create({
+      title: 'Failed!',
+      subTitle: 'Please Allocation Guest',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
 
 
+  showAlertAllocationVal() {
+    let alert = this.alertCtrl.create({
+      title: 'Failed!',
+      subTitle: 'Allocation Guest and Total Guest not Same',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
 }

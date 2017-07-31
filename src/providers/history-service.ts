@@ -1,3 +1,4 @@
+import { ConfigProvider } from './config';
 import { Injectable } from '@angular/core';
 import { Http, Headers,RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -13,7 +14,7 @@ import {IteneraryService} from '../providers/itenerary-service';
 @Injectable()
 export class HistoryService {
 
-  constructor(public http: Http, public auth:AuthService, public ite:IteneraryService) {
+  constructor(public http: Http, public auth:AuthService, public ite:IteneraryService, public conf:ConfigProvider) {
     console.log('Hello HistoryService Provider');
   }
 
@@ -21,9 +22,8 @@ export class HistoryService {
    getHistoryTransactions(){
         var headers = new Headers();
         let token = this.auth.AuthToken;
-        console.log(token);
         headers.append('Authorization', 'Bearer ' +token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TourTransactions/TransactionHistoryDetailed?status=Booking_created'; 
+        var url = this.conf.baseUrl+'/TourTransactions/TransactionHistoryDetailed?status=Booking_created'; 
         var response = this.http.get(url, {headers : headers}).map(res => res.json());        
         return response;
     }
@@ -31,9 +31,8 @@ export class HistoryService {
      getTransactionsSumarry(id){
         var headers = new Headers();
         let token = this.auth.AuthToken;
-        console.log(token);
         headers.append('Authorization', 'Bearer ' +token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TourTransactions/TransactionSummary?id='+id; 
+        var url = this.conf.baseUrl+'/TourTransactions/TransactionSummary?id='+id; 
         var response = this.http.get(url, {headers : headers}).map(res => res.json());        
         return response;
     }
@@ -43,9 +42,8 @@ export class HistoryService {
     getHistoryTransactionsConfirm(){
         var headers = new Headers();
         let token = this.auth.AuthToken;
-        console.log(token);
         headers.append('Authorization', 'Bearer ' +token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TourTransactions/TransactionHistoryDetailed?status=Booking_confirmed'; 
+        var url = this.conf.baseUrl+'/TourTransactions/TransactionHistoryDetailed?status=Booking_confirmed'; 
         var response = this.http.get(url, {headers : headers}).map(res => res.json());        
         return response;
     }
@@ -53,9 +51,8 @@ export class HistoryService {
     getHistoryTransactionsCancel(){
         var headers = new Headers();
         let token = this.auth.AuthToken;
-        console.log(token);
         headers.append('Authorization', 'Bearer ' +token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TourTransactions/TransactionHistoryDetailed?status=Booking_cancelled'; 
+        var url = this.conf.baseUrl+'/TourTransactions/TransactionHistoryDetailed?status=Booking_cancelled'; 
         var response = this.http.get(url, {headers : headers}).map(res => res.json());        
         return response;
     }
@@ -65,7 +62,7 @@ export class HistoryService {
     var headers = new Headers({ 'Content-Type': 'application/json' });
     headers.append('Authorization', 'Bearer ' + token);
     let options = new RequestOptions({ headers: headers });
-    var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TourTransactions/GeneratePDFTransaction?id='+id;
+    var url = this.conf.baseUrl+'/TourTransactions/GeneratePDFTransaction?id='+id;
     var response = this.http.get(url, options).map(res => res.json());
     return response;
 

@@ -143,6 +143,7 @@ remainingG(){
 }
   showAlertAdult() {
     let alert = this.alertCtrl.create({
+      title: 'Wrong Input!',
       subTitle: 'Input Adult Not Number',
       buttons: ['OK']
     });
@@ -151,6 +152,7 @@ remainingG(){
 
   showAlertChild() {
     let alert = this.alertCtrl.create({
+      title: 'Wrong Input!',
       subTitle: 'Input Child Not Number',
       buttons: ['OK']
     });
@@ -159,6 +161,7 @@ remainingG(){
 
   showAlertInfant() {
     let alert = this.alertCtrl.create({
+      title: 'Wrong Input!',
       subTitle: 'Input Infant Not Number',
       buttons: ['OK']
     });
@@ -167,6 +170,7 @@ remainingG(){
 
   showAlertTotal() {
     let alert = this.alertCtrl.create({
+      title: 'Failed!',
       subTitle: 'This type guest only '+this.maxGuest+' person, please change type if you want',
       buttons: ['OK']
     });
