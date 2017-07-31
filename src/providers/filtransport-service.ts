@@ -1,3 +1,4 @@
+import { ConfigProvider } from './config';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -10,25 +11,25 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class FiltransportService {
-  constructor(public http: Http) {
+  constructor(public http: Http, public conf: ConfigProvider) {
   }
 
    
 
    listTransportRatings() {
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/transportationRatings'; 
+        var url = this.conf.baseUrl+'/transportationRatings'; 
         var response = this.http.get(url).map(res => res.json());        
         return response;
     }
 
      listSeatTypes() {
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/transportationSeatTypes'; 
+        var url = this.conf.baseUrl+'/transportationSeatTypes'; 
         var response = this.http.get(url).map(res => res.json());        
         return response;
     }
 
     listTransportTypes() {
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/transportationTypes'; 
+        var url = this.conf.baseUrl+'/transportationTypes'; 
         var response = this.http.get(url).map(res => res.json());        
         return response;
     }

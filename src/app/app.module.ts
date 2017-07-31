@@ -102,6 +102,7 @@ import { PromoPackageProvider } from '../providers/promo-package';
 
 // Fixed Package Page
 import { FixedpackageDetailsPage } from './../pages/fixedpackage-details/fixedpackage-details';
+import { ConfigProvider } from '../providers/config';
 
 
 @NgModule({
@@ -286,7 +287,8 @@ import { FixedpackageDetailsPage } from './../pages/fixedpackage-details/fixedpa
     UserandcompanyDetails,
     FilattractionService,
     GuestServiceProvider,
-    PromoPackageProvider
+    PromoPackageProvider,
+    ConfigProvider
   ]
 })
 export class AppModule { }

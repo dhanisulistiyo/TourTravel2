@@ -1,3 +1,4 @@
+import { ConfigProvider } from './config';
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { AuthService } from '../providers/auth-token-service'
@@ -24,7 +25,7 @@ export class IteneraryService {
     tourtype;
     grouptype;
 
-    constructor(public http: Http, public auth: AuthService) {
+    constructor(public http: Http, public auth: AuthService, public conf: ConfigProvider) {
         this.locations;
         this.toursname;
         this.destination = "Selected Destination";
@@ -226,7 +227,7 @@ export class IteneraryService {
             let token = this.auth.AuthToken;
             console.log(token);
             headers.append('Authorization', 'Bearer ' + token);
-            var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/cities?id=' + encodeURI(locationName);
+            var url = this.conf.baseUrl+'/cities?id=' + encodeURI(locationName);
             this.http.get(url, { headers: headers }).map(res => res).subscribe(data => {
                 console.log(data['_body']);
                 this.locations = JSON.parse(data['_body']);

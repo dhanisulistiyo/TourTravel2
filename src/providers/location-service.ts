@@ -1,3 +1,4 @@
+import { ConfigProvider } from './config';
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import {AuthService} from '../providers/auth-token-service'
@@ -12,7 +13,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class LocationService {
 
-  constructor(public http: Http, public auth:AuthService) {
+  constructor(public http: Http, public auth:AuthService, public conf: ConfigProvider) {
     console.log('Hello LocationService Provider');
     this.http = http;
   }
@@ -23,7 +24,7 @@ export class LocationService {
         let token = this.auth.AuthToken;
         console.log(token);
         headers.append('Authorization', 'Bearer ' +token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/cities?id='+encodeURI(locationName); 
+        var url = this.conf.baseUrl+'/cities?id='+encodeURI(locationName); 
         var response = this.http.get(url, {headers : headers}).map(res => res.json());        
         return response;
     }
@@ -33,13 +34,13 @@ export class LocationService {
         let token = this.auth.AuthToken;
         console.log(token);
         headers.append('Authorization', 'Bearer ' +token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/cities/CityInCountry'; 
+        var url = this.conf.baseUrl+'/cities/CityInCountry'; 
         var response = this.http.get(url, {headers : headers}).map(res => res.json());        
         return response;
     }
 
      searchCountry() {
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/countries'; 
+        var url = this.conf.baseUrl+'/countries'; 
         var response = this.http.get(url).map(res => res.json());        
         return response;
     }

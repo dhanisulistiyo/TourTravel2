@@ -1,3 +1,4 @@
+import { ConfigProvider } from './config';
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { AuthService } from '../providers/auth-token-service'
@@ -13,7 +14,7 @@ export class AcomodationService {
     types;
     facilities;
 
-    constructor(public http: Http, public auth: AuthService, public ite: IteneraryService) {
+    constructor(public http: Http, public auth: AuthService, public ite: IteneraryService, public conf: ConfigProvider) {
         this.ratings = "";
         this.areas = "";
         this.locations = "";
@@ -62,7 +63,7 @@ export class AcomodationService {
         let token = this.auth.AuthToken;
         console.log(token);
         headers.append('Authorization', 'Bearer ' + token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/AccommodationProfiles/ByCity?city=' + des;
+        var url = this.conf.baseUrl+'/AccommodationProfiles/ByCity?city=' + des;
         var response = this.http.get(url, { headers: headers }).map(res => res.json());
         return response;
     }
@@ -85,7 +86,7 @@ export class AcomodationService {
         let token = this.auth.AuthToken;
         console.log(token);
         headers.append('Authorization', 'Bearer ' + token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/AccommodationProfiles/Filter?cityId=' + des + '&ratingId=' + rat + '&areaId=' + ar + '&locationId=' + loc + '&typeId=' + ty + '&facilityId=' + fac+'&promoOnly=False';
+        var url = this.conf.baseUrl+'/AccommodationProfiles/Filter?cityId=' + des + '&ratingId=' + rat + '&areaId=' + ar + '&locationId=' + loc + '&typeId=' + ty + '&facilityId=' + fac+'&promoOnly=False';
         var response = this.http.get(url, { headers: headers }).map(res => res.json());
         return response;
     }
@@ -108,7 +109,7 @@ export class AcomodationService {
         let token = this.auth.AuthToken;
         console.log(token);
         headers.append('Authorization', 'Bearer ' + token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/AccommodationProfiles/Filter?cityId=' + des + '&ratingId=' + rat + '&areaId=' + ar + '&locationId=' + loc + '&typeId=' + ty + '&facilityId=' + fac+'&promoOnly=False';
+        var url = this.conf.baseUrl+'/AccommodationProfiles/Filter?cityId=' + des + '&ratingId=' + rat + '&areaId=' + ar + '&locationId=' + loc + '&typeId=' + ty + '&facilityId=' + fac+'&promoOnly=False';
         var response = this.http.get(url, { headers: headers }).map(res => res.json());
         return response;
     }
@@ -119,7 +120,7 @@ export class AcomodationService {
         let id = this.ite.getAcomodation();
         console.log(token);
         headers.append('Authorization', 'Bearer ' + token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/AccommodationItems/byprofile?profileid=' + id.hot.Id;
+        var url = this.conf.baseUrl+'/AccommodationItems/byprofile?profileid=' + id.hot.Id;
         var response = this.http.get(url, { headers: headers }).map(res => res.json());
         return response;
     }
@@ -129,7 +130,7 @@ export class AcomodationService {
         let token = this.auth.AuthToken;
         console.log(token);
         headers.append('Authorization', 'Bearer ' + token);
-        var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/AccommodationItems/byprofile?profileid=' + id;
+        var url = this.conf.baseUrl+'/AccommodationItems/byprofile?profileid=' + id;
         var response = this.http.get(url, { headers: headers }).map(res => res.json());
         return response;
     }

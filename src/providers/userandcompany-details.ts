@@ -1,3 +1,4 @@
+import { ConfigProvider } from './config';
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { AuthService } from '../providers/auth-token-service'
@@ -12,7 +13,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class UserandcompanyDetails {
 
-  constructor(public http: Http, public auth: AuthService) {
+  constructor(public http: Http, public auth: AuthService, public conf: ConfigProvider) {
     console.log('Hello UserandcompanyDetails Provider');
   }
 
@@ -21,7 +22,7 @@ export class UserandcompanyDetails {
     let token = this.auth.AuthToken;
     console.log(token);
     headers.append('Authorization', 'Bearer ' + token);
-    var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/Companies/CompanyProfile';
+    var url = this.conf.baseUrl+'/Companies/CompanyProfile';
     var response = this.http.get(url, { headers: headers }).map(res => res.json());
     return response;
   }
@@ -31,7 +32,7 @@ export class UserandcompanyDetails {
     let token = this.auth.AuthToken;
     console.log(token);
     headers.append('Authorization', 'Bearer ' + token);
-    var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/Account/UserInfo';
+    var url = this.conf.baseUrl+'/Account/UserInfo';
     var response = this.http.get(url, { headers: headers }).map(res => res.json());
     return response;
   }
@@ -48,7 +49,7 @@ export class UserandcompanyDetails {
     let options = new RequestOptions({ headers: headers });
 
     return new Promise(resolve => {
-      this.http.post('http://cloud.basajans.com:8868/tripplannerdev/api/Account/ChangePassword', change, options).map(res => res
+      this.http.post(this.conf.baseUrl+'/Account/ChangePassword', change, options).map(res => res
       ).subscribe(res => {
         if (res.status < 200 || res.status >= 300) {
           console.log(res);

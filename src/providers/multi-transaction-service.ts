@@ -1,3 +1,4 @@
+import { ConfigProvider } from './config';
 import { GuestServiceProvider } from './guest-service';
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
@@ -14,7 +15,10 @@ export class MultiTransactionService {
   accomodation: Array<any>;
   guest: Array<any>;
   airport:any;
-  constructor(public http: Http, public ds: DailyService, public ite: IteneraryService, public auth: AuthService, public gu : GuestServiceProvider) {
+  constructor(public http: Http, public ds: DailyService, public ite: IteneraryService, 
+    public auth: AuthService, public gu : GuestServiceProvider,
+    public conf: ConfigProvider
+  ) {
     console.log('Hello MultiTransactionService Provider');
     this.daily = this.ds.daily
     this.airport = this.ds.transairport
@@ -118,15 +122,15 @@ export class MultiTransactionService {
       this.guest= [];
       for (let i = 0; i < (Object.keys(this.gu.Guest).length); i++) {
         let a = this.gu.Guest[i];
-        if(a.firstName != null && a.lastName != null && a.id != null && a.typeid != null && a.guestype != null && a.country != null){
-
+        // if(a.firstName != null && a.lastName != null && a.id != null && a.typeid != null && a.guestype != null && a.country != null){
+        if(a.firstName != null && a.lastName != null && a.country != null){
          let item = {
             	FirstName : this.gu.Guest[i].firstName,
               LastName : this.gu.Guest[i].lastName,
+              CountryId :  this.gu.Guest[i].Id,
               IdentityNbr :  this.gu.Guest[i].id,
               IdentityType :  this.gu.Guest[i].typeid,
-              GuestType :  this.gu.Guest[i].guestype,
-              CountryId :  this.gu.Guest[i].Id
+              GuestType :  this.gu.Guest[i].guestype,     
             }
           this.guest.push(item);
         }
@@ -162,7 +166,7 @@ export class MultiTransactionService {
     var headers = new Headers({ 'Content-Type': 'application/json' });
     headers.append('Authorization', 'Bearer ' + token);
     let options = new RequestOptions({ headers: headers });
-    var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TourTransactions/DemoPrice';
+    var url = this.conf.baseUrl+'/TourTransactions/DemoPrice';
     var response = this.http.post(url, json, options).map(res => res.json());
     return response;
   }
@@ -194,7 +198,7 @@ export class MultiTransactionService {
     var headers = new Headers({ 'Content-Type': 'application/json' });
     headers.append('Authorization', 'Bearer ' + token);
     let options = new RequestOptions({ headers: headers });
-    var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TourTransactions/CreateTour';
+    var url = this.conf.baseUrl+'/TourTransactions/CreateTour';
     var response = this.http.post(url, json, options).map(res => res.json());
    
     return response;
@@ -218,7 +222,7 @@ export class MultiTransactionService {
     var headers = new Headers({ 'Content-Type': 'application/json' });
     headers.append('Authorization', 'Bearer ' + token);
     let options = new RequestOptions({ headers: headers });
-    var url = 'http://cloud.basajans.com:8868/tripplannerdev/api/TourTransactions/Confirmation';
+    var url = this.conf.baseUrl+'/TourTransactions/Confirmation';
     var response = this.http.post(url, json, options).map(res => res).subscribe(res => res.status);
     return response;
   }
