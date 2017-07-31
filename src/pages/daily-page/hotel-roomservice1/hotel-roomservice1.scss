@@ -4,6 +4,8 @@ page-hotel-roomservice1 {
         background: rgba(0, 0, 0, 0.5);
         border-radius: 5px;
         float: left;
+        left: -5%;
+        width: 105%;
         /* important */
         position: relative;
         /* important(so we can absolutely position the description div */
@@ -38,6 +40,7 @@ page-hotel-roomservice1 {
         color: white;
         font-size: 4vw;
         font-weight: 600;
+        padding: 0 20px;
     }
     .content-custom {
         box-shadow: none;

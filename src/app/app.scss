@@ -43,7 +43,7 @@
                     font-size: 4vw;
                     font-weight: 600;
                     color: white;
-                    text-align: center;
+
                 }
             }
             .item-md ion-icon[item-left]+.item-inner,
@@ -63,14 +63,21 @@
             }
             ion-icon.custom-font {
                 color: #4fd2c2;
-                font-size: 2.6rem;
+                font-size: 6vw;
+                padding-top: 4px;
             }
             p.custom-text {
                 font-family: 'Open Sans', sans-serif;
-                font-size: 1.6rem;
+                font-size: 4vw;
                 font-weight: 500;
                 color: black;
                 text-align: left;
+            }
+        }
+        page-home-screen {
+            ion-page.show-page {
+                background: transparent;
+                opacity: 1;
             }
         }
         page-login .scroll-content {
@@ -359,6 +366,5 @@
         .ion-page.show-page {
             opacity: 1;
             background: rgba(0, 0, 0, 0.7);
-            
         }
     }

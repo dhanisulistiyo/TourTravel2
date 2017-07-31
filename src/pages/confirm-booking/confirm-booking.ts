@@ -284,6 +284,7 @@ export class ConfirmBookingPage {
 <h2>Payment Options</h2>
 <h3>Thank you for your booking!</h3>
 <p>A confirmation email has been sent to your email address.</p>
+<p>Do you want to pay now or pay later?</p>
 <p style="margin-bottom: 35px;">Please note that if you choose <strong>Pay Later</strong>, your booking must be paid before the expiry date.</p>
   <ion-row>
     <ion-col>
