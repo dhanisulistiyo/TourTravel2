@@ -98,11 +98,13 @@
     } // Ion Card
     ion-card.card {
         box-shadow: none;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.0);
         border-radius: 5px;
     }
     ion-card-header.card-header {
         color: #fff;
+        font-size: 1.8rem;
+        font-weight: 600;
     }
     .list>.item-block:first-child {
         border: medium none;
