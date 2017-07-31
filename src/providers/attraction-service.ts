@@ -15,7 +15,6 @@ import 'rxjs/add/operator/map';
 export class AttractionService {
   types;
   constructor(public http: Http,public auth:AuthService, public ite:IteneraryService, public conf:ConfigProvider ) {
-    console.log('Hello AttractionService Provider');
   }
 
 
@@ -31,7 +30,6 @@ export class AttractionService {
         var headers = new Headers();
         let des = this.ite.getDestination();
         let token = this.auth.AuthToken;
-        console.log(token);
         headers.append('Authorization', 'Bearer ' +token);
         var url = this.conf.baseUrl+'/AttractionObjects/ByCity?cityid=' +des; 
         var response = this.http.get(url, {headers : headers}).map(res => res.json());        
@@ -42,7 +40,6 @@ export class AttractionService {
  listAttractionDaily(des) {
         var headers = new Headers();
         let token = this.auth.AuthToken;
-        console.log(token);
         headers.append('Authorization', 'Bearer ' +token);
         var url = this.conf.baseUrl+'/AttractionObjects/ByCity?cityid=' +des; 
         var response = this.http.get(url, {headers : headers}).map(res => res.json());        
@@ -54,7 +51,6 @@ export class AttractionService {
         let token = this.auth.AuthToken;
         let ty = window.localStorage.getItem('tyAttrac');
         if (ty == null) { ty = '' }
-        console.log(token);
         headers.append('Authorization', 'Bearer ' +token);
         var url = this.conf.baseUrl+'/AttractionObjects/ByCityWithFilter?cityid='+des+'&attractionTypeId='+ty; 
         var response = this.http.get(url, {headers : headers}).map(res => res.json());        

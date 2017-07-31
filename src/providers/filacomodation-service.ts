@@ -30,7 +30,6 @@ export class FilacomodationService {
         var headers = new Headers();
         let des = this.ite.getDestination();
         let token = this.auth.AuthToken;
-        console.log(token);
         headers.append('Authorization', 'Bearer ' + token);
         var url = this.conf.baseUrl+'/Areas/ByCity?cityId=' + des;
         var response = this.http.get(url, { headers: headers }).map(res => res.json());
@@ -40,7 +39,6 @@ export class FilacomodationService {
     getAcomodationAreas(des) {
         var headers = new Headers();
         let token = this.auth.AuthToken;
-        console.log(token);
         headers.append('Authorization', 'Bearer ' + token);
         var url = this.conf.baseUrl+'/Areas/ByCity?cityId=' + des;
         var response = this.http.get(url, { headers: headers }).map(res => res.json());

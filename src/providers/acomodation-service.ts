@@ -61,7 +61,6 @@ export class AcomodationService {
         var headers = new Headers();
         let des = this.ite.getDestination();
         let token = this.auth.AuthToken;
-        console.log(token);
         headers.append('Authorization', 'Bearer ' + token);
         var url = this.conf.baseUrl+'/AccommodationProfiles/ByCity?city=' + des;
         var response = this.http.get(url, { headers: headers }).map(res => res.json());
@@ -84,7 +83,6 @@ export class AcomodationService {
         if(fac == null) fac=this.facilities;
 
         let token = this.auth.AuthToken;
-        console.log(token);
         headers.append('Authorization', 'Bearer ' + token);
         var url = this.conf.baseUrl+'/AccommodationProfiles/Filter?cityId=' + des + '&ratingId=' + rat + '&areaId=' + ar + '&locationId=' + loc + '&typeId=' + ty + '&facilityId=' + fac+'&promoOnly=False';
         var response = this.http.get(url, { headers: headers }).map(res => res.json());
@@ -107,7 +105,6 @@ export class AcomodationService {
         if(fac == null) fac=this.facilities;
 
         let token = this.auth.AuthToken;
-        console.log(token);
         headers.append('Authorization', 'Bearer ' + token);
         var url = this.conf.baseUrl+'/AccommodationProfiles/Filter?cityId=' + des + '&ratingId=' + rat + '&areaId=' + ar + '&locationId=' + loc + '&typeId=' + ty + '&facilityId=' + fac+'&promoOnly=False';
         var response = this.http.get(url, { headers: headers }).map(res => res.json());
@@ -118,7 +115,6 @@ export class AcomodationService {
         var headers = new Headers();
         let token = this.auth.AuthToken;
         let id = this.ite.getAcomodation();
-        console.log(token);
         headers.append('Authorization', 'Bearer ' + token);
         var url = this.conf.baseUrl+'/AccommodationItems/byprofile?profileid=' + id.hot.Id;
         var response = this.http.get(url, { headers: headers }).map(res => res.json());
@@ -128,7 +124,6 @@ export class AcomodationService {
      getListItemAcomodation(id) {
         var headers = new Headers();
         let token = this.auth.AuthToken;
-        console.log(token);
         headers.append('Authorization', 'Bearer ' + token);
         var url = this.conf.baseUrl+'/AccommodationItems/byprofile?profileid=' + id;
         var response = this.http.get(url, { headers: headers }).map(res => res.json());

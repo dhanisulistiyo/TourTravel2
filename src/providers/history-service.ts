@@ -22,7 +22,6 @@ export class HistoryService {
    getHistoryTransactions(){
         var headers = new Headers();
         let token = this.auth.AuthToken;
-        console.log(token);
         headers.append('Authorization', 'Bearer ' +token);
         var url = this.conf.baseUrl+'/TourTransactions/TransactionHistoryDetailed?status=Booking_created'; 
         var response = this.http.get(url, {headers : headers}).map(res => res.json());        
@@ -32,7 +31,6 @@ export class HistoryService {
      getTransactionsSumarry(id){
         var headers = new Headers();
         let token = this.auth.AuthToken;
-        console.log(token);
         headers.append('Authorization', 'Bearer ' +token);
         var url = this.conf.baseUrl+'/TourTransactions/TransactionSummary?id='+id; 
         var response = this.http.get(url, {headers : headers}).map(res => res.json());        
@@ -44,7 +42,6 @@ export class HistoryService {
     getHistoryTransactionsConfirm(){
         var headers = new Headers();
         let token = this.auth.AuthToken;
-        console.log(token);
         headers.append('Authorization', 'Bearer ' +token);
         var url = this.conf.baseUrl+'/TourTransactions/TransactionHistoryDetailed?status=Booking_confirmed'; 
         var response = this.http.get(url, {headers : headers}).map(res => res.json());        
@@ -54,7 +51,6 @@ export class HistoryService {
     getHistoryTransactionsCancel(){
         var headers = new Headers();
         let token = this.auth.AuthToken;
-        console.log(token);
         headers.append('Authorization', 'Bearer ' +token);
         var url = this.conf.baseUrl+'/TourTransactions/TransactionHistoryDetailed?status=Booking_cancelled'; 
         var response = this.http.get(url, {headers : headers}).map(res => res.json());        

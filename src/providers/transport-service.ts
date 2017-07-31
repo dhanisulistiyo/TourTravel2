@@ -19,7 +19,6 @@ export class TransportService {
     }
 
     public setRatings(rat) {
-        console.log(rat)
         window.localStorage.setItem('ratTrans', rat);
         this.ratings = rat;
     }
@@ -97,8 +96,6 @@ export class TransportService {
 
         var headers = new Headers();
         let token = this.auth.AuthToken;
-        console.log(from)
-        console.log(to)
         let fr = from.Region.Id;
         let fc = from.Id ;
         let tr = to.Region.Id ;

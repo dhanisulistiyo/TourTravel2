@@ -36,10 +36,8 @@ export class TransactionService {
       "Accommodations": this.accomodation
     };
 
-    console.log(token);
     var headers = new Headers({ 'Content-Type': 'application/json' });
     headers.append('Authorization', 'Bearer ' + token);
-    //headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({ headers: headers });
     var url = this.conf.baseUrl+'/TourTransactions/DemoPrice';
     var response = this.http.post(url, json, options).map(res => res.json());
@@ -68,10 +66,8 @@ export class TransactionService {
     };
 
 
-    console.log(token);
     var headers = new Headers({ 'Content-Type': 'application/json' });
     headers.append('Authorization', 'Bearer ' + token);
-    //headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({ headers: headers });
     var url = this.conf.baseUrl+'/TourTransactions/';
     var response = this.http.post(url, json, options).map(res => res.json());

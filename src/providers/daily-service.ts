@@ -135,7 +135,6 @@ export class DailyService {
       }
     }
     console.log(this.daily);
-    console.log(DailyProgram)
   }
 
   dailyDetails1(i, days) {

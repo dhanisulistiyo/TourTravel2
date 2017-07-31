@@ -22,7 +22,6 @@ export class LocationService {
   searchLocation(locationName) {
         var headers = new Headers();
         let token = this.auth.AuthToken;
-        console.log(token);
         headers.append('Authorization', 'Bearer ' +token);
         var url = this.conf.baseUrl+'/cities?id='+encodeURI(locationName); 
         var response = this.http.get(url, {headers : headers}).map(res => res.json());        
@@ -32,7 +31,6 @@ export class LocationService {
     searchAllLocation() {
         var headers = new Headers();
         let token = this.auth.AuthToken;
-        console.log(token);
         headers.append('Authorization', 'Bearer ' +token);
         var url = this.conf.baseUrl+'/cities/CityInCountry'; 
         var response = this.http.get(url, {headers : headers}).map(res => res.json());        

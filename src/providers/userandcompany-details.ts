@@ -20,7 +20,6 @@ export class UserandcompanyDetails {
   getCompany() {
     var headers = new Headers();
     let token = this.auth.AuthToken;
-    console.log(token);
     headers.append('Authorization', 'Bearer ' + token);
     var url = this.conf.baseUrl+'/Companies/CompanyProfile';
     var response = this.http.get(url, { headers: headers }).map(res => res.json());

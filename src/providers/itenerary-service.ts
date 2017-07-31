@@ -225,7 +225,7 @@ export class IteneraryService {
         let locationName = this.getDestination();
         if (locationName != "Selected Destination") {
             let token = this.auth.AuthToken;
-            console.log(token);
+        
             headers.append('Authorization', 'Bearer ' + token);
             var url = this.conf.baseUrl+'/cities?id=' + encodeURI(locationName);
             this.http.get(url, { headers: headers }).map(res => res).subscribe(data => {

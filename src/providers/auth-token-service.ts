@@ -128,7 +128,6 @@ export class AuthService {
     public getUserInfo() {
         var headers = new Headers();
         this.loadUserCredentials();
-        //console.log(this.AuthToken);
         headers.append('Authorization', 'Bearer ' + this.AuthToken);
         var myresult = new Promise(resolve => {
             this.http.get(this.conf.baseUrl+'/Account/UserInfo', { headers: headers })
@@ -143,10 +142,6 @@ export class AuthService {
                         resolve(data.json());
                         var result = data.json();
                         this.currentUser = new User(result["CompanyID"], result["Username"], result["Password"]);
-                        //console.log(this.currentUser);
-                        //console.log(data.json());
-                        //this.storeUserCredentials(data.json().token);
-                        //return res.json();
                     }
                 }, (error => {
                     console.log(error);
