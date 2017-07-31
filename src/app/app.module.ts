@@ -1,4 +1,4 @@
-import { ModalContentPage } from './../pages/confirm-booking/confirm-booking';
+import { ModalContentPage, ModalContentPageExpired } from './../pages/confirm-booking/confirm-booking';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -179,7 +179,8 @@ import { ConfigProvider } from '../providers/config';
     TransportLocationservice,
     PaymentPage,
     TransportHoursPage,
-    ModalContentPage
+    ModalContentPage,
+    ModalContentPageExpired
   ],
   imports: [
     BrowserModule,
@@ -266,7 +267,8 @@ import { ConfigProvider } from '../providers/config';
     PaymentPage,
     TransportLocationservice,
     TransportHoursPage,
-    ModalContentPage
+    ModalContentPage,
+    ModalContentPageExpired
   ],
   providers: [
     StatusBar,
