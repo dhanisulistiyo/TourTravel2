@@ -342,7 +342,7 @@ export class ModalContentPage {
   selector: 'page-confirm-booking',
   template: `
   
-<ion-content class="popup-modal" style="border: 1px solid gray;">
+<ion-content class="popup-modal1" style="border: 1px solid gray;">
 <h2>Booking Expired</h2>
 <h3>Thank you for your booking!</h3>
 <p>A confirmation email has been sent to your email address.</p>

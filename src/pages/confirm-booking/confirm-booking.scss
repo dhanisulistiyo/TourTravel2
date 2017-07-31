@@ -541,11 +541,51 @@ page-confirm-booking {
         // background: rgba(0,0,0,0.5);
         background: rgba(0, 0, 0, 0.5);
         position: absolute;
-        top: 170px;
+        top: 23%;
         left: 45px;
         display: block;
         width: 75%;
-        height: 48%;
+        height: 56%;
+        h2 {
+            margin-top: 0;
+            padding: 10px;
+            font-size: 5vw;
+            text-align: center;
+            background-color: #4fd2c2;
+            color: white;
+            font-family: 'Open Sans', cursive;
+            font-weight: 600;
+        }
+        h3 {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 4.5vw;
+            text-align: center;
+            color: black;
+            font-family: 'Open Sans', cursive;
+            font-weight: 600;
+        }
+        p {
+            margin-top: 0;
+            padding: 0px 10px;
+            font-size: 4vw;
+            text-align: justify;
+            color: black;
+            font-family: 'Open Sans', cursive;
+            font-weight: 500;
+        }
+    }
+
+    .popup-modal1 {
+        // padding: 30px;
+        // background: rgba(0,0,0,0.5);
+        background: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        top: 24%;
+        left: 45px;
+        display: block;
+        width: 75%;
+        height: 50%;
         h2 {
             margin-top: 0;
             padding: 10px;
