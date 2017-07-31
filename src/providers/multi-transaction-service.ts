@@ -124,7 +124,7 @@ export class MultiTransactionService {
          let item = {
             	FirstName : this.gu.Guest[i].firstName,
               LastName : this.gu.Guest[i].lastName,
-              CountryId :  this.gu.Guest[i].Id,
+              CountryId :  this.gu.Guest[i].country.Id,
               IdentityNbr :  this.gu.Guest[i].id,
               IdentityType :  this.gu.Guest[i].typeid,
               GuestType :  this.gu.Guest[i].guestype,     

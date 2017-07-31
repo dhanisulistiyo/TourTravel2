@@ -225,8 +225,8 @@ export class IteneraryBuilderPage {
 
 
   createItenerary(event) {
-    let today = new Date(this.event.monthStart)
-    let tomorrow = new Date();
+    let today = new Date(this.event.monthStart).toISOString().substring(0, 10)
+    let tomorrow = new Date().toISOString().substring(0, 10);
     var adult = this.ite.getPassenger().guestTour['AdultQty'];
     var child = this.ite.getPassenger().guestTour['ChildQty'];
     var infant = this.ite.getPassenger().guestTour['InfantQty'];
@@ -234,8 +234,8 @@ export class IteneraryBuilderPage {
     if (this.ite.getToursName() == null) this.showAlertTourName();
     else if (this.destination == null) this.showAlertDestination();
     else if (this.ite.getDateTour() == null) this.showAlertDates();
-    else if (today.getDate() == tomorrow.getDate()) this.showAlertToday();
     else if (this.totalDays < 0) this.showAlertValidasiDates();
+    else if (today == tomorrow) this.showAlertToday();
     else if (this.passenger == '') this.showAlertGuest();
     else if (this.kuotaG == null) this.showAlertGuestType();
     else if (this.typeG == null) this.showAlertTravelType();
