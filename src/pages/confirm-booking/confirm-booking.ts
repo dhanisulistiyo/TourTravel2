@@ -294,7 +294,7 @@ export class ConfirmBookingPage {
 <h2>Payment Options</h2>
 <h3>Thank you for your booking!</h3>
 <p>A confirmation email has been sent to your email address.</p>
-<p>Do you want to pay now or pay later?</p>
+<p>Do you want to <strong>Pay Now</strong> or <strong>Pay Later</strong>?</p>
 <p style="margin-bottom: 35px;">Please note that if you choose <strong>Pay Later</strong>, your booking must be paid before the expiry date.</p>
   <ion-row>
     <ion-col>
@@ -346,11 +346,11 @@ export class ModalContentPage {
 <h2>Booking Expired</h2>
 <h3>Thank you for your booking!</h3>
 <p>A confirmation email has been sent to your email address.</p>
-<p>Do you want to pay now?</p>
-<p style="margin-bottom: 35px;">Please <strong>Pay Now</strong>, your booking must be paid because the expiry date.</p>
+<p>Unfortunately, this booking is in grace period, you have to <strong>Pay Now</strong>.</p>
+<p style="margin-bottom: 35px;">Do you want to proceed?</p>
   <ion-row>
     <ion-col>
-      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-cancel" (click)="dismiss()">No</button>
+      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-cancel" (click)="dismiss()">No, I'll change the date</button>
     </ion-col>
     <ion-col>
       <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-accept" (click)="payNow()">Yes, Pay Now</button>
