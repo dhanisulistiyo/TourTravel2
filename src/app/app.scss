@@ -136,6 +136,7 @@
                 line-height: 1.5;
             }
         }
+                          
         page-itenerary-builder {}
         page-fixed-package {}
         .searchbar-md {
@@ -355,10 +356,9 @@
             max-height: 240px;
             border-top: 1px solid transparent;
             border-bottom: 1px solid transparent;
-        } // Alert Modal Confirm Booking
-        .ion-page.show-page {
-            opacity: 1;
+        }
+// Alert Modal Confirm Booking
+       page-confirm-booking.ion-page.show-page {
             background: rgba(0, 0, 0, 0.7);
-            
         }
     }
