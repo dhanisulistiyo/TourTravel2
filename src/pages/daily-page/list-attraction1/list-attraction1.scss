@@ -36,16 +36,22 @@ page-list-attraction1 {
     }
     .searchbar-md .searchbar-input {
         padding: 6px 55px;
-        height: auto;
-        border-radius: 4%;
-        font-family: 'Open Sans', cursive;
+        height: 30px;
+        border-radius: 5px;
         font-size: 1.6rem;
         font-weight: 400;
         line-height: 3rem;
-        color: black;
+        color: #141414;
         background-color: #fff;
         background-position: 8px center;
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    }
+    .searchbar-md .searchbar-search-icon {
+        //background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%…84,98.462,98.742C304.687,261.485,260.925,305.372,206.225,305.372z'/></svg>");
+        top: 5px;
+        left: 16px;
+        width: 21px;
+        height: 21px;
     }
     .custom-h5 {
         margin: 0;
@@ -55,7 +61,7 @@ page-list-attraction1 {
         padding: 15px 0 10px 12px;
         line-height: 1.5rem;
         color: #4d4d4d;
-        background-color: #f2f2f2;
+        background-color: #f9f9f9;
     }
     .card-md h2 {
         margin: 0;
@@ -105,7 +111,19 @@ page-list-attraction1 {
         font-weight: 500;
         margin: 0 0 2px;
         font-size: 4vw;
+        padding-right: 10px;
         color: #808080;
+        display: -webkit-box;
+        width: 200px;
+        /* Fallback for non-webkit */
+        line-height: 1.5;
+        -webkit-line-clamp: 1;
+        /* autoprefixer: off */
+        -webkit-box-orient: vertical;
+        /* autoprefixer: on */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
     }
     .col {
         padding: 5px 5px 0px 0px;
