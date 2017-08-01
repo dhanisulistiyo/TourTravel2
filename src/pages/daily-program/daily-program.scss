@@ -125,6 +125,7 @@
             height: auto;
             width: 100%;
             position: relative;
+            padding-bottom: 8vw;
             /* -------------------------------- All the CSS needed for the timeline! -------------------------------- */
             /* -------------------------------- Paddings and margins -------------------------------- */
             /*Optional*/
@@ -234,7 +235,7 @@
             }
             .divider-footer {
                 background: white;
-                padding: 5px 0 10px 10px;
+                padding: 5px 0 6px 10px;
                 align-content: center;
                 justify-content: center;
                 text-align: center;

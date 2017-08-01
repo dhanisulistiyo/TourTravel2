@@ -247,6 +247,14 @@
         .cover {
             width: 100%;
             object-fit: cover;
+        }
+        .button-full-md {
+            margin-right: 0;
+            margin-left: 0;
+            border-right-width: 0;
+            border-left-width: 0;
+            border-radius: 0;
+            height: 11.5vw;
         } // Datetime
         .alert-md .alert-title {
             font-size: 5vw;
@@ -362,8 +370,7 @@
             max-height: 240px;
             border-top: 1px solid transparent;
             border-bottom: 1px solid transparent;
-        }
-        // Alert Modal Confirm Booking
+        } // Alert Modal Confirm Booking
         page-confirm-booking.ion-page.show-page {
             background: rgba(0, 0, 0, 0.7);
         }
