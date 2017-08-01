@@ -15,7 +15,14 @@
 <ion-content>
   <ion-item-divider color="light">Select hours based on what you need </ion-item-divider>
   <ion-item-group *ngFor="let item of hours" no-lines>
-    <ion-item (click)="setHours(item)"><ion-icon ios="ios-time" md="md-time" class="custom-icon"></ion-icon>{{item}} Hour(s)</ion-item>
+      <ion-item >
+        <ion-row>
+        <ion-col col-9><ion-icon ios="ios-time" md="md-time" class="custom-icon"></ion-icon>{{item}} Hour(s) </ion-col>
+        
+        <ion-col col-3 style="text-align: right;"><button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="setHours(item)" small>Pick</button>    </ion-col>
+        </ion-row>
+      
+      </ion-item>
   </ion-item-group>
 </ion-content>
 
