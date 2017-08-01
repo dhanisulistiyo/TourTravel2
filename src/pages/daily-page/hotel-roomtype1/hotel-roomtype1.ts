@@ -16,15 +16,21 @@ export class HotelRoomtypePage1 {
   idAwal;
   idAkhir;
   idhot;
+  hotel;
   constructor(public navCtrl: NavController, public ref: ChangeDetectorRef,
     public navParams: NavParams,
     public ds: DailyService,
     public aco: AcomodationService
   ) {
+    this.hotel = navParams.data['hot']
     this.idhot = navParams.data['ser']
     this.idAwal = navParams.data['id']
     this.idAkhir = navParams.data['i']
 
+  }
+  
+    getNumber(n){
+      return new Array(Number(n));
   }
 
   onScroll($event: any) {

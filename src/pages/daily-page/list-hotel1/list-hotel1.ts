@@ -91,12 +91,11 @@ export class ListHotelPage1 {
     let id = this.idAwal;
     let i = this.idAkhir;
     let no = Object.keys(this.ds.daily[id].program_daily).length;
-    console.log(no);
     for (let j = 0; j < no; j++) {
       this.ds.daily[id].program_daily[j].acomodation = null;
     }
     this.ds.setAcomodation(id, i, hot)
-    this.navCtrl.push(HotelRoomtypePage1, { id, i, ser });
+    this.navCtrl.push(HotelRoomtypePage1, { id, i, ser , hot});
   }
 
 
