@@ -4,6 +4,8 @@ page-transport-airportservice1 {
         background: rgba(0, 0, 0, 0.5);
         border-radius: 5px;
         float: left;
+        left: -5%;
+        width: 105%;
         /* important */
         position: relative;
         /* important(so we can absolutely position the description div */
@@ -24,13 +26,11 @@ page-transport-airportservice1 {
         display: block;
         text-align: center;
         margin: 2px 0 2px;
-        padding: 50px 0 8px 0;
-        font-size: 2.4rem;
-        line-height: 1.2;
+        padding: 40px 0 8px 0;
         color: white;
     }
     .h2-title-header {
-        font-size: 4rem;
+        font-size: 6vw;
         font-weight: normal;
         font-family: 'Open Sans', cursive;
         color: white;
@@ -38,8 +38,9 @@ page-transport-airportservice1 {
     .h3-subtitle-header {
         font-family: 'Quicksand', cursive;
         color: white;
-        font-size: 1.8rem;
+        font-size: 4vw;
         font-weight: 600;
+        padding: 0 20px;
     }
     .content-custom {
         box-shadow: none;
@@ -47,7 +48,7 @@ page-transport-airportservice1 {
         right: 0;
         display: block;
         bottom: 0;
-        top: 50px;
+        top: 12vw;
         font-size: 2em;
         font-weight: 900;
         text-align: left;
@@ -60,7 +61,25 @@ page-transport-airportservice1 {
         font-family: 'Open Sans', cursive;
         font-weight: 700;
         color: white;
-        font-size: 1.4rem;
+        font-size: 3vw;
+    }
+    .button-clear-md {
+        border-color: transparent;
+        color: #488aff;
+        background-color: transparent;
+        box-shadow: none;
+        opacity: 1;
+        padding-left: 8vw;
+    }
+    .custom-h5 {
+        margin: 0;
+        font-family: 'Open Sans', cursive;
+        font-size: 4vw;
+        font-weight: 500;
+        padding: 20px 0 10px 20px;
+        line-height: 1.5rem;
+        color: #4d4d4d;
+        background-color: #f2f2f2;
     }
     .custom-row {
         padding: 0;
