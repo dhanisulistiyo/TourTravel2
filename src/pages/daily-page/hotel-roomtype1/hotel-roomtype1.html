@@ -73,7 +73,7 @@
 
     <div class="content">
       <h5 class="custom-h5">Pick your room type</h5>
-      <ion-card *ngFor="let itemroom of listroomtypes" (click)="setSelectedRoomAllo(itemroom)" style="height:150px">
+      <ion-card *ngFor="let itemroom of listroomtypes" (click)="setSelectedRoomAllo(itemroom)" style="height:180px">
         <ion-row>
           <ion-col style="padding: 0;">
             <div class="box">
@@ -82,6 +82,11 @@
               <ng-template #other_content>
                 <img src="assets/img/room-bali-hotel.jpg" class="cover" />
               </ng-template>
+
+              <div class="div-promo" *ngIf="itemroom.IsPromo == true">
+                <h3 class="subtitle-promo" *ngIf="itemroom.IsPromo == true">Until: {{itemroom.CutOffDate | date:'MMM dd'}} </h3>
+                <h3 class="subtitle-promo" *ngIf="itemroom.IsPromo == true">Min. Night(s): {{itemroom.MinDays}}</h3>
+              </div>
             </div>
           </ion-col>
 
@@ -95,12 +100,6 @@
               <p>
                 <ion-icon ios="ios-people" md="md-people" class="custom-pin"></ion-icon>{{itemroom.AccommodationType.Capacity}} Guest</p>
               <!--<h3>Capacity: {{itemroom.AccommodationType.Capacity}} Guest</h3>-->
-              <div class="div-promo" *ngIf="itemroom.IsPromo == true">
-                <h2 class="title-promo" *ngIf="itemroom.IsPromo == true">PROMO</h2>
-                <h3 class="subtitle-promo" *ngIf="itemroom.IsPromo == true">Valid Until : {{itemroom.CutOffDate | date:'dd MMM yyyy'}} </h3>
-                <h3 class="subtitle-promo" *ngIf="itemroom.IsPromo == true">Minimum Night : {{itemroom.MinDays}} Night</h3>
-              </div>
-
             </div>
           </ion-col>
         </ion-row>
