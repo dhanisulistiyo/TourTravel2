@@ -57,17 +57,17 @@
         <ion-icon ios="ios-pin" md="md-pin" class="custom-pin"></ion-icon>
         {{hotel.Address}}
       </p>
-      <div class="readmore">
+      <div class="readmore" *ngIf="read == false" >
         <p class="p-readmore">
           <ion-icon ios="ios-information-circle" md="md-information-circle" class="custom-pin"></ion-icon>
           {{hotel.Desc}}
         </p>
-        <a>Read More</a>
+        <a (click)="toggleDetails(read)">Read More</a>
       </div>
 
-      <p class="p-readless">
+      <p class="p-readless" *ngIf="read == true">
         <ion-icon ios="ios-information-circle" md="md-information-circle" class="custom-pin"></ion-icon>
-        {{hotel.Desc}} <a>Read Less</a>
+        {{hotel.Desc}} <a (click)="toggleDetails(read)">Read Less</a>
       </p>
     </div>
 

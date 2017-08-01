@@ -17,6 +17,7 @@ export class HotelRoomtypePage1 {
   idAkhir;
   idhot;
   hotel;
+  read;
   constructor(public navCtrl: NavController, public ref: ChangeDetectorRef,
     public navParams: NavParams,
     public ds: DailyService,
@@ -26,9 +27,17 @@ export class HotelRoomtypePage1 {
     this.idhot = navParams.data['ser']
     this.idAwal = navParams.data['id']
     this.idAkhir = navParams.data['i']
-
+    this.read = false;
   }
   
+  toggleDetails(data) {
+    if (data) {
+      this.read = false;
+    } else {
+     this.read = true;
+    }
+  }
+
     getNumber(n){
       return new Array(Number(n));
   }
