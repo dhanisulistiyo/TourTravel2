@@ -113,7 +113,28 @@ page-hotel-roomtype1 {
             font-size: 1.4rem;
             font-weight: 600;
         }
-        p {
+        .readmore {
+            padding: 0px;
+            .p-readmore {
+                font-family: 'Open Sans', cursive;
+                color: #808080;
+                font-size: 1.4rem;
+                font-weight: 600;
+                margin: 5px 0px 0px 0px;
+                display: -webkit-box;
+                max-width: 600px;
+                line-height: 1.5;
+                text-align: justify;
+                -webkit-line-clamp: 2;
+                /* autoprefixer: off */
+                -webkit-box-orient: vertical;
+                /* autoprefixer: on */
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: normal;
+            }
+        }
+        .p-readless {
             font-family: 'Open Sans', cursive;
             color: #808080;
             font-size: 1.4rem;
@@ -122,8 +143,7 @@ page-hotel-roomtype1 {
             display: -webkit-box;
             max-width: 600px;
             line-height: 1.5;
-            text-align: left;
-            -webkit-line-clamp: 2;
+            text-align: justify; //-webkit-line-clamp: 2;
             /* autoprefixer: off */
             -webkit-box-orient: vertical;
             /* autoprefixer: on */
@@ -292,7 +312,6 @@ page-hotel-roomtype1 {
             font-size: 4vw;
             color: #808080;
         }
-        
         .div-promo {
             border: 1px solid #e82;
             border-radius: 5%; //background-color: #e82;
