@@ -137,6 +137,8 @@ export class ConfirmBookingPage {
       loader.dismiss();
     }, err => {
       console.log(err);
+      let error = JSON.parse(err._body);
+      this.showAlertError(error.Message)
       loader.dismiss();
     },
       () => console.log('Get Transaction Complete')
@@ -156,6 +158,7 @@ export class ConfirmBookingPage {
       data.icon = 'ios-arrow-dropdown-outline';
     }
   }
+
   allertConfirmBooking() {
     let today = (+new Date());
     let exp =  (+new Date(this.BookingDetailSum[0].ExpiredOn))
@@ -195,6 +198,16 @@ export class ConfirmBookingPage {
     //prompt.fireOtherLifecycles = true;
     prompt.present();
   }
+
+  showAlertError(err) {
+    let alert = this.alertCtrl.create({
+      title: 'Failed!',
+      subTitle: err,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
   presentToast() {
     let toast = this.toastCtrl.create({
       message: 'Your Booking has been saved in Sistem, Please check in History',
