@@ -55,12 +55,20 @@
       </p>
       <p>
         <ion-icon ios="ios-pin" md="md-pin" class="custom-pin"></ion-icon>
-         {{hotel.Address}}
+        {{hotel.Address}}
       </p>
-       <p>
+      <div class="readmore">
+        <p class="p-readmore">
+          <ion-icon ios="ios-information-circle" md="md-information-circle" class="custom-pin"></ion-icon>
+          {{hotel.Desc}}
+        </p>
+        <a>Read More</a>
+      </div>
+
+      <p class="p-readless">
         <ion-icon ios="ios-information-circle" md="md-information-circle" class="custom-pin"></ion-icon>
-         {{hotel.Desc}}
-      </p> 
+        {{hotel.Desc}} <a>Read Less</a>
+      </p>
     </div>
 
     <div class="content">
