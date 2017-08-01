@@ -180,7 +180,8 @@ import { ConfigProvider } from '../providers/config';
     PaymentPage,
     TransportHoursPage,
     ModalContentPage,
-    ModalContentPageExpired
+    ModalContentPageExpired,
+    
   ],
   imports: [
     BrowserModule,
