@@ -116,15 +116,29 @@ page-hotel-roomtype1 {
         .readmore {
             padding: 0px;
             .p-readmore {
+                // font-family: 'Open Sans', cursive;
+                // color: #808080;
+                // font-size: 1.4rem;
+                // font-weight: 600;
+                // margin: 5px 0px 0px 0px;
+                // display: -webkit-box;
+                // max-width: 600px;
+                // line-height: 1.5;
+                // text-align: justify;
+                // -webkit-line-clamp: 2;
+                // /* autoprefixer: off */
+                // -webkit-box-orient: vertical;
+                // /* autoprefixer: on */
+                // overflow: hidden;
+                // text-overflow: ellipsis;
+                // white-space: normal;
                 font-family: 'Open Sans', cursive;
                 color: #808080;
-                font-size: 1.4rem;
+                font-size: 3.8vw;
                 font-weight: 600;
-                margin: 5px 0px 0px 0px;
+                margin-bottom: 1vw;
                 display: -webkit-box;
-                max-width: 600px;
                 line-height: 1.5;
-                text-align: justify;
                 -webkit-line-clamp: 2;
                 /* autoprefixer: off */
                 -webkit-box-orient: vertical;
@@ -132,12 +146,13 @@ page-hotel-roomtype1 {
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: normal;
+                text-align: left;
             }
         }
         .p-readless {
             font-family: 'Open Sans', cursive;
             color: #808080;
-            font-size: 1.4rem;
+            font-size: 3.8vw;
             font-weight: 600;
             margin: 5px 0px 0px 0px;
             display: -webkit-box;
@@ -231,11 +246,16 @@ page-hotel-roomtype1 {
         ion-card img {
             display: block;
             width: 155px;
-            height: 180px;
         }
-        .cover {
+        .cover-promo {
             width: 100%;
             object-fit: fill;
+            height: 180px;
+        }
+        .cover{
+            width: 100%;
+            object-fit: fill;
+            height: 150px;
         }
         ion-col[width-60] {
             -webkit-flex: 0 0 60%;

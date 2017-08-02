@@ -59,7 +59,8 @@
                 <div class="timeline-item" *ngIf="p.acomodation != null">
                   <h4>{{p.acomodation.Name}}</h4>
                   <p><span class="line-break" *ngIf="p.roomtype != null">{{p.roomtype.Name}}</span><span class="line-break"
-                      *ngIf="p.roomservice != null">, {{(p.roomservice).replace('_', ' ')}}</span><br class="line-break">{{p.acomodation.Desc}}
+                      *ngIf="p.roomservice != null">, {{(p.roomservice).replace('_', ' ')}}</span>
+                      <!-- <br class="line-break">{{p.acomodation.Desc}} -->
                   </p>
                 </div>
               </li>

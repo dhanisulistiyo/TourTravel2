@@ -154,7 +154,7 @@
                 font-family: 'Lato', cursive;
                 color: black;
                 font-weight: 600;
-                padding-right: 4vw;
+                padding-bottom: 1vw;
             }
             .timeline:before {
                 content: '';
@@ -189,6 +189,8 @@
             .timeline .timeline-item {
                 margin-left: 8vw; // border-bottom: 1px solid #ccc;
                 padding-bottom: 1vw;
+                padding-right: 4vw;
+                padding-bottom: 3vw;
             }
             .timeline .timeline-stats {
                 position: relative;
@@ -196,13 +198,29 @@
                 color: #7F8C8D;
             }
             .item-md p {
-                overflow: inherit;
-                margin: 0 0 2px;
+                // overflow: inherit;
+                // margin: 0 0 2px;
+                // font-size: 3.8vw;
+                // padding-right: 2vw;
+                // line-height: normal;
+                // text-overflow: inherit;
+                // color: #666;
+                font-family: 'Open Sans', cursive;
+                color: #808080;
                 font-size: 3.8vw;
-                padding-right: 2vw;
-                line-height: normal;
-                text-overflow: inherit;
-                color: #666;
+                font-weight: 600;
+                margin-bottom: 1vw;
+                display: -webkit-box;
+                max-width: 280px;
+                line-height: 1.5;
+                -webkit-line-clamp: 2;
+                /* autoprefixer: off */
+                -webkit-box-orient: vertical;
+                /* autoprefixer: on */
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: normal;
+                text-align: left;
             }
             .item-md ion-icon[item-left],
             .item-md ion-icon[item-right],

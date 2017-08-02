@@ -13,7 +13,7 @@ page-daily-details {
     ion-card.card {
         box-shadow: 2px;
         background: rgba(0, 0, 0, 0.5);
-        border-radius: 5px;
+        border-radius: 0px;
         float: left;
         /* important */
         position: relative;
@@ -60,15 +60,43 @@ page-daily-details {
         font-size: 4vw;
         font-weight: 500;
     }
-    .card-header-md {
-        padding: 10px;
-        background-color: #2cbaae;
-    }
-    .card-md h2.card-title {
-        font-size: 4vw;
-        font-weight: normal;
-        font-family: 'Open Sans', cursive;
-        color: white;
+    .header {
+        .card-header-md {
+            padding: 0px 0px 0px 10px;
+            background-color: #2cbaae;
+        }
+        h2.card-title {
+            font-size: 4vw;
+            font-weight: normal;
+            font-family: 'Open Sans', cursive;
+            color: white;
+        }
+        ion-icon.custom-minus {
+            color: white;
+            font-weight: 500;
+            font-size: 6vw;
+        }
+        .input-wrapper {
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            margin: 0px;
+            overflow: hidden;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            -webkit-flex-direction: inherit;
+            -ms-flex-direction: inherit;
+            flex-direction: inherit;
+            -webkit-align-items: inherit;
+            -ms-flex-align: inherit;
+            align-items: inherit;
+            -webkit-align-self: stretch;
+            -ms-flex-item-align: stretch;
+            align-self: stretch;
+            text-overflow: ellipsis;
+            border-bottom: none;
+        }
     }
     .h2-title {
         font-size: 5vw;

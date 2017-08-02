@@ -23,9 +23,17 @@
     <h2 class="h2-title">{{tanggal | date:'MMM dd'}}</h2>
     <h3 class="h3-subtitle">Day {{idAwal + 1}}</h3>
     <ion-card *ngFor="let d of selectedItem ; let j = index">
-      <ion-card-header>
-        <h2 class="card-title">Destination {{d.id}}</h2>
-      </ion-card-header>
+      <div class="header">
+        <ion-card-header>
+          <ion-item>
+            <h2 class="card-title">Destination {{d.id}}</h2>
+            <button ion-button icon-only item-right clear>
+        <ion-icon ios="ios-remove-circle" md="ios-remove-circle-outline" class="custom-minus"></ion-icon>
+      </button>
+          </ion-item>
+        </ion-card-header>
+      </div>
+
       <ion-card-content class="content-custom-item" style="margin-left: 0px;">
         <ion-grid>
           <ion-row>
@@ -56,8 +64,7 @@
                 <ion-icon ios="ios-bus" md="md-bus" class="custom-color"></ion-icon> Transportation</ion-label>
               <ion-item class="line-break" style="padding-left: 0px" (click)="transportationTapped(j)"><span class="line-break" *ngIf="d.transportation != null">{{d.transportation.Name}}, {{d.transportation.TransportationSeatTypeName}} Seater</span>
                 <span class="line-break" *ngIf="d.transportservice != null">, {{(d.transportservice).split("_").join(" ")}}</span>
-                <span
-                  class="span-custom-null" *ngIf="d.transportation == null">Tap to choose transportation</span>
+                <span class="span-custom-null" *ngIf="d.transportation == null">Tap to choose transportation</span>
               </ion-item>
             </ion-col>
           </ion-row>
