@@ -9,13 +9,17 @@ import {DailyService} from '../../../providers/daily-service';
   templateUrl: 'hotel-roomservice1.html'
 })
 export class HotelRoomservicePage1 {
-   roomtypes:Array<any>;
+  roomtypes:Array<any>;
   idAwal;
   idAkhir;
+  itemroom;
+  hotel;
   constructor(public navCtrl: NavController, public navParams: NavParams,public ds : DailyService, 
   public aco: AcomodationService,
   private viewCtrl: ViewController,
   ) {
+    this.itemroom = navParams.data['itemroom']
+    this.hotel = navParams.data['hotel']
     this.roomtypes=navParams.data['type']
     this.idAwal = navParams.data['id']
     this.idAkhir = navParams.data['i']
@@ -27,9 +31,9 @@ export class HotelRoomservicePage1 {
 
   setSelectedRoomSer(itemser) {
      console.log(itemser);
-    let id = this.idAwal;
+     let id = this.idAwal;
      let i = this.idAkhir;
-     this.ds.setRoomService(id,i,itemser);
+     this.ds.setHotel(id,i,itemser,this.itemroom, this.hotel);
      //this.navCtrl.push(HotelRoomallocatePage1,{id,i});
       this.navCtrl.pop().then(() => {
         // first we find the index of the current view controller:

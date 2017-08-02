@@ -129,4 +129,13 @@ export class AcomodationService {
         var response = this.http.get(url, { headers: headers }).map(res => res.json());
         return response;
     }
+
+    getListItemAcomodationDate(id, tgl) {
+        var headers = new Headers();
+        let token = this.auth.AuthToken;
+        headers.append('Authorization', 'Bearer ' + token);
+        var url = this.conf.baseUrl+'/AccommodationItems/byprofile?profileid='+id+'&requestedDate='+tgl;
+        var response = this.http.get(url, { headers: headers }).map(res => res.json());
+        return response;
+    }
 }
