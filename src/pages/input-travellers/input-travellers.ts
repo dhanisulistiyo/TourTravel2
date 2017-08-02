@@ -17,10 +17,12 @@ export class InputTravellersPage {
   guestTour = { AdultQty: null, ChildQty: null, InfantQty: null };
   total;
   maxGuest;
+  kuota
   constructor(public navCtrl: NavController, public navParams: NavParams, public ite: IteneraryService, public alertCtrl: AlertController) {
     this.guestTour = { AdultQty: 0, ChildQty: 0, InfantQty: 0 }
     this.total = 0;
     this.maxGuest = navParams.data['count']
+    this.kuota = navParams.data['kuota']
   }
 
   incrAdultQty(index: number) {
@@ -126,13 +128,23 @@ export class InputTravellersPage {
     else if (typeof gi != "number" || String(gi) == "NaN") {
       this.showAlertInfant()
     } else {
-      if(this.total<= this.maxGuest){
-      var data = JSON.stringify({ guestTour });
-      this.ite.setPassenger(data);
-      this.navCtrl.pop();
-      }else{
-        this.showAlertTotal();
-      }
+        if(this.total<= this.maxGuest){
+            var data = JSON.stringify({ guestTour });
+            if(this.kuota=="Large Group"){
+                if(this.total<10){
+                    this.showAlertLarge();
+                }else{
+                  this.ite.setPassenger(data);
+                  this.navCtrl.pop();
+                }
+            }else{
+              this.ite.setPassenger(data);
+              this.navCtrl.pop();
+            }
+            
+        }else{
+          this.showAlertTotal();
+        }
       //this.navCtrl.push(IteneraryBuilderPage);
     }
   }
@@ -163,6 +175,15 @@ remainingG(){
     let alert = this.alertCtrl.create({
       title: 'Wrong Input!',
       subTitle: 'Input Infant Not Number',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+  showAlertLarge() {
+    let alert = this.alertCtrl.create({
+      title: 'Failed!',
+      subTitle: 'Total Person more then 10 Persons',
       buttons: ['OK']
     });
     alert.present();
