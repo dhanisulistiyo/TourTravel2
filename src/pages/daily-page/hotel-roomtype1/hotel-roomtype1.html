@@ -72,8 +72,8 @@
     </div>
 
     <div class="content">
-      <h5 class="custom-h5" *ngIf="listroomtypes.length <= 0" >No Result Room Type in this Date</h5>
-      <h5 class="custom-h5" *ngIf="listroomtypes.length > 0" >Pick your room type</h5>
+      <h5 class="custom-h5" *ngIf="listroomtypes?.length == 0" >No Result Room Type in this Date</h5>
+      <h5 class="custom-h5" *ngIf="listroomtypes?.length > 0" >Pick your room type</h5>
       <div class="promo"  *ngFor="let itemroom of listroomtypes">
         <ion-card (click)="setSelectedRoomAllo(itemroom)" *ngIf="itemroom.IsPromo == true" style="height:180px">
           <ion-row>
