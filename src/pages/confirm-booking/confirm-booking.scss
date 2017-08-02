@@ -1,9 +1,7 @@
 $SIDEMENU_TOP: #00a497;
 $SIDEMENU_BOTTOM: #2cbaae;
 $SIDEMENU_TRANSPARENCY: rgba(255, 255, 255, 0.4);
-
 page-confirm-booking {
-
     ion-card {
         width: 100%;
         height: 100%;
@@ -181,6 +179,13 @@ page-confirm-booking {
         width: 8%;
         max-width: 8%;
         padding: 5px 16px 13px 26px;
+    }
+    .col2-custom {
+        -webkit-flex: 0 0 16.66667%;
+        -ms-flex: 0 0 16.66667%;
+        flex: 0 0 16.66667%;
+        width: 16.66667%;
+        max-width: 8%;
     }
     .grid-custom {
         padding: 5px 0px 5px 0px;
@@ -575,7 +580,6 @@ page-confirm-booking {
             font-weight: 500;
         }
     }
-
     .popup-modal1 {
         // padding: 30px;
         // background: rgba(0,0,0,0.5);
