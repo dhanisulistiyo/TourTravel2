@@ -76,51 +76,7 @@ export class DailyService {
     this.transairport = {}
   }
 
-  public setID(id) {
-    this.id = id
-  }
-  public getID() {
-    return this.id
-  }
-
-
-
-
-  public setTransportAirport(service) {
-    if (service == 'PickAndDrop') {
-      for (let i = 0; i < 2; i++) {
-        let tra = new TransportAirport();
-        tra.transportation = null;
-        tra.location = null;
-        if (i == 0) { tra.transportservice = "PickUp"; tra.date = this.ite.getDateTour().ev['monthStart'] }
-        if (i == 1) { tra.transportservice = "DropOff"; tra.date = this.ite.getDateTour().ev['monthEnd'] }
-        this.transairport[i] = tra;
-      }
-    } else {
-      let tra = new TransportAirport();
-      tra.location = null;
-      tra.transportation = null;
-      tra.transportservice = service;
-      if (service == "PickUp") tra.date = this.ite.getDateTour().ev['monthStart'];
-      else tra.date = this.ite.getDateTour().ev['monthEnd'];
-
-      this.transairport[0] = tra;
-    }
-
-    console.log(this.transairport);
-  }
-
-
-  public setLocationTransport(loc) {
-    this.transairport[this.getID()].location = loc;
-  }
-
-  public setTransportationAirport(tra) {
-    this.transairport[this.getID()].transportation = tra;
-  }
-
-
-  dailyProgram(days) {
+    dailyProgram(days) {
     if (days != (Object.keys(this.daily).length) - 1) {
       this.destroyObject();
       let today = new Date(this.ite.getDateTour().ev['monthStart'])
@@ -213,6 +169,46 @@ export class DailyService {
 
   }
 
+  public setID(id) {
+    this.id = id
+  }
+
+  public getID() {
+    return this.id
+  }
+
+  public setTransportAirport(service) {
+    if (service == 'PickAndDrop') {
+      for (let i = 0; i < 2; i++) {
+        let tra = new TransportAirport();
+        tra.transportation = null;
+        tra.location = null;
+        if (i == 0) { tra.transportservice = "PickUp"; tra.date = this.ite.getDateTour().ev['monthStart'] }
+        if (i == 1) { tra.transportservice = "DropOff"; tra.date = this.ite.getDateTour().ev['monthEnd'] }
+        this.transairport[i] = tra;
+      }
+    } else {
+      let tra = new TransportAirport();
+      tra.location = null;
+      tra.transportation = null;
+      tra.transportservice = service;
+      if (service == "PickUp") tra.date = this.ite.getDateTour().ev['monthStart'];
+      else tra.date = this.ite.getDateTour().ev['monthEnd'];
+
+      this.transairport[0] = tra;
+    }
+
+    console.log(this.transairport);
+  }
+
+
+  public setLocationTransport(loc) {
+    this.transairport[this.getID()].location = loc;
+  }
+
+  public setTransportationAirport(tra) {
+    this.transairport[this.getID()].transportation = tra;
+  }
 
   getDetails(i) {
     return this.daily[i].program_daily;
@@ -227,6 +223,10 @@ export class DailyService {
     this.daily[id].program_daily[i].attraction = null
     this.daily[id].program_daily[i].transportservice = null
   }
+
+
+  
+
   setAcomodation(id, i, data) {
     var no = Object.keys(this.daily).length;
     this.daily[id].program_daily[i].acomodation = data
@@ -242,6 +242,7 @@ export class DailyService {
     }
 
   }
+
   setRoomType(id, i, data) {
     var no = Object.keys(this.daily).length;
     this.daily[id].program_daily[i].roomtype = data
@@ -256,6 +257,18 @@ export class DailyService {
     for (let i = id + 1; i < no - 1; i++) {
       this.daily[i].program_daily[0].roomservice = data
     }
+  }
+
+  setHotel(id,i,itemser,itemroom, hotel){
+      let no = Object.keys(this.daily[id].program_daily).length;
+      for (let j = 0; j < no; j++) {
+          this.daily[id].program_daily[j].acomodation = null;
+          this.daily[id].program_daily[j].roomtype = null;
+          this.daily[id].program_daily[j].roomservice = null;
+      }
+      this.setRoomService(id,i,itemser);
+      this.setRoomType(id, i, itemroom); 
+      this.setAcomodation(id, i, hotel);
   }
 
   setRoomAllocate(id, i, data) {

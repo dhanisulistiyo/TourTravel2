@@ -77,10 +77,11 @@ export class DailyDetails {
 
   acomodationTapped(i) {
     if (this.selectedItem[i].location != null) {
+      let tgl = this.tanggal;
       let des = this.selectedItem[i].location.Id
       let id = this.idAwal
       let no = Object.keys(this.ds.daily).length;
-      if (id != no - 1) this.navCtrl.push(FilterHotel1Page, { des, id, i })
+      if (id != no - 1) this.navCtrl.push(FilterHotel1Page, { des, id, i, tgl })
     }
   }
 

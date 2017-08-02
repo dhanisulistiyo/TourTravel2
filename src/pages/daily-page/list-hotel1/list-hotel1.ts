@@ -17,12 +17,14 @@ export class ListHotelPage1 {
   idAwal;
   idAkhir;
   des;
+  tgl;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public aco: AcomodationService,
     public ds: DailyService,
     public load: LoadingController
   ) {
+    this.tgl = navParams.data['tgl']
     this.des = navParams.data['des']
     this.idAwal = navParams.data['id']
     this.idAkhir = navParams.data['i']
@@ -85,29 +87,39 @@ export class ListHotelPage1 {
   }
 
 
+  // setSelectedHotel(hot) {
+  //   console.log(hot);
+  //   let ser = (hot['Id']);
+  //   let id = this.idAwal;
+  //   let i = this.idAkhir;
+  //   let no = Object.keys(this.ds.daily[id].program_daily).length;
+  //   for (let j = 0; j < no; j++) {
+  //     this.ds.daily[id].program_daily[j].acomodation = null;
+  //   }
+  //   this.ds.setAcomodation(id, i, hot)
+  //   this.navCtrl.push(HotelRoomtypePage1, { id, i, ser , hot});
+  // }
+
+
+  //new fungtion v3
   setSelectedHotel(hot) {
     console.log(hot);
+    let tgl =  this.tgl;
     let ser = (hot['Id']);
     let id = this.idAwal;
     let i = this.idAkhir;
-    let no = Object.keys(this.ds.daily[id].program_daily).length;
-    for (let j = 0; j < no; j++) {
-      this.ds.daily[id].program_daily[j].acomodation = null;
-    }
-    this.ds.setAcomodation(id, i, hot)
-    this.navCtrl.push(HotelRoomtypePage1, { id, i, ser , hot});
+    this.navCtrl.push(HotelRoomtypePage1, { id, i, ser , hot, tgl});
   }
-
-
 
 
   filterhotelTapped(event) {
     this.aco.delStorFilHot();
     this.navCtrl.pop();
+    let tgl =  this.tgl;
     let des = this.des;
     let id = this.idAwal;
     let i = this.idAkhir;
-    this.navCtrl.push(FilterHotel1Page, { des, id, i });
+    this.navCtrl.push(FilterHotel1Page, { des, id, i, tgl });
   }
 
 }

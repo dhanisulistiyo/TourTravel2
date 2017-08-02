@@ -27,9 +27,11 @@ export class FilterHotel1Page {
     idAwal;
     idAkhir;
     des;
+    tgl
     constructor(public navCtrl: NavController, public navParams: NavParams, public fil: FilacomodationService,
         public aco: AcomodationService,
         public load: LoadingController) {
+        this.tgl =  navParams.data['tgl']
         this.des = navParams.data['des']
         this.idAwal = navParams.data['id']
         this.idAkhir = navParams.data['i']
@@ -182,10 +184,11 @@ export class FilterHotel1Page {
 
     listTapped(event) {
         this.navCtrl.pop();
+        let tgl = this.tgl;
         let des = this.des;
         let id = this.idAwal;
         let i = this.idAkhir;
-        this.navCtrl.push(ListHotelPage1, { des, id, i });
+        this.navCtrl.push(ListHotelPage1, { des, id, i , tgl});
     }
 
 
