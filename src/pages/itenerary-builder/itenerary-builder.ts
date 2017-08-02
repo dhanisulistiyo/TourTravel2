@@ -32,6 +32,7 @@ export class IteneraryBuilderPage {
   typeGuest: string[] = [];
   typeG;
   maxGuest;
+  type;
   allocation: Array<{ guest: number, name: string }>;
   public event = {
     monthStart: '',
@@ -59,7 +60,7 @@ export class IteneraryBuilderPage {
       monthStart: new Date().toISOString().substring(0, 10),
       monthEnd: new Date().toISOString().substring(0, 10)
     };
-    this.kuotaGuest = ['Choose Type Guest', 'Small Group', 'Large Group']
+    this.kuotaGuest = ['Choose Guest Capacity', 'Small Group (Up to 10 person)', 'Large Group (More than 10 person)']
     this.typeGuest = ['Choose Type'];
   }
 
@@ -147,12 +148,17 @@ export class IteneraryBuilderPage {
   }
 
   setKuotaGuest(kuo) {
-    console.log(kuo);
-    this.kuotaG = kuo;
-    if (kuo == 'Small Group') {
+
+    console.log(kuo.substr(0,11));
+    this.kuotaG = kuo.substr(0,11);
+    if (kuo.substr(0,11) == 'Small Group') {
+      this.type = 'Choose Type'
+      this.typeG=null;
       this.typeGuest = ['Choose Type', 'Regular', 'Family', 'Business', 'Honeymoon']
       this.ite.setGroupType("Small");
     } else {
+      this.type = 'Choose Type'
+      this.typeG=null;
       this.typeGuest = ['Choose Type', 'Regular', 'Family', 'Business'];
       this.ite.setGroupType("Large");
     }
@@ -204,7 +210,8 @@ export class IteneraryBuilderPage {
 
   passengerTapped(event) {
     let count = this.maxGuest;
-    if (this.typeG != null) this.navCtrl.push(InputTravellersPage, { count });
+    let kuota = this.kuotaG;
+    if (this.typeG != null) this.navCtrl.push(InputTravellersPage, { count, kuota });
     else this.showAlertTravelType();
   }
 
@@ -227,18 +234,21 @@ export class IteneraryBuilderPage {
   createItenerary(event) {
     let today = new Date(this.event.monthStart).toISOString().substring(0, 10)
     let tomorrow = new Date().toISOString().substring(0, 10);
+    if(this.passenger != ''){
     var adult = this.ite.getPassenger().guestTour['AdultQty'];
     var child = this.ite.getPassenger().guestTour['ChildQty'];
     var infant = this.ite.getPassenger().guestTour['InfantQty'];
+    }
+   
     var alloc = this.ite.getRoomAllo()
     if (this.ite.getToursName() == null) this.showAlertTourName();
+    else if (this.kuotaG == null) this.showAlertGuestType();
+    else if (this.typeG == null || this.typeG == "Choose Type") this.showAlertTravelType();
     else if (this.destination == null) this.showAlertDestination();
     else if (this.ite.getDateTour() == null) this.showAlertDates();
     else if (this.totalDays < 0) this.showAlertValidasiDates();
     else if (today == tomorrow) this.showAlertToday();
     else if (this.passenger == '') this.showAlertGuest();
-    else if (this.kuotaG == null) this.showAlertGuestType();
-    else if (this.typeG == null) this.showAlertTravelType();
     else if (alloc == null) this.showAlertAllocation();
     else {
         var SR = Number(alloc.allocroom.sharingRooms);
