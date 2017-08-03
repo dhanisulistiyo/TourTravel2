@@ -1,4 +1,6 @@
 page-list-attraction1 {
+    $line-height: 1;
+    $lines-to-show: 2;
     ion-card img {
         display: block;
         width: 155px;
@@ -58,7 +60,7 @@ page-list-attraction1 {
         font-family: 'Open Sans', cursive;
         font-size: 4vw;
         font-weight: 500;
-        padding: 15px 0 10px 12px;
+        padding: 15px 0px 0px 12px;
         line-height: 1.5rem;
         color: #4d4d4d;
         background-color: #f9f9f9;
@@ -86,7 +88,7 @@ page-list-attraction1 {
         max-width: 100%;
     }
     ion-card {
-        height: 200px;
+        height: 63vw;
         border-radius: 5%;
         display: block;
         overflow: hidden;
@@ -148,5 +150,145 @@ page-list-attraction1 {
         font-weight: 500;
         text-transform: uppercase;
         color: #fff;
+    }
+    .div-custom {
+        display: inline-block;
+        white-space: nowrap;
+        width: 100%;
+        min-height: 200px;
+        overflow: scroll;
+        position: relative;
+        p {
+            background: rgba(0, 0, 0, 0.7);
+            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            bottom: 48%;
+            color: white;
+            font-family: Roboto;
+            font-size: 1.25em;
+            left: 1px;
+            padding: 0.25em 0.75em;
+            position: absolute;
+        }
+        .card-md h2 {
+            font-weight: 600;
+            font-family: 'Open Sans', cursive;
+            color: black;
+            /* Fallback for non-webkit */
+            display: -webkit-box;
+            height: 1rem *$line-height*$lines-to-show;
+            /* Fallback for non-webkit */
+            margin: 0px 0px 0px 0px;
+            padding-top: 2vw;
+            padding-right: 1vw;
+            padding-left: 1vw;
+            font-size: 4.4vw;
+            line-height: $line-height;
+            -webkit-line-clamp: 1;
+            /* autoprefixer: off */
+            -webkit-box-orient: vertical;
+            /* autoprefixer: on */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+        }
+        .card-md h3 {
+            font-family: 'Open Sans', cursive;
+            color: #808080;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        .card-md h4 {
+            // font-family: 'Open Sans', cursive;
+            // color: #808080;
+            // font-size: 3.8vw;
+            // font-weight: 600;
+            // display: -webkit-box;
+            // padding-left: 1vw;
+            // max-width: 400px;
+            // line-height: $line-height;
+            // -webkit-line-clamp: 1;
+            // text-align: left;
+            // /* autoprefixer: off */
+            // -webkit-box-orient: vertical;
+            // /* autoprefixer: on */
+            // overflow: hidden;
+            // text-overflow: ellipsis;
+            // white-space: normal;
+            font-family: 'Open Sans', cursive;
+            color: #808080;
+            font-size: 3.8vw;
+            font-weight: 600;
+            margin-bottom: 1vw;
+            display: -webkit-box;
+            padding-right: 1vw;
+            line-height: 1.5;
+            -webkit-line-clamp: 1;
+            padding-left: 1vw;
+            /* autoprefixer: off */
+            -webkit-box-orient: vertical;
+            /* autoprefixer: on */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+            text-align: left;
+        }
+        .img-custom {
+            height: 140px;
+            width: 100%;
+            margin: 1px;
+            display: inline-block;
+        }
+        ion-card.card {
+            box-shadow: 2px;
+            background: white;
+            float: left;
+            /* important */
+            position: relative;
+            /* important(so we can absolutely position the description div */
+        }
+        .card-content {
+            box-shadow: none;
+            background: white;
+            right: 0;
+            display: block;
+            bottom: 0;
+            font-size: 2em;
+            font-weight: 900;
+            text-align: left;
+            left: 0;
+            padding: 0px 5px 3px 5px;
+        }
+        btn-label {
+            margin-left: 0px;
+            padding-left: 0px;
+        }
+        .button-small-md {
+            padding: 0;
+            height: 2.1em;
+            font-size: 1.3rem;
+        }
+        ion-icon.custom-star {
+            color: #ffcd25;
+        }
+        [col-4] {
+            -webkit-flex: 0 0 33.33333%;
+            -ms-flex: 0 0 33.33333%;
+            flex: 0 0 33.33333%;
+            width: 33.33333%;
+            max-width: 33.33333%;
+            padding: 0 2vw;
+            bottom: 1vw;
+        }
+        .custom-button {
+            padding: 0 2vw 0 2vw;
+            border-radius: 2px;
+        }
+        .button-md {
+            overflow: hidden;
+            margin: 0rem 0rem;
+            padding: 0 1.1em;
+            height: 8vw;
+            border-radius: 2px;
+        }
     }
 }

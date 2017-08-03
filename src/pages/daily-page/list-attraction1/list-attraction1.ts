@@ -13,9 +13,11 @@ export class ListAttractionPage1 {
   listattractions: Array<any>;
   attractions: Array<any>;
   selectedQuestions:string[] = [];
+  selectedAttrc:string[] = [];
   idAwal;
   idAkhir;
   des;
+  active1: boolean = true;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -101,6 +103,28 @@ export class ListAttractionPage1 {
     let id = this.idAwal;
     let i = this.idAkhir;
     this.navCtrl.push(FilterAttraction,{ id, i});
+  }
+
+   filterAtt(attracs){
+    const foundAt = this.selectedAttrc.indexOf(attracs);
+        if (foundAt >= 0) {
+            this.selectedAttrc.splice(foundAt, 1);
+              switch (attracs) { 
+                case 'REGULER': 
+                    this.active1 = true;
+                    break;
+              }
+        } else {
+            this.selectedAttrc.push(attracs);
+               switch (attracs) { 
+                case 'REGULER': 
+                    this.active1 = false;
+                    break;
+              }
+        }
+        console.log(this.selectedAttrc);
+    this.attSer.setTypes(this.selectedAttrc);
+
   }
 
 

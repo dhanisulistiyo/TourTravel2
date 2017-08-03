@@ -24,23 +24,47 @@
 
 
 <ion-content fullscreen>
-<!--<h5 class="custom-h5" *ngIf="hotels?.length == 0">Attraction not found</h5>-->
-<h5 class="custom-h5">Showing results attraction in Destination</h5>
+  <!--<h5 class="custom-h5" *ngIf="hotels?.length == 0">Attraction not found</h5>-->
+  <h5 class="custom-h5">Choose activities for your destination</h5>
+  <div class="div-custom">
+    <!-- <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> -->
+    <ion-card *ngFor="let attrac of attractions">
+      <img *ngIf="attrac.ImageUrl != null ;else other_content" src="{{attrac.ImageUrl}}" class="img-custom" />
+      <ng-template #other_content><img src="assets/img/gwk-bali.jpg" class="cover" /></ng-template>
+      <!-- <p>Rp <strong>599.000</strong></p> -->
+      <ion-card-content>
+        <h2>{{attrac.Name}}</h2>
+        <h4>{{attrac.Description}}</h4>
+      </ion-card-content>
+      <ion-row class="row-label">
+        <ion-col col-4>
+          <button ion-button icon-left clear small>
+                    <ion-icon ios="ios-pin" md="md-pin" class="custom-color"></ion-icon><h3>{{attrac.Address}}</h3>
+                  </button>
+        </ion-col>
+        <ion-col col-4></ion-col>
+        <ion-col col-4 (click)=" filterAtt('REGULER')">
+          <button ion-button icon-left secondary [outline]="active1" class="custom-button"><div>Pick</div>
+            </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
 
-<ion-card *ngFor="let attrac of attractions" style="height:150px;">
+  <!-- <ion-card *ngFor="let attrac of attractions" style="height:150px;">
 <ion-row>
   <ion-col class ="col-custom" style="padding: 0;" *ngIf="attrac.ImageUrl != null ;else other_content"><img src="{{attrac.ImageUrl}}"/></ion-col>
   <ng-template #other_content><ion-col class ="col-custom"><img src="assets/img/gwk-bali.jpg" class="cover"/></ion-col></ng-template>
   <ion-col width-60>
     <div >
     <h2>{{attrac.Name}}</h2>
-    <!--<ion-icon ios="ios-star" md="md-star" class="custom-star"></ion-icon>-->
-    <!--<h3>Rating: {{hotel.AccommodationRating.Name}}</h3>-->
+    <ion-icon ios="ios-star" md="md-star" class="custom-star"></ion-icon>
+    <h3>Rating: {{hotel.AccommodationRating.Name}}</h3>
     <p style=" white-space: pre-wrap;"> <ion-icon ios="ios-pin" md="ios-pin-outline" class="custom-pin"></ion-icon>{{attrac.Address}}</p> 
     <ion-checkbox (ionChange)="printf2(attrac)"></ion-checkbox>
     </div></ion-col>
 </ion-row>
-</ion-card>
+</ion-card> -->
 </ion-content>
 
 
