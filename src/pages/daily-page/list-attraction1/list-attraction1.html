@@ -13,7 +13,7 @@
     <ion-col col-4 (click)="filterattracTapped($event)">
       <button ion-button icon-left clear>
         <ion-icon ios="ios-funnel" md="md-funnel"></ion-icon>
-        <div>Filter</div>
+        <div style="color:white;">Filter</div>
       </button>
     </ion-col>
     <ion-col col-8>
@@ -43,8 +43,8 @@
                   </button>
         </ion-col>
         <ion-col col-4></ion-col>
-        <ion-col col-4 (click)=" filterAtt('REGULER')">
-          <button ion-button icon-left secondary [outline]="active1" class="custom-button"><div>Pick</div>
+        <ion-col col-4-custom (click)=" filterAtt('REGULER')">
+          <button ion-button icon-left secondary [outline]="active1" class="custom-button-pick"><div style="font-size: 3.5vw;">Pick</div>
             </button>
         </ion-col>
       </ion-row>
