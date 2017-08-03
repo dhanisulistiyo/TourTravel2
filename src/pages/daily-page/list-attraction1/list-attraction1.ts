@@ -1,8 +1,9 @@
-import { FilterAttraction } from './../filter-attraction/filter-attraction';
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { AttractionService } from '../../../providers/attraction-service';
-import {DailyService} from '../../../providers/daily-service';
+import { DailyService } from '../../../providers/daily-service';
+import { AttractionDetailsPage } from './../attraction-details/attraction-details';
+import { FilterAttraction } from './../filter-attraction/filter-attraction';
 @Component({
   selector: 'page-list-attraction1',
   templateUrl: 'list-attraction1.html',
@@ -12,8 +13,8 @@ import {DailyService} from '../../../providers/daily-service';
 export class ListAttractionPage1 {
   listattractions: Array<any>;
   attractions: Array<any>;
-  selectedQuestions:string[] = [];
-  selectedAttrc:string[] = [];
+  selectedQuestions: string[] = [];
+  selectedAttrc: string[] = [];
   idAwal;
   idAkhir;
   des;
@@ -25,7 +26,7 @@ export class ListAttractionPage1 {
     public ds: DailyService,
     public load: LoadingController
   ) {
-    
+
     this.des = navParams.data['des']
     this.idAwal = navParams.data['id']
     this.idAkhir = navParams.data['i']
@@ -79,22 +80,22 @@ export class ListAttractionPage1 {
 
   }
 
-  printf2(attrac){
+  printf2(attrac) {
     const foundAt = this.selectedQuestions.indexOf(attrac);
-     if (foundAt >= 0) {
-        this.selectedQuestions.splice(foundAt, 1);
-     } else {
-        this.selectedQuestions.push(attrac);
+    if (foundAt >= 0) {
+      this.selectedQuestions.splice(foundAt, 1);
+    } else {
+      this.selectedQuestions.push(attrac);
     }
     console.log(this.selectedQuestions);
   }
 
-    setSelectedAttraction() {
-        console.log(this.selectedQuestions);
-        let attrac = this.selectedQuestions;
-        this.ds.setAttraction(this.idAwal, this.idAkhir, attrac);
-        this.navCtrl.pop();
-    }
+  setSelectedAttraction() {
+    console.log(this.selectedQuestions);
+    let attrac = this.selectedQuestions;
+    this.ds.setAttraction(this.idAwal, this.idAkhir, attrac);
+    this.navCtrl.pop();
+  }
 
 
   filterattracTapped(event) {
@@ -102,29 +103,33 @@ export class ListAttractionPage1 {
     this.navCtrl.pop();
     let id = this.idAwal;
     let i = this.idAkhir;
-    this.navCtrl.push(FilterAttraction,{ id, i});
+    this.navCtrl.push(FilterAttraction, { id, i });
   }
 
-   filterAtt(attracs){
+  filterAtt(attracs) {
     const foundAt = this.selectedAttrc.indexOf(attracs);
-        if (foundAt >= 0) {
-            this.selectedAttrc.splice(foundAt, 1);
-              switch (attracs) { 
-                case 'REGULER': 
-                    this.active1 = true;
-                    break;
-              }
-        } else {
-            this.selectedAttrc.push(attracs);
-               switch (attracs) { 
-                case 'REGULER': 
-                    this.active1 = false;
-                    break;
-              }
-        }
-        console.log(this.selectedAttrc);
+    if (foundAt >= 0) {
+      this.selectedAttrc.splice(foundAt, 1);
+      switch (attracs) {
+        case 'REGULER':
+          this.active1 = true;
+          break;
+      }
+    } else {
+      this.selectedAttrc.push(attracs);
+      switch (attracs) {
+        case 'REGULER':
+          this.active1 = false;
+          break;
+      }
+    }
+    console.log(this.selectedAttrc);
     this.attSer.setTypes(this.selectedAttrc);
 
+  }
+
+  detailAtt() {
+    this.navCtrl.push(AttractionDetailsPage);
   }
 
 

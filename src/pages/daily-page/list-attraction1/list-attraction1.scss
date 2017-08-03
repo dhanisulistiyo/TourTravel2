@@ -153,9 +153,20 @@
             display: inline-block;
             white-space: nowrap;
             width: 100%;
+            padding-bottom: 0vw;
             min-height: 200px;
             overflow: scroll;
             position: relative;
+            ion-card {
+                height: 67vw;
+                margin-bottom: 4vw;
+                padding-bottom: 1vw;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+                transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+            }
+            ion-card:hover {
+                box-shadow: 0 4px 8px rgba(72,138,255,.8), 0 2px 2px rgba(72,138,255,.8);
+            }
             p {
                 background: rgba(0, 0, 0, 0.7);
                 /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -173,14 +184,13 @@
                 color: black;
                 /* Fallback for non-webkit */
                 display: -webkit-box;
-                height: 1rem *$line-height*$lines-to-show;
                 /* Fallback for non-webkit */
-                margin: 0px 0px 1.5vw 0px;
-                padding-top: 2vw;
+                margin: 0px 0px 1vw 0px;
+                padding-top: 1vw;
                 padding-right: 1vw;
                 padding-left: 1vw;
                 font-size: 4.4vw;
-                line-height: $line-height;
+                ;
                 -webkit-line-clamp: 1;
                 /* autoprefixer: off */
                 -webkit-box-orient: vertical;
@@ -216,7 +226,7 @@
                 color: #808080;
                 font-size: 3.8vw;
                 font-weight: 600;
-                margin-bottom: 3vw;
+                margin-bottom: 2vw;
                 display: -webkit-box;
                 padding-right: 1vw;
                 line-height: 1.5;
@@ -291,7 +301,7 @@
                 padding: 0 2vw 0 2vw;
                 border-radius: 2px;
             }
-             .custom-button-pick {
+            .custom-button-pick {
                 padding: 0 8vw 0 8vw;
                 border-radius: 2px;
             }
@@ -307,6 +317,25 @@
                 font-weight: 700;
                 font-size: 3vw;
                 margin: 0px;
+            }
+            ion-icon.custom-icon {
+                color: #fff;
+                font-size: 4.4vw;
+            }
+            .custom-a {
+                position: absolute;
+                background: rgba(0, 0, 0, 0.4);
+                bottom: 35vw;
+                color: white;
+                border-radius: 2px;
+                border: 1px solid gray;
+                font-weight: 500;
+                font-size: 3.8vw;
+                text-align: right;
+                left: 73%;
+                text-decoration: none;
+                padding: 1vw;
+                font-family: 'Open Sans', cursive;
             }
         }
     }
