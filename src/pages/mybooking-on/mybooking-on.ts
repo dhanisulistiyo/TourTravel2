@@ -25,6 +25,7 @@ export class MybookingOnPage {
     loader.present();
     this.his.getHistoryTransactions().subscribe(data => {
       this.HistoryBookingOpen = data;
+      console.log(data)
       loader.dismiss();
 
     }, err => {

@@ -6,9 +6,19 @@ page-itenerary-builder {
     .text-input[disabled] {
         opacity: 1;
     }
+    .div-logo{
+        width: 100%;
+        padding: 1vw;
+        text-align: center;
+    }
+    .logo {
+        height: 14vw;
+        width: 60vw;
+        text-align: center;
+    }
     .custom-div {
         border: 1px solid #f2f2f2;
-        border-radius: 10px;
+        border-radius: 2px;
         padding: 5px;
         background-color: white;
     }

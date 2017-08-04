@@ -27,6 +27,7 @@ ionViewWillEnter() {
     loader.present();
     this.his.getHistoryTransactionsCancel().subscribe(data=>{          
             this.HistoryBookingCancel= data;
+            console.log(data)
             loader.dismiss();
             },err => {
                     console.log(err);
