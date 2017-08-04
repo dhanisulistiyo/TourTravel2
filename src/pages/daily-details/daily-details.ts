@@ -1,5 +1,5 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 //import { DailyDetailsProgram } from '../../providers/daily-service';
 import { DailyService } from '../../providers/daily-service';
 import { DestinationPage2 } from '../daily-page/destination2/destination2';
@@ -25,7 +25,8 @@ export class DailyDetails {
   event;
   location;
   showToolbar: boolean = false;
-  constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, public navParams: NavParams, public ds: DailyService, public it: IteneraryService) {
+  constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, 
+    public navParams: NavParams, public ds: DailyService, public it: IteneraryService, public alertCtrl: AlertController) {
     this.selectedItem = navParams.get('item');
     this.idAwal = navParams.get('awal');
     this.tanggal = navParams.get('date');
@@ -90,6 +91,29 @@ export class DailyDetails {
     this.ds.addDailyDetails(this.idAwal)
   }
 
+  deleteCard(i) {
+    let id = this.idAwal
+    let prompt = this.alertCtrl.create({
+      title: 'Confirm Delete',
+      message: "Do you want delete this destinantion?",
+      buttons: [
+        {
+          text: 'No',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            console.log('Saved clicked');
+            this.ds.deleteDetails(id, i);
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
 
 
 }

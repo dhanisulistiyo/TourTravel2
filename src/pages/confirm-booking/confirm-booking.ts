@@ -139,6 +139,7 @@ export class ConfirmBookingPage {
       console.log(err);
       let error = JSON.parse(err._body);
       this.showAlertError(error.Message)
+      this.navCtrl.pop();
       loader.dismiss();
     },
       () => console.log('Get Transaction Complete')

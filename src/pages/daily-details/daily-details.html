@@ -27,7 +27,7 @@
         <ion-card-header>
           <ion-item>
             <h2 class="card-title">Destination {{d.id}}</h2>
-            <button ion-button icon-only item-right clear>
+            <button ion-button icon-only item-right clear (click)="deleteCard(j)">
         <ion-icon ios="ios-remove-circle" md="ios-remove-circle-outline" class="custom-minus"></ion-icon>
       </button>
           </ion-item>

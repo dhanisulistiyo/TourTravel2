@@ -11,6 +11,7 @@ import { FilterAttraction } from './../filter-attraction/filter-attraction';
 })
 
 export class ListAttractionPage1 {
+  data: Array<{attractions:any, active: boolean}> = [];
   listattractions: Array<any>;
   attractions: Array<any>;
   selectedQuestions: string[] = [];
@@ -18,7 +19,6 @@ export class ListAttractionPage1 {
   idAwal;
   idAkhir;
   des;
-  active1: boolean = true;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -42,10 +42,16 @@ export class ListAttractionPage1 {
     // if(this.selectedQuestions == null) this.selectedQuestions = []
     // console.log(this.selectedQuestions);
     this.attSer.listAttractionDailyFilter(this.des).subscribe(data => {
-      this.listattractions = data;
+       var no = Object.keys(data).length;
+       for(let i= 0; i< no ; i++)
+       this.data.push({
+         attractions: data[i],
+         active: true
+      });
+      this.listattractions = this.data;
       this.attractions = this.listattractions;
+      console.log(this.data);
       loader.dismiss();
-      console.log(this.listattractions);
     }, err => {
       loader.dismiss();
       console.log(err);
@@ -72,7 +78,7 @@ export class ListAttractionPage1 {
 
     this.attractions = this.attractions.filter((v) => {
 
-      if (v.Name.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+      if (v.attractions.Name.toLowerCase().indexOf(q.toLowerCase()) > -1) {
         return true;
       }
       return false;
@@ -88,6 +94,14 @@ export class ListAttractionPage1 {
       this.selectedQuestions.push(attrac);
     }
     console.log(this.selectedQuestions);
+  }
+
+   togglePick(i,data) {
+    if (data.active) {
+      this.data[i].active = false;
+    } else {
+      this.data[i].active = true;
+    }
   }
 
   setSelectedAttraction() {
@@ -106,30 +120,8 @@ export class ListAttractionPage1 {
     this.navCtrl.push(FilterAttraction, { id, i });
   }
 
-  filterAtt(attracs) {
-    const foundAt = this.selectedAttrc.indexOf(attracs);
-    if (foundAt >= 0) {
-      this.selectedAttrc.splice(foundAt, 1);
-      switch (attracs) {
-        case 'REGULER':
-          this.active1 = true;
-          break;
-      }
-    } else {
-      this.selectedAttrc.push(attracs);
-      switch (attracs) {
-        case 'REGULER':
-          this.active1 = false;
-          break;
-      }
-    }
-    console.log(this.selectedAttrc);
-    this.attSer.setTypes(this.selectedAttrc);
-
-  }
-
-  detailAtt() {
-    this.navCtrl.push(AttractionDetailsPage);
+  detailAtt(attrac) {
+    this.navCtrl.push(AttractionDetailsPage,{attrac});
   }
 
 

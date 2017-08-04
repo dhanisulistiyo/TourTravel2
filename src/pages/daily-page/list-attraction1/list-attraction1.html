@@ -28,29 +28,29 @@
   <h5 class="custom-h5">Choose activities for your destination</h5>
   <div class="div-custom">
     <!-- <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> -->
-    <ion-card *ngFor="let attrac of attractions">
-      <img *ngIf="attrac.ImageUrl != null ;else other_content" src="{{attrac.ImageUrl}}" class="img-custom" />
+    <ion-card *ngFor="let attrac of attractions; let i = index">
+      <img *ngIf="attrac.attractions.ImageUrl != null ;else other_content" src="{{attrac.attractions.ImageUrl}}" class="img-custom" />
       <ng-template #other_content><img src="assets/img/gwk-bali.jpg" class="cover" /></ng-template>
       <ion-row>
         <ion-col col-12>
-          <a href="#" class="custom-a" (click)="detailAtt()">Show Details</a>
+          <a href="#" class="custom-a" (click)="detailAtt(attrac.attractions)">Show Details</a>
         </ion-col>
       </ion-row>
       <!-- <p>Rp <strong>599.000</strong></p> -->
       <ion-card-content>
-        <h2>{{attrac.Name}}</h2>
-        <h4>{{attrac.Description}}</h4>
+        <h2>{{attrac.attractions.Name}}</h2>
+        <h4>{{attrac.attractions.Description}}</h4>
       </ion-card-content>
       <ion-row class="row-label">
         <ion-col col-4>
           <button ion-button icon-left clear small>
-                    <ion-icon ios="ios-pin" md="md-pin" class="custom-color"></ion-icon><h3>{{attrac.Address}}</h3>
+                    <ion-icon ios="ios-pin" md="md-pin" class="custom-color"></ion-icon><h3>{{attrac.attractions.Address}}</h3>
                   </button>
         </ion-col>
         <ion-col col-4></ion-col>
-        <ion-col col-4-custom (click)="filterAtt('REGULER')">
-          <button ion-button icon-left secondary [outline]="active1" class="custom-button-pick"><div style="font-size: 3.5vw;">Pick</div>
-            </button>
+        <ion-col col-4-custom (click)="printf2(attrac.attractions)">
+          <button *ngIf="attrac.active == true"  ion-button icon-left secondary [outline]="attrac.active" class="custom-button-pick" (click)="togglePick(i,attrac)"><div style="font-size: 3.5vw;">Pick</div></button>
+          <button *ngIf="attrac.active == false" ion-button icon-left secondary [outline]="attrac.active" class="custom-button-pick" (click)="togglePick(i,attrac)"><div style="font-size: 3.5vw;">Picked</div></button>
         </ion-col>
       </ion-row>
     </ion-card>
