@@ -90,6 +90,9 @@ export class DailyDetails {
     this.ds.addDailyDetails(this.idAwal)
   }
 
-
+deleteCard(i){
+  let id = this.idAwal
+  this.ds.deleteDetails(id,i );
+}
 
 }

@@ -15,9 +15,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class AttractionDetailsPage {
   showToolbar: boolean = false;
   read;
-
+  attrac;
   constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef) {
     this.read = false;
+    this.attrac = this.navParams.data["attrac"]
   }
 
     toggleDetails(data) {

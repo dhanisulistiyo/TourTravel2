@@ -346,4 +346,15 @@ export class DailyService {
   }
 
 
+  deleteDetails(id, i){ 
+    const foundAt = this.daily[id].program_daily.indexOf(this.daily[id].program_daily[i]);
+    if (foundAt >= 0) {
+      this.daily[id].program_daily.splice(foundAt, 1);
+    } else {
+      this.daily[id].program_daily.push(this.daily[id].program_daily[i]);
+    }
+    console.log(this.daily[id].program_daily);
+
+  }
+
 }

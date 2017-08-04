@@ -42,8 +42,9 @@
             Day {{d.id + 1}} : {{d.dailyProgram.datetour | date:'dd MMMM yyyy' }}
           </div>
           <div style="padding-bottom: 0px;" *ngIf="d.showDetails" (click)="Details($event, j, d.dailyProgram.datetour)">
-            <ul class="timeline" *ngFor="let p of d.dailyProgram.program_daily; let i = index">
-              <li>
+            <div *ngFor="let p of d.dailyProgram.program_daily; let i = index">
+            <ul class="timeline" *ngIf="p.location != null">
+              <li *ngIf="p.location != null">
                 <div class="timeline-thumb bg-color-positive timeline-icon" *ngIf="p.location != null">
                   <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon" style="left: 1vw; top: 1.2vw;"></ion-icon>
                 </div>
@@ -83,7 +84,7 @@
                 </div>
               </li>
             </ul>
-
+            </div>
             <div class="divider-footer">
               <button ion-button outline round class="addmore-button">
             Add more destination
