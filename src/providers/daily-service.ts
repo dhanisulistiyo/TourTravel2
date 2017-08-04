@@ -227,37 +227,37 @@ export class DailyService {
 
   
 
-  setAcomodation(id, i, data) {
-    var no = Object.keys(this.daily).length;
-    this.daily[id].program_daily[i].acomodation = data
-    for (let j = id + 1; j < no - 1; j++) {
-      for (let k = 0; k < Object.keys(this.daily[j].program_daily).length; k++) { 
-        this.daily[j].program_daily[k].acomodation = null 
-      }
-    }
+  // setAcomodation(id, i, data) {
+  //   var no = Object.keys(this.daily).length;
+  //   this.daily[id].program_daily[i].acomodation = data
+  //   for (let j = id + 1; j < no - 1; j++) {
+  //     for (let k = 0; k < Object.keys(this.daily[j].program_daily).length; k++) { 
+  //       this.daily[j].program_daily[k].acomodation = null 
+  //     }
+  //   }
 
-    for (let j = id + 1; j < no; j++) {
-      this.daily[j].program_daily[0].location = this.daily[id].program_daily[i].location;
-      if (j != no-1) this.daily[j].program_daily[0].acomodation = data
-    }
+  //   for (let j = id + 1; j < no; j++) {
+  //     this.daily[j].program_daily[0].location = this.daily[id].program_daily[i].location;
+  //     if (j != no-1) this.daily[j].program_daily[0].acomodation = data
+  //   }
 
-  }
+  // }
 
-  setRoomType(id, i, data) {
-    var no = Object.keys(this.daily).length;
-    this.daily[id].program_daily[i].roomtype = data
-    for (let i = id + 1; i < no - 1; i++) {
-      this.daily[i].program_daily[0].roomtype = data
-    }
-  }
+  // setRoomType(id, i, data) {
+  //   var no = Object.keys(this.daily).length;
+  //   this.daily[id].program_daily[i].roomtype = data
+  //   for (let i = id + 1; i < no - 1; i++) {
+  //     this.daily[i].program_daily[0].roomtype = data
+  //   }
+  // }
 
-  setRoomService(id, i, data) {
-    var no = Object.keys(this.daily).length;
-    this.daily[id].program_daily[i].roomservice = data
-    for (let i = id + 1; i < no - 1; i++) {
-      this.daily[i].program_daily[0].roomservice = data
-    }
-  }
+  // setRoomService(id, i, data) {
+  //   var no = Object.keys(this.daily).length;
+  //   this.daily[id].program_daily[i].roomservice = data
+  //   for (let i = id + 1; i < no - 1; i++) {
+  //     this.daily[i].program_daily[0].roomservice = data
+  //   }
+  // }
 
   setHotel(id,i,itemser,itemroom, hotel){
       let no = Object.keys(this.daily[id].program_daily).length;
@@ -266,9 +266,48 @@ export class DailyService {
           this.daily[id].program_daily[j].roomtype = null;
           this.daily[id].program_daily[j].roomservice = null;
       }
-      this.setRoomService(id,i,itemser);
-      this.setRoomType(id, i, itemroom); 
-      this.setAcomodation(id, i, hotel);
+     
+      this.daily[id].program_daily[i].roomservice = itemser
+      this.daily[id].program_daily[i].roomtype = itemroom
+      this.daily[id].program_daily[i].acomodation = hotel
+     
+
+      let today = (+new Date(this.daily[id].datetour));
+      let before = (+new Date(itemroom.StayingPeriodTo));
+      let sum = Math.round((before-today)/86400000)
+      let endTour =new Date(this.ite.getDateTour().ev['monthEnd'])
+      let endPeriode = new Date(itemroom.StayingPeriodTo)
+       var no1 = Object.keys(this.daily).length;
+  if(itemroom.IsPromo){
+    if(endTour.getDate() > endPeriode.getDate()){
+    for (let k = id + 1; k < sum+1; k++) {
+      this.daily[k].program_daily[0].location = this.daily[id].program_daily[i].location;
+      this.daily[k].program_daily[0].roomtype = itemroom
+      this.daily[k].program_daily[0].roomservice = itemser
+      this.daily[k].program_daily[0].acomodation = hotel
+    }}else{
+         for (let k = id + 1; k < no1 - 1; k++) {
+        this.daily[k].program_daily[0].location = this.daily[id].program_daily[i].location;
+        this.daily[k].program_daily[0].roomtype = itemroom
+        this.daily[k].program_daily[0].roomservice = itemser
+        this.daily[k].program_daily[0].acomodation = hotel
+    }
+
+
+    }
+
+  }else{
+    for (let k = id + 1; k < no1 - 1; k++) {
+     
+      this.daily[k].program_daily[0].location = this.daily[id].program_daily[i].location;
+      this.daily[k].program_daily[0].roomtype = itemroom
+      this.daily[k].program_daily[0].roomservice = itemser
+      this.daily[k].program_daily[0].acomodation = hotel
+    }
+  }
+       // this.setRoomService(id,i,itemser);
+      // this.setRoomType(id, i, itemroom); 
+      // this.setAcomodation(id, i, hotel);
   }
 
   setRoomAllocate(id, i, data) {

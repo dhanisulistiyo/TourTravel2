@@ -72,7 +72,7 @@ export class HotelRoomtypePage1 {
     let before = (+new Date(itemroom.StayingPeriodTo))
     let endTour = (+new Date(this.it.getDateTour().ev['monthEnd']));
     let b = (endTour-today)/86400000;
-    let a = (before-today)/86400000;
+    let a = Math.round((before-today)/86400000);
     let x = itemroom.MinDays;
 
     if(itemroom.IsPromo){
@@ -83,8 +83,8 @@ export class HotelRoomtypePage1 {
               else this.postDataNextSc(itemroom);
               
           }else{
-            let beforeCut= (+new Date(itemroom.CutOffDate))
-            let c = (beforeCut-today)/86400000;
+            let beforeCut= (+new Date(itemroom.StayingPeriodTo))
+            let c = Math.round((beforeCut-today)/86400000);
             if( b < x ) this.showAlertForPromo();
             else if ( c < x ) this.showAlertForPromo();
             else this.postDataNextSc(itemroom);     
