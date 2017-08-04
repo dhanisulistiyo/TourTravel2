@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -13,8 +13,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'attraction-details.html',
 })
 export class AttractionDetailsPage {
+  showToolbar: boolean = false;
+  read;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef) {
+    this.read = false;
+  }
+
+    toggleDetails(data) {
+    if (data) {
+      this.read = false;
+    } else {
+     this.read = true;
+    }
+  }
+
+  onScroll($event: any) {
+    let scrollTop = $event.scrollTop;
+    this.showToolbar = scrollTop >= 120;
+    this.ref.detectChanges();
   }
 
   ionViewDidLoad() {

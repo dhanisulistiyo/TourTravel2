@@ -1,18 +1,132 @@
-<!--
-  Generated template for the AttractionDetailsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>attraction-details</ion-title>
+<ion-header no-border [class.opaque]="!showToolbar">
+  <!--Navbar-->
+  <ion-navbar color="primary">
+    <!--Toggle title-->
+    <ion-title [hidden]="!showToolbar">
+      Attraction Details
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
 
+<div class="scroll-content" style="padding-top:0px">
+  <ion-content fullscreen="true" style="padding-top: 0px;" (ionScroll)="onScroll($event)">
+    <div class="slide-pager" style="margin-left: -18px; width:110%; overflow: visible; margin-top: -10px;">
+      <ion-slides pager="true" loop="true" speed="1000">
+        <ion-slide>
+          <ion-card>
+            <img src="http://blog.kura2guide.com/wp-content/uploads/2013/07/20120501_071731.jpg" style="height:250px; width:100%;" />
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card>
+            <img src="http://blog.kura2guide.com/wp-content/uploads/2013/07/20120501_054455.jpg" style="height:250px; width:100%;" />
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card>
+            <img src="http://a1.images.thrillophilia.com/image/upload/s--f-cU6Cpm--/c_fill,f_auto,fl_strip_profile,h_325,q_jpegmini,w_500/v1/images/photos/000/068/920/original/1464932733_kint1.jpg.jpg?1464932733"
+              style="height:250px; width:100%;" />
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card>
+            <img src="http://static.asiawebdirect.com/m/bangkok/portals/bali-indonesia-com/homepage/attractions/safari-marine-park/allParagraphs/BucketComponent/ListingContainer/00/BucketList/00/image1/bali-safari-and-marine-park-5.jpg"
+              style="height:250px; width:100%;" />
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </div>
+    <div class="info">
+      <h2>Tanah Lot Temple</h2>
+      <p>
+        <ion-icon ios="ios-pin" md="md-pin" class="custom-pin"></ion-icon>
+        Tanah Lot
+      </p>
+      <div class="readmore" *ngIf="read == false">
+        <p class="p-readmore">
+          <ion-icon ios="ios-information-circle" md="md-information-circle" class="custom-pin"></ion-icon>
+          Dang Hyang Nirartha, a high priest from the Majapahit Kingdom in East Java who travelled to Bali in 1489 to spread Hinduism,
+          arrived at the beautiful area and established a site honouring the sea god, Baruna. Here, he shared his teachings
+          to Beraban villagers, only to face opposition from the village chief who soon gathered his loyal followers to dispel
+          Nirartha. The priest resisted, incredibly shifting a large rock he meditated upon out to sea while transforming
+          his sashes into sea snakes to guard at its base. The rock’s original name, Tengah Lod, means ‘in the sea’.
+        </p>
+        <a (click)="toggleDetails(read)">Read More</a>
+      </div>
 
-<ion-content padding>
+      <p class="p-readless" *ngIf="read == true">
+        <ion-icon ios="ios-information-circle" md="md-information-circle" class="custom-pin"></ion-icon>
+        Dang Hyang Nirartha, a high priest from the Majapahit Kingdom in East Java who travelled to Bali in 1489 to spread Hinduism,
+        arrived at the beautiful area and established a site honouring the sea god, Baruna. Here, he shared his teachings
+        to Beraban villagers, only to face opposition from the village chief who soon gathered his loyal followers to dispel
+        Nirartha. The priest resisted, incredibly shifting a large rock he meditated upon out to sea while transforming his
+        sashes into sea snakes to guard at its base. The rock’s original name, Tengah Lod, means ‘in the sea’.
+        <a
+          (click)="toggleDetails(read)">Read Less</a>
+      </p>
+    </div>
 
-</ion-content>
+    <!-- <div class="content">
+      <h5 class="custom-h5" *ngIf="listroomtypes?.length == 0">No Result Room Type in this Date</h5>
+      <h5 class="custom-h5" *ngIf="listroomtypes?.length > 0">Pick your room type</h5>
+      <div class="promo" *ngFor="let itemroom of listroomtypes">
+        <ion-card (click)="setSelectedRoomAllo(itemroom)" *ngIf="itemroom.IsPromo == true" style="height:180px">
+          <ion-row>
+            <ion-col style="padding: 0;">
+              <div class="box">
+                <div class="ribbon ribbon-top-left" *ngIf="itemroom.IsPromo == true"><span *ngIf="itemroom.IsPromo == true">PROMO</span></div>
+                <img src="{{itemroom.ImageUrl}}" class="cover-promo" *ngIf="itemroom.ImageUrl != null ;else other_content" />
+                <ng-template #other_content>
+                  <img src="assets/img/room-bali-hotel.jpg" class="cover-promo" />
+                </ng-template>
+
+                <div class="div-promo" *ngIf="itemroom.IsPromo == true" style="height:180px">
+                  <h3 class="subtitle-promo" *ngIf="itemroom.IsPromo == true">Until: {{itemroom.CutOffDate | date:'MMM dd'}} </h3>
+                  <h3 class="subtitle-promo" *ngIf="itemroom.IsPromo == true">Min. Night(s): {{itemroom.MinDays}}</h3>
+                </div>
+              </div>
+            </ion-col>
+
+            <ion-col width-60>
+              <div>
+                <h2>{{itemroom.Name}}</h2>
+
+                <p style="margin-top: 4vw;">
+                  <ion-icon ios="ios-medal" md="md-medal" class="custom-pin"></ion-icon>{{itemroom.AccommodationType.Name}}</p>
+
+                <p>
+                  <ion-icon ios="ios-people" md="md-people" class="custom-pin"></ion-icon>{{itemroom.AccommodationType.Capacity}} Guest</p>
+
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+        <ion-card (click)="setSelectedRoomAllo(itemroom)" *ngIf="itemroom.IsPromo == false" style="height:150px">
+          <ion-row>
+            <ion-col style="padding: 0;">
+              <div class="box">
+                <img src="{{itemroom.ImageUrl}}" class="cover" *ngIf="itemroom.ImageUrl != null ;else other_content" />
+                <ng-template #other_content>
+                  <img src="assets/img/room-bali-hotel.jpg" class="cover" />
+                </ng-template>
+              </div>
+            </ion-col>
+
+            <ion-col width-60>
+              <div>
+                <h2>{{itemroom.Name}}</h2>
+
+                <p style="margin-top: 4vw;">
+                  <ion-icon ios="ios-medal" md="md-medal" class="custom-pin"></ion-icon>{{itemroom.AccommodationType.Name}}</p>
+
+                <p>
+                  <ion-icon ios="ios-people" md="md-people" class="custom-pin"></ion-icon>{{itemroom.AccommodationType.Capacity}} Guest(s)</p>
+
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </div>
+    </div> -->
+  </ion-content>
+</div>

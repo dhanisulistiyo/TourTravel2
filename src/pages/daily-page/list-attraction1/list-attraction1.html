@@ -31,6 +31,11 @@
     <ion-card *ngFor="let attrac of attractions">
       <img *ngIf="attrac.ImageUrl != null ;else other_content" src="{{attrac.ImageUrl}}" class="img-custom" />
       <ng-template #other_content><img src="assets/img/gwk-bali.jpg" class="cover" /></ng-template>
+      <ion-row>
+        <ion-col col-12>
+          <a href="#" class="custom-a" (click)="detailAtt()">Show Details</a>
+        </ion-col>
+      </ion-row>
       <!-- <p>Rp <strong>599.000</strong></p> -->
       <ion-card-content>
         <h2>{{attrac.Name}}</h2>
@@ -43,7 +48,7 @@
                   </button>
         </ion-col>
         <ion-col col-4></ion-col>
-        <ion-col col-4-custom (click)=" filterAtt('REGULER')">
+        <ion-col col-4-custom (click)="filterAtt('REGULER')">
           <button ion-button icon-left secondary [outline]="active1" class="custom-button-pick"><div style="font-size: 3.5vw;">Pick</div>
             </button>
         </ion-col>
