@@ -48,6 +48,7 @@ export class IteneraryService {
     }
     delLocalStorage() {
         localStorage.removeItem('guest');
+        localStorage.removeItem('des');
         localStorage.removeItem('tNames');
         localStorage.removeItem('aloc');
         localStorage.removeItem('date');
@@ -56,6 +57,7 @@ export class IteneraryService {
         localStorage.removeItem('att');
         localStorage.removeItem('tourType');
         localStorage.removeItem('groupType');
+        localStorage.removeItem('oLoc');
     }
 
     public setTourType(ty){

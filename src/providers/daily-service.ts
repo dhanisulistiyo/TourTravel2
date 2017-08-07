@@ -78,7 +78,7 @@ export class DailyService {
 
   dailyProgram(days) {
     if (days != (Object.keys(this.daily).length) - 1) {
-      this.daily();
+      this.destroyDailyTour();
       let today = new Date(this.ite.getDateTour().ev['monthStart'])
       let tomorrow = new Date(this.ite.getDateTour().ev['monthStart'])
       for (let i = 0; i <= days; i++) {

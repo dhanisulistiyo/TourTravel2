@@ -64,11 +64,6 @@ export class IteneraryBuilderPage {
     this.typeGuest = ['Choose Type'];
   }
 
-  ionViewDidLeave(){
-    
-  }
-
-
   ionViewWillEnter() {
     var loc = this.ite.getObjectLocation();
     var att = this.ite.getAttraction();
