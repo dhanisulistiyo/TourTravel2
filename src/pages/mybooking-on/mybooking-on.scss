@@ -109,6 +109,16 @@ page-mybooking-on {
                 }
             }
         }
+        [col-8] {
+            -webkit-flex: 0 0 66.66667%;
+            -ms-flex: 0 0 66.66667%;
+            flex: 0 0 66.66667%;
+            width: 66.66667%;
+            max-width: 66.66667%;
+            text-align: right;
+            top: -5vw;
+            right: -7vw;
+        }
     }
     /* common */
     .ribbon {

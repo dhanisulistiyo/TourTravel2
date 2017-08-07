@@ -42,6 +42,14 @@
       <ion-card-content style="margin-left: 0px;" *ngIf="data[0].showDetails">
         <ion-grid>
           <ion-row>
+            <ion-col col-8>
+              <h3 class="card-label">Booking Number: </h3>
+            </ion-col>
+            <ion-col col-4>
+              <h3 class="card-title">{{bookdetails?.Id}}</h3>
+            </ion-col>
+          </ion-row>
+          <ion-row>
             <ion-col col-4>
               <h3 class="card-label">Tour Name: </h3>
             </ion-col>
@@ -288,10 +296,10 @@
 <ion-footer>
   <ion-row *ngIf="isValid">
     <ion-col>
-      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-cancel" (click)="allertCancelBooking()">Cancel</button>
+      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" class="btn-cancel" (click)="allertCancelBooking()">Cancel</button>
     </ion-col>
     <ion-col>
-      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-accept" (click)="allertConfirmBooking()">Confirm</button>
+      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" class="btn-accept" (click)="allertConfirmBooking()">Confirm</button>
     </ion-col>
   </ion-row>
 </ion-footer>
