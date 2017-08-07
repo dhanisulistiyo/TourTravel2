@@ -102,6 +102,7 @@ import { PromoPackageProvider } from '../providers/promo-package';
 
 // Fixed Package Page
 import { FixedpackageDetailsPage } from './../pages/fixedpackage-details/fixedpackage-details';
+import { FixedpackageGuestPage } from './../pages/fixedpackage-guest/fixedpackage-guest';
 import { ConfigProvider } from '../providers/config';
 
 
@@ -118,6 +119,7 @@ import { ConfigProvider } from '../providers/config';
     PromoPackagePage,
     FixedPackagePage,
     FixedpackageDetailsPage,
+    FixedpackageGuestPage,
     //My Bookings
     MybookingPage,
     MybookingComPage,
@@ -204,6 +206,7 @@ import { ConfigProvider } from '../providers/config';
     PromoPackagePage,
     FixedPackagePage,
     FixedpackageDetailsPage,
+    FixedpackageGuestPage,
     //My Booking
     MybookingPage,
     MybookingComPage,

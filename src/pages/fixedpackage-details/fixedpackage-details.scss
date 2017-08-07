@@ -111,6 +111,13 @@ page-fixedpackage-details {
         padding: 10px 15px;
         margin: 0px 0px 10px 0px;
         background-color: #FFFFFF;
+        [col-1-custom] {
+            -webkit-flex: 0 0 6%;
+            -ms-flex: 0 0 6%;
+            flex: 0 0 6%;
+            width: 6%;
+            max-width: 6%;
+        }
         h2 {
             font-weight: 600;
             font-family: 'Open Sans', cursive;
@@ -121,8 +128,7 @@ page-fixedpackage-details {
             height: 1rem *$line-height*$lines-to-show;
             /* Fallback for non-webkit */
             margin: 0;
-            font-size: 1.8rem;
-            line-height: $line-height;
+            font-size: 4.5vw;
             -webkit-line-clamp: 1;
             /* autoprefixer: off */
             -webkit-box-orient: vertical;
@@ -133,33 +139,30 @@ page-fixedpackage-details {
         }
         h3 {
             font-family: 'Open Sans', cursive;
-            color: #55bbd4;
-            font-size: 1.4rem;
+            color: #4fd2c2;
+            font-size: 6vw;
             font-weight: 600;
         }
-        p {
+        .row-custom {
+            border-bottom: 1px solid rgba(128, 128, 128, 0.4);
+        }
+        .p-price {
             font-family: 'Open Sans', cursive;
-            color: #808080;
-            font-size: 1.4rem;
+            color: #4fd2c2;
+            font-size: 3.5vw;
             font-weight: 600;
-            margin: 5px 0px 0px 0px;
-            display: -webkit-box;
-            max-width: 600px;
-            line-height: 1.5;
-            text-align: left;
-            -webkit-line-clamp: 2;
-            /* autoprefixer: off */
-            -webkit-box-orient: vertical;
-            /* autoprefixer: on */
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: normal;
+            padding: 1vw 0 0 0;
         }
     }
     .photos {
         padding: 10px 15px;
         margin: 0px 0px 10px 0px;
         background-color: #FFFFFF;
+        .photos-hotel {
+            padding: 5px 0px;
+            margin: 0px 0px 1vw 0px;
+            background-color: #FFFFFF;
+        }
         h2 {
             font-weight: 600;
             font-family: 'Open Sans', cursive;
@@ -170,8 +173,7 @@ page-fixedpackage-details {
             height: 1rem *$line-height*$lines-to-show;
             /* Fallback for non-webkit */
             margin: 0px 0px 10px 0px;
-            font-size: 1.8rem;
-            line-height: $line-height;
+            font-size: 4vw; 
             -webkit-line-clamp: 1;
             /* autoprefixer: off */
             -webkit-box-orient: vertical;
@@ -180,6 +182,25 @@ page-fixedpackage-details {
             text-overflow: ellipsis;
             white-space: normal;
         }
+        h3 {
+            font-weight: 600;
+            font-family: 'Open Sans', cursive;
+            color: black;
+            /* Fallback for non-webkit */
+            display: -webkit-box;
+            max-width: 300px;
+            /* Fallback for non-webkit */
+            margin: 0px 0px 5px 0px;
+            font-size: 4.5vw; 
+            -webkit-line-clamp: 1;
+            /* autoprefixer: off */
+            -webkit-box-orient: vertical;
+            /* autoprefixer: on */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+        }
+
         img {
             margin: 0px 5px 0px 0px;
             display: inline-block;
@@ -202,7 +223,7 @@ page-fixedpackage-details {
             height: 1rem *$line-height*$lines-to-show;
             /* Fallback for non-webkit */
             margin: 0px 0px 10px 0px;
-            font-size: 1.8rem;
+            font-size: 4vw;
             line-height: $line-height;
             -webkit-line-clamp: 1;
             /* autoprefixer: off */
@@ -213,12 +234,164 @@ page-fixedpackage-details {
             white-space: normal;
         }
         h3 {
-            margin-top: 0px;
-            padding-left: 15px;
-            margin-bottom: 15px;
+            font-family: 'Open Sans', cursive;
+            color: black;
+            font-size: 3.5vw;
+            font-weight: 600;
+            margin: 0 0 1vw 0;
+        }
+        img {
+            border-radius: 50%;
+            border: 3px solid #4fd2c2;
+        }
+    }
+    .important {
+        padding: 10px 15px;
+        margin: 0px 0px 10vw 0px;
+        background-color: #FFFFFF;
+        .important-content {
+            padding: 5px 0px;
+            margin: 0px 0px 1vw 0px;
+            background-color: #FFFFFF;
+        }
+        h2 {
+            font-weight: 600;
+            font-family: 'Open Sans', cursive;
+            color: black;
+            /* Fallback for non-webkit */
+            display: -webkit-box;
+            max-width: 300px;
+            height: 1rem *$line-height*$lines-to-show;
+            /* Fallback for non-webkit */
+            margin: 0px 0px 10px 0px;
+            font-size: 4vw;
+            -webkit-line-clamp: 1;
+            /* autoprefixer: off */
+            -webkit-box-orient: vertical;
+            /* autoprefixer: on */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+        }
+        h3 {
+            font-family: 'Open Sans', cursive;
+            color: black;
+            font-size: 4vw;
+            font-weight: 600;
+            margin: 0 0 1vw 0;
+        }
+        img {
+            border-radius: 50%;
+            border: 3px solid #4fd2c2;
+        }
+    }
+    .schedule {
+        padding: 10px 15px;
+        margin: 0px 0px 10vw 0px;
+        background-color: #FFFFFF;
+        .schedule-content {
+            padding: 5px 0px;
+            margin: 0px 0px 1vw 0px;
+            background-color: #FFFFFF;
+        }
+        h2 {
+            font-weight: 600;
+            font-family: 'Open Sans', cursive;
+            color: black;
+            /* Fallback for non-webkit */
+            display: -webkit-box;
+            max-width: 300px;
+            height: 1rem *$line-height*$lines-to-show;
+            /* Fallback for non-webkit */
+            margin: 0px 0px 10px 0px;
+            font-size: 4vw;
+            -webkit-line-clamp: 1;
+            /* autoprefixer: off */
+            -webkit-box-orient: vertical;
+            /* autoprefixer: on */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+        }
+        h3 {
+            font-family: 'Open Sans', cursive;
+            color: black;
+            font-size: 4vw;
+            font-weight: 600;
+            margin: 0 0 1vw 0;
+        }
+        img {
+            border-radius: 50%;
+            border: 3px solid #4fd2c2;
         }
     }
     .active {
         color: red;
+    }
+    .readmore {
+        padding: 0px;
+        .p-readmore {
+            font-family: 'Open Sans', cursive;
+            color: #808080;
+            font-size: 3.5vw;
+            font-weight: 600;
+            margin-top: 1vw;
+            margin-bottom: 1vw;
+            padding-right: 1vw;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            /* autoprefixer: off */
+            -webkit-box-orient: vertical;
+            /* autoprefixer: on */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+            text-align: left;
+        }
+    }
+    .p-readless {
+        font-family: 'Open Sans', cursive;
+        color: #808080;
+        font-size: 3.5vw;
+        font-weight: 600;
+        display: -webkit-box;
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+        text-align: justify; //-webkit-line-clamp: 2;
+        /* autoprefixer: off */
+        -webkit-box-orient: vertical;
+        /* autoprefixer: on */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+    }
+    .p-custom {
+        font-family: 'Open Sans', cursive;
+        color: #808080;
+        font-size: 3.5vw;
+        font-weight: 600;
+        margin: 1.5vw 0 0 0;
+    }
+    .p-header {
+        font-size: 3.5vw;
+        font-weight: 600;
+        color: black;
+        margin: 0;
+    }
+    ion-icon.custom-star {
+        color: #ffcd25;
+        font-size: 3.5vw;
+        margin-bottom: 10px;
+        padding-right: 1vw;
+    }
+    ion-icon.custom-pin {
+        color: #488aff;
+        font-size: 3.5vw;
+        padding-right: 1vw;
+    }
+    .custom-list {
+        margin: 0;
+        padding-left: 9vw;
+        list-style-type: disc;
     }
 }
