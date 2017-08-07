@@ -69,19 +69,19 @@ export class DailyService {
 
   }
 
-  destroyObject() {
+  destroyDailyTour() {
     this.daily = {}
   }
   destroyTransport() {
     this.transairport = {}
   }
 
-    dailyProgram(days) {
+  dailyProgram(days) {
     if (days != (Object.keys(this.daily).length) - 1) {
-      this.destroyObject();
+      this.daily();
       let today = new Date(this.ite.getDateTour().ev['monthStart'])
       let tomorrow = new Date(this.ite.getDateTour().ev['monthStart'])
-      for (let i = 0; i <= days; i++) {       
+      for (let i = 0; i <= days; i++) {
         tomorrow.setDate(today.getDate() + i)
         let dateDaily = tomorrow.toISOString().substring(0, 10)
         let p = new DailyProgram()
@@ -138,7 +138,7 @@ export class DailyService {
     d.id = 1
     d.location = location
     d.destinationFrom = location;
-    d.destinationTo= location;
+    d.destinationTo = location;
     d.roomtype = null
     d.roomservice = null
     d.roomallocate = null
@@ -216,16 +216,13 @@ export class DailyService {
 
   setLocation(id, i, data) {
     this.daily[id].program_daily[i].location = data
-     this.daily[id].program_daily[i].destinationFrom = data
-     this.daily[id].program_daily[i].destinationTo = data
+    this.daily[id].program_daily[i].destinationFrom = data
+    this.daily[id].program_daily[i].destinationTo = data
     this.daily[id].program_daily[i].acomodation = null
     this.daily[id].program_daily[i].transportation = null
     this.daily[id].program_daily[i].attraction = null
     this.daily[id].program_daily[i].transportservice = null
   }
-
-
-  
 
   // setAcomodation(id, i, data) {
   //   var no = Object.keys(this.daily).length;
@@ -259,55 +256,56 @@ export class DailyService {
   //   }
   // }
 
-  setHotel(id,i,itemser,itemroom, hotel){
-      let no = Object.keys(this.daily[id].program_daily).length;
-      for (let j = 0; j < no; j++) {
-          this.daily[id].program_daily[j].acomodation = null;
-          this.daily[id].program_daily[j].roomtype = null;
-          this.daily[id].program_daily[j].roomservice = null;
-      }
-     
-      this.daily[id].program_daily[i].roomservice = itemser
-      this.daily[id].program_daily[i].roomtype = itemroom
-      this.daily[id].program_daily[i].acomodation = hotel
-     
+  setHotel(id, i, itemser, itemroom, hotel) {
+    let no = Object.keys(this.daily[id].program_daily).length;
+    for (let j = 0; j < no; j++) {
+      this.daily[id].program_daily[j].acomodation = null;
+      this.daily[id].program_daily[j].roomtype = null;
+      this.daily[id].program_daily[j].roomservice = null;
+    }
 
-      let today = (+new Date(this.daily[id].datetour));
-      let before = (+new Date(itemroom.StayingPeriodTo));
-      let sum = Math.round((before-today)/86400000)
-      let endTour =new Date(this.ite.getDateTour().ev['monthEnd'])
-      let endPeriode = new Date(itemroom.StayingPeriodTo)
-       var no1 = Object.keys(this.daily).length;
-  if(itemroom.IsPromo){
-    if(endTour.getDate() > endPeriode.getDate()){
-    for (let k = id + 1; k < sum+1; k++) {
-      this.daily[k].program_daily[0].location = this.daily[id].program_daily[i].location;
-      this.daily[k].program_daily[0].roomtype = itemroom
-      this.daily[k].program_daily[0].roomservice = itemser
-      this.daily[k].program_daily[0].acomodation = hotel
-    }}else{
-         for (let k = id + 1; k < no1 - 1; k++) {
+    this.daily[id].program_daily[i].roomservice = itemser
+    this.daily[id].program_daily[i].roomtype = itemroom
+    this.daily[id].program_daily[i].acomodation = hotel
+
+
+    let today = (+new Date(this.daily[id].datetour));
+    let before = (+new Date(itemroom.StayingPeriodTo));
+    let sum = Math.round((before - today) / 86400000)
+    let endTour = new Date(this.ite.getDateTour().ev['monthEnd'])
+    let endPeriode = new Date(itemroom.StayingPeriodTo)
+    var no1 = Object.keys(this.daily).length;
+    if (itemroom.IsPromo) {
+      if (endTour.getDate() > endPeriode.getDate()) {
+        for (let k = id + 1; k < sum + 1; k++) {
+          this.daily[k].program_daily[0].location = this.daily[id].program_daily[i].location;
+          this.daily[k].program_daily[0].roomtype = itemroom
+          this.daily[k].program_daily[0].roomservice = itemser
+          this.daily[k].program_daily[0].acomodation = hotel
+        }
+      } else {
+        for (let k = id + 1; k < no1 - 1; k++) {
+          this.daily[k].program_daily[0].location = this.daily[id].program_daily[i].location;
+          this.daily[k].program_daily[0].roomtype = itemroom
+          this.daily[k].program_daily[0].roomservice = itemser
+          this.daily[k].program_daily[0].acomodation = hotel
+        }
+
+
+      }
+
+    } else {
+      for (let k = id + 1; k < no1 - 1; k++) {
+
         this.daily[k].program_daily[0].location = this.daily[id].program_daily[i].location;
         this.daily[k].program_daily[0].roomtype = itemroom
         this.daily[k].program_daily[0].roomservice = itemser
         this.daily[k].program_daily[0].acomodation = hotel
+      }
     }
-
-
-    }
-
-  }else{
-    for (let k = id + 1; k < no1 - 1; k++) {
-     
-      this.daily[k].program_daily[0].location = this.daily[id].program_daily[i].location;
-      this.daily[k].program_daily[0].roomtype = itemroom
-      this.daily[k].program_daily[0].roomservice = itemser
-      this.daily[k].program_daily[0].acomodation = hotel
-    }
-  }
-       // this.setRoomService(id,i,itemser);
-      // this.setRoomType(id, i, itemroom); 
-      // this.setAcomodation(id, i, hotel);
+    // this.setRoomService(id,i,itemser);
+    // this.setRoomType(id, i, itemroom); 
+    // this.setAcomodation(id, i, hotel);
   }
 
   setRoomAllocate(id, i, data) {
@@ -336,17 +334,17 @@ export class DailyService {
   getAttraction(id, i) {
     return this.daily[id].program_daily[i].attraction
   }
-  
-    public setDestinationFrom(id, i, data){
-      this.daily[id].program_daily[i].destinationFrom =(data);
+
+  public setDestinationFrom(id, i, data) {
+    this.daily[id].program_daily[i].destinationFrom = (data);
   }
 
-    public setDestinationTo(id, i, data){
-    this.daily[id].program_daily[i].destinationTo =(data);
+  public setDestinationTo(id, i, data) {
+    this.daily[id].program_daily[i].destinationTo = (data);
   }
 
 
-  deleteDetails(id, i){ 
+  deleteDetails(id, i) {
     const foundAt = this.daily[id].program_daily.indexOf(this.daily[id].program_daily[i]);
     if (foundAt >= 0) {
       this.daily[id].program_daily.splice(foundAt, 1);

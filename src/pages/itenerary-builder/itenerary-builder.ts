@@ -64,6 +64,10 @@ export class IteneraryBuilderPage {
     this.typeGuest = ['Choose Type'];
   }
 
+  ionViewDidLeave(){
+    
+  }
+
 
   ionViewWillEnter() {
     var loc = this.ite.getObjectLocation();
@@ -148,7 +152,6 @@ export class IteneraryBuilderPage {
   }
 
   setKuotaGuest(kuo) {
-
     console.log(kuo.substr(0,11));
     this.kuotaG = kuo.substr(0,11);
     if (kuo.substr(0,11) == 'Small Group') {
@@ -332,7 +335,6 @@ export class IteneraryBuilderPage {
     alert.present();
   }
 
-
   showAlertToday() {
     let alert = this.alertCtrl.create({
       title: 'Failed!',
@@ -350,8 +352,6 @@ export class IteneraryBuilderPage {
     });
     alert.present();
   }
-
-
   showAlertAllocationVal() {
     let alert = this.alertCtrl.create({
       title: 'Failed!',
@@ -359,5 +359,28 @@ export class IteneraryBuilderPage {
       buttons: ['OK']
     });
     alert.present();
+  }
+
+  allertLeave(){
+    let prompt = this.alertCtrl.create({
+      title: 'Leave Itinerary',
+      message: "Do you agree leave this itinerary and this data will not be saved ?",
+      buttons: [
+        {
+          text: 'No',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            console.log('Saved clicked');
+            this.navCtrl.pop();          
+          }
+        }
+      ]
+    });
+    prompt.present();
   }
 }

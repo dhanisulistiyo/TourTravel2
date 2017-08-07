@@ -1,4 +1,16 @@
 page-itenerary-builder {
+    button.disable-hover.bar-button.bar-button-md.bar-button-default.bar-button-default-md {
+    width: 45px;
+    }
+    .customIcon {
+    font-size: 1.7rem;
+    text-align: start;
+    margin: 0;
+    padding: 0 6px;
+    font-size: 5vw;
+    font-weight: normal;
+    color: white;
+    }
     .label-md[stacked] {
         font-size: 1.7rem;
         color: red;

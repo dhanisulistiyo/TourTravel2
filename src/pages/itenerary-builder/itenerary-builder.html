@@ -1,8 +1,14 @@
 <ion-header>
-  <ion-navbar>
-    <button menuToggle *ngIf="!selectedItem">
+   <!-- <ion-navbar>
+    <button menuToggle *ngIf="!selectedItem" (click)="allertLeave()">
       <ion-icon name="menu"></ion-icon>
-    </button>
+    </button>  -->
+     <ion-navbar hideBackButton> 
+     <ion-buttons left>
+        <button ion-button (click)="allertLeave()">
+            <ion-icon class="customIcon" name="arrow-back"></ion-icon>
+        </button>
+    </ion-buttons> 
     <ion-title>Create a Tour</ion-title>
   </ion-navbar>
 </ion-header>

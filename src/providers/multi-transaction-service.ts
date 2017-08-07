@@ -15,6 +15,7 @@ export class MultiTransactionService {
   accomodation: Array<any>;
   guest: Array<any>;
   airport:any;
+  result;
   constructor(public http: Http, public ds: DailyService, public ite: IteneraryService, 
     public auth: AuthService, public gu : GuestServiceProvider,
     public conf: ConfigProvider
@@ -24,13 +25,12 @@ export class MultiTransactionService {
     this.airport = this.ds.transairport
   }
 
-  destroyObject() {
+destroyObject() {
     this.attraction = [];
     this.transportation = [];
     this.accomodation = [];
     this.guest = [];
-  }
-
+}
 
   dailyAttraction() {
     this.daily = this.ds.daily
@@ -51,9 +51,6 @@ export class MultiTransactionService {
       }
     }
   }
-
-
-
   dailyTransportation() {
     this.transportation = [];
     this.daily = this.ds.daily
@@ -91,7 +88,6 @@ export class MultiTransactionService {
     }
     
   }
-
   dailyAccomodation() {
     this.accomodation = [];
     this.daily = this.ds.daily
@@ -114,7 +110,6 @@ export class MultiTransactionService {
     }
    
   }
-
   memberGuest(){
       this.guest= [];
       for (let i = 0; i < (Object.keys(this.gu.Guest).length); i++) {
@@ -135,7 +130,6 @@ export class MultiTransactionService {
       }
 
   }
-
   mulDemoTransaction() {
     this.dailyAttraction();
     this.dailyTransportation();
@@ -157,8 +151,8 @@ export class MultiTransactionService {
       "Accommodations": this.accomodation,
       "Guests": this.guest
     };
-
     console.log(JSON.stringify(json));
+    this.result = json;
     let token = this.auth.AuthToken;
     var headers = new Headers({ 'Content-Type': 'application/json' });
     headers.append('Authorization', 'Bearer ' + token);
@@ -167,54 +161,49 @@ export class MultiTransactionService {
     var response = this.http.post(url, json, options).map(res => res.json());
     return response;
   }
-
-
   getTourTransaksi() {
     this.dailyAttraction();
     this.dailyTransportation();
     this.dailyAccomodation();
     this.memberGuest();
-    var json = {
-      "title": this.ite.getToursName(),
-      "AdultPaxQty": Number(this.ite.getPassenger().guestTour['AdultQty']),
-      "ChildPaxQty": Number(this.ite.getPassenger().guestTour['ChildQty']),
-      "InfantPaxQty": Number(this.ite.getPassenger().guestTour['InfantQty']),
-      "StartDate": this.ite.getDateTour().ev['monthStart'],
-      "EndDate": this.ite.getDateTour().ev['monthEnd'],
-      "CityDestinationId": this.ite.getObjectLocation().Id,
-      "RegionDestinationId": this.ite.getObjectLocation().Region.Id,
-      "TourType" : this.ite.getTourType(),
-	    "GroupType" : this.ite.getGroupType(),
-      "Attractions": this.attraction,
-      "Transportations": this.transportation,
-      "Accommodations": this.accomodation,
-      "Guests": this.guest
-    };
-    console.log(JSON.stringify(json));
+    // var json = {
+    //   "title": this.ite.getToursName(),
+    //   "AdultPaxQty": Number(this.ite.getPassenger().guestTour['AdultQty']),
+    //   "ChildPaxQty": Number(this.ite.getPassenger().guestTour['ChildQty']),
+    //   "InfantPaxQty": Number(this.ite.getPassenger().guestTour['InfantQty']),
+    //   "StartDate": this.ite.getDateTour().ev['monthStart'],
+    //   "EndDate": this.ite.getDateTour().ev['monthEnd'],
+    //   "CityDestinationId": this.ite.getObjectLocation().Id,
+    //   "RegionDestinationId": this.ite.getObjectLocation().Region.Id,
+    //   "TourType" : this.ite.getTourType(),
+	  //   "GroupType" : this.ite.getGroupType(),
+    //   "Attractions": this.attraction,
+    //   "Transportations": this.transportation,
+    //   "Accommodations": this.accomodation,
+    //   "Guests": this.guest
+    // };
+    console.log(JSON.stringify(this.result));
     let token = this.auth.AuthToken;
     var headers = new Headers({ 'Content-Type': 'application/json' });
     headers.append('Authorization', 'Bearer ' + token);
     let options = new RequestOptions({ headers: headers });
     var url = this.conf.baseUrl+'/TourTransactions/CreateTour';
-    var response = this.http.post(url, json, options).map(res => res.json());
-   
+    var response = this.http.post(url, this.result, options).map(res => res.json());
     return response;
   }
 
   clearCache(){
     this.ite.delLocalStorage();
     this.destroyObject();
-    this.ds.destroyObject();
+    this.ds.destroyDailyTour();
     this.ds.destroyTransport();
   }
 
   getConfirmTour(id, status) {
-
     var json = {
       "Id": id,
       "Confirmation": status,
     };
-
     let token = this.auth.AuthToken;
     var headers = new Headers({ 'Content-Type': 'application/json' });
     headers.append('Authorization', 'Bearer ' + token);
