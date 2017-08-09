@@ -27,7 +27,7 @@
         <ion-col style="padding: 0;">
           <div class="box">
             <div class="ribbon ribbon-top-left" *ngIf="hotel.IsPromo == true"><span *ngIf="hotel.IsPromo == true">PROMO</span></div>
-            <img src="{{hotel.ImageUrl}}" class="cover-promo" *ngIf="hotel.ImageUrl != '' ;else other_content" />
+            <img src="{{baseUrl+hotel.ImageUrl}}" class="cover-promo" *ngIf="hotel.ImageUrl != '' ;else other_content" />
             <ng-template #other_content>
               <img src="assets/img/grand-hyatt-hotel.jpg" class="cover-promo" />
             </ng-template>

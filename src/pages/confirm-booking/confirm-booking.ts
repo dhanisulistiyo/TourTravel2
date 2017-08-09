@@ -59,6 +59,7 @@ export class ConfirmBookingPage {
   bookingTour(sta) {
     let loader = this.load.create({
       content: 'Please wait...'
+    
     });
     loader.present();
     if(sta!=null){
@@ -67,16 +68,22 @@ export class ConfirmBookingPage {
       if (sta == "yes") {
         let status = "Confirm"
         let details = this.BookingDetailSum;
-        this.navCtrl.push(PaymentPage, { details, status });
+         setTimeout(() => {
+                    this.navCtrl.push(PaymentPage, { details, status });
+                    loader.dismiss();
+                }, 1500);
+       
       } else {
+        loader.dismiss();
         this.presentToast();
         this.navCtrl.setRoot(HomeScreenPage);
+
       }
     }, err => {
+       loader.dismiss();
       console.log(err);
     }, () => console.log('post Transaction Complete'));
     }
-  loader.dismiss();
   }
 
   ionViewWillEnter() {

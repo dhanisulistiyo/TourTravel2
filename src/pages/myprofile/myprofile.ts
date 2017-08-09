@@ -16,9 +16,7 @@ import { UserandcompanyDetails } from '../../providers/userandcompany-details';
 export class MyprofilePage {
   Profile
   constructor(public navCtrl: NavController, public navParams: NavParams, public info : UserandcompanyDetails) {
-     this.info.getUser().subscribe(data => {
-    this.Profile = data
-    });
+    this.Profile = this.info.userinfo;
   }
 
   ionViewDidLoad() {

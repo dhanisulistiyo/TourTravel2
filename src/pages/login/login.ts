@@ -1,3 +1,4 @@
+import { UserandcompanyDetails } from './../../providers/userandcompany-details';
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, MenuController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-token-service';
@@ -12,7 +13,9 @@ export class LoginPage {
     public loader= this.load.create();
     registerCredentials = { companyid:'' ,username: '', password: '' };
 
-    constructor(public nav: NavController, private auth: AuthService, private alertCtrl: AlertController,public load : LoadingController, public menu: MenuController) { 
+    constructor(public nav: NavController, private auth: AuthService, 
+        private alertCtrl: AlertController,public load : LoadingController, 
+        public menu: MenuController, public info: UserandcompanyDetails) { 
     this.menu.enable(false);
     }
 
@@ -29,6 +32,7 @@ export class LoginPage {
             if (allowed) {                     
                     this.nav.setRoot(HomeScreenPage);
                     this.auth.getUserInfo();
+                    this.info.getDetails();
                     this.menu.enable(true); 
                     loader.dismiss();        
             } else {
@@ -39,6 +43,7 @@ export class LoginPage {
         },
             error => {
                 this.showError(error);
+                loader.dismiss(); 
             });
     }
 

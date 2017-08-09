@@ -21,7 +21,7 @@
 <h5 class="custom-h5" *ngIf="transport?.length > 0">Showing result transportation in destination</h5>
 <ion-card *ngFor="let trans of transport" (click)="setSelectedTransport(trans)" style="height:150px;">
   <ion-row>
-  <ion-col class ="col-custom" style="padding: 0;" *ngIf="trans.ImageUrl != null ;else other_content"><img src="{{trans.ImageUrl}}"/></ion-col>
+  <ion-col class ="col-custom" style="padding: 0;" *ngIf="trans.ImageUrl != null ;else other_content"><img src="{{baseUrl+trans.ImageUrl}}"/></ion-col>
   <ng-template #other_content><ion-col class ="col-custom"><img src="assets/img/elf-long.jpg" class="cover"/></ion-col></ng-template>
   <ion-col width-60>
     <div >
