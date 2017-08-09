@@ -42,43 +42,8 @@ export class PaymentPage {
   }
 
   ionViewWillEnter() {
-    // this.dateEx = new Date(this.BookingDetailSum[0].ExpiredOn);
-    // this.dateNow = new Date();
-    // if (this.dateNow >= this.dateEx) {
-    //   this.allow = false;
-    // }
-
-    let loader = this.load.create({
-      content: 'Please wait...'
-    });
-    loader.present();
-    // if (this.Status != "created")
-            // this.mulTra.getTourTransaksi().subscribe(data => {
-            //   console.log(data);
-            //   this.BookingDetailSum = Array.of(data['BookingDetailSum']);
-            // }, err => {
-            //   console.log(err);
-            // }, () => console.log('post Transaction Complete'));
-
-            this.info.getUser().subscribe(data => {
-              this.userinfo = data;
-            }, err => {
-              console.log(err);
-            },
-              () => console.log('Get Transaction Complete')
-            );
-
-
-            this.info.getCompany().subscribe(data => {
-              this.companyInfo = data;
-            }, err => {
-              console.log(err);
-
-            },
-              () => console.log('Get Transaction Complete')
-            );
-        loader.dismiss();
-
+        this.userinfo = this.info.userinfo;
+        this.companyInfo = this.info.companyInfo;
     }
 
 

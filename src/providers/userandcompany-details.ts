@@ -12,10 +12,31 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class UserandcompanyDetails {
-
+  userinfo;
+  companyInfo;
   constructor(public http: Http, public auth: AuthService, public conf: ConfigProvider) {
     console.log('Hello UserandcompanyDetails Provider');
   }
+  getDetails(){
+     this.getUser().subscribe(data => {
+              this.userinfo = data;
+            }, err => {
+              console.log(err);
+            },
+              () => console.log('Get Transaction Complete')
+            );
+
+
+            this.getCompany().subscribe(data => {
+              this.companyInfo = data;
+            }, err => {
+              console.log(err);
+
+            },
+              () => console.log('Get Transaction Complete')
+            );
+  }
+
 
   getCompany() {
     var headers = new Headers();
