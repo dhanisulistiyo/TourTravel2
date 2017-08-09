@@ -1,3 +1,4 @@
+import { ConfigProvider } from './../../../providers/config';
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 //import {FilterTransportPage} from '../filter-transport/filter-transport';
@@ -18,16 +19,19 @@ export class ListTransportPage1 {
   idAkhir;
   from;
   to;
+  baseUrl;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public ds: DailyService,
     public tra: TransportService,
-    public load: LoadingController
+    public load: LoadingController,
+    public conf: ConfigProvider
   ) {
     this.from = navParams.data['from']
     this.to = navParams.data['to']
     this.idAwal = navParams.data['id']
     this.idAkhir = navParams.data['i']
+    this.baseUrl = this.conf.baseUrlImage;
   }
 
   ionViewWillEnter() {

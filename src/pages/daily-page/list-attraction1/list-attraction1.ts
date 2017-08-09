@@ -1,3 +1,4 @@
+import { ConfigProvider } from './../../../providers/config';
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { AttractionService } from '../../../providers/attraction-service';
@@ -19,17 +20,19 @@ export class ListAttractionPage1 {
   idAwal;
   idAkhir;
   des;
-
+  baseUrl;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private attSer: AttractionService,
     public ds: DailyService,
-    public load: LoadingController
+    public load: LoadingController,
+    public conf: ConfigProvider
   ) {
 
     this.des = navParams.data['des']
     this.idAwal = navParams.data['id']
     this.idAkhir = navParams.data['i']
+    this.baseUrl =  this.conf.baseUrlImage;
   }
 
   ionViewWillEnter() {
