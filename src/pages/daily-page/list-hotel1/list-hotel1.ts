@@ -1,3 +1,4 @@
+import { ConfigProvider } from './../../../providers/config';
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { HotelRoomtypePage1 } from '../hotel-roomtype1/hotel-roomtype1';
@@ -18,16 +19,19 @@ export class ListHotelPage1 {
   idAkhir;
   des;
   tgl;
+  baseUrl;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public aco: AcomodationService,
     public ds: DailyService,
-    public load: LoadingController
+    public load: LoadingController,
+    public conf: ConfigProvider
   ) {
     this.tgl = navParams.data['tgl']
     this.des = navParams.data['des']
     this.idAwal = navParams.data['id']
     this.idAkhir = navParams.data['i']
+    this.baseUrl =  this.conf.baseUrlImage;
   }
 
   ionViewWillEnter() {

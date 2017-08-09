@@ -11,8 +11,10 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ConfigProvider {
 baseUrl:string;
+baseUrlImage:string;
   constructor(public http: Http) {
     this.baseUrl= 'http://cloud.basajans.com:8868/tripplannerdev/api'
+    this.baseUrlImage= 'http://cloud.basajans.com:8868/tripplannerdev'
   }
 
   
