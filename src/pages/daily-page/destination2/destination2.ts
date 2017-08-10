@@ -60,7 +60,7 @@ export class DestinationPage2 {
 
             this.locations = this.locations.filter((v) => {
 
-            if (v.Id.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+            if (v.Name.toLowerCase().indexOf(q.toLowerCase()) > -1 || v.Country.Name.toLowerCase().indexOf(q.toLowerCase()) > -1 || v.Region.Name.toLowerCase().indexOf(q.toLowerCase()) > -1) {
                 return true;
             }
             return false;
