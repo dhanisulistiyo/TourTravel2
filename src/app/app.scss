@@ -213,11 +213,74 @@
         ion-icon.custom-color {
             color: #4fd2c2;
         }
+        ion-icon.custom-green {
+            color: white;
+            font-size: 3.5vw;
+            font-weight: bold;
+            margin-right: 1vw;
+            padding: 1.5vw;
+            border-radius: 50%;
+            background-color: #69F0AE;
+        }
+        ion-icon.custom-blue {
+            color: white;
+            font-size: 3.5vw;
+            font-weight: bold;
+            margin-right: 1vw;
+            padding: 1.5vw;
+            border-radius: 50%;
+            background-color: #40C4FF;
+        }
+        ion-icon.custom-yellow {
+            color: white;
+            font-size: 3.5vw;
+            font-weight: bold;
+            margin-right: 1vw;
+            padding: 1.5vw;
+            border-radius: 50%;
+            background-color: #FFD740;
+        }
+        ion-icon.custom-purple {
+            color: white;
+            font-size: 3.5vw;
+            font-weight: bold;
+            margin-right: 1vw;
+            padding: 1.5vw;
+            border-radius: 50%;
+            background-color: #7C4DFF;
+        }
+        ion-icon.custom-orange {
+            color: white;
+            font-size: 3.5vw;
+            font-weight: bold;
+            margin-right: 1vw;
+            padding: 1.5vw;
+            border-radius: 50%;
+            background-color: #FF6E40;
+        }
+        ion-icon.custom-pink {
+            color: white;
+            font-size: 3.5vw;
+            font-weight: bold;
+            margin-right: 1vw;
+            padding: 1.5vw;
+            border-radius: 50%;
+            background-color: #FF4081;
+        }
+        ion-icon.custom-red {
+            color: white;
+            font-size: 3.5vw;
+            font-weight: bold;
+            margin-right: 1vw;
+            padding: 1.5vw;
+            border-radius: 50%;
+            background-color: #ef5350;
+        }
         ion-label.label.label-md[stacked] {
             font-family: 'Open Sans', cursive;
             font-size: 4vw;
-            color: grey;
-            font-weight: 500;
+            color: #757575;
+            font-weight: 600;
             text-transform: none;
             margin: 0;
         }
@@ -298,12 +361,12 @@
         .calendar[_ngcontent-c1] .day.selected.activated[_ngcontent-c1] {
             background-color: #4fd2c2;
             color: white;
-            border-radius: 50%;
+            border-radius: 5px;
             font-weight: 600;
         }
         .calendar[_ngcontent-c1] .day.today[_ngcontent-c1] {
             background-color: #e4e4e4;
-            border-radius: 50%;
+            border-radius: 5px;
             color: black;
             font-weight: 500;
         }
