@@ -1,15 +1,15 @@
 page-itenerary-builder {
     button.disable-hover.bar-button.bar-button-md.bar-button-default.bar-button-default-md {
-    width: 45px;
+        width: 45px;
     }
     .customIcon {
-    font-size: 1.7rem;
-    text-align: start;
-    margin: 0;
-    padding: 0 6px;
-    font-size: 5vw;
-    font-weight: normal;
-    color: white;
+        font-size: 1.7rem;
+        text-align: start;
+        margin: 0;
+        padding: 0 6px;
+        font-size: 5vw;
+        font-weight: normal;
+        color: white;
     }
     .label-md[stacked] {
         font-size: 1.7rem;
@@ -18,7 +18,7 @@ page-itenerary-builder {
     .text-input[disabled] {
         opacity: 1;
     }
-    .div-logo{
+    .div-logo {
         width: 100%;
         padding: 1vw;
         text-align: center;
@@ -28,10 +28,19 @@ page-itenerary-builder {
         width: 60vw;
         text-align: center;
     }
+    ion-icon.custom-icon {
+        color: white;
+        font-size: 3.5vw;
+        font-weight: bold;
+        margin-right: 1vw;
+        padding: 1.5vw;
+        border-radius: 50%;
+        background-color: #4fd2c2;
+    }
     .custom-div {
         border: 1px solid #f2f2f2;
         border-radius: 2px;
-        padding: 5px;
+        padding: 10px 0 0 0;
         background-color: white;
     }
     ion-row.row-label {
@@ -41,11 +50,13 @@ page-itenerary-builder {
     ion-row.row-content {
         text-align: center;
         align-content: center;
+        margin-left: 2vw;
     }
     ion-row.row-datetime {
         text-align: center;
         align-content: center;
         margin-bottom: 10px;
+        margin-left: 1vw;
     }
     .label-md {
         margin: 13px 8px 13px 8px;
@@ -69,7 +80,7 @@ page-itenerary-builder {
         -ms-flex: 1;
         flex: 1;
         width: 100%;
-        padding: 5px 10px 5px 23px;
+        padding: 5px 10px 5px 26px;
     }
     .datetime-text {
         font-size: 4.3vw;

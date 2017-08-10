@@ -21,6 +21,21 @@
     @import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700');
     .ios,
     .md {
+        /* Larger than a phone */
+        @media (min-width: 567px) {
+            map, div[map] {
+                width: 95%;
+                height: 425px;
+            }
+        }
+        /* Small devices such as phone */
+        @media (max-width: 567px) {
+            map,
+            div[map] {
+                width: 90%;
+                height: 325px;
+            }
+        }
         ul {
             list-style-type: none;
         }

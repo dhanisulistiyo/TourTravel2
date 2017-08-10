@@ -187,7 +187,7 @@ import { ConfigProvider } from '../providers/config';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp, { tabsHideOnSubPages: "true" }),
+    IonicModule.forRoot(MyApp, {mode:'md', tabsHideOnSubPages: "true" }),
     HttpModule,
     Ionic2RatingModule, // Put ionic2-rating module here
     DatetimePickerModule
