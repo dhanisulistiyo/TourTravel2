@@ -13,28 +13,50 @@ export class RegisterPage {
     constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, public load: LoadingController) { }
 
     public register() {
+        var validEmail
+        var validPass
+        let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+        let PASS_REGEXP = /^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&?"~`^*(),./:;]).*$/i ;
         let reg = this.registerCredentials;
-        if (reg.password != reg.con_password) {
-            this.showAlertValidasiPassword();
-        } else {
-            let loader = this.load.create({
-                content: 'Please wait...'
-            });
-            loader.present();
-            this.auth.register(this.registerCredentials).then(success => {
-                if (success) {
-                    loader.dismiss();
-                    this.createSuccess = true;
-                    this.showPopup("Success", "Account created.");
-                } else {
-                    loader.dismiss();
-                    this.showPopup("Error", "Problem creating account.");
-                }
-            },
-                error => {
-                    loader.dismiss();
-                    this.showPopup("Error", error);
+        if(reg.first_name==""){
+            this.showPopup("Error", "Please Input Name."); 
+        }else if(reg.email==""){
+            this.showPopup("Error", "Please Input Email.");      
+        }else if(reg.username==""){
+            this.showPopup("Error", "Please Input Username.");
+        }else if(reg.password==""){
+            this.showPopup("Error", "Please Input Password.");
+        }else if(reg.password != reg.con_password) {
+            this.showPopup("Error", "Password and Confirm Password Not Match.");
+        }else{
+            if (reg.email.length <= 5 || !EMAIL_REGEXP.test(reg.email)) validEmail = false; 
+            else  validEmail = true;
+
+             if (reg.password.length <8 || !PASS_REGEXP.test(reg.password)) validPass = false; 
+            else  validPass = true;
+
+            if(!validEmail){
+                this.showPopup("Error", "Wrong Format Input Email.");
+            }else if(!validPass){            
+                 this.showPopup("Error", "Password minimum 8 characters and at least one uppercas, one lowercase, one special character.");
+            }else{
+                let loader = this.load.create({
+                    content: 'Please wait...'
                 });
+                loader.present();
+                this.auth.register(this.registerCredentials).then(success => {
+                if (success) {
+                        this.createSuccess = true;
+                        this.showPopup("Success", "Account created.");
+                }else{
+                    this.showPopup("Error", "Failed to create account. Please try again latter ...");
+                }
+                    loader.dismiss();
+                },error => {
+                        loader.dismiss();
+                        this.showPopup("Error", error);
+                });
+            }
         }
     }
 
@@ -56,15 +78,6 @@ export class RegisterPage {
                     }
                 }
             ]
-        });
-        alert.present();
-    }
-
-
-    showAlertValidasiPassword() {
-        let alert = this.alertCtrl.create({
-            subTitle: 'Password and Confirm Password Not Match',
-            buttons: ['OK']
         });
         alert.present();
     }
