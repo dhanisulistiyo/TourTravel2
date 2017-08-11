@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { FilattractionService} from '../../../providers/filattraction-service';
 import { AttractionService} from '../../../providers/attraction-service';
 import {ListAttractionPage1 } from '../list-attraction1/list-attraction1';
@@ -10,7 +10,7 @@ import {ListAttractionPage1 } from '../list-attraction1/list-attraction1';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@IonicPage()
+
 @Component({
   selector: 'page-filter-attraction',
   templateUrl: 'filter-attraction.html',

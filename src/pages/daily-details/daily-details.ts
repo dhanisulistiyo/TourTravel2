@@ -1,5 +1,5 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import {  NavController, NavParams, AlertController } from 'ionic-angular';
 //import { DailyDetailsProgram } from '../../providers/daily-service';
 import { DailyService } from '../../providers/daily-service';
 import { DestinationPage2 } from '../daily-page/destination2/destination2';
@@ -9,7 +9,6 @@ import { FilterAttraction } from '../daily-page/filter-attraction/filter-attract
 import { FilterHotel1Page } from '../daily-page/filter-hotel1/filter-hotel1';
 import { IteneraryService } from '../../providers/itenerary-service';
 
-@IonicPage()
 @Component({
   selector: 'page-daily-details',
   templateUrl: 'daily-details.html'

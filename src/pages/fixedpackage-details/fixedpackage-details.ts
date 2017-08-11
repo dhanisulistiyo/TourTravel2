@@ -1,5 +1,5 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {  NavController, NavParams } from 'ionic-angular';
 import { FixedpackageGuestPage } from './../fixedpackage-guest/fixedpackage-guest';
 
 /**
@@ -8,7 +8,7 @@ import { FixedpackageGuestPage } from './../fixedpackage-guest/fixedpackage-gues
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@IonicPage()
+
 @Component({
   selector: 'page-fixedpackage-details',
   templateUrl: 'fixedpackage-details.html',

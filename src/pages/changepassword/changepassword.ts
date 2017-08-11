@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams , AlertController, LoadingController} from 'ionic-angular';
+import { NavController, NavParams , AlertController, LoadingController} from 'ionic-angular';
 import { UserandcompanyDetails } from '../../providers/userandcompany-details';
 /**
  * Generated class for the ChangepasswordPage page.
@@ -7,7 +7,6 @@ import { UserandcompanyDetails } from '../../providers/userandcompany-details';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@IonicPage()
 @Component({
   selector: 'page-changepassword',
   templateUrl: 'changepassword.html',

@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+=======
+import { Component } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
+>>>>>>> 93bc1ddf29c8f60ae4878ae6127cea5dc3d03035
 
 /**
  * Generated class for the FixedpackageGuestPage page.
@@ -7,7 +12,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@IonicPage()
 @Component({
   selector: 'page-fixedpackage-guest',
   templateUrl: 'fixedpackage-guest.html',

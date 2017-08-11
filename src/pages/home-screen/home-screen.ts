@@ -3,7 +3,7 @@ import { PromoPackagePage } from './../promo-package/promo-package';
 import { FixedPackagePage } from './../fixed-package/fixed-package';
 import { IteneraryBuilderPage } from './../itenerary-builder/itenerary-builder';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the HomeScreenPage page.
@@ -11,7 +11,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@IonicPage()
+
 @Component({
   selector: 'page-home-screen',
   templateUrl: 'home-screen.html',
