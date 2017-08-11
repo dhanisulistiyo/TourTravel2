@@ -228,7 +228,6 @@
                 min-height: 180px;
                 overflow: scroll;
                 position: relative;
-                
                 p {
                     background: rgba(0, 0, 0, 0.7);
                     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -368,8 +367,7 @@
                 height: 3.15rem;
                 /* Fallback for non-webkit */
                 margin: 0 auto;
-                font-size: 1.5rem;
-                line-height: 1;
+                font-size: 1.5rem; //ine-height: 1;
                 -webkit-line-clamp: 2;
                 /* autoprefixer: off */
                 -webkit-box-orient: vertical;
@@ -410,5 +408,62 @@
         ion-icon.custom-star {
             color: #ffcd25;
             font-size: 1.5rem;
+        }
+        .box {
+            position: relative;
+            width: 95%;
+            background: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, .1);
+        }
+        /* common */
+        .ribbon {
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            position: absolute;
+        }
+        .ribbon::before,
+        .ribbon::after {
+            position: absolute;
+            z-index: -1;
+            content: '';
+            display: block;
+            border: 5px solid #2980b9;
+        }
+        .ribbon span {
+            position: absolute;
+            display: block; //width: 225px;
+            padding: 8px 15px 8px 15px;
+            background-color: rgba(0, 0, 0, 0.7);
+            ;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+            color: #fff;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+            text-transform: none;
+            text-align: center;
+            font-family: Roboto;
+            font-size: 5vw;
+        }
+        /* top left*/
+        .ribbon-top-left {
+            bottom: -10px;
+            left: -10px;
+        }
+        .ribbon-top-left::before,
+        .ribbon-top-left::after {
+            border-top-color: transparent;
+            border-left-color: transparent;
+        }
+        .ribbon-top-left::before {
+            bottom: 0;
+            left: 0;
+        }
+        .ribbon-top-left::after {
+            top: 0;
+            right: 0;
+        }
+        .ribbon-top-left span {
+            left: 10px;
+            bottom: 15px; //transform: rotate(-45deg);
         }
     }
