@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import {  } from 'ionic-angular';
 import { MyprofilePage } from '../myprofile/myprofile';
 import { ChangepasswordPage } from '../changepassword/changepassword';
 
@@ -9,7 +9,7 @@ import { ChangepasswordPage } from '../changepassword/changepassword';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@IonicPage()
+
 @Component({
   selector: 'page-myaccount',
   templateUrl: 'myaccount.html',

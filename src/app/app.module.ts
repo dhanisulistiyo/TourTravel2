@@ -190,7 +190,7 @@ import { ConfigProvider } from '../providers/config';
     IonicModule.forRoot(MyApp, {mode:'md', tabsHideOnSubPages: "true" }),
     HttpModule,
     Ionic2RatingModule, // Put ionic2-rating module here
-    DatetimePickerModule
+    //DatetimePickerModule
     
   ],
   bootstrap: [IonicApp],

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, AlertController } from 'ionic-angular';
+import { NavController, NavParams, ViewController, AlertController } from 'ionic-angular';
 import { DailyService } from '../../providers/daily-service';
 import { DestinationTransportPage} from '../destination-transport/destination-transport';
 import { FilterTransport2Page } from '../filter-transport2/filter-transport2';
@@ -10,7 +10,7 @@ import { FilterTransport2Page } from '../filter-transport2/filter-transport2';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@IonicPage()
+
 @Component({
   selector: 'page-transport-locationservice',
   templateUrl: 'transport-locationservice.html',

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import {NavController, NavParams, ViewController } from 'ionic-angular';
 import {DailyService} from '../../../providers/daily-service';
 /**
  * Generated class for the TransportHoursPage page.
@@ -7,7 +7,7 @@ import {DailyService} from '../../../providers/daily-service';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@IonicPage()
+
 @Component({
   selector: 'page-transport-hours',
   templateUrl: 'transport-hours.html',

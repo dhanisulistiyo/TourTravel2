@@ -1,5 +1,5 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { DailyService } from '../../providers/daily-service'
 import { IteneraryService } from '../../providers/itenerary-service'
 import { MultiTransactionService } from '../../providers/multi-transaction-service'
@@ -12,7 +12,7 @@ import { DailyDetails  } from '../daily-details/daily-details';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@IonicPage()
+
 @Component({
   selector: 'page-daily-program',
   templateUrl: 'daily-program.html',

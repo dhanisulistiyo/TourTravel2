@@ -1,6 +1,6 @@
 import { HomeScreenPage } from './../home-screen/home-screen';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, LoadingController, ToastController, ViewController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, LoadingController, ToastController, ViewController } from 'ionic-angular';
 import { MultiTransactionService } from '../../providers/multi-transaction-service';
 //import { CustomePackagePage } from '../custome-package/custome-package';
 import { UserandcompanyDetails } from '../../providers/userandcompany-details';
@@ -10,7 +10,6 @@ import { UserandcompanyDetails } from '../../providers/userandcompany-details';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@IonicPage()
 @Component({
   selector: 'page-payment',
   templateUrl: 'payment.html',
