@@ -64,7 +64,6 @@ import { TransportHoursPage } from '../pages/daily-page/transport-hours/transpor
 import { TransportDetailsPage } from '../pages/daily-page/transport-details/transport-details';
 import { HotelDetailsPage } from '../pages/daily-page/hotel-details/hotel-details';
 import { AttractionDetailsPage } from '../pages/daily-page/attraction-details/attraction-details';
-
 //result
 import { DailyProgram } from '../pages/daily-program/daily-program';
 import { DailyDetails } from '../pages/daily-details/daily-details';
@@ -95,7 +94,7 @@ import { GuestServiceProvider } from '../providers/guest-service';
 
 // Import ionic2-rating module
 import { Ionic2RatingModule } from 'ionic2-rating';
-import { DatetimePickerModule } from 'ion-datetime-picker';
+import { DatePickerModule } from 'datepicker-ionic2';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PromoPackageProvider } from '../providers/promo-package';
@@ -190,7 +189,9 @@ import { ConfigProvider } from '../providers/config';
     IonicModule.forRoot(MyApp, {mode:'md', tabsHideOnSubPages: "true" }),
     HttpModule,
     Ionic2RatingModule, // Put ionic2-rating module here
-    //DatetimePickerModule
+    DatePickerModule
+    
+
     
   ],
   bootstrap: [IonicApp],

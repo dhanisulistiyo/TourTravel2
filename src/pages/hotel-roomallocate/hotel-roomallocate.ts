@@ -15,7 +15,7 @@ import { IteneraryService } from '../../providers/itenerary-service';
 })
 export class HotelRoomallocatePage {
 
-  allocRoom = { sharingRooms: null, singleRoom: null, extraBed: null, sharingBed: null, babyCrib: null, noBed: null };
+  allocRoom = { sharingRooms: null, singleRoom: null, extraBed: null,extraBedChild: null, sharingBed: null, babyCrib: null, noBed: null };
   totalGuest: any;
   totalAlloc: any;
   adult;
@@ -35,7 +35,7 @@ export class HotelRoomallocatePage {
     this.SR = { adult: 0, child: 0 };
     this.SiR = { adult: 0, child: 0 };
     this.EB = { adult: 0, child: 0 };
-    this.allocRoom = { sharingRooms: 0, singleRoom: 0, extraBed: 0, sharingBed: 0, babyCrib: 0, noBed: 0 };
+    this.allocRoom = { sharingRooms: 0, singleRoom: 0, extraBed: 0, extraBedChild: 0, sharingBed: 0, babyCrib: 0, noBed: 0 };
     this.adult = Number(this.ite.getPassenger().guestTour['AdultQty']);
     this.child = Number(this.ite.getPassenger().guestTour['ChildQty']);
     this.infant = Number(this.ite.getPassenger().guestTour['InfantQty']);
@@ -107,7 +107,8 @@ export class HotelRoomallocatePage {
     }
     this.allocRoom.sharingRooms = this.SR.adult + this.SR.child;
     this.allocRoom.singleRoom = this.SiR.adult + this.SiR.child;
-    this.allocRoom.extraBed = this.EB.adult + this.EB.child;
+    this.allocRoom.extraBed = this.EB.adult;
+    this.allocRoom.extraBedChild = this.EB.child;
     console.log(this.allocRoom);
     this.remainingGuest();
   }
@@ -169,7 +170,8 @@ export class HotelRoomallocatePage {
     }
     this.allocRoom.sharingRooms = this.SR.adult + this.SR.child;
     this.allocRoom.singleRoom = this.SiR.adult + this.SiR.child;
-    this.allocRoom.extraBed = this.EB.adult + this.EB.child;
+    this.allocRoom.extraBed = this.EB.adult;
+    this.allocRoom.extraBedChild=  this.EB.child;
     console.log(this.allocRoom);
     this.remainingGuest();
   }
@@ -252,9 +254,10 @@ export class HotelRoomallocatePage {
     }
     this.allocRoom.sharingRooms = this.SR.adult + this.SR.child;
     this.allocRoom.singleRoom = this.SiR.adult + this.SiR.child;
-    this.allocRoom.extraBed = this.EB.adult + this.EB.child;
+    this.allocRoom.extraBed = this.EB.adult ;
+    this.allocRoom.extraBedChild = this.EB.child;
     let a = this.allocRoom
-    this.totalAlloc = a.sharingRooms + a.singleRoom + a.extraBed + a.sharingBed + a.babyCrib + a.noBed;
+    this.totalAlloc = a.sharingRooms + a.singleRoom + a.extraBed + a.extraBedChild + a.sharingBed + a.babyCrib + a.noBed;
     this.remainingGuest();
   }
 

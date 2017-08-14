@@ -102,6 +102,9 @@ destroyObject() {
             SingleRoomQty: Number(this.ite.getRoomAllo().allocroom.singleRoom),
             ExtraBedQty: Number(this.ite.getRoomAllo().allocroom.extraBed),
             SharingBedQty: Number(this.ite.getRoomAllo().allocroom.sharingBed),
+            ChildExtraBedQty:Number(this.ite.getRoomAllo().allocroom.extraBedChild),
+            BabyCrib:Number(this.ite.getRoomAllo().allocroom.babyCrib),
+            NoBed:Number(this.ite.getRoomAllo().allocroom.noBed),
             AccommodationItemServiceType: this.daily[i].program_daily[j].roomservice
           }
           this.accomodation.push(item);

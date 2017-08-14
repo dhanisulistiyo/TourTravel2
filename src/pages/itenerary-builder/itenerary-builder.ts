@@ -1,3 +1,4 @@
+
 import { GuestDetailsPage } from './../guest-details/guest-details';
 import { GuestServiceProvider } from './../../providers/guest-service';
 import { Component } from '@angular/core';
@@ -13,13 +14,15 @@ import { HotelRoomallocatePage } from '../hotel-roomallocate/hotel-roomallocate'
 import { ListAttractionPage } from '../list-attraction/list-attraction';
 import { InputTravellersPage } from '../input-travellers/input-travellers';
 // import { DailyProgram } from '../daily-program/daily-program';
-
+//import {CalendarController} from "ion2-calendar";
 @Component({
   selector: 'page-itenerary-builder',
   templateUrl: 'itenerary-builder.html',
   providers: [IteneraryService]
 })
 export class IteneraryBuilderPage {
+  datefrom: Date = new Date();
+  dateto: Date = new Date();
   toursname: string;
   destination: string;
   attraction: string;
@@ -34,7 +37,7 @@ export class IteneraryBuilderPage {
   maxGuest;
   type;
   allocation: Array<{ guest: number, name: string }>;
-  public event = {
+  public even = {
     monthStart: '',
     monthEnd: ''
   }
@@ -46,6 +49,7 @@ export class IteneraryBuilderPage {
     public ds: DailyService,
     public alertCtrl: AlertController,
     public gu: GuestServiceProvider,
+    //public calendarCtrl: CalendarController
   ) {
     this.kuotaG = null;
     this.typeG = null;
@@ -56,12 +60,9 @@ export class IteneraryBuilderPage {
     this.tranportation = '';
     this.acomodation = '';
     this.allocation = [];
-    this.event = {
-      monthStart: new Date().toISOString().substring(0, 10),
-      monthEnd: new Date().toISOString().substring(0, 10)
-    };
     this.kuotaGuest = ['Choose Guest Capacity', 'Small Group (Up to 10 person)', 'Large Group (More than 10 person)']
     this.typeGuest = ['Choose Type'];
+    
   }
 
   ionViewWillEnter() {
@@ -121,7 +122,8 @@ export class IteneraryBuilderPage {
         this.passenger = '';
       }
       if (dateTours != null) {
-        this.event = dateTours.ev;
+        this.datefrom = dateTours.ev['monthStart'];
+        this.dateto = dateTours.ev['monthEnd'];
       }
 
       if (alloc != null) {
@@ -130,13 +132,15 @@ export class IteneraryBuilderPage {
         var SR = Number(alloc.allocroom.sharingRooms);
         var SiR = Number(alloc.allocroom.singleRoom)
         var EB = Number(alloc.allocroom.extraBed)
+        var EC = Number(alloc.allocroom.extraBedChild)
         var SB = Number(alloc.allocroom.sharingBed)
         var BC = Number(alloc.allocroom.babyCrib)
         var NB = Number(alloc.allocroom.noBed)
 
         if (SR != 0) this.allocation.push({ guest: SR, name: "Sharing Room" })
         if (SiR != 0) this.allocation.push({ guest: SiR, name: "Single Room" })
-        if (EB != 0) this.allocation.push({ guest: EB, name: "Extra Bed" })
+        if (EB != 0) this.allocation.push({ guest: EB, name: "Extra Bed Adult" })
+        if (EC != 0) this.allocation.push({ guest: EC, name: "Extra Bed Child" })  
         if (SB != 0) this.allocation.push({ guest: SB, name: "Sharing Bed" })
         if (BC != 0) this.allocation.push({ guest: BC, name: "Baby Crib" })
         if (NB != 0) this.allocation.push({ guest: NB, name: "No Bed" })
@@ -186,11 +190,7 @@ export class IteneraryBuilderPage {
     this.ite.setToursName(data);
   }
 
-  inputDateTours(ev) {
-    let today = new Date(ev['monthStart'])
-    let tomorrow = new Date();
-    tomorrow.setDate(today.getDate() + 1)
-    console.log(tomorrow.toISOString().substring(0, 10));
+  inputDateTours(ev) {  
     //hitung total days
     let start = (+new Date(ev['monthStart']))
     let end = (+new Date(ev['monthEnd']))
@@ -200,6 +200,24 @@ export class IteneraryBuilderPage {
     var data = JSON.stringify({ ev });
     console.log(data);
     this.ite.setDateTour(data);
+  }
+
+  setDateFrom(date: Date) {
+    console.log(date);
+    this.datefrom = date;
+    let tomorrow = new Date();
+    tomorrow.setDate(date.getDate())
+    this.even.monthStart = tomorrow.toISOString().substring(0, 10);
+    this.inputDateTours(this.even);
+  }
+
+  setDateTo(date: Date) {
+    console.log(date);
+    this.dateto = date;
+    let tomorrow = new Date();
+    tomorrow.setDate(date.getDate())
+    this.even.monthEnd = tomorrow.toISOString().substring(0, 10);
+    this.inputDateTours(this.even);
   }
 
   destinationTapped(event) {
@@ -228,10 +246,12 @@ export class IteneraryBuilderPage {
     else this.navCtrl.push(ListAttractionPage);
   }
 
-
   createItenerary(event) {
-    let today = new Date(this.event.monthStart).toISOString().substring(0, 10)
-    let tomorrow = new Date().toISOString().substring(0, 10);
+    if(this.even.monthStart != ''){
+    var today = new Date(this.even.monthStart).toISOString().substring(0, 10)
+    var tomorrow = new Date().toISOString().substring(0, 10);
+    }
+
     if(this.passenger != ''){
     var adult = this.ite.getPassenger().guestTour['AdultQty'];
     var child = this.ite.getPassenger().guestTour['ChildQty'];
@@ -252,10 +272,11 @@ export class IteneraryBuilderPage {
         var SR = Number(alloc.allocroom.sharingRooms);
         var SiR = Number(alloc.allocroom.singleRoom)
         var EB = Number(alloc.allocroom.extraBed)
+        var EC = Number(alloc.allocroom.extraBedChild)
         var SB = Number(alloc.allocroom.sharingBed)
         var BC = Number(alloc.allocroom.babyCrib)
         var NB = Number(alloc.allocroom.noBed)
-        if((SR+SiR+EB+SB+BC+NB)==(adult+child+infant))
+        if((SR+SiR+EB+EC+SB+BC+NB)==(adult+child+infant))
           {
               let type = this.typeG;
               this.ds.dailyProgram(this.totalDays);

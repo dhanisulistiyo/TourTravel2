@@ -101,14 +101,19 @@
 
       <ion-row class="row-datetime">
         <ion-col col-5-content>
-          <ion-datetime picker date style="left: 0px;" (ionChange)="inputDateTours(event)" min="2016" max="2030" displayFormat="DD MMM YYYY"
-            [(ngModel)]="event.monthStart"></ion-datetime>
-
+          <!-- <ion-datetime picker date style="left: 0px;" (ionChange)="inputDateTours(event)" min="2016" max="2030" displayFormat="DD MMM YYYY"
+            [(ngModel)]="event.monthStart"></ion-datetime> -->
+          <ion-item ion-datepicker (ionChanged)="setDateFrom($event)" full="false" calendar="true" clear class="ScheduleDate">
+          {{datefrom |  date:'dd MMM yyyy' }} 
+          </ion-item>
         </ion-col>
         <ion-col style="text-align:center" col-2></ion-col>
         <ion-col col-5-content>
-          <ion-datetime picker date style="left: 0px;" (ionChange)="inputDateTours(event)" min="2016" max="2030" displayFormat="DD MMM YYYY"
-            [(ngModel)]="event.monthEnd"></ion-datetime>
+          <!-- <ion-datetime picker date style="left: 0px;" (ionChange)="inputDateTours(event)" min="2016" max="2030" displayFormat="DD MMM YYYY"
+            [(ngModel)]="even.monthEnd"></ion-datetime> -->
+          <ion-item ion-datepicker (ionChanged)="setDateTo($event)" full="false" calendar="true" clear class="ScheduleDate">
+          {{dateto |  date:'dd MMM yyyy' }} 
+          </ion-item>
         </ion-col>
       </ion-row>
 

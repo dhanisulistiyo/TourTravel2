@@ -277,21 +277,28 @@ export class DailyService {
     var no1 = Object.keys(this.daily).length;
     if (itemroom.IsPromo) {
       if (endTour.getDate() > endPeriode.getDate()) {
-        for (let k = id + 1; k < sum + 1; k++) {
-          this.daily[k].program_daily[0].location = this.daily[id].program_daily[i].location;
-          this.daily[k].program_daily[0].roomtype = itemroom
-          this.daily[k].program_daily[0].roomservice = itemser
-          this.daily[k].program_daily[0].acomodation = hotel
-        }
+        if(sum > no1)
+            for (let k = id + 1; k < no1 - 1; k++) {
+              this.daily[k].program_daily[0].location = this.daily[id].program_daily[i].location;
+              this.daily[k].program_daily[0].roomtype = itemroom
+              this.daily[k].program_daily[0].roomservice = itemser
+              this.daily[k].program_daily[0].acomodation = hotel
+            }
+            
+        else 
+            for (let k = id + 1; k < sum + 1; k++) {
+              this.daily[k].program_daily[0].location = this.daily[id].program_daily[i].location;
+              this.daily[k].program_daily[0].roomtype = itemroom
+              this.daily[k].program_daily[0].roomservice = itemser
+              this.daily[k].program_daily[0].acomodation = hotel
+            }
       } else {
-        for (let k = id + 1; k < no1 - 1; k++) {
-          this.daily[k].program_daily[0].location = this.daily[id].program_daily[i].location;
-          this.daily[k].program_daily[0].roomtype = itemroom
-          this.daily[k].program_daily[0].roomservice = itemser
-          this.daily[k].program_daily[0].acomodation = hotel
-        }
-
-
+          for (let k = id + 1; k < no1 - 1; k++) {
+            this.daily[k].program_daily[0].location = this.daily[id].program_daily[i].location;
+            this.daily[k].program_daily[0].roomtype = itemroom
+            this.daily[k].program_daily[0].roomservice = itemser
+            this.daily[k].program_daily[0].acomodation = hotel
+          }
       }
 
     } else {
