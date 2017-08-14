@@ -1,3 +1,103 @@
+$SIDEMENU_TOP: #00a497;
+$SIDEMENU_BOTTOM: #2cbaae;
+$SIDEMENU_TRANSPARENCY: rgba(255, 255, 255, 0.4);
 page-fixedpackage-guest {
-
+    $line-height: 1;
+    $lines-to-show: 2;
+    .opaque {
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        backdrop-filter: saturate(180%) blur(20px);
+    }
+    .opaque .toolbar-background {
+        background-color: transparent;
+        border: none;
+    }
+    .header {
+        ion-card.card {
+            box-shadow: 2px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 0px;
+            float: left;
+            margin-bottom: 0px;
+            /* important */
+            position: relative;
+            /* important(so we can absolutely position the description div */
+        }
+        .content-custom {
+            box-shadow: none;
+            background: rgba(0, 0, 0, 0.4);
+            right: 0;
+            display: block;
+            bottom: 0;
+            font-size: 2em;
+            font-weight: 900;
+            text-align: left;
+            left: 0;
+            position: absolute;
+            padding: 0px 10px 10px 10px;
+        }
+        .h2-title-header {
+            font-size: 6vw;
+            font-weight: bold;
+            font-family: 'Open Sans', cursive;
+            color: white;
+            overflow: inherit;
+            text-overflow: inherit;
+            white-space: normal;
+        }
+        .h3-subtitle-header {
+            font-family: 'Open Sans', cursive;
+            color: white;
+            font-size: 4vw;
+            font-weight: 500;
+        }
+        .card-custom {
+            margin-bottom: 10px;
+            border: medium none;
+            border-radius: 5px;
+            display: block;
+            text-align: center;
+            margin: 2px 0 2px;
+            padding-top: 22%;
+        }
+    }
+    .label-header {
+        .card-header-md {
+            padding: 0px 0px 0px 10px;
+            background-color: #2cbaae;
+        }
+        h2.card-title {
+            font-size: 4vw;
+            font-weight: normal;
+            font-family: 'Open Sans', cursive;
+            color: white;
+            padding: 1vw;
+        }
+        ion-card.content-custom-item {
+            padding: 0px;
+            font-size: 1.4rem;
+            line-height: 1.5;
+            background-color: white;
+        }
+        [col-8] {
+            -webkit-flex: 0 0 66.66667%;
+            -ms-flex: 0 0 66.66667%;
+            flex: 0 0 66.66667%;
+            width: 66.66667%;
+            max-width: 66.66667%;
+            text-align: justify;
+        }
+    }
+    h3.card-title {
+        font-family: 'Lato', sans-serif;
+        font-size: 3.8vw;
+        color: #595959;
+        font-weight: 600;
+        text-align: right;
+    }
+    h3.card-label {
+        font-family: 'Lato', sans-serif;
+        font-size: 3.8vw;
+        color: #808080;
+    }
 }

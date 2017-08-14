@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component, ChangeDetectorRef } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the FixedpackageGuestPage page.
@@ -12,8 +12,14 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'fixedpackage-guest.html',
 })
 export class FixedpackageGuestPage {
+  showToolbar: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef) {
+  }
+  onScroll($event: any){
+    let scrollTop = $event.scrollTop;
+    this.showToolbar = scrollTop >= 120;
+    this.ref.detectChanges();
   }
 
   ionViewDidLoad() {
