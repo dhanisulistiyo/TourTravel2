@@ -1,4 +1,5 @@
 import { MultiTransactionService } from './../../providers/multi-transaction-service';
+import { ReadyPackagePage } from './../ready-package/ready-package';
 import { PromoPackagePage } from './../promo-package/promo-package';
 import { FixedPackagePage } from './../fixed-package/fixed-package';
 import { IteneraryBuilderPage } from './../itenerary-builder/itenerary-builder';
@@ -18,21 +19,24 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class HomeScreenPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public mult : MultiTransactionService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public mult: MultiTransactionService) {
   }
 
-  ionViewDidEnter(){
-      this.mult.clearCache();
-  } 
+  ionViewDidEnter() {
+    this.mult.clearCache();
+  }
 
-  customMenu(){
+  customMenu() {
     this.navCtrl.push(IteneraryBuilderPage);
   }
-  fixedMenu(){
+  readyMenu() {
+    this.navCtrl.push(ReadyPackagePage);
+  }
+  fixedMenu() {
     this.navCtrl.push(FixedPackagePage);
   }
 
-  promoMenu(){
+  promoMenu() {
     this.navCtrl.push(PromoPackagePage);
   }
 

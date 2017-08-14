@@ -105,6 +105,10 @@ import { FixedpackageDetailsPage } from './../pages/fixedpackage-details/fixedpa
 import { FixedpackageGuestPage } from './../pages/fixedpackage-guest/fixedpackage-guest';
 import { ConfigProvider } from '../providers/config';
 
+// Ready Package page
+import { ReadyPackagePage } from './../pages/ready-package/ready-package';
+import { ReadypackageGuestPage } from './../pages/readypackage-guest/readypackage-guest';
+import { ReadypackageDetailsPage } from './../pages/readypackage-details/readypackage-details';
 
 @NgModule({
   declarations: [
@@ -120,6 +124,9 @@ import { ConfigProvider } from '../providers/config';
     FixedPackagePage,
     FixedpackageDetailsPage,
     FixedpackageGuestPage,
+    ReadyPackagePage,
+    ReadypackageDetailsPage,
+    ReadypackageGuestPage,
     //My Bookings
     MybookingPage,
     MybookingComPage,
@@ -207,6 +214,9 @@ import { ConfigProvider } from '../providers/config';
     FixedPackagePage,
     FixedpackageDetailsPage,
     FixedpackageGuestPage,
+    ReadyPackagePage,
+    ReadypackageDetailsPage,
+    ReadypackageGuestPage,
     //My Booking
     MybookingPage,
     MybookingComPage,
