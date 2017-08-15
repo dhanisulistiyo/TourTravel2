@@ -1,4 +1,5 @@
 import { MultiTransactionService } from './../../providers/multi-transaction-service';
+import { ReadypackageDestinationPage } from './../readypackage-destination/readypackage-destination';
 import { ReadyPackagePage } from './../ready-package/ready-package';
 import { PromoPackagePage } from './../promo-package/promo-package';
 import { FixedPackagePage } from './../fixed-package/fixed-package';
@@ -30,7 +31,7 @@ export class HomeScreenPage {
     this.navCtrl.push(IteneraryBuilderPage);
   }
   readyMenu() {
-    this.navCtrl.push(ReadyPackagePage);
+    this.navCtrl.push(ReadypackageDestinationPage);
   }
   fixedMenu() {
     this.navCtrl.push(FixedPackagePage);

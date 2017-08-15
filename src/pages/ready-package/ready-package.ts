@@ -16,17 +16,22 @@ import { ReadypackageDetailsPage } from './../readypackage-details/readypackage-
 export class ReadyPackagePage {
 
   showToolbar: boolean = false;
+  active: boolean = true;
 
   constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, public navParams: NavParams) {
   }
-   onScroll($event: any) {
+  onScroll($event: any) {
     let scrollTop = $event.scrollTop;
     this.showToolbar = scrollTop >= 120;
     this.ref.detectChanges();
   }
 
-  readyHoneymoon(){
+  readyHoneymoon() {
     this.navCtrl.push(ReadypackageDetailsPage);
+  }
+
+  btnPick() {
+    this.active = false;
   }
 
   ionViewDidLoad() {

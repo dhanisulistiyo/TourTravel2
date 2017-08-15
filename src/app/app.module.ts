@@ -106,6 +106,7 @@ import { ConfigProvider } from '../providers/config';
 
 // Ready Package page
 import { ReadyPackagePage } from './../pages/ready-package/ready-package';
+import { ReadypackageDestinationPage } from './../pages/readypackage-destination/readypackage-destination';
 import { ReadypackageGuestPage } from './../pages/readypackage-guest/readypackage-guest';
 import { ReadypackageDetailsPage } from './../pages/readypackage-details/readypackage-details';
 
@@ -123,6 +124,7 @@ import { ReadypackageDetailsPage } from './../pages/readypackage-details/readypa
     FixedPackagePage,
     FixedpackageDetailsPage,
     FixedpackageGuestPage,
+    ReadypackageDestinationPage,
     ReadyPackagePage,
     ReadypackageDetailsPage,
     ReadypackageGuestPage,
@@ -215,6 +217,7 @@ import { ReadypackageDetailsPage } from './../pages/readypackage-details/readypa
     FixedPackagePage,
     FixedpackageDetailsPage,
     FixedpackageGuestPage,
+    ReadypackageDestinationPage,
     ReadyPackagePage,
     ReadypackageDetailsPage,
     ReadypackageGuestPage,

@@ -1,257 +1,96 @@
-<ion-header no-border [class.opaque]="!showToolbar">
-  <!--Navbar-->
-  <ion-navbar color="primary">
-    <!--Toggle title-->
-    <ion-title [hidden]="!showToolbar">
-      Ready Packages
-    </ion-title>
+<ion-header>
+  <ion-navbar>
+    <ion-title>Ready to Book Package</ion-title>
   </ion-navbar>
 </ion-header>
-<div class="scroll-content" style="padding-top:0px">
-  <ion-content fullscreen="true" style="padding-top: 0px;" (ionScroll)="onScroll($event)">
 
-    <div class="slide-pager" style="margin-left: -18px; width:110%; overflow: visible; margin-top: -10px;">
-      <ion-slides pager="true" loop="true" speed="1000">
-        <ion-slide>
-          <ion-card>
-            <img src="http://www.explorer-bali.com/beta/wp-content/uploads/2011/04/bali-diving1.jpg" style="height:250px; width:100%;"
-            />
-            <ion-card-content>
-              <h2>LET'S TRAVEL</h2>
-              <h3>Discover and book amazing things-to-do at exclusive prices</h3>
-            </ion-card-content>
-          </ion-card>
-        </ion-slide>
-        <ion-slide>
-          <ion-card>
-            <img src="https://i1.wp.com/grrrltraveler.com/wordpress/wp-content/uploads/2014/02/inspirational-travel-quotes-susan-sontag.jpg"
-              style="height:250px; width:100%;" />
-          </ion-card>
-        </ion-slide>
-        <ion-slide>
-          <ion-card>
-            <img src="https://s-media-cache-ak0.pinimg.com/736x/7c/09/88/7c0988027044e746206564377124cc8d--quotes-on-adventure-adventure-travel.jpg"
-              style="height:250px; width:100%;" />
-          </ion-card>
-        </ion-slide>
-        <ion-slide>
-          <ion-card>
-            <img src="http://www.geckosadventures.com/tales/wp-content/uploads/2014/08/meme16.jpg" style="height:250px; width:100%;"
-            />
-          </ion-card>
-        </ion-slide>
-      </ion-slides>
-    </div>
 
-    <div class="honeymoon">
-      <ion-row class="row-custom">
-        <ion-col col-8>
-          <div>
-            <h2 class="h2-custom">Honeymoon</h2>
+<ion-content fullscreen>
+  <h5 class="custom-h5">AVAILABLE PACKAGES</h5>
+  <div class="div-custom">
+    <ion-card>
+      <ion-row>
+        <ion-col style="padding: 0;">
+          <div class="box">
+            <div class="ribbon ribbon-top-left"><span>Views Details</span></div>
+            <img src="assets/img/gwk-bali.jpg" class="img-custom" />
           </div>
         </ion-col>
+      </ion-row>
+      <ion-card-content>
+        <h2>3 Day Trip to Bali</h2>
+        <h4>Sprawling, hectic and ever-growing, Bali's capital has been the focus of a lot of the island's growth and wealth
+          over the last five decades. It can seem a daunting and chaotic place, but spend a little time on its tree-lined
+          streets in the relatively affluent government and business district of Renon and you'll discover a more genteel
+          side.</h4>
+      </ion-card-content>
+      <ion-row class="row-label">
         <ion-col col-4>
-          <p>See All</p>
+          <button ion-button icon-left clear small>
+                    <ion-icon ios="ios-time" md="md-time" class="custom-color"></ion-icon><h3>3 Day(s)/2 Night(s)</h3>
+                  </button>
+        </ion-col>
+        <ion-col col-4></ion-col>
+        <ion-col col-4-custom>
+          <button ion-button icon-left secondary [outline]="active" class="custom-button-pick" (click)="btnPick()"><div style="font-size: 3.5vw;">Pick</div></button>
         </ion-col>
       </ion-row>
-      <ion-scroll scrollX="true" class="scroll-custom">
-        <div class="div-custom" (click)="readyHoneymoon()">
-          <ion-card>
-            <ion-row>
-              <ion-col style="padding: 0;">
-                <div class="box">
-                  <div class="ribbon ribbon-top-left"><span>Rp <strong>599.000</strong></span></div>
-                  <img src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458194236/e4d8fu7a4hw2c4nkch1q.jpg"
-                    class="img-custom" />
-                </div>
-              </ion-col>
-            </ion-row>
-            <ion-card-content>
-              <h2>Bali Honeymoon Package</h2>
-              <h4>With an absolute beachfront location The InterContinental Bali Resort offers style, sophistication and romance.</h4>
-              <ion-row class="row-label">
-                <ion-col col-4>
-                  <button ion-button icon-left clear small>
-                    <ion-icon ios="ios-pin" md="md-pin" class="custom-color"></ion-icon><h3>Seminyak, Bali</h3>
-                  </button>
-                </ion-col>
-                <ion-col col-4></ion-col>
-                <ion-col col-4>
-                  <button ion-button icon-left clear small>
-                    <!-- <rating readOnly="true" max="5" emptyStarIconName="star" halfStarIconName="star-half" 
-                    starIconName="star" nullable="false"></rating> -->
-                     <ion-icon ios="ios-star" md="md-star" class="custom-star"></ion-icon><h3>4.8</h3> 
-                  </button>
-                </ion-col>
-              </ion-row>
-              <ion-row class="row-label">
-                <ion-col col-4>
-                  <button ion-button icon-left clear small>
-                    <ion-icon ios="ios-people" md="md-people" class="custom-color"></ion-icon><h3>Min. 2 Guest(s)</h3>
-                  </button>
-                </ion-col>
-              </ion-row>
-              <ion-row class="row-label">
-                <ion-col col-4>
-                  <button ion-button icon-left clear small>
-                    <ion-icon ios="ios-calendar" md="md-calendar" class="custom-color"></ion-icon>
-                    <h3>26 Jul - 30 Jul 2017 | 5D / 4N</h3>
-                  </button>
-                </ion-col>
-              </ion-row>
+    </ion-card>
 
-
-            </ion-card-content>
-          </ion-card>
-        </div>
-        <div class="div-custom">
-          <!-- <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> -->
-          <ion-card>
-            <ion-row>
-              <ion-col style="padding: 0;">
-                <div class="box">
-                  <div class="ribbon ribbon-top-left"><span>Rp <strong>1.299.0000</strong></span></div>
-                  <img src="https://trekpapua.files.wordpress.com/2013/05/raja-ampat-550x366.jpg" class="img-custom" />
-                </div>
-              </ion-col>
-            </ion-row>
-            <ion-card-content>
-              <h2>Honeymoon Raja Ampat</h2>
-              <h4>Raja Ampat is the bull’s-eye of the Coral Triangle in every sense.</h4>
-              <ion-row class="row-label">
-                <ion-col col-4>
-                  <button ion-button icon-left clear small>
-                    <ion-icon ios="ios-pin" md="md-pin" class="custom-color"></ion-icon><h3>Raja Ampat, Papua</h3>
-                  </button>
-                </ion-col>
-                <ion-col col-4></ion-col>
-                <ion-col col-4>
-                  <button ion-button icon-left clear small>
-                    <ion-icon ios="ios-star" md="md-star" class="custom-star"></ion-icon><h3>4.9</h3>
-                  </button>
-                </ion-col>
-              </ion-row>
-              <ion-row class="row-label">
-                <ion-col col-4>
-                  <button ion-button icon-left clear small>
-                    <ion-icon ios="ios-people" md="md-people" class="custom-color"></ion-icon><h3>Min. 2 Guest(s)</h3>
-                  </button>
-                </ion-col>
-              </ion-row>
-              <ion-row class="row-label">
-                <ion-col col-4>
-                  <button ion-button icon-left clear small>
-                    <ion-icon ios="ios-calendar" md="md-calendar" class="custom-color"></ion-icon>
-                    <h3>26 Sept - 30 Sept 2017 | 5D / 4N</h3>
-                  </button>
-                </ion-col>
-              </ion-row>
-            </ion-card-content>
-          </ion-card>
-        </div>
-
-        <div class="div-custom">
-          <!-- <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> -->
-          <ion-card>
-            <ion-row>
-              <ion-col style="padding: 0;">
-                <div class="box">
-                  <div class="ribbon ribbon-top-left"><span>Rp <strong>899.000</strong></span></div>
-
-                  <img src="http://visitrinjani.com/wp-content/uploads/2011/03/qunci-villa-honeymoon1.jpg" class="img-custom" />
-                </div>
-              </ion-col>
-            </ion-row>
-            <ion-card-content>
-              <h2>Lombok Honeymoon Package</h2>
-              <h4>With Excellent Beautiful Luxury Resort for Honeymoon.</h4>
-              <ion-row class="row-label">
-                <ion-col col-4>
-                  <button ion-button icon-left clear small>
-                    <ion-icon ios="ios-pin" md="md-pin" class="custom-color"></ion-icon><h3>Kuta, Lombok</h3>
-                  </button>
-                </ion-col>
-                <ion-col col-4></ion-col>
-                <ion-col col-4>
-                  <button ion-button icon-left clear small>
-                    <ion-icon ios="ios-star" md="md-star" class="custom-star"></ion-icon><h3>4</h3>
-                  </button>
-                </ion-col>
-              </ion-row>
-              <ion-row class="row-label">
-                <ion-col col-4>
-                  <button ion-button icon-left clear small>
-                    <ion-icon ios="ios-people" md="md-people" class="custom-color"></ion-icon><h3>Min. 2 Guest(s)</h3>
-                  </button>
-                </ion-col>
-              </ion-row>
-              <ion-row class="row-label">
-                <ion-col col-4>
-                  <button ion-button icon-left clear small>
-                    <ion-icon ios="ios-calendar" md="md-calendar" class="custom-color"></ion-icon>
-                    <h3>26 Aug - 30 Aug 2017 | 5D / 4N</h3>
-                  </button>
-                </ion-col>
-              </ion-row>
-            </ion-card-content>
-          </ion-card>
-        </div>
-      </ion-scroll>
-    </div>
-
-    <div class="business">
-      <ion-row class="row-custom">
-        <ion-col col-8>
-          <div>
-            <h2 class="h2-custom">Regular / One Day Tour</h2>
+    <ion-card>
+      <ion-row>
+        <ion-col style="padding: 0;">
+          <div class="box">
+            <div class="ribbon ribbon-top-left"><span>Views Details</span></div>
+            <img src="https://cdn.getyourguide.com/img/tour_img-678374-145.jpg" class="img-custom" />
           </div>
         </ion-col>
+      </ion-row>
+      <ion-card-content>
+        <h2>Mount Batur Sunrise Trekking with Breakfast Atop</h2>
+        <h4>Bali’s Mount Batur is a sacred site according to Hindu belief. The active volcano is located at the center of concentric calderas northwest of Mount Agung, with an altitude of 1,717 meters. Hike to the top of the mountain to take in a spectacular sunrise.</h4>
+      </ion-card-content>
+      <ion-row class="row-label">
         <ion-col col-4>
-          <p>See All</p>
+          <button ion-button icon-left clear small>
+                    <ion-icon ios="ios-time" md="md-time" class="custom-color"></ion-icon><h3>10 Hour(s)</h3>
+                  </button>
+        </ion-col>
+        <ion-col col-4></ion-col>
+        <ion-col col-4-custom>
+          <button ion-button icon-left secondary [outline]="active" class="custom-button-pick" (click)="btnPick()"><div style="font-size: 3.5vw;">Pick</div></button>
         </ion-col>
       </ion-row>
-      <ion-scroll scrollX="true" style="overflow: scroll;white-space: nowrap; min-height:200px;">
-        <div class="div-custom">
-          <ion-card>
-            <img src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1457408744/kd6isr2f6xziuky84gno.jpg"
-              class="img-custom" />
-            <ion-card-content>
-              <h2>Mount Batur Sunrise Hiking and Coffee Plantation Tour</h2>
-              <h3>from</h3>
-              <h3>Rp 541.000</h3>
-            </ion-card-content>
-          </ion-card>
-        </div>
-        <div class="div-custom">
-          <ion-card>
-            <img src="https://cache-graphicslib.viator.com/graphicslib/thumbs674x446/22460/SITours/night-at-the-bali-zoo-including-dinner-experience-in-gianyar-253628.jpg"
-              class="img-custom" />
-            <ion-card-content>
-              <ion-card-title>
-                <h2>Night at the Bali Zoo Including Dinner</h2>
-                <h3>from</h3>
-                <h3>Rp 973.000</h3>
-              </ion-card-title>
-            </ion-card-content>
-          </ion-card>
-        </div>
-        <div class="div-custom">
-          <!-- <img src="assets/img/bali-wallpaper.jpg" style="height:150px; width:150px; margin: 10px; display: inline-block;"> -->
-          <ion-card>
-            <img src="https://balitourvacation.files.wordpress.com/2013/05/sobekrafting2.jpg" class="img-custom" />
-            <ion-card-content>
-              <ion-card-title>
-                <h2>Full Day Bali Adventure Tour with Quad Bikes and Rafting</h2>
-                <h3>from</h3>
-                <h3>Rp 1.622.000</h3>
-              </ion-card-title>
-            </ion-card-content>
-          </ion-card>
-        </div>
-      </ion-scroll>
+    </ion-card>
 
-    </div>
+    <ion-card>
+      <ion-row>
+        <ion-col style="padding: 0;">
+          <div class="box">
+            <div class="ribbon ribbon-top-left"><span>Views Details</span></div>
+            <img src="https://cdn.getyourguide.com/img/tour_img-639918-145.jpg" class="img-custom" />
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-card-content>
+        <h2>Bali All Inclusive: Ubud Rice Terraces, Temples & Volcano</h2>
+        <h4>See the scenic rice terraces, local temples, and dramatic landscape of Bali on a 9-hour guided tour. Go to Kintamani to experience an active volcano and lake. Explore Balinese culture and the majestic heritage and nature at tropical plantations</h4>
+      </ion-card-content>
+      <ion-row class="row-label">
+        <ion-col col-4>
+          <button ion-button icon-left clear small>
+                    <ion-icon ios="ios-time" md="md-time" class="custom-color"></ion-icon><h3>9 Hour(s)</h3>
+                  </button>
+        </ion-col>
+        <ion-col col-4></ion-col>
+        <ion-col col-4-custom>
+          <button ion-button icon-left secondary [outline]="active" class="custom-button-pick" (click)="btnPick()"><div style="font-size: 3.5vw;">Pick</div></button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+</ion-content>
 
-  </ion-content>
-
-</div>
+<ion-footer>
+  <button ion-button style="margin-top: 0px;margin-bottom: 0px; padding-bottom:0px;" full>Done</button>
+</ion-footer>
