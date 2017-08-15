@@ -190,6 +190,7 @@
             font-family: 'Open Sans', cursive;
             font-size: 4.8vw;
             font-weight: 600;
+            padding: 0;
         }
         .tab-text {
             font-family: 'Open Sans', sans-serif;
@@ -209,6 +210,13 @@
         }
         button.back-button {
             color: red;
+        }
+        .item-md ion-avatar img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: .5vw solid #00aeef;
         }
         ion-icon.custom-color {
             color: #4fd2c2;

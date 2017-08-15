@@ -1,6 +1,7 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ReadypackageDetailsPage } from './../readypackage-details/readypackage-details';
+import { IteneraryBuilderPage } from './../itenerary-builder/itenerary-builder';
 
 /**
  * Generated class for the ReadyPackagePage page.
@@ -16,17 +17,26 @@ import { ReadypackageDetailsPage } from './../readypackage-details/readypackage-
 export class ReadyPackagePage {
 
   showToolbar: boolean = false;
+  active: boolean = true;
 
   constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, public navParams: NavParams) {
   }
-   onScroll($event: any) {
+  onScroll($event: any) {
     let scrollTop = $event.scrollTop;
     this.showToolbar = scrollTop >= 120;
     this.ref.detectChanges();
   }
 
-  readyHoneymoon(){
+  readyHoneymoon() {
     this.navCtrl.push(ReadypackageDetailsPage);
+  }
+
+  btnPick() {
+    this.active = false;
+  }
+
+  btnCustomMenu(){
+    this.navCtrl.push(IteneraryBuilderPage);
   }
 
   ionViewDidLoad() {
