@@ -79,15 +79,15 @@ export class DailyService {
   dailyProgram(days) {
     if (days != (Object.keys(this.daily).length) - 1) {
       this.destroyDailyTour();
-      let today = new Date(this.ite.getDateTour().ev['monthStart'])
-      let tomorrow = new Date(this.ite.getDateTour().ev['monthStart'])
-      for (let i = 0; i <= days; i++) {
-        tomorrow.setDate(today.getDate() + i)
-        let dateDaily = tomorrow.toISOString().substring(0, 10)
+      let today = new Date(this.ite.getDateTour().ev['monthStart'].replace(/-/, '/').replace(/-/, '/'))
+      let tomorrow = new Date(this.ite.getDateTour().ev['monthStart'].replace(/-/, '/').replace(/-/, '/'))
+      for (let i = 0; i <= days; i++) {       
+        let dateDaily = tomorrow.getFullYear()+"-"+(tomorrow.getMonth()+1)+"-"+tomorrow.getDate()
         let p = new DailyProgram()
         p.datetour = dateDaily
         p.program_daily = Array.of(this.dailyDetails(i, days))
         this.daily[i] = p
+        tomorrow.setDate(tomorrow.getDate() + 1)
       }
     }
     console.log(this.daily);
@@ -272,42 +272,74 @@ export class DailyService {
     let today = (+new Date(this.daily[id].datetour));
     let before = (+new Date(itemroom.StayingPeriodTo));
     let sum = Math.round((before - today) / 86400000)
-    let endTour = new Date(this.ite.getDateTour().ev['monthEnd'])
+    let endTour = new Date(this.ite.getDateTour().ev['monthEnd'].replace(/-/, '/').replace(/-/, '/'))
     let endPeriode = new Date(itemroom.StayingPeriodTo)
     var no1 = Object.keys(this.daily).length;
+
     if (itemroom.IsPromo) {
-      if (endTour.getDate() > endPeriode.getDate()) {
-        if(sum > no1)
-            for (let k = id + 1; k < no1 - 1; k++) {
-              this.daily[k].program_daily[0].location = this.daily[id].program_daily[i].location;
-              this.daily[k].program_daily[0].roomtype = itemroom
-              this.daily[k].program_daily[0].roomservice = itemser
-              this.daily[k].program_daily[0].acomodation = hotel
+      if (endTour > endPeriode) {
+        if (sum > no1)
+          for (let k = id + 1; k < no1; k++) {
+            let no = Object.keys(this.daily[k].program_daily).length;
+            for (let j = 0; j < no; j++) {
+              this.daily[k].program_daily[j].acomodation = null;
+              this.daily[k].program_daily[j].roomtype = null;
+              this.daily[k].program_daily[j].roomservice = null;
             }
-            
-        else 
-            for (let k = id + 1; k < sum + 1; k++) {
-              this.daily[k].program_daily[0].location = this.daily[id].program_daily[i].location;
-              this.daily[k].program_daily[0].roomtype = itemroom
-              this.daily[k].program_daily[0].roomservice = itemser
-              this.daily[k].program_daily[0].acomodation = hotel
-            }
-      } else {
-          for (let k = id + 1; k < no1 - 1; k++) {
             this.daily[k].program_daily[0].location = this.daily[id].program_daily[i].location;
+            if (k < no1 - 1) {
+              this.daily[k].program_daily[0].roomtype = itemroom
+              this.daily[k].program_daily[0].roomservice = itemser
+              this.daily[k].program_daily[0].acomodation = hotel
+            }
+          }
+
+        else
+          for (let k = id + 1; k < sum + 1; k++) {
+            let no = Object.keys(this.daily[k].program_daily).length;
+            for (let j = 0; j < no; j++) {
+              this.daily[k].program_daily[j].acomodation = null;
+              this.daily[k].program_daily[j].roomtype = null;
+              this.daily[k].program_daily[j].roomservice = null;
+            }
+            this.daily[k].program_daily[0].location = this.daily[id].program_daily[i].location;
+            if (k < sum + 1) {
+              this.daily[k].program_daily[0].roomtype = itemroom
+              this.daily[k].program_daily[0].roomservice = itemser
+              this.daily[k].program_daily[0].acomodation = hotel
+            }
+          }
+      } else {
+        for (let k = id + 1; k < no1; k++) {
+          let no = Object.keys(this.daily[k].program_daily).length;
+          for (let j = 0; j < no; j++) {
+            this.daily[k].program_daily[j].acomodation = null;
+            this.daily[k].program_daily[j].roomtype = null;
+            this.daily[k].program_daily[j].roomservice = null;
+          }
+          this.daily[k].program_daily[0].location = this.daily[id].program_daily[i].location;
+          if (k < no1 - 1) {
             this.daily[k].program_daily[0].roomtype = itemroom
             this.daily[k].program_daily[0].roomservice = itemser
             this.daily[k].program_daily[0].acomodation = hotel
           }
+        }
       }
 
     } else {
-      for (let k = id + 1; k < no1 - 1; k++) {
-
+      for (let k = id + 1; k < no1; k++) {
+        let no = Object.keys(this.daily[k].program_daily).length;
+        for (let j = 0; j < no; j++) {
+          this.daily[k].program_daily[j].acomodation = null;
+          this.daily[k].program_daily[j].roomtype = null;
+          this.daily[k].program_daily[j].roomservice = null;
+        }
         this.daily[k].program_daily[0].location = this.daily[id].program_daily[i].location;
-        this.daily[k].program_daily[0].roomtype = itemroom
-        this.daily[k].program_daily[0].roomservice = itemser
-        this.daily[k].program_daily[0].acomodation = hotel
+        if (k < no1 - 1) {
+          this.daily[k].program_daily[0].roomtype = itemroom
+          this.daily[k].program_daily[0].roomservice = itemser
+          this.daily[k].program_daily[0].acomodation = hotel
+        }
       }
     }
     // this.setRoomService(id,i,itemser);

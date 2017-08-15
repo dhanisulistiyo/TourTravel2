@@ -194,7 +194,7 @@ export class IteneraryBuilderPage {
     //hitung total days
     let start = (+new Date(ev['monthStart']))
     let end = (+new Date(ev['monthEnd']))
-    this.totalDays = (end - start) / 86400000;
+    this.totalDays = Math.round((end - start) / 86400000);
     console.log(this.totalDays);
     //kirim data ke itenerary service
     var data = JSON.stringify({ ev });
@@ -204,19 +204,17 @@ export class IteneraryBuilderPage {
 
   setDateFrom(date: Date) {
     console.log(date);
-    this.datefrom = date;
-    let tomorrow = new Date();
-    tomorrow.setDate(date.getDate())
-    this.even.monthStart = tomorrow.toISOString().substring(0, 10);
+    this.datefrom = (date);
+    let tgl = this.datefrom;
+    this.even.monthStart = tgl.getFullYear()+"-"+(tgl.getMonth()+1)+"-"+tgl.getDate()
     this.inputDateTours(this.even);
   }
 
   setDateTo(date: Date) {
     console.log(date);
     this.dateto = date;
-    let tomorrow = new Date();
-    tomorrow.setDate(date.getDate())
-    this.even.monthEnd = tomorrow.toISOString().substring(0, 10);
+    let tgl = this.dateto;
+    this.even.monthEnd = tgl.getFullYear()+"-"+(tgl.getMonth()+1)+"-"+tgl.getDate()
     this.inputDateTours(this.even);
   }
 
