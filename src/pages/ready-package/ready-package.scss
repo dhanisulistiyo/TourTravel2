@@ -59,10 +59,22 @@ page-ready-package {
         font-family: 'Open Sans', cursive;
         font-size: 4vw;
         font-weight: 500;
-        padding: 15px 0px 0px 12px;
+        padding: 2vw;
         line-height: 1.5rem;
         color: #4d4d4d;
         background-color: #f9f9f9;
+        border-bottom: 1px solid gray;
+        border-top: 1px solid gray
+    }
+    .custom-h4 {
+        margin: 0;
+        font-family: 'Open Sans', cursive;
+        font-size: 4vw;
+        font-weight: 500;
+        color: #4d4d4d;
+        overflow: inherit;
+        text-overflow: inherit;
+        white-space: normal;
     }
     .card-md h2 {
         margin: 0;
@@ -106,6 +118,10 @@ page-ready-package {
     ion-icon.custom-info {
         color: #3498db;
         font-size: 4.4vw;
+    }
+    ion-icon.custom-add {
+        color: #3498db;
+        font-size: 18vw;
     }
     .card-md p {
         font-family: 'Open Sans', cursive;
@@ -154,7 +170,7 @@ page-ready-package {
         white-space: nowrap;
         width: 100%;
         padding-bottom: 0vw;
-        min-height: 200px;
+        //min-height: 200px;
         overflow: scroll;
         position: relative;
         ion-card {

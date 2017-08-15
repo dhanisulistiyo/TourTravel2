@@ -1,6 +1,7 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ReadypackageDetailsPage } from './../readypackage-details/readypackage-details';
+import { IteneraryBuilderPage } from './../itenerary-builder/itenerary-builder';
 
 /**
  * Generated class for the ReadyPackagePage page.
@@ -32,6 +33,10 @@ export class ReadyPackagePage {
 
   btnPick() {
     this.active = false;
+  }
+
+  btnCustomMenu(){
+    this.navCtrl.push(IteneraryBuilderPage);
   }
 
   ionViewDidLoad() {
