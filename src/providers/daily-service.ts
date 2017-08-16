@@ -23,7 +23,6 @@ export class DailyProgram {
   program_daily: Array<any>;
 
   constructor() {
-    window.console.log("Making a DailyProgram.");
     this.datetour = null;
     this.program_daily = [];
   }

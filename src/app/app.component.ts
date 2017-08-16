@@ -63,6 +63,7 @@ export class MyApp {
 
   openPage(page) {
     this.menu.close();
+    if(page.title == 'Logout') this.logout();
     this.nav.setRoot(page.component);
   }
 
@@ -82,8 +83,8 @@ export class MyApp {
     this.password = info.password;
   }
 
-    public logout() {
-       this.auth.logout();
+  logout() {
+            this.auth.logout();
             this.username=null;
             this.password=null;
              return LoginPage;
