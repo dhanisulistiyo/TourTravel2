@@ -102,6 +102,10 @@ import { PromoPackageProvider } from '../providers/promo-package';
 // Fixed Package Page
 import { FixedpackageDetailsPage } from './../pages/fixedpackage-details/fixedpackage-details';
 import { FixedpackageGuestPage } from './../pages/fixedpackage-guest/fixedpackage-guest';
+import { FixedpackagePaymentPage } from './../pages/fixedpackage-payment/fixedpackage-payment';
+import { FixedRoomallocatePage } from './../pages/fixed-roomallocate/fixed-roomallocate';
+import { FixedInputtravellersPage } from './../pages/fixed-inputtravellers/fixed-inputtravellers';
+
 import { ConfigProvider } from '../providers/config';
 
 // Ready Package page
@@ -124,6 +128,9 @@ import { ReadypackageDetailsPage } from './../pages/readypackage-details/readypa
     FixedPackagePage,
     FixedpackageDetailsPage,
     FixedpackageGuestPage,
+    FixedInputtravellersPage,
+    FixedRoomallocatePage,
+    FixedpackagePaymentPage,
     ReadypackageDestinationPage,
     ReadyPackagePage,
     ReadypackageDetailsPage,
@@ -191,17 +198,17 @@ import { ReadypackageDetailsPage } from './../pages/readypackage-details/readypa
     TransportHoursPage,
     ModalContentPage,
     ModalContentPageExpired,
-    
+
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp, {mode:'md', tabsHideOnSubPages: "true" }),
+    IonicModule.forRoot(MyApp, { mode: 'md', tabsHideOnSubPages: "true" }),
     HttpModule,
     Ionic2RatingModule, // Put ionic2-rating module here
     DatePickerModule
-    
 
-    
+
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -217,6 +224,9 @@ import { ReadypackageDetailsPage } from './../pages/readypackage-details/readypa
     FixedPackagePage,
     FixedpackageDetailsPage,
     FixedpackageGuestPage,
+    FixedInputtravellersPage,
+    FixedRoomallocatePage,
+    FixedpackagePaymentPage,
     ReadypackageDestinationPage,
     ReadyPackagePage,
     ReadypackageDetailsPage,
