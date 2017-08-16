@@ -112,4 +112,13 @@ page-fixedpackage-guest {
         font-size: 1.4rem;
         line-height: 1.5;
     }
+    ion-row.row-label {
+        text-align: left;
+        align-content: left;
+    }
+    ion-row.row-content {
+        text-align: center;
+        align-content: center;
+        margin-left: 2vw;
+    }
 }

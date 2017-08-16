@@ -17,6 +17,7 @@ export class FixedpackageGuestPage {
   total;
   maxGuest;
   kuota;
+  typeG;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef) {
     this.guestTour = { AdultQty: 0, ChildQty: 0, InfantQty: 0 };
@@ -68,6 +69,9 @@ export class FixedpackageGuestPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FixedpackageGuestPage');
+  }
+   passengerTapped() {
+    this.navCtrl.push(fixed)
   }
 
 }
