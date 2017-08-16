@@ -36,7 +36,6 @@ export class GuestDetails {
 export class GuestServiceProvider {
   Guest: any = [];
   constructor(public http: Http) {
-    console.log('Hello GuestServiceProvider Provider');
   }
 
 

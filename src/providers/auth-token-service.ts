@@ -35,6 +35,15 @@ export class AuthService {
 
     }
 
+    public storeToken(akun) {
+        window.localStorage.setItem('akun', akun);
+    }
+
+    public loadToken() {
+        let akun = JSON.parse(window.localStorage.getItem('akun'))
+        return akun;
+    }
+
     public useCredentials(token) {
         this.isLoggedin = true;
         this.AuthToken = token;
@@ -49,7 +58,10 @@ export class AuthService {
         this.isLoggedin = false;
         this.AuthToken = null;
         window.localStorage.clear();
+        localStorage.removeItem('akun');
+        localStorage.removeItem('raja');
     }
+
 
 
     public login(user) {
@@ -69,6 +81,7 @@ export class AuthService {
                 } else {
                     resolve(res.json());
                     let data2 = res.json();
+                    this.storeToken(JSON.stringify(data2));
                     let tokens = data2["access_token"];
                     this.storeUserCredentials(tokens);
                 }

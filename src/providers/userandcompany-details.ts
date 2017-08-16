@@ -50,7 +50,6 @@ export class UserandcompanyDetails {
   getUser() {
     var headers = new Headers();
     let token = this.auth.AuthToken;
-    console.log(token);
     headers.append('Authorization', 'Bearer ' + token);
     var url = this.conf.baseUrl+'/Account/UserInfo';
     var response = this.http.get(url, { headers: headers }).map(res => res.json());

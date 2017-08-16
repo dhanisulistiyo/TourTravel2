@@ -12,11 +12,25 @@ import { HomeScreenPage } from './../home-screen/home-screen';
 export class LoginPage {
     public loader= this.load.create();
     registerCredentials = { companyid:'' ,username: '', password: '' };
-
+    expire
+    now
     constructor(public nav: NavController, private auth: AuthService, 
         private alertCtrl: AlertController,public load : LoadingController, 
         public menu: MenuController, public info: UserandcompanyDetails) { 
-    this.menu.enable(false);
+
+        this.menu.enable(false);
+        if(this.auth.loadToken() != null){
+        this.expire = this.auth.loadToken();
+        this.now = new Date();
+            if(new Date(this.expire.expires)> this.now){
+                        this.nav.setRoot(HomeScreenPage);
+                        this.auth.getUserInfo();
+                        this.info.getDetails();
+                        this.menu.enable(true); 
+                        console.log(this.auth.AuthToken)
+            }
+        }
+        //this.nav.setRoot(HomeScreenPage);
     }
 
     public createAccount() {
@@ -29,7 +43,8 @@ export class LoginPage {
         });
         loader.present();
         this.auth.login(this.registerCredentials).then(allowed => {           
-            if (allowed) {                     
+            if (allowed) { 
+                    console.log(this.auth.loadToken());                    
                     this.nav.setRoot(HomeScreenPage);
                     this.auth.getUserInfo();
                     this.info.getDetails();
