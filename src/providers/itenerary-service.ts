@@ -203,7 +203,6 @@ export class IteneraryService {
             headers.append('Authorization', 'Bearer ' + token);
             var url = this.conf.baseUrl+'/cities?id=' + encodeURI(locationName);
             this.http.get(url, { headers: headers }).map(res => res).subscribe(data => {
-                console.log(data['_body']);
                 this.locations = JSON.parse(data['_body']);
                 window.localStorage.setItem('oLoc', JSON.stringify(this.locations[0]));
 
