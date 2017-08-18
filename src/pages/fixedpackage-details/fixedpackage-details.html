@@ -3,7 +3,7 @@
   <ion-navbar color="primary">
     <!--Toggle title-->
     <ion-title [hidden]="!showToolbar">
-      Bali Honeymoon Package
+      AMAZING TURKEY 16 SEP
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -15,25 +15,25 @@
       <ion-slides pager="true" loop="true" speed="1000">
         <ion-slide>
           <ion-card>
-            <img src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458194236/e4d8fu7a4hw2c4nkch1q.jpg"
+            <img src="http://dailyawesomeness.com/wp-content/uploads/2014/06/magic-turkey.jpg"
               style="height:250px; width:100%;" />
           </ion-card>
         </ion-slide>
         <ion-slide>
           <ion-card>
-            <img src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458193821/y0cmbplulajkj7dykkhc.jpg"
+            <img src="http://blog.radissonblu.com/wp-content/uploads/2015/04/Ankara-city.jpg"
               style="height:250px; width:100%;" />
           </ion-card>
         </ion-slide>
         <ion-slide>
           <ion-card>
-            <img src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458632152/wpqkqb6otqwti80ty7xp.png"
+            <img src="http://static2.simpsontravel.com/images/uploads/photos/large/turkey-kalkan-the-stone-house-20-kalkan.jpg"
               style="height:250px; width:100%;" />
           </ion-card>
         </ion-slide>
         <ion-slide>
           <ion-card>
-            <img src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458194054/g5hklg67zs4z7eeuoxsi.jpg"
+            <img src="https://newmedia.thomson.co.uk/live/vol/0/8a0ef56b850c4d84b54469ada9a62165e53efa98/1080x608/web/EUROPEMEDITERRANEANTURKEYCON_TURTURKEY-ANTALYAALANYA.jpg"
               style="height:250px; width:100%;" />
           </ion-card>
         </ion-slide>
@@ -41,25 +41,27 @@
     </div>
 
     <div class="info">
-      <h2>Bali Honeymoon Package</h2>
+      <h2>AMAZING TURKEY 16 SEP</h2>
       <div class="readmore" *ngIf="read == false">
-        <p class="p-readmore">With an absolute beachfront location The InterContinental Bali Resort offers style, sophistication and romance.
+        <p class="p-readmore">Richly historical land with some of the best cuisine you will ever taste, scenery from beaches to mountains
+            and the great city of İstanbul. Culinary Exploration The best thing about sampling Turkey's delicious specialties.
         </p>
         <a (click)="toggleDetails(read)">Read More</a>
       </div>
 
       <p class="p-readless" *ngIf="read == true">
-        With an absolute beachfront location The InterContinental Bali Resort offers style, sophistication and romance.
+          Richly historical land with some of the best cuisine you will ever taste, scenery from beaches to mountains
+          and the great city of İstanbul. Culinary Exploration The best thing about sampling Turkey's delicious specialties.
         <a (click)="toggleDetails(read)">Read Less</a>
       </p>
       <ion-row class="row-custom">
         <ion-col col-1-custom>
           <p class="p-price">Rp </p>
         </ion-col>
-        <ion-col col-4>
-          <h3>599.000</h3>
+        <ion-col col-5>
+          <h3>14.900.000</h3>
         </ion-col>
-        <ion-col col-7>
+        <ion-col col-6>
           <p class="p-custom" style="text-align: right; padding-top: 2vw;">
             <ion-icon ios="ios-star" md="md-star" class="custom-star"></ion-icon>
             100 Review(s)
@@ -192,7 +194,7 @@
                         class="schedule-img" />
                     </ion-col>
                   </ion-row>
-                  <ion-col col-12>
+                  <ion-col col-12 (click)="showDetails()">
                     <P style="color: #FF9800;  font-size: 4vw;">Details</P>
                   </ion-col>
                 </ion-grid>
@@ -382,7 +384,7 @@
           <ion-icon ios="ios-alert" md="ios-alert-outline" class="custom-pin" style="color: #e13838;"></ion-icon>
           Cancellation policy
         </p>
-        <p class="p-custom" style="padding-left: 4.4vw; text-align:justify;">If you cancel at least 7 day(s) in advance of the scheduled departure, there is no cacellation fee. If you cancel
+        <p class="p-custom" style="padding-bottom: 8vw; padding-left: 4.4vw; text-align:justify;">If you cancel at least 7 day(s) in advance of the scheduled departure, there is no cacellation fee. If you cancel
           between 3 and 6 day(s) in advance of the scheduled departure. there is a 50% cancellation fee. if you cancel within
           2 day(s) of the schedule departure, there is a 100 percent cancellation fee.</p>
       </div>

@@ -1,3 +1,4 @@
+import { FixedpackageItineraryPage } from './../pages/fixedpackage-itinerary/fixedpackage-itinerary';
 import { ModalContentPage, ModalContentPageExpired } from './../pages/confirm-booking/confirm-booking';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -107,6 +108,7 @@ import { FixedpackagePaymentPage } from './../pages/fixedpackage-payment/fixedpa
 import { FixedRoomallocatePage } from './../pages/fixed-roomallocate/fixed-roomallocate';
 import { FixedInputtravellersPage } from './../pages/fixed-inputtravellers/fixed-inputtravellers';
 
+
 import { ConfigProvider } from '../providers/config';
 
 // Ready Package page
@@ -130,6 +132,7 @@ import { ReadypackageDetailsPage } from './../pages/readypackage-details/readypa
     FixedPackagePage,
     FixedpackageDetailsPage,
     FixedpackageGuestPage,
+    FixedpackageItineraryPage,
     FixedInputtravellersPage,
     FixedRoomallocatePage,
     FixedpackagePaymentPage,
@@ -224,6 +227,7 @@ import { ReadypackageDetailsPage } from './../pages/readypackage-details/readypa
     CustomePackagePage,
     PromoPackagePage,
     FixedPackagePage,
+    FixedpackageItineraryPage,
     FixedpackageDetailsPage,
     FixedpackageGuestPage,
     FixedInputtravellersPage,

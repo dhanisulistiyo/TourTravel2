@@ -1,6 +1,7 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
-import {  NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { FixedpackageGuestPage } from './../fixedpackage-guest/fixedpackage-guest';
+import { FixedpackageItineraryPage } from './../fixedpackage-itinerary/fixedpackage-itinerary';
 
 /**
  * Generated class for the FixedpackageDetailsPage page.
@@ -42,6 +43,10 @@ export class FixedpackageDetailsPage {
     } else {
       this.read = true;
     }
+  }
+
+  showDetails() {
+    this.navCtrl.push(FixedpackageItineraryPage);
   }
 
 
