@@ -67,21 +67,26 @@ page-fixedpackage-itinerary {
             display: block;
         }
         .timeline .timeline-item {
-            margin: 0 3vw 2vw 5vw;
+            margin: 0 3vw 2vw 7vw;
             background: white;
-            padding: 1vw 4vw 1vw 4vw;
+            position: relative;
+            padding: 2vw 4vw 2vw 4vw;
             border-radius: 0.25em;
             border: 1px solid #55bbd4;
         }
-        .timeline.timeline-item::before {
-            content: '';
+        .timeline .timeline-item::before {
             position: absolute;
-            right: 100%;
-            height: 0;
-            width: 0;
-            border: 7px solid transparent;
-            border-left: 7px solid blue;
-            border-left-color: inherit;
+            display: block;
+            top: 10px;
+            left: -20px;
+            content: '';
+            width: 0px;
+            height: 0px;
+            border: inherit;
+            border-width: 10px;
+            border-top-color: transparent;
+            border-bottom-color: transparent;
+            border-left-color: transparent;
         }
         .timeline .timeline-stats {
             position: relative;
@@ -89,15 +94,27 @@ page-fixedpackage-itinerary {
             color: #7F8C8D;
         }
         .item-md p {
-            // overflow: inherit;
-            // margin: 0 0 2px;
-            // font-size: 3.8vw;
-            // padding-right: 2vw;
-            // line-height: normal;
-            // text-overflow: inherit;
-            // color: #666;
             font-family: 'Open Sans', cursive;
             color: #808080;
+            font-size: 3.8vw;
+            font-weight: 600;
+            margin-bottom: 1vw;
+            display: -webkit-box;
+            max-width: 280px;
+            line-height: 1.5;
+            -webkit-line-clamp: 2;
+            /* autoprefixer: off */
+            -webkit-box-orient: vertical;
+            /* autoprefixer: on */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+            text-align: left;
+        }
+        .item-md h5 {
+            font-family: 'Open Sans', cursive;
+            color: #55bbd4; // background-color: #428bca;
+            // border-color: #428bca;
             font-size: 3.8vw;
             font-weight: 600;
             margin-bottom: 1vw;
@@ -136,6 +153,13 @@ page-fixedpackage-itinerary {
                 font-size: 4vw;
                 font-weight: 600;
             }
+        }
+        .img-scroll {
+            margin: 0px 5px 0px 0px;
+            display: inline-block;
+            width: 20vw;
+            height: 20vw;
+            object-fit: cover;
         }
         .ios page-daily-program ion-list ion-icon:before,
         .md page-daily-program ion-list ion-icon:before {
@@ -308,8 +332,5 @@ page-fixedpackage-itinerary {
             border-radius: 40px;
         }
     }
-
-    .timeline-two{
-        
-    }
+    .timeline-two {}
 }

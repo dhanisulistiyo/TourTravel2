@@ -1,3 +1,4 @@
+import { FixedpackageAllPage } from './../fixedpackage-all/fixedpackage-all';
 import { Component, ChangeDetectorRef  } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FixedpackageDetailsPage } from './../fixedpackage-details/fixedpackage-details';
@@ -25,6 +26,9 @@ export class FixedPackagePage {
   }
   fixHoneymoon(){
     this.navCtrl.push(FixedpackageDetailsPage);
+  }
+  fixSeeAll(){
+    this.navCtrl.push(FixedpackageAllPage);
   }
 
 

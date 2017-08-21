@@ -50,7 +50,7 @@
             <h2 class="h2-custom">Family</h2>
           </div>
         </ion-col>
-        <ion-col col-4-custom>
+        <ion-col col-4-custom (click)="fixSeeAll()">
           <p>See All</p>
         </ion-col>
       </ion-row>
@@ -60,7 +60,7 @@
             <ion-row>
               <ion-col style="padding: 0;">
                 <div class="box">
-                  <div class="ribbon ribbon-top-left"><span><h6>IDR</h6><h5><strong>14,9 mio</strong><h6> / pax</h6></h5></span></div>
+                  <div class="ribbon ribbon-top-left"><span><h6>IDR</h6><h5><strong>14.900.000</strong><h6> / pax</h6></h5></span></div>
                   <img src="http://dailyawesomeness.com/wp-content/uploads/2014/06/magic-turkey.jpg" class="img-custom" />
                 </div>
               </ion-col>
@@ -307,9 +307,22 @@
           </ion-card>
         </div>
       </ion-scroll>
-
     </div>
-
   </ion-content>
-
+  <!-- <ion-footer>
+    <ion-row class="custom-row">
+      <ion-col style="border-right: 1px solid #cccccc">
+        <button ion-button icon-left style="margin-top: 0px;margin-bottom: 0px;" class="btn-filter">
+            <ion-icon ios="ios-options" md="ios-options-outline" class="custom-icon"></ion-icon>
+                Filter
+              </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left style="margin-top: 0px;margin-bottom: 0px;" class="btn-sortby">
+                <ion-icon ios="ios-stats" md="ios-stats-outline" class="custom-icon"></ion-icon>
+                Sort By
+              </button>
+      </ion-col>
+    </ion-row>
+  </ion-footer> -->
 </div>

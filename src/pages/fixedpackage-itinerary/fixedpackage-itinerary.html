@@ -7,59 +7,76 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>fixedpackage-itinerary</ion-title>
+    <ion-title>Your Detailed Itinerary</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content class="padding">
-    <div class="timeline">
-        <ion-list>
-          <ion-item class="label-title-item">
-            <ion-icon style="color: #fff" item-right></ion-icon>
-            <div class="divider-title">
-              Day 1 : 16 September 2017
-            </div>
-            <div style="padding-bottom: 0px;">
-              <ul class="timeline">
-                <li>
-                  <div class="timeline-thumb bg-color-positive timeline-icon">
-                    <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon" style="left: 1vw; top: 1.2vw;"></ion-icon>
-                  </div>
-                  <div class="timeline-item">
-                    <h4 class="line-break">Soekarno-Hatta International Airport</h4>
-                    <p class="line-break">Jakarta</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="timeline-thumb bg-color-dark timeline-icon">
-                    <ion-icon ios="ios-cloudy-night" md="md-cloudy-night" class="timeline-icon"></ion-icon>
-                  </div>
-                  <div class="timeline-item">
-                    <h4>Istanbul Ataturk Airport</h4>
-                    <p class="line-break">South Kuta, Bali, Indonesia</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="timeline-thumb bg-color-calm timeline-icon">
-                    <ion-icon ios="ios-bus" md="md-bus" class="timeline-icon"></ion-icon>
-                  </div>
-                  <div class="timeline-item">
-                    <h4>Airport Pickup</h4>
-                  </div>
-                </li>
-                <li>
-                  <div class="timeline-thumb bg-color-energized timeline-icon">
-                    <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle" class="timeline-icon"></ion-icon>
-                  </div>
-                  <div class="timeline-item">
-                    <h4>Istanbul City Tour</h4>
-                    <p class="line-break"><span class="line-break" maxlength="100">Hippodrome,  Sultanahmet Mosque / Blue Mosque, Hagia Sophia</span></p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </ion-item>
-        </ion-list>
-      </div>
+  <div class="timeline">
+    <ion-list>
+      <ion-item class="label-title-item">
+        <ion-icon style="color: #fff" item-right></ion-icon>
+        <div class="divider-title">
+          Day 1 : 16 September 2017
+        </div>
+        <div style="padding-bottom: 0px;">
+          <ul class="timeline">
+            <li>
+              <div class="timeline-thumb bg-color-positive timeline-icon">
+                <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon" style="left: 1vw; top: 1.2vw;"></ion-icon>
+              </div>
+              <div class="timeline-item">
+                <h5 class="line-break">00.10 A.M (GMT +7)</h5>
+                <h4 class="line-break">Soekarno-Hatta International Airport</h4>
+                <p class="line-break">Jakarta</p>
+              </div>
+            </li>
+            <li>
+              <div class="timeline-thumb bg-color-dark timeline-icon">
+                <ion-icon ios="ios-cloudy-night" md="md-cloudy-night" class="timeline-icon"></ion-icon>
+              </div>
+              <div class="timeline-item">
+                <h5 class="line-break">12.50 P.M (GMT +3)</h5>
+                <h4>Istanbul Ataturk Airport</h4>
+                <p class="line-break">Bakırköy/Istanbul, Turkey</p>
+              </div>
+            </li>
+            <li>
+              <div class="timeline-thumb bg-color-calm timeline-icon">
+                <ion-icon ios="ios-bus" md="md-bus" class="timeline-icon"></ion-icon>
+              </div>
+              <div class="timeline-item">
+                <h5 class="line-break">14.00 P.M (GMT +3)</h5>
+                <h4>Airport Pickup</h4>
+                <p class="line-break">Bakırköy/Istanbul, Turkey</p>
+              </div>
+            </li>
+            <li>
+              <div class="timeline-thumb bg-color-energized timeline-icon">
+                <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle" class="timeline-icon"></ion-icon>
+              </div>
+              <div class="timeline-item">
+                <h5 class="line-break">14.30 P.M (GMT +3)</h5>
+                <h4>Istanbul City Tour</h4>
+                <p class="line-break"><span class="line-break" maxlength="100">Hippodrome,  Sultanahmet Mosque / Blue Mosque, Hagia Sophia</span></p>
+                <ion-scroll scrollX="true">
+                  <img class="img-scroll" src="http://love2fly.iberia.com/wp-content/uploads/2015/07/L2F-Jul-15-pic-Turkey-Istanbul-Blue-Mosque-interior-Yarygin-shutterstock_185429441.jpg"
+                  />
+                  <img class="img-scroll" src="http://i0.wp.com/blog.istanbultourstudio.com/wp-content/uploads/CONSTANTINOPLE_4.jpg" />
+                  <img class="img-scroll" src="http://ayasofyamuzesi.gov.tr/sites/default/files/hagia-sophia-interior_1.jpg" />
+                </ion-scroll>
+                <h4>- Blue Mosque</h4>
+                <img src="http://love2fly.iberia.com/wp-content/uploads/2015/07/L2F-Jul-15-pic-Turkey-Istanbul-Blue-Mosque-interior-Yarygin-shutterstock_185429441.jpg">
+                <h4>- Hippo Drome</h4>
+                <img src="http://i0.wp.com/blog.istanbultourstudio.com/wp-content/uploads/CONSTANTINOPLE_4.jpg">
+                <h4>- Haghia Sophia</h4>
+                <img src="https://healthyglobetrotter.files.wordpress.com/2012/11/331161_10150258088116899_5826045_o.jpg">
+              </div>
+            </li>
+          </ul>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
