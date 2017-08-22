@@ -1,5 +1,8 @@
+
+import { ConfigProvider } from './config';
+import { AuthService } from '../providers/auth-token-service'
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 export class GuestDetails {
@@ -11,6 +14,7 @@ export class GuestDetails {
   typeid;
   guestype;
   constructor() {
+
     window.console.log("Making a Guest Details.");
     this.id = null;
     this.typeid = null;
@@ -30,8 +34,18 @@ export class FixedPackageProvider {
   TGuest;
   allocation;
 
-  constructor(public http: Http) {
+  constructor(public http: Http, public auth:AuthService, public config:ConfigProvider) {
     console.log('Hello FixedPackageProvider Provider');
+    this.http = http;
+  }
+
+  showFixedPackage() {
+    var headers = new Headers();
+    let token = this.auth.AuthToken;
+    headers.append('Authorization', 'Bearer' +token);
+    var url = this.config.baseUrl+'/BookingTemplates/GetTemplates/FixedPackage'
+    var response = this.http.get(url, {headers:headers}).map(res => res.json());
+    return response;
   }
 
   createGuest(adult, child, infant) {
@@ -89,7 +103,7 @@ export class FixedPackageProvider {
     this.TGuest = guest;
   }
 
-  
+
 
 }
 
