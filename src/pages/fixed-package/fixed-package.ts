@@ -1,3 +1,4 @@
+import { FixedPackageProvider } from './../../providers/fixed-package';
 import { FixedpackageAllPage } from './../fixedpackage-all/fixedpackage-all';
 import { Component, ChangeDetectorRef  } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -10,10 +11,17 @@ import { FixedpackageDetailsPage } from './../fixedpackage-details/fixedpackage-
 export class FixedPackagePage {
 
   showToolbar: boolean = false;
+  listFixedPackage: Array<any>;
+  
+  constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, public navParams: NavParams, private fixService : FixedPackageProvider) {
 
-
-  constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, public navParams: NavParams) {
-
+  }
+  ionViewWillEnter(){
+   this.fixService.showFixedPackage().subscribe(data => {
+     this.listFixedPackage = data;
+   }, err => {
+     console.log(err);
+   }, () => console.log)
   }
   onScroll($event: any) {
     let scrollTop = $event.scrollTop;
