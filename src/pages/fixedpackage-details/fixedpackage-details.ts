@@ -44,13 +44,13 @@ export class FixedpackageDetailsPage {
     loader.present();
     this.fixService.detailsPackage(1).subscribe(data => {
       console.log(data)
-      console.log(data['Prices'])
-      console.log(data['Images'])
-      console.log(data['Descriptions'])
-      console.log(data['BookingDetailSum'])
-      console.log(data['DailyPrograms'])
-      console.log(data['TourPriceSum'])
-      console.log(data['TourGuestSum'])
+      this.Prices = (data['Prices'])
+      this.Images = (data['Images'])
+      this.Descriptions = (data['Descriptions'])
+      this.BookingDetailSum = (data['BookingDetailSum'])
+      this.DailyPrograms = (data['DailyPrograms'])
+      this.TourPriceSum = (data['TourPriceSum'])
+      this.TourGuestSum = (data['TourGuestSum'])
       loader.dismiss();
       
 
@@ -75,8 +75,8 @@ export class FixedpackageDetailsPage {
     }
   }
 
-  showDetails() {
-    this.navCtrl.push(FixedpackageItineraryPage);
+  showDetails(dp, day, date) {
+    this.navCtrl.push(FixedpackageItineraryPage, {dp, day, date});
   }
 
 
