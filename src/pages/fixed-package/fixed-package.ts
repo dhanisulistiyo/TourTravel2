@@ -1,6 +1,6 @@
 import { FixedPackageProvider } from './../../providers/fixed-package';
 import { FixedpackageAllPage } from './../fixedpackage-all/fixedpackage-all';
-import { Component, ChangeDetectorRef  } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FixedpackageDetailsPage } from './../fixedpackage-details/fixedpackage-details';
 
@@ -12,17 +12,19 @@ export class FixedPackagePage {
 
   showToolbar: boolean = false;
   listFixedPackage: Array<any>;
-  
-  constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, public navParams: NavParams, private fixService : FixedPackageProvider) {
+
+  constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, public navParams: NavParams, private fixService: FixedPackageProvider) {
 
   }
-  ionViewWillEnter(){
-   this.fixService.showFixedPackage().subscribe(data => {
-     this.listFixedPackage = data;
-   }, err => {
-     console.log(err);
-   }, () => console.log)
+  ionViewWillEnter() {
+    this.fixService.showFixedPackage().subscribe(data => {
+      this.listFixedPackage = data;
+    }, err => {
+      console.log(err);
+    }, () => console.log("Fix Package Search COmplete")
+    );
   }
+
   onScroll($event: any) {
     let scrollTop = $event.scrollTop;
     this.showToolbar = scrollTop >= 120;
@@ -32,10 +34,10 @@ export class FixedPackagePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad FixedPackagePage');
   }
-  fixHoneymoon(){
+  fixHoneymoon() {
     this.navCtrl.push(FixedpackageDetailsPage);
   }
-  fixSeeAll(){
+  fixSeeAll() {
     this.navCtrl.push(FixedpackageAllPage);
   }
 

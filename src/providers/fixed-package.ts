@@ -40,9 +40,9 @@ export class FixedPackageProvider {
   }
 
   showFixedPackage() {
-    var headers = new Headers();
+    var headers = new Headers();    
     let token = this.auth.AuthToken;
-    headers.append('Authorization', 'Bearer' +token);
+    headers.append('Authorization', 'Bearer ' + token);
     var url = this.config.baseUrl+'/BookingTemplates/GetTemplates/FixedPackage'
     var response = this.http.get(url, {headers:headers}).map(res => res.json());
     return response;
