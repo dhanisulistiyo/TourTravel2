@@ -54,20 +54,64 @@
         </ion-col>
       </ion-row>
       <ion-scroll scrollX="true" class="scroll-custom">
+          <div class="div-custom" (click)="fixHoneymoon()">
+              <ion-card *ngFor="let fix of listFixedPackage">
+                <ion-row>
+                  <ion-col style="padding: 0;">
+                    <div class="box">
+                      <div class="ribbon ribbon-top-left"><span><h6>IDR</h6><h5><strong>14.900.000</strong><h6> / pax</h6></h5></span></div>
+                      <img src="http://dailyawesomeness.com/wp-content/uploads/2014/06/magic-turkey.jpg" class="img-custom" />
+                    </div>
+                  </ion-col>
+                </ion-row>
+                <ion-card-content>
+                  <h2>AMAZING TURKEY 16 SEP</h2>
+                  <h4>Richly historical land with some of the best cuisine you will ever taste, scenery from beaches to mountains
+                    and the great city of İstanbul. Culinary Exploration The best thing about sampling Turkey's delicious specialties.</h4>
+                  <ion-row class="row-label">
+                    <ion-col col-4>
+                      <button ion-button icon-left clear small>
+                            <ion-icon ios="ios-pin" md="md-pin" class="custom-color"></ion-icon><h3>Istanbul, Turkey</h3>
+                          </button>
+                    </ion-col>
+                    <ion-col col-4></ion-col>
+                    <ion-col col-4-custom>
+                      <button ion-button icon-left clear small>
+                            <ion-icon ios="ios-star" md="md-star" class="custom-star"></ion-icon><h3>4.9</h3>
+                          </button>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row class="row-label">
+                    <ion-col col-4>
+                      <button ion-button icon-left clear small>
+                        <ion-icon ios="ios-people" md="md-people" class="custom-color"></ion-icon><h3>Min. 20 Guest(s)</h3>
+                      </button>
+                    </ion-col>
+                  </ion-row>
+                  <!-- <ion-row class="row-label">
+                    <ion-col col-4>
+                      <button ion-button icon-left clear small>
+                        <ion-icon ios="ios-calendar" md="md-calendar" class="custom-color"></ion-icon>
+                        <h3>16 Sept - 24 Sept 2017 | 9D / 8N</h3>
+                      </button>
+                    </ion-col>
+                  </ion-row> -->
+                </ion-card-content>
+              </ion-card>
+            </div>
         <div class="div-custom" (click)="fixHoneymoon()">
           <ion-card *ngFor="let fix of listFixedPackage">
             <ion-row>
               <ion-col style="padding: 0;">
                 <div class="box">
-                  <div class="ribbon ribbon-top-left"><span><h6>IDR</h6><h5><strong>14.900.000</strong><h6> / pax</h6></h5></span></div>
-                  <img src="http://dailyawesomeness.com/wp-content/uploads/2014/06/magic-turkey.jpg" class="img-custom" />
+                  <div class="ribbon ribbon-top-left"><span><h6>Start From</h6><h5><strong>{{fix.LowestPrice}} USD</strong><h6> / pax</h6></h5></span></div>
+                  <img src="{{fix.City.ImageUrl}}" class="img-custom" />
                 </div>
               </ion-col>
             </ion-row>
             <ion-card-content>
-              <h2>AMAZING TURKEY 16 SEP</h2>
-              <h4>Richly historical land with some of the best cuisine you will ever taste, scenery from beaches to mountains
-                and the great city of İstanbul. Culinary Exploration The best thing about sampling Turkey's delicious specialties.</h4>
+              <h2>{{fix.Title}}</h2>
+              <h4>{{fix.Description}}</h4>
               <ion-row class="row-label">
                 <ion-col col-4>
                   <button ion-button icon-left clear small>
@@ -84,7 +128,7 @@
               <ion-row class="row-label">
                 <ion-col col-4>
                   <button ion-button icon-left clear small>
-                    <ion-icon ios="ios-people" md="md-people" class="custom-color"></ion-icon><h3>Min. 20 Guest(s)</h3>
+                    <ion-icon ios="ios-people" md="md-people" class="custom-color"></ion-icon><h3>Min. {{fix.MinimumGuest}} Guest(s)</h3>
                   </button>
                 </ion-col>
               </ion-row>

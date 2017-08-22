@@ -19,9 +19,10 @@ export class FixedPackagePage {
   ionViewWillEnter() {
     this.fixService.showFixedPackage().subscribe(data => {
       this.listFixedPackage = data;
+      console.log(data)
     }, err => {
       console.log(err);
-    }, () => console.log("Fix Package Search COmplete")
+    }, () => console.log("Fix Package Search Complete")
     );
   }
 
