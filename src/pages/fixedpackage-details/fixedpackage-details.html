@@ -3,7 +3,7 @@
   <ion-navbar color="primary">
     <!--Toggle title-->
     <ion-title [hidden]="!showToolbar">
-      AMAZING TURKEY 16 SEP
+      {{BookingDetailSum?.Title}}
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -13,27 +13,9 @@
 
     <div class="slide-pager" style="margin-left: -18px; width:110%; overflow: visible; margin-top: -10px;">
       <ion-slides pager="true" loop="true" speed="1000">
-        <ion-slide>
+        <ion-slide *ngFor="let item of Images" >
           <ion-card>
-            <img src="http://dailyawesomeness.com/wp-content/uploads/2014/06/magic-turkey.jpg"
-              style="height:250px; width:100%;" />
-          </ion-card>
-        </ion-slide>
-        <ion-slide>
-          <ion-card>
-            <img src="http://blog.radissonblu.com/wp-content/uploads/2015/04/Ankara-city.jpg"
-              style="height:250px; width:100%;" />
-          </ion-card>
-        </ion-slide>
-        <ion-slide>
-          <ion-card>
-            <img src="http://static2.simpsontravel.com/images/uploads/photos/large/turkey-kalkan-the-stone-house-20-kalkan.jpg"
-              style="height:250px; width:100%;" />
-          </ion-card>
-        </ion-slide>
-        <ion-slide>
-          <ion-card>
-            <img src="https://newmedia.thomson.co.uk/live/vol/0/8a0ef56b850c4d84b54469ada9a62165e53efa98/1080x608/web/EUROPEMEDITERRANEANTURKEYCON_TURTURKEY-ANTALYAALANYA.jpg"
+            <img src="{{item}}"
               style="height:250px; width:100%;" />
           </ion-card>
         </ion-slide>
@@ -41,7 +23,7 @@
     </div>
 
     <div class="info">
-      <h2>AMAZING TURKEY 16 SEP</h2>
+      <h2>{{BookingDetailSum?.Title}}</h2>
       <div class="readmore" *ngIf="read == false">
         <p class="p-readmore">Richly historical land with some of the best cuisine you will ever taste, scenery from beaches to mountains
             and the great city of İstanbul. Culinary Exploration The best thing about sampling Turkey's delicious specialties.
@@ -56,10 +38,10 @@
       </p>
       <ion-row class="row-custom">
         <ion-col col-1-custom>
-          <p class="p-price">Rp </p>
+          <p class="p-price">USD </p>
         </ion-col>
         <ion-col col-5>
-          <h3>14.900.000</h3>
+          <h3>{{BookingDetailSum?.TourTotalPrice}}/Pax (Max)</h3>
         </ion-col>
         <ion-col col-6>
           <p class="p-custom" style="text-align: right; padding-top: 2vw;">
@@ -72,7 +54,7 @@
         <ion-col col-6>
           <p class="p-custom">
             <ion-icon ios="ios-people" md="ios-people-outline" class="custom-pin"></ion-icon>
-            Min. <strong>15</strong> Guest(s)
+           <strong>{{BookingDetailSum?.FixedPackage.MinumumGuest}}-{{BookingDetailSum?.FixedPackage.MaximumGuest}}</strong> Guest(s)
           </p>
         </ion-col>
         <ion-col col-6>
@@ -85,11 +67,11 @@
 
       <p class="p-custom">
         <ion-icon ios="ios-time" md="md-time" class="custom-pin"></ion-icon>
-        Aug, 10 - Aug, 17 2017
+        {{BookingDetailSum?.StartDate | date:'dd MMM yyyy'}} - {{BookingDetailSum?.EndDate| date:'dd MMM yyyy'}}
       </p>
       <p class="p-custom">
         <ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-pin"></ion-icon>
-        8 Day(s) / 7 Night(s)
+        {{days+1}} Day(s) / {{days}} Night(s)
       </p>
     </div>
 
@@ -134,12 +116,12 @@
       <h2>What we'll do</h2>
       <div class="slide-schedule" style="margin-left: 0;">
         <ion-slides loop="true" speed="1000">
-          <ion-slide>
+          <ion-slide *ngFor="let dp of DailyPrograms ; let i = index">
             <ion-card style="height:67vw; width:100%;">
               <ion-card-header>
                 <ion-row>
                   <ion-col col-12>
-                    Day 1
+                    Day {{dp.Day}}
                   </ion-col>
                 </ion-row>
                 <ion-row>
@@ -152,7 +134,7 @@
                   <ion-col col-4>
                     <button ion-button icon-left clear small>
                       <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
-                      <div style="font-size: 3.7vw;">Aug 10, 2017</div>
+                      <div style="font-size: 3.7vw;">{{dp.Date | date:'dd MMM yyyy'}}</div>
                     </button>
                   </ion-col>
                   <ion-col col-4>
@@ -194,14 +176,15 @@
                         class="schedule-img" />
                     </ion-col>
                   </ion-row>
-                  <ion-col col-12 (click)="showDetails()">
+                  <ion-col col-12 (click)="showDetails(dp.TourDestinations, dp.Day, dp.Date)">
                     <P style="color: #FF9800;  font-size: 4vw;">Details</P>
                   </ion-col>
                 </ion-grid>
               </ion-card-content>
             </ion-card>
           </ion-slide>
-          <ion-slide>
+          
+          <!-- <ion-slide>
             <ion-card style="height:67vw; width:100%;">
               <ion-card-header>
                 <ion-row>
@@ -266,7 +249,7 @@
                 The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
               </ion-card-content>
             </ion-card>
-          </ion-slide>
+          </ion-slide> -->
         </ion-slides>
       </div>
     </div>

@@ -13,12 +13,21 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'fixedpackage-itinerary.html',
 })
 export class FixedpackageItineraryPage {
-
+  DP
+  Day
+  Dates
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.DP = navParams.data['dp']
+    this.Day =  navParams.data['day']
+    this.Dates =  navParams.data['date']
   }
+  
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FixedpackageItineraryPage');
+    console.log(this.DP)
+    console.log(this.Day)
+    console.log(this.Dates)
   }
 
 }
