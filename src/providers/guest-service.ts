@@ -89,15 +89,26 @@ export class GuestServiceProvider {
       this.Guest[i].firstName = par;
       console.log(this.Guest)
   }
+  getFirstName(){
+    return this.Guest[0].firstName;
+  }
 
   setLastName(i, par){
       this.Guest[i].lastName = par;
       console.log(this.Guest)
   }
 
+  getLastName(){
+    return this.Guest[0].lastName;
+}
+
   setCountry(i, par){
       this.Guest[i].country = par;
       console.log(this.Guest)
   }
+
+  getCountry(){
+    return this.Guest[0].country;
+}
 
 }

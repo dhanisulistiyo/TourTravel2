@@ -2,7 +2,7 @@ import { LocationGuestPage } from './../location-guest/location-guest';
 import { DailyProgram } from './../daily-program/daily-program';
 import { GuestServiceProvider } from './../../providers/guest-service';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the GuestDetailsPage page.
@@ -19,7 +19,8 @@ export class GuestDetailsPage {
   Guest : Array<any>;
   Type;
   ID
-  constructor(public navCtrl: NavController, public navParams: NavParams, public gu : GuestServiceProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    public gu : GuestServiceProvider, public alertCtrl: AlertController) {
     this.Type = navParams.data['type'];
     console.log(this.Type);
     this.ID = ['Choose Type Guest','ID Card', 'Passport','Driving License']
@@ -60,8 +61,39 @@ export class GuestDetailsPage {
     }
 
     createItenerary(event) {
+        // if (this.gu.getFirstName() == null || this.gu.getFirstName() == "" ) this.showAlertFirstName()
+        // else if (this.gu.getLastName() == null || this.gu.getLastName() == "" ) this.showAlertLastName()
+        // else if (this.gu.getCountry() == null || this.gu.getCountry() == "" ) this.showAlertCountry()
+        //else 
         this.navCtrl.push(DailyProgram);
 
     }
 
+
+    showAlertFirstName() {
+      let alert = this.alertCtrl.create({
+        title: 'Failed!',
+        subTitle: 'Please Input Firstname Leader',
+        buttons: ['OK']
+      });
+      alert.present();
+    }
+
+    showAlertLastName() {
+      let alert = this.alertCtrl.create({
+        title: 'Failed!',
+        subTitle: 'Please Input Lastname Leader',
+        buttons: ['OK']
+      });
+      alert.present();
+    }
+
+    showAlertCountry() {
+      let alert = this.alertCtrl.create({
+        title: 'Failed!',
+        subTitle: 'Please Choose Country Leader',
+        buttons: ['OK']
+      });
+      alert.present();
+    }
 } 
