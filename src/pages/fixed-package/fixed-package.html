@@ -9,7 +9,6 @@
 </ion-header>
 <div class="scroll-content" style="padding-top:0px">
   <ion-content fullscreen="true" style="padding-top: 0px;" (ionScroll)="onScroll($event)">
-
     <div class="slide-pager" style="margin-left: -18px; width:110%; overflow: visible; margin-top: -10px;">
       <ion-slides pager="true" loop="true" speed="1000">
         <ion-slide>
@@ -56,7 +55,7 @@
       </ion-row>
       <ion-scroll scrollX="true" class="scroll-custom">
         <div class="div-custom" (click)="fixHoneymoon()">
-          <ion-card>
+          <ion-card *ngFor="let fix of listFixedPackage">
             <ion-row>
               <ion-col style="padding: 0;">
                 <div class="box">
@@ -72,7 +71,7 @@
               <ion-row class="row-label">
                 <ion-col col-4>
                   <button ion-button icon-left clear small>
-                        <ion-icon ios="ios-pin" md="md-pin" class="custom-color"></ion-icon><h3>7 Cities</h3>
+                        <ion-icon ios="ios-pin" md="md-pin" class="custom-color"></ion-icon><h3>{{fix.Destination}}</h3>
                       </button>
                 </ion-col>
                 <ion-col col-4></ion-col>
