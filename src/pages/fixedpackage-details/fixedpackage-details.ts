@@ -26,6 +26,7 @@ export class FixedpackageDetailsPage {
   DailyPrograms;
   TourPriceSum;
   TourGuestSum;
+  days
   constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, public navParams: NavParams, 
     public fixService : FixedPackageProvider, public load: LoadingController) {
     this.read = false;
@@ -51,6 +52,10 @@ export class FixedpackageDetailsPage {
       this.DailyPrograms = (data['DailyPrograms'])
       this.TourPriceSum = (data['TourPriceSum'])
       this.TourGuestSum = (data['TourGuestSum'])
+      let start = ( +new Date(this.BookingDetailSum.StartDate))
+      let end = (+new Date(this.BookingDetailSum.EndDate))
+      this.days = Math.round((end - start) / 86400000);
+      console.log( this.days)
       loader.dismiss();
       
 
