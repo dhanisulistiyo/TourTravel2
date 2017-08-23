@@ -1,23 +1,18 @@
 import { GuestServiceProvider } from './../../providers/guest-service';
+import { FixedPackageProvider } from './../../providers/fixed-package';
 import { FixedGuestDetailsPage } from './../fixed-guest-details/fixed-guest-details';
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FixedpackagePaymentPage } from './../fixedpackage-payment/fixedpackage-payment';
 import { FixedRoomallocatePage } from './../fixed-roomallocate/fixed-roomallocate';
 import { FixedInputtravellersPage } from './../fixed-inputtravellers/fixed-inputtravellers';
-
-/**
- * Generated class for the FixedpackageGuestPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @Component({
   selector: 'page-fixedpackage-guest',
   templateUrl: 'fixedpackage-guest.html',
 })
 export class FixedpackageGuestPage {
   showToolbar: boolean = false;
+  listFixedPackage: Array<any>;
   guestTour = { AdultQty: null, ChildQty: null, InfantQty: null };
   passenger: string;
   total;
@@ -25,11 +20,21 @@ export class FixedpackageGuestPage {
   kuota;
   typeG;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
-    public ref: ChangeDetectorRef, public alertCtrl: AlertController, public gu: GuestServiceProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public alertCtrl: AlertController, 
+    private fixService: FixedPackageProvider, public gu : GuestServiceProvider) {
     this.guestTour = { AdultQty: 0, ChildQty: 0, InfantQty: 0 };
     this.total = 0;
     this.kuota = navParams.data['kuota'];
+  }
+
+  ionViewWillEnter() {
+    this.fixService.showFixedPackage().subscribe(data => {
+      this.listFixedPackage = data;
+      console.log(data)
+    }, err => {
+      console.log(err);
+    }, () => console.log("Fix Package Search Complete")
+    );
   }
   incrAdultQty(index: number) {
     this.guestTour.AdultQty += 1;
@@ -92,7 +97,6 @@ export class FixedpackageGuestPage {
     //if (this.passenger == '') this.showAlertGuest();
     this.navCtrl.push(FixedRoomallocatePage);
   }
-
 
   continueTapped(){
     this.gu.createGuestFix(2,0,0);
