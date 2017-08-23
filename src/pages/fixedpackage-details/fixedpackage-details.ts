@@ -1,6 +1,6 @@
 import { FixedPackageProvider } from './../../providers/fixed-package';
-import { Component, ChangeDetectorRef } from '@angular/core';
-import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import { Component, ChangeDetectorRef , ViewChild} from '@angular/core';
+import { NavController, NavParams, LoadingController, Slides } from 'ionic-angular';
 import { FixedpackageGuestPage } from './../fixedpackage-guest/fixedpackage-guest';
 import { FixedpackageItineraryPage } from './../fixedpackage-itinerary/fixedpackage-itinerary';
 
@@ -16,7 +16,7 @@ import { FixedpackageItineraryPage } from './../fixedpackage-itinerary/fixedpack
   templateUrl: 'fixedpackage-details.html',
 })
 export class FixedpackageDetailsPage {
-
+  @ViewChild(Slides) slides: Slides;
   showToolbar: boolean = false;
   read;
   Prices;
@@ -27,15 +27,23 @@ export class FixedpackageDetailsPage {
   TourPriceSum;
   TourGuestSum;
   days
+  newval
+  
   constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, public navParams: NavParams, 
     public fixService : FixedPackageProvider, public load: LoadingController) {
     this.read = false;
+    this.newval= 0
   }
 
   onScroll($event: any) {
     let scrollTop = $event.scrollTop;
     this.showToolbar = scrollTop >= 120;
     this.ref.detectChanges();
+  }
+
+  slideChanged() {
+    let currentIndex = this.slides.getActiveIndex();
+    console.log("Current index is", currentIndex);
   }
 
   ionViewWillEnter() {

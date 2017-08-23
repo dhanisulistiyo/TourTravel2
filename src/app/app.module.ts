@@ -1,3 +1,4 @@
+import { FixedGuestDetailsPage } from './../pages/fixed-guest-details/fixed-guest-details';
 import { ModalContentPage, ModalContentPageExpired } from './../pages/confirm-booking/confirm-booking';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -137,6 +138,7 @@ import { ReadypackageDetailsPage } from './../pages/readypackage-details/readypa
     FixedRoomallocatePage,
     FixedpackagePaymentPage,
     FixedpackageAllPage,
+    FixedGuestDetailsPage,
     ReadypackageDestinationPage,
     ReadyPackagePage,
     ReadypackageDetailsPage,
@@ -235,6 +237,7 @@ import { ReadypackageDetailsPage } from './../pages/readypackage-details/readypa
     FixedRoomallocatePage,
     FixedpackagePaymentPage,
     FixedpackageAllPage,
+    FixedGuestDetailsPage,
     ReadypackageDestinationPage,
     ReadyPackagePage,
     ReadypackageDetailsPage,

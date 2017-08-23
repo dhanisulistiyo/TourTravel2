@@ -1,3 +1,4 @@
+import { FixedGuestDetailsPage } from './../fixed-guest-details/fixed-guest-details';
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FixedpackagePaymentPage } from './../fixedpackage-payment/fixedpackage-payment';
@@ -89,8 +90,10 @@ export class FixedpackageGuestPage {
     //if (this.passenger == '') this.showAlertGuest();
     this.navCtrl.push(FixedRoomallocatePage);
   }
+
+
   continueTapped(){
-    this.navCtrl.push(FixedpackagePaymentPage);
+    this.navCtrl.push(FixedGuestDetailsPage);
   }
 
 }
