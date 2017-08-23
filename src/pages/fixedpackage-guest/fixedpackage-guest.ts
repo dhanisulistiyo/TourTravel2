@@ -1,3 +1,4 @@
+import { FixedPackageProvider } from './../../providers/fixed-package';
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FixedpackagePaymentPage } from './../fixedpackage-payment/fixedpackage-payment';
@@ -16,6 +17,7 @@ import { FixedInputtravellersPage } from './../fixed-inputtravellers/fixed-input
 })
 export class FixedpackageGuestPage {
   showToolbar: boolean = false;
+  listFixedPackage: Array<any>;
   guestTour = { AdultQty: null, ChildQty: null, InfantQty: null };
   passenger: string;
   total;
@@ -23,10 +25,20 @@ export class FixedpackageGuestPage {
   kuota;
   typeG;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public alertCtrl: AlertController, private fixService: FixedPackageProvider) {
     this.guestTour = { AdultQty: 0, ChildQty: 0, InfantQty: 0 };
     this.total = 0;
     this.kuota = navParams.data['kuota'];
+  }
+
+  ionViewWillEnter() {
+    this.fixService.showFixedPackage().subscribe(data => {
+      this.listFixedPackage = data;
+      console.log(data)
+    }, err => {
+      console.log(err);
+    }, () => console.log("Fix Package Search Complete")
+    );
   }
   incrAdultQty(index: number) {
     this.guestTour.AdultQty += 1;
@@ -89,7 +101,7 @@ export class FixedpackageGuestPage {
     //if (this.passenger == '') this.showAlertGuest();
     this.navCtrl.push(FixedRoomallocatePage);
   }
-  continueTapped(){
+  continueTapped() {
     this.navCtrl.push(FixedpackagePaymentPage);
   }
 

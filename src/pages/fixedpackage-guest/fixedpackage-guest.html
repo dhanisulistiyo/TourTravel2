@@ -7,15 +7,15 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<div class="scroll-content" style="padding-top:0px">
+<div class="scroll-content" style="padding-top:0px" *ngFor="let fix of listFixedPackage">
   <ion-content fullscreen="true" style="margin-left: -10px; width:106%; overflow: visible; margin-top: -10px;" (ionScroll)="onScroll($event)">
     <div class="header">
       <ion-card class="page-daily-details">
         <img src="https://www.whitewaterwest.com/drive/uploads/2016/08/Waterbom-Bali-Kuta-Bali.jpg" style="height: 200px;" />
         <ion-card-content class="content-custom" style="top: 0px;">
           <ion-card-title class="card-custom">
-            <h2 class="h2-title-header">Bali Honeymoon Package</h2>
-            <h3 class="h3-subtitle-header">from Jul, 26 until Jul, 30 2017</h3>
+            <h2 class="h2-title-header">{{fix.Title}}</h2>
+            <h3 class="h3-subtitle-header">from {{fix.StartDate | date:'MMM dd, yyyy'}} until {{fix.EndDate| date:'MMM dd, yyyy'}}</h3>
           </ion-card-title>
         </ion-card-content>
       </ion-card>
@@ -31,10 +31,18 @@
           <ion-grid>
             <ion-row>
               <ion-col col-4>
+                <h3 class="card-label">Tour No.: </h3>
+              </ion-col>
+              <ion-col col-8>
+                <h3 class="card-title">{{fix.Id}}</h3>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-4>
                 <h3 class="card-label">Tour Name: </h3>
               </ion-col>
               <ion-col col-8>
-                <h3 class="card-title">Bali Honeymoon Package</h3>
+                <h3 class="card-title">{{fix.Title}}</h3>
               </ion-col>
             </ion-row>
             <ion-row>
@@ -42,7 +50,7 @@
                 <h3 class="card-label">Min. Guest(s): </h3>
               </ion-col>
               <ion-col col-8>
-                <h3 class="card-title">2 Guest(s)</h3>
+                <h3 class="card-title">{{fix.MinimumGuest}} Guest(s)</h3>
               </ion-col>
             </ion-row>
             <ion-row>
@@ -50,7 +58,7 @@
                 <h3 class="card-label">Price: </h3>
               </ion-col>
               <ion-col col-8>
-                <h3 class="card-title">Rp. 599.000</h3>
+                <h3 class="card-title">USD {{fix.TourTotalPrice}}</h3>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -64,61 +72,32 @@
         </ion-card-header>
       </div>
       <ion-card-content class="content-custom-item" style="margin-left: 0px;">
-        <ion-item>
-        </ion-item>
-        <ion-item>
-          <ion-thumbnail item-left>
-            <img src="https://www.whitewaterwest.com/drive/uploads/2016/08/Waterbom-Bali-Kuta-Bali.jpg">
-          </ion-thumbnail>
-          <h2>Adult</h2>
-          <p>Price : $250</p>
-          <button clear item-right (click)="decrAdultQty()" style="background-color: #fff;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
-          <button clear item-right (click)="incrAdultQty()" style="background-color: #fff;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
-          <!-- <ion-input item-right type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;"
-            maxlength="3" min="0" name="AdultQty" [value]="guestTour.AdultQty" [(ngModel)]="guestTour.AdultQty"></ion-input> -->
-        </ion-item>
-        <ion-row>
-          <ion-col col-3>
-            Adult
-          </ion-col>
-          <ion-col col-3>
-             <ion-input item-right type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;"
-            maxlength="3" min="0" name="AdultQty" [value]="guestTour.AdultQty" [(ngModel)]="guestTour.AdultQty"></ion-input>
-            </ion-col>
-            <ion-col col-3>
-                <button clear item-right (click)="decrAdultQty()" style="background-color: #fff;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
-              </ion-col>
-              <ion-col col-3>
-                  <button clear item-right (click)="incrAdultQty()" style="background-color: #fff;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
-                </ion-col>
-              </ion-row>
         <ion-row>
           <ion-col col-5>
             <ion-label stacked>
-              <ion-icon ios="ios-person" md="md-person" class="custom-outline"></ion-icon> Adult</ion-label>
+              <ion-icon ios="ios-person" md="md-person" class="custom-icon2"></ion-icon> Adult</ion-label>
           </ion-col>
-          <ion-col col-3>
-            <ion-input type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;"
-              maxlength="3" min="0" name="AdultQty" [value]="guestTour.AdultQty" [(ngModel)]="guestTour.AdultQty"></ion-input>
-          </ion-col>
-          <ion-col col-2>
+          <ion-col col-2 style="text-align: right;">
             <button clear (click)="decrAdultQty()" style="background-color: #fff;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
           </ion-col>
-          <ion-col col-2><button clear (click)="incrAdultQty()" style="background-color: #fff;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
+          <ion-col col-3>
+            <ion-input type="tel" class="custom-input" maxlength="3" min="0" name="AdultQty" [value]="guestTour.AdultQty" [(ngModel)]="guestTour.AdultQty"></ion-input>
+          </ion-col>
+          <ion-col col-2><button clear (click)="incrAdultQty()" style="background-color: #fff; text-align: left;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
           </ion-col>
         </ion-row>
 
         <ion-row>
           <ion-col col-5>
             <ion-label stacked>
-              <ion-icon ios="ios-body" md="md-body" class="custom-outline"></ion-icon> Child</ion-label>
+              <ion-icon ios="ios-body" md="md-body" class="custom-icon2"></ion-icon> Child</ion-label>
+          </ion-col>
+          <ion-col col-2 style="text-align: right;">
+            <button clear (click)="decrChildQty()" style="background-color: #fff; text-align: right;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
           </ion-col>
           <ion-col col-3>
             <ion-input type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;"
               maxlength="3" min="0" name="ChildQty" [value]="guestTour.ChildQty" [(ngModel)]="guestTour.ChildQty"></ion-input>
-          </ion-col>
-          <ion-col col-2>
-            <button clear (click)="decrChildQty()" style="background-color: #fff;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
           </ion-col>
           <ion-col col-2><button clear (click)="incrChildQty()" style="background-color: #fff;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
           </ion-col>
@@ -127,50 +106,64 @@
         <ion-row>
           <ion-col col-5>
             <ion-label stacked>
-              <ion-icon ios="ios-ionitron" md="md-ionitron" class="custom-outline"></ion-icon> Infant</ion-label>
+              <ion-icon ios="ios-ionitron" md="md-ionitron" class="custom-icon2"></ion-icon> Infant</ion-label>
+          </ion-col>
+          <ion-col col-2 style="text-align: right;">
+            <button clear (click)="decrInfantQty()" style="background-color: #fff;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
           </ion-col>
           <ion-col col-3>
             <ion-input type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;"
               maxlength="3" min="0" name="InfantQty" [value]="guestTour.InfantQty" [(ngModel)]="guestTour.InfantQty"></ion-input>
           </ion-col>
-          <ion-col col-2>
-            <button clear (click)="decrInfantQty()" style="background-color: #fff;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
-          </ion-col>
           <ion-col col-2><button clear (click)="incrInfantQty()" style="background-color: #fff;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
           </ion-col>
         </ion-row>
-
-        <!-- <ion-row class="row-label">
-            <ion-col col-12>
-              <ion-label stacked>
-                <ion-icon ios="ios-people" md="md-people" class="custom-icon" style="background-color:#FF6E40"></ion-icon> Guest(s)</ion-label>
-            </ion-col>
-          </ion-row>
-          <ion-row class="row-content">
-            <ion-input disabled="true" type="text" (click)="passengerTapped($event)" [(ngModel)]="passenger" aria-placeholder="passenger"
-              placeholder="How many person you're travelling with?"></ion-input>
-          </ion-row>
-          <ion-row class="row-label">
-            <ion-col col-12>
-              <ion-label stacked>
-                <ion-icon ios="ios-cloudy-night" md="md-cloudy-night" class="custom-icon" style="background-color:#FF4081"></ion-icon> Room Allocations</ion-label>
-            </ion-col>
-          </ion-row>
-          <ion-row class="row-content" style="margin-bottom:10px;">
-            <ion-input disabled="true" type="text" (click)="hotelTapped($event)" aria-placeholder="passenger"
-              placeholder="Tap to allocate your room"></ion-input>
-            <ion-item class="line-break" (click)="hotelTapped($event)" style="background-color: transparent;padding-left: 3px; margin-bottom:10px;"><span class="line-break" style="font-weight:400; margin-bottom:10px;" *ngFor="let all of allocation ;let i = index">{{all.guest}} {{all.name}}<span class="line-break" style="font-weight:400; margin-bottom:10px;" *ngIf="allocation.length > 1 && i  != allocation.length - 1 ">, </span></span>
-            </ion-item>
-          </ion-row> -->
       </ion-card-content>
     </ion-card>
+    <div class="custom-footer">
+      <ion-card>
+        <div class="label-header">
+          <ion-card-header>
+            <h2 class="card-title">Package Room Options</h2>
+          </ion-card-header>
+        </div>
+        <ion-card-content class="content-custom-item" style="margin-left: 0px;">
+            <ion-row>
+                <ion-col col-2>
+                  <ion-avatar item-start>
+                    <img src="assets/img/user_pic.jpg" style="width:50px; height: 50px;">
+                  </ion-avatar>
+                </ion-col>
+                <ion-col col-3>
+                  <h2>Sharing Room</h2>
+                  <p class="p-custom" *ngIf="bookdetails?.Status == 'Booking_created'">Price: USD 250</p>
+                </ion-col>
+                <ion-col col-2 style="text-align: right;">
+                    <button clear (click)="decrAdultQty()" style="background-color: #fff;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
+                  </ion-col>
+                  <ion-col col-3>
+                    <ion-input type="tel" class="custom-input" maxlength="3" min="0" name="AdultQty" [value]="guestTour.AdultQty" [(ngModel)]="guestTour.AdultQty"></ion-input>
+                  </ion-col>
+                  <ion-col col-2><button clear (click)="incrAdultQty()" style="background-color: #fff; text-align: left;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
+                  </ion-col>
+              </ion-row>
+          <!-- <ion-item>
+            <ion-thumbnail item-left>
+              <img src="https://www.whitewaterwest.com/drive/uploads/2016/08/Waterbom-Bali-Kuta-Bali.jpg">
+            </ion-thumbnail>
+            <h2>Sharing Room</h2>
+            <p>Price : $250</p>
+            <button clear item-right (click)="decrAdultQty()" style="background-color: #fff;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
+            <button clear item-right (click)="incrAdultQty()" style="background-color: #fff;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
+            <ion-input item-right type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;"
+              maxlength="3" min="0" name="AdultQty" [value]="guestTour.AdultQty" [(ngModel)]="guestTour.AdultQty"></ion-input>
+          </ion-item> -->
+        </ion-card-content>
+      </ion-card>
+    </div>
   </ion-content>
 </div>
 
 <ion-footer>
-  <ion-row>
-    <ion-col>
       <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-accept" (click)="continueTapped()">Continue</button>
-    </ion-col>
-  </ion-row>
 </ion-footer>

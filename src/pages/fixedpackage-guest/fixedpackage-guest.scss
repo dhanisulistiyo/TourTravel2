@@ -88,6 +88,9 @@ page-fixedpackage-guest {
             text-align: justify;
         }
     }
+    .custom-footer{
+        margin-bottom: 10vw;
+    }
     h3.card-title {
         font-family: 'Lato', sans-serif;
         font-size: 3.8vw;
@@ -104,8 +107,15 @@ page-fixedpackage-guest {
         background-color: #55bbd4;
     }
     .custom-icon {
-        font-size: 2.5rem;
+        font-size: 5.5vw;
         color: #55bbd4;
+        background-color: #fff;
+    }
+    .custom-icon2 {
+        font-size: 4.5vw;
+        margin-right: 2vw;
+        color: #55bbd4;
+        background-color: #fff;
     }
     .card-content-md {
         padding: 5px;
@@ -120,5 +130,63 @@ page-fixedpackage-guest {
         text-align: center;
         align-content: center;
         margin-left: 2vw;
+    }
+    [col-5] {
+        // -webkit-flex: 0 0 41.66667%;
+        // -ms-flex: 0 0 41.66667%;
+        // flex: 0 0 41.66667%;
+        // width: 41.66667%;
+        // max-width: 41.66667%;
+        -webkit-flex: 0 0 57.66667%;
+        -ms-flex: 0 0 57.66667%;
+        flex: 0 0 57.66667%;
+        width: 57.66667%;
+        max-width: 57.66667%;
+        align-self: center;
+    }
+    [col-2] {
+        // -webkit-flex: 0 0 16.66667%;
+        // -ms-flex: 0 0 16.66667%;
+        // flex: 0 0 16.66667%;
+        // width: 16.66667%;
+        // max-width: 16.66667%;
+        -webkit-flex: 0 0 10.66667%;
+        -ms-flex: 0 0 10.66667%;
+        flex: 0 0 10.66667%;
+        width: 10.66667%;
+        max-width: 10.66667%;
+        align-self: center;
+    }
+    [col-3] {
+        -webkit-flex: 0 0 15%;
+        -ms-flex: 0 0 15%;
+        flex: 0 0 15%;
+        width: 15%;
+        max-width: 15%;
+    }
+    .text-input-md {
+        text-align: center;
+        margin: 0px;
+        padding: 1vw;
+        width: calc(100% - 8px - 8px);
+    }
+    .custom-input {
+        text-align: center;
+        border: 1px solid;
+        border-color: gray;
+        border-radius: 5px;
+    }
+    p.p-custom {
+        color: white;
+        font-family: 'Open Sans', sans-serif;
+        text-transform: uppercase;
+        font-size: 3.5vw;
+        width: 50%;
+        border-radius: 5%;
+        text-align: center;
+        padding: 2px;
+        font-weight: 600;
+        border: #f0b840 solid 1px;
+        background-color: #f0b840;
     }
 }
