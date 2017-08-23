@@ -1,3 +1,4 @@
+import { GuestServiceProvider } from './../../providers/guest-service';
 import { FixedGuestDetailsPage } from './../fixed-guest-details/fixed-guest-details';
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
@@ -24,7 +25,8 @@ export class FixedpackageGuestPage {
   kuota;
   typeG;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    public ref: ChangeDetectorRef, public alertCtrl: AlertController, public gu: GuestServiceProvider) {
     this.guestTour = { AdultQty: 0, ChildQty: 0, InfantQty: 0 };
     this.total = 0;
     this.kuota = navParams.data['kuota'];
@@ -93,6 +95,7 @@ export class FixedpackageGuestPage {
 
 
   continueTapped(){
+    this.gu.createGuestFix(2,0,0);
     this.navCtrl.push(FixedGuestDetailsPage);
   }
 

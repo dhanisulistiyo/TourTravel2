@@ -65,6 +65,25 @@ export class GuestServiceProvider {
       }
   }
 
+  createGuestFix(adult,child,infant){
+    let count = adult+child+infant
+      this.Guest = []
+        for(let i = 0 ; i < count; i++){
+          let g = new GuestDetails();
+           g.typeid = "IDCARD";
+           g.id= '22222'
+
+          if(i < adult)g.typeperson = "Adult"
+          else if(i > adult-1 && i < (adult+child))g.typeperson = "Child"  
+          else if(i > adult+child-1 && i < (count))g.typeperson = "Infant" 
+          if(i == 0) g.guestype= "TOURLEADER";
+          else  g.guestype= "TOURMEMBER";
+          this.Guest[i]=(g);
+        }
+      }
+  
+
+
   addGuest(){
     let g = new GuestDetails();
     this.Guest.push(g);
