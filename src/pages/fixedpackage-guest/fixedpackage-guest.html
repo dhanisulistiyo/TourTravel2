@@ -7,15 +7,15 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<div class="scroll-content" style="padding-top:0px" *ngFor="let fix of listFixedPackage">
+<div class="scroll-content" style="padding-top:0px">
   <ion-content fullscreen="true" style="margin-left: -10px; width:106%; overflow: visible; margin-top: -10px;" (ionScroll)="onScroll($event)">
     <div class="header">
       <ion-card class="page-daily-details">
         <img src="https://www.whitewaterwest.com/drive/uploads/2016/08/Waterbom-Bali-Kuta-Bali.jpg" style="height: 200px;" />
         <ion-card-content class="content-custom" style="top: 0px;">
           <ion-card-title class="card-custom">
-            <h2 class="h2-title-header">{{fix.Title}}</h2>
-            <h3 class="h3-subtitle-header">from {{fix.StartDate | date:'MMM dd, yyyy'}} until {{fix.EndDate| date:'MMM dd, yyyy'}}</h3>
+            <h2 class="h2-title-header">{{listFixedPackage?.Title}}</h2>
+            <h3 class="h3-subtitle-header">from {{listFixedPackage?.StartDate | date:'MMM dd, yyyy'}} until {{listFixedPackage?.EndDate| date:'MMM dd, yyyy'}}</h3>
           </ion-card-title>
         </ion-card-content>
       </ion-card>
@@ -34,7 +34,7 @@
                 <h3 class="card-label">Tour No.: </h3>
               </ion-col>
               <ion-col col-8>
-                <h3 class="card-title">{{fix.Id}}</h3>
+                <h3 class="card-title">{{listFixedPackage?.Id}}</h3>
               </ion-col>
             </ion-row>
             <ion-row>
@@ -42,7 +42,7 @@
                 <h3 class="card-label">Tour Name: </h3>
               </ion-col>
               <ion-col col-8>
-                <h3 class="card-title">{{fix.Title}}</h3>
+                <h3 class="card-title">{{listFixedPackage?.Title}}</h3>
               </ion-col>
             </ion-row>
             <ion-row>
@@ -50,7 +50,7 @@
                 <h3 class="card-label">Min. Guest(s): </h3>
               </ion-col>
               <ion-col col-8>
-                <h3 class="card-title">{{fix.MinimumGuest}} Guest(s)</h3>
+                <h3 class="card-title">{{listFixedPackage?.MinimumGuest}} Guest(s)</h3>
               </ion-col>
             </ion-row>
             <ion-row>
@@ -58,7 +58,7 @@
                 <h3 class="card-label">Price: </h3>
               </ion-col>
               <ion-col col-8>
-                <h3 class="card-title">USD {{fix.TourTotalPrice}}</h3>
+                <h3 class="card-title">USD {{listFixedPackage?.TourTotalPrice}}</h3>
               </ion-col>
             </ion-row>
           </ion-grid>

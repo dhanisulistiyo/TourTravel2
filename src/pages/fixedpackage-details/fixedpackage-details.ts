@@ -66,7 +66,6 @@ export class FixedpackageDetailsPage {
       console.log( this.days)
       loader.dismiss();
       
-
     }, err => {
       console.log(err);
       loader.dismiss();
@@ -77,7 +76,8 @@ export class FixedpackageDetailsPage {
   }
 
   bookNow() {
-    this.navCtrl.push(FixedpackageGuestPage)
+    let res = this.BookingDetailSum
+    this.navCtrl.push(FixedpackageGuestPage,{res})
   }
 
   toggleDetails(data) {

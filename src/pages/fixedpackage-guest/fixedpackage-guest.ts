@@ -12,7 +12,7 @@ import { FixedInputtravellersPage } from './../fixed-inputtravellers/fixed-input
 })
 export class FixedpackageGuestPage {
   showToolbar: boolean = false;
-  listFixedPackage: Array<any>;
+  listFixedPackage
   guestTour = { AdultQty: null, ChildQty: null, InfantQty: null };
   passenger: string;
   total;
@@ -24,18 +24,10 @@ export class FixedpackageGuestPage {
     private fixService: FixedPackageProvider, public gu : GuestServiceProvider) {
     this.guestTour = { AdultQty: 0, ChildQty: 0, InfantQty: 0 };
     this.total = 0;
-    this.kuota = navParams.data['kuota'];
+    this.listFixedPackage = navParams.data['res'];
+    console.log(this.listFixedPackage)
   }
 
-  ionViewWillEnter() {
-    this.fixService.showFixedPackage().subscribe(data => {
-      this.listFixedPackage = data;
-      console.log(data)
-    }, err => {
-      console.log(err);
-    }, () => console.log("Fix Package Search Complete")
-    );
-  }
   incrAdultQty(index: number) {
     this.guestTour.AdultQty += 1;
     console.log(this.guestTour.AdultQty);
