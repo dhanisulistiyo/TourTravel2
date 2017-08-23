@@ -131,7 +131,7 @@ page-fixedpackage-guest {
         align-content: center;
         margin-left: 2vw;
     }
-    [col-5] {
+    [col-5-custom] {
         // -webkit-flex: 0 0 41.66667%;
         // -ms-flex: 0 0 41.66667%;
         // flex: 0 0 41.66667%;
@@ -144,7 +144,7 @@ page-fixedpackage-guest {
         max-width: 57.66667%;
         align-self: center;
     }
-    [col-2] {
+    [col-2-custom] {
         // -webkit-flex: 0 0 16.66667%;
         // -ms-flex: 0 0 16.66667%;
         // flex: 0 0 16.66667%;
@@ -157,7 +157,7 @@ page-fixedpackage-guest {
         max-width: 10.66667%;
         align-self: center;
     }
-    [col-3] {
+    [col-3-custom] {
         -webkit-flex: 0 0 15%;
         -ms-flex: 0 0 15%;
         flex: 0 0 15%;

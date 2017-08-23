@@ -1,3 +1,5 @@
+import { HomeScreenPage } from './../home-screen/home-screen';
+import { UserandcompanyDetails } from './../../providers/userandcompany-details';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -13,12 +15,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'fixedpackage-payment.html',
 })
 export class FixedpackagePaymentPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  companyInfo;
+  userinfo
+  constructor(public navCtrl: NavController, public navParams: NavParams, public info: UserandcompanyDetails) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FixedpackagePaymentPage');
-  }
+  ionViewWillEnter() {
+    this.userinfo = this.info.userinfo;
+    this.companyInfo = this.info.companyInfo;
+}
+
+payTour() {
+  this.navCtrl.push(HomeScreenPage);
+
+}
 
 }

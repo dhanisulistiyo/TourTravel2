@@ -1,18 +1,80 @@
 <!--
-  Generated template for the FixedpackagePaymentPage page.
+  Generated template for the PaymentPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>fixedpackage-payment</ion-title>
+  <ion-navbar hideBackButton="false">
+    <ion-title>Payment</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content fullscreen>
+  <ion-list radio-group>
+    <div class="selection" style="margin-left: -10px; width:105%; overflow: visible;">
+      <ion-card class="card-custom" style="top:0; margin-top:0px; margin-bottom:0px">
+        <ion-row>
+          <ion-col col-8>
+            <h2>Test Title</h2>
+            <p class="p-custom" >From 22 Augustus 2017 - 25 Augustus 2017</p>
+          </ion-col>
+          <ion-col col-4>
+            <h2 class="card-title" style="text-align: right;">USD <span> 450</span>.-</h2>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </div>
+    <p class="label-custom" style="font-size: 3.8vw;">
+      Select your payment method.
+    </p>
 
+    <div class="custom-div">
+      <ion-row class="row-label">
+        <ion-col col-10>
+          <h2>Wallet</h2>
+          <p class="custom-label">Current balance: <strong>USD {{companyInfo?.Balance  | number:'.0'}}</strong></p>
+        </ion-col>
+        <ion-col class="col2-custom">
+          <ion-radio value="deposit" item-end></ion-radio>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <div class="custom-div">
+      <ion-row class="row-label">
+        <ion-col col-4>
+          <ion-avatar item-start>
+            <img src="assets/img/visa.png" style="width:100px; height: 50px;">
+          </ion-avatar>
+        </ion-col>
+        <ion-col col-6>
+          <h2>Credit Card</h2>
+          <p class="custom-label">**** **** **** 7281</p>
+        </ion-col>
+        <ion-col class="col2-custom">
+          <ion-radio value="card" item-end></ion-radio>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <div class="custom-div">
+      <ion-row class="row-label">
+        <ion-col col-10>
+          <h2>Pay Later</h2>
+          <p class="custom-label">The booking will be on hold until <strong>12 Agustus 2017</strong></p>
+        </ion-col>
+        <ion-col class="col2-custom">
+          <ion-radio  value="hold" item-end></ion-radio>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-list>
 </ion-content>
+
+
+<ion-footer>
+  <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="payTour($event)" full>Continue</button>
+</ion-footer>

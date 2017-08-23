@@ -73,49 +73,49 @@
       </div>
       <ion-card-content class="content-custom-item" style="margin-left: 0px;">
         <ion-row>
-          <ion-col col-5>
+          <ion-col col-5-custom>
             <ion-label stacked>
               <ion-icon ios="ios-person" md="md-person" class="custom-icon2"></ion-icon> Adult</ion-label>
           </ion-col>
-          <ion-col col-2 style="text-align: right;">
+          <ion-col col-2-custom style="text-align: right;">
             <button clear (click)="decrAdultQty()" style="background-color: #fff;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
           </ion-col>
-          <ion-col col-3>
+          <ion-col col-3-custom>
             <ion-input type="tel" class="custom-input" maxlength="3" min="0" name="AdultQty" [value]="guestTour.AdultQty" [(ngModel)]="guestTour.AdultQty"></ion-input>
           </ion-col>
-          <ion-col col-2><button clear (click)="incrAdultQty()" style="background-color: #fff; text-align: left;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
+          <ion-col col-2-custom><button clear (click)="incrAdultQty()" style="background-color: #fff; text-align: left;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
           </ion-col>
         </ion-row>
 
         <ion-row>
-          <ion-col col-5>
+          <ion-col col-5-custom>
             <ion-label stacked>
               <ion-icon ios="ios-body" md="md-body" class="custom-icon2"></ion-icon> Child</ion-label>
           </ion-col>
-          <ion-col col-2 style="text-align: right;">
+          <ion-col col-2-custom style="text-align: right;">
             <button clear (click)="decrChildQty()" style="background-color: #fff; text-align: right;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
           </ion-col>
-          <ion-col col-3>
+          <ion-col col-3-custom>
             <ion-input type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;"
               maxlength="3" min="0" name="ChildQty" [value]="guestTour.ChildQty" [(ngModel)]="guestTour.ChildQty"></ion-input>
           </ion-col>
-          <ion-col col-2><button clear (click)="incrChildQty()" style="background-color: #fff;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
+          <ion-col col-2-custom><button clear (click)="incrChildQty()" style="background-color: #fff;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
           </ion-col>
         </ion-row>
 
         <ion-row>
-          <ion-col col-5>
+          <ion-col col-5-custom>
             <ion-label stacked>
               <ion-icon ios="ios-ionitron" md="md-ionitron" class="custom-icon2"></ion-icon> Infant</ion-label>
           </ion-col>
-          <ion-col col-2 style="text-align: right;">
+          <ion-col col-2-custom style="text-align: right;">
             <button clear (click)="decrInfantQty()" style="background-color: #fff;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
           </ion-col>
-          <ion-col col-3>
+          <ion-col col-3-custom>
             <ion-input type="tel" class="text-center" style="text-align:center; border:1px solid; border-color: #666666; border-radius: 10%;"
               maxlength="3" min="0" name="InfantQty" [value]="guestTour.InfantQty" [(ngModel)]="guestTour.InfantQty"></ion-input>
           </ion-col>
-          <ion-col col-2><button clear (click)="incrInfantQty()" style="background-color: #fff;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
+          <ion-col col-2-custom><button clear (click)="incrInfantQty()" style="background-color: #fff;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
           </ion-col>
         </ion-row>
       </ion-card-content>
@@ -136,7 +136,7 @@
                 </ion-col>
                 <ion-col col-3>
                   <h2>Sharing Room</h2>
-                  <p class="p-custom" *ngIf="bookdetails?.Status == 'Booking_created'">Price: USD 250</p>
+                  <p class="p-custom">Price: USD 250</p>
                 </ion-col>
                 <ion-col col-2 style="text-align: right;">
                     <button clear (click)="decrAdultQty()" style="background-color: #fff;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>

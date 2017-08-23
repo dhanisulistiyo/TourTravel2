@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Guest Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content fullscreen>
+  <ion-card *ngFor="let item of Guest ; let i = index">
+    <div class="custom-div">
+      <ion-row class="row-label">
+        <ion-col col-12>
+          <ion-label stacked>
+            <ion-icon ios="ios-people" md="md-people" class="custom-orange"></ion-icon> Guest Details <span *ngIf="i == 0" >(Tour Leader)</span></ion-label>
+        </ion-col>
+      </ion-row>
+
+      <!-- <ion-row class="row-header">
+        <ion-col col-12-custom>
+          <h3 class="card-label">Types of ID (ex: ID Card/Passport/Driving License) </h3>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-content">
+        <ion-col col-12-custom>
+          <h3 class="card-title">
+            <ion-select class="myCustomSelect" [(ngModel)]='item[i]' multiple="false" (ionChange)="setID(i, item[i])" interface="action-sheet">
+            <ion-option *ngFor="let kuo of ID;  let idx = index" [value]="kuo" selected="{{(idx==0)}}" aria-placeholder="Choose Type Guest">{{kuo}}</ion-option>
+          </ion-select>
+          </h3>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-header">
+        <ion-col col-12-custom>
+          <h3 class="card-label">ID Number </h3>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-content">
+        <ion-col col-12-custom>
+          <ion-input type="number" (input)="inputId(i, $event)" placeholder="Please input your ID"></ion-input>
+        </ion-col>
+      </ion-row> -->
+
+
+      <ion-row class="row-header">
+        <ion-col col-12-custom>
+          <h3 class="card-label">First Name: </h3>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-content">
+        <ion-col col-12-custom>
+          <h3 class="card-title">
+            <ion-input type="text" (input)="inputFirstName(i, $event)" placeholder="Please input your first name"></ion-input>
+          </h3>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-header">
+        <ion-col col-12-custom>
+          <h3 class="card-label">Last Name: </h3>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-content">
+        <ion-col col-12-custom>
+          <h3 class="card-title">
+            <ion-input type="text" (input)="inputLastName(i, $event)" placeholder="Please input your last name"></ion-input>
+          </h3>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-header">
+        <ion-col col-12-custom>
+          <h3 class="card-label">Nationality: </h3>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-content">
+        <ion-col col-12-custom>
+          <h3 class="card-title">
+            <ion-input *ngIf="item.country != null"  type="text" disabled="true" [(ngModel)]="item.country.Name" (click)="inputCountry(i, $event)"></ion-input>
+            <ion-input *ngIf="item.country == null" type="text" disabled="true"  (click)="inputCountry(i, $event)" placeholder="Tap to choose your nationality"></ion-input>
+          </h3>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <!-- <ion-row>
+    <ion-label>First Name</ion-label>
+    <ion-input type="text" (input)="inputFirstName(i, $event)"></ion-input>
+  </ion-row>
+   <ion-row>
+      <ion-label>Last Name</ion-label>
+      <ion-input type="text" (input)="inputLastName(i, $event)"></ion-input>
+  </ion-row>
+  <ion-row>
+    <ion-label>Country</ion-label>
+    <ion-input type="text" (input)="inputCountry(i, $event)"></ion-input>
+  </ion-row> -->
+
+  </ion-card>
+
+
+</ion-content>
+
+
+<ion-footer>
+  <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="createItenerary($event)" full>Continue</button>
+</ion-footer>
