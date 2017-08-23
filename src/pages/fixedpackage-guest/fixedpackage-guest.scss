@@ -88,8 +88,77 @@ page-fixedpackage-guest {
             text-align: justify;
         }
     }
-    .custom-footer{
-        margin-bottom: 10vw;
+    .custom-footer {
+        margin-bottom: 11vw;
+    }
+    .custom-room {
+        .img-custom {
+            width: 90px;
+            height: 90px;
+        }
+        .h2-custom {
+            margin: 2px 0;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 4vw;
+            color: #222;
+            font-weight: 600;
+        }
+        p.p-custom {
+            display: inline;
+            font-family: 'Open Sans', sans-serif;
+            text-transform: uppercase;
+            font-size: 3.7vw;
+            border-radius: 5%;
+            text-align: left;
+            padding: 2px;
+            color: #222;
+            font-weight: 600;
+        }
+        p.p-currency {
+            display: inline;
+            font-family: 'Open Sans', sans-serif;
+            text-transform: uppercase;
+            font-size: 3.5vw;
+            border-radius: 5%;
+            text-align: left;
+            padding: 2px;
+            color: gray;
+            font-weight: 600;
+        }
+        p.p-pax {
+            display: inline;
+            font-family: 'Open Sans', sans-serif;
+            text-transform: none;
+            font-size: 3.5vw;
+            border-radius: 5%;
+            text-align: left;
+            padding: 2px;
+            color: grey;
+            font-weight: 500;
+        }
+        [col-2-custom] {
+            -webkit-flex: 0 0 10.66667%;
+            -ms-flex: 0 0 10.66667%;
+            flex: 0 0 10.66667%;
+            width: 10.66667%;
+            max-width: 10.66667%;
+            -webkit-align-self: center;
+            -ms-flex-item-align: center;
+            -ms-grid-row-align: center;
+            top: 1.5vw;
+            align-self: auto;
+        }
+        [col-3-custom] {
+            -webkit-flex: 0 0 15%;
+            -ms-flex: 0 0 15%;
+            flex: 0 0 15%;
+            width: 15%;
+            max-width: 15%;
+            -webkit-align-self: center;
+            -ms-flex-item-align: center;
+            -ms-grid-row-align: center;
+            align-self: auto;
+        }
     }
     h3.card-title {
         font-family: 'Lato', sans-serif;
@@ -105,6 +174,9 @@ page-fixedpackage-guest {
     }
     .btn-accept {
         background-color: #55bbd4;
+    }
+    .btn-total {
+        background-color: #f0b840;
     }
     .custom-icon {
         font-size: 5.5vw;
@@ -163,12 +235,17 @@ page-fixedpackage-guest {
         flex: 0 0 15%;
         width: 15%;
         max-width: 15%;
+        align-self: center;
     }
     .text-input-md {
         text-align: center;
         margin: 0px;
         padding: 1vw;
         width: calc(100% - 8px - 8px);
+        font-family: 'Open Sans', sans-serif;
+        font-size: 4vw;
+        color: #222;
+        font-weight: 600;
     }
     .custom-input {
         text-align: center;
@@ -176,17 +253,46 @@ page-fixedpackage-guest {
         border-color: gray;
         border-radius: 5px;
     }
+    [col-2] {
+        -webkit-flex: 0 0 26.66667%;
+        -ms-flex: 0 0 26.66667%;
+        flex: 0 0 26.66667%;
+        width: 26.66667%;
+        max-width: 26.66667%;
+    }
+    [col-3] {
+        -webkit-flex: 0 0 37%;
+        -ms-flex: 0 0 37%;
+        flex: 0 0 37%;
+        width: 37%;
+        max-width: 37%;
+    }
+    .h2-custom {
+        margin: 2px 0;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 4vw;
+        color: #222;
+        font-weight: 600;
+    }
     p.p-custom {
-        color: white;
+        display: inline;
         font-family: 'Open Sans', sans-serif;
         text-transform: uppercase;
-        font-size: 3.5vw;
-        width: 50%;
+        font-size: 3.7vw;
         border-radius: 5%;
-        text-align: center;
+        text-align: left;
         padding: 2px;
+        color: #222;
         font-weight: 600;
-        border: #f0b840 solid 1px;
-        background-color: #f0b840;
+    }
+    [col-7] {
+        -webkit-flex: 0 0 58.33333%;
+        -ms-flex: 0 0 58.33333%;
+        flex: 0 0 58.33333%;
+        width: 58.33333%;
+        max-width: 58.33333%;
+    }
+    .grid {
+        padding: 10px;
     }
 }
