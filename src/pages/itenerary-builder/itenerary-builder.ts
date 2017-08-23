@@ -203,15 +203,17 @@ export class IteneraryBuilderPage {
   }
 
   setDateFrom(date: Date) {
-    console.log(date);
+    console.log(this.even);
     this.datefrom = (date);
+    this.dateto = (date);
     let tgl = this.datefrom;
     this.even.monthStart = tgl.getFullYear()+"-"+(tgl.getMonth()+1)+"-"+tgl.getDate()
+    this.even.monthEnd = this.even.monthStart
     this.inputDateTours(this.even);
   }
 
   setDateTo(date: Date) {
-    console.log(date);
+    console.log(this.even);
     this.dateto = date;
     let tgl = this.dateto;
     this.even.monthEnd = tgl.getFullYear()+"-"+(tgl.getMonth()+1)+"-"+tgl.getDate()

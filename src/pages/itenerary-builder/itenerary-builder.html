@@ -111,9 +111,12 @@
         <ion-col col-5-content>
           <!-- <ion-datetime picker date style="left: 0px;" (ionChange)="inputDateTours(event)" min="2016" max="2030" displayFormat="DD MMM YYYY"
             [(ngModel)]="even.monthEnd"></ion-datetime> -->
-          <ion-item ion-datepicker (ionChanged)="setDateTo($event)" full="false" calendar="true" clear class="ScheduleDate">
+          <ion-item *ngIf="even.monthStart != ''"  ion-datepicker (ionChanged)="setDateTo($event)" full="false" calendar="true" clear class="ScheduleDate">
           {{dateto |  date:'dd MMM yyyy' }} 
           </ion-item>
+          <ion-item *ngIf="even.monthStart == ''"  clear class="ScheduleDate">
+            {{dateto |  date:'dd MMM yyyy' }} 
+            </ion-item>
         </ion-col>
       </ion-row>
 
