@@ -13,70 +13,76 @@
 </ion-header>
 
 <ion-content class="padding">
-  <div class="timeline">
-    <ion-list>
-      <ion-item class="label-title-item">
-        <ion-icon style="color: #fff" item-right></ion-icon>
-        <div class="divider-title">
-          Day {{Day}} : {{Dates | date : 'dd MMMM yyyy'}}
-        </div>
-        <div style="padding-bottom: 0px;" *ngFor="let dp of DP">
-          <ul class="timeline" >
-            <li>
-              <div class="timeline-thumb bg-color-positive timeline-icon">
-                <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon" style="left: 1vw; top: 1.2vw;"></ion-icon>
+  <div class="slide-pager" style="overflow: visible;">
+      <ion-slides pager="true" loop="true" speed="1000">
+        <ion-slide>
+            <div class="timeline">
+                <ion-list>
+                  <ion-item class="label-title-item">
+                    <ion-icon style="color: #fff" item-right></ion-icon>
+                    <div class="divider-title">
+                      Day {{Day}} : {{Dates | date : 'dd MMMM yyyy'}}
+                    </div>
+                    <div style="padding-bottom: 0px;" *ngFor="let dp of DP">
+                      <ul class="timeline" >
+                        <li>
+                          <div class="timeline-thumb bg-color-positive timeline-icon">
+                            <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon" style="left: 1vw; top: 1.2vw;"></ion-icon>
+                          </div>
+                          <div class="timeline-item">
+                            <h5 class="line-break">00.10 A.M (GMT +7)</h5>
+                            <h4 class="line-break">{{dp.Destination}}</h4>
+                            <!-- <p class="line-break">Jakarta</p> -->
+                          </div>
+                        </li>
+                        <li>
+                          <div class="timeline-thumb bg-color-dark timeline-icon">
+                            <ion-icon ios="ios-cloudy-night" md="md-cloudy-night" class="timeline-icon"></ion-icon>
+                          </div>
+                          <div class="timeline-item">
+                            <h5 class="line-break">{{dp.AccommodationSummary.DateTime | date : 'jm' }}</h5>
+                            <h4>{{dp.AccommodationSummary.Name}}</h4>
+                            <p class="line-break">{{dp.AccommodationSummary.RoomType}}, {{(dp.AccommodationSummary.RoomService).replace('_', ' ')}}</p>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="timeline-thumb bg-color-calm timeline-icon">
+                            <ion-icon ios="ios-bus" md="md-bus" class="timeline-icon"></ion-icon>
+                          </div>
+                          <div class="timeline-item">
+                            <h5 class="line-break">{{dp.TransportationSummary[0].DateTime | date : 'jm'}}</h5>
+                            <h4>Airport Pickup</h4>
+                            <p class="line-break">{{dp.TransportationSummary[0].TransportationCapacity}} Seater, {{dp.TransportationSummary[0].TransportationService}}</p>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="timeline-thumb bg-color-energized timeline-icon">
+                            <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle" class="timeline-icon"></ion-icon>
+                          </div>
+                          <div class="timeline-item">
+                            <h5 class="line-break">14.30 P.M (GMT +3)</h5>
+                            <h4>Istanbul City Tour</h4>
+                            <p class="line-break"><span class="line-break" maxlength="100">Hippodrome,  Sultanahmet Mosque / Blue Mosque, Hagia Sophia</span></p>
+                            <ion-scroll scrollX="true">
+                              <img class="img-scroll" src="http://love2fly.iberia.com/wp-content/uploads/2015/07/L2F-Jul-15-pic-Turkey-Istanbul-Blue-Mosque-interior-Yarygin-shutterstock_185429441.jpg"
+                              />
+                              <img class="img-scroll" src="http://i0.wp.com/blog.istanbultourstudio.com/wp-content/uploads/CONSTANTINOPLE_4.jpg" />
+                              <img class="img-scroll" src="http://ayasofyamuzesi.gov.tr/sites/default/files/hagia-sophia-interior_1.jpg" />
+                            </ion-scroll>
+                            <h4>- Blue Mosque</h4>
+                            <img src="http://love2fly.iberia.com/wp-content/uploads/2015/07/L2F-Jul-15-pic-Turkey-Istanbul-Blue-Mosque-interior-Yarygin-shutterstock_185429441.jpg">
+                            <h4>- Hippo Drome</h4>
+                            <img src="http://i0.wp.com/blog.istanbultourstudio.com/wp-content/uploads/CONSTANTINOPLE_4.jpg">
+                            <h4>- Haghia Sophia</h4>
+                            <img src="https://healthyglobetrotter.files.wordpress.com/2012/11/331161_10150258088116899_5826045_o.jpg">
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </ion-item>
+                </ion-list>
               </div>
-              <div class="timeline-item">
-                <h5 class="line-break">00.10 A.M (GMT +7)</h5>
-                <h4 class="line-break">{{dp.Destination}}</h4>
-                <!-- <p class="line-break">Jakarta</p> -->
-              </div>
-            </li>
-            <li>
-              <div class="timeline-thumb bg-color-dark timeline-icon">
-                <ion-icon ios="ios-cloudy-night" md="md-cloudy-night" class="timeline-icon"></ion-icon>
-              </div>
-              <div class="timeline-item">
-                <h5 class="line-break">{{dp.AccommodationSummary.DateTime | date : 'jm' }}</h5>
-                <h4>{{dp.AccommodationSummary.Name}}</h4>
-                <p class="line-break">{{dp.AccommodationSummary.RoomType}}, {{(dp.AccommodationSummary.RoomService).replace('_', ' ')}}</p>
-              </div>
-            </li>
-            <li>
-              <div class="timeline-thumb bg-color-calm timeline-icon">
-                <ion-icon ios="ios-bus" md="md-bus" class="timeline-icon"></ion-icon>
-              </div>
-              <div class="timeline-item">
-                <h5 class="line-break">{{dp.TransportationSummary[0].DateTime | date : 'jm'}}</h5>
-                <h4>Airport Pickup</h4>
-                <p class="line-break">{{dp.TransportationSummary[0].TransportationCapacity}} Seater, {{dp.TransportationSummary[0].TransportationService}}</p>
-              </div>
-            </li>
-            <li>
-              <div class="timeline-thumb bg-color-energized timeline-icon">
-                <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle" class="timeline-icon"></ion-icon>
-              </div>
-              <div class="timeline-item">
-                <h5 class="line-break">14.30 P.M (GMT +3)</h5>
-                <h4>Istanbul City Tour</h4>
-                <p class="line-break"><span class="line-break" maxlength="100">Hippodrome,  Sultanahmet Mosque / Blue Mosque, Hagia Sophia</span></p>
-                <ion-scroll scrollX="true">
-                  <img class="img-scroll" src="http://love2fly.iberia.com/wp-content/uploads/2015/07/L2F-Jul-15-pic-Turkey-Istanbul-Blue-Mosque-interior-Yarygin-shutterstock_185429441.jpg"
-                  />
-                  <img class="img-scroll" src="http://i0.wp.com/blog.istanbultourstudio.com/wp-content/uploads/CONSTANTINOPLE_4.jpg" />
-                  <img class="img-scroll" src="http://ayasofyamuzesi.gov.tr/sites/default/files/hagia-sophia-interior_1.jpg" />
-                </ion-scroll>
-                <h4>- Blue Mosque</h4>
-                <img src="http://love2fly.iberia.com/wp-content/uploads/2015/07/L2F-Jul-15-pic-Turkey-Istanbul-Blue-Mosque-interior-Yarygin-shutterstock_185429441.jpg">
-                <h4>- Hippo Drome</h4>
-                <img src="http://i0.wp.com/blog.istanbultourstudio.com/wp-content/uploads/CONSTANTINOPLE_4.jpg">
-                <h4>- Haghia Sophia</h4>
-                <img src="https://healthyglobetrotter.files.wordpress.com/2012/11/331161_10150258088116899_5826045_o.jpg">
-              </div>
-            </li>
-          </ul>
-        </div>
-      </ion-item>
-    </ion-list>
-  </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
 </ion-content>
