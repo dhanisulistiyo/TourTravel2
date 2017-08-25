@@ -13,6 +13,7 @@ export class MultiTransactionService {
   attraction: Array<any>;
   transportation: Array<any>;
   accomodation: Array<any>;
+  move:Array<any>;
   guest: Array<any>;
   airport:any;
   result;
@@ -30,6 +31,7 @@ destroyObject() {
     this.transportation = [];
     this.accomodation = [];
     this.guest = [];
+    this.move = []
 }
 
   dailyAttraction() {
@@ -43,7 +45,9 @@ destroyObject() {
           for (let k = 0; k < (Object.keys(cek).length); k++) {
             let item = {
               ServiceItemId: this.daily[i].program_daily[j].attraction[k].ServiceItemId,
-              Date: this.daily[i].datetour
+              DateTime: this.daily[i].datetour,
+              CityId: this.daily[i].program_daily[j].destinationFrom.Id,
+              Duration:3600
             }
             this.attraction.push(item);
           }
@@ -51,6 +55,11 @@ destroyObject() {
       }
     }
   }
+
+  dailyMovement(){
+    this.transportation = [];
+  }
+
   dailyTransportation() {
     this.transportation = [];
     this.daily = this.ds.daily
@@ -61,7 +70,7 @@ destroyObject() {
          let item = {
             ServiceItemId: this.airport[i].transportation.ServiceItemId,
             TransportationItemServiceType: this.airport[i].transportservice,
-            Date: this.airport[i].date
+            DateTime: this.airport[i].date
           }
           this.transportation.push(item);
         }
@@ -76,7 +85,7 @@ destroyObject() {
           let item = {
             ServiceItemId: this.daily[i].program_daily[j].transportation.ServiceItemId,
             TransportationItemServiceType: this.daily[i].program_daily[j].transportservice,
-            Date: this.daily[i].datetour,
+            DateTime: this.daily[i].datetour,
             CityId: this.daily[i].program_daily[j].destinationFrom.Id,
             Hours: this.daily[i].program_daily[j].hourstrans
 
@@ -97,7 +106,7 @@ destroyObject() {
         if (cek != null) {
           let item = {
             ServiceItemId: this.daily[i].program_daily[j].roomtype.ServiceItemId,
-            Date: this.daily[i].datetour,
+            DateTime: this.daily[i].datetour,
             SharingRoomQty: Number(this.ite.getRoomAllo().allocroom.sharingRooms),
             SingleRoomQty: Number(this.ite.getRoomAllo().allocroom.singleRoom),
             ExtraBedQty: Number(this.ite.getRoomAllo().allocroom.extraBed),
@@ -152,6 +161,7 @@ destroyObject() {
       "Attractions": this.attraction,
       "Transportations": this.transportation,
       "Accommodations": this.accomodation,
+      "Movements": this.move,
       "Guests": this.guest
     };
     console.log(JSON.stringify(json));
