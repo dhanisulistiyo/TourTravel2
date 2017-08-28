@@ -308,6 +308,8 @@ export class FixedpackageGuestPage {
     let guest = this.guestTour.AdultQty + this.guestTour.ChildQty + this.guestTour.InfantQty
     let alloc = this.roomAlloc.AdultExtraBedPrice + this.roomAlloc.ChildExtraBedPrice +this.roomAlloc.SharingBedPrice + this.roomAlloc.SharingRoomPrice
     if(guest == alloc){
+      this.fixService.setRoomAllo(this.roomAlloc)
+      this.fixService.setGuest(this.guestTour)
       this.gu.createGuestFix(this.guestTour.AdultQty,this.guestTour.ChildQty,this.guestTour.InfantQty);
       this.navCtrl.push(FixedGuestDetailsPage);
     }else{

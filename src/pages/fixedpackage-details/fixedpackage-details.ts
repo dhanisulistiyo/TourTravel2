@@ -16,7 +16,6 @@ import { FixedpackageItineraryPage } from './../fixedpackage-itinerary/fixedpack
   templateUrl: 'fixedpackage-details.html',
 })
 export class FixedpackageDetailsPage {
-  @ViewChild(Slides) slides: Slides;
   showToolbar: boolean = false;
   read;
   Prices;
@@ -27,12 +26,12 @@ export class FixedpackageDetailsPage {
   TourPriceSum;
   TourGuestSum;
   days
-  newval
-  
+  hotel
+  id
   constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, public navParams: NavParams, 
     public fixService : FixedPackageProvider, public load: LoadingController) {
     this.read = false;
-    this.newval= 0
+    this.id = navParams.data["id"]
   }
 
   onScroll($event: any) {
@@ -41,17 +40,12 @@ export class FixedpackageDetailsPage {
     this.ref.detectChanges();
   }
 
-  slideChanged() {
-    let currentIndex = this.slides.getActiveIndex();
-    console.log("Current index is", currentIndex);
-  }
-
   ionViewWillEnter() {
     let loader = this.load.create({
       content: 'Please wait...'
     });
     loader.present();
-    this.fixService.detailsPackage(1).subscribe(data => {
+    this.fixService.detailsPackage(this.id).subscribe(data => {
       console.log(data)
       this.Prices = (data['Prices'])
       this.Images = (data['Images'])
@@ -78,6 +72,7 @@ export class FixedpackageDetailsPage {
   bookNow() {
     let res = this.BookingDetailSum
     let price= this.Prices
+    this.fixService.setId(this.BookingDetailSum.Id)
     this.navCtrl.push(FixedpackageGuestPage,{res, price})
   }
 

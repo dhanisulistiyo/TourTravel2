@@ -41,7 +41,7 @@
           <p class="p-price">USD </p>
         </ion-col>
         <ion-col col-5>
-          <h3>{{BookingDetailSum?.TourTotalPrice}}/Pax (Max)</h3>
+          <h3>{{Prices?.LowestPrice}}/Pax</h3>
         </ion-col>
         <ion-col col-6>
           <p class="p-custom" style="text-align: right; padding-top: 2vw;">
@@ -72,6 +72,16 @@
       <p class="p-custom">
         <ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-pin"></ion-icon>
         {{days+1}} Day(s) / {{days}} Night(s)
+      </p>
+
+      <p class="p-custom">
+        <ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-pin"></ion-icon>
+        DP Before {{BookingDetailSum?.FixedPackage.DPExpiredOn | date:'dd MMM yyyy' }}
+      </p>
+
+      <p class="p-custom">
+        <ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-pin"></ion-icon>
+         {{BookingDetailSum?.FixedPackage.RegisteringGuest}} Guest(s) Registered
       </p>
     </div>
 
@@ -115,7 +125,7 @@
     <div class="schedule">
       <h2>What we'll do</h2>
       <div class="slide-schedule" style="margin-left: 0;">
-        <ion-slides (ionSlideDidChange)="slideChanged()">
+        <ion-slides>
           <ion-slide *ngFor="let dp of DailyPrograms ; let i = index;">
             <ion-card style="height:67vw; width:100%;">
               <ion-card-header>
@@ -296,55 +306,14 @@
 
     <div class="important">
       <h2>Important information</h2>
-      <div class="important-content">
+      <div class="important-content" *ngFor="let desc of Descriptions" >
         <p class="p-header">
           <ion-icon ios="ios-checkmark-circle" md="ios-checkmark-circle-outline" class="custom-pin" style="color: #4fd2c2;"></ion-icon>
-          Inclusions
+          {{desc.SubTitle}}
         </p>
-        <ul class="custom-list">
-          <li>
-            <p class="p-custom">Lunch</p>
-          </li>
-          <li>
-            <p class="p-custom">Local Guide</p>
-          </li>
-          <li>
-            <p class="p-custom">Driver/guide</p>
-          </li>
-          <li>
-            <p class="p-custom">Hotel pickup and drop-off *(selected hotels only)</p>
-          </li>
-          <li>
-            <p class="p-custom">Round-trip private transfer</p>
-          </li>
-          <li>
-            <p class="p-custom">Transport by air-conditioned minivan</p>
-          </li>
-          <li>
-            <p class="p-custom">All necessary equipment</p>
-          </li>
-          <li>
-            <p class="p-custom">Towel and shower facilities</p>
-          </li>
-        </ul>
+        <p class="p-custom" style="padding-bottom: 2vw; padding-left: 4.4vw; text-align:justify;" [innerHtml]="desc.Content"></p>
       </div>
-      <div class="important-content">
-        <p class="p-header">
-          <ion-icon ios="ios-close-circle" md="ios-close-circle-outline" class="custom-pin" style="color: #f53d3d;"></ion-icon>
-          Exclusions
-        </p>
-        <ul class="custom-list">
-          <li>
-            <p class="p-custom">Food and Drinks, unless specified</p>
-          </li>
-          <li>
-            <p class="p-custom">Gratuities (optional)</p>
-          </li>
-          <li>
-            <p class="p-custom">Merchandise or personal expenses</p>
-          </li>
-        </ul>
-      </div>
+
       <div class="important-content">
         <p class="p-header">
           <ion-icon ios="ios-information-circle" md="ios-information-circle-outline" class="custom-pin" style="color: #4fd2c2;"></ion-icon>
