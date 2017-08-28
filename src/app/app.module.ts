@@ -107,7 +107,6 @@ import { FixedpackageDetailsPage } from './../pages/fixedpackage-details/fixedpa
 import { FixedpackageGuestPage } from './../pages/fixedpackage-guest/fixedpackage-guest';
 import { FixedpackagePaymentPage } from './../pages/fixedpackage-payment/fixedpackage-payment';
 import { FixedRoomallocatePage } from './../pages/fixed-roomallocate/fixed-roomallocate';
-import { FixedInputtravellersPage } from './../pages/fixed-inputtravellers/fixed-inputtravellers';
 import { FixedpackageAllPage } from './../pages/fixedpackage-all/fixedpackage-all';
 import { FixedpackageItineraryPage } from './../pages/fixedpackage-itinerary/fixedpackage-itinerary';
 
@@ -134,7 +133,6 @@ import { ReadypackageDetailsPage } from './../pages/readypackage-details/readypa
     FixedpackageDetailsPage,
     FixedpackageGuestPage,
     FixedpackageItineraryPage,
-    FixedInputtravellersPage,
     FixedRoomallocatePage,
     FixedpackagePaymentPage,
     FixedpackageAllPage,
@@ -233,7 +231,6 @@ import { ReadypackageDetailsPage } from './../pages/readypackage-details/readypa
     FixedpackageItineraryPage,
     FixedpackageDetailsPage,
     FixedpackageGuestPage,
-    FixedInputtravellersPage,
     FixedRoomallocatePage,
     FixedpackagePaymentPage,
     FixedpackageAllPage,

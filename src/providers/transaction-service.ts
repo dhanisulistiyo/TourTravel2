@@ -104,8 +104,9 @@ export class TransactionService {
           SharingBedQty: Number(this.ite.getRoomAllo().allocroom.sharingBed),
           AccommodationItemServiceType: this.ite.getRoomSer().itemser
     }];
-
-
   }
+
+
+  
 
 }

@@ -1,3 +1,4 @@
+import { FixedPackageProvider } from './../../providers/fixed-package';
 import { FixedpackagePaymentPage } from './../fixedpackage-payment/fixedpackage-payment';
 import { LocationGuestPage } from './../location-guest/location-guest';
 import { GuestServiceProvider } from './../../providers/guest-service';
@@ -10,12 +11,9 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
 })
 export class FixedGuestDetailsPage {
   Guest : Array<any>;
-  Type;
   ID
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-    public gu : GuestServiceProvider, public alertCtrl: AlertController) {
-    this.Type = navParams.data['type'];
-    console.log(this.Type);
+    public gu : GuestServiceProvider, public alertCtrl: AlertController, public fix: FixedPackageProvider) {
     this.ID = ['Choose Type Guest','ID Card', 'Passport','Driving License']
   }
 
@@ -27,12 +25,15 @@ export class FixedGuestDetailsPage {
         }
         console.log(this.Guest)
     }
-    setID(i, par){
+
+    setID(par, i ){
       console.log(par, i)
       if (par == "ID Card" ) this.gu.setTypeId(i, "IDCARD");
       else if (par =="Passport") this.gu.setTypeId(i, "PASSPORT");
       else if (par =="Driving License") this.gu.setTypeId(i, "DRIVINGLICENSE");
+      console.log(this.Guest)
     }
+
     inputId(i, event){
         var data = event.target.value;
         this.gu.setId(i, data);
@@ -58,6 +59,7 @@ export class FixedGuestDetailsPage {
         // else if (this.gu.getLastName() == null || this.gu.getLastName() == "" ) this.showAlertLastName()
         // else if (this.gu.getCountry() == null || this.gu.getCountry() == "" ) this.showAlertCountry()
         //else 
+        this.fix.joinTour();
         this.navCtrl.push(FixedpackagePaymentPage);
 
     }

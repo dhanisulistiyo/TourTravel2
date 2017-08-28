@@ -1,5 +1,7 @@
+import { ConfigProvider } from './config';
+import { AuthService } from './auth-token-service';
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http , RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 /*
@@ -35,26 +37,20 @@ export class GuestDetails {
 @Injectable()
 export class GuestServiceProvider {
   Guest: any = [];
-  constructor(public http: Http) {
+  constructor(public http: Http, public auth:AuthService , public conf:ConfigProvider) {
   }
-
 
   createGuest(adult,child,infant, type){
     let count = adult+child+infant
       this.Guest = []
       if(type == "Large Group"){
         let g = new GuestDetails();
-        g.typeid = "IDCARD";
-        g.id= '22222'
         g.typeperson = "Adult"
         g.guestype= "TOURLEADER";
         this.Guest[0]=(g);
       }else{
         for(let i = 0 ; i < count; i++){
           let g = new GuestDetails();
-           g.typeid = "IDCARD";
-           g.id= '22222'
-
           if(i < adult)g.typeperson = "Adult"
           else if(i > adult-1 && i < (adult+child))g.typeperson = "Child"  
           else if(i > adult+child-1 && i < (count))g.typeperson = "Infant" 
@@ -70,12 +66,9 @@ export class GuestServiceProvider {
       this.Guest = []
         for(let i = 0 ; i < count; i++){
           let g = new GuestDetails();
-           g.typeid = "IDCARD";
-           g.id= '22222'
-
-          if(i < adult)g.typeperson = "Adult"
-          else if(i > adult-1 && i < (adult+child))g.typeperson = "Child"  
-          else if(i > adult+child-1 && i < (count))g.typeperson = "Infant" 
+          if(i < adult)g.typeperson = "ADULT"
+          else if(i > adult-1 && i < (adult+child))g.typeperson = "CHILD"  
+          else if(i > adult+child-1 && i < (count))g.typeperson = "INFANT" 
           if(i == 0) g.guestype= "TOURLEADER";
           else  g.guestype= "TOURMEMBER";
           this.Guest[i]=(g);

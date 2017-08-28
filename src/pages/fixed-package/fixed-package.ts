@@ -35,8 +35,8 @@ export class FixedPackagePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad FixedPackagePage');
   }
-  fixHoneymoon() {
-    this.navCtrl.push(FixedpackageDetailsPage);
+  detailTour(id) {
+    this.navCtrl.push(FixedpackageDetailsPage, {id});
   }
   fixSeeAll() {
     this.navCtrl.push(FixedpackageAllPage);

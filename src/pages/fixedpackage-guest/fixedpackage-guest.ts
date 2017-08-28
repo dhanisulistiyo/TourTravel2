@@ -13,35 +13,49 @@ import { FixedInputtravellersPage } from './../fixed-inputtravellers/fixed-input
 export class FixedpackageGuestPage {
   showToolbar: boolean = false;
   listFixedPackage
+  prices
   guestTour = { AdultQty: null, ChildQty: null, InfantQty: null };
-  passenger: string;
+  roomAlloc = { SharingRoomPrice: null, AdultExtraBedPrice: null, ChildExtraBedPrice: null, SharingBedPrice: null }
   total;
-  maxGuest;
-  kuota;
-  typeG;
+  totalPrice;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public alertCtrl: AlertController, 
-    private fixService: FixedPackageProvider, public gu : GuestServiceProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public alertCtrl: AlertController,
+    private fixService: FixedPackageProvider, public gu: GuestServiceProvider) {
     this.guestTour = { AdultQty: 0, ChildQty: 0, InfantQty: 0 };
+    this.roomAlloc = { SharingRoomPrice: 0, AdultExtraBedPrice: 0, ChildExtraBedPrice: 0, SharingBedPrice: 0 }
     this.total = 0;
+    this.totalPrice = 0;
     this.listFixedPackage = navParams.data['res'];
+    this.prices = navParams.data['price'];
     console.log(this.listFixedPackage)
   }
 
+  onScroll($event: any) {
+    let scrollTop = $event.scrollTop;
+    this.showToolbar = scrollTop >= 120;
+    this.ref.detectChanges();
+  }
+  //Guest
   incrAdultQty(index: number) {
-    this.guestTour.AdultQty += 1;
-    console.log(this.guestTour.AdultQty);
-    this.total += 1;
+    if (this.total < this.listFixedPackage.FixedPackage.MaximumGuest) {
+      this.guestTour.AdultQty += 1;
+      console.log(this.guestTour.AdultQty);
+      this.total += 1;
+    }
   }
   incrChildQty(index: number) {
-    this.guestTour.ChildQty += 1;
-    console.log(this.guestTour.ChildQty);
-    this.total += 1;
+    if (this.total < this.listFixedPackage.FixedPackage.MaximumGuest) {
+      this.guestTour.ChildQty += 1;
+      console.log(this.guestTour.ChildQty);
+      this.total += 1;
+    }
   }
   incrInfantQty(index: number) {
-    this.guestTour.InfantQty += 1;
-    console.log(this.guestTour.InfantQty);
-    this.total += 1;
+    if (this.total < this.listFixedPackage.FixedPackage.MaximumGuest) {
+      this.guestTour.InfantQty += 1;
+      console.log(this.guestTour.InfantQty);
+      this.total += 1;
+    }
   }
   decrAdultQty(index: number) {
     if (this.guestTour.AdultQty != 0) {
@@ -64,16 +78,154 @@ export class FixedpackageGuestPage {
       this.total -= 1;
     }
   }
+  validateNumber(guestTour) {
+    console.log(guestTour);
+    let ga = Number(guestTour.AdultQty)
+    let gc = Number(guestTour.ChildQty)
+    let gi = Number(guestTour.InfantQty)
 
-  onScroll($event: any) {
-    let scrollTop = $event.scrollTop;
-    this.showToolbar = scrollTop >= 120;
-    this.ref.detectChanges();
+    if (typeof ga != "number" || String(ga) == "NaN") {
+      this.showAlertAdult();
+      this.guestTour.AdultQty = 0;
+      this.total = this.guestTour.AdultQty + this.guestTour.ChildQty + this.guestTour.InfantQty;
+      return
+
+    }
+    else if (typeof gc != "number" || String(gc) == "NaN") {
+      this.showAlertChild();
+      this.guestTour.ChildQty = 0;
+      this.total = this.guestTour.AdultQty + this.guestTour.ChildQty + this.guestTour.InfantQty;
+      return
+    }
+    else if (typeof gi != "number" || String(gi) == "NaN") {
+      this.showAlertInfant();
+      this.guestTour.InfantQty = 0;
+      this.total = this.guestTour.AdultQty + this.guestTour.ChildQty + this.guestTour.InfantQty;
+      return
+    } else {
+      let max = this.listFixedPackage.FixedPackage.MaximumGuest;
+      if(ga > max-gc-gi) {this.guestTour.AdultQty = 0; this.showAlertTotal(); }
+      else if(gc > max-ga-gi) {this.guestTour.ChildQty = 0; this.showAlertTotal();}
+      else if(gi > max-ga-gc) {this.guestTour.InfantQty = 0; this.showAlertTotal();}
+      else{
+      this.guestTour.AdultQty = ga
+      this.guestTour.ChildQty = gc
+      this.guestTour.InfantQty = gi
+      this.total = ga + gc + gi;
+      }
+      return;
+    }
+
+  }
+//Allocation
+  incrShareQty(index: number) {
+    if(this.guestTour.AdultQty != 0  || this.guestTour.ChildQty != 0){
+        this.roomAlloc.SharingRoomPrice += 1;
+        this.totalPrices();
+    }
+  }
+  incrAdultExQty(index: number) {
+    if(this.guestTour.AdultQty != 0){
+      if(this.roomAlloc.AdultExtraBedPrice < this.guestTour.AdultQty){
+        this.roomAlloc.AdultExtraBedPrice += 1;
+        this.totalPrices();
+      }
+    }
+  }
+  incrChildExQty(index: number) {
+    if(this.guestTour.ChildQty != 0){
+      if(this.roomAlloc.ChildExtraBedPrice < this.guestTour.ChildQty){
+        this.roomAlloc.ChildExtraBedPrice += 1;
+        this.totalPrices();
+      }
+    }
+  }
+  incrBedQty(index: number) {
+    if(this.guestTour.ChildQty != 0){
+    if(this.roomAlloc.SharingBedPrice < this.guestTour.ChildQty){
+      this.roomAlloc.SharingBedPrice += 1;
+      this.totalPrices();
+    }
+    }
+  }
+  decrShareQty(index: number) {
+    if (this.roomAlloc.SharingRoomPrice != 0) {
+      this.roomAlloc.SharingRoomPrice -= 1;
+      console.log(this.roomAlloc.SharingRoomPrice);
+      this.totalPrices();
+    }
+  }
+  decrAdultExQty(index: number) {
+    if (this.roomAlloc.AdultExtraBedPrice != 0) {
+      this.roomAlloc.AdultExtraBedPrice -= 1;
+      console.log(this.roomAlloc.AdultExtraBedPrice);
+      this.totalPrices();
+    }
+  }
+  decrChildExQty(index: number) {
+    if (this.roomAlloc.ChildExtraBedPrice != 0) {
+      this.roomAlloc.ChildExtraBedPrice -= 1;
+      console.log(this.roomAlloc.ChildExtraBedPrice);
+      this.totalPrices();
+    }
+  }
+  decrBedQty(index: number) {
+    if (this.roomAlloc.SharingBedPrice != 0) {
+      this.roomAlloc.SharingBedPrice -= 1;
+      console.log(this.roomAlloc.SharingBedPrice);
+      this.totalPrices();
+    }
+  }
+  validateNumberAlloc(roomAlloc) {
+    console.log(roomAlloc);
+    let SR = Number(roomAlloc.SharingRoomPrice)
+    let AE = Number(roomAlloc.AdultExtraBedPrice)
+    let CE = Number(roomAlloc.ChildExtraBedPrice)
+    let SB = Number(roomAlloc.SharingBedPrice)
+    if (typeof SR != "number" || String(SR) == "NaN") {
+      this.roomAlloc.SharingRoomPrice = 0;
+      this.showAlertSR();
+      this.totalPrices();
+      return
+    }
+    else if (typeof AE != "number" || String(AE) == "NaN") {
+      this.roomAlloc.AdultExtraBedPrice = 0;
+      this.showAlertAE();
+      this.totalPrices();
+      return
+    }
+    else if (typeof CE != "number" || String(CE) == "NaN") {
+      this.roomAlloc.ChildExtraBedPrice = 0;
+      this.showAlertCE();
+      this.totalPrices();
+      return
+    }
+    else if (typeof SB != "number" || String(SB) == "NaN") {
+      this.roomAlloc.SharingBedPrice = 0;
+      this.showAlertSB();
+      this.totalPrice();
+      return
+    } else {
+      this.roomAlloc.SharingRoomPrice = SR
+      this.roomAlloc.AdultExtraBedPrice = AE
+      this.roomAlloc.ChildExtraBedPrice = CE
+      this.roomAlloc.SharingBedPrice = SB
+      let totalGuest = this.guestTour.AdultQty + this.guestTour.ChildQty
+      let totalAlloc = SR + AE + CE + SB
+      this.totalPrices();
+      return;
+    }
+
+  }
+  totalPrices() {
+    let A2 = this.prices.SharingRoomPrice
+    let B2 = this.prices.AdultExtraBedPrice
+    let C2 = this.prices.ChildExtraBedPrice
+    let D2 = this.prices.SharingBedPrice
+    this.totalPrice = (this.roomAlloc.SharingRoomPrice * A2) + (this.roomAlloc.AdultExtraBedPrice * B2) + (this.roomAlloc.ChildExtraBedPrice * C2) + (this.roomAlloc.SharingBedPrice * D2)
+
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FixedpackageGuestPage');
-  }
   showAlertGuest() {
     let alert = this.alertCtrl.create({
       title: 'Failed!',
@@ -82,17 +234,97 @@ export class FixedpackageGuestPage {
     });
     alert.present();
   }
-  passengerTapped() {
-    this.navCtrl.push(FixedInputtravellersPage)
+  showAlertAdult() {
+    let alert = this.alertCtrl.create({
+      title: 'Wrong Input!',
+      subTitle: 'Input Adult Not Number',
+      buttons: ['OK']
+    });
+    alert.present();
   }
-  hotelTapped() {
-    //if (this.passenger == '') this.showAlertGuest();
-    this.navCtrl.push(FixedRoomallocatePage);
+  showAlertChild() {
+    let alert = this.alertCtrl.create({
+      title: 'Wrong Input!',
+      subTitle: 'Input Child Not Number',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+  showAlertInfant() {
+    let alert = this.alertCtrl.create({
+      title: 'Wrong Input!',
+      subTitle: 'Input Infant Not Number',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+  showAlertTotal() {
+    let alert = this.alertCtrl.create({
+      title: 'Failed!',
+      subTitle: 'This fixed package max guest only ' + this.listFixedPackage.FixedPackage.MaximumGuest + ' person!',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
-  continueTapped(){
-    this.gu.createGuestFix(2,0,0);
-    this.navCtrl.push(FixedGuestDetailsPage);
+  showAlertSR() {
+    let alert = this.alertCtrl.create({
+      title: 'Wrong Input!',
+      subTitle: 'Input Sharing Room Not Number',
+      buttons: ['OK']
+    });
+    alert.present();
   }
+
+  showAlertAE() {
+    let alert = this.alertCtrl.create({
+      title: 'Wrong Input!',
+      subTitle: 'Input Adult Extra Bed Not Number',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+  showAlertCE() {
+    let alert = this.alertCtrl.create({
+      title: 'Wrong Input!',
+      subTitle: 'Input Child Extra Bed Not Number',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+  showAlertSB() {
+    let alert = this.alertCtrl.create({
+      title: 'Wrong Input!',
+      subTitle: 'Input Sharing Bed Not Number',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+
+  continueTapped() {
+    let guest = this.guestTour.AdultQty + this.guestTour.ChildQty + this.guestTour.InfantQty
+    let alloc = this.roomAlloc.AdultExtraBedPrice + this.roomAlloc.ChildExtraBedPrice +this.roomAlloc.SharingBedPrice + this.roomAlloc.SharingRoomPrice
+    if(guest == alloc){
+      this.fixService.setRoomAllo(this.roomAlloc)
+      this.fixService.setGuest(this.guestTour)
+      this.gu.createGuestFix(this.guestTour.AdultQty,this.guestTour.ChildQty,this.guestTour.InfantQty);
+      this.navCtrl.push(FixedGuestDetailsPage);
+    }else{
+      this.showAlertTotalAlloc();
+    }
+  }
+
+  showAlertTotalAlloc() {
+    let alert = this.alertCtrl.create({
+      title: 'Failed!',
+      subTitle: 'Allocation Guest Only ' + this.guestTour.AdultQty + ' Adult(S) and ' + this.guestTour.ChildQty + ' Child(s)!',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
 
 }

@@ -1,8 +1,9 @@
+import { GuestServiceProvider } from './guest-service';
 
 import { ConfigProvider } from './config';
 import { AuthService } from '../providers/auth-token-service'
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 export class GuestDetails {
@@ -19,7 +20,6 @@ export class GuestDetails {
     this.id = null;
     this.typeid = null;
     this.guestype = null;
-
     this.typeperson = null;
     this.firstName = null;
     this.lastName = null;
@@ -30,11 +30,11 @@ export class GuestDetails {
 
 @Injectable()
 export class FixedPackageProvider {
-  Guest: any = [];
   TGuest;
+  guest: Array<any>;
   allocation;
-
-  constructor(public http: Http, public auth:AuthService, public config:ConfigProvider) {
+  id
+  constructor(public http: Http, public auth:AuthService, public config:ConfigProvider, public gu: GuestServiceProvider ) {
     console.log('Hello FixedPackageProvider Provider');
     this.http = http;
   }
@@ -48,53 +48,6 @@ export class FixedPackageProvider {
     return response;
   }
 
-  createGuest(adult, child, infant) {
-    let count = adult + child + infant
-    this.Guest = [];
-    for (let i = 0; i < count; i++) {
-      let g = new GuestDetails();
-      g.typeid = "IDCARD";
-      g.id = '22222'
-
-      if (i < adult) g.typeperson = "Adult"
-      else if (i > adult - 1 && i < (adult + child)) g.typeperson = "Child"
-      else if (i > adult + child - 1 && i < (count)) g.typeperson = "Infant"
-      if (i == 0) g.guestype = "TOURLEADER";
-      else g.guestype = "TOURMEMBER";
-      this.Guest[i] = (g);
-    }
-  }
-
-  setId(i, par) {
-    this.Guest[i].id = par;
-    console.log(this.Guest)
-  }
-
-  setTypeId(i, par) {
-    this.Guest[i].typeid = par;
-    console.log(this.Guest)
-  }
-
-  setGuesType(i, par) {
-    this.Guest[i].guestype = par;
-    console.log(this.Guest)
-  }
-
-  setFirstName(i, par) {
-    this.Guest[i].firstName = par;
-    console.log(this.Guest)
-  }
-
-  setLastName(i, par) {
-    this.Guest[i].lastName = par;
-    console.log(this.Guest)
-  }
-
-  setCountry(i, par) {
-    this.Guest[i].country = par;
-    console.log(this.Guest)
-  }
-
   public setRoomAllo(aloc) {
     this.allocation = aloc;
   }
@@ -103,6 +56,9 @@ export class FixedPackageProvider {
     this.TGuest = guest;
   }
 
+  public setId(id) {
+    this.id = id;
+  }
   detailsPackage(id){
     var headers = new Headers();
     let token = this.auth.AuthToken;
@@ -112,6 +68,54 @@ export class FixedPackageProvider {
     return response;
   }
 
+  memberGuest(){
+    this.guest= [];
+    for (let i = 0; i < (Object.keys(this.gu.Guest).length); i++) {
+      let a = this.gu.Guest[i];
+      // if(a.firstName != null && a.lastName != null && a.id != null && a.typeid != null && a.guestype != null && a.country != null){
+      if(a.firstName != null && a.lastName != null && a.country != null){
+       let item = {
+            FirstName : a.firstName,
+            LastName : a.lastName,
+            CountryId :  a.country.Id,
+            IdentityNbr :  a.id,
+            IdentityType :  a.typeid,
+            GuestType :  a.guestype,  
+            GuestCategory : a.typeperson
+          }
+        this.guest.push(item);
+      }
+      
+    }
+
+}
+
+  joinTour(){
+    this.memberGuest();
+    var json = {
+      "AdultPax":this.TGuest.AdultQty,
+      "ChildPax":this.TGuest.ChildQty,
+      "InfantPax":this.TGuest.InfantQty,
+      "RoomAllocation":{
+        "SharingRoomQty":this.allocation.SharingRoomPrice,
+        "SingleRoomQty": 0,
+        "ExtraBedQty": this.allocation.AdultExtraBedPrice,
+        "ChildExtraBedQty":this.allocation.ChildExtraBedPrice,
+        "SharingBedQty":this.allocation.SharingBedPrice,
+        "BabyCrib":0,
+        "NoBed":0
+      },
+      "Guests": this.guest
+    };
+    console.log(JSON.stringify(json));
+    let token = this.auth.AuthToken;
+    var headers = new Headers({ 'Content-Type': 'application/json' });
+    headers.append('Authorization', 'Bearer ' + token);
+    let options = new RequestOptions({ headers: headers });
+    var url = this.config.baseUrl+'/TourTransactions/JoinTour/'+this.id;
+    var response = this.http.post(url, json, options).map(res => res.json());
+    return response;
+  }
 }
 
 
