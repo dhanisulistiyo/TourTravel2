@@ -119,8 +119,10 @@ export class FixedpackageGuestPage {
   }
 //Allocation
   incrShareQty(index: number) {
+    if(this.guestTour.AdultQty != 0  || this.guestTour.ChildQty != 0){
         this.roomAlloc.SharingRoomPrice += 1;
         this.totalPrices();
+    }
   }
   incrAdultExQty(index: number) {
     if(this.guestTour.AdultQty != 0){
