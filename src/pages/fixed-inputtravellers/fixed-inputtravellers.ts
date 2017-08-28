@@ -13,7 +13,7 @@ import { IteneraryService } from '../../providers/itenerary-service';
   templateUrl: 'fixed-inputtravellers.html',
 })
 export class FixedInputtravellersPage {
-guestTour = { AdultQty: null, ChildQty: null, InfantQty: null };
+  guestTour = { AdultQty: null, ChildQty: null, InfantQty: null };
   total;
   maxGuest;
   kuota
@@ -33,19 +33,19 @@ guestTour = { AdultQty: null, ChildQty: null, InfantQty: null };
   }
 
   incrChildQty(index: number) {
-   if (this.total < this.maxGuest) {
-    this.guestTour.ChildQty += 1;
-    console.log(this.guestTour.ChildQty);
-    this.total += 1;
-   }
+    if (this.total < this.maxGuest) {
+      this.guestTour.ChildQty += 1;
+      console.log(this.guestTour.ChildQty);
+      this.total += 1;
+    }
   }
 
   incrInfantQty(index: number) {
-     if (this.total < this.maxGuest) {
-    this.guestTour.InfantQty += 1;
-    console.log(this.guestTour.InfantQty);
-    this.total += 1;
-     }
+    if (this.total < this.maxGuest) {
+      this.guestTour.InfantQty += 1;
+      console.log(this.guestTour.InfantQty);
+      this.total += 1;
+    }
   }
 
   decrAdultQty(index: number) {
@@ -83,32 +83,32 @@ guestTour = { AdultQty: null, ChildQty: null, InfantQty: null };
       this.guestTour.AdultQty = 0;
       this.total = this.guestTour.AdultQty + this.guestTour.ChildQty + this.guestTour.InfantQty;
       return
-       
+
     }
     else if (typeof gc != "number" || String(gc) == "NaN") {
-       
+
       this.showAlertChild();
       this.guestTour.ChildQty = 0;
       this.total = this.guestTour.AdultQty + this.guestTour.ChildQty + this.guestTour.InfantQty;
       return
-       
+
     }
     else if (typeof gi != "number" || String(gi) == "NaN") {
-     
+
       this.showAlertInfant();
       this.guestTour.InfantQty = 0;
       this.total = this.guestTour.AdultQty + this.guestTour.ChildQty + this.guestTour.InfantQty;
       return
-       
+
     } else {
-        this.guestTour.AdultQty = ga
-        this.guestTour.ChildQty = gc
-        this.guestTour.InfantQty = gi
-        this.total = ga + gc + gi;
-        if (this.total > this.maxGuest) {
-          this.showAlertTotal();
-        }
-        return ;
+      this.guestTour.AdultQty = ga
+      this.guestTour.ChildQty = gc
+      this.guestTour.InfantQty = gi
+      this.total = ga + gc + gi;
+      if (this.total > this.maxGuest) {
+        this.showAlertTotal();
+      }
+      return;
     }
 
   }
@@ -127,31 +127,31 @@ guestTour = { AdultQty: null, ChildQty: null, InfantQty: null };
     else if (typeof gi != "number" || String(gi) == "NaN") {
       this.showAlertInfant()
     } else {
-        if(this.total<= this.maxGuest){
-            var data = JSON.stringify({ guestTour });
-            if(this.kuota=="Large Group"){
-                if(this.total<10){
-                    this.showAlertLarge();
-                }else{
-                  this.ite.setPassenger(data);
-                  this.navCtrl.pop();
-                }
-            }else{
-              this.ite.setPassenger(data);
-              this.navCtrl.pop();
-            }
-            
-        }else{
-          this.showAlertTotal();
+      if (this.total <= this.maxGuest) {
+        var data = JSON.stringify({ guestTour });
+        if (this.kuota == "Large Group") {
+          if (this.total < 10) {
+            this.showAlertLarge();
+          } else {
+            this.ite.setPassenger(data);
+            this.navCtrl.pop();
+          }
+        } else {
+          this.ite.setPassenger(data);
+          this.navCtrl.pop();
         }
+
+      } else {
+        this.showAlertTotal();
+      }
       //this.navCtrl.push(IteneraryBuilderPage);
     }
   }
 
-remainingG(){
+  remainingG() {
     return (this.maxGuest - this.total)
 
-}
+  }
   showAlertAdult() {
     let alert = this.alertCtrl.create({
       title: 'Wrong Input!',
@@ -191,10 +191,19 @@ remainingG(){
   showAlertTotal() {
     let alert = this.alertCtrl.create({
       title: 'Failed!',
-      subTitle: 'This type guest only '+this.maxGuest+' person, please change type if you want',
+      subTitle: 'This type guest only ' + this.maxGuest + ' person, please change type if you want',
       buttons: ['OK']
     });
     alert.present();
+  }
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
   }
 
 }

@@ -1,18 +1,181 @@
-<!--
-  Generated template for the FixedpackageItineraryPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
     <ion-title>Your Detailed Itinerary</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-<ion-content class="padding">
+<ion-content>
+  <div class="slide-pager" style="overflow: visible;">
+    <ion-slides pager="true" loop="true" speed="1000">
+      <ion-slide *ngFor="let dp of DP">
+        <div class="info">
+          <ion-card>
+            <img src="http://love2fly.iberia.com/wp-content/uploads/2015/07/L2F-Jul-15-pic-Turkey-Istanbul-Blue-Mosque-interior-Yarygin-shutterstock_185429441.jpg"
+              style="height:200px; width:100%;" />
+            <ion-card-content>
+              <!-- <h2>LET'S TRAVEL</h2>
+                  <h3>Discover and book amazing things-to-do at exclusive prices</h3> -->
+              <div class="day-number">{{Dates | date : 'd'}}</div>
+              <div class="date-right">
+                <div class="day-name">{{Dates | date : 'EEEE'}}</div>
+                <div class="month">{{Dates | date : 'MMMM yyyy'}}</div>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </div>
+        <!-- <div class="header">
+          <div class="color-overlay">
+            <div class="day-number">{{Dates | date : 'd'}}</div>
+            <div class="date-right">
+              <div class="day-name">{{Dates | date : 'EEEE'}}</div>
+              <div class="month">{{Dates | date : 'MMMM yyyy'}}</div>
+            </div>
+          </div>
+        </div> -->
+        <div class="day-info">
+          <h2 class="h2-custom">Day {{Day}}</h2>
+        </div>
+        <ul class="timeline">
+          <li>
+            <div class="tldate">
+              <button ion-button icon-left clear small>
+                  <ion-icon ios="ios-car" md="md-car"></ion-icon>
+                    <div>Take 26 mins to get there</div>
+                  </button></div>
+          </li>
+
+          <li>
+            <div class="tl-circ">
+              <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
+            </div>
+            <div class="timeline-panel">
+              <div class="tl-heading">
+                <h5 class="line-break">
+                  <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>00.10 A.M (GMT +7)</h5>
+                <p><small class="text-muted"> Check-in</small></p>
+                <!-- <h4>{{dp.Destination}}</h4> -->
+                <h4>{{dp.AccommodationSummary.Name}}</h4>
+              </div>
+              <div class="tl-body">
+                <p>Lorem Ipsum and such.</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="timeline-inverted">
+            <div class="tl-circ"></div>
+            <div class="timeline-panel">
+              <div class="tl-heading">
+                <h4>Breaking into Spring!</h4>
+                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 4/07/2014</small></p>
+              </div>
+              <div class="tl-body">
+                <p>Hope the weather gets a bit nicer...</p>
+
+                <p>Y'know, with more sunlight.</p>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="tldate">Mar 2014</div>
+          </li>
+
+          <li>
+            <div class="tl-circ"></div>
+            <div class="timeline-panel">
+              <div class="tl-heading">
+                <h4>New Apple Device Release Date</h4>
+                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3/22/2014</small></p>
+              </div>
+              <div class="tl-body">
+                <p>In memory of Steve Jobs.</p>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-panel">
+              <div class="tl-heading">
+                <h4>No icon here</h4>
+                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3/16/2014</small></p>
+              </div>
+              <div class="tl-body">
+                <p>Here you'll find some beautiful photography for your viewing pleasure, courtesy of <a href="http://lorempixel.com/">lorempixel</a>.</p>
+
+                <p><img src="http://lorempixel.com/600/300/nightlife/" alt="lorem pixel"></p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="tl-circ"></div>
+            <div class="timeline-panel">
+              <div class="tl-heading">
+                <h4>Some Important Date!</h4>
+                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3/03/2014</small></p>
+              </div>
+              <div class="tl-body">
+                <p>Write up a quick summary of the event.</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-panel noarrow">
+              <div class="tl-heading">
+                <h4>Secondary Timeline Box</h4>
+                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3/01/2014</small></p>
+              </div>
+              <div class="tl-body">
+                <p>This might be a follow-up post with related info. Maybe we include some extra links, tweets, user comments,
+                  photos, etc.
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="tldate">Feb 2014</div>
+          </li>
+
+          <li class="timeline-inverted">
+            <div class="tl-circ"></div>
+            <div class="timeline-panel">
+              <div class="tl-heading">
+                <h4>The Winter Months</h4>
+                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 02/23/2014</small></p>
+              </div>
+              <div class="tl-body">
+                <p>Gee time really flies when you're having fun.</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="tl-circ"></div>
+            <div class="timeline-panel">
+              <div class="tl-heading">
+                <h4>Yeah we're pretty much done here</h4>
+                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 02/11/2014</small></p>
+              </div>
+              <div class="tl-body">
+                <p>Wasn't this fun though?</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <ion-fab right bottom edge>
+    <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>
+
+<!-- <ion-content class="padding">
   <div class="slide-pager" style="overflow: visible;">
       <ion-slides pager="true" loop="true" speed="1000">
         <ion-slide>
@@ -32,7 +195,7 @@
                           <div class="timeline-item">
                             <h5 class="line-break">00.10 A.M (GMT +7)</h5>
                             <h4 class="line-break">{{dp.Destination}}</h4>
-                            <!-- <p class="line-break">Jakarta</p> -->
+                            <p class="line-break">Jakarta</p>
                           </div>
                         </li>
                         <li>
@@ -85,4 +248,4 @@
         </ion-slide>
       </ion-slides>
     </div>
-</ion-content>
+</ion-content> -->
