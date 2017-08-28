@@ -77,7 +77,8 @@ export class FixedpackageDetailsPage {
 
   bookNow() {
     let res = this.BookingDetailSum
-    this.navCtrl.push(FixedpackageGuestPage,{res})
+    let price= this.Prices
+    this.navCtrl.push(FixedpackageGuestPage,{res, price})
   }
 
   toggleDetails(data) {
