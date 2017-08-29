@@ -113,7 +113,9 @@ export class FixedPackageProvider {
     headers.append('Authorization', 'Bearer ' + token);
     let options = new RequestOptions({ headers: headers });
     var url = this.config.baseUrl+'/TourTransactions/JoinTour/'+this.id;
-    var response = this.http.post(url, json, options).map(res => res.json());
+    var response = this.http.post(url, json, options).map(res => res).subscribe(data => {
+      console.log(data.json())
+    });
     return response;
   }
 }

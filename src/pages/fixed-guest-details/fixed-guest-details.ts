@@ -1,3 +1,4 @@
+import { HomeScreenPage } from './../home-screen/home-screen';
 import { FixedPackageProvider } from './../../providers/fixed-package';
 import { FixedpackagePaymentPage } from './../fixedpackage-payment/fixedpackage-payment';
 import { LocationGuestPage } from './../location-guest/location-guest';
@@ -59,8 +60,9 @@ export class FixedGuestDetailsPage {
         // else if (this.gu.getLastName() == null || this.gu.getLastName() == "" ) this.showAlertLastName()
         // else if (this.gu.getCountry() == null || this.gu.getCountry() == "" ) this.showAlertCountry()
         //else 
+        //this.navCtrl.push(FixedpackagePaymentPage);
         this.fix.joinTour();
-        this.navCtrl.push(FixedpackagePaymentPage);
+        this.navCtrl.setRoot(HomeScreenPage);
 
     }
 
