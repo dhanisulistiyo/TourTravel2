@@ -1,7 +1,7 @@
 import { FixedPackageProvider } from './../../providers/fixed-package';
 import { FixedpackageAllPage } from './../fixedpackage-all/fixedpackage-all';
 import { Component, ChangeDetectorRef } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { FixedpackageDetailsPage } from './../fixedpackage-details/fixedpackage-details';
 
 @Component({
@@ -12,14 +12,23 @@ export class FixedPackagePage {
 
   showToolbar: boolean = false;
   listFixedPackage: Array<any>;
+  StartDate
+  EndDate
+  days
 
-  constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, public navParams: NavParams, private fixService: FixedPackageProvider) {
+  constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, public navParams: NavParams, private fixService: FixedPackageProvider, public load:LoadingController) {
 
   }
   ionViewWillEnter() {
+    let loader = this.load.create({
+      content: 'Please wait...'
+    });
+    loader.present();
     this.fixService.showFixedPackage().subscribe(data => {
       this.listFixedPackage = data;
       console.log(data)
+      loader.dismiss()
+
     }, err => {
       console.log(err);
     }, () => console.log("Fix Package Search Complete")
