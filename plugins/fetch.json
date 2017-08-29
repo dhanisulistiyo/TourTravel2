@@ -50,7 +50,7 @@
     "cordova-plugin-datepicker": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-datepicker"
+            "id": "cordova-plugin-datepicker@~0.9.3"
         },
         "is_top_level": true,
         "variables": {}

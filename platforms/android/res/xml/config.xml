@@ -19,9 +19,12 @@
         <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
         <param name="onload" value="true" />
     </feature>
-    <name>MyApp</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <feature name="DatePickerPlugin">
+        <param name="android-package" value="com.plugin.datepicker.DatePickerPlugin" />
+    </feature>
+    <name>touress.com</name>
+    <description>This Aplication for tour and travel.</description>
+    <author email="dhani.s.wibowo@gmail.com" href="http://basajans.com/">Dhani's Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
@@ -62,9 +65,7 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="AutoHideSplashScreen" value="false" />
     <preference name="ShowSplashScreen" value="true" />
-    <preference name="SplashScreenDelay" value="30000" />
+    <preference name="SplashScreenDelay" value="7000" />
+    <preference name="Orientation" value="portrait" />
     <preference name="loadUrlTimeoutValue" value="700000" />
-    <feature name="DatePickerPlugin">
-        <param name="android-package" value="com.plugin.datepicker.DatePickerPlugin" />
-    </feature>
 </widget>

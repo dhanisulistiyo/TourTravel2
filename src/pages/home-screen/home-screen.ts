@@ -1,3 +1,4 @@
+import { FixedInputtravellersPage } from './../fixed-inputtravellers/fixed-inputtravellers';
 import { MultiTransactionService } from './../../providers/multi-transaction-service';
 import { ReadypackageDestinationPage } from './../readypackage-destination/readypackage-destination';
 import { ReadyPackagePage } from './../ready-package/ready-package';
@@ -39,6 +40,9 @@ export class HomeScreenPage {
 
   promoMenu() {
     this.navCtrl.push(PromoPackagePage);
+  }
+  goToInput(){
+    this.navCtrl.push(FixedInputtravellersPage);
   }
 
 }

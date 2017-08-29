@@ -93,6 +93,7 @@ import { UserandcompanyDetails } from '../providers/userandcompany-details';
 import { FilattractionService } from '../providers/filattraction-service';
 import { GuestServiceProvider } from '../providers/guest-service';
 import { FixedPackageProvider } from '../providers/fixed-package';
+import { MovementServiceProvider } from '../providers/movement-service';
 
 // Import ionic2-rating module
 import { Ionic2RatingModule } from 'ionic2-rating';
@@ -116,7 +117,6 @@ import { ReadyPackagePage } from './../pages/ready-package/ready-package';
 import { ReadypackageDestinationPage } from './../pages/readypackage-destination/readypackage-destination';
 import { ReadypackageGuestPage } from './../pages/readypackage-guest/readypackage-guest';
 import { ReadypackageDetailsPage } from './../pages/readypackage-details/readypackage-details';
-
 
 @NgModule({
   declarations: [
@@ -327,7 +327,8 @@ import { ReadypackageDetailsPage } from './../pages/readypackage-details/readypa
     GuestServiceProvider,
     PromoPackageProvider,
     ConfigProvider,
-    FixedPackageProvider
+    FixedPackageProvider,
+    MovementServiceProvider
   ]
 })
 export class AppModule { }
