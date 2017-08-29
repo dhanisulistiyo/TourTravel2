@@ -7,7 +7,7 @@
   <ion-content fullscreen>
     <h5 class="custom-h5">AVAILABLE PACKAGES</h5>
     <div class="div-custom">
-      <ion-card *ngFor="let fix of listFixedPackage">
+      <ion-card *ngFor="let fix of listFixedPackage" (click)="detailTour(fix.Id)">
         <ion-row>
           <ion-col style="padding: 0;">
             <div class="box">
