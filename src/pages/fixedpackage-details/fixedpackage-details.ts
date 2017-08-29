@@ -1,3 +1,5 @@
+import { ConfigProvider } from './../../providers/config';
+import { AcomodationService } from './../../providers/acomodation-service';
 import { FixedPackageProvider } from './../../providers/fixed-package';
 import { Component, ChangeDetectorRef , ViewChild} from '@angular/core';
 import { NavController, NavParams, LoadingController, Slides } from 'ionic-angular';
@@ -26,10 +28,14 @@ export class FixedpackageDetailsPage {
   TourPriceSum;
   TourGuestSum;
   days
-  hotel
   id
+  Hotel
+  baseUrl
   constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, public navParams: NavParams, 
-    public fixService : FixedPackageProvider, public load: LoadingController) {
+  public fixService : FixedPackageProvider, public load: LoadingController, public aco: AcomodationService,
+  public conf: ConfigProvider
+  ) {
+    this.baseUrl =  this.conf.baseUrlImage;
     this.read = false;
     this.id = navParams.data["id"]
   }
@@ -41,6 +47,7 @@ export class FixedpackageDetailsPage {
   }
 
   ionViewWillEnter() {
+    var id;
     let loader = this.load.create({
       content: 'Please wait...'
     });
@@ -56,17 +63,23 @@ export class FixedpackageDetailsPage {
       this.TourGuestSum = (data['TourGuestSum'])
       let start = ( +new Date(this.BookingDetailSum.StartDate))
       let end = (+new Date(this.BookingDetailSum.EndDate))
-      this.days = Math.round((end - start) / 86400000);
-      console.log( this.days)
-      loader.dismiss();
-      
+      this.days = Math.round((end - start) / 86400000);      
+      this.id = this.DailyPrograms[0].TourDestinations[0].AccommodationSummary.AccommodationProfileId;
+      this.aco.searchAcomodation(this.id).subscribe(data => {
+        this.Hotel =  data;
+        console.log(data);
+    
+        }, err => {
+          console.log(err);
+        },
+          () => console.log('Hotel Search Complete')
+        );
     }, err => {
       console.log(err);
-      loader.dismiss();
-
     },
-      () => console.log('Hotel Search Complete')
+      () => console.log('Fixed Search Complete')
     );
+    loader.dismiss();
   }
 
   bookNow() {
@@ -76,6 +89,9 @@ export class FixedpackageDetailsPage {
     this.navCtrl.push(FixedpackageGuestPage,{res, price})
   }
 
+  getNumber(n){
+    return new Array(Number(n));
+}
   toggleDetails(data) {
     if (data) {
       this.read = false;
