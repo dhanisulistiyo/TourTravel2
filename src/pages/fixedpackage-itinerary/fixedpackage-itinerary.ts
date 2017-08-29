@@ -18,8 +18,8 @@ export class FixedpackageItineraryPage {
   Dates
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.DP = navParams.data['dp']
-    this.Day =  navParams.data['day']
-    this.Dates =  navParams.data['date']
+    //this.Day =  navParams.data['day']
+    //this.Dates =  navParams.data['date']
   }
   
 

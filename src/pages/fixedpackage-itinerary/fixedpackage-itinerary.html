@@ -15,10 +15,10 @@
             <ion-card-content>
               <!-- <h2>LET'S TRAVEL</h2>
                   <h3>Discover and book amazing things-to-do at exclusive prices</h3> -->
-              <div class="day-number">{{Dates | date : 'd'}}</div>
+              <div class="day-number">{{dp.Date | date : 'd'}}</div>
               <div class="date-right">
-                <div class="day-name">{{Dates | date : 'EEEE'}}</div>
-                <div class="month">{{Dates | date : 'MMMM yyyy'}}</div>
+                <div class="day-name">{{dp.Date | date : 'EEEE'}}</div>
+                <div class="month">{{dp.Date | date : 'MMMM yyyy'}}</div>
               </div>
             </ion-card-content>
           </ion-card>
@@ -33,9 +33,9 @@
           </div>
         </div> -->
         <div class="day-info">
-          <h2 class="h2-custom">Day {{Day}}</h2>
+          <h2 class="h2-custom">Day {{dp.Day}}</h2>
         </div>
-        <ul class="timeline">
+        <ul class="timeline" *ngFor="let item of dp.TourDestinations" >
           <li>
             <div class="tldate">
               <button ion-button icon-left clear small>
@@ -43,26 +43,26 @@
                     <div>Take 26 mins to get there</div>
                   </button></div>
           </li>
-
-          <li>
+          <li *ngIf="item.AccommodationSummary != null" >
             <div class="tl-circ">
               <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
             </div>
             <div class="timeline-panel">
               <div class="tl-heading">
                 <h5 class="line-break">
-                  <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>00.10 A.M (GMT +7)</h5>
+                  <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.AccommodationSummary.DateTime | date:'shortTime' }}</h5>
                 <p><small class="text-muted"> Check-in</small></p>
-                <!-- <h4>{{dp.Destination}}</h4> -->
-                <h4>{{dp.AccommodationSummary.Name}}</h4>
+                <h4>{{item.AccommodationSummary.Name}}</h4>
               </div>
               <div class="tl-body">
-                <p>Lorem Ipsum and such.</p>
+                <p>{{item.AccommodationSummary.RoomName}}</p>
+                <p>{{(item.AccommodationSummary.RoomService).replace('_', ' ')}}</p>
+                <p>{{item.Destination}}</p>
               </div>
             </div>
           </li>
 
-          <li class="timeline-inverted">
+          <!-- <li class="timeline-inverted">
             <div class="tl-circ"></div>
             <div class="timeline-panel">
               <div class="tl-heading">
@@ -75,91 +75,34 @@
                 <p>Y'know, with more sunlight.</p>
               </div>
             </div>
-          </li>
+          </li> -->
 
           <li>
-            <div class="tldate">Mar 2014</div>
+              <div class="tldate">
+                  <button ion-button icon-left clear small>
+                      <ion-icon ios="ios-car" md="md-car"></ion-icon>
+                        <div>Take 30 mins to get there</div>
+                      </button></div>
           </li>
 
-          <li>
-            <div class="tl-circ"></div>
-            <div class="timeline-panel">
-              <div class="tl-heading">
-                <h4>New Apple Device Release Date</h4>
-                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3/22/2014</small></p>
+          <li *ngIf="item.TransportationSummary.length > 0" >
+              <div class="tl-circ">
+                <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
               </div>
-              <div class="tl-body">
-                <p>In memory of Steve Jobs.</p>
+              <div class="timeline-panel" *ngFor="let tra of item.TransportationSummary" >
+                <div class="tl-heading">
+                  <h5 class="line-break">
+                    <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{tra.DateTime | date:'shortTime' }}</h5>
+                  <!-- <p><small class="text-muted"> Check-in</small></p> -->
+                  <h4>{{tra.TransportationType}}</h4>
+                </div>
+                <div class="tl-body">
+                  <p>{{tra.ServiceItemId}}</p>
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="timeline-inverted">
-            <div class="timeline-panel">
-              <div class="tl-heading">
-                <h4>No icon here</h4>
-                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3/16/2014</small></p>
-              </div>
-              <div class="tl-body">
-                <p>Here you'll find some beautiful photography for your viewing pleasure, courtesy of <a href="http://lorempixel.com/">lorempixel</a>.</p>
+            </li>
 
-                <p><img src="http://lorempixel.com/600/300/nightlife/" alt="lorem pixel"></p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="tl-circ"></div>
-            <div class="timeline-panel">
-              <div class="tl-heading">
-                <h4>Some Important Date!</h4>
-                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3/03/2014</small></p>
-              </div>
-              <div class="tl-body">
-                <p>Write up a quick summary of the event.</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="timeline-panel noarrow">
-              <div class="tl-heading">
-                <h4>Secondary Timeline Box</h4>
-                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3/01/2014</small></p>
-              </div>
-              <div class="tl-body">
-                <p>This might be a follow-up post with related info. Maybe we include some extra links, tweets, user comments,
-                  photos, etc.
-                </p>
-              </div>
-            </div>
-          </li>
 
-          <li>
-            <div class="tldate">Feb 2014</div>
-          </li>
-
-          <li class="timeline-inverted">
-            <div class="tl-circ"></div>
-            <div class="timeline-panel">
-              <div class="tl-heading">
-                <h4>The Winter Months</h4>
-                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 02/23/2014</small></p>
-              </div>
-              <div class="tl-body">
-                <p>Gee time really flies when you're having fun.</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="tl-circ"></div>
-            <div class="timeline-panel">
-              <div class="tl-heading">
-                <h4>Yeah we're pretty much done here</h4>
-                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 02/11/2014</small></p>
-              </div>
-              <div class="tl-body">
-                <p>Wasn't this fun though?</p>
-              </div>
-            </div>
-          </li>
         </ul>
       </ion-slide>
     </ion-slides>

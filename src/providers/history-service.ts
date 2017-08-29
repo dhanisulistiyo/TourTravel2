@@ -43,7 +43,7 @@ export class HistoryService {
         var headers = new Headers();
         let token = this.auth.AuthToken;
         headers.append('Authorization', 'Bearer ' +token);
-        var url = this.conf.baseUrl+'/TourTransactions/TransactionHistoryDetailed?status=Booking_confirmed'; 
+        var url = this.conf.baseUrl+'/TourTransactions/TransactionHistoryDetailed?status=Done'; 
         var response = this.http.get(url, {headers : headers}).map(res => res.json());        
         return response;
     }

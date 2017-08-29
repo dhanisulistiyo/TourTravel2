@@ -100,9 +100,13 @@ export class FixedpackageDetailsPage {
     }
   }
 
-  showDetails(dp, day, date) {
-    this.navCtrl.push(FixedpackageItineraryPage, {dp, day, date});
-  }
+  // showDetails(dp, day, date) {
+  //   this.navCtrl.push(FixedpackageItineraryPage, {dp, day, date});
+  // }
 
+  showDetails() {
+    let dp = this.DailyPrograms;
+    this.navCtrl.push(FixedpackageItineraryPage, {dp});
+  }
 
 }
