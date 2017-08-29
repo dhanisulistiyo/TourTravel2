@@ -1,3 +1,4 @@
+import { FixedpackageDetailsPage } from './../fixedpackage-details/fixedpackage-details';
 import { IteneraryBuilderPage } from './../itenerary-builder/itenerary-builder';
 import { FixedPackageProvider } from './../../providers/fixed-package';
 import { Component } from '@angular/core';
@@ -43,5 +44,9 @@ export class FixedpackageAllPage {
 
   gotoCustom(){
     this.navCtrl.push(IteneraryBuilderPage)
+  }
+
+  detailTour(id){
+    this.navCtrl.push(FixedpackageDetailsPage, {id})
   }
 }
