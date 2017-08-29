@@ -173,7 +173,7 @@ page-fixedpackage-all {
         overflow: scroll;
         position: relative;
         ion-card {
-            height: 67vw;
+            height: 61vw;
             margin-bottom: 4vw;
             padding-bottom: 1vw;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -292,6 +292,7 @@ page-fixedpackage-all {
         ion-icon.custom-star {
             color: #ffcd25;
         }
+        
         [col-4] {
             -webkit-flex: 0 0 33.33333%;
             -ms-flex: 0 0 33.33333%;
@@ -302,14 +303,14 @@ page-fixedpackage-all {
             bottom: 1vw;
         }
         [col-4-custom] {
-            -webkit-flex: 0 0 33.33333%;
-            -ms-flex: 0 0 33.33333%;
-            flex: 0 0 33.33333%;
-            width: 33.33333%;
-            max-width: 33.33333%;
+            -webkit-flex: 0 0 18%;
+            -ms-flex: 0 0 18%;
+            flex: 0 0 18%;
+            width: 18%;
+            max-width: 18%;
             padding: 0 2vw;
             bottom: 1vw;
-            text-align: right;
+            text-align: left;
         }
         .custom-button {
             padding: 0 2vw 0 2vw;
@@ -378,18 +379,36 @@ page-fixedpackage-all {
         display: block; //width: 225px;
         padding: 8px 15px 8px 14px;
         background-color: rgba(0, 0, 0, 0.4);
-        ;
         box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
         color: #fff;
         font: 700 14px/1 'Lato', sans-serif;
         text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
         text-transform: uppercase;
-        text-align: center;
+        text-align: left;
+        h5 {
+            color: #fff;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+            text-transform: none;
+            text-align: left;
+            font-family: Roboto;
+            font-size: 5vw;
+        }
+        h6 {
+            color: #fff;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+            text-transform: none;
+            text-align: left;
+            font-family: Roboto;
+            font-size: 3vw;
+            display: inline;
+        }
     }
     /* top left*/
     .ribbon-top-left {
-        top: -18px;
-        right: -18px;
+        // top: -18px;
+        // right: -18px;
+        top: 10px;
+        left: -18px;
     }
     .ribbon-top-left::before,
     .ribbon-top-left::after {
@@ -405,7 +424,10 @@ page-fixedpackage-all {
         left: 0;
     }
     .ribbon-top-left span {
-        left: 0px;
-        top: 20px; //transform: rotate(-45deg);
+        // left: 0px;
+        // top: 20px; 
+        right: 0px;
+        bottom: 20px; 
+        //transform: rotate(-45deg);
     }
 }

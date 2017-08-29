@@ -108,7 +108,7 @@ export class HotelRoomtypePage1 {
   showAlertForPromo() {
     let alert = this.alertCtrl.create({
       title: 'Failed!',
-      subTitle: 'Booking Room Less Then Minumum Night',
+      subTitle: 'Booking Room Less Then Minimum Night',
       buttons: ['OK']
     });
     alert.present();
