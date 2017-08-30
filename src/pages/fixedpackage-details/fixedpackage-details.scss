@@ -266,7 +266,7 @@
                     margin: 0;
                     display: inline-block;
                     width: 30vw;
-                    height: 30vw;
+                    height: 35vw;
                     object-fit: cover;
                 }
                 .grid {
@@ -437,7 +437,7 @@
                 padding: 0px;
                 .p-readmore {
                     font-family: 'Open Sans', cursive;
-                    color: #808080;
+                    color: black;
                     font-size: 3.5vw;
                     font-weight: 600;
                     margin-top: 1vw;
@@ -456,7 +456,7 @@
             }
             .p-readless {
                 font-family: 'Open Sans', cursive;
-                color: #808080;
+                color: black;
                 font-size: 3.5vw;
                 font-weight: 600;
                 display: -webkit-box;
@@ -472,7 +472,14 @@
             }
             .p-custom {
                 font-family: 'Open Sans', cursive;
-                color: #808080;
+                color: black;
+                font-size: 3.5vw;
+                font-weight: 500;
+                margin: 1.5vw 0 0 0;
+            }
+            .p-custom-red {
+                font-family: 'Open Sans', cursive;
+                color: #E64A19;
                 font-size: 3.5vw;
                 font-weight: 600;
                 margin: 1.5vw 0 0 0;
@@ -493,10 +500,22 @@
                 color: #488aff;
                 font-size: 3.5vw;
                 padding-right: 1vw;
+                font-weight: 600;
+            }
+            ion-icon.custom-price {
+                color: #E64A19;
+                font-size: 3.5vw;
+                padding-right: 1vw;
+                font-weight: 600;
             }
             .custom-list {
                 margin: 0;
                 padding-left: 9vw;
                 list-style-type: disc;
+            }
+            ul {
+                list-style-type: disc;
+                padding-left: 5vw;
+                margin: 0px;
             }
         }

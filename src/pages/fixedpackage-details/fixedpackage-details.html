@@ -13,10 +13,9 @@
 
     <div class="slide-pager" style="margin-left: -18px; width:110%; overflow: visible; margin-top: -10px;">
       <ion-slides pager="true" loop="true" speed="1000">
-        <ion-slide *ngFor="let item of Images" >
+        <ion-slide *ngFor="let item of Images">
           <ion-card>
-            <img src="{{item}}"
-              style="height:250px; width:100%;" />
+            <img src="{{item}}" style="height:250px; width:100%;" />
           </ion-card>
         </ion-slide>
       </ion-slides>
@@ -25,15 +24,15 @@
     <div class="info">
       <h2>{{BookingDetailSum?.Title}}</h2>
       <div class="readmore" *ngIf="read == false">
-        <p class="p-readmore">Richly historical land with some of the best cuisine you will ever taste, scenery from beaches to mountains
-            and the great city of İstanbul. Culinary Exploration The best thing about sampling Turkey's delicious specialties.
+        <p class="p-readmore">Richly historical land with some of the best cuisine you will ever taste, scenery from beaches to mountains and the
+          great city of İstanbul. Culinary Exploration The best thing about sampling Turkey's delicious specialties.
         </p>
         <a (click)="toggleDetails(read)">Read More</a>
       </div>
 
       <p class="p-readless" *ngIf="read == true">
-          Richly historical land with some of the best cuisine you will ever taste, scenery from beaches to mountains
-          and the great city of İstanbul. Culinary Exploration The best thing about sampling Turkey's delicious specialties.
+        Richly historical land with some of the best cuisine you will ever taste, scenery from beaches to mountains and the great
+        city of İstanbul. Culinary Exploration The best thing about sampling Turkey's delicious specialties.
         <a (click)="toggleDetails(read)">Read Less</a>
       </p>
       <ion-row class="row-custom">
@@ -44,17 +43,17 @@
           <h3>{{Prices?.LowestPrice}}/Pax</h3>
         </ion-col>
         <ion-col col-6>
-          <p class="p-custom" style="text-align: right; padding-top: 2vw;">
+          <!-- <p class="p-custom" style="text-align: right; padding-top: 2vw;">
             <ion-icon ios="ios-star" md="md-star" class="custom-star"></ion-icon>
             100 Review(s)
-          </p>
+          </p> -->
         </ion-col>
       </ion-row>
-      <ion-row>
+      <!-- <ion-row>
         <ion-col col-6>
           <p class="p-custom">
-            <ion-icon ios="ios-people" md="ios-people-outline" class="custom-pin"></ion-icon>
-           <strong>{{BookingDetailSum?.FixedPackage.MinimumGuest}}-{{BookingDetailSum?.FixedPackage.MaximumGuest}}</strong> Guest(s)
+            <ion-icon ios="ios-people" md="ios-people-outline" class="custom-gray"></ion-icon>
+           Min. {{BookingDetailSum?.FixedPackage.MinimumGuest}}-{{BookingDetailSum?.FixedPackage.MaximumGuest}} Guest(s)
           </p>
         </ion-col>
         <ion-col col-6>
@@ -63,25 +62,28 @@
             <strong>9</strong> Place(s)
           </p>
         </ion-col>
-      </ion-row>
+      </ion-row> -->
 
       <p class="p-custom">
+        <ion-icon ios="ios-bookmark" md="ios-bookmark-outline" class="custom-pin"></ion-icon>
+        {{BookingDetailSum?.FixedPackage.RegisteringGuest}} Guest(s) Booked
+      </p>
+      <p class="p-custom">
+        <ion-icon ios="ios-people" md="ios-people-outline" class="custom-pin"></ion-icon>
+        Min. {{BookingDetailSum?.FixedPackage.MinimumGuest}}-{{BookingDetailSum?.FixedPackage.MaximumGuest}} Guest(s)
+      </p>
+      <p class="p-custom">
         <ion-icon ios="ios-time" md="md-time" class="custom-pin"></ion-icon>
-        {{BookingDetailSum?.StartDate | date:'dd MMM yyyy'}} - {{BookingDetailSum?.EndDate| date:'dd MMM yyyy'}}
+        Available on {{BookingDetailSum?.StartDate | date:'EEE, dd MMM'}} - {{BookingDetailSum?.EndDate| date:'EEE, dd MMM yyyy'}}
       </p>
       <p class="p-custom">
         <ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-pin"></ion-icon>
         {{days+1}} Day(s) / {{days}} Night(s)
       </p>
 
-      <p class="p-custom">
-        <ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-pin"></ion-icon>
+      <p class="p-custom-red">
+        <ion-icon ios="ios-cash" md="ios-cash-outline" class="custom-price"></ion-icon>
         DP Before {{BookingDetailSum?.FixedPackage.DPExpiredOn | date:'dd MMM yyyy' }}
-      </p>
-
-      <p class="p-custom">
-        <ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-pin"></ion-icon>
-         {{BookingDetailSum?.FixedPackage.RegisteringGuest}} Guest(s) Registered
       </p>
     </div>
 
@@ -110,7 +112,7 @@
           </ion-row>
         </ion-grid>
       </div>
-      <h2>Photos</h2>
+      <!-- <h2>Photos</h2>
       <ion-scroll scrollX="true">
         <img class="img-scroll" src="https://edge.media.datahc.com/HI253099376.jpg" />
         <img class="img-scroll" src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458193821/y0cmbplulajkj7dykkhc.jpg"
@@ -121,7 +123,7 @@
         />
         <img class="img-scroll" src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458193793/jnjolgungeytsvordhn3.jpg"
         />
-      </ion-scroll>
+      </ion-scroll> -->
     </div>
     <div class="schedule">
       <h2>What we'll do</h2>
@@ -188,14 +190,16 @@
                     </ion-col>
                   </ion-row>
                   <!-- <ion-col col-12 (click)="showDetails(dp.TourDestinations, dp.Day, dp.Date)"> -->
-                      <ion-col col-12 (click)="showDetails()">
-                    <P style="color: #FF9800;  font-size: 4vw;">Details</P>
+                  <ion-col col-12 (click)="showDetails()">
+                    <P style="color: #F4511E;
+                    font-size: 4vw;
+                    font-weight: 600;">Details</P>
                   </ion-col>
                 </ion-grid>
               </ion-card-content>
             </ion-card>
           </ion-slide>
-          
+
           <!-- <ion-slide>
             <ion-card style="height:67vw; width:100%;">
               <ion-card-header>
@@ -266,9 +270,9 @@
       </div>
     </div>
 
-    <div class="reviews">
+    <!-- <div class="reviews">
       <h2>Reviews</h2>
-      <!-- <p *ngIf="fixpackage.reviews.length==0">No reviews yet =(</p> -->
+      <p *ngIf="fixpackage.reviews.length==0">No reviews yet =(</p>
       <div>
         <ion-row>
           <ion-col col-2>
@@ -280,7 +284,7 @@
             <h3>Dhani S. Wibowo</h3>
             <ion-icon name="star" class="custom-star"></ion-icon>
             <p style="color: #808080; display: inline;">Aug 10, 2017</p>
-            <!-- <ion-icon name="star" *ngFor="let star of itineraryService.getArray(reviewDetails.rating)"></ion-icon> -->
+            <ion-icon name="star" *ngFor="let star of itineraryService.getArray(reviewDetails.rating)"></ion-icon>
           </ion-col>
         </ion-row>
         <ion-row>
@@ -304,16 +308,16 @@
         </ion-row>
 
       </div>
-    </div>
+    </div> -->
 
     <div class="important">
       <h2>Important information</h2>
-      <div class="important-content" *ngFor="let desc of Descriptions" >
+      <div class="important-content" *ngFor="let desc of Descriptions">
         <p class="p-header">
           <ion-icon ios="ios-checkmark-circle" md="ios-checkmark-circle-outline" class="custom-pin" style="color: #4fd2c2;"></ion-icon>
           {{desc.SubTitle}}
         </p>
-        <p class="p-custom" style="padding-bottom: 2vw; padding-left: 4.4vw; text-align:justify;" [innerHtml]="desc.Content"></p>
+        <p class="p-custom" style="padding-bottom: 2vw; padding-left: 5vw; text-align:justify;" [innerHtml]="desc.Content"></p>
       </div>
 
       <div class="important-content">

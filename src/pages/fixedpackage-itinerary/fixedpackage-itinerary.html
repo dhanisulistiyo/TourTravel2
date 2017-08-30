@@ -51,7 +51,7 @@
               <div class="tl-heading">
                 <h5 class="line-break">
                   <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.AccommodationSummary.DateTime | date:'shortTime' }}</h5>
-                <p><small class="text-muted"> Check-in</small></p>
+                <p><small class="text-muted"> Check-in :</small></p>
                 <h4>{{item.AccommodationSummary.Name}}</h4>
               </div>
               <div class="tl-body">
@@ -110,10 +110,7 @@
   <ion-fab right bottom edge>
     <button ion-fab mini><ion-icon name="add"></ion-icon></button>
     <ion-fab-list side="top">
-      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+      <button ion-fab>Add New Activity</button>
     </ion-fab-list>
   </ion-fab>
 </ion-content>
