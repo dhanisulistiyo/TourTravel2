@@ -35,7 +35,7 @@
         <div class="day-info">
           <h2 class="h2-custom">Day {{dp.Day}}</h2>
         </div>
-        <ul class="timeline" *ngFor="let item of dp.TourDestinations" >
+        <ul class="timeline" *ngFor="let item of dp.TourDestinations">
           <li>
             <div class="tldate">
               <button ion-button icon-left clear small>
@@ -43,7 +43,7 @@
                     <div>Take 26 mins to get there</div>
                   </button></div>
           </li>
-          <li *ngIf="item.AccommodationSummary != null" >
+          <li *ngIf="item.AccommodationSummary != null">
             <div class="tl-circ">
               <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
             </div>
@@ -53,11 +53,11 @@
                   <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.AccommodationSummary.DateTime | date:'shortTime' }}</h5>
                 <p><small class="text-muted"> Check-in :</small></p>
                 <h4>{{item.AccommodationSummary.Name}}</h4>
+                <p>{{item.Destination}}</p>
               </div>
               <div class="tl-body">
                 <p>{{item.AccommodationSummary.RoomName}}</p>
                 <p>{{(item.AccommodationSummary.RoomService).replace('_', ' ')}}</p>
-                <p>{{item.Destination}}</p>
               </div>
             </div>
           </li>
@@ -78,29 +78,29 @@
           </li> -->
 
           <li>
-              <div class="tldate">
-                  <button ion-button icon-left clear small>
+            <div class="tldate">
+              <button ion-button icon-left clear small>
                       <ion-icon ios="ios-car" md="md-car"></ion-icon>
                         <div>Take 30 mins to get there</div>
                       </button></div>
           </li>
 
-          <li *ngIf="item.TransportationSummary.length > 0" >
-              <div class="tl-circ">
-                <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
+          <li *ngIf="item.TransportationSummary.length > 0">
+            <div class="tl-circ">
+              <ion-icon ios="ios-car" md="md-car" class="timeline-icon"></ion-icon>
+            </div>
+            <div class="timeline-panel" *ngFor="let tra of item.TransportationSummary">
+              <div class="tl-heading">
+                <h5 class="line-break">
+                  <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{tra.DateTime | date:'shortTime' }}</h5>
+                <!-- <p><small class="text-muted"> Check-in</small></p> -->
+                <h4>{{tra.TransportationType}}</h4>
               </div>
-              <div class="timeline-panel" *ngFor="let tra of item.TransportationSummary" >
-                <div class="tl-heading">
-                  <h5 class="line-break">
-                    <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{tra.DateTime | date:'shortTime' }}</h5>
-                  <!-- <p><small class="text-muted"> Check-in</small></p> -->
-                  <h4>{{tra.TransportationType}}</h4>
-                </div>
-                <div class="tl-body">
-                  <p>{{tra.ServiceItemId}}</p>
-                </div>
+              <div class="tl-body">
+                <p>{{tra.ServiceItemId}}</p>
               </div>
-            </li>
+            </div>
+          </li>
 
 
         </ul>
@@ -110,7 +110,10 @@
   <ion-fab right bottom edge>
     <button ion-fab mini><ion-icon name="add"></ion-icon></button>
     <ion-fab-list side="top">
-      <button ion-fab>Add New Activity</button>
+      <button ion-fab>
+            <ion-icon ios="ios-help-buoy" md="md-help-buoy"></ion-icon>
+            <ion-label>Add New Activity</ion-label>
+          </button>
     </ion-fab-list>
   </ion-fab>
 </ion-content>
