@@ -74,7 +74,7 @@
       </p>
       <p class="p-custom">
         <ion-icon ios="ios-time" md="md-time" class="custom-pin"></ion-icon>
-        Available on {{BookingDetailSum?.StartDate | date:'EEE, dd MMM'}} - {{BookingDetailSum?.EndDate| date:'EEE, dd MMM yyyy'}}
+        Tour Date: {{BookingDetailSum?.StartDate | date:'EEE, dd MMM'}} - {{BookingDetailSum?.EndDate| date:'EEE, dd MMM yyyy'}}
       </p>
       <p class="p-custom">
         <ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-pin"></ion-icon>
@@ -318,6 +318,9 @@
           {{desc.SubTitle}}
         </p>
         <p class="p-custom" style="padding-bottom: 2vw; padding-left: 5vw; text-align:justify;" [innerHtml]="desc.Content"></p>
+      </div>
+      <div class="important-content" style="padding: 0;">
+        <p class="p-custom" style="padding-bottom: 8vw; padding-left: 4.4vw; text-align:justify;"></p>
       </div>
 
       <!-- <div class="important-content">
