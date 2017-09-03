@@ -18,6 +18,7 @@
           <p class="p-custom" *ngIf="bookdetails?.Status == 'Booking_created'">Unpaid</p>
           <p class="p-custom" *ngIf="bookdetails?.Status == 'Booking_confirmed'">Paid</p>
           <p class="p-custom" *ngIf="bookdetails?.Status == 'Booking_Cancelled'">Cancel</p>
+          <p class="p-custom" *ngIf="bookdetails?.Status == 'Booking_DP_Confirmed'">DP Paid</p>
         </ion-col>
         <ion-col col-5>
           <h3 class="card-title" style="text-align: right;">Total Price</h3>
@@ -294,6 +295,12 @@
     </ion-col>
     <ion-col>
       <button ion-button style="margin-top: 0px;margin-bottom: 0px;" class="btn-accept" (click)="allertConfirmBooking()">Confirm</button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="dp">
+    <ion-col>
+      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" class="btn-cancel" (click)="allertCancelBooking()">Cancel</button>
     </ion-col>
   </ion-row>
 </ion-footer>

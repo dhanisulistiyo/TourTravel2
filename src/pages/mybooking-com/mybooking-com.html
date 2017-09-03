@@ -20,7 +20,8 @@
     <ion-card-content class="content-custom" style="top: 0px;">
       <ion-row class="custom-row">
         <ion-col col-4>
-          <div class="ribbon ribbon-top-left"><span>COMPLETED</span></div>
+          <div *ngIf="his?.TourTransactionSummaryViewModel.BookingDetailSum.Status=='Booking_confirmed'"  class="ribbon ribbon-top-left"><span>COMPLETED</span></div>
+          <div *ngIf="his?.TourTransactionSummaryViewModel.BookingDetailSum.Status=='Booking_DP_Confirmed'"  class="ribbon ribbon-top-left"><span>DP CONFIRM</span></div>
         </ion-col>
         <ion-col col-8>
           <button ion-button icon-left clear small>

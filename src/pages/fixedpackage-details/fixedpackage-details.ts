@@ -1,3 +1,4 @@
+import { TourDetailsPage } from './../tour-details/tour-details';
 import { ConfigProvider } from './../../providers/config';
 import { AcomodationService } from './../../providers/acomodation-service';
 import { FixedPackageProvider } from './../../providers/fixed-package';
@@ -31,6 +32,10 @@ export class FixedpackageDetailsPage {
   id
   Hotel
   baseUrl
+
+  //Tambahan
+  TourDetails
+  Movement
   constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, public navParams: NavParams, 
   public fixService : FixedPackageProvider, public load: LoadingController, public aco: AcomodationService,
   public conf: ConfigProvider
@@ -64,16 +69,49 @@ export class FixedpackageDetailsPage {
       let start = ( +new Date(this.BookingDetailSum.StartDate))
       let end = (+new Date(this.BookingDetailSum.EndDate))
       this.days = Math.round((end - start) / 86400000);      
-      this.id = this.DailyPrograms[0].TourDestinations[0].AccommodationSummary.AccommodationProfileId;
-      this.aco.searchAcomodation(this.id).subscribe(data => {
-        this.Hotel =  data;
-        console.log(data);
-    
-        }, err => {
-          console.log(err);
-        },
-          () => console.log('Hotel Search Complete')
-        );
+      //this.id = this.DailyPrograms[0].TourDestinations[0].AccommodationSummary.AccommodationProfileId;
+      // this.aco.searchAcomodation(187).subscribe(data => {
+      //   this.Hotel =  data;
+      //   console.log(data);
+      //   }, err => {
+      //     console.log(err);
+      //   },
+      //     () => console.log('Hotel Search Complete')
+      //   );
+
+        this.TourDetails= [];
+        console.log(this.DailyPrograms)
+        for (let i = 0; i < (Object.keys(this.DailyPrograms).length); i++) {
+          this.Movement= [];
+          let check = this.DailyPrograms[i].MovementSummary;
+          if(Object.keys(check.AccommodationMovements).length != 0){
+             this.Movement = this.Movement.concat(check.AccommodationMovements)
+             for (let j = 0; j < (Object.keys(this.Movement).length); j++) {
+             if(check.AccommodationMovements[j].ServiceItemId == 3674){
+               this.Hotel = check.AccommodationMovements[j].AccommodationProfile
+              }
+            }
+          }
+          console.log(this.Movement)
+          if(Object.keys(check.RecreationMovement).length != 0) this.Movement = this.Movement.concat(check.RecreationMovement)
+          console.log(this.Movement)
+          if(Object.keys(check.TravelMovement).length != 0) this.Movement=this.Movement.concat(check.TravelMovement)
+          console.log(this.Movement)   
+          this.Movement.sort(function(obj1, obj2) {
+            if (obj1.DateTime > obj2.DateTime) {
+              return 1;
+          }
+          if (obj1.DateTime < obj2.DateTime) {
+              return -1;
+          }
+            return 0;
+          })
+          this.TourDetails.push(this.Movement);
+        }
+          console.log(this.TourDetails)
+      
+
+
     }, err => {
       console.log(err);
     },
@@ -104,9 +142,11 @@ export class FixedpackageDetailsPage {
   //   this.navCtrl.push(FixedpackageItineraryPage, {dp, day, date});
   // }
 
-  showDetails() {
-    let dp = this.DailyPrograms;
-    this.navCtrl.push(FixedpackageItineraryPage, {dp});
+  showDetails(i) {
+    let dp = this.TourDetails[i]
+    let day =  this.DailyPrograms[i].Day;
+    let date =  this.DailyPrograms[i].Date;
+    this.navCtrl.push(FixedpackageItineraryPage, {dp, day, date});
   }
 
 }

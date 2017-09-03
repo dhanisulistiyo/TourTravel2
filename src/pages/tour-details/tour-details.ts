@@ -26,6 +26,7 @@ export class TourDetailsPage {
   isValid;
   userinfo;
   pdf
+  dp
   constructor(public navCtrl: NavController, public navParams: NavParams, public his: HistoryService, 
   public mulTra: MultiTransactionService,
   public load: LoadingController,
@@ -40,6 +41,7 @@ export class TourDetailsPage {
     this.selectedId = navParams.data;
     this.isValid = false;
     this.pdf=null;
+    this.dp = false;
   }
 
   ionViewWillEnter() {
@@ -68,10 +70,12 @@ export class TourDetailsPage {
     );  
 
     this.his.getTransactionsSumarry(this.selectedId).subscribe(data => {
+      console.log(data);
       this.BookingDetailSum = Array.of(data['BookingDetailSum']);
       this.TourGuest =(data['TourGuestSum']);
       this.DailyPrograms = (data['DailyPrograms'])
       this.TourPriceSum = Array.of(data['TourPriceSum']);
+      if(this.BookingDetailSum[0].Status == 'Booking_DP_Confirmed') this.dp = true;
       
 
       this.data.push({
