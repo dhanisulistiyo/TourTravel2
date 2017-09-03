@@ -49,7 +49,7 @@
             <h2 class="h2-custom">Honeymoon</h2>
           </div>
         </ion-col>
-        <ion-col col-4-custom (click)="fixSeeAll()">
+        <ion-col col-4-custom (click)="fixSeeAll('Honeymoon')">
           <p>See All</p>
         </ion-col>
       </ion-row>
@@ -91,7 +91,7 @@
             </ion-card-content>
           </ion-card>
         </div> -->
-        <div class="div-custom" *ngFor="let fix of listFixedPackage">
+        <div class="div-custom" *ngFor="let fix of listFixedHoneymoon  | slice:0:3; let i=index">
           <ion-card (click)="detailTour(fix.Id)">
             <ion-row>
               <ion-col style="padding: 0;">
@@ -130,7 +130,7 @@
                 </ion-col>
                 <ion-col col-3></ion-col>
                 <ion-col col-4>
-                    <button ion-button icon-left clear small>
+                    <button ion-button icon-left clear small *ngIf="fix.FixedPackage.RegisteringGuest >= fix.FixedPackage.MaximumGuest" >
                         <h3 style="font-family: 'Open Sans', cursive;color: #E64A19;font-weight: bold; padding:1vw 2vw; border:1px solid">Fully Booked !</h3>
                       </button>
                 </ion-col>

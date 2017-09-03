@@ -15,10 +15,12 @@ import { NavController, NavParams, LoadingController } from 'ionic-angular';
   templateUrl: 'fixedpackage-all.html',
 })
 export class FixedpackageAllPage {
+  type
   listFixedPackage: Array<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public load: LoadingController,
   private fixService: FixedPackageProvider) {
+    this.type = navParams.data["type"];
 
   }
 
@@ -27,7 +29,7 @@ export class FixedpackageAllPage {
       content: 'Please wait...'
     });
     loader.present();
-    this.fixService.showFixedPackage().subscribe(data => {
+    this.fixService.showFixedPackageByFilter(this.type).subscribe(data => {
       this.listFixedPackage = data;
       console.log(data)
       loader.dismiss()

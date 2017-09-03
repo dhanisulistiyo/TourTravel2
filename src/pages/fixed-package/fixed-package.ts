@@ -11,7 +11,7 @@ import { FixedpackageDetailsPage } from './../fixedpackage-details/fixedpackage-
 export class FixedPackagePage {
 
   showToolbar: boolean = false;
-  listFixedPackage: Array<any>;
+  listFixedHoneymoon: Array<any>;
   StartDate
   EndDate
   days
@@ -24,8 +24,8 @@ export class FixedPackagePage {
       content: 'Please wait...'
     });
     loader.present();
-    this.fixService.showFixedPackage().subscribe(data => {
-      this.listFixedPackage = data;
+    this.fixService.showFixedPackageByFilter('Honeymoon').subscribe(data => {
+      this.listFixedHoneymoon = data;
       console.log(data)
       loader.dismiss()
 
@@ -47,8 +47,8 @@ export class FixedPackagePage {
   detailTour(id) {
     this.navCtrl.push(FixedpackageDetailsPage, {id});
   }
-  fixSeeAll() {
-    this.navCtrl.push(FixedpackageAllPage);
+  fixSeeAll(type) {
+    this.navCtrl.push(FixedpackageAllPage,{type});
   }
 
 
