@@ -212,6 +212,26 @@
             <ion-col col-2-custom><button clear (click)="incrBedQty()" style="background-color: #fff; text-align: left;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
             </ion-col>
           </ion-row>
+          <ion-row>
+              <ion-col col-2>
+                <ion-avatar item-start>
+                  <img class="img-custom" src="https://media-cdn.tripadvisor.com/media/photo-s/04/61/93/3c/blue-green-troia-design.jpg">
+                </ion-avatar>
+              </ion-col>
+              <ion-col col-3>
+                <h2 class="h2-custom">No Bed / Baby Crib</h2>
+                <p class="p-custom">USD 0</p>
+                <p class="p-pax">/ pax</p>
+              </ion-col>
+              <ion-col col-2-custom style="text-align: right;">
+                <button clear (click)="decrBedQty()" style="background-color: #fff;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
+              </ion-col>
+              <ion-col col-3-custom>
+                <ion-input (input)="validateNumberAlloc(roomAlloc)" type="tel" class="custom-input" maxlength="3" min="0" name="InfantQty"></ion-input>
+              </ion-col>
+              <ion-col col-2-custom><button clear (click)="incrBedQty()" style="background-color: #fff; text-align: left;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
+              </ion-col>
+            </ion-row>
         </ion-card-content>
       </ion-card>
     </div>
