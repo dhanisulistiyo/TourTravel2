@@ -122,10 +122,10 @@ export class FixedpackageDetailsPage {
   bookNow() {
     if(this.BookingDetailSum.FixedPackage.MaximumGuest <= this.BookingDetailSum.FixedPackage.RegisteringGuest) this.showAlertfull()
     else{
-    let res = this.BookingDetailSum
-    let price= this.Prices
-    this.fixService.setId(this.BookingDetailSum.Id)
-    this.navCtrl.push(FixedpackageGuestPage,{res, price})
+      let res = this.BookingDetailSum
+      let price= this.Prices
+      this.fixService.setId(this.BookingDetailSum.Id)
+      this.navCtrl.push(FixedpackageGuestPage,{res, price})
     }
   }
 
@@ -140,20 +140,6 @@ export class FixedpackageDetailsPage {
     }
   }
 
-  // showDetails(dp, day, date) {
-  //   this.navCtrl.push(FixedpackageItineraryPage, {dp, day, date});
-  // }
-
-  showAlertfull() {
-    let alert = this.alertCtrl.create({
-      title: 'Failed!',
-      subTitle: 'This tour fully booked!',
-      buttons: ['OK']
-    });
-    alert.present();
-  }
-
-
   showDetails(i) {
     this.data=[];
     for (let i = 0; i < (Object.keys(this.DailyPrograms).length); i++) {
@@ -165,6 +151,15 @@ export class FixedpackageDetailsPage {
     }
     let dp = this.data
     this.navCtrl.push(FixedpackageItineraryPage, {dp});
+  }
+
+  showAlertfull() {
+    let alert = this.alertCtrl.create({
+      title: 'Failed!',
+      subTitle: 'This tour fully booked!',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 }
