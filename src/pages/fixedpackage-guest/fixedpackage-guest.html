@@ -224,12 +224,12 @@
                 <p class="p-pax">/ pax</p>
               </ion-col>
               <ion-col col-2-custom style="text-align: right;">
-                <button clear (click)="decrBedQty()" style="background-color: #fff;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
+                <button clear (click)="decrBabyCrib()" style="background-color: #fff;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
               </ion-col>
               <ion-col col-3-custom>
-                <ion-input (input)="validateNumberAlloc(roomAlloc)" type="tel" class="custom-input" maxlength="3" min="0" name="InfantQty"></ion-input>
+                <ion-input (input)="validateNumberAlloc(roomAlloc)" type="tel" class="custom-input" maxlength="3" min="0" name="InfantQty" [value]="roomAlloc.BabyCrib" [(ngModel)]="roomAlloc.BabyCrib"></ion-input>
               </ion-col>
-              <ion-col col-2-custom><button clear (click)="incrBedQty()" style="background-color: #fff; text-align: left;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
+              <ion-col col-2-custom><button clear (click)="incrBabyCrib()" style="background-color: #fff; text-align: left;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
               </ion-col>
             </ion-row>
         </ion-card-content>

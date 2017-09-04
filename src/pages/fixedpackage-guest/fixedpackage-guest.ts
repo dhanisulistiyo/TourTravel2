@@ -15,14 +15,14 @@ export class FixedpackageGuestPage {
   listFixedPackage
   prices
   guestTour = { AdultQty: null, ChildQty: null, InfantQty: null };
-  roomAlloc = { SharingRoomPrice: null, AdultExtraBedPrice: null, ChildExtraBedPrice: null, SharingBedPrice: null }
+  roomAlloc = { SharingRoomPrice: null, AdultExtraBedPrice: null, ChildExtraBedPrice: null, SharingBedPrice: null, BabyCrib: null }
   total;
   totalPrice;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public alertCtrl: AlertController,
     private fixService: FixedPackageProvider, public gu: GuestServiceProvider) {
     this.guestTour = { AdultQty: 0, ChildQty: 0, InfantQty: 0 };
-    this.roomAlloc = { SharingRoomPrice: 0, AdultExtraBedPrice: 0, ChildExtraBedPrice: 0, SharingBedPrice: 0 }
+    this.roomAlloc = { SharingRoomPrice: 0, AdultExtraBedPrice: 0, ChildExtraBedPrice: 0, SharingBedPrice: 0, BabyCrib : 0 }
     this.total = 0;
     this.totalPrice = 0;
     this.listFixedPackage = navParams.data['res'];
@@ -148,6 +148,13 @@ export class FixedpackageGuestPage {
     }
     }
   }
+  incrBabyCrib(index: number) {
+    if(this.guestTour.InfantQty != 0){
+      this.roomAlloc.BabyCrib += 1;
+      this.totalPrices();
+    }
+  }
+
   decrShareQty(index: number) {
     if (this.roomAlloc.SharingRoomPrice != 0) {
       this.roomAlloc.SharingRoomPrice -= 1;
@@ -176,12 +183,19 @@ export class FixedpackageGuestPage {
       this.totalPrices();
     }
   }
+  decrBabyCrib(index: number) {
+    if (this.roomAlloc.BabyCrib != 0) {
+      this.roomAlloc.BabyCrib -= 1;
+      this.totalPrices();
+    }
+  }
   validateNumberAlloc(roomAlloc) {
     console.log(roomAlloc);
     let SR = Number(roomAlloc.SharingRoomPrice)
     let AE = Number(roomAlloc.AdultExtraBedPrice)
     let CE = Number(roomAlloc.ChildExtraBedPrice)
     let SB = Number(roomAlloc.SharingBedPrice)
+    let BC = Number(roomAlloc.BabyCrib)
     if (typeof SR != "number" || String(SR) == "NaN") {
       this.roomAlloc.SharingRoomPrice = 0;
       this.showAlertSR();
@@ -205,13 +219,20 @@ export class FixedpackageGuestPage {
       this.showAlertSB();
       this.totalPrice();
       return
-    } else {
+    }else if (typeof BC != "number" || String(BC) == "NaN") {
+      this.roomAlloc.BabyCrib = 0;
+      this.showAlertBC();
+      this.totalPrice();
+      return
+    }  
+    else {
       this.roomAlloc.SharingRoomPrice = SR
       this.roomAlloc.AdultExtraBedPrice = AE
       this.roomAlloc.ChildExtraBedPrice = CE
       this.roomAlloc.SharingBedPrice = SB
+      this.roomAlloc.BabyCrib = BC
       let totalGuest = this.guestTour.AdultQty + this.guestTour.ChildQty
-      let totalAlloc = SR + AE + CE + SB
+      let totalAlloc = SR + AE + CE + SB + BC
       this.totalPrices();
       return;
     }
@@ -303,10 +324,19 @@ export class FixedpackageGuestPage {
     alert.present();
   }
 
+  showAlertBC() {
+    let alert = this.alertCtrl.create({
+      title: 'Wrong Input!',
+      subTitle: 'Input Baby Crib is Not Number',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
 
   continueTapped() {
     let guest = this.guestTour.AdultQty + this.guestTour.ChildQty + this.guestTour.InfantQty
-    let alloc = this.roomAlloc.AdultExtraBedPrice + this.roomAlloc.ChildExtraBedPrice +this.roomAlloc.SharingBedPrice + this.roomAlloc.SharingRoomPrice
+    let alloc = this.roomAlloc.AdultExtraBedPrice + this.roomAlloc.ChildExtraBedPrice +this.roomAlloc.SharingBedPrice + this.roomAlloc.SharingRoomPrice + this.roomAlloc.BabyCrib
+    if(guest != 0){
     if(guest == alloc){
       this.fixService.setRoomAllo(this.roomAlloc)
       this.fixService.setGuest(this.guestTour)
@@ -315,6 +345,10 @@ export class FixedpackageGuestPage {
     }else{
       this.showAlertTotalAlloc();
     }
+  }else{
+      this.showAlertInputGuest();
+  }
+
   }
 
   showAlertTotalAlloc() {
@@ -326,5 +360,13 @@ export class FixedpackageGuestPage {
     alert.present();
   }
 
+  showAlertInputGuest() {
+    let alert = this.alertCtrl.create({
+      title: 'Failed!',
+      subTitle: 'Please input guest!',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
 
 }

@@ -3,7 +3,7 @@ import { ConfigProvider } from './../../providers/config';
 import { AcomodationService } from './../../providers/acomodation-service';
 import { FixedPackageProvider } from './../../providers/fixed-package';
 import { Component, ChangeDetectorRef , ViewChild} from '@angular/core';
-import { NavController, NavParams, LoadingController, Slides } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, Slides, AlertController } from 'ionic-angular';
 import { FixedpackageGuestPage } from './../fixedpackage-guest/fixedpackage-guest';
 import { FixedpackageItineraryPage } from './../fixedpackage-itinerary/fixedpackage-itinerary';
 
@@ -38,7 +38,7 @@ export class FixedpackageDetailsPage {
   Movement
   constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, public navParams: NavParams, 
   public fixService : FixedPackageProvider, public load: LoadingController, public aco: AcomodationService,
-  public conf: ConfigProvider
+  public conf: ConfigProvider, public alertCtrl:AlertController
   ) {
     this.baseUrl =  this.conf.baseUrlImage;
     this.read = false;
@@ -121,10 +121,13 @@ export class FixedpackageDetailsPage {
   }
 
   bookNow() {
+    if(this.BookingDetailSum.FixedPackage.MaximumGuest <= this.BookingDetailSum.FixedPackage.RegisteringGuest) this.showAlertfull()
+    else{
     let res = this.BookingDetailSum
     let price= this.Prices
     this.fixService.setId(this.BookingDetailSum.Id)
     this.navCtrl.push(FixedpackageGuestPage,{res, price})
+    }
   }
 
   getNumber(n){
@@ -141,6 +144,16 @@ export class FixedpackageDetailsPage {
   // showDetails(dp, day, date) {
   //   this.navCtrl.push(FixedpackageItineraryPage, {dp, day, date});
   // }
+
+  showAlertfull() {
+    let alert = this.alertCtrl.create({
+      title: 'Failed!',
+      subTitle: 'This tour fully booked!',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
 
   showDetails(i) {
     let dp = this.TourDetails[i]
