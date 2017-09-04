@@ -18,6 +18,7 @@ export class FixedpackageGuestPage {
   roomAlloc = { SharingRoomPrice: null, AdultExtraBedPrice: null, ChildExtraBedPrice: null, SharingBedPrice: null, BabyCrib: null, NoBed: null }
   total;
   totalPrice;
+  Package
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public alertCtrl: AlertController,
     private fixService: FixedPackageProvider, public gu: GuestServiceProvider) {
@@ -27,6 +28,7 @@ export class FixedpackageGuestPage {
     this.totalPrice = 0;
     this.listFixedPackage = navParams.data['res'];
     this.prices = navParams.data['price'];
+    this.Package = navParams.data['pk']
     console.log(this.listFixedPackage)
   }
 
@@ -363,14 +365,15 @@ export class FixedpackageGuestPage {
 
   continueTapped() {
     let guest = this.guestTour.AdultQty + this.guestTour.ChildQty + this.guestTour.InfantQty
-    let alloc = this.roomAlloc.AdultExtraBedPrice + this.roomAlloc.ChildExtraBedPrice + this.roomAlloc.SharingBedPrice + this.roomAlloc.SharingRoomPrice + this.roomAlloc.BabyCrib
+    let alloc = this.roomAlloc.AdultExtraBedPrice + this.roomAlloc.ChildExtraBedPrice + this.roomAlloc.SharingBedPrice + this.roomAlloc.SharingRoomPrice + this.roomAlloc.BabyCrib + this.roomAlloc.NoBed
+    let pk = this.Package
     if (guest != 0) {
       if (guest <= (this.listFixedPackage.FixedPackage.MaximumGuest - this.listFixedPackage.FixedPackage.RegisteringGuest)) {
         if (guest == alloc) {
           this.fixService.setRoomAllo(this.roomAlloc)
           this.fixService.setGuest(this.guestTour)
           this.gu.createGuestFix(this.guestTour.AdultQty, this.guestTour.ChildQty, this.guestTour.InfantQty);
-          this.navCtrl.push(FixedGuestDetailsPage);
+          this.navCtrl.push(FixedGuestDetailsPage, {pk});
         } else { this.showAlertTotalAlloc(); }
       } else { this.showAlertMaxGuest() }
     } else {

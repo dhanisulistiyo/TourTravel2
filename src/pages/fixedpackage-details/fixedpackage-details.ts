@@ -20,6 +20,7 @@ import { FixedpackageItineraryPage } from './../fixedpackage-itinerary/fixedpack
 })
 export class FixedpackageDetailsPage {
   showToolbar: boolean = false;
+  Package
   read;
   Prices;
   Images;
@@ -60,6 +61,7 @@ export class FixedpackageDetailsPage {
     });
     loader.present();
     this.fixService.detailsPackage(this.id).subscribe(data => {
+      this.Package = data 
       console.log(data)
       this.Prices = (data['Prices'])
       this.Images = (data['Images'])
@@ -71,16 +73,6 @@ export class FixedpackageDetailsPage {
       let start = ( +new Date(this.BookingDetailSum.StartDate))
       let end = (+new Date(this.BookingDetailSum.EndDate))
       this.days = Math.round((end - start) / 86400000);      
-      //this.id = this.DailyPrograms[0].TourDestinations[0].AccommodationSummary.AccommodationProfileId;
-      // this.aco.searchAcomodation(187).subscribe(data => {
-      //   this.Hotel =  data;
-      //   console.log(data);
-      //   }, err => {
-      //     console.log(err);
-      //   },
-      //     () => console.log('Hotel Search Complete')
-      //   );
-
         this.TourDetails= [];
         console.log(this.DailyPrograms)
         for (let i = 0; i < (Object.keys(this.DailyPrograms).length); i++) {
@@ -123,9 +115,10 @@ export class FixedpackageDetailsPage {
     if(this.BookingDetailSum.FixedPackage.MaximumGuest <= this.BookingDetailSum.FixedPackage.RegisteringGuest) this.showAlertfull()
     else{
       let res = this.BookingDetailSum
+      let pk = this.Package
       let price= this.Prices
       this.fixService.setId(this.BookingDetailSum.Id)
-      this.navCtrl.push(FixedpackageGuestPage,{res, price})
+      this.navCtrl.push(FixedpackageGuestPage,{res, price, pk})
     }
   }
 

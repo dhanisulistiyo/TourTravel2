@@ -24,7 +24,7 @@
         <ion-col col-12-custom>
           <h3 class="card-title">
             <ion-select [(ngModel)]="item[i]"  class="myCustomSelect" multiple="false"(ionChange)="setID(item[i],i)"  interface="action-sheet">
-            <ion-option *ngFor="let kuo of ID;  let idx = index" [value]="kuo" selected="{{(idx==0)}}" aria-placeholder="Choose Type Guest">{{kuo}}</ion-option>
+            <ion-option *ngFor="let kuo of ID;  let idx = index" [value]="kuo" selected="{{(idx==0)}}" aria-placeholder="Choose Type ID">{{kuo}}</ion-option>
           </ion-select>
           </h3>
         </ion-col>

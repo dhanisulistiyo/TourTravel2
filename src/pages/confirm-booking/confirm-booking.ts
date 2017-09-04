@@ -154,6 +154,7 @@ export class ConfirmBookingPage {
 
 
   }
+  
   confirmTapped(event) {
     this.allertConfirmBooking();
   }

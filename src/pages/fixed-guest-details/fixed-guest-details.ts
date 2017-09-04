@@ -1,3 +1,4 @@
+import { FixedpackageSummaryPage } from './../fixedpackage-summary/fixedpackage-summary';
 import { HomeScreenPage } from './../home-screen/home-screen';
 import { FixedPackageProvider } from './../../providers/fixed-package';
 import { FixedpackagePaymentPage } from './../fixedpackage-payment/fixedpackage-payment';
@@ -13,9 +14,13 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
 export class FixedGuestDetailsPage {
   Guest : Array<any>;
   ID
+  Tour
+  Price
+  Package
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public gu : GuestServiceProvider, public alertCtrl: AlertController, public fix: FixedPackageProvider) {
-    this.ID = ['Choose Type Guest','ID Card', 'Passport','Driving License']
+    this.ID = ['Choose Type ID','ID Card', 'Passport','Driving License']
+    this.Package = navParams.data["pk"];
   }
 
     ionViewWillEnter(){
@@ -60,9 +65,8 @@ export class FixedGuestDetailsPage {
         // else if (this.gu.getLastName() == null || this.gu.getLastName() == "" ) this.showAlertLastName()
         // else if (this.gu.getCountry() == null || this.gu.getCountry() == "" ) this.showAlertCountry()
         //else 
-        //this.navCtrl.push(FixedpackagePaymentPage);
-        this.fix.joinTour();
-        this.navCtrl.setRoot(HomeScreenPage);
+        let pk = this.Package
+        this.navCtrl.push(FixedpackageSummaryPage,{pk});
 
     }
 
