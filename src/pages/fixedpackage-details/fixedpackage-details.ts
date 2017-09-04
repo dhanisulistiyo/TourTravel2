@@ -43,6 +43,7 @@ export class FixedpackageDetailsPage {
     this.baseUrl =  this.conf.baseUrlImage;
     this.read = false;
     this.id = navParams.data["id"]
+    this.Hotel = null;
   }
 
   onScroll($event: any) {
