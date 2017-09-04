@@ -131,7 +131,7 @@ export class FixedpackageDetailsPage {
 
   getNumber(n){
     return new Array(Number(n));
-}
+  }
   toggleDetails(data) {
     if (data) {
       this.read = false;

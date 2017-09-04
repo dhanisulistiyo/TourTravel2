@@ -28,32 +28,32 @@
       </div>
       <ion-card-content class="content-custom-item" style="margin-left: 0px; padding:0px;">
         <ion-grid>
-            <ion-row>
-              <ion-col col-4>
-                <h3 class="card-label">Tour No.: </h3>
-              </ion-col>
-              <ion-col col-8>
-                <h3 class="card-title">{{listFixedPackage?.Id}}</h3>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col col-4>
-                <h3 class="card-label">Tour Name: </h3>
-              </ion-col>
-              <ion-col col-8>
-                <h3 class="card-title">{{listFixedPackage?.Title}}</h3>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col col-4>
-                <h3 class="card-label">Min. Guest(s): </h3>
-              </ion-col>
-              <ion-col col-8>
-                <h3 class="card-title">{{listFixedPackage?.FixedPackage.MinimumGuest}} Guest(s)</h3>
-              </ion-col>
-            </ion-row>
+          <ion-row>
+            <ion-col col-4>
+              <h3 class="card-label">Tour No.: </h3>
+            </ion-col>
+            <ion-col col-8>
+              <h3 class="card-title">{{listFixedPackage?.Id}}</h3>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4>
+              <h3 class="card-label">Tour Name: </h3>
+            </ion-col>
+            <ion-col col-8>
+              <h3 class="card-title">{{listFixedPackage?.Title}}</h3>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4>
+              <h3 class="card-label">Min. Guest(s): </h3>
+            </ion-col>
+            <ion-col col-8>
+              <h3 class="card-title">{{listFixedPackage?.FixedPackage.MinimumGuest}} Guest(s)</h3>
+            </ion-col>
+          </ion-row>
         </ion-grid>
-            <!-- <ion-row>
+        <!-- <ion-row>
               <ion-col col-4>
                 <h3 class="card-label">Price: </h3>
               </ion-col>
@@ -80,7 +80,8 @@
             <button clear (click)="decrAdultQty()" style="background-color: #fff;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
           </ion-col>
           <ion-col col-3-custom>
-            <ion-input (input)="validateNumber(guestTour)" type="tel" class="custom-input" maxlength="3" min="0" name="AdultQty" [value]="guestTour.AdultQty" [(ngModel)]="guestTour.AdultQty"></ion-input>
+            <ion-input (input)="validateNumber(guestTour)" type="tel" class="custom-input" maxlength="3" min="0" name="AdultQty" [value]="guestTour.AdultQty"
+              [(ngModel)]="guestTour.AdultQty"></ion-input>
           </ion-col>
           <ion-col col-2-custom><button clear (click)="incrAdultQty()" style="background-color: #fff; text-align: left;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
           </ion-col>
@@ -144,7 +145,8 @@
               <button clear (click)="decrShareQty()" style="background-color: #fff;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
             </ion-col>
             <ion-col col-3-custom>
-              <ion-input (input)="validateNumberAlloc(roomAlloc)" type="tel" class="custom-input" maxlength="3" min="0" name="AdultQty" [value]="roomAlloc.SharingRoomPrice" [(ngModel)]="roomAlloc.SharingRoomPrice"></ion-input>
+              <ion-input (input)="validateNumberAlloc(roomAlloc)" type="tel" class="custom-input" maxlength="3" min="0" name="AdultQty"
+                [value]="roomAlloc.SharingRoomPrice" [(ngModel)]="roomAlloc.SharingRoomPrice"></ion-input>
             </ion-col>
             <ion-col col-2-custom><button clear (click)="incrShareQty()" style="background-color: #fff; text-align: left;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
             </ion-col>
@@ -165,7 +167,8 @@
               <button clear (click)="decrAdultExQty()" style="background-color: #fff;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
             </ion-col>
             <ion-col col-3-custom>
-              <ion-input (input)="validateNumberAlloc(roomAlloc)" type="tel" class="custom-input" maxlength="3" min="0" name="AdultQty" [value]="roomAlloc.AdultExtraBedPrice" [(ngModel)]="roomAlloc.AdultExtraBedPrice"></ion-input>
+              <ion-input (input)="validateNumberAlloc(roomAlloc)" type="tel" class="custom-input" maxlength="3" min="0" name="AdultQty"
+                [value]="roomAlloc.AdultExtraBedPrice" [(ngModel)]="roomAlloc.AdultExtraBedPrice"></ion-input>
             </ion-col>
             <ion-col col-2-custom><button clear (click)="incrAdultExQty()" style="background-color: #fff; text-align: left;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
             </ion-col>
@@ -186,7 +189,8 @@
               <button clear (click)="decrChildExQty()" style="background-color: #fff;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
             </ion-col>
             <ion-col col-3-custom>
-              <ion-input (input)="validateNumberAlloc(roomAlloc)" type="tel" class="custom-input" maxlength="3" min="0" name="AdultQty" [value]="roomAlloc.ChildExtraBedPrice" [(ngModel)]="roomAlloc.ChildExtraBedPrice"></ion-input>
+              <ion-input (input)="validateNumberAlloc(roomAlloc)" type="tel" class="custom-input" maxlength="3" min="0" name="AdultQty"
+                [value]="roomAlloc.ChildExtraBedPrice" [(ngModel)]="roomAlloc.ChildExtraBedPrice"></ion-input>
             </ion-col>
             <ion-col col-2-custom><button clear (click)="incrChildExQty()" style="background-color: #fff; text-align: left;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
             </ion-col>
@@ -207,36 +211,59 @@
               <button clear (click)="decrBedQty()" style="background-color: #fff;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
             </ion-col>
             <ion-col col-3-custom>
-              <ion-input (input)="validateNumberAlloc(roomAlloc)" type="tel" class="custom-input" maxlength="3" min="0" name="AdultQty" [value]="roomAlloc.SharingBedPrice" [(ngModel)]="roomAlloc.SharingBedPrice"></ion-input>
+              <ion-input (input)="validateNumberAlloc(roomAlloc)" type="tel" class="custom-input" maxlength="3" min="0" name="AdultQty"
+                [value]="roomAlloc.SharingBedPrice" [(ngModel)]="roomAlloc.SharingBedPrice"></ion-input>
             </ion-col>
             <ion-col col-2-custom><button clear (click)="incrBedQty()" style="background-color: #fff; text-align: left;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
             </ion-col>
           </ion-row>
           <ion-row>
-              <ion-col col-2>
-                <ion-avatar item-start>
-                  <img class="img-custom" src="https://media-cdn.tripadvisor.com/media/photo-s/04/61/93/3c/blue-green-troia-design.jpg">
-                </ion-avatar>
-              </ion-col>
-              <ion-col col-3>
-                <h2 class="h2-custom">No Bed / Baby Crib</h2>
-                <p class="p-custom">USD 0</p>
-                <p class="p-pax">/ pax</p>
-              </ion-col>
-              <ion-col col-2-custom style="text-align: right;">
-                <button clear (click)="decrBabyCrib()" style="background-color: #fff;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
-              </ion-col>
-              <ion-col col-3-custom>
-                <ion-input (input)="validateNumberAlloc(roomAlloc)" type="tel" class="custom-input" maxlength="3" min="0" name="InfantQty" [value]="roomAlloc.BabyCrib" [(ngModel)]="roomAlloc.BabyCrib"></ion-input>
-              </ion-col>
-              <ion-col col-2-custom><button clear (click)="incrBabyCrib()" style="background-color: #fff; text-align: left;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
-              </ion-col>
-            </ion-row>
+            <ion-col col-2>
+              <ion-avatar item-start>
+                <img class="img-custom" src="https://media-cdn.tripadvisor.com/media/photo-s/04/61/93/3c/blue-green-troia-design.jpg">
+              </ion-avatar>
+            </ion-col>
+            <ion-col col-3>
+              <h2 class="h2-custom">Baby Crib</h2>
+              <p class="p-custom">USD 0</p>
+              <p class="p-pax">/ pax</p>
+            </ion-col>
+            <ion-col col-2-custom style="text-align: right;">
+              <button clear (click)="decrBabyCrib()" style="background-color: #fff;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
+            </ion-col>
+            <ion-col col-3-custom>
+              <ion-input (input)="validateNumberAlloc(roomAlloc)" type="tel" class="custom-input" maxlength="3" min="0" name="InfantQty"
+                [value]="roomAlloc.BabyCrib" [(ngModel)]="roomAlloc.BabyCrib"></ion-input>
+            </ion-col>
+            <ion-col col-2-custom><button clear (click)="incrBabyCrib()" style="background-color: #fff; text-align: left;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-2>
+              <ion-avatar item-start>
+                <img class="img-custom" src="https://media-cdn.tripadvisor.com/media/photo-s/04/61/93/3c/blue-green-troia-design.jpg">
+              </ion-avatar>
+            </ion-col>
+            <ion-col col-3>
+              <h2 class="h2-custom">No Bed</h2>
+              <p class="p-custom">USD 0</p>
+              <p class="p-pax">/ pax</p>
+            </ion-col>
+            <ion-col col-2-custom style="text-align: right;">
+              <button clear (click)="decrNoBed()" style="background-color: #fff;"><ion-icon name="remove-circle" class="custom-icon"></ion-icon></button>
+            </ion-col>
+            <ion-col col-3-custom>
+              <ion-input (input)="validateNumberAlloc(roomAlloc)" type="tel" class="custom-input" maxlength="3" min="0" name="InfantQty"
+                [value]="roomAlloc.NoBed" [(ngModel)]="roomAlloc.NoBed"></ion-input>
+            </ion-col>
+            <ion-col col-2-custom><button clear (click)="incrNoBed()" style="background-color: #fff; text-align: left;"><ion-icon name="add-circle" class="custom-icon"></ion-icon></button>
+            </ion-col>
+          </ion-row>
         </ion-card-content>
       </ion-card>
     </div>
     <div class="custom-footer">
-    <ion-card>
+      <ion-card>
         <div class="label-header">
           <ion-card-header>
             <h2 class="card-title">Total Price</h2>

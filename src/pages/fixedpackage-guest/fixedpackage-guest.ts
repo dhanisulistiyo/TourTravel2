@@ -15,14 +15,14 @@ export class FixedpackageGuestPage {
   listFixedPackage
   prices
   guestTour = { AdultQty: null, ChildQty: null, InfantQty: null };
-  roomAlloc = { SharingRoomPrice: null, AdultExtraBedPrice: null, ChildExtraBedPrice: null, SharingBedPrice: null, BabyCrib: null }
+  roomAlloc = { SharingRoomPrice: null, AdultExtraBedPrice: null, ChildExtraBedPrice: null, SharingBedPrice: null, BabyCrib: null, NoBed: null }
   total;
   totalPrice;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public alertCtrl: AlertController,
     private fixService: FixedPackageProvider, public gu: GuestServiceProvider) {
     this.guestTour = { AdultQty: 0, ChildQty: 0, InfantQty: 0 };
-    this.roomAlloc = { SharingRoomPrice: 0, AdultExtraBedPrice: 0, ChildExtraBedPrice: 0, SharingBedPrice: 0, BabyCrib : 0 }
+    this.roomAlloc = { SharingRoomPrice: 0, AdultExtraBedPrice: 0, ChildExtraBedPrice: 0, SharingBedPrice: 0, BabyCrib: 0, NoBed: 0 }
     this.total = 0;
     this.totalPrice = 0;
     this.listFixedPackage = navParams.data['res'];
@@ -104,53 +104,59 @@ export class FixedpackageGuestPage {
       return
     } else {
       let max = this.listFixedPackage.FixedPackage.MaximumGuest;
-      if(ga > max-gc-gi) {this.guestTour.AdultQty = 0; this.showAlertTotal(); }
-      else if(gc > max-ga-gi) {this.guestTour.ChildQty = 0; this.showAlertTotal();}
-      else if(gi > max-ga-gc) {this.guestTour.InfantQty = 0; this.showAlertTotal();}
-      else{
-      this.guestTour.AdultQty = ga
-      this.guestTour.ChildQty = gc
-      this.guestTour.InfantQty = gi
-      this.total = ga + gc + gi;
+      if (ga > max - gc - gi) { this.guestTour.AdultQty = 0; this.showAlertTotal(); }
+      else if (gc > max - ga - gi) { this.guestTour.ChildQty = 0; this.showAlertTotal(); }
+      else if (gi > max - ga - gc) { this.guestTour.InfantQty = 0; this.showAlertTotal(); }
+      else {
+        this.guestTour.AdultQty = ga
+        this.guestTour.ChildQty = gc
+        this.guestTour.InfantQty = gi
+        this.total = ga + gc + gi;
       }
       return;
     }
 
   }
-//Allocation
+  //Allocation
   incrShareQty(index: number) {
-    if(this.guestTour.AdultQty != 0  || this.guestTour.ChildQty != 0){
-        this.roomAlloc.SharingRoomPrice += 1;
-        this.totalPrices();
+    if (this.guestTour.AdultQty != 0 || this.guestTour.ChildQty != 0) {
+      this.roomAlloc.SharingRoomPrice += 1;
+      this.totalPrices();
     }
   }
   incrAdultExQty(index: number) {
-    if(this.guestTour.AdultQty != 0){
-      if(this.roomAlloc.AdultExtraBedPrice < this.guestTour.AdultQty){
+    if (this.guestTour.AdultQty != 0) {
+      if (this.roomAlloc.AdultExtraBedPrice < this.guestTour.AdultQty) {
         this.roomAlloc.AdultExtraBedPrice += 1;
         this.totalPrices();
       }
     }
   }
   incrChildExQty(index: number) {
-    if(this.guestTour.ChildQty != 0){
-      if(this.roomAlloc.ChildExtraBedPrice < this.guestTour.ChildQty){
+    if (this.guestTour.ChildQty != 0) {
+      if (this.roomAlloc.ChildExtraBedPrice < this.guestTour.ChildQty) {
         this.roomAlloc.ChildExtraBedPrice += 1;
         this.totalPrices();
       }
     }
   }
   incrBedQty(index: number) {
-    if(this.guestTour.ChildQty != 0){
-    if(this.roomAlloc.SharingBedPrice < this.guestTour.ChildQty){
-      this.roomAlloc.SharingBedPrice += 1;
-      this.totalPrices();
-    }
+    if (this.guestTour.ChildQty != 0) {
+      if (this.roomAlloc.SharingBedPrice < this.guestTour.ChildQty) {
+        this.roomAlloc.SharingBedPrice += 1;
+        this.totalPrices();
+      }
     }
   }
   incrBabyCrib(index: number) {
-    if(this.guestTour.InfantQty != 0){
+    if (this.guestTour.InfantQty != 0) {
       this.roomAlloc.BabyCrib += 1;
+      this.totalPrices();
+    }
+  }
+  incrNoBed(index: number) {
+    if (this.guestTour.InfantQty != 0) {
+      this.roomAlloc.NoBed += 1;
       this.totalPrices();
     }
   }
@@ -189,6 +195,12 @@ export class FixedpackageGuestPage {
       this.totalPrices();
     }
   }
+  decrNoBed(index: number) {
+    if (this.roomAlloc.NoBed != 0) {
+      this.roomAlloc.NoBed -= 1;
+      this.totalPrices();
+    }
+  }
   validateNumberAlloc(roomAlloc) {
     console.log(roomAlloc);
     let SR = Number(roomAlloc.SharingRoomPrice)
@@ -196,6 +208,7 @@ export class FixedpackageGuestPage {
     let CE = Number(roomAlloc.ChildExtraBedPrice)
     let SB = Number(roomAlloc.SharingBedPrice)
     let BC = Number(roomAlloc.BabyCrib)
+    let NB = Number(roomAlloc.NoBed)
     if (typeof SR != "number" || String(SR) == "NaN") {
       this.roomAlloc.SharingRoomPrice = 0;
       this.showAlertSR();
@@ -219,20 +232,26 @@ export class FixedpackageGuestPage {
       this.showAlertSB();
       this.totalPrice();
       return
-    }else if (typeof BC != "number" || String(BC) == "NaN") {
+    } else if (typeof BC != "number" || String(BC) == "NaN") {
       this.roomAlloc.BabyCrib = 0;
       this.showAlertBC();
       this.totalPrice();
       return
-    }  
+    } else if (typeof NB != "number" || String(NB) == "NaN") {
+      this.roomAlloc.NoBed = 0;
+      this.showAlertNB();
+      this.totalPrice();
+      return
+    }
     else {
       this.roomAlloc.SharingRoomPrice = SR
       this.roomAlloc.AdultExtraBedPrice = AE
       this.roomAlloc.ChildExtraBedPrice = CE
       this.roomAlloc.SharingBedPrice = SB
       this.roomAlloc.BabyCrib = BC
+      this.roomAlloc.NoBed = NB
       let totalGuest = this.guestTour.AdultQty + this.guestTour.ChildQty
-      let totalAlloc = SR + AE + CE + SB + BC
+      let totalAlloc = SR + AE + CE + SB + BC + NB
       this.totalPrices();
       return;
     }
@@ -333,21 +352,30 @@ export class FixedpackageGuestPage {
     alert.present();
   }
 
+  showAlertNB() {
+    let alert = this.alertCtrl.create({
+      title: 'Wrong Input!',
+      subTitle: 'Input No Bed is Not Number',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
   continueTapped() {
     let guest = this.guestTour.AdultQty + this.guestTour.ChildQty + this.guestTour.InfantQty
-    let alloc = this.roomAlloc.AdultExtraBedPrice + this.roomAlloc.ChildExtraBedPrice +this.roomAlloc.SharingBedPrice + this.roomAlloc.SharingRoomPrice + this.roomAlloc.BabyCrib
-    if(guest != 0){
-      if(guest<= (this.listFixedPackage.FixedPackage.MaximumGuest - this.listFixedPackage.FixedPackage.RegisteringGuest)){
-        if(guest == alloc){
+    let alloc = this.roomAlloc.AdultExtraBedPrice + this.roomAlloc.ChildExtraBedPrice + this.roomAlloc.SharingBedPrice + this.roomAlloc.SharingRoomPrice + this.roomAlloc.BabyCrib
+    if (guest != 0) {
+      if (guest <= (this.listFixedPackage.FixedPackage.MaximumGuest - this.listFixedPackage.FixedPackage.RegisteringGuest)) {
+        if (guest == alloc) {
           this.fixService.setRoomAllo(this.roomAlloc)
           this.fixService.setGuest(this.guestTour)
-          this.gu.createGuestFix(this.guestTour.AdultQty,this.guestTour.ChildQty,this.guestTour.InfantQty);
+          this.gu.createGuestFix(this.guestTour.AdultQty, this.guestTour.ChildQty, this.guestTour.InfantQty);
           this.navCtrl.push(FixedGuestDetailsPage);
-        }else {this.showAlertTotalAlloc();}
-      }else{ this.showAlertMaxGuest()} 
-  }else{
+        } else { this.showAlertTotalAlloc(); }
+      } else { this.showAlertMaxGuest() }
+    } else {
       this.showAlertInputGuest();
-  }
+    }
 
   }
 
