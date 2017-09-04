@@ -337,14 +337,14 @@ export class FixedpackageGuestPage {
     let guest = this.guestTour.AdultQty + this.guestTour.ChildQty + this.guestTour.InfantQty
     let alloc = this.roomAlloc.AdultExtraBedPrice + this.roomAlloc.ChildExtraBedPrice +this.roomAlloc.SharingBedPrice + this.roomAlloc.SharingRoomPrice + this.roomAlloc.BabyCrib
     if(guest != 0){
-    if(guest == alloc){
-      this.fixService.setRoomAllo(this.roomAlloc)
-      this.fixService.setGuest(this.guestTour)
-      this.gu.createGuestFix(this.guestTour.AdultQty,this.guestTour.ChildQty,this.guestTour.InfantQty);
-      this.navCtrl.push(FixedGuestDetailsPage);
-    }else{
-      this.showAlertTotalAlloc();
-    }
+      if(guest<= (this.listFixedPackage.FixedPackage.MaximumGuest - this.listFixedPackage.FixedPackage.RegisteringGuest)){
+        if(guest == alloc){
+          this.fixService.setRoomAllo(this.roomAlloc)
+          this.fixService.setGuest(this.guestTour)
+          this.gu.createGuestFix(this.guestTour.AdultQty,this.guestTour.ChildQty,this.guestTour.InfantQty);
+          this.navCtrl.push(FixedGuestDetailsPage);
+        }else {this.showAlertTotalAlloc();}
+      }else{ this.showAlertMaxGuest()} 
   }else{
       this.showAlertInputGuest();
   }
@@ -364,6 +364,15 @@ export class FixedpackageGuestPage {
     let alert = this.alertCtrl.create({
       title: 'Failed!',
       subTitle: 'Please input guest!',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+  showAlertMaxGuest() {
+    let alert = this.alertCtrl.create({
+      title: 'Failed!',
+      subTitle: 'Total guest registered more than max guest',
       buttons: ['OK']
     });
     alert.present();
