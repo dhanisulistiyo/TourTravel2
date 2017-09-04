@@ -102,8 +102,8 @@
               </ion-col>
             </ion-row>
             <ion-card-content>
-              <h2>{{fix.Title}}</h2>
-              <h4>{{fix.Description}}</h4>
+              <h2>Bali</h2>
+              <h4>Ba</h4>
               <ion-row class="row-label">
                 <ion-col col-4>
                   <button ion-button icon-left clear small>
@@ -147,14 +147,14 @@
                   </button>
                 </ion-col>
               </ion-row> -->
-              <!-- <ion-row class="row-label">
+              <ion-row class="row-label">
                 <ion-col col-4>
                   <button ion-button icon-left clear small>
                     <ion-icon ios="ios-calendar" md="md-calendar" class="custom-color"></ion-icon>
-                    <h3>16 Sept - 24 Sept 2017 | 9D / 8N</h3>
+                    <h3>{{fix.StartDate | date:'EEE, dd MMM'}} - {{fix.EndDate | date:'EEE, dd MMM yyyy'}} </h3>
                   </button>
                 </ion-col>
-              </ion-row> -->
+              </ion-row>
             </ion-card-content>
           </ion-card>
         </div>
