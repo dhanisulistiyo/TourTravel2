@@ -61,12 +61,13 @@ export class FixedGuestDetailsPage {
     }
 
     createItenerary(event) {
-        // if (this.gu.getFirstName() == null || this.gu.getFirstName() == "" ) this.showAlertFirstName()
-        // else if (this.gu.getLastName() == null || this.gu.getLastName() == "" ) this.showAlertLastName()
-        // else if (this.gu.getCountry() == null || this.gu.getCountry() == "" ) this.showAlertCountry()
-        //else 
-        let pk = this.Package
-        this.navCtrl.push(FixedpackageSummaryPage,{pk});
+        if (this.gu.getFirstName() == null || this.gu.getFirstName() == "" ) this.showAlertFirstName()
+        else if (this.gu.getLastName() == null || this.gu.getLastName() == "" ) this.showAlertLastName()
+        else if (this.gu.getCountry() == null || this.gu.getCountry() == "" ) this.showAlertCountry()
+        else {       
+          let pk = this.Package
+          this.navCtrl.push(FixedpackageSummaryPage,{pk});
+        }
 
     }
 
