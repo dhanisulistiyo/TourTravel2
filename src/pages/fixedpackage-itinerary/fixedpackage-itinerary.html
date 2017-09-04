@@ -7,7 +7,7 @@
 <ion-content>
   <div class="slide-pager" style="overflow: visible;">
     <ion-slides pager="true" loop="true" speed="1000" >
-      <ion-slide>
+      <ion-slide *ngFor="let dp of DP" >
         <div class="info">
           <ion-card>
             <img src="http://love2fly.iberia.com/wp-content/uploads/2015/07/L2F-Jul-15-pic-Turkey-Istanbul-Blue-Mosque-interior-Yarygin-shutterstock_185429441.jpg"
@@ -15,16 +15,16 @@
             <ion-card-content>
               <!-- <h2>LET'S TRAVEL</h2>
                   <h3>Discover and book amazing things-to-do at exclusive prices</h3> -->
-              <div class="day-number">{{Dates | date : 'd'}}</div>
+              <div class="day-number">{{dp.date | date : 'd'}}</div>
               <div class="date-right">
-                <div class="day-name">{{Dates | date : 'EEEE'}}</div>
-                <div class="month">{{Dates | date : 'MMMM yyyy'}}</div>
+                <div class="day-name">{{dp.date | date : 'EEEE'}}</div>
+                <div class="month">{{dp.date | date : 'MMMM yyyy'}}</div>
               </div>
             </ion-card-content>
           </ion-card>
         </div>
         <div class="day-info">
-          <h2 class="h2-custom">Day {{Day}}</h2>
+          <h2 class="h2-custom">Day {{dp.day}}</h2>
         </div>
 
         <ul class="timeline" >
@@ -35,7 +35,7 @@
                     <div>Take 26 mins to get there</div>
                   </button></div>
             </li> -->
-            <li *ngFor="let item of DP">
+            <li *ngFor="let item of dp.dailyProgram">
               <div class="tl-circ">
                 <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
               </div>

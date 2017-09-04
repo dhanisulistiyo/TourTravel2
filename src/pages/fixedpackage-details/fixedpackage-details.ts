@@ -36,6 +36,7 @@ export class FixedpackageDetailsPage {
   //Tambahan
   TourDetails
   Movement
+  data: Array<{dailyProgram: any,day:any, date:any}> = [];
   constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, public navParams: NavParams, 
   public fixService : FixedPackageProvider, public load: LoadingController, public aco: AcomodationService,
   public conf: ConfigProvider, public alertCtrl:AlertController
@@ -110,9 +111,6 @@ export class FixedpackageDetailsPage {
           this.TourDetails.push(this.Movement);
         }
           console.log(this.TourDetails)
-      
-
-
     }, err => {
       console.log(err);
     },
@@ -124,10 +122,10 @@ export class FixedpackageDetailsPage {
   bookNow() {
     if(this.BookingDetailSum.FixedPackage.MaximumGuest <= this.BookingDetailSum.FixedPackage.RegisteringGuest) this.showAlertfull()
     else{
-    let res = this.BookingDetailSum
-    let price= this.Prices
-    this.fixService.setId(this.BookingDetailSum.Id)
-    this.navCtrl.push(FixedpackageGuestPage,{res, price})
+      let res = this.BookingDetailSum
+      let price= this.Prices
+      this.fixService.setId(this.BookingDetailSum.Id)
+      this.navCtrl.push(FixedpackageGuestPage,{res, price})
     }
   }
 
@@ -142,9 +140,18 @@ export class FixedpackageDetailsPage {
     }
   }
 
-  // showDetails(dp, day, date) {
-  //   this.navCtrl.push(FixedpackageItineraryPage, {dp, day, date});
-  // }
+  showDetails(i) {
+    this.data=[];
+    for (let i = 0; i < (Object.keys(this.DailyPrograms).length); i++) {
+      this.data.push({
+        dailyProgram: this.TourDetails[i],
+        day: this.DailyPrograms[i].Day,
+        date: this.DailyPrograms[i].Date
+      });
+    }
+    let dp = this.data
+    this.navCtrl.push(FixedpackageItineraryPage, {dp});
+  }
 
   showAlertfull() {
     let alert = this.alertCtrl.create({
@@ -153,14 +160,6 @@ export class FixedpackageDetailsPage {
       buttons: ['OK']
     });
     alert.present();
-  }
-
-
-  showDetails(i) {
-    let dp = this.TourDetails[i]
-    let day =  this.DailyPrograms[i].Day;
-    let date =  this.DailyPrograms[i].Date;
-    this.navCtrl.push(FixedpackageItineraryPage, {dp, day, date});
   }
 
 }
