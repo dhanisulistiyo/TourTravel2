@@ -10,8 +10,10 @@ import { NavController, NavParams, LoadingController, AlertController, ToastCont
 })
 export class FixedpackageSummaryPage {
   Package;
+  Price;
   userinfo;
   Guest;
+  TGuest;
   Room;
   TotalGuest;
   TotalPrice;
@@ -29,6 +31,8 @@ export class FixedpackageSummaryPage {
     this.fix.memberGuest();
     let price = this.Package["Prices"]
     let g = this.fix.TGuest;
+    this.Price = price;
+    this.TGuest = g;
     this.Guest = this.fix.guest;
     this.TotalGuest=g.AdultQty+g.ChildQty +g.InfantQty    
     this.Room = this.fix.allocation;
