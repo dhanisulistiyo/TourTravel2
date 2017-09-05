@@ -89,7 +89,6 @@ export class PaymentPage {
       position: 'bottom'
     });
     toast.present();
-
   }
 
   alertPay() {

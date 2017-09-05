@@ -2,7 +2,7 @@ import { HomeScreenPage } from './../home-screen/home-screen';
 import { FixedPackageProvider } from './../../providers/fixed-package';
 import { UserandcompanyDetails } from './../../providers/userandcompany-details';
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, AlertController, ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'page-fixedpackage-summary',
@@ -17,7 +17,7 @@ export class FixedpackageSummaryPage {
   TotalPrice;
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public load: LoadingController, public info: UserandcompanyDetails, 
-    public fix: FixedPackageProvider, public alertCtrl: AlertController) {
+    public fix: FixedPackageProvider, public alertCtrl: AlertController, public toastCtrl: ToastController) {
     this.Package = navParams.data['pk']
   }
 
@@ -62,11 +62,21 @@ export class FixedpackageSummaryPage {
             console.log('Saved clicked');
             this.fix.joinTour();
             this.navCtrl.setRoot(HomeScreenPage);
+            this.presentToast();
           }
         }
       ]
     });
     prompt.present();
+  }
+
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'Your booking has been saved in system',
+      duration: 1500,
+      position: 'bottom'
+    });
+    toast.present();
   }
 
 }

@@ -69,8 +69,7 @@ export class GuestServiceProvider {
           if(i < adult)g.typeperson = "ADULT"
           else if(i > adult-1 && i < (adult+child))g.typeperson = "CHILD"  
           else if(i > adult+child-1 && i < (count))g.typeperson = "INFANT" 
-          if(i == 0) g.guestype= "TOURLEADER";
-          else  g.guestype= "TOURMEMBER";
+          g.guestype= "TOURMEMBER";
           this.Guest[i]=(g);
         }
       }

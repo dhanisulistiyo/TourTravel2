@@ -11,7 +11,7 @@
       <ion-row class="row-label">
         <ion-col col-12>
           <ion-label stacked>
-            <ion-icon ios="ios-people" md="md-people" class="custom-orange"></ion-icon> Guest Details <span *ngIf="i == 0" >(Tour Leader)</span></ion-label>
+            <ion-icon ios="ios-people" md="md-people" class="custom-orange"></ion-icon> Guest Details <span *ngIf="item.typeperson == 'ADULT'" >Adult</span><span *ngIf="item.typeperson == 'CHILD'" >Child</span><span *ngIf="item.typeperson == 'INFANT'" >Infant</span></ion-label>
         </ion-col>
       </ion-row>
 
