@@ -47,25 +47,16 @@
                   <p>{{item.Destination}}</p>
                 </div>
               </div>
-              <div class="timeline-panel" *ngIf="item.ServiceItemId == 3673" >
+              <!-- <div class="timeline-panel" *ngIf="item.ServiceItemId == 3673" >
                 <div class="tl-heading">
-                  <!-- <h5 class="line-break">
-                    <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.AccommodationSummary.DateTime | date:'shortTime' }}</h5> -->
                     <h5 class="line-break">
                         <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.DateTime | date: 'shortTime' }}</h5>
                     <p><small class="text-muted">{{item.MovementDescription}}</small></p>
                   <h4>{{item.MovementName}}</h4>
                 </div>
-                <div class="tl-body">
-                  <!-- <p>NAMA ROOM</p> -->
-                  <!-- <p>{{(item.AccommodationSummary.RoomService).replace('_', ' ')}}</p> -->
-                  <!-- <p>KOTA</p> -->
-                </div>
-              </div>
+              </div> -->
               <div class="timeline-panel" *ngIf="item.ServiceItemId == 3678" >
                 <div class="tl-heading">
-                  <!-- <h5 class="line-break">
-                    <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.AccommodationSummary.DateTime | date:'shortTime' }}</h5> -->
                     <h5 class="line-break">
                         <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.DateTime | date: 'shortTime' }}</h5>
                     <p><small class="text-muted">{{item.MovementDescription}}</small></p>
@@ -73,14 +64,12 @@
                 </div>
                 <div class="tl-body">
                   <p>{{item.AttractionObject.Address}}</p>
-                  <!-- <p>{{(item.AccommodationSummary.RoomService).replace('_', ' ')}}</p> -->
-                  <!-- <p>KOTA</p> -->
                 </div>
               </div>
               <div class="tldate"  *ngIf="item.ServiceItemId == 3673" >
                 <button ion-button icon-left clear small>
                   <ion-icon ios="ios-car" md="md-car"></ion-icon>
-                    <div>Take 26 mins to get there by DRIVING</div>
+                    <div>Take {{item.Duration / 3600}} hours by <p class="p-custom">{{item.MovementName}}</p>.</div>
                   </button>
               </div>
             </li>

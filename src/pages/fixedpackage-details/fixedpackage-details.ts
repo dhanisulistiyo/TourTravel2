@@ -24,6 +24,7 @@ export class FixedpackageDetailsPage {
   read;
   Prices;
   Images;
+  Description;
   Descriptions;
   BookingDetailSum;
   DailyPrograms;
@@ -65,6 +66,7 @@ export class FixedpackageDetailsPage {
       console.log(data)
       this.Prices = (data['Prices'])
       this.Images = (data['Images'])
+      this.Description = (data['Description'])
       this.Descriptions = (data['Descriptions'])
       this.BookingDetailSum = (data['BookingDetailSum'])
       this.DailyPrograms = (data['DailyPrograms'])

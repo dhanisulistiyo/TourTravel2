@@ -24,15 +24,14 @@
     <div class="info">
       <h2>{{BookingDetailSum?.Title}}</h2>
       <div class="readmore" *ngIf="read == false">
-        <p class="p-readmore">Richly historical land with some of the best cuisine you will ever taste, scenery from beaches to mountains and the
-          great city of İstanbul. Culinary Exploration The best thing about sampling Turkey's delicious specialties.
+        <p class="p-readmore">
+          {{Description}}
         </p>
         <a (click)="toggleDetails(read)">Read More</a>
       </div>
 
       <p class="p-readless" *ngIf="read == true">
-        Richly historical land with some of the best cuisine you will ever taste, scenery from beaches to mountains and the great
-        city of İstanbul. Culinary Exploration The best thing about sampling Turkey's delicious specialties.
+          {{Description}}
         <a (click)="toggleDetails(read)">Read Less</a>
       </p>
       <ion-row class="row-custom">
@@ -87,7 +86,7 @@
       </p>
     </div>
 
-    <div class="photos" *ngIf="Hotel != null" >
+    <div class="photos" *ngIf="Hotel != null">
       <h2>Where we'll stay</h2>
       <div class="photos-hotel">
         <ion-grid>

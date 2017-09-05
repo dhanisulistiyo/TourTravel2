@@ -240,7 +240,7 @@
             .div-custom {
                 display: inline-block;
                 white-space: nowrap;
-                width: 80%;
+                width: 87%;
                 height: 330px;
                 min-height: 180px;
                 overflow: scroll;
@@ -284,17 +284,21 @@
                     color: #808080;
                     font-size: 1.4rem;
                     font-weight: 600;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1;
+                    /* autoprefixer: off */
+                    -webkit-box-orient: vertical;
+                    /* autoprefixer: on */
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
                 .card-md h4 {
                     font-family: 'Open Sans', cursive;
-                    color: #808080;
-                    font-size: 1.4rem;
+                    color: black;
+                    font-size: 4.5vw;
                     font-weight: 600;
-                    margin-bottom: 20px;
                     display: -webkit-box;
                     max-width: 400px;
-                    height: 1.5rem *$line-height*1;
-                    line-height: $line-height;
                     -webkit-line-clamp: 1;
                     /* autoprefixer: off */
                     -webkit-box-orient: vertical;

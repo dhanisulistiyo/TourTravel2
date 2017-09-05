@@ -103,7 +103,7 @@
             </ion-row>
             <ion-card-content>
               <h4>{{fix.Title}}</h4>
-              <!-- <h4>Ba</h4> -->
+              <h3 style="margin-bottom:20px; color:black;">{{fix.Description}}</h3>
               <ion-row class="row-label">
                 <ion-col col-4>
                   <button ion-button icon-left clear small>
@@ -125,12 +125,20 @@
               <ion-row class="row-label">
                 <ion-col col-4>
                   <button ion-button icon-left clear small>
+                      <ion-icon ios="ios-calendar" md="md-calendar" class="custom-color"></ion-icon>
+                      <h3>{{fix.StartDate | date:'EEE, dd MMM'}} - {{fix.EndDate | date:'EEE, dd MMM yyyy'}} </h3>
+                    </button>
+                </ion-col>
+              </ion-row>
+              <ion-row class="row-label">
+                <ion-col col-4>
+                  <button ion-button icon-left clear small>
                           <ion-icon ios="ios-contacts" md="md-contacts" class="custom-color"></ion-icon><h3>{{fix.FixedPackage.RegisteringGuest}} Guest(s) Booked</h3>
                         </button>
                 </ion-col>
                 <ion-col col-3></ion-col>
                 <ion-col col-4>
-                    <button ion-button icon-left clear small *ngIf="fix.FixedPackage.RegisteringGuest >= fix.FixedPackage.MaximumGuest" >
+                  <button ion-button icon-left clear small *ngIf="fix.FixedPackage.RegisteringGuest >= fix.FixedPackage.MaximumGuest">
                         <h3 style="font-family: 'Open Sans', cursive;color: #E64A19;font-weight: bold; padding:1vw 2vw; border:1px solid">Fully Booked !</h3>
                       </button>
                 </ion-col>
@@ -147,14 +155,7 @@
                   </button>
                 </ion-col>
               </ion-row> -->
-              <ion-row class="row-label">
-                <ion-col col-4>
-                  <button ion-button icon-left clear small>
-                    <ion-icon ios="ios-calendar" md="md-calendar" class="custom-color"></ion-icon>
-                    <h3>{{fix.StartDate | date:'EEE, dd MMM'}} - {{fix.EndDate | date:'EEE, dd MMM yyyy'}} </h3>
-                  </button>
-                </ion-col>
-              </ion-row>
+
             </ion-card-content>
           </ion-card>
         </div>

@@ -398,7 +398,12 @@
                     left: 40px;
                 }
                 .tldate {
-                    width: 200px;
+                    width: 53%;
+                    .p-custom {
+                        text-transform: lowercase;
+                        display: inline;
+                        padding: 0;
+                    }
                 }
                 ul.timeline li .timeline-panel {
                     width: calc(100% - 90px);
