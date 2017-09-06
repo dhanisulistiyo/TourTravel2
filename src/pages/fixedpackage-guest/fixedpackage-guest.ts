@@ -370,10 +370,17 @@ export class FixedpackageGuestPage {
     if (guest != 0) {
       if (guest <= (this.listFixedPackage.FixedPackage.MaximumGuest - this.listFixedPackage.FixedPackage.RegisteringGuest)) {
         if (guest == alloc) {
-          this.fixService.setRoomAllo(this.roomAlloc)
-          this.fixService.setGuest(this.guestTour)
-          this.gu.createGuestFix(this.guestTour.AdultQty, this.guestTour.ChildQty, this.guestTour.InfantQty);
-          this.navCtrl.push(FixedGuestDetailsPage, {pk});
+          if(this.roomAlloc.AdultExtraBedPrice > this.guestTour.AdultQty)this.showAlertTotalAlloc()
+          else if(this.roomAlloc.ChildExtraBedPrice > this.guestTour.ChildQty) this.showAlertTotalAlloc()
+          else if(this.roomAlloc.SharingBedPrice > this.guestTour.ChildQty) this.showAlertTotalAlloc()
+          else if(this.roomAlloc.BabyCrib > this.guestTour.InfantQty) this.showAlertTotalAlloc()
+          else if(this.roomAlloc.NoBed > this.guestTour.InfantQty) this.showAlertTotalAlloc()
+          else{
+            this.fixService.setRoomAllo(this.roomAlloc)
+            this.fixService.setGuest(this.guestTour)
+            this.gu.createGuestFix(this.guestTour.AdultQty, this.guestTour.ChildQty, this.guestTour.InfantQty);
+            this.navCtrl.push(FixedGuestDetailsPage, {pk});
+          }
         } else { this.showAlertTotalAlloc(); }
       } else { this.showAlertMaxGuest() }
     } else {
