@@ -44,7 +44,7 @@
               <div class="tl-body">
                 <p>
                   <ion-icon ios="ios-pin" md="ios-pin-outline" class="custom-icon-blue"></ion-icon>{{item.Destination}}</p>
-                <p><ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-icon-blue"></ion-icon>Room Type: {{(item.AccommodationItem.Name)}}</p>
+                <p><ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-icon-blue"></ion-icon>Room Type: {{(item.AccommodationItem.Name)}}, {{(item.AccommodationItem.AccommodationItemServiceTypes["0"]).replace('_', ' ')}}</p>
                 <!-- <p>{{(item.AccommodationItemServiceTypes["0"]).replace('_', ' ')}}</p> -->
               </div>
             </div>
@@ -60,7 +60,7 @@
               <div class="tl-heading">
                 <h5 class="line-break">
                   <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.DateTime | date: 'shortTime' }}</h5>
-                <p><small class="text-muted">{{item.MovementDescription}}</small></p>
+                <p><small class="text-muted">{{item.MovementDescription}}: {{item.Duration / 3600}} hours</small></p>
                 <h4>{{item.AttractionObject.Name}}</h4>
               </div>
               <div class="tl-body">
