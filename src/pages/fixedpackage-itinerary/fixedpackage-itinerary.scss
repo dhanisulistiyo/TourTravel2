@@ -339,7 +339,7 @@
             .icon-heading {
                 text-align: center;
                 color: white;
-                font-size: 4.3vw;
+                font-size: 4vw;
                 margin-right: 2vw;
             }
             p {
@@ -350,6 +350,7 @@
                 // margin: 1vw 0px 0px 0px;
                 margin-top: 1vw;
                 margin-bottom: 1vw;
+                font-size: 4.5vw;
                 color: black;
                 padding: 0 10px 0 10px;
             }
@@ -358,7 +359,7 @@
                 font-family: 'Open Sans', cursive;
                 color: white; // background-color: #428bca;
                 // border-color: #428bca;
-                font-size: 4.3vw;
+                font-size: 4vw;
                 font-weight: 600;
                 margin: 0px;
                 display: -webkit-box;
@@ -376,6 +377,7 @@
             }
             .tl-body p,
             .tl-body ul {
+                font-size: 4vw;
                 margin-top: 2vw;
                 margin-bottom: 0px;
                 padding: 0 0 0 10px;
@@ -394,11 +396,17 @@
                 .page-header h1 {
                     font-size: 1.8em;
                 }
+                .custom-icon-blue{
+                    color: #55bbd4;
+                    font-size: 4vw;
+                    margin-right: 1vw;
+                    //padding: 1.5vw;
+                }
                 ul.timeline:before {
                     left: 40px;
                 }
                 .tldate {
-                    width: 53%;
+                    width: 55%;
                     .p-custom {
                         text-transform: lowercase;
                         display: inline;

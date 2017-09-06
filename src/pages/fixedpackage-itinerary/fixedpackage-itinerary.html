@@ -6,8 +6,8 @@
 
 <ion-content>
   <div class="slide-pager" style="overflow: visible;">
-    <ion-slides pager="true" loop="true" speed="1000" >
-      <ion-slide *ngFor="let dp of DP" >
+    <ion-slides pager="true" loop="true" speed="1000">
+      <ion-slide *ngFor="let dp of DP">
         <div class="info">
           <ion-card>
             <img src="http://love2fly.iberia.com/wp-content/uploads/2015/07/L2F-Jul-15-pic-Turkey-Istanbul-Blue-Mosque-interior-Yarygin-shutterstock_185429441.jpg"
@@ -27,27 +27,28 @@
           <h2 class="h2-custom">Day {{dp.day}}</h2>
         </div>
 
-        <ul class="timeline" >
-            <li *ngFor="let item of dp.dailyProgram">
-              <div class="tl-circ" *ngIf="item.ServiceItemId == 3674 || item.ServiceItemId == 3675 || item.ServiceItemId == 3676 || item.ServiceItemId == 3677 || item.ServiceItemId == 3678">
-                <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
-              </div>
-              <div class="timeline-panel" *ngIf="item.ServiceItemId == 3674 || item.ServiceItemId == 3675 || item.ServiceItemId == 3676 || item.ServiceItemId == 3677" >
-                <div class="tl-heading">
-                  <!-- <h5 class="line-break">
+        <ul class="timeline">
+          <li *ngFor="let item of dp.dailyProgram">
+            <div class="tl-circ" *ngIf="item.ServiceItemId == 3674 || item.ServiceItemId == 3675 || item.ServiceItemId == 3676 || item.ServiceItemId == 3677 || item.ServiceItemId == 3678">
+              <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
+            </div>
+            <div class="timeline-panel" *ngIf="item.ServiceItemId == 3674 || item.ServiceItemId == 3675 || item.ServiceItemId == 3676 || item.ServiceItemId == 3677">
+              <div class="tl-heading">
+                <!-- <h5 class="line-break">
                     <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.AccommodationSummary.DateTime | date:'shortTime' }}</h5> -->
-                    <h5 class="line-break">
-                        <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.DateTime | date: 'shortTime' }}</h5>
-                    <p><small class="text-muted"> {{item.MovementDescription}}</small></p>
-                  <h4>{{item.AccommodationProfile.Name}}</h4>
-                </div>
-                <div class="tl-body">
-                  <p>{{(item.AccommodationItem.Name)}}</p>
-                  <!-- <p>{{(item.AccommodationItemServiceTypes["0"]).replace('_', ' ')}}</p> -->
-                  <p>{{item.Destination}}</p>
-                </div>
+                <h5 class="line-break">
+                  <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.DateTime | date: 'shortTime' }}</h5>
+                <p><small class="text-muted"> {{item.MovementDescription}}</small></p>
+                <h4>{{item.AccommodationProfile.Name}}</h4>
               </div>
-              <!-- <div class="timeline-panel" *ngIf="item.ServiceItemId == 3673" >
+              <div class="tl-body">
+                <p>
+                  <ion-icon ios="ios-pin" md="ios-pin-outline" class="custom-icon-blue"></ion-icon>{{item.Destination}}</p>
+                <p><ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-icon-blue"></ion-icon>Room Type: {{(item.AccommodationItem.Name)}}</p>
+                <!-- <p>{{(item.AccommodationItemServiceTypes["0"]).replace('_', ' ')}}</p> -->
+              </div>
+            </div>
+            <!-- <div class="timeline-panel" *ngIf="item.ServiceItemId == 3673" >
                 <div class="tl-heading">
                     <h5 class="line-break">
                         <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.DateTime | date: 'shortTime' }}</h5>
@@ -55,24 +56,24 @@
                   <h4>{{item.MovementName}}</h4>
                 </div>
               </div> -->
-              <div class="timeline-panel" *ngIf="item.ServiceItemId == 3678" >
-                <div class="tl-heading">
-                    <h5 class="line-break">
-                        <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.DateTime | date: 'shortTime' }}</h5>
-                    <p><small class="text-muted">{{item.MovementDescription}}</small></p>
-                  <h4>{{item.AttractionObject.Name}}</h4>
-                </div>
-                <div class="tl-body">
-                  <p>{{item.AttractionObject.Address}}</p>
-                </div>
+            <div class="timeline-panel" *ngIf="item.ServiceItemId == 3678">
+              <div class="tl-heading">
+                <h5 class="line-break">
+                  <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.DateTime | date: 'shortTime' }}</h5>
+                <p><small class="text-muted">{{item.MovementDescription}}</small></p>
+                <h4>{{item.AttractionObject.Name}}</h4>
               </div>
-              <div class="tldate"  *ngIf="item.ServiceItemId == 3673" >
-                <button ion-button icon-left clear small>
+              <div class="tl-body">
+                <p>{{item.AttractionObject.Address}}</p>
+              </div>
+            </div>
+            <div class="tldate" *ngIf="item.ServiceItemId == 3673">
+              <button ion-button icon-left clear small>
                   <ion-icon ios="ios-car" md="md-car"></ion-icon>
                     <div>Take {{item.Duration / 3600}} hours by <p class="p-custom">{{item.MovementName}}</p>.</div>
                   </button>
-              </div>
-            </li>
+            </div>
+          </li>
         </ul>
       </ion-slide>
     </ion-slides>

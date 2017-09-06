@@ -50,8 +50,7 @@
                 min-height: 160px;
                 .toolbar-background-md {
                     border-color: #4fd2c2;
-                    background: #4fd2c2;
-                    // background-image: url('/assets/img/sidebar_bg.png');
+                    background: #4fd2c2; // background-image: url('/assets/img/sidebar_bg.png');
                     background-repeat: no-repeat;
                 }
                 .toolbar-title-md {
@@ -479,7 +478,12 @@
         page-confirm-booking.ion-page.show-page {
             background: rgba(0, 0, 0, 0.7);
         }
-        page-fixedpackage-details ul {
-            list-style-type: disc;
+        page-fixedpackage-details {
+            ul {
+                list-style-type: disc;
+            }
+            ol {
+                padding-left: 5vw;
+            }
         }
     }

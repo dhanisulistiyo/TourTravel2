@@ -45,13 +45,37 @@
             </ion-col>
           </ion-row>
           <ion-row>
+              <ion-col col-4>
+                <h3 class="card-label">Destination: </h3>
+              </ion-col>
+              <ion-col col-8>
+                <h3 class="card-title">{{listFixedPackage?.Destination}}</h3>
+              </ion-col>
+            </ion-row>
+          <ion-row>
             <ion-col col-4>
-              <h3 class="card-label">Min. Guest(s): </h3>
+              <h3 class="card-label">Type of Tour: </h3>
             </ion-col>
             <ion-col col-8>
-              <h3 class="card-title">{{listFixedPackage?.FixedPackage.MinimumGuest}} Guest(s)</h3>
+              <h3 class="card-title">{{listFixedPackage?.TourType}}</h3>
             </ion-col>
           </ion-row>
+          <ion-row>
+              <ion-col col-4>
+                <h3 class="card-label">Min - Max Guest(s): </h3>
+              </ion-col>
+              <ion-col col-8>
+                <h3 class="card-title">{{listFixedPackage?.FixedPackage.MinimumGuest}} - {{listFixedPackage?.FixedPackage.MaximumGuest}} Guest(s)</h3>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-4>
+                  <h3 class="card-label">Booked Guest(s): </h3>
+                </ion-col>
+                <ion-col col-8>
+                  <h3 class="card-title">{{listFixedPackage?.FixedPackage.RegisteringGuest}} Guest(s)</h3>
+                </ion-col>
+              </ion-row>
         </ion-grid>
         <!-- <ion-row>
               <ion-col col-4>
@@ -241,7 +265,7 @@
           <ion-row>
             <ion-col col-2>
               <ion-avatar item-start>
-                <img class="img-custom" src="https://media-cdn.tripadvisor.com/media/photo-s/04/61/93/3c/blue-green-troia-design.jpg">
+                <img class="img-custom" src="https://www.uacinemas.com.hk/api-get-image-file?file=&type=NEWS_THUMBNAIL">
               </ion-avatar>
             </ion-col>
             <ion-col col-3>
