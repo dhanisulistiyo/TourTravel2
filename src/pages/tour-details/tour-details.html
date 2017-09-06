@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <div *ngFor="let bookdetails of BookingDetailSum" class="selection" style="margin-left: -10px; width:105%; overflow: visible;">
+  <div *ngFor="let bookdetails of BookingDetailSum" class="selection" style="margin-left: -10px; overflow: visible;">
     <ion-card class="card-custom" style="top:0; margin-top:0px;" *ngFor="let price of TourPriceSum">
       <ion-row>
         <ion-col col-2>
@@ -27,15 +27,16 @@
       </ion-row>
     </ion-card>
 
-    <p class="custom-padding">This booking request will be expired on <strong>{{bookdetails?.ExpiredOn | date:'dd MMMM yyyy'}}</strong></p>
-    <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="cetakPDF()" icon-left block><ion-icon ios="ios-document" md="md-document" ></ion-icon>Download Invoice</button>  
+    <p class="custom-padding">This booking request will be expired on <strong style="display: -webkit-inline-box;">{{bookdetails?.ExpiredOn | date:'dd MMMM yyyy'}}</strong></p>
+    <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="cetakPDF()" icon-left block><ion-icon ios="ios-document" md="md-document" ></ion-icon>Download Invoice</button>
     <ion-card>
       <ion-card-header (click)="toggleDetails(data[0])">
-        <ion-row>
+        <h2 class="card-title">Tour Detail</h2>
+        <!-- <ion-row>
         <ion-col><h2 class="card-title">Tour Detail</h2></ion-col>
         <ion-col col-1 center><ion-icon style="color: #fff" [name]="data[0].icon"></ion-icon></ion-col>
         </ion-row>
-        <!--<ion-icon color="primary" item-right [name]="data[0].icon" (click)="toggleDetails(d)"></ion-icon>-->
+        <ion-icon color="primary" item-right [name]="data[0].icon" (click)="toggleDetails(d)"></ion-icon> -->
       </ion-card-header>
       <ion-card-content style="margin-left: 0px;" *ngIf="data[0].showDetails">
         <ion-grid>
@@ -90,7 +91,7 @@
               <h3 class="card-label"><strong>{{item.FirstName}} {{item.LastName}}</strong></h3>
             </ion-col>
             <ion-col class="col2-custom">
-              <h3 class="card-label" style="background: #03A9F4;color: white; font-weight: bold; padding: .5vw;">{{item.CountryId}}</h3>
+              <h3 class="card-label" style="background: #03A9F4;color: white; font-weight: bold;padding: 1vw; text-align: center;">{{item.CountryId}}</h3>
             </ion-col>
           </ion-row>
           <ion-row>
@@ -210,8 +211,69 @@
         </ion-card-content>
       </ion-card>
 
+      <ion-card>
+        <ion-card-header (click)="toggleDetails(data[4])">
+          <h2 class="card-title">Tour Schedules</h2>
+        </ion-card-header>
+        <ion-card-content style="margin-left: 0px;" *ngIf="data[4].showDetails">
+          <ion-grid *ngFor="let dp of DailyPrograms ; let j of index">
+              <div class="day-info">
+                  <h2 class="h2-custom">Day {{dp.Day}}, {{dp.Date | date:'dd MMMM yyyy'}}</h2>
+                </div>
+        
+                <ul class="timeline">
+                  <li *ngFor="let item of dp.dailyProgram">
+                    <div class="tl-circ" *ngIf="item.ServiceItemId == 3674 || item.ServiceItemId == 3675 || item.ServiceItemId == 3676 || item.ServiceItemId == 3677 || item.ServiceItemId == 3678">
+                      <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
+                    </div>
+                    <div class="timeline-panel" *ngIf="item.ServiceItemId == 3674 || item.ServiceItemId == 3675 || item.ServiceItemId == 3676 || item.ServiceItemId == 3677">
+                      <div class="tl-heading">
+                        <!-- <h5 class="line-break">
+                            <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.AccommodationSummary.DateTime | date:'shortTime' }}</h5> -->
+                        <h5 class="line-break">
+                          <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.DateTime | date: 'shortTime' }}</h5>
+                        <p><small class="text-muted"> {{item.MovementDescription}}</small></p>
+                        <h4>{{item.AccommodationProfile.Name}}</h4>
+                      </div>
+                      <div class="tl-body">
+                        <p>
+                          <ion-icon ios="ios-pin" md="ios-pin-outline" class="custom-icon-blue"></ion-icon>{{item.Destination}}</p>
+                        <p><ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-icon-blue"></ion-icon>Room Type: {{(item.AccommodationItem.Name)}}, {{(item.AccommodationItem.AccommodationItemServiceTypes["0"]).replace('_', ' ')}}</p>
+                        <!-- <p>{{(item.AccommodationItemServiceTypes["0"]).replace('_', ' ')}}</p> -->
+                      </div>
+                    </div>
+                    <!-- <div class="timeline-panel" *ngIf="item.ServiceItemId == 3673" >
+                        <div class="tl-heading">
+                            <h5 class="line-break">
+                                <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.DateTime | date: 'shortTime' }}</h5>
+                            <p><small class="text-muted">{{item.MovementDescription}}</small></p>
+                          <h4>{{item.MovementName}}</h4>
+                        </div>
+                      </div> -->
+                    <div class="timeline-panel" *ngIf="item.ServiceItemId == 3678">
+                      <div class="tl-heading">
+                        <h5 class="line-break">
+                          <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.DateTime | date: 'shortTime' }}</h5>
+                        <p><small class="text-muted">{{item.MovementDescription}}: {{item.Duration / 3600}} hours</small></p>
+                        <h4>{{item.AttractionObject.Name}}</h4>
+                      </div>
+                      <div class="tl-body">
+                        <p>{{item.AttractionObject.Address}}</p>
+                      </div>
+                    </div>
+                    <div class="tldate" *ngIf="item.ServiceItemId == 3673">
+                      <button ion-button icon-left clear small>
+                          <ion-icon ios="ios-car" md="md-car"></ion-icon>
+                            <div>Take {{item.Duration / 3600}} hours by <p class="p-custom">{{item.MovementName}}</p>.</div>
+                          </button>
+                    </div>
+                  </li>
+                </ul>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
 
-      <ion-card-content style="margin-left: 0px;">
+      <!-- <ion-card-content style="margin-left: 0px;">
         <ion-card-title (click)="toggleDetails(data[4])">
           <h2 class="card-title" style="height: 30px;
     padding-top: 5px;
@@ -282,7 +344,8 @@
             </ion-item>
           </ion-grid>
         </div>
-      </ion-card-content>
+      </ion-card-content> -->
+
     </ion-list>
   </div>
 </ion-content>

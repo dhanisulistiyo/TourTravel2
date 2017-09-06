@@ -170,6 +170,19 @@
                     margin-top: 2px;
                 }
             }
+            body {
+                background: #333;
+            }
+            img {
+                border: 0;
+                max-width: 100%;
+            }
+            .page-header h1 {
+                font-size: 3.26em;
+                text-align: center;
+                color: #efefef;
+                text-shadow: 1px 1px 0 #000;
+            }
             .day-info {
                 background: #f9f9f9;
                 display: block;
@@ -190,19 +203,6 @@
                     margin: 0;
                     padding: 2vw;
                 }
-            }
-            body {
-                background: #333;
-            }
-            img {
-                border: 0;
-                max-width: 100%;
-            }
-            .page-header h1 {
-                font-size: 3.26em;
-                text-align: center;
-                color: #efefef;
-                text-shadow: 1px 1px 0 #000;
             }
             /** timeline box structure **/
             .timeline {
@@ -396,11 +396,10 @@
                 .page-header h1 {
                     font-size: 1.8em;
                 }
-                .custom-icon-blue{
+                .custom-icon-blue {
                     color: #55bbd4;
                     font-size: 4vw;
-                    margin-right: 1vw;
-                    //padding: 1.5vw;
+                    margin-right: 1vw; //padding: 1.5vw;
                 }
                 ul.timeline:before {
                     left: 40px;
