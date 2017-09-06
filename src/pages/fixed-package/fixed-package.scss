@@ -509,6 +509,38 @@
             left: 11px;
             bottom: 20px; //transform: rotate(-45deg);
         }
+        /* top right*/
+        .ribbon-top-right {
+            top: 0px;
+            right: -10px;
+        }
+        .ribbon-top-right::before,
+        .ribbon-top-right::after {
+            border-bottom-color: transparent;
+            border-right-color: transparent;
+        }
+        .ribbon-top-right::before {
+            top: 0;
+            right: 0;
+        }
+        .ribbon-top-right::after {
+            top: 0;
+            left: 0;
+        }
+        .ribbon-top-right span {
+            position: absolute;
+            display: block;
+            width: 225px;
+            padding: 8px 16px 8px 30px;
+            background: #FF6D00;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+            color: #fff;
+            font: 700 16px/1 'Lato', sans-serif;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+            text-transform: capitalize;
+            text-align: center;
+            transform: rotate(40deg);
+        }
         ion-footer {
             position: absolute;
             bottom: 5vw;

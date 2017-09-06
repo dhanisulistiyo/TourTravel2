@@ -97,6 +97,7 @@
               <ion-col style="padding: 0;">
                 <div class="box">
                   <div class="ribbon ribbon-top-left"><span><h6>Start From</h6><h5><strong>{{fix.LowestPrice}} USD</strong><h6> / pax</h6></h5></span></div>
+                  <div class="ribbon ribbon-top-right"><span *ngIf="fix.FixedPackage.RegisteringGuest >= fix.FixedPackage.MaximumGuest">Full</span></div>
                   <img src="{{fix.City.ImageUrl}}" class="img-custom" />
                 </div>
               </ion-col>
@@ -137,11 +138,11 @@
                         </button>
                 </ion-col>
                 <ion-col col-3></ion-col>
-                <ion-col col-4>
+                <!-- <ion-col col-4>
                   <button ion-button icon-left clear small *ngIf="fix.FixedPackage.RegisteringGuest >= fix.FixedPackage.MaximumGuest">
                         <h3 style="font-family: 'Open Sans', cursive;color: #E64A19;font-weight: bold; padding:1vw 2vw; border:1px solid">Fully Booked !</h3>
                       </button>
-                </ion-col>
+                </ion-col> -->
                 <!-- <ion-col col-4-custom>
                     <button ion-button icon-left clear small>
                           <ion-icon ios="ios-star" md="md-star" class="custom-star"></ion-icon><h3>4.9</h3>
@@ -188,7 +189,7 @@
         <div class="div-custom">
           <ion-card>
             <img src="https://cache-graphicslib.viator.com/graphicslib/thumbs674x446/22460/SITours/night-at-the-bali-zoo-including-dinner-experience-in-gianyar-253628.jpg"
-              class="img-custom" />
+              class="img-custom"/>
             <ion-card-content>
               <ion-card-title>
                 <h2>Night at the Bali Zoo Including Dinner</h2>
