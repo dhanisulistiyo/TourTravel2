@@ -1,7 +1,7 @@
 $SIDEMENU_TOP: #00a497;
 $SIDEMENU_BOTTOM: #2cbaae;
 $SIDEMENU_TRANSPARENCY: rgba(255, 255, 255, 0.4);
-page-tour-details {
+page-fixedpackage-summary{
     ion-footer {
         background: grey;
     }
@@ -109,6 +109,14 @@ page-tour-details {
         margin-left: -10px;
         width: 105%;
     }
+    .card-md {
+        margin: 10px 10px 0px 10px;
+        width: 100%;
+        border-radius: 2px;
+        font-size: 1.4rem;
+        background: #fff;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    }
     .card-md.card-custom {
         background: -webkit-gradient(left top, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
         background: -o-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
@@ -193,7 +201,7 @@ page-tour-details {
         -ms-flex: 0 0 16.66667%;
         flex: 0 0 16.66667%;
         width: 16.66667%;
-        max-width: 8%;
+        max-width: 10%;
     }
     .grid-custom {
         padding: 5px 0px 5px 0px;
@@ -220,6 +228,7 @@ page-tour-details {
         -webkit-appearance: button;
     }
     .custom-padding {
+        margin: 1.5vw;
         text-align: center;
         font-family: 'Open Sans', sans-serif;
         font-weight: 500;
