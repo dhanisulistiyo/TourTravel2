@@ -19,7 +19,7 @@
         </ion-col>
         <ion-col col-5>
           <h3 class="card-title" style="text-align: right;">Total Price</h3>
-          <h2 class="card-title" style="text-align: right;">US<span>{{TotalPrice}}</span>.-</h2>
+          <h2 class="card-title" style="text-align: right;">USD<span>{{TotalPrice}}</span>.-</h2>
         </ion-col>
       </ion-row>
     </ion-card>
@@ -114,7 +114,7 @@
         </ion-card-header>
         <ion-card-content style="margin-left: 0px;">
           <ion-grid>
-            <ion-row>
+            <ion-row *ngIf="TGuest?.AdultQty != 0 " >
               <ion-col col-7>
                 <h3 class="card-label">Adult:</h3>
               </ion-col>
@@ -122,15 +122,15 @@
                 <h3 class="card-title">{{TGuest?.AdultQty}}</h3>
               </ion-col>
             </ion-row>
-            <ion-row>
-              <ion-col col-7>
+            <ion-row *ngIf="TGuest?.ChildQty != 0 ">
+              <ion-col col-7 >
                 <h3 class="card-label">Child: </h3>
               </ion-col>
               <ion-col col-5>
                 <h3 class="card-title">{{TGuest?.ChildQty}}</h3>
               </ion-col>
             </ion-row>
-            <ion-row>
+            <ion-row *ngIf="TGuest?.InfantQty != 0 ">
               <ion-col col-7>
                 <h3 class="card-label">Infant: </h3>
               </ion-col>
@@ -157,7 +157,7 @@
         </ion-card-header>
         <ion-card-content style="margin-left: 0px;">
           <ion-grid>
-            <ion-row>
+            <ion-row *ngIf="Room?.SharingRoomPrice != 0" >
               <ion-col col-7>
                 <h3 class="card-label">Staying in Sharing Room ({{Room?.SharingRoomPrice}} X USD {{Price?.SharingRoomPrice}}.-/Guest): </h3>
               </ion-col>
@@ -165,7 +165,7 @@
                 <h3 class="card-title">USD {{(Room?.SharingRoomPrice) * (Price?.SharingRoomPrice)}}.-/Guest</h3>
               </ion-col>
             </ion-row>
-            <ion-row>
+            <ion-row *ngIf="Room?.AdultExtraBedPrice != 0" >
               <ion-col col-7>
                 <h3 class="card-label">Staying in Adult Extra Bed ({{Room?.AdultExtraBedPrice}} X USD {{Price?.AdultExtraBedPrice}}.-/Guest): </h3>
               </ion-col>
@@ -173,7 +173,7 @@
                 <h3 class="card-title">USD {{Room?.AdultExtraBedPrice*Price?.AdultExtraBedPrice}}.-/Guest</h3>
               </ion-col>
             </ion-row>
-            <ion-row>
+            <ion-row *ngIf="Room?.ChildExtraBedPrice != 0">
               <ion-col col-7>
                 <h3 class="card-label">Staying in Child Extra Bed ({{Room?.ChildExtraBedPrice}} X USD {{Price?.ChildExtraBedPrice}}.-/Guest): </h3>
               </ion-col>
@@ -182,7 +182,7 @@
               </ion-col>
             </ion-row>
 
-            <ion-row>
+            <ion-row *ngIf="Room?.SharingBedPrice != 0">
               <ion-col col-7>
                 <h3 class="card-label">Staying in Sharing Bed ({{Room?.SharingBedPrice}} X USD {{Price?.SharingBedPrice}}.-/Guest): </h3>
               </ion-col>
@@ -191,7 +191,7 @@
               </ion-col>
             </ion-row>
 
-            <ion-row>
+            <ion-row *ngIf="Room?.BabyCrib != 0">
               <ion-col col-7>
                 <h3 class="card-label">Staying in Baby Crib ({{Room?.BabyCrib}} X USD 0.-/Guest): </h3>
               </ion-col>
@@ -200,7 +200,7 @@
               </ion-col>
             </ion-row>
 
-            <ion-row>
+            <ion-row *ngIf="Room?.NoBed != 0">
               <ion-col col-7>
                 <h3 class="card-label">Staying in No Bed ({{Room?.NoBed}} X USD 0.-/Guest): </h3>
               </ion-col>

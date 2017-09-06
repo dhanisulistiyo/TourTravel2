@@ -70,7 +70,7 @@
             <div class="tldate" *ngIf="item.ServiceItemId == 3673">
               <button ion-button icon-left clear small>
                   <ion-icon ios="ios-car" md="md-car"></ion-icon>
-                    <div>Take {{item.Duration / 3600}} hours by <p class="p-custom">{{item.MovementName}}</p> with {{item.TransportationUnit.Name}}.</div>
+                    <div>Take {{item.Duration / 3600}} hours by <p class="p-custom">{{item.MovementName}}</p> <p *ngIf="item.TransportationUnit != null" >with {{item.TransportationUnit.Name}}</p>.</div>
                   </button>
             </div>
           </li>
