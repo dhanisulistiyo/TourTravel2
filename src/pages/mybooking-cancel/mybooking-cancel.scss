@@ -12,7 +12,7 @@ page-mybooking-cancel {
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
-        padding-top: 20px;
+        padding-top: 10px;
         -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -24,7 +24,7 @@ page-mybooking-cancel {
         display: block;
         text-align: center;
         margin: 2px 0 2px;
-        padding: 0px 0 8px 0;
+        padding: 0px 0 2px 0;
         font-size: 2.4rem;
         line-height: 1.2;
         color: white;
@@ -37,7 +37,7 @@ page-mybooking-cancel {
         top: -2vw;
         font-family: 'Open Sans', cursive;
         color: #fff;
-        font-size: 7vw;
+        font-size: 6vw;
         font-weight: normal;
         display: -webkit-box;
         -webkit-line-clamp: 1;
@@ -47,6 +47,7 @@ page-mybooking-cancel {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: normal;
+        line-height: 1.5;
     }
     .h3-subtitle-header {
         font-family: 'Quicksand', cursive;
