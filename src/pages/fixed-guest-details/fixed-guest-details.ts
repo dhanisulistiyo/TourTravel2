@@ -19,7 +19,7 @@ export class FixedGuestDetailsPage {
   Package
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public gu : GuestServiceProvider, public alertCtrl: AlertController, public fix: FixedPackageProvider) {
-    this.ID = ['Choose Type ID','ID Card', 'Passport','Driving License']
+    this.ID = ['Choose Type of ID','ID Card', 'Passport','Driving License']
     this.Package = navParams.data["pk"];
   }
 
