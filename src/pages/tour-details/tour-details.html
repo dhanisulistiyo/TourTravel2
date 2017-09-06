@@ -216,31 +216,42 @@
           <h2 class="card-title">Tour Schedules</h2>
         </ion-card-header>
         <ion-card-content style="margin-left: 0px;" *ngIf="data[4].showDetails">
-          <ion-grid class="grid-timeline">
+          <ion-grid class="grid-timeline" *ngFor="let dp of DailyPrograms" >
             <div class="day-info">
-              <h2 class="h2-custom">Day 1, 27 September 2017</h2>
+              <h2 class="h2-custom">Day {{dp.Day}}, {{dp.Date | date:'dd MMMM yyyy' }}</h2>
             </div>
-
-            <ul class="timeline">
-              <li>
-                <div class="tl-circ">
+            <div *ngIf="dp.Movements.length == 0">No Activities</div>
+            <ul class="timeline" *ngIf="dp.Movements.length > 0">
+              <li *ngFor="let m of dp.Movements">
+                <div class="tl-circ" *ngIf="m.MovementName == 'CHECKIN' || m.MovementName == 'CHECKOUT' || m.MovementName == 'RETURNACCOMMODATION' || m.MovementName == 'LEAVEACCOMMODATION' || m.MovementName == 'RECREATION'">
                   <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
                 </div>
-                <div class="timeline-panel">
+                <div class="timeline-panel" *ngIf="m.MovementName == 'CHECKIN' || m.MovementName == 'CHECKOUT' || m.MovementName == 'RETURNACCOMMODATION' || m.MovementName == 'LEAVEACCOMMODATION' ">
                   <div class="tl-heading">
                     <!-- <h5 class="line-break">
                             <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.AccommodationSummary.DateTime | date:'shortTime' }}</h5> -->
                     <h5 class="line-break">
-                      <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>10:55</h5>
-                    <p>Lets get lost</p>
-                    <h4>Hotel Canggu</h4>
+                      <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{m.DateTime | date: 'shortTime' }}</h5>
+                    <p>{{m.MovementDescription}}</p>
+                    <h4>{{m.Item.Name}}</h4>
                   </div>
                   <div class="tl-body">
                     <p>
-                      <ion-icon ios="ios-pin" md="ios-pin-outline" class="custom-icon-blue"></ion-icon>Bali</p>
+                      <ion-icon ios="ios-pin" md="ios-pin-outline" class="custom-icon-blue"></ion-icon>{{m.Destination}}</p>
                     <p>
-                      <ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-icon-blue"></ion-icon>Room Type: Deluxe Room, With Breakfast</p>
+                      <ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-icon-blue"></ion-icon>Room Type: {{m.Item.Desc}}, With Breakfast</p>
                     <!-- <p>{{(item.AccommodationItemServiceTypes["0"]).replace('_', ' ')}}</p> -->
+                  </div>
+                </div>
+
+                <div class="timeline-panel" *ngIf="m.MovementName == 'RECREATION' ">
+                  <div class="tl-heading">
+                    <!-- <h5 class="line-break">
+                            <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.AccommodationSummary.DateTime | date:'shortTime' }}</h5> -->
+                    <h5 class="line-break">
+                      <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{m.DateTime | date: 'shortTime' }}</h5>
+                    <p>{{m.MovementDescription}}: {{m.Duration / 3600}} hours</p>
+                    <h4>{{m.Item.Name}}</h4>
                   </div>
                 </div>
                 <!-- <div class="timeline-panel" *ngIf="item.ServiceItemId == 3673" >
@@ -263,10 +274,10 @@
                     <p>Kuta</p>
                   </div>
                 </div> -->
-                <div class="tldate">
+                <div class="tldate" *ngIf="m.MovementName == 'DRIVING' ">
                   <button ion-button icon-left clear small>
                           <ion-icon ios="ios-car" md="md-car" class="custom-car"></ion-icon>
-                            <div><p class="p-custom">Take 1 hours by Driving.</p></div>
+                            <div><p class="p-custom">Take {{m.Duration/3600}} hours {{m.MovementDescription}}.</p></div>
                           </button>
                 </div>
               </li>
