@@ -22,8 +22,10 @@
             <p class="p-custom" *ngFor="let bookdetails of BookingDetailSum">From {{bookdetails?.StartDate | date:'dd MMM'}} - {{bookdetails?.EndDate | date:'dd MMM yyyy'}}</p>
           </ion-col>
           <ion-col col-4>
-            <h2 *ngFor="let bookdetails of BookingDetailSum">Total Price:</h2>
+            <h2 >Total Price:</h2>
             <h2 class="card-title" style="text-align: right;">USD <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice | number:'.0'}}</span>.-</h2>
+            <h2  *ngIf="bookdetails?.PackageType == 'Fixed'">DP Price:</h2>
+            <h2 class="card-title" style="text-align: right;" *ngIf="bookdetails?.PackageType == 'Fixed'">USD <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.FixedPackage.DPRequired | number:'.0'}}</span>.-</h2>
           </ion-col>
         </ion-row>
       </ion-card>

@@ -23,6 +23,8 @@
         <ion-col col-5>
           <h3 class="card-title" style="text-align: right;">Total Price</h3>
           <h2 class="card-title" style="text-align: right;">{{price.SharingRoomSum['Currency']}} <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice | number:'.0'}}</span>.-</h2>
+          <h3 class="card-title" style="text-align: right;" *ngIf="bookdetails?.PackageType == 'Fixed'" >DP Price</h3>
+          <h2 class="card-title" style="text-align: right;" *ngIf="bookdetails?.PackageType == 'Fixed'">{{price.SharingRoomSum['Currency']}} <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.FixedPackage.DPRequired | number:'.0'}}</span>.-</h2>
         </ion-col>
       </ion-row>
     </ion-card>
