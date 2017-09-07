@@ -38,7 +38,7 @@ export class FixedpackageDetailsPage {
   //Tambahan
   TourDetails
   Movement
-  data: Array<{dailyProgram: any,day:any, date:any}> = [];
+  data: Array<{Movements: any,Day:any, Date:any}> = [];
   constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, public navParams: NavParams, 
   public fixService : FixedPackageProvider, public load: LoadingController, public aco: AcomodationService,
   public conf: ConfigProvider, public alertCtrl:AlertController
@@ -74,26 +74,14 @@ export class FixedpackageDetailsPage {
       this.TourGuestSum = (data['TourGuestSum'])
       let start = ( +new Date(this.BookingDetailSum.StartDate))
       let end = (+new Date(this.BookingDetailSum.EndDate))
-      this.days = Math.round((end - start) / 86400000);      
-        this.TourDetails= [];
-        console.log(this.DailyPrograms)
-        for (let i = 0; i < (Object.keys(this.DailyPrograms).length); i++) {
-          this.Movement= [];
-          let check = this.DailyPrograms[i].MovementSummary;
-          if(Object.keys(check.AccommodationMovements).length != 0){
-             this.Movement = this.Movement.concat(check.AccommodationMovements)
-             for (let j = 0; j < (Object.keys(this.Movement).length); j++) {
-             if(check.AccommodationMovements[j].ServiceItemId == 3674){
-               this.Hotel = check.AccommodationMovements[j].AccommodationProfile
-              }
-            }
-          }
-          console.log(this.Movement)
-          if(Object.keys(check.RecreationMovement).length != 0) this.Movement = this.Movement.concat(check.RecreationMovement)
-          console.log(this.Movement)
-          if(Object.keys(check.TravelMovement).length != 0) this.Movement=this.Movement.concat(check.TravelMovement)
-          console.log(this.Movement)   
-          this.Movement.sort(function(obj1, obj2) {
+      this.days = Math.round((end - start) / 86400000);     
+      //From Movement 
+      this.TourDetails = [];
+      for (let i = 0; i < (Object.keys(this.DailyPrograms).length); i++) {
+        this.Movement= [];
+        if(Object.keys(this.DailyPrograms[i].Movements).length != 0){
+          this.Movement= this.DailyPrograms[i].Movements;
+            this.Movement.sort(function(obj1, obj2) {
             if (obj1.DateTime > obj2.DateTime) {
               return 1;
           }
@@ -101,10 +89,41 @@ export class FixedpackageDetailsPage {
               return -1;
           }
             return 0;
-          })
-          this.TourDetails.push(this.Movement);
+          })    
         }
+          this.TourDetails.push(this.Movement);
           console.log(this.TourDetails)
+      }
+        // this.TourDetails= [];
+        // console.log(this.DailyPrograms)
+        // for (let i = 0; i < (Object.keys(this.DailyPrograms).length); i++) {
+        //   this.Movement= [];
+        //   let check = this.DailyPrograms[i].MovementSummary;
+        //   if(Object.keys(check.AccommodationMovements).length != 0){
+        //      this.Movement = this.Movement.concat(check.AccommodationMovements)
+        //      for (let j = 0; j < (Object.keys(this.Movement).length); j++) {
+        //      if(check.AccommodationMovements[j].ServiceItemId == 3674){
+        //        this.Hotel = check.AccommodationMovements[j].AccommodationProfile
+        //       }
+        //     }
+        //   }
+        //   console.log(this.Movement)
+        //   if(Object.keys(check.RecreationMovement).length != 0) this.Movement = this.Movement.concat(check.RecreationMovement)
+        //   console.log(this.Movement)
+        //   if(Object.keys(check.TravelMovement).length != 0) this.Movement=this.Movement.concat(check.TravelMovement)
+        //   console.log(this.Movement)   
+        //   this.Movement.sort(function(obj1, obj2) {
+        //     if (obj1.DateTime > obj2.DateTime) {
+        //       return 1;
+        //   }
+        //   if (obj1.DateTime < obj2.DateTime) {
+        //       return -1;
+        //   }
+        //     return 0;
+        //   })
+        //   this.TourDetails.push(this.Movement);
+        // }
+        // console.log(this.TourDetails)
     }, err => {
       console.log(err);
     },
@@ -139,12 +158,13 @@ export class FixedpackageDetailsPage {
     this.data=[];
     for (let i = 0; i < (Object.keys(this.DailyPrograms).length); i++) {
       this.data.push({
-        dailyProgram: this.TourDetails[i],
-        day: this.DailyPrograms[i].Day,
-        date: this.DailyPrograms[i].Date
+        Movements: this.TourDetails[i],
+        Day: this.DailyPrograms[i].Day,
+        Date: this.DailyPrograms[i].Date
       });
     }
     let dp = this.data
+    //let dp = this.DailyPrograms
     this.navCtrl.push(FixedpackageItineraryPage, {dp});
   }
 
