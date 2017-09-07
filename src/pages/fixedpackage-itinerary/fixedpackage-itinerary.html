@@ -15,20 +15,20 @@
             <ion-card-content>
               <!-- <h2>LET'S TRAVEL</h2>
                   <h3>Discover and book amazing things-to-do at exclusive prices</h3> -->
-              <div class="day-number">{{dp.date | date : 'd'}}</div>
+              <div class="day-number">{{dp.Date | date : 'd'}}</div>
               <div class="date-right">
-                <div class="day-name">{{dp.date | date : 'EEEE'}}</div>
-                <div class="month">{{dp.date | date : 'MMMM yyyy'}}</div>
+                <div class="day-name">{{dp.Date | date : 'EEEE'}}</div>
+                <div class="month">{{dp.Date | date : 'MMMM yyyy'}}</div>
               </div>
             </ion-card-content>
           </ion-card>
         </div>
         <div class="day-info">
-          <h2 class="h2-custom">Day {{dp.day}}</h2>
+          <h2 class="h2-custom">Day {{dp.Day}}</h2>
         </div>
 
         <ul class="timeline">
-          <li *ngFor="let item of dp.dailyProgram">
+          <li *ngFor="let item of dp.Movements; let i = index">
             <div class="tl-circ" *ngIf="item.ServiceItemId == 3674 || item.ServiceItemId == 3675 || item.ServiceItemId == 3676 || item.ServiceItemId == 3677 || item.ServiceItemId == 3678">
               <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
             </div>
@@ -39,12 +39,12 @@
                 <h5 class="line-break">
                   <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.DateTime | date: 'shortTime' }}</h5>
                 <p><small class="text-muted"> {{item.MovementDescription}}</small></p>
-                <h4>{{item.AccommodationProfile.Name}}</h4>
+                <h4>{{item.Item.Name}}</h4>
               </div>
               <div class="tl-body">
                 <p>
                   <ion-icon ios="ios-pin" md="ios-pin-outline" class="custom-icon-blue"></ion-icon>{{item.Destination}}</p>
-                <p><ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-icon-blue"></ion-icon>Room Type: {{(item.AccommodationItem.Name)}}, {{(item.AccommodationItem.AccommodationItemServiceTypes["0"]).replace('_', ' ')}}</p>
+                <p><ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-icon-blue"></ion-icon>Room Type: {{(item.Item.Desc)}}, {{(item.Item.ServiceType).replace('_', ' ')}}</p>
                 <!-- <p>{{(item.AccommodationItemServiceTypes["0"]).replace('_', ' ')}}</p> -->
               </div>
             </div>
@@ -61,16 +61,16 @@
                 <h5 class="line-break">
                   <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.DateTime | date: 'shortTime' }}</h5>
                 <p><small class="text-muted">{{item.MovementDescription}}: {{item.Duration / 3600}} hours</small></p>
-                <h4>{{item.AttractionObject.Name}}</h4>
+                <h4>{{item.Item.Name}}</h4>
               </div>
-              <div class="tl-body">
-                <p>{{item.AttractionObject.Address}}</p>
-              </div>
+              <!-- <div class="tl-body">
+                <p>{{item.Item.ServiceType}}</p>
+              </div> -->
             </div>
             <div class="tldate" *ngIf="item.ServiceItemId == 3673">
               <button ion-button icon-left clear small>
                   <ion-icon ios="ios-car" md="md-car"></ion-icon>
-                    <div>Take {{item.Duration / 3600}} hours by <p class="p-custom">{{item.MovementName}}</p> <p *ngIf="item.TransportationUnit != null" >with {{item.TransportationUnit.Name}}</p>.</div>
+                    <div>Take {{item.Duration / 3600}} hours by <p class="p-custom">{{item.MovementName}}</p> <p *ngIf="item.Item != null" >with {{item.Item.Name}}</p>.</div>
                   </button>
             </div>
           </li>
