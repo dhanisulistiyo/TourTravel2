@@ -96,6 +96,11 @@ page-tour-details {
                 background: linear-gradient(to top, #48b1bf, #06beb6);
                 /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             }
+            .custom-pin {
+                color: #55bbd4;
+                font-size: 2vw;
+                margin-right: 1vw; //padding: 1.5vw;
+            }
         }
     }
     .card-header-md {
@@ -219,6 +224,30 @@ page-tour-details {
         -ms-flex-direction: column;
         flex-direction: column;
     }
+    .grid-custom-white {
+        width: 105%;
+        margin: 2vw 0 2vw 0;
+        padding: 5vw;
+        background: white;
+        h2.card-title {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 5vw;
+            color: #18b0a4; // border-radius: 5%;
+            // border: white solid 1px;
+            // background-color: #27a59b;
+            font-weight: 600;
+            text-align: center;
+        }
+        h3.card-title {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 3.5vw;
+            color: #808080;
+            font-weight: 500;
+            text-align: center;
+            margin: 0;
+        }
+    }
     .button-custom {
         border: 0;
         background: transparent;
@@ -231,13 +260,14 @@ page-tour-details {
         -webkit-appearance: button;
     }
     .custom-padding {
-        margin: 1.5vw;
+        margin: 2vw 0;
         text-align: center;
         font-family: 'Open Sans', sans-serif;
         font-weight: 500;
         font-size: 3.8vw;
         padding-left: 12px;
-        padding-right: 12px
+        padding-right: 12px;
+        background-color: white;
     }
     .btn-accept {
         background-color: #55bbd4;
@@ -339,7 +369,7 @@ page-tour-details {
         }
         .tldate {
             display: -webkit-inline-box;
-            width: 200px;
+            //width: 200px;
             background: #f9f9f9;
             color: #ededed;
             margin: 0 auto;
@@ -521,18 +551,18 @@ page-tour-details {
                 left: 40px;
             }
             .tldate {
-                width: 63%;
+                //width: 63%;
                 .p-custom {
                     text-transform: lowercase;
                     display: inline;
                     padding: 0;
-                    font-size:3.8vw;
+                    font-size: 3.8vw;
                 }
             }
-            .custom-car{
+            .custom-car {
                 font-size: 4vw;
                 color: #55bbd4;
-                padding:2vw;
+                padding: 2vw;
             }
             ul.timeline li .timeline-panel {
                 width: calc(100% - 90px);

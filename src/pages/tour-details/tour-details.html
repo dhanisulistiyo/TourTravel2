@@ -6,7 +6,7 @@
 
 <ion-content>
   <div *ngFor="let bookdetails of BookingDetailSum" class="selection" style="margin-left: -10px; overflow: visible;">
-    <ion-card class="card-custom" style="top:0; margin-top:0px;" *ngFor="let price of TourPriceSum">
+    <ion-card class="card-custom" style="top:0; margin-top:0px;">
       <ion-row>
         <ion-col col-2>
           <ion-avatar item-start>
@@ -21,16 +21,33 @@
           <p class="p-custom" *ngIf="bookdetails?.Status == 'Booking_DP_Confirmed'">DP Paid</p>
         </ion-col>
         <ion-col col-5>
-          <h3 class="card-title" style="text-align: right;">Total Price</h3>
-          <h2 class="card-title" style="text-align: right;">{{price.SharingRoomSum['Currency']}} <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice | number:'.0'}}</span>.-</h2>
-          <h3 class="card-title" style="text-align: right;" *ngIf="bookdetails?.PackageType == 'Fixed'" >DP Price</h3>
-          <h2 class="card-title" style="text-align: right;" *ngIf="bookdetails?.PackageType == 'Fixed'">{{price.SharingRoomSum['Currency']}} <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.FixedPackage.DPRequired | number:'.0'}}</span>.-</h2>
+          <h3 class="card-title" style="text-align: right;"># {{bookdetails?.Id}}</h3>
+          <h2 class="card-title" style="text-align: right;">{{bookdetails?.TotalGuest}} <span>Guest(s)</span></h2>
         </ion-col>
       </ion-row>
     </ion-card>
+    <ion-grid class="grid-custom-white"*ngFor="let price of TourPriceSum">
+      <ion-row *ngIf="bookdetails?.PackageType == 'Fixed'">
+        <ion-col col-6 style="border-right: solid 1px #19b1a4;">
+          <h3 class="card-title" *ngIf="bookdetails?.PackageType == 'Fixed'">DP Price</h3>
+          <h2 class="card-title" style="color:#f0b840" *ngIf="bookdetails?.PackageType == 'Fixed'">{{price.SharingRoomSum['Currency']}} <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.FixedPackage.DPRequired | number:'.0'}}</span>.-</h2>
+        </ion-col>
+        <ion-col col-6>
+          <h3 class="card-title">Total Price</h3>
+          <h2 class="card-title">{{price.SharingRoomSum['Currency']}} <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice | number:'.0'}}</span>.-</h2>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="bookdetails?.PackageType == 'Custom'">
+          <ion-col col-12>
+            <h3 class="card-title" style="font-size:4vw;">Total Price</h3>
+            <h2 class="card-title" style="font-size:6vw;">{{price.SharingRoomSum['Currency']}} <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice | number:'.0'}}</span>.-</h2>
+          </ion-col>
+        </ion-row>
+      
+    </ion-grid>
 
     <p class="custom-padding">This booking request will be expired on <strong style="display: -webkit-inline-box;">{{bookdetails?.ExpiredOn | date:'dd MMMM yyyy'}}</strong></p>
-    <button ion-button style="margin-top: 0px;margin-bottom: 0px;" (click)="cetakPDF()" icon-left block><ion-icon ios="ios-document" md="md-document" ></ion-icon>Download Invoice</button>
+    <button ion-button class="btn-cancel" style="margin-top: 0px;margin-bottom: 0px;" (click)="cetakPDF()" icon-left block><ion-icon ios="ios-document" md="md-document" ></ion-icon>Download Invoice</button>
     <ion-card>
       <ion-card-header (click)="toggleDetails(data[0])">
         <h2 class="card-title">Tour Detail</h2>
@@ -218,7 +235,7 @@
           <h2 class="card-title">Tour Schedules</h2>
         </ion-card-header>
         <ion-card-content style="margin-left: 0px;" *ngIf="data[4].showDetails">
-          <ion-grid class="grid-timeline" *ngFor="let dp of DailyPrograms" >
+          <ion-grid class="grid-timeline" *ngFor="let dp of DailyPrograms">
             <div class="day-info">
               <h2 class="h2-custom">Day {{dp.Day}}, {{dp.Date | date:'dd MMMM yyyy' }}</h2>
             </div>

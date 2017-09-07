@@ -14,21 +14,39 @@
 
 <ion-content fullscreen>
   <ion-list radio-group>
-    <div *ngFor="let bookdetails of BookingDetailSum" class="selection" style="margin-left: -10px; width:105%; overflow: visible;">
+    <div *ngFor="let bookdetails of BookingDetailSum" class="selection" style="overflow: visible;">
       <ion-card class="card-custom" style="top:0; margin-top:0px; margin-bottom:0px">
         <ion-row>
-          <ion-col col-8>
+          <ion-col col-12>
             <h2>{{bookdetails?.Title}}</h2>
             <p class="p-custom" *ngFor="let bookdetails of BookingDetailSum">From {{bookdetails?.StartDate | date:'dd MMM'}} - {{bookdetails?.EndDate | date:'dd MMM yyyy'}}</p>
           </ion-col>
-          <ion-col col-4>
+          <!-- <ion-col col-4>
             <h2 >Total Price:</h2>
             <h2 class="card-title" style="text-align: right;">USD <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice | number:'.0'}}</span>.-</h2>
             <h2  *ngIf="bookdetails?.PackageType == 'Fixed'">DP Price:</h2>
             <h2 class="card-title" style="text-align: right;" *ngIf="bookdetails?.PackageType == 'Fixed'">USD <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.FixedPackage.DPRequired | number:'.0'}}</span>.-</h2>
-          </ion-col>
+          </ion-col> -->
         </ion-row>
       </ion-card>
+      <ion-grid class="grid-custom-white" *ngFor="let bookdetails of BookingDetailSum">
+          <ion-row *ngIf="bookdetails?.PackageType == 'Fixed'">
+            <ion-col col-6 style="border-right: solid 1px #19b1a4;">
+              <h3 class="card-title" *ngIf="bookdetails?.PackageType == 'Fixed'">DP Price</h3>
+              <h2 class="card-title" style="color:#f0b840" *ngIf="bookdetails?.PackageType == 'Fixed'">USD <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.FixedPackage.DPRequired | number:'.0'}}</span>.-</h2>
+            </ion-col>
+            <ion-col col-6>
+              <h3 class="card-title">Total Price</h3>
+              <h2 class="card-title">USD <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice | number:'.0'}}</span>.-</h2>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="bookdetails?.PackageType == 'Custom'">
+              <ion-col col-12>
+                <h3 class="card-title" style="font-size:4vw;">Total Price</h3>
+                <h2 class="card-title" style="font-size:6vw;">USD <span *ngFor="let bookdetails of BookingDetailSum">{{bookdetails?.TourTotalPrice | number:'.0'}}</span>.-</h2>
+              </ion-col>
+            </ion-row>
+        </ion-grid>
     </div>
     <p class="label-custom" style="font-size: 3.8vw;">
       Select your payment method.
