@@ -43,7 +43,7 @@ export class FixedPackageProvider {
     var headers = new Headers();    
     let token = this.auth.AuthToken;
     headers.append('Authorization', 'Bearer ' + token);
-    var url = this.config.baseUrl+'/BookingTemplates/GetTemplates/FixedPackage'
+    var url = this.config.baseUrl+'/BookingTemplates/GetTemplates/FixedPackage/All'
     var response = this.http.get(url, {headers:headers}).map(res => res.json());
     return response;
   }
@@ -52,7 +52,7 @@ export class FixedPackageProvider {
     var headers = new Headers();    
     let token = this.auth.AuthToken;
     headers.append('Authorization', 'Bearer ' + token);
-    var url = this.config.baseUrl+'/BookingTemplates/GetTemplates/FixedPackage?desiredDays=&cityId=&tourType='+type+'&accommodationType&AccommodationRating&AccommodationLocation'
+    var url = this.config.baseUrl+'/BookingTemplates/GetTemplates/FixedPackage/ByTourType/'+type
     var response = this.http.get(url, {headers:headers}).map(res => res.json());
     return response;
   }

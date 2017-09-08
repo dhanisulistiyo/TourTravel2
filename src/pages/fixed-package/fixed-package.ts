@@ -11,28 +11,67 @@ import { FixedpackageDetailsPage } from './../fixedpackage-details/fixedpackage-
 export class FixedPackagePage {
 
   showToolbar: boolean = false;
-  listFixedHoneymoon: Array<any>;
+  listFixedH: Array<any>;
+  listFixedR: Array<any>;
+  listFixedB: Array<any>;
+  listFixedF: Array<any>;
   StartDate
   EndDate
   days
 
   constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, public navParams: NavParams, private fixService: FixedPackageProvider, public load:LoadingController) {
-
+    this.listFixedH = [];
+    this.listFixedR = [];
+    this.listFixedB = [];
+    this.listFixedF = [];
   }
   ionViewWillEnter() {
     let loader = this.load.create({
       content: 'Please wait...'
     });
     loader.present();
+
     this.fixService.showFixedPackageByFilter('Honeymoon').subscribe(data => {
-      this.listFixedHoneymoon = data;
+      this.listFixedH = data;
       console.log(data)
-      loader.dismiss()
 
     }, err => {
       console.log(err);
     }, () => console.log("Fix Package Search Complete")
     );
+
+
+    this.fixService.showFixedPackageByFilter('Regular').subscribe(data => {
+      this.listFixedR = data;
+      console.log(data)
+      
+    }, err => {
+      console.log(err);
+    }, () => console.log("Fix Package Search Complete")
+    );
+
+    this.fixService.showFixedPackageByFilter('Business').subscribe(data => {
+      this.listFixedB= data;
+      console.log(data)
+      
+    }, err => {
+      console.log(err);
+    }, () => console.log("Fix Package Search Complete")
+    );
+
+    this.fixService.showFixedPackageByFilter('Family').subscribe(data => {
+      this.listFixedF = data;
+      console.log(data)
+      
+    }, err => {
+      console.log(err);
+    }, () => console.log("Fix Package Search Complete")
+    );
+
+    loader.dismiss();
+
+
+
   }
 
   onScroll($event: any) {
