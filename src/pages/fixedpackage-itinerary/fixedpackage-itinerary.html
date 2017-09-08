@@ -26,8 +26,10 @@
         <div class="day-info">
           <h2 class="h2-custom">Day {{dp.Day}}</h2>
         </div>
-
-        <ul class="timeline">
+        <div *ngIf="dp.Movements.length == 0">
+          <h2 style="padding-bottom: 80%;">No Activities</h2>    
+        </div>
+        <ul class="timeline" *ngIf="dp.Movements.length > 0" >
           <li *ngFor="let item of dp.Movements; let i = index">
             <div class="tl-circ" *ngIf="item.ServiceItemId == 3674 || item.ServiceItemId == 3675 || item.ServiceItemId == 3676 || item.ServiceItemId == 3677 || item.ServiceItemId == 3678">
               <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
