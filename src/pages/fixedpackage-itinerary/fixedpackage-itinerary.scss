@@ -407,9 +407,17 @@
                 .tldate {
                     //width: 85%;
                     .p-custom {
-                        text-transform: lowercase;
+                        //text-transform: lowercase;
                         display: inline;
                         padding: 0;
+                        margin-left: 6vw;
+                    }
+                    .custom-icon {
+                        color: #55bbd4;
+                        font-size: 5vw;
+                        margin-right: 0; 
+                        //padding: 1.5vw;
+                        position: absolute;
                     }
                 }
                 ul.timeline li .timeline-panel {
@@ -423,7 +431,7 @@
                     margin-left: 0;
                 }
                 ul.timeline>li>.tldate {
-                    margin: 0vw 0vw 0vw 5vw;
+                    margin: 0vw 5vw 0vw 5vw;
                 }
                 ul.timeline>li>.timeline-panel {
                     float: right;

@@ -27,9 +27,9 @@
           <h2 class="h2-custom">Day {{dp.Day}}</h2>
         </div>
         <div *ngIf="dp.Movements.length == 0">
-          <h2 style="padding-bottom: 80%;">No Activities</h2>    
+          <h2 style="padding-bottom: 80%;">No Activities</h2>
         </div>
-        <ul class="timeline" *ngIf="dp.Movements.length > 0" >
+        <ul class="timeline" *ngIf="dp.Movements.length > 0">
           <li *ngFor="let item of dp.Movements; let i = index">
             <div class="tl-circ" *ngIf="item.ServiceItemId == 3674 || item.ServiceItemId == 3675 || item.ServiceItemId == 3676 || item.ServiceItemId == 3677 || item.ServiceItemId == 3678">
               <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
@@ -46,7 +46,8 @@
               <div class="tl-body">
                 <p>
                   <ion-icon ios="ios-pin" md="ios-pin-outline" class="custom-icon-blue"></ion-icon>{{item.Destination}}</p>
-                <p><ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-icon-blue"></ion-icon>Room Type: {{(item.Item.Desc)}}, {{(item.Item.ServiceType).replace('_', ' ')}}</p>
+                <p>
+                  <ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-icon-blue"></ion-icon>Room Type: {{(item.Item.Desc)}}, {{(item.Item.ServiceType).replace('_', ' ')}}</p>
                 <!-- <p>{{(item.AccommodationItemServiceTypes["0"]).replace('_', ' ')}}</p> -->
               </div>
             </div>
@@ -71,8 +72,10 @@
             </div>
             <div class="tldate" *ngIf="item.ServiceItemId == 3673">
               <button ion-button icon-left clear small>
-                  <ion-icon ios="ios-car" md="md-car"></ion-icon>
-                    <div>Take {{item.Duration / 3600}} hours by <p class="p-custom">{{item.MovementName}}</p> <p *ngIf="item.Item != null" >with {{item.Item.Name}}</p>.</div>
+                  <!-- <div><p class="p-custom">{{item.MovementName}}</p> <p *ngIf="item.Item != null" >with {{item.Item.Name}}</p>.</div> -->
+                    <div>
+                      <ion-icon ios="ios-car" md="md-car" class="custom-icon"></ion-icon><p class="p-custom">Take {{item.Duration / 3600}} hours by <span style="text-transform:lowercase">{{item.MovementName}}</span> with <span *ngIf="item.Item != null">{{item.Item.Name}}</span></p>
+                    </div>
                   </button>
             </div>
           </li>
