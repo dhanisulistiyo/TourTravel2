@@ -59,7 +59,7 @@ export class FilterDestinationPage {
                 this.listDestination();
                 return;
             }
-
+            this.listDestination();
             this.locations = this.locations.filter((v) => {
 
             if (v.Name.toLowerCase().indexOf(q.toLowerCase()) > -1 || v.Country.Name.toLowerCase().indexOf(q.toLowerCase()) > -1 || v.Region.Name.toLowerCase().indexOf(q.toLowerCase()) > -1) {

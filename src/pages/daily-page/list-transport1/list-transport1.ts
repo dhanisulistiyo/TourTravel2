@@ -62,18 +62,20 @@ export class ListTransportPage1 {
     // set q to the value of the searchbar
     var q = searchbar.target.value;
     // if the value is an empty string don't filter the items
+    if (q != undefined) {
     if (q.trim() == '') {
       this.listTransport();
       return;
     }
-
+    this.listTransport();
     this.transport = this.transport.filter((v) => {
 
-      if (v.Name.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+      if (v.TransportationTypeName.toLowerCase().indexOf(q.toLowerCase()) > -1) {
         return true;
       }
       return false;
     })
+  } else this.listTransport();
 
   }
 

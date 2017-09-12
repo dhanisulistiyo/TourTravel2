@@ -9,59 +9,23 @@
   <h5 class="custom-h5" *ngIf="listReadyPackage.length == 0">PACKAGES IS NOT AVAILABLE</h5>
   <h5 class="custom-h5" *ngIf="listReadyPackage.length > 0">AVAILABLE PACKAGES</h5>
   <div class="div-custom">
-      <ion-card *ngFor="let fix of listReadyPackage">
-          <ion-row>
-            <ion-col style="padding: 0;">
-              <div class="box">
-                <div class="ribbon ribbon-top-left"><span><h6>Start From</h6><h5><strong>{{fix.LowestPrice}} USD</strong><h6> / pax</h6></h5></span></div>
-                <img src="{{fix.City.ImageUrl}}" class="img-custom" />
-              </div>
-            </ion-col>
-          </ion-row>
-          <ion-card-content>
-            <h2>{{fix.Title}}</h2>
-            <h4>{{fix.Description}}</h4>
-          </ion-card-content>
-          <ion-row class="row-label">
-            <ion-col col-4-custom>
-              <button ion-button icon-left clear small>
-                              <ion-icon ios="ios-pin" md="md-pin" class="custom-color"></ion-icon><h3>{{fix.Destination}}</h3>
-                            </button>
-            </ion-col>
-            <ion-col col-4>
-              <button ion-button icon-left clear small>
-                    <ion-icon ios="ios-people" md="md-people" class="custom-color"></ion-icon><h3>{{fix.FixedPackage.MinimumGuest}}-{{fix.FixedPackage.MaximumGuest}} Guest(s)</h3>
-                  </button>
-            </ion-col>
-            <ion-col col-4>
-              <button ion-button icon-left clear small>
-                    <ion-icon ios="ios-time" md="md-time" class="custom-color"></ion-icon><h3>{{fix.StartDate | date:'dd MMM'}} - {{fix.EndDate | date:'dd MMM yyyy'}}</h3>
-                  </button>
-            </ion-col>
-          </ion-row>
-        </ion-card>
-  
-    <!-- <ion-card>
+    <ion-card *ngFor="let fix of listReadyPackage">
       <ion-row>
         <ion-col style="padding: 0;">
           <div class="box">
             <div class="ribbon ribbon-top-left"><span>Views Details</span></div>
-            <img src="assets/img/gwk-bali.jpg" class="img-custom" />
+            <img src="{{fix.City.ImageUrl}}" class="img-custom" />
           </div>
         </ion-col>
       </ion-row>
       <ion-card-content>
-        <h2>3 Day Trip to Bali</h2>
-        <h4>Sprawling, hectic and ever-growing, Bali's capital has been the focus of a lot of the island's growth and wealth
-          over the last five decades. It can seem a daunting and chaotic place, but spend a little time on its tree-lined
-          streets in the relatively affluent government and business district of Renon and you'll discover a more genteel
-          side.
-        </h4>
+        <h2>{{fix.Title}}</h2>
+        <h4>{{fix.Title}}</h4>
       </ion-card-content>
       <ion-row class="row-label">
         <ion-col col-4>
           <button ion-button icon-left clear small>
-                    <ion-icon ios="ios-time" md="md-time" class="custom-color"></ion-icon><h3>3 Day(s)/2 Night(s)</h3>
+                    <ion-icon ios="ios-time" md="md-time" class="custom-color"></ion-icon><h3>{{fix.StartDate | date : 'dd MMM'}} - {{fix.EndDate | date:'dd MMM yyyy'}}</h3>
                   </button>
         </ion-col>
         <ion-col col-4></ion-col>
@@ -69,7 +33,7 @@
           <button ion-button icon-left secondary [outline]="active" class="custom-button-pick" (click)="btnPick()"><div style="font-size: 3.5vw;">Book</div></button>
         </ion-col>
       </ion-row>
-    </ion-card> -->
+    </ion-card>
   </div>
   <h5 class="custom-h5">CREATE YOUR OWN PACKAGES</h5>
   <div class="div-custom">
@@ -84,7 +48,3 @@
     </ion-list>
   </div>
 </ion-content>
-
-<ion-footer>
-  <button ion-button style="margin-top: 0px;margin-bottom: 0px; padding-bottom:0px;" full>Done</button>
-</ion-footer>

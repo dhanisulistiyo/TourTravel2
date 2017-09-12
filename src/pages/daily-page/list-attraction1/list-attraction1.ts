@@ -74,11 +74,12 @@ export class ListAttractionPage1 {
     // set q to the value of the searchbar
     var q = searchbar.target.value;
     // if the value is an empty string don't filter the items
+    if (q != undefined) {
     if (q.trim() == '') {
       this.listAttraction();
       return;
     }
-
+    this.listAttraction();
     this.attractions = this.attractions.filter((v) => {
 
       if (v.attractions.Name.toLowerCase().indexOf(q.toLowerCase()) > -1) {
@@ -87,7 +88,8 @@ export class ListAttractionPage1 {
       return false;
     })
 
-  }
+  }else this.listAttraction();
+}
 
   printf2(attrac) {
     const foundAt = this.selectedQuestions.indexOf(attrac);

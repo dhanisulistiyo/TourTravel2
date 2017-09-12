@@ -79,7 +79,7 @@ export class ListHotelPage1 {
         this.listHotel();
         return;
       }
-
+      this.listHotel();
       this.hotels = this.hotels.filter((v) => {
 
         if (v.Name.toLowerCase().indexOf(q.toLowerCase()) > -1) {
