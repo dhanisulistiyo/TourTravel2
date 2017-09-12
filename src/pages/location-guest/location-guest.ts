@@ -50,7 +50,7 @@ export class LocationGuestPage {
                 this.listDestination();
                 return;
             }
-
+            this.listDestination();
             this.locations = this.locations.filter((v) => {
 
             if (v.Name.toLowerCase().indexOf(q.toLowerCase()) > -1 ) {
