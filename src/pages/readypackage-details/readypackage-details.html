@@ -1,18 +1,186 @@
-<!--
-  Generated template for the ReadypackageDetailsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>readypackage-details</ion-title>
+<ion-header no-border [class.opaque]="!showToolbar">
+  <!--Navbar-->
+  <ion-navbar color="primary">
+    <!--Toggle title-->
+    <ion-title [hidden]="!showToolbar">
+      Ready Package Details
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
 
+<div class="scroll-content" style="padding-top:0px">
+  <ion-content fullscreen="true" style="padding-top: 0px;" (ionScroll)="onScroll($event)">
 
-<ion-content padding>
+    <div class="slide-pager" style="margin-left: -18px; width:110%; overflow: visible; margin-top: -10px;">
+      <ion-slides pager="true" loop="true" speed="1000">
+        <ion-slide>
+          <ion-card>
+            <img src="http://love2fly.iberia.com/wp-content/uploads/2015/07/L2F-Jul-15-pic-Turkey-Istanbul-Blue-Mosque-interior-Yarygin-shutterstock_185429441.jpg" style="height:250px; width:100%;" />
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </div>
 
-</ion-content>
+    <div class="info">
+      <h2>Teestt</h2>
+      <div class="readmore">
+        <p class="p-readmore">
+          Test2
+        </p>
+        <a (click)="toggleDetails(read)">Read More</a>
+      </div>
+
+      <p class="p-readless" *ngIf="read == true">
+          Tessasaksldjfklsjlkaskl
+        <a (click)="toggleDetails(read)">Read Less</a>
+      </p>
+      <p class="p-custom">
+        <ion-icon ios="ios-bookmark" md="ios-bookmark-outline" class="custom-pin"></ion-icon>
+        10 Guest(s) Booked
+      </p>
+      <p class="p-custom">
+        <ion-icon ios="ios-people" md="ios-people-outline" class="custom-pin"></ion-icon>
+        Min. {{BookingDetailSum?.FixedPackage.MinimumGuest}}-{{BookingDetailSum?.FixedPackage.MaximumGuest}} Guest(s)
+      </p>
+      <!-- <p class="p-custom">
+        <ion-icon ios="ios-time" md="md-time" class="custom-pin"></ion-icon>
+        Tour Date: {{BookingDetailSum?.StartDate | date:'EEE, dd MMM'}} - {{BookingDetailSum?.EndDate| date:'EEE, dd MMM yyyy'}}
+      </p> -->
+      <p class="p-custom">
+        <ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-pin"></ion-icon>
+        3 Day(s) / 2 Night(s)
+      </p>
+
+      <p class="p-custom-red">
+        <ion-icon ios="ios-cash" md="ios-cash-outline" class="custom-price"></ion-icon>
+        DP Before 30 September 2017
+      </p>
+    </div>
+
+    <div class="photos" *ngIf="Hotel != null">
+      <h2>Where we'll stay</h2>
+      <div class="photos-hotel">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+              <img class="img-hotel" src="{{baseUrl+Hotel?.ImageUrl}}" />
+            </ion-col>
+            <ion-col col-8 style="padding: 0 2vw;">
+              <h3>
+                {{Hotel?.Name}}
+              </h3>
+              <p class="p-custom" style="text-align: left; padding-top: 0vw; margin:0">
+                <ion-icon ios="ios-star" md="md-star" class="custom-star" *ngFor="let item of getNumber(Hotel?.AccommodationRating.Id)"></ion-icon>
+                <!-- <ion-icon ios="ios-star" md="md-star" class="custom-star"></ion-icon>
+                {{Hotel?.AccommodationRating.Id}} -->
+              </p>
+              <p class="p-custom" style="padding-top: 0vw; margin:0;text-align: justify;">
+                <ion-icon ios="ios-pin" md="ios-pin-outline" class="custom-pin"></ion-icon>
+                {{Hotel?.Address}}
+              </p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+    </div>
+    <div class="schedule">
+      <h2>What we'll do</h2>
+      <div class="slide-schedule" style="margin-left: 0;">
+        <ion-slides>
+          <ion-slide *ngFor="let dp of DailyPrograms ; let i = index;">
+            <ion-card style="height:67vw; width:100%;">
+              <ion-card-header>
+                <ion-row>
+                  <ion-col col-12>
+                    Day {{dp.Day}}
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col col-4>
+                    <button ion-button icon-left clear small>
+                      <ion-icon ios="ios-time" md="md-time"></ion-icon>
+                      <div style="font-size: 3.7vw;">08.00 AM</div>
+                    </button>
+                  </ion-col>
+                  <ion-col col-4>
+                    <button ion-button icon-left clear small>
+                      <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
+                      <div style="font-size: 3.7vw;">{{dp.Date | date:'dd MMM yyyy'}}</div>
+                    </button>
+                  </ion-col>
+                  <ion-col col-4>
+                    <button ion-button icon-left clear small>
+                      <ion-icon ios="ios-pin" md="md-pin"></ion-icon>
+                      <div style="font-size: 3.7vw;">9 Place(s)</div>
+                    </button>
+                  </ion-col>
+                </ion-row>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-grid fixed style="text-align: center;">
+                  <ion-row class="row-wrap">
+                    <ion-col col-3>
+                      <img src="assets/img/grand-hyatt-hotel.jpg" class="schedule-img" />
+                    </ion-col>
+                    <ion-col col-3>
+                      <img src="assets/img/bali-wallpaper.jpg" class="schedule-img" />
+                    </ion-col>
+                    <ion-col col-3>
+                      <img src="assets/img/gwk-bali.jpg" class="schedule-img" />
+                    </ion-col>
+                    <ion-col col-3>
+                      <img src="assets/img/lombok-wallpaper.jpg" class="schedule-img" />
+                    </ion-col>
+                  </ion-row>
+                  <ion-row class="row-wrap">
+                    <ion-col col-3>
+                      <img src="assets/img/backpacker-wallpaper.jpg" class="schedule-img" />
+                    </ion-col>
+                    <ion-col col-3>
+                      <img src="https://picture.triptrus.com/picture/l29226" class="schedule-img" />
+                    </ion-col>
+                    <ion-col col-3>
+                      <img src="http://alindstransport.com/wp-content/uploads/2016/09/Tugu-Jogja-Yogyakarta-jogja.jpg" class="schedule-img" />
+                    </ion-col>
+                    <ion-col col-3>
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Kelimutu_2007-07-21.jpg/400px-Kelimutu_2007-07-21.jpg"
+                        class="schedule-img" />
+                    </ion-col>
+                  </ion-row>
+                  <!-- <ion-col col-12 (click)="showDetails(dp.TourDestinations, dp.Day, dp.Date)"> -->
+                  <ion-col col-12 (click)="showDetails(i)">
+                    <P style="color: #F4511E;
+                    font-size: 4vw;
+                    font-weight: 600;">Details</P>
+                  </ion-col>
+                </ion-grid>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </div>
+    </div>
+
+    <div class="important">
+      <h2>Important information</h2>
+      <div class="important-content" *ngFor="let desc of Descriptions">
+        <p class="p-header">
+          <ion-icon ios="ios-checkmark-circle" md="ios-checkmark-circle-outline" class="custom-pin" style="color: #4fd2c2;"></ion-icon>
+          {{desc.SubTitle}}
+        </p>
+        <p class="p-custom" style="padding-bottom: 2vw; padding-left: 5vw; text-align:justify;" [innerHtml]="desc.Content"></p>
+      </div>
+      <div class="important-content" style="padding: 0;">
+        <p class="p-custom" style="padding-bottom: 8vw; padding-left: 4.4vw; text-align:justify;"></p>
+      </div>
+    </div>
+  </ion-content>
+</div>
+<ion-footer>
+  <ion-row>
+    <ion-col>
+      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-accept" (click)="bookNow()">Book Now</button>
+    </ion-col>
+  </ion-row>
+</ion-footer>
