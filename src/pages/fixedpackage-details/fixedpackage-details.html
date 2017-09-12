@@ -137,22 +137,16 @@
                   </ion-col>
                 </ion-row>
                 <ion-row>
-                  <ion-col col-4>
+                  <ion-col col-6>
                     <button ion-button icon-left clear small>
                       <ion-icon ios="ios-time" md="md-time"></ion-icon>
                       <div style="font-size: 3.7vw;">08.00 AM</div>
                     </button>
                   </ion-col>
-                  <ion-col col-4>
+                  <ion-col col-6>
                     <button ion-button icon-left clear small>
                       <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
                       <div style="font-size: 3.7vw;">{{dp.Date | date:'dd MMM yyyy'}}</div>
-                    </button>
-                  </ion-col>
-                  <ion-col col-4>
-                    <button ion-button icon-left clear small>
-                      <ion-icon ios="ios-pin" md="md-pin"></ion-icon>
-                      <div style="font-size: 3.7vw;">9 Place(s)</div>
                     </button>
                   </ion-col>
                 </ion-row>
@@ -188,7 +182,6 @@
                         class="schedule-img" />
                     </ion-col>
                   </ion-row>
-                  <!-- <ion-col col-12 (click)="showDetails(dp.TourDestinations, dp.Day, dp.Date)"> -->
                   <ion-col col-12 (click)="showDetails(i)">
                     <P style="color: #F4511E;
                     font-size: 4vw;
@@ -198,116 +191,9 @@
               </ion-card-content>
             </ion-card>
           </ion-slide>
-
-          <!-- <ion-slide>
-            <ion-card style="height:67vw; width:100%;">
-              <ion-card-header>
-                <ion-row>
-                  <ion-col col-12>
-                    Day 2
-                  </ion-col>
-                </ion-row>
-                <ion-row>
-                  <ion-col col-4>
-                    <button ion-button icon-left clear small><ion-icon ios="ios-time" md="md-time"></ion-icon>
-                      <div style="font-size: 3.7vw;">08.00 AM</div>
-                    </button>
-                  </ion-col>
-                  <ion-col col-4>
-                    <button ion-button icon-left clear small>
-                      <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
-                      <div style="font-size: 3.7vw;">Aug 10, 2017</div>
-                    </button>
-                  </ion-col>
-                  <ion-col col-4>
-                    <button ion-button icon-left clear small>
-                      <ion-icon ios="ios-pin" md="md-pin"></ion-icon>
-                      <div style="font-size: 3.7vw;">9 Place(s)</div>
-                    </button>
-                  </ion-col>
-                </ion-row>
-              </ion-card-header>
-              <ion-card-content>
-                The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
-              </ion-card-content>
-            </ion-card>
-          </ion-slide>
-          <ion-slide>
-            <ion-card style="height:67vw; width:100%;">
-              <ion-card-header>
-                <ion-row>
-                  <ion-col col-12>
-                    Day 3
-                  </ion-col>
-                </ion-row>
-                <ion-row>
-                  <ion-col col-4>
-                    <button ion-button icon-left clear small>
-                      <ion-icon ios="ios-time" md="md-time"></ion-icon>
-                      <div style="font-size: 3.7vw;">08.00 AM</div>
-                    </button>
-                  </ion-col>
-                  <ion-col col-4>
-                    <button ion-button icon-left clear small>
-                      <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
-                      <div style="font-size: 3.7vw;">Aug 10, 2017</div>
-                    </button>
-                  </ion-col>
-                  <ion-col col-4>
-                    <button ion-button icon-left clear small>
-                      <ion-icon ios="ios-pin" md="md-pin"></ion-icon>
-                      <div style="font-size: 3.7vw;">9 Place(s)</div></button>
-                  </ion-col>
-                </ion-row>
-              </ion-card-header>
-              <ion-card-content>
-                The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
-              </ion-card-content>
-            </ion-card>
-          </ion-slide> -->
         </ion-slides>
       </div>
     </div>
-
-    <!-- <div class="reviews">
-      <h2>Reviews</h2>
-      <p *ngIf="fixpackage.reviews.length==0">No reviews yet =(</p>
-      <div>
-        <ion-row>
-          <ion-col col-2>
-            <ion-avatar item-start>
-              <img src="assets/img/user_pic.jpg" style="width:50px; height: 50px;">
-            </ion-avatar>
-          </ion-col>
-          <ion-col col-10>
-            <h3>Dhani S. Wibowo</h3>
-            <ion-icon name="star" class="custom-star"></ion-icon>
-            <p style="color: #808080; display: inline;">Aug 10, 2017</p>
-            <ion-icon name="star" *ngFor="let star of itineraryService.getArray(reviewDetails.rating)"></ion-icon>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col col-2>
-          </ion-col>
-          <ion-col col-10>
-            <div class="readmore" *ngIf="read == false">
-              <p class="p-readmore">The experience of visiting the beach was fantastic. Well managed facility with some great variety of foods.
-                Guides and boat ride were the best.
-              </p>
-              <a (click)="toggleDetails(read)">Read More</a>
-            </div>
-
-            <p class="p-readless" *ngIf="read == true">
-              The experience of visiting the beach was fantastic. Well managed facility with some great variety of foods. Guides and boat
-              ride were the best.
-              <a (click)="toggleDetails(read)">Read Less</a>
-            </p>
-          </ion-col>
-
-        </ion-row>
-
-      </div>
-    </div> -->
 
     <div class="important">
       <h2>Important information</h2>
@@ -321,33 +207,6 @@
       <div class="important-content" style="padding: 0;">
         <p class="p-custom" style="padding-bottom: 8vw; padding-left: 4.4vw; text-align:justify;"></p>
       </div>
-
-      <!-- <div class="important-content">
-        <p class="p-header">
-          <ion-icon ios="ios-information-circle" md="ios-information-circle-outline" class="custom-pin" style="color: #4fd2c2;"></ion-icon>
-          Additional info
-        </p>
-        <ul class="custom-list">
-          <li>
-            <p class="p-custom">Confirmation will be received at time of booking</p>
-          </li>
-          <li>
-            <p class="p-custom">There is no minimum age</p>
-          </li>
-          <li>
-            <p class="p-custom">A minimum of 2 people per booking is required</p>
-          </li>
-        </ul>
-      </div>
-      <div class="important-content">
-        <p class="p-header">
-          <ion-icon ios="ios-alert" md="ios-alert-outline" class="custom-pin" style="color: #e13838;"></ion-icon>
-          Cancellation policy
-        </p>
-        <p class="p-custom" style="padding-bottom: 8vw; padding-left: 4.4vw; text-align:justify;">If you cancel at least 7 day(s) in advance of the scheduled departure, there is no cacellation fee. If you cancel
-          between 3 and 6 day(s) in advance of the scheduled departure. there is a 50% cancellation fee. if you cancel within
-          2 day(s) of the schedule departure, there is a 100 percent cancellation fee.</p>
-      </div> -->
     </div>
   </ion-content>
 </div>

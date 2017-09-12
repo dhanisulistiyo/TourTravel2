@@ -88,7 +88,7 @@
             <ion-col col-1>
               <h3 class="card-label">{{i+1}}</h3>
             </ion-col>
-            <ion-col col-9>
+            <ion-col col-8>
               <h3 class="card-label"><strong>{{item.FirstName}} {{item.LastName}}</strong></h3>
             </ion-col>
             <ion-col class="col2-custom">
@@ -293,17 +293,20 @@
   </div>
 </ion-content>
 
-
 <ion-footer>
+    <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-accept" (click)="confirmBooking()">Continue</button>
+  </ion-footer>
+
+<!-- <ion-footer>
   <ion-row>
     <ion-col>
       <button (click)="confirmBooking()" ion-button style="margin-top: 0px;margin-bottom: 0px;" class="btn-accept">Confirm</button>
     </ion-col>
   </ion-row>
 
-  <!-- <ion-row>
+  <ion-row>
     <ion-col>
       <button ion-button style="margin-top: 0px;margin-bottom: 0px;" class="btn-cancel" (click)="allertCancelBooking()">Cancel</button>
     </ion-col>
-  </ion-row> -->
-</ion-footer>
+  </ion-row>
+</ion-footer> -->

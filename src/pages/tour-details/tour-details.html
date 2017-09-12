@@ -384,7 +384,7 @@
 
 
 <ion-footer>
-  <ion-row *ngIf="isValid">
+  <ion-row *ngIf="isValid" class="custom-row">
     <ion-col>
       <button ion-button style="margin-top: 0px;margin-bottom: 0px;" class="btn-cancel" (click)="allertCancelBooking()">Cancel</button>
     </ion-col>
@@ -393,7 +393,7 @@
     </ion-col>
   </ion-row>
 
-  <ion-row *ngIf="dp">
+  <ion-row *ngIf="dp" class="custom-row">
     <ion-col>
       <button ion-button style="margin-top: 0px;margin-bottom: 0px;" class="btn-cancel" (click)="allertCancelBooking()">Cancel</button>
     </ion-col>
