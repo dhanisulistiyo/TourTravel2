@@ -49,7 +49,7 @@ export class DestinationPage {
                 this.listDestination();
                 return;
             }
-
+            this.listDestination();
             this.locations = this.locations.filter((v) => {
 
             if (v.Id.toLowerCase().indexOf(q.toLowerCase()) > -1) {

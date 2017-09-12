@@ -1,7 +1,7 @@
+import { ReadyPackageProvider } from './../../providers/ready-package';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ReadyPackagePage } from './../ready-package/ready-package';
-import { IteneraryService } from './../../providers/itenerary-service';
 import { LocationService } from './../../providers/location-service';
 
 /**
@@ -12,8 +12,7 @@ import { LocationService } from './../../providers/location-service';
  */
 @Component({
   selector: 'page-readypackage-destination',
-  templateUrl: 'readypackage-destination.html',
-  providers: [LocationService, IteneraryService]
+  templateUrl: 'readypackage-destination.html'
 })
 export class ReadypackageDestinationPage {
 
@@ -22,7 +21,7 @@ export class ReadypackageDestinationPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private locService: LocationService,
-    private ite: IteneraryService) {
+   public ready : ReadyPackageProvider) {
   }
 
   ionViewWillEnter() {
@@ -55,7 +54,7 @@ export class ReadypackageDestinationPage {
         this.listDestination();
         return;
       }
-
+      this.listDestination();
       this.locations = this.locations.filter((v) => {
 
         if (v.Name.toLowerCase().indexOf(q.toLowerCase()) > -1 || v.Country.Name.toLowerCase().indexOf(q.toLowerCase()) > -1 || v.Region.Name.toLowerCase().indexOf(q.toLowerCase()) > -1) {
@@ -69,9 +68,7 @@ export class ReadypackageDestinationPage {
 
   setSelectedLocation(selectedItem) {
     console.log(selectedItem);
-    this.ite.setDestination(selectedItem.Id);
-    this.ite.setObjectLocation(JSON.stringify(selectedItem));
-    this.navCtrl.pop();
+    this.ready.setDestination(selectedItem);
     this.navCtrl.push(ReadyPackagePage);
   }
 

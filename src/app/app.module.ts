@@ -113,12 +113,13 @@ import { FixedGuestDetailsPage } from './../pages/fixed-guest-details/fixed-gues
 
 
 import { ConfigProvider } from '../providers/config';
-
+import { ReadyPackageProvider } from '../providers/ready-package';
 // Ready Package page
 import { ReadyPackagePage } from './../pages/ready-package/ready-package';
 import { ReadypackageDestinationPage } from './../pages/readypackage-destination/readypackage-destination';
 import { ReadypackageGuestPage } from './../pages/readypackage-guest/readypackage-guest';
 import { ReadypackageDetailsPage } from './../pages/readypackage-details/readypackage-details';
+
 
 @NgModule({
   declarations: [
@@ -332,7 +333,8 @@ import { ReadypackageDetailsPage } from './../pages/readypackage-details/readypa
     PromoPackageProvider,
     ConfigProvider,
     FixedPackageProvider,
-    MovementServiceProvider
+    MovementServiceProvider,
+    ReadyPackageProvider
   ]
 })
 export class AppModule { }
