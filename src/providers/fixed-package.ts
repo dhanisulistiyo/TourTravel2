@@ -84,7 +84,7 @@ export class FixedPackageProvider {
       // if(a.firstName != null && a.lastName != null && a.id != null && a.typeid != null && a.guestype != null && a.country != null){
       if(a.firstName != null && a.lastName != null && a.country != null){
        let item = {
-            FirstName : a.firstName,
+            FirstName : a.title+' '+a.firstName,
             LastName : a.lastName,
             CountryId :  a.country.Id,
             IdentityNbr :  a.id,

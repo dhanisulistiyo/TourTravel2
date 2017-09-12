@@ -18,28 +18,28 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
 export class GuestDetailsPage {
   Guest : Array<any>;
   Type;
-  ID
+  ID;
+  Title;
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public gu : GuestServiceProvider, public alertCtrl: AlertController) {
     this.Type = navParams.data['type'];
     console.log(this.Type);
     this.ID = ['Choose Type Guest','ID Card', 'Passport','Driving License']
-  }
-
-    ionViewWillEnter(){
+    this.Title = ['Choose Title','Mr.', 'Mrs.']
     this.Guest = [];
     var no = Object.keys(this.gu.Guest).length;
         for (let i = 0; i < no; i++) {
           this.Guest.push(this.gu.Guest[i])
         }
         console.log(this.Guest)
-    }
-    setID(i, par){
-      console.log(par, i)
-      if (par == "ID Card" ) this.gu.setTypeId(i, "IDCARD");
-      else if (par =="Passport") this.gu.setTypeId(i, "PASSPORT");
-      else if (par =="Driving License") this.gu.setTypeId(i, "DRIVINGLICENSE");
-    }
+  }
+  setID(par, i ){
+    console.log(par, i)
+    if (par == "ID Card" ) this.gu.setTypeId(i, "IDCARD");
+    else if (par =="Passport") this.gu.setTypeId(i, "PASSPORT");
+    else if (par =="Driving License") this.gu.setTypeId(i, "DRIVINGLICENSE");
+    console.log(this.Guest)
+  }
     inputId(i, event){
         var data = event.target.value;
         this.gu.setId(i, data);

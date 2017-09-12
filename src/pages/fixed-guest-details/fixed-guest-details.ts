@@ -17,9 +17,11 @@ export class FixedGuestDetailsPage {
   Tour
   Price
   Package
+  Title
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public gu : GuestServiceProvider, public alertCtrl: AlertController, public fix: FixedPackageProvider) {
     this.ID = ['Choose Type of ID','ID Card', 'Passport','Driving License']
+    this.Title = ['Choose Title','Mr.', 'Mrs.']
     this.Package = navParams.data["pk"];
   }
 
@@ -43,6 +45,11 @@ export class FixedGuestDetailsPage {
     inputId(i, event){
         var data = event.target.value;
         this.gu.setId(i, data);
+    }
+    
+    setTitle(i, par){
+      console.log(par, i)
+      this.gu.setTitle(i, par);
     }
 
     inputFirstName(i, event){

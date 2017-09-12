@@ -21,7 +21,7 @@
         </ion-col>
       </ion-row>
 
-      <!-- <ion-row class="row-header">
+      <ion-row class="row-header">
         <ion-col col-12-custom>
           <h3 class="card-label">Types of ID (ex: ID Card/Passport/Driving License) </h3>
         </ion-col>
@@ -29,7 +29,7 @@
       <ion-row class="row-content">
         <ion-col col-12-custom>
           <h3 class="card-title">
-            <ion-select class="myCustomSelect" [(ngModel)]='item[i]' multiple="false" (ionChange)="setID(i, item[i])" interface="action-sheet">
+              <ion-select [(ngModel)]='item[i]' class="myCustomSelect" multiple="false" interface="action-sheet" (ionChange)="setID(item[i],i)">
             <ion-option *ngFor="let kuo of ID;  let idx = index" [value]="kuo" selected="{{(idx==0)}}" aria-placeholder="Choose Type Guest">{{kuo}}</ion-option>
           </ion-select>
           </h3>
@@ -44,9 +44,22 @@
         <ion-col col-12-custom>
           <ion-input type="number" (input)="inputId(i, $event)" placeholder="Please input your ID"></ion-input>
         </ion-col>
-      </ion-row> -->
+      </ion-row>
 
-
+      <ion-row class="row-header">
+          <ion-col col-12-custom>
+            <h3 class="card-label">Title (ex: Mr or Mrs) </h3>
+          </ion-col>
+        </ion-row>
+        <ion-row class="row-content">
+          <ion-col col-12-custom>
+            <h3 class="card-title">
+              <ion-select [(ngModel)]='item.title' class="myCustomSelect" multiple="false" interface="action-sheet">
+              <ion-option *ngFor="let title of Title;  let idx = index" [value]="title" selected="{{(idx==0)}}" aria-placeholder="Choose Type ID">{{title}}</ion-option>
+            </ion-select>
+            </h3>
+          </ion-col>
+        </ion-row>
       <ion-row class="row-header">
         <ion-col col-12-custom>
           <h3 class="card-label">First Name: </h3>
@@ -85,20 +98,6 @@
         </ion-col>
       </ion-row>
     </div>
-
-    <!-- <ion-row>
-    <ion-label>First Name</ion-label>
-    <ion-input type="text" (input)="inputFirstName(i, $event)"></ion-input>
-  </ion-row>
-   <ion-row>
-      <ion-label>Last Name</ion-label>
-      <ion-input type="text" (input)="inputLastName(i, $event)"></ion-input>
-  </ion-row>
-  <ion-row>
-    <ion-label>Country</ion-label>
-    <ion-input type="text" (input)="inputCountry(i, $event)"></ion-input>
-  </ion-row> -->
-
   </ion-card>
 
 
