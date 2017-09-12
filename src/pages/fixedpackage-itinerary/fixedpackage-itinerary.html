@@ -74,7 +74,7 @@
               <button ion-button icon-left clear small>
                   <!-- <div><p class="p-custom">{{item.MovementName}}</p> <p *ngIf="item.Item != null" >with {{item.Item.Name}}</p>.</div> -->
                     <div>
-                      <ion-icon ios="ios-car" md="md-car" class="custom-icon"></ion-icon><p class="p-custom">Take {{item.Duration / 3600}} hours by <span style="text-transform:lowercase">{{item.MovementName}}</span> with <span *ngIf="item.Item != null">{{item.Item.Name}}</span></p>
+                      <ion-icon ios="ios-car" md="md-car" class="custom-icon"></ion-icon><p class="p-custom">Take {{item.Duration / 3600}} hours by <span style="text-transform:lowercase">{{item.MovementName}}</span><span *ngIf="item.Item.Name != null"> with {{item.Item.Name}}</span></p>
                     </div>
                   </button>
             </div>

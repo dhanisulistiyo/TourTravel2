@@ -82,10 +82,10 @@ export class FixedpackageDetailsPage {
         if(Object.keys(this.DailyPrograms[i].Movements).length != 0){
           this.Movement= this.DailyPrograms[i].Movements;
             this.Movement.sort(function(obj1, obj2) {
-            if (obj1.DateTime > obj2.DateTime) {
+            if (obj1.SeqNumber > obj2.SeqNumber) {
               return 1;
           }
-          if (obj1.DateTime < obj2.DateTime) {
+          if (obj1.SeqNumber < obj2.SeqNumber) {
               return -1;
           }
             return 0;
