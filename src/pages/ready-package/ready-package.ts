@@ -16,8 +16,6 @@ import { IteneraryBuilderPage } from './../itenerary-builder/itenerary-builder';
   templateUrl: 'ready-package.html',
 })
 export class ReadyPackagePage {
-  showToolbar: boolean = false;
-  active: boolean = true;
   listReadyPackage:Array<any>;
   constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, 
     public navParams: NavParams, public load: LoadingController, public ready: ReadyPackageProvider) {
@@ -36,23 +34,17 @@ export class ReadyPackagePage {
       }, () => console.log("Hello Ready Package")
     );
   }
-  
-  onScroll($event: any) {
-    let scrollTop = $event.scrollTop;
-    this.showToolbar = scrollTop >= 120;
-    this.ref.detectChanges();
-  }
 
-  readyHoneymoon() {
-    this.navCtrl.push(ReadypackageDetailsPage);
-  }
-
-  btnPick() {
-    this.active = false;
-  }
-
-  btnCustomMenu(){
+  customPackage(){
     this.navCtrl.push(IteneraryBuilderPage);
+  }
+
+  pickPackage(){
+    this.navCtrl.push(IteneraryBuilderPage);
+  }
+
+  showDetails(id){
+    this.navCtrl.push(ReadypackageDetailsPage,{id});
   }
 
 }

@@ -32,6 +32,7 @@ export class FixedpackageDetailsPage {
   TourGuestSum;
   days
   id
+  HotelId
   Hotel
   baseUrl
 
@@ -46,6 +47,7 @@ export class FixedpackageDetailsPage {
     this.baseUrl =  this.conf.baseUrlImage;
     this.read = false;
     this.id = navParams.data["id"]
+    this.HotelId = null;
     this.Hotel = null;
   }
 
@@ -94,19 +96,19 @@ export class FixedpackageDetailsPage {
           this.TourDetails.push(this.Movement);
           console.log(this.TourDetails)
       }
-        // this.TourDetails= [];
-        // console.log(this.DailyPrograms)
-        // for (let i = 0; i < (Object.keys(this.DailyPrograms).length); i++) {
-        //   this.Movement= [];
-        //   let check = this.DailyPrograms[i].MovementSummary;
-        //   if(Object.keys(check.AccommodationMovements).length != 0){
-        //      this.Movement = this.Movement.concat(check.AccommodationMovements)
-        //      for (let j = 0; j < (Object.keys(this.Movement).length); j++) {
-        //      if(check.AccommodationMovements[j].ServiceItemId == 3674){
-        //        this.Hotel = check.AccommodationMovements[j].AccommodationProfile
-        //       }
-        //     }
-        //   }
+        for (let i = 0; i < (Object.keys(this.DailyPrograms).length); i++) {
+          let check = this.DailyPrograms[i].TourDestinations;
+          if(Object.keys(check).length != 0){
+             for (let j = 0; j < (Object.keys(check).length); j++) {
+                if(check[j].AccommodationSummary != null){
+                  this.HotelId = check[j].AccommodationSummary.AccommodationProfileId;
+                  break;
+                }
+            }
+          }
+        }
+        if(this.HotelId != null) this.aco.searchAcomodation(this.HotelId).subscribe(data=>{this.Hotel= data;})
+      
         //   console.log(this.Movement)
         //   if(Object.keys(check.RecreationMovement).length != 0) this.Movement = this.Movement.concat(check.RecreationMovement)
         //   console.log(this.Movement)

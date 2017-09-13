@@ -13,7 +13,7 @@
       <ion-row>
         <ion-col style="padding: 0;">
           <div class="box">
-            <div class="ribbon ribbon-top-left"><span>Views Details</span></div>
+            <div class="ribbon ribbon-top-left" (click)="showDetails(fix.Id)"><span>Views Details</span></div>
             <img src="{{fix.City.ImageUrl}}" class="img-custom" />
           </div>
         </ion-col>
@@ -30,7 +30,7 @@
         </ion-col>
         <ion-col col-4></ion-col>
         <ion-col col-4-custom>
-          <button ion-button icon-left secondary [outline]="active" class="custom-button-pick" (click)="btnPick()"><div style="font-size: 3.5vw;">Book</div></button>
+          <button ion-button icon-left secondary [outline]=false class="custom-button-pick" (click)="pickPackage()"><div style="font-size: 3.5vw;">Pick</div></button>
         </ion-col>
       </ion-row>
     </ion-card>
@@ -38,7 +38,7 @@
   <h5 class="custom-h5">CREATE YOUR OWN PACKAGES</h5>
   <div class="div-custom">
     <ion-list>
-      <ion-item (click)="btnCustomMenu()">
+      <ion-item (click)="customPackage()">
         <ion-avatar item-start>
           <ion-icon ios="ios-add-circle" md="md-add-circle" class="custom-add"></ion-icon>
         </ion-avatar>

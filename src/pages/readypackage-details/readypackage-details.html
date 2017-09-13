@@ -3,7 +3,7 @@
   <ion-navbar color="primary">
     <!--Toggle title-->
     <ion-title [hidden]="!showToolbar">
-      Ready Package Details
+      {{BookingDetailSum?.Title}}
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -13,47 +13,76 @@
 
     <div class="slide-pager" style="margin-left: -18px; width:110%; overflow: visible; margin-top: -10px;">
       <ion-slides pager="true" loop="true" speed="1000">
-        <ion-slide>
+        <ion-slide *ngFor="let item of Images">
           <ion-card>
-            <img src="http://love2fly.iberia.com/wp-content/uploads/2015/07/L2F-Jul-15-pic-Turkey-Istanbul-Blue-Mosque-interior-Yarygin-shutterstock_185429441.jpg" style="height:250px; width:100%;" />
+            <img src="{{item}}" style="height:250px; width:100%;" />
           </ion-card>
         </ion-slide>
       </ion-slides>
     </div>
 
     <div class="info">
-      <h2>Teestt</h2>
-      <div class="readmore">
+      <h2>{{BookingDetailSum?.Title}}</h2>
+      <div class="readmore" *ngIf="read == false">
         <p class="p-readmore">
-          Test2
+          {{Description}}
         </p>
         <a (click)="toggleDetails(read)">Read More</a>
       </div>
 
       <p class="p-readless" *ngIf="read == true">
-          Tessasaksldjfklsjlkaskl
+          {{Description}}
         <a (click)="toggleDetails(read)">Read Less</a>
       </p>
+      <ion-row class="row-custom">
+        <ion-col col-1-custom>
+          <p class="p-price">USD </p>
+        </ion-col>
+        <ion-col col-5>
+          <h3>{{Prices?.LowestPrice}}/Pax</h3>
+        </ion-col>
+        <ion-col col-6>
+          <!-- <p class="p-custom" style="text-align: right; padding-top: 2vw;">
+            <ion-icon ios="ios-star" md="md-star" class="custom-star"></ion-icon>
+            100 Review(s)
+          </p> -->
+        </ion-col>
+      </ion-row>
+      <!-- <ion-row>
+        <ion-col col-6>
+          <p class="p-custom">
+            <ion-icon ios="ios-people" md="ios-people-outline" class="custom-gray"></ion-icon>
+           Min. {{BookingDetailSum?.FixedPackage.MinimumGuest}}-{{BookingDetailSum?.FixedPackage.MaximumGuest}} Guest(s)
+          </p>
+        </ion-col>
+        <ion-col col-6>
+          <p class="p-custom" style="text-align: right;padding-right: 10vw;">
+            <ion-icon ios="ios-pin" md="ios-pin-outline" class="custom-pin"></ion-icon>
+            <strong>9</strong> Place(s)
+          </p>
+        </ion-col>
+      </ion-row> -->
+
       <p class="p-custom">
         <ion-icon ios="ios-bookmark" md="ios-bookmark-outline" class="custom-pin"></ion-icon>
-        10 Guest(s) Booked
+        {{BookingDetailSum?.FixedPackage.RegisteringGuest}} Guest(s) Booked
       </p>
       <p class="p-custom">
         <ion-icon ios="ios-people" md="ios-people-outline" class="custom-pin"></ion-icon>
         Min. {{BookingDetailSum?.FixedPackage.MinimumGuest}}-{{BookingDetailSum?.FixedPackage.MaximumGuest}} Guest(s)
       </p>
-      <!-- <p class="p-custom">
+      <p class="p-custom">
         <ion-icon ios="ios-time" md="md-time" class="custom-pin"></ion-icon>
         Tour Date: {{BookingDetailSum?.StartDate | date:'EEE, dd MMM'}} - {{BookingDetailSum?.EndDate| date:'EEE, dd MMM yyyy'}}
-      </p> -->
+      </p>
       <p class="p-custom">
         <ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-pin"></ion-icon>
-        3 Day(s) / 2 Night(s)
+        {{days+1}} Day(s) / {{days}} Night(s)
       </p>
 
       <p class="p-custom-red">
         <ion-icon ios="ios-cash" md="ios-cash-outline" class="custom-price"></ion-icon>
-        DP Before 30 September 2017
+        DP Before {{BookingDetailSum?.FixedPackage.DPExpiredOn | date:'dd MMM yyyy' }}
       </p>
     </div>
 
@@ -82,105 +111,100 @@
           </ion-row>
         </ion-grid>
       </div>
-
-    </div>
-    <div class="schedule">
-      <h2>What we'll do</h2>
-      <div class="slide-schedule" style="margin-left: 0;">
-        <ion-slides>
-          <ion-slide *ngFor="let dp of DailyPrograms ; let i = index;">
-            <ion-card style="height:67vw; width:100%;">
-              <ion-card-header>
-                <ion-row>
-                  <ion-col col-12>
-                    Day {{dp.Day}}
-                  </ion-col>
-                </ion-row>
-                <ion-row>
-                  <ion-col col-4>
-                    <button ion-button icon-left clear small>
-                      <ion-icon ios="ios-time" md="md-time"></ion-icon>
-                      <div style="font-size: 3.7vw;">08.00 AM</div>
-                    </button>
-                  </ion-col>
-                  <ion-col col-4>
-                    <button ion-button icon-left clear small>
-                      <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
-                      <div style="font-size: 3.7vw;">{{dp.Date | date:'dd MMM yyyy'}}</div>
-                    </button>
-                  </ion-col>
-                  <ion-col col-4>
-                    <button ion-button icon-left clear small>
-                      <ion-icon ios="ios-pin" md="md-pin"></ion-icon>
-                      <div style="font-size: 3.7vw;">9 Place(s)</div>
-                    </button>
-                  </ion-col>
-                </ion-row>
-              </ion-card-header>
-              <ion-card-content>
-                <ion-grid fixed style="text-align: center;">
-                  <ion-row class="row-wrap">
-                    <ion-col col-3>
-                      <img src="assets/img/grand-hyatt-hotel.jpg" class="schedule-img" />
-                    </ion-col>
-                    <ion-col col-3>
-                      <img src="assets/img/bali-wallpaper.jpg" class="schedule-img" />
-                    </ion-col>
-                    <ion-col col-3>
-                      <img src="assets/img/gwk-bali.jpg" class="schedule-img" />
-                    </ion-col>
-                    <ion-col col-3>
-                      <img src="assets/img/lombok-wallpaper.jpg" class="schedule-img" />
-                    </ion-col>
-                  </ion-row>
-                  <ion-row class="row-wrap">
-                    <ion-col col-3>
-                      <img src="assets/img/backpacker-wallpaper.jpg" class="schedule-img" />
-                    </ion-col>
-                    <ion-col col-3>
-                      <img src="https://picture.triptrus.com/picture/l29226" class="schedule-img" />
-                    </ion-col>
-                    <ion-col col-3>
-                      <img src="http://alindstransport.com/wp-content/uploads/2016/09/Tugu-Jogja-Yogyakarta-jogja.jpg" class="schedule-img" />
-                    </ion-col>
-                    <ion-col col-3>
-                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Kelimutu_2007-07-21.jpg/400px-Kelimutu_2007-07-21.jpg"
-                        class="schedule-img" />
-                    </ion-col>
-                  </ion-row>
-                  <!-- <ion-col col-12 (click)="showDetails(dp.TourDestinations, dp.Day, dp.Date)"> -->
-                  <ion-col col-12 (click)="showDetails(i)">
-                    <P style="color: #F4511E;
-                    font-size: 4vw;
-                    font-weight: 600;">Details</P>
-                  </ion-col>
-                </ion-grid>
-              </ion-card-content>
-            </ion-card>
-          </ion-slide>
-        </ion-slides>
-      </div>
+      <!-- <h2>Photos</h2>
+      <ion-scroll scrollX="true">
+        <img class="img-scroll" src="https://edge.media.datahc.com/HI253099376.jpg" />
+        <img class="img-scroll" src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458193821/y0cmbplulajkj7dykkhc.jpg"
+        />
+        <img class="img-scroll" src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458632152/wpqkqb6otqwti80ty7xp.png"
+        />
+        <img class="img-scroll" src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458194054/g5hklg67zs4z7eeuoxsi.jpg"
+        />
+        <img class="img-scroll" src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458193793/jnjolgungeytsvordhn3.jpg"
+        />
+      </ion-scroll> -->
     </div>
 
-    <div class="important">
-      <h2>Important information</h2>
-      <div class="important-content" *ngFor="let desc of Descriptions">
-        <p class="p-header">
-          <ion-icon ios="ios-checkmark-circle" md="ios-checkmark-circle-outline" class="custom-pin" style="color: #4fd2c2;"></ion-icon>
-          {{desc.SubTitle}}
-        </p>
-        <p class="p-custom" style="padding-bottom: 2vw; padding-left: 5vw; text-align:justify;" [innerHtml]="desc.Content"></p>
-      </div>
-      <div class="important-content" style="padding: 0;">
-        <p class="p-custom" style="padding-bottom: 8vw; padding-left: 4.4vw; text-align:justify;"></p>
-      </div>
-    </div>
+    <ion-card style="margin-bottom: 10vw;">
+      <ion-card-header>
+        <h2 class="card-title">Tour Schedules</h2>
+      </ion-card-header>
+      <ion-card-content style="margin-left: 0px;">
+        <ion-grid class="grid-timeline" *ngFor="let dp of data">
+          <div class="day-info">
+            <h2 class="h2-custom">Day {{dp.Day}}, {{dp.Date | date:'dd MMMM yyyy' }}</h2>
+          </div>
+          <div *ngIf="dp.Movements.length == 0">No Activities</div>
+          <ul class="timeline" *ngIf="dp.Movements.length > 0">
+            <li *ngFor="let m of dp.Movements">
+              <div class="tl-circ" *ngIf="m.MovementName == 'CHECKIN' || m.MovementName == 'CHECKOUT' || m.MovementName == 'RETURNACCOMMODATION' || m.MovementName == 'LEAVEACCOMMODATION' || m.MovementName == 'RECREATION'">
+                <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
+              </div>
+              <div class="timeline-panel" *ngIf="m.MovementName == 'CHECKIN' || m.MovementName == 'CHECKOUT' || m.MovementName == 'RETURNACCOMMODATION' || m.MovementName == 'LEAVEACCOMMODATION' ">
+                <div class="tl-heading">
+                  <!-- <h5 class="line-break">
+                          <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.AccommodationSummary.DateTime | date:'shortTime' }}</h5> -->
+                  <h5 class="line-break">
+                    <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{m.DateTime | date: 'shortTime' }}</h5>
+                  <p>{{m.MovementDescription}}</p>
+                  <h4>{{m.Item.Name}}</h4>
+                </div>
+                <div class="tl-body">
+                  <p>
+                    <ion-icon ios="ios-pin" md="ios-pin-outline" class="custom-icon-blue"></ion-icon>{{m.Destination}}</p>
+                  <p>
+                    <ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-icon-blue"></ion-icon>Room Type: {{m.Item.Desc}}, With Breakfast</p>
+                  <!-- <p>{{(item.AccommodationItemServiceTypes["0"]).replace('_', ' ')}}</p> -->
+                </div>
+              </div>
+
+              <div class="timeline-panel" *ngIf="m.MovementName == 'RECREATION' ">
+                <div class="tl-heading">
+                  <!-- <h5 class="line-break">
+                          <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.AccommodationSummary.DateTime | date:'shortTime' }}</h5> -->
+                  <h5 class="line-break">
+                    <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{m.DateTime | date: 'shortTime' }}</h5>
+                  <p>{{m.MovementDescription}}: {{m.Duration / 3600}} hours</p>
+                  <h4>{{m.Item.Name}}</h4>
+                </div>
+              </div>
+              <!-- <div class="timeline-panel" *ngIf="item.ServiceItemId == 3673" >
+                      <div class="tl-heading">
+                          <h5 class="line-break">
+                              <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.DateTime | date: 'shortTime' }}</h5>
+                          <p><small class="text-muted">{{item.MovementDescription}}</small></p>
+                        <h4>{{item.MovementName}}</h4>
+                      </div>
+                    </div> -->
+
+              <!-- <div class="timeline-panel">
+                <div class="tl-heading">
+                  <h5 class="line-break">
+                    <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>12:00</h5>
+                  <p><small class="text-muted">On going: 40 Mins</small></p>
+                  <h4>Sightseeing in Kuta</h4>
+                </div>
+                <div class="tl-body">
+                  <p>Kuta</p>
+                </div>
+              </div> -->
+              <div class="tldate" *ngIf="m.MovementName == 'DRIVING' ">
+                <button ion-button icon-left clear small>
+                        <ion-icon ios="ios-car" md="md-car" class="custom-car"></ion-icon>
+                          <div><p class="p-custom">Take {{m.Duration/3600}} hours {{m.MovementDescription}}.</p></div>
+                        </button>
+              </div>
+            </li>
+          </ul>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
   </ion-content>
 </div>
 <ion-footer>
   <ion-row>
     <ion-col>
-      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-accept" (click)="bookNow()">Book Now</button>
+      <button ion-button style="margin-top: 0px;margin-bottom: 0px;" full class="btn-accept">Choose Package</button>
     </ion-col>
   </ion-row>
 </ion-footer>
