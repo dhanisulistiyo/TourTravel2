@@ -31,7 +31,7 @@
       </div>
 
       <p class="p-readless" *ngIf="read == true">
-          {{Description}}
+        {{Description}}
         <a (click)="toggleDetails(read)">Read Less</a>
       </p>
       <ion-row class="row-custom">
@@ -42,26 +42,9 @@
           <h3>{{Prices?.LowestPrice}}/Pax</h3>
         </ion-col>
         <ion-col col-6>
-          <!-- <p class="p-custom" style="text-align: right; padding-top: 2vw;">
-            <ion-icon ios="ios-star" md="md-star" class="custom-star"></ion-icon>
-            100 Review(s)
-          </p> -->
+
         </ion-col>
       </ion-row>
-      <!-- <ion-row>
-        <ion-col col-6>
-          <p class="p-custom">
-            <ion-icon ios="ios-people" md="ios-people-outline" class="custom-gray"></ion-icon>
-           Min. {{BookingDetailSum?.FixedPackage.MinimumGuest}}-{{BookingDetailSum?.FixedPackage.MaximumGuest}} Guest(s)
-          </p>
-        </ion-col>
-        <ion-col col-6>
-          <p class="p-custom" style="text-align: right;padding-right: 10vw;">
-            <ion-icon ios="ios-pin" md="ios-pin-outline" class="custom-pin"></ion-icon>
-            <strong>9</strong> Place(s)
-          </p>
-        </ion-col>
-      </ion-row> -->
 
       <p class="p-custom">
         <ion-icon ios="ios-bookmark" md="ios-bookmark-outline" class="custom-pin"></ion-icon>
@@ -111,64 +94,55 @@
           </ion-row>
         </ion-grid>
       </div>
-      <!-- <h2>Photos</h2>
-      <ion-scroll scrollX="true">
-        <img class="img-scroll" src="https://edge.media.datahc.com/HI253099376.jpg" />
-        <img class="img-scroll" src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458193821/y0cmbplulajkj7dykkhc.jpg"
-        />
-        <img class="img-scroll" src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458632152/wpqkqb6otqwti80ty7xp.png"
-        />
-        <img class="img-scroll" src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458194054/g5hklg67zs4z7eeuoxsi.jpg"
-        />
-        <img class="img-scroll" src="https://res.cloudinary.com/hstcxjula/image/upload/b_black,c_pad,f_auto,fl_keep_iptc,h_387,w_580/v1458193793/jnjolgungeytsvordhn3.jpg"
-        />
-      </ion-scroll> -->
     </div>
-
     <ion-card style="margin-bottom: 10vw;">
       <ion-card-header>
         <h2 class="card-title">Tour Schedules</h2>
       </ion-card-header>
-      <ion-card-content style="margin-left: 0px;">
-        <ion-grid class="grid-timeline" *ngFor="let dp of data">
-          <div class="day-info">
-            <h2 class="h2-custom">Day {{dp.Day}}, {{dp.Date | date:'dd MMMM yyyy' }}</h2>
-          </div>
-          <div *ngIf="dp.Movements.length == 0">No Activities</div>
-          <ul class="timeline" *ngIf="dp.Movements.length > 0">
-            <li *ngFor="let m of dp.Movements">
-              <div class="tl-circ" *ngIf="m.MovementName == 'CHECKIN' || m.MovementName == 'CHECKOUT' || m.MovementName == 'RETURNACCOMMODATION' || m.MovementName == 'LEAVEACCOMMODATION' || m.MovementName == 'RECREATION'">
-                <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
+      
+      <div class="slide-custom" style="overflow: visible;">
+      <ion-slides pager="true" loop="true" speed="1000">
+        <ion-slide *ngFor="let dp of data">
+          <ion-card-content style="margin-left: 0px;">
+            <ion-grid class="grid-timeline">
+              <div class="day-info">
+                <h2 class="h2-custom">Day {{dp.Day}}, {{dp.Date | date:'dd MMMM yyyy' }}</h2>
               </div>
-              <div class="timeline-panel" *ngIf="m.MovementName == 'CHECKIN' || m.MovementName == 'CHECKOUT' || m.MovementName == 'RETURNACCOMMODATION' || m.MovementName == 'LEAVEACCOMMODATION' ">
-                <div class="tl-heading">
-                  <!-- <h5 class="line-break">
+              <div *ngIf="dp.Movements.length == 0">No Activities</div>
+              <ul class="timeline" *ngIf="dp.Movements.length > 0">
+                <li *ngFor="let m of dp.Movements">
+                  <div class="tl-circ" *ngIf="m.MovementName == 'CHECKIN' || m.MovementName == 'CHECKOUT' || m.MovementName == 'RETURNACCOMMODATION' || m.MovementName == 'LEAVEACCOMMODATION' || m.MovementName == 'RECREATION'">
+                    <ion-icon ios="ios-pin" md="md-pin" class="timeline-icon"></ion-icon>
+                  </div>
+                  <div class="timeline-panel" *ngIf="m.MovementName == 'CHECKIN' || m.MovementName == 'CHECKOUT' || m.MovementName == 'RETURNACCOMMODATION' || m.MovementName == 'LEAVEACCOMMODATION' ">
+                    <div class="tl-heading">
+                      <!-- <h5 class="line-break">
                           <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.AccommodationSummary.DateTime | date:'shortTime' }}</h5> -->
-                  <h5 class="line-break">
-                    <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{m.DateTime | date: 'shortTime' }}</h5>
-                  <p>{{m.MovementDescription}}</p>
-                  <h4>{{m.Item.Name}}</h4>
-                </div>
-                <div class="tl-body">
-                  <p>
-                    <ion-icon ios="ios-pin" md="ios-pin-outline" class="custom-icon-blue"></ion-icon>{{m.Destination}}</p>
-                  <p>
-                    <ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-icon-blue"></ion-icon>Room Type: {{m.Item.Desc}}, With Breakfast</p>
-                  <!-- <p>{{(item.AccommodationItemServiceTypes["0"]).replace('_', ' ')}}</p> -->
-                </div>
-              </div>
+                      <h5 class="line-break">
+                        <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{m.DateTime | date: 'shortTime' }}</h5>
+                      <p>{{m.MovementDescription}}</p>
+                      <h4>{{m.Item.Name}}</h4>
+                    </div>
+                    <div class="tl-body">
+                      <p>
+                        <ion-icon ios="ios-pin" md="ios-pin-outline" class="custom-icon-blue"></ion-icon>{{m.Destination}}</p>
+                      <p>
+                        <ion-icon ios="ios-cloudy-night" md="ios-cloudy-night-outline" class="custom-icon-blue"></ion-icon>Room Type: {{m.Item.Desc}}, With Breakfast</p>
+                      <!-- <p>{{(item.AccommodationItemServiceTypes["0"]).replace('_', ' ')}}</p> -->
+                    </div>
+                  </div>
 
-              <div class="timeline-panel" *ngIf="m.MovementName == 'RECREATION' ">
-                <div class="tl-heading">
-                  <!-- <h5 class="line-break">
+                  <div class="timeline-panel" *ngIf="m.MovementName == 'RECREATION' ">
+                    <div class="tl-heading">
+                      <!-- <h5 class="line-break">
                           <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.AccommodationSummary.DateTime | date:'shortTime' }}</h5> -->
-                  <h5 class="line-break">
-                    <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{m.DateTime | date: 'shortTime' }}</h5>
-                  <p>{{m.MovementDescription}}: {{m.Duration / 3600}} hours</p>
-                  <h4>{{m.Item.Name}}</h4>
-                </div>
-              </div>
-              <!-- <div class="timeline-panel" *ngIf="item.ServiceItemId == 3673" >
+                      <h5 class="line-break">
+                        <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{m.DateTime | date: 'shortTime' }}</h5>
+                      <p>{{m.MovementDescription}}: {{m.Duration / 3600}} hours</p>
+                      <h4>{{m.Item.Name}}</h4>
+                    </div>
+                  </div>
+                  <!-- <div class="timeline-panel" *ngIf="item.ServiceItemId == 3673" >
                       <div class="tl-heading">
                           <h5 class="line-break">
                               <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>{{item.DateTime | date: 'shortTime' }}</h5>
@@ -177,7 +151,7 @@
                       </div>
                     </div> -->
 
-              <!-- <div class="timeline-panel">
+                  <!-- <div class="timeline-panel">
                 <div class="tl-heading">
                   <h5 class="line-break">
                     <ion-icon ios="ios-time" md="md-time" class="icon-heading"></ion-icon>12:00</h5>
@@ -188,16 +162,19 @@
                   <p>Kuta</p>
                 </div>
               </div> -->
-              <div class="tldate" *ngIf="m.MovementName == 'DRIVING' ">
-                <button ion-button icon-left clear small>
+                  <div class="tldate" *ngIf="m.MovementName == 'DRIVING' ">
+                    <button ion-button icon-left clear small>
                         <ion-icon ios="ios-car" md="md-car" class="custom-car"></ion-icon>
                           <div><p class="p-custom">Take {{m.Duration/3600}} hours {{m.MovementDescription}}.</p></div>
                         </button>
-              </div>
-            </li>
-          </ul>
-        </ion-grid>
-      </ion-card-content>
+                  </div>
+                </li>
+              </ul>
+            </ion-grid>
+          </ion-card-content>
+        </ion-slide>
+      </ion-slides>
+      </div>
     </ion-card>
   </ion-content>
 </div>
