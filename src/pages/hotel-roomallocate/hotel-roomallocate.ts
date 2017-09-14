@@ -1,3 +1,4 @@
+import { IteneraryReadyProvider } from './../../providers/itenerary-ready';
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 //import {IteneraryBuilderPage} from '../itenerary-builder/itenerary-builder';
@@ -24,21 +25,30 @@ export class HotelRoomallocatePage {
   Tadult;
   Tchild;
   Tinfant;
+  type;
   SR = { adult: 0, child: 0 };
   SiR = { adult: 0, child: 0 };
   EB = { adult: 0, child: 0 };
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public ite: IteneraryService,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+    public itr: IteneraryReadyProvider
   ) {
+    this.type = navParams.data['type']
     this.SR = { adult: 0, child: 0 };
     this.SiR = { adult: 0, child: 0 };
     this.EB = { adult: 0, child: 0 };
     this.allocRoom = { sharingRooms: 0, singleRoom: 0, extraBed: 0, extraBedChild: 0, sharingBed: 0, babyCrib: 0, noBed: 0 };
-    this.adult = Number(this.ite.getPassenger().guestTour['AdultQty']);
-    this.child = Number(this.ite.getPassenger().guestTour['ChildQty']);
-    this.infant = Number(this.ite.getPassenger().guestTour['InfantQty']);
+    if(this.type == "READY") {
+      this.adult = Number(this.itr.getPassenger().AdultQty);
+      this.child = Number(this.itr.getPassenger().ChildQty);
+      this.infant = Number(this.itr.getPassenger().InfantQty);
+    }else{
+      this.adult = Number(this.ite.getPassenger().guestTour['AdultQty']);
+      this.child = Number(this.ite.getPassenger().guestTour['ChildQty']);
+      this.infant = Number(this.ite.getPassenger().guestTour['InfantQty']);
+    }
     this.Tadult = this.adult;
     this.Tchild = this.child;
     this.Tinfant = this.infant;
@@ -287,8 +297,11 @@ export class HotelRoomallocatePage {
     console.log(allocroom);
     let dataGuest = this.dataGuest();
     if (this.totalAlloc == dataGuest) {
+      if(this.type=="READY") this.itr.setRoomAllo(allocroom);
+      else{
       var data = JSON.stringify({ allocroom });
       this.ite.setRoomAllo(data);
+      }
       this.navCtrl.pop();
     } else this.showAlertAllocate();
   }

@@ -1,3 +1,4 @@
+import { ReadyDailyprogramPage } from './../pages/ready-dailyprogram/ready-dailyprogram';
 
 import { ModalContentPage, ModalContentPageExpired } from './../pages/confirm-booking/confirm-booking';
 import { BrowserModule } from '@angular/platform-browser';
@@ -150,6 +151,7 @@ import { IteneraryReadyProvider } from '../providers/itenerary-ready';
     ReadyPackagePage,
     ReadypackageDetailsPage,
     ReadypackageGuestPage,
+    ReadyDailyprogramPage,
     ItineraryReadyPage,
     //My Bookings
     MybookingPage,
@@ -250,6 +252,7 @@ import { IteneraryReadyProvider } from '../providers/itenerary-ready';
     ReadyPackagePage,
     ReadypackageDetailsPage,
     ReadypackageGuestPage,
+    ReadyDailyprogramPage,
     ItineraryReadyPage,
     //My Booking
     MybookingPage,

@@ -1,3 +1,4 @@
+import { IteneraryReadyProvider } from './../../providers/itenerary-ready';
 import { ReadyPackageProvider } from './../../providers/ready-package';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -20,8 +21,10 @@ export class ReadypackageDestinationPage {
   locations: Array<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private locService: LocationService,
-   public ready : ReadyPackageProvider) {
+   private locService: LocationService,
+   public ready : ReadyPackageProvider,
+   public itr : IteneraryReadyProvider
+  ) {
   }
 
   ionViewWillEnter() {
@@ -69,6 +72,7 @@ export class ReadypackageDestinationPage {
   setSelectedLocation(selectedItem) {
     console.log(selectedItem);
     this.ready.setDestination(selectedItem);
+    this.itr.setDestination(selectedItem);
     this.navCtrl.push(ReadyPackagePage);
   }
 

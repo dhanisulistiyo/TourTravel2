@@ -11,14 +11,21 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class IteneraryReadyProvider {
     //versi 2
+    destinantion
     startdate;
     tourtype;
     grouptype;
+    passenger;
+    roomallocate
   constructor(public http: Http) {
     console.log('Hello IteneraryReadyProvider Provider');
   }
-
-
+  public setDestination(ty){
+    this.destinantion = ty;
+  }
+  public getDestination(){
+    return this.destinantion;
+  }
   public setGroupType(ty){
     this.grouptype = ty;
   }
@@ -31,12 +38,24 @@ export class IteneraryReadyProvider {
   public getTourType(){
     return this.tourtype;
   }
-
   public setDateTour(date) {
     this.startdate = date;
   }
-  public getDateTour(date) {
+  public getDateTour() {
     return this.startdate;
+  }
+  public setPassenger(ty){
+    this.passenger = ty;
+  }
+  public getPassenger(){
+    return this.passenger
+  }
+
+  public setRoomAllo(ty){
+    this.roomallocate = ty;
+  }
+  public getRoomAllo(){
+    return this.roomallocate
   }
 
 }

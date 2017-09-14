@@ -1,3 +1,4 @@
+import { ReadyDailyprogramPage } from './../ready-dailyprogram/ready-dailyprogram';
 import { LocationGuestPage } from './../location-guest/location-guest';
 import { DailyProgram } from './../daily-program/daily-program';
 import { GuestServiceProvider } from './../../providers/guest-service';
@@ -23,7 +24,6 @@ export class GuestDetailsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public gu : GuestServiceProvider, public alertCtrl: AlertController) {
     this.Type = navParams.data['type'];
-    console.log(this.Type);
     this.ID = ['Choose Type Guest','ID Card', 'Passport','Driving License']
     this.Title = ['Choose Title','Mr.', 'Mrs.']
     this.Guest = [];
@@ -65,7 +65,8 @@ export class GuestDetailsPage {
         // else if (this.gu.getLastName() == null || this.gu.getLastName() == "" ) this.showAlertLastName()
         // else if (this.gu.getCountry() == null || this.gu.getCountry() == "" ) this.showAlertCountry()
         //else 
-        this.navCtrl.push(DailyProgram);
+        if(this.Type == "READY") this.navCtrl.push(ReadyDailyprogramPage);
+        else this.navCtrl.push(DailyProgram);
 
     }
 
