@@ -1,3 +1,4 @@
+import { ItineraryReadyPage } from './../itinerary-ready/itinerary-ready';
 import { ConfigProvider } from './../../providers/config';
 import { AcomodationService } from './../../providers/acomodation-service';
 import { ReadyPackageProvider } from './../../providers/ready-package';
@@ -129,6 +130,10 @@ export class ReadypackageDetailsPage {
     } else {
       this.read = true;
     }
+  }
+
+  pickPackage(){
+    this.navCtrl.push(ItineraryReadyPage);
   }
 
 }

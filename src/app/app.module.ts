@@ -1,3 +1,4 @@
+
 import { ModalContentPage, ModalContentPageExpired } from './../pages/confirm-booking/confirm-booking';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -119,6 +120,10 @@ import { ReadyPackagePage } from './../pages/ready-package/ready-package';
 import { ReadypackageDestinationPage } from './../pages/readypackage-destination/readypackage-destination';
 import { ReadypackageGuestPage } from './../pages/readypackage-guest/readypackage-guest';
 import { ReadypackageDetailsPage } from './../pages/readypackage-details/readypackage-details';
+import { ItineraryReadyPage } from './../pages/itinerary-ready/itinerary-ready';
+
+
+import { IteneraryReadyProvider } from '../providers/itenerary-ready';
 
 
 @NgModule({
@@ -145,6 +150,7 @@ import { ReadypackageDetailsPage } from './../pages/readypackage-details/readypa
     ReadyPackagePage,
     ReadypackageDetailsPage,
     ReadypackageGuestPage,
+    ItineraryReadyPage,
     //My Bookings
     MybookingPage,
     MybookingComPage,
@@ -244,6 +250,7 @@ import { ReadypackageDetailsPage } from './../pages/readypackage-details/readypa
     ReadyPackagePage,
     ReadypackageDetailsPage,
     ReadypackageGuestPage,
+    ItineraryReadyPage,
     //My Booking
     MybookingPage,
     MybookingComPage,
@@ -334,7 +341,8 @@ import { ReadypackageDetailsPage } from './../pages/readypackage-details/readypa
     ConfigProvider,
     FixedPackageProvider,
     MovementServiceProvider,
-    ReadyPackageProvider
+    ReadyPackageProvider,
+    IteneraryReadyProvider
   ]
 })
 export class AppModule { }

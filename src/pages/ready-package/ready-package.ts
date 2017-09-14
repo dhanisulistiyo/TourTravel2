@@ -1,3 +1,4 @@
+import { ItineraryReadyPage } from './../itinerary-ready/itinerary-ready';
 import { ReadyPackageProvider } from './../../providers/ready-package';
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
@@ -40,7 +41,7 @@ export class ReadyPackagePage {
   }
 
   pickPackage(){
-    this.navCtrl.push(IteneraryBuilderPage);
+    this.navCtrl.push(ItineraryReadyPage);
   }
 
   showDetails(id){

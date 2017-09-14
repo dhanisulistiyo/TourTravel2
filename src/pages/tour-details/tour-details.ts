@@ -3,7 +3,7 @@ import { NavController, NavParams, LoadingController, AlertController } from 'io
 import { HistoryService } from '../../providers/history-service';
 import { MultiTransactionService } from '../../providers/multi-transaction-service';
 import { UserandcompanyDetails } from '../../providers/userandcompany-details';
-import {PaymentPage} from '../payment/payment';
+import { PaymentPage } from '../payment/payment';
 /*
   Generated class for the TourDetails page.
 
@@ -16,7 +16,7 @@ import {PaymentPage} from '../payment/payment';
 })
 export class TourDetailsPage {
 
-  data: Array<{info: any, icon: string, showDetails: boolean }> = [];
+  data: Array<{ info: any, icon: string, showDetails: boolean }> = [];
   BookingDetailSum: Array<any>;
   DailyPrograms: Array<any>;
   TourPriceSum: Array<any>;
@@ -27,11 +27,11 @@ export class TourDetailsPage {
   userinfo;
   pdf
   dp
-  constructor(public navCtrl: NavController, public navParams: NavParams, public his: HistoryService, 
-  public mulTra: MultiTransactionService,
-  public load: LoadingController,
-  public info:UserandcompanyDetails,
-    public alertCtrl : AlertController,
+  constructor(public navCtrl: NavController, public navParams: NavParams, public his: HistoryService,
+    public mulTra: MultiTransactionService,
+    public load: LoadingController,
+    public info: UserandcompanyDetails,
+    public alertCtrl: AlertController,
   ) {
     this.BookingDetailSum = null;
     this.DailyPrograms = null;
@@ -40,77 +40,67 @@ export class TourDetailsPage {
     this.curency = null;
     this.selectedId = navParams.data;
     this.isValid = false;
-    this.pdf=null;
+    this.pdf = null;
     this.dp = false;
-  }
-
-  ionViewWillEnter() {
     let loader = this.load.create({
       content: 'Please wait...'
     });
     loader.present();
+    this.initialisasi();
+    loader.dismiss();
+  }
 
-    this.info.getUser().subscribe(data=>{
+  initialisasi() {
+
+    this.info.getUser().subscribe(data => {
       this.userinfo = data;
-    },err => {
-                    console.log(err);
-                    //loader.dismiss();
-                },
-                () => console.log('Get Transaction Complete')
-    );   
-     this.his.generateInvoice(this.selectedId).subscribe(data=>{
+    }, err => {
+      console.log(err);
+    },
+      () => console.log('Get Transaction Complete')
+    );
+    this.his.generateInvoice(this.selectedId).subscribe(data => {
       console.log(data);
-      this.pdf= data.substr(44);
-      console.log(this.pdf)
-    },err => {
-                    console.log(err);
-                    //loader.dismiss();
-                },
-                () => console.log('Get PDF Complete')
-    );  
+      this.pdf = data
+    }, err => {
+      console.log(err);
+    },
+      () => console.log('Get PDF Complete')
+    );
 
     this.his.getTransactionsSumarry(this.selectedId).subscribe(data => {
       console.log(data);
       this.BookingDetailSum = Array.of(data['BookingDetailSum']);
-      this.TourGuest =(data['TourGuestSum']);
+      this.TourGuest = (data['TourGuestSum']);
       this.DailyPrograms = (data['DailyPrograms'])
       this.TourPriceSum = Array.of(data['TourPriceSum']);
-      if(this.BookingDetailSum[0].Status == 'Booking_DP_Confirmed') this.dp = true;
-      
-
+      if (this.BookingDetailSum[0].Status == 'Booking_DP_Confirmed') this.dp = true;
       this.data.push({
         info: "Tour Detail",
         icon: 'ios-arrow-dropdown-outline',
         showDetails: true
       });
-
-       this.data.push({
+      this.data.push({
         info: "Guest Detail",
         icon: 'ios-arrow-dropdown-outline',
         showDetails: true
       });
-
-       this.data.push({
+      this.data.push({
         info: "Room Allocation",
         icon: 'ios-arrow-dropdown-outline',
         showDetails: true
       });
-
       this.data.push({
         info: "Tour Prices",
         icon: 'ios-arrow-dropdown-outline',
         showDetails: true
       });
-
-       this.data.push({
+      this.data.push({
         info: "Tour Schedules",
         icon: 'ios-arrow-dropdown-outline',
         showDetails: true
       });
-
       console.log(this.data)
-      loader.dismiss();
-
       if (this.BookingDetailSum[0].Status == 'Booking_created') {
         this.isValid = true;
       }
@@ -122,7 +112,7 @@ export class TourDetailsPage {
   }
 
 
- toggleDetails(data) {
+  toggleDetails(data) {
     if (data.showDetails) {
       data.showDetails = false;
       data.icon = 'ios-arrow-dropright-outline';
@@ -138,9 +128,9 @@ export class TourDetailsPage {
     this.navCtrl.pop();
   }
 
-    cetakPDF(){
+  cetakPDF() {
     window.open(this.pdf, '_system')
-    
+
   }
 
   cancelTour() {
@@ -160,14 +150,14 @@ export class TourDetailsPage {
       buttons: [
         {
           text: 'Cancel',
-          handler: ()=> {
+          handler: () => {
             console.log('Cancel clicked');
           }
         },
         {
           text: 'OK',
           handler: () => {
-            this.navCtrl.push(PaymentPage,{status, details});       
+            this.navCtrl.push(PaymentPage, { status, details });
           }
         }
       ]
@@ -176,7 +166,7 @@ export class TourDetailsPage {
   }
 
 
-allertCancelBooking() {
+  allertCancelBooking() {
     let details = this.BookingDetailSum;
     let status = "confirm"
     let prompt = this.alertCtrl.create({
@@ -185,14 +175,14 @@ allertCancelBooking() {
       buttons: [
         {
           text: 'Cancel',
-          handler: ()=> {
+          handler: () => {
             console.log('Cancel clicked');
           }
         },
         {
           text: 'OK',
           handler: () => {
-            this.cancelTour();       
+            this.cancelTour();
           }
         }
       ]

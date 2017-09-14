@@ -1,0 +1,228 @@
+page-itinerary-ready {
+    button.disable-hover.bar-button.bar-button-md.bar-button-default.bar-button-default-md {
+        width: 45px;
+    }
+    .customIcon {
+        font-size: 1.7rem;
+        text-align: start;
+        margin: 0;
+        padding: 0 6px;
+        font-size: 5vw;
+        font-weight: normal;
+        color: white;
+    }
+    .label-md[stacked] {
+        font-size: 1.7rem;
+        color: red;
+    }
+    .text-input[disabled] {
+        opacity: 1;
+    }
+    .div-logo {
+        width: 100%;
+        padding: 1vw;
+        text-align: center;
+    }
+    .logo {
+        height: 14vw;
+        width: 60vw;
+        text-align: center;
+    }
+    ion-icon.custom-icon {
+        color: white;
+        font-size: 3.5vw;
+        font-weight: bold;
+        margin-right: 1vw;
+        padding: 1.5vw;
+        border-radius: 50%;
+        background-color: #4fd2c2;
+    }
+    .custom-div {
+        border: 1px solid #f2f2f2;
+        border-radius: 2px;
+        padding: 10px 0 0 0;
+        background-color: white;
+    }
+    ion-row.row-label {
+        text-align: left;
+        align-content: left;
+    }
+    ion-row.row-content {
+        text-align: center;
+        align-content: center;
+        margin-left: 2vw;
+    }
+    ion-row.row-datetime {
+        text-align: center;
+        align-content: center;
+        margin-bottom: 10px;
+        margin-left: 1vw;
+    }
+    .label-md {
+        margin: 13px 8px 13px 8px;
+        color: red;
+        font-size: large;
+        font-weight: 400;
+    }
+    .item-md.item-block .item-inner {
+        padding-right: 8px;
+        margin-left: 18px;
+        width: 100%;
+        margin-right: 10px;
+        border-bottom: 1px solid gray;
+    }
+    ion-input,
+    ion-textarea {
+        width: 100%;
+        position: relative;
+        display: block;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        width: 100%;
+        padding: 5px 10px 5px 26px;
+    }
+    .datetime-text {
+        font-size: 4.3vw;
+        color: black;
+        font-weight: 400;
+        max-width: 100%;
+        width: 100%;
+    }
+    [col-2] {
+        -webkit-flex: 0 0 10%;
+        -ms-flex: 0 0 10%;
+        flex: 0 0 10%;
+        width: 10%;
+        max-width: 10%;
+    }
+    ion-col.col {
+        padding: 5px 5px 0px 5px;
+    }
+    div.datetime-text {
+        margin: 0;
+    }
+    .alert-md .alert-title {
+        text-align: center;
+    }
+    .modal-wrapper {
+        position: absolute;
+        top: calc(50% - (500px/2));
+        left: calc(50% - (500px/2));
+        width: 500px;
+        height: 500px;
+    }
+    .input-label {
+        white-space: normal !important;
+        max-width: none !important;
+        width: 100%;
+    }
+    .input-wrapper {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        overflow: hidden;
+        -webkit-flex: 1;
+        background-color: transparent;
+        -ms-flex: 1;
+        flex: 1;
+        -webkit-flex-direction: inherit;
+        -ms-flex-direction: inherit;
+        flex-direction: inherit;
+        -webkit-align-items: inherit;
+        -ms-flex-align: inherit;
+        align-items: inherit;
+        -webkit-align-self: stretch;
+        -ms-flex-item-align: stretch;
+        align-self: stretch;
+        text-overflow: ellipsis;
+    }
+    [col-12] {
+        -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+    }
+    [col-6-custom] {
+        -webkit-flex: 0 0 50%;
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        width: 50%;
+        max-width: 50%;
+    }
+    [col-5-custom] {
+        -webkit-flex: 0 0 45%;
+        -ms-flex: 0 0 45%;
+        flex: 0 0 45%;
+        width: 45%;
+        max-width: 45%;
+    }
+    [col-5-content] {
+        -webkit-flex: 0 0 45%;
+        -ms-flex: 0 0 45%;
+        flex: 0 0 45%;
+        width: 45%;
+        max-width: 45%;
+    }
+    .text-input-md {
+        margin: 10px 8px 10px 0px;
+        padding: 0 0 5px 0;
+        width: 100%;
+        color: black;
+        font-size: 4.3vw;
+        border-bottom: 1px solid gray;
+    }
+    .datetime-md {
+        padding: 10px 24px 6px 0px;
+    }
+    .label-md {
+        margin: 0px 8px 13px 3px;
+        color: black;
+        font-size: 4.3vw;
+        font-weight: 400;
+    }
+    ion-datetime {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        overflow: hidden;
+        margin-left: 21px;
+        margin-right: 5px;
+        border-bottom: 1px solid gray;
+    }
+    .scroll-content {
+        padding: 0px;
+    }
+    .myCustomSelect {
+        max-width: 100% !important;
+    }
+    .select-text {
+        text-align: left;
+        font-family: 'Open Sans', cursive;
+        font-size: 4.4vw;
+        padding-left: 6px;
+    }
+    ion-label.label.label-md[stacked] {
+        font-family: 'Open Sans', cursive;
+        font-size: 4.3vw;
+        color: black;
+        font-weight: 500;
+        text-transform: none;
+    }
+    .custom-stack {
+        font-family: 'Open Sans', cursive;
+        font-size: 4.3vw;
+        color: black;
+        font-weight: 400;
+        text-transform: none;
+    }
+    .label-md {
+        font-family: 'Open Sans', cursive;
+        font-size: 4.4vw;
+        color: black;
+        font-weight: 500;
+        margin: 0;
+    }
+}
+
