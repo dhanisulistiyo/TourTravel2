@@ -4,7 +4,12 @@ import { IteneraryReadyProvider } from './../../providers/itenerary-ready';
 import { HotelRoomallocatePage } from './../hotel-roomallocate/hotel-roomallocate';
 import { InputTravellersPage } from './../input-travellers/input-travellers';
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
+import {
+  CalendarComponentOptions,
+  CalendarModalOptions,
+  CalendarModal,
+} from 'ion2-calendar'
 
 @Component({
   selector: 'page-itinerary-ready',
@@ -20,9 +25,17 @@ export class ItineraryReadyPage {
   datefrom: Date = new Date();
   startDate
   passenger: string;
+  date: string;
+  dateRangeObj: {from: string; to: string; };
+  optionsRange: CalendarComponentOptions = {
+    from: new Date(2000, 0),
+    to: new Date(2099, 11, 31),
+    pickMode: 'range'
+  };
+
   allocation: Array<{ guest: number, name: string }>;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
-    public itr: IteneraryReadyProvider, public gu :  GuestServiceProvider
+    public itr: IteneraryReadyProvider, public gu: GuestServiceProvider, public modalCtrl: ModalController
   ) {
     this.kuotaGuest = ['Choose Guest Capacity', 'Small Group (Up to 10 person)', 'Large Group (More than 10 person)']
     this.typeGuest = ['Choose Type'];
@@ -147,39 +160,38 @@ export class ItineraryReadyPage {
   }
 
   createItenerary(event) {
-    if(this.itr.getDateTour() != null){
-    var today = new Date()
-    var dateFrom = new Date(this.startDate)
+    if (this.itr.getDateTour() != null) {
+      var today = new Date()
+      var dateFrom = new Date(this.startDate)
     }
 
-    if(this.passenger != ''){
-    var adult = this.itr.getPassenger().AdultQty;
-    var child = this.itr.getPassenger().ChildQty;
-    var infant = this.itr.getPassenger().InfantQty;
-    } 
+    if (this.passenger != '') {
+      var adult = this.itr.getPassenger().AdultQty;
+      var child = this.itr.getPassenger().ChildQty;
+      var infant = this.itr.getPassenger().InfantQty;
+    }
 
     var alloc = this.itr.getRoomAllo()
 
     if (this.kuotaG == null) this.showAlertGuestType();
     else if (this.typeG == null || this.typeG == "Choose Type") this.showAlertTravelType();
-    else if (this.itr.getDateTour() == null) this.showAlertDates();
+    //else if (this.itr.getDateTour() == null) this.showAlertDates();
     else if (today >= dateFrom) this.showAlertToday();
     else if (this.passenger == '') this.showAlertGuest();
     else if (alloc == null) this.showAlertAllocation();
     else {
-        var SR = Number(alloc.sharingRooms);
-        var SiR = Number(alloc.singleRoom)
-        var EB = Number(alloc.extraBed)
-        var EC = Number(alloc.extraBedChild)
-        var SB = Number(alloc.sharingBed)
-        var BC = Number(alloc.babyCrib)
-        var NB = Number(alloc.noBed)
-        if((SR+SiR+EB+EC+SB+BC+NB)==(adult+child+infant))
-          {
-              let type = "READY";
-              this.gu.createGuest(adult, child, infant, this.kuotaG)
-              this.navCtrl.push(GuestDetailsPage, { type });
-          }else this.showAlertAllocationVal();
+      var SR = Number(alloc.sharingRooms);
+      var SiR = Number(alloc.singleRoom)
+      var EB = Number(alloc.extraBed)
+      var EC = Number(alloc.extraBedChild)
+      var SB = Number(alloc.sharingBed)
+      var BC = Number(alloc.babyCrib)
+      var NB = Number(alloc.noBed)
+      if ((SR + SiR + EB + EC + SB + BC + NB) == (adult + child + infant)) {
+        let type = "READY";
+        this.gu.createGuest(adult, child, infant, this.kuotaG)
+        this.navCtrl.push(GuestDetailsPage, { type });
+      } else this.showAlertAllocationVal();
     }
   }
 
@@ -263,5 +275,22 @@ export class ItineraryReadyPage {
       buttons: ['OK']
     });
     alert.present();
+  }
+  openCalendar() {
+    const options: CalendarModalOptions = {
+      pickMode: 'range',
+      title: 'Pick your date',
+      color: 'danger'
+    };
+
+    let myCalendar = this.modalCtrl.create(CalendarModal, {
+      options: options
+    });
+
+    myCalendar.present();
+
+    myCalendar.onDidDismiss(date => {
+      console.log(date);
+    });
   }
 }
