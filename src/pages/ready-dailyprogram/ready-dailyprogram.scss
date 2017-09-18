@@ -1,3 +1,21 @@
 page-ready-dailyprogram {
-
+    h1, h2, h3, h4, h5, p{
+        font-family: 'Open Sans', cursive;
+    }
+    .slide-pager {
+        height: auto;
+        width: 100%;
+        position: relative;
+    }
+    .day-line {
+        height: 100%;
+        width: 100%;
+        [col-2] {
+            -webkit-flex: 0 0 14.2%;
+            -ms-flex: 0 0 14.2%;
+            flex: 0 0 14.2%;
+            width: 14.2%;
+            max-width: 14.2%;
+        }
+    }
 }

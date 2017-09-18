@@ -24,8 +24,8 @@ export class GuestDetailsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public gu : GuestServiceProvider, public alertCtrl: AlertController) {
     this.Type = navParams.data['type'];
-    this.ID = ['Choose Type Guest','ID Card', 'Passport','Driving License']
-    this.Title = ['Choose Title','Mr.', 'Mrs.']
+    this.ID = ['Choose Type of ID','ID Card', 'Passport','Driving License']
+    this.Title = ['Choose Title','Mr.', 'Mrs.', 'Ms.']
     this.Guest = [];
     var no = Object.keys(this.gu.Guest).length;
         for (let i = 0; i < no; i++) {

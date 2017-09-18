@@ -1,3 +1,4 @@
+import { CalendarModule } from 'ion2-calendar';
 import { ReadyDailyprogramPage } from './../pages/ready-dailyprogram/ready-dailyprogram';
 
 import { ModalContentPage, ModalContentPageExpired } from './../pages/confirm-booking/confirm-booking';
@@ -223,10 +224,8 @@ import { IteneraryReadyProvider } from '../providers/itenerary-ready';
     IonicModule.forRoot(MyApp, { mode: 'md', tabsHideOnSubPages: "true" }),
     HttpModule,
     Ionic2RatingModule, // Put ionic2-rating module here
-    DatePickerModule
-
-
-
+    DatePickerModule, 
+    CalendarModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

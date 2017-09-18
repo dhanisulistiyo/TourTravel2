@@ -5,14 +5,14 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar hideBackButton> 
+  <ion-navbar hideBackButton>
     <ion-buttons left>
-       <button ion-button (click)="allertLeave()">
+      <button ion-button (click)="allertLeave()">
            <ion-icon class="customIcon" name="arrow-back"></ion-icon>
        </button>
-   </ion-buttons> 
-   <ion-title>Ready Itinerary</ion-title>
- </ion-navbar>
+    </ion-buttons>
+    <ion-title>Itinerary Options</ion-title>
+  </ion-navbar>
 </ion-header>
 
 
@@ -54,17 +54,20 @@
             <ion-icon ios="ios-calendar" md="md-calendar" class="custom-icon" style="background-color:#7C4DFF"></ion-icon> Start Date</ion-label>
         </ion-col>
       </ion-row>
-
-
-      <ion-row class="row-datetime">
+      <ion-row class="row-content">
+          <ion-input disabled="true" type="text" (click)="openCalendar()" [(ngModel)]="dateRangeObj" aria-placeholder="dateRangeObj"
+          placeholder="When do you want to travel?">
+        </ion-input>
+        </ion-row>
+      <!-- <ion-row class="row-datetime">
         <ion-col col-5-content>
-          <!-- <ion-datetime picker date style="left: 0px;" (ionChange)="inputDateTours(event)" min="2016" max="2030" displayFormat="DD MMM YYYY"
-            [(ngModel)]="event.monthStart"></ion-datetime> -->
+          <ion-datetime picker date style="left: 0px;" (ionChange)="inputDateTours(event)" min="2016" max="2030" displayFormat="DD MMM YYYY"
+            [(ngModel)]="event.monthStart"></ion-datetime>
           <ion-item ion-datepicker (ionChanged)="setDateFrom($event)" full="false" calendar="true" clear class="ScheduleDate">
           {{datefrom |  date:'dd MMM yyyy' }} 
           </ion-item>
         </ion-col>
-      </ion-row>
+      </ion-row> -->
 
       <ion-row class="row-label">
         <ion-col col-12>
