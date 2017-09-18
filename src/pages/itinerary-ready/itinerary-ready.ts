@@ -5,11 +5,6 @@ import { HotelRoomallocatePage } from './../hotel-roomallocate/hotel-roomallocat
 import { InputTravellersPage } from './../input-travellers/input-travellers';
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
-import {
-  CalendarComponentOptions,
-  CalendarModalOptions,
-  CalendarModal,
-} from 'ion2-calendar'
 
 @Component({
   selector: 'page-itinerary-ready',
@@ -26,12 +21,6 @@ export class ItineraryReadyPage {
   startDate
   passenger: string;
   date: string;
-  dateRangeObj: {from: string; to: string; };
-  optionsRange: CalendarComponentOptions = {
-    from: new Date(2000, 0),
-    to: new Date(2099, 11, 31),
-    pickMode: 'range'
-  };
 
   allocation: Array<{ guest: number, name: string }>;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
@@ -276,21 +265,5 @@ export class ItineraryReadyPage {
     });
     alert.present();
   }
-  openCalendar() {
-    const options: CalendarModalOptions = {
-      pickMode: 'range',
-      title: 'Pick your date',
-      color: 'danger'
-    };
 
-    let myCalendar = this.modalCtrl.create(CalendarModal, {
-      options: options
-    });
-
-    myCalendar.present();
-
-    myCalendar.onDidDismiss(date => {
-      console.log(date);
-    });
-  }
 }
