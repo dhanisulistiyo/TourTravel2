@@ -1,3 +1,5 @@
+import { DestinationTransportPage } from './../destination-transport/destination-transport';
+import { IteneraryReadyProvider } from './../../providers/itenerary-ready';
 import { ItineraryReadyPage } from './../itinerary-ready/itinerary-ready';
 import { ReadyPackageProvider } from './../../providers/ready-package';
 import { Component, ChangeDetectorRef } from '@angular/core';
@@ -19,7 +21,8 @@ import { IteneraryBuilderPage } from './../itenerary-builder/itenerary-builder';
 export class ReadyPackagePage {
   listReadyPackage:Array<any>;
   constructor(public navCtrl: NavController, public ref: ChangeDetectorRef, 
-    public navParams: NavParams, public load: LoadingController, public ready: ReadyPackageProvider) {
+    public navParams: NavParams, public load: LoadingController, 
+    public ready: ReadyPackageProvider, public itr: IteneraryReadyProvider) {
       this.listReadyPackage = [];
       let loader = this.load.create({
         content: 'Please wait...'
@@ -40,11 +43,13 @@ export class ReadyPackagePage {
     this.navCtrl.push(IteneraryBuilderPage);
   }
 
-  pickPackage(){
+  pickPackage(id){
+    this.itr.getDetailsTour(id);
     this.navCtrl.push(ItineraryReadyPage);
   }
 
   showDetails(id){
+    this.itr.getDetailsTour(id);
     this.navCtrl.push(ReadypackageDetailsPage,{id});
   }
 
